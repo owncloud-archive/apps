@@ -4,10 +4,6 @@ $(document).ready(function() {
 		update: function (event, ui) {
             var neworder = [];
             ui.item.parent().children().each(function () {
-            	var title = this.innerText;
-            	if(!title) {
-            		title = this.textContent;
-            	}
                 neworder.push(this.id);
             });
             $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
