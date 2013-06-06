@@ -83,7 +83,10 @@ class BagItManager{
 			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
 			
 			//add an entry to manifest as well
-			$entry = array("titles" => array($title));
+			//TODO id and title
+			$id = hash_file('sha256', $input_dir.$file);
+			
+			$entry = array("titles" => array(array('id' => $id, 'title' => $title)));
 			if(filesize($this->manifest) == 0) {
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($entry));
@@ -92,7 +95,7 @@ class BagItManager{
 			else {
 				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 				$elements = $contents['titles'];
-				array_push($elements, $title);
+				array_push($elements, array('id' => $id, 'title' => $title));
 				$contents['titles'] = $elements;
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($contents));
@@ -110,10 +113,6 @@ class BagItManager{
 		
 		//clear the manifest as well
 		$fp = fopen($this->manifest, 'w+');
-		//$entry = json_decode(fread($fp), true); // convert it to an array.
-		
-		//unset($my_var["title"]);
-		//fwrite($fp, json_encode($entry));
 		fclose($fp);
 		$this->bag->update();
 		
@@ -128,6 +127,23 @@ class BagItManager{
 		fwrite($fp, json_encode($newentry));
 		fclose($fp);
 		$this->bag->update();
+	}
+	
+	//TODO
+	public function editTitle($id, $newvalue){
+		//edit title here
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$items = &$contents['titles'];
+		foreach ($items as &$item) {
+			if($item['id'] === $id){
+				$item['title'] = $newvalue;
+			}
+		}
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		//TODO handle exceptions and return suitable value
+		return true;
 	}
 	
 	public function createEpub(){
@@ -206,13 +222,8 @@ class BagItManager{
 		//read from manifest
 		$fp = fopen($this->manifest, 'r');
 		$contents = file_get_contents($this->manifest);
-		$cont_array = json_decode($contents);
-		
-		
-		foreach ($cont_array as $key=>$value){
-			$items = $value;
-		}
-		return $items;
+		$cont_array = json_decode($contents, true);
+		return array_values($cont_array["titles"]);
 	}
 	
 }

@@ -12,6 +12,10 @@ OC::$CLASSPATH['BagItFetch'] = 'apps/crate_it/3rdparty/BagIt/bagit_fetch.php';
 //load the required files
 OCP\Util::addscript( 'crate_it', 'loader');
 OCP\Util::addscript('crate_it', 'crate');
+OCP\Util::addscript('crate_it/3rdparty', 'jeditable/jquery.jeditable');
+//OCP\Util::addscript('crate_it', 'organiser');
+//OCP\Util::addscript('crate_it/3rdparty', 'tree/jquery.tree.min');
+//OCP\Util::addStyle('crate_it/3rdparty/js/themes/default', 'style');
 
 OCP\App::addNavigationEntry( array( "id" => "crate",
 									"order" => 250,

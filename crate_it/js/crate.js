@@ -4,13 +4,25 @@ $(document).ready(function() {
 		update: function (event, ui) {
             var neworder = [];
             ui.item.parent().children().each(function () {
-                neworder.push(this.id);
+            	var title = this.innerText;
+            	if(!title) {
+            		title = this.textContent;
+            	}
+                neworder.push({'id': this.id, 'title': title});
             });
             $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
         }
 	});
 	
 	$('#crateList').disableSelection();
+	
+	$('#crateList li').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
+		id : 'elementid',
+		name : 'newvalue',
+		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+		tooltip : 'Double click to edit...',
+		event : 'dblclick'
+	});
 	
 	$('#download').click('click', function(event) { 
 		if($('#crateList li').length == 0){
