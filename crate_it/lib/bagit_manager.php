@@ -6,6 +6,7 @@ class BagItManager{
 	private static $instance;
 	
 	var $base_dir; 
+	var $preview_dir;
 	var $bag_dir;
 	var $crate_root;
 	var $manifest;
@@ -48,6 +49,12 @@ class BagItManager{
 		$input_dir = $this->base_dir.'/files';
 		$data_dir = 'data';
 		$title = '';
+		$path_parts = pathinfo($file);
+		$filename = $path_parts['filename'];
+		
+		if(is_dir($input_dir.'/'.$file)){
+			return "Cannot add a directory";
+		}
 		
 		if(basename($dir) === 'Shared'){
 			//TODO need to fetch the url from relevant location
@@ -55,15 +62,23 @@ class BagItManager{
 		else if(substr($dir, -1) === '/'){
 			$input_dir .= '/';
 			$data_dir .= '/';
-			$title = $file; //TODO get the title from the preview
+			$relative_path = $file;
+			//Get the title from the preview
+			$preview_file = $this->preview_dir.'/'.$file.'/'.$filename.'.html';
+			$title = $this->getTitle($preview_file);
+			if(empty($title)){
+				$title = $file;
+			}
 		}
 		else{
 			$input_dir .= $dir.'/';
 			$data_dir .= $dir.'/';
-			$title = substr($dir, 1).'/'.$file;
-		}
-		if(is_dir($input_dir.'/'.$file)){
-			return "Cannot add a directory";
+			$relative_path = substr($dir, 1).'/'.$file;
+			$preview_file = $this->preview_dir.'/'.substr($dir, 1).'/'.$file.'/'.$filename.'.html';
+			$title = $this->getTitle($preview_file);
+			if(empty($title)){
+				$title = substr($dir, 1).'/'.$file;
+			}
 		}
 		
 		//add the file urls to fetch.txt so when you package the bag,
@@ -84,7 +99,7 @@ class BagItManager{
 			
 			//add an entry to manifest as well
 			//TODO id and title
-			$id = hash_file('sha256', $input_dir.$file);
+			$id = hash('sha256', $relative_path);
 			
 			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
 					'filename' => $input_dir.$file)));
@@ -108,6 +123,16 @@ class BagItManager{
 		// update the hashes
 		$this->bag->update();
 		return "File added to crate";
+	}
+	
+	private function getTitle($file) {
+		if (preg_match('/<title>(.+)<\/title>/', file_get_contents($file), $matches)
+				&& isset($matches[1] )) {
+			return $matches[1];
+		}
+		else {
+			return "";
+		}
 	}
 	
 	public function clearBag(){
