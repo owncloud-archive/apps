@@ -2,6 +2,7 @@
 "Invalid date/time" => "Невалидни дата/час",
 "Tasks" => "Задачи",
 "List" => "Списък",
+"Location" => "Място",
 "No category" => "Няма категория",
 "Unspecified" => "Не е указано",
 "1=highest" => "1=най-висок",
