@@ -3,5 +3,6 @@
 "Done." => "Concluído.",
 "Here is your backup: " => "Aqui está a sua cópia de segurança:",
 "Error" => "Erro",
-"Update" => "Actualizar"
+"Update" => "Actualizar",
+"Up to date" => "Actualizado"
 );
