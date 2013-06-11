@@ -1,8 +1,12 @@
 ownCloud Contacts Changelog
 
+5.0.8
+ - Fix: When users where deleted, any address books shared with them would also deleted.
+
 5.0.7:
  - Feature: Delete button for single contacts in list. contacts#101
  - Improvement: Cut ~40% off of initial rendering time.
+ - Fix: Thumbnail was not updated when changing PHOTO via CardDAV. contacts#120
  - Fix: Drag item only worked on first drag. contacts#33
  - Fix: The internal client side value for BDAY was malformed after adding a birthday. contacts#104
  - Fix: URL and EMAIL event handlers reenabled: contacts#109
