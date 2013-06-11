@@ -465,7 +465,7 @@ OC.Contacts = OC.Contacts || {};
 			self.$editelem.prepend($input).addClass('editing');
 			self.$editelem.data('contacts', []);
 			self.$editelem.data('rawname', '');
-			this.$groupList.find('h3.group[data-type="category"]').first().before(self.$editelem);
+			this.$groupList.find('h3.group[data-type="fav"]').after(self.$editelem);
 			this.selectGroup({element:self.$editelem});
 			$input.on('input', function(event) {
 				if($(this).val().length > 0) {
@@ -563,15 +563,18 @@ OC.Contacts = OC.Contacts || {};
 				$elem.data('rawname', name);
 				$elem.data('id', id);
 				var added = false;
-				self.$groupList.find('h3.group[data-type="category"]').each(function() {
-					if ($(this).data('rawname').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
-						$(this).before($elem);
-						added = true;
-						return false;
+				var $groups = self.$groupList.find('h3.group[data-type="category"]');
+				if($groups.length > 1) {
+					self.$groupList.find('h3.group[data-type="category"]').each(function() {
+						if ($(this).data('rawname').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
+							$(this).before($elem);
+							added = true;
+							return false;
+						}
+					});
+					if(!added) {
+						$elem.insertAfter($groups.last());
 					}
-				});
-				if(!added) {
-					$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
 				}
 				self.selectGroup({element:$elem});
 				$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
