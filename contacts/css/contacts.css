@@ -95,7 +95,12 @@
 }
 #leftcontent h3 img.shared { float: right; opacity: 0.4; margin: 0 .5em; }
 #leftcontent h3 img.shared:hover { opacity: 1; }
-#leftcontent h3.editing .checked { margin-left: -25px; opacity: 1; display: inline-block; float: left; }
+#leftcontent h3.editing .checked, #leftcontent h3.editing .checked:hover {
+	margin: 3px 0 3px -25px;
+	opacity: 1; display: inline-block;
+	float: left;
+	color: #000; background-color: #fff;
+}
 #leftcontent h3.editing .checked.disabled { opacity: .5 }
 #leftcontent h3 input[type="text"] {
 	display: block;
@@ -182,10 +187,11 @@
 	background-repeat: no-repeat;
 }
 .action:not(.text), .icon:not(.text) { 
-	width: 16px; height: 16px; 
+	width: 16px; height: 16px !important;
 	padding: 0; margin: 0; 
 	background-position: center;
 	background-size:contain;
+	background-repeat: no-repeat;
 }
 
 .action:not(.add):not(.groups).text, .icon:not(.add):not(.groups).text {
@@ -230,7 +236,7 @@
 .svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .svg .starred { background-image:url('%appswebroot%/contacts/img/starred.svg'); background-size: contain; }
 .svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.svg'); }
-.svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.svg'); cursor: default; }
+.svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.svg'); color: #000; cursor: default; }
 
 .transparent{ opacity: 0.6; }
 .float { float: left; display: inline-block; width: auto; }
