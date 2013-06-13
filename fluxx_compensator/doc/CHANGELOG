@@ -26,7 +26,7 @@ Changelog:
 * Thu Jun 13 2013 Christian Reiner: version 0.2.0
 Changed strategy for for fluxx handles, ugly but less cross browser problems. 
 Some style rules defaults now set explicitly to enable transitions in forefox. 
-Much enhanced cross browser compatibility, only very few issues in that area left. 
+Much enhanced cross browser compatibility, only some optical issue with IE left. 
 * Sun Apr 28 2013 Christian Reiner: version 0.1.4
 Include navigation handle in moving of content when header panel is hidden.
 Apply intelligent positioning to navigation handle when header is hidden too.
