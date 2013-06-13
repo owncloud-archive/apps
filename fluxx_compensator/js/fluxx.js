@@ -466,25 +466,34 @@ OC.FluXX={
 		return dfd.promise();
 	}, // OC.FluXX.swap
 	/**
+	* @method OC.FluXX.time
+	* @brief waits for the transition style to load before starting the actual swapping of a handle
+	* @author Christian Reiner
+	*/
+	time: function(handle){
+		var dfd = new $.Deferred();
+		// swap handle (animation)
+		$.when(
+			OC.FluXX.swap(handle)
+		).done(function(){
+			OC.FluXX.maximize(handle);
+			// remove temporarily included transition rules
+			$('head #fluxx-transitions').remove();
+			dfd.resolve();
+		}).fail(dfd.reject);
+		return dfd.promise();
+	}, // OC.FluXX.time
+	/**
 	* @method OC.FluXX.toggle
 	* @brief Toggles the visibility of the navigation area
 	* @author Christian Reiner
 	*/
 	toggle: function(handle){
-		var dfd = new $.Deferred();
 		// temporarily include transition style rules if not yet present (should not be!)
 		var transitions=OC.FluXX.transitions.clone().attr('rel','stylesheet').attr('id','fluxx-transitions').appendTo('head');
-		$('head #fluxx-transitions').one('load',function(){
-			// swap handle (animation)
-			$.when(
-				OC.FluXX.swap(handle)
-			).done(function(){
-				OC.FluXX.maximize(handle);
-				// remove temporarily included transition rules
-				$('head #fluxx-transitions').remove();
-				dfd.resolve();
-			}).fail(dfd.reject);
-		});
-		return dfd.promise();
-	}, // OC.FluXX.toggle
+		// some safety catch for browsers that do not fire the load event when stuff is loaded (safari)
+		var timer = setTimeout(function(){OC.FluXX.time(handle);},100); // should be preloaded...
+		// the more elegant approach however is to react on the load event (_if_ fired)
+		$('head #fluxx-transitions').one('load',function(){clearTimeout(timer);OC.FluXX.time(handle);});
+	} // OC.FluXX.toggle
 } // OC.FluXX
