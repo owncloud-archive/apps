@@ -30,7 +30,6 @@
 
 /* style the 'handle' itself used to switch the navigation */
 .fluxx-handle {
-	z-index: 9000;
 	opacity: 0.6;
 	position: absolute;
 	width: 16px;
@@ -105,9 +104,9 @@ html .fluxx-handle.fluxx-vertical img {
 }
 
 /* switch cursor to a 'move' indication during move mode */
-html.fluxx-handle-move-H, html.fluxx-handle-move-H * {
+html.fluxx-handle-move-H * {
 	cursor: col-resize !important;
 }
-html.fluxx-handle-move-N, html.fluxx-handle-move-N * {
+html.fluxx-handle-move-N * {
 	cursor: row-resize !important;
 }
