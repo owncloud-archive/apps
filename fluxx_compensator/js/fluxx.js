@@ -28,8 +28,17 @@
  * @author Christian Reiner
  */
 
-// add handle to navigation area
 $(document).ready(function(){
+  // set a few default style rules to make transitions work in firefox
+  OC.FluXX.defaults();
+	// setup a prefetch relation to prepare toggling the transition styles without having to load them later
+	OC.FluXX.transitions=$('<link/>',{
+// 		'id':'fluxx-transitions',
+		'rel':'prefetch',
+		'type':'text/css',
+		'href':OC.filePath('fluxx_compensator','css','transitions.css')
+	});
+	OC.FluXX.transitions.appendTo('head');
 	// setup handle objects
 	if ($('body#body-user, body#body-settings').length){
 		if ($('body header > #header').length)
@@ -37,9 +46,9 @@ $(document).ready(function(){
 		if ($('body nav > #navigation').length)
 			OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 'body nav > #navigation', 0, 0);
 	}
-	// initilize handles
+	// initialize handles
 	OC.FluXX.init();
-	// initilize scripts
+	// initialize logic
 	OC.FluXX.mode();
 	// reposition the handles upon resize of the window
 	$(window).on('resize',function(){
@@ -71,19 +80,20 @@ OC.FluXX={
 	 * @author Christian Reiner
 	 */
 	click:function(handle){
-			// 1.) click => toggle navigation hidden or shown
-		// 2.) hold => enter vertical handle move mode
-		// so only enter move mode after holding mouse down for an amount of time
-		var timer=setTimeout(function(){
-			OC.FluXX.move(handle);
-		},OC.FluXX.C_THRESHOLD);
+		// 1.) click & release => toggle navigation hidden or shown
+		// 2.) click & hold => enter handle move mode
 		// raise normal click handling
 		$(handle.Selector).on('mouseup',function(){
-			// remove _this_ handler
-			$(handle.Selector).off('mouseup');
 			// start click reaction
 			OC.FluXX.toggle(handle);
 		});
+		// only enter move mode after holding mouse down for an amount of time
+		var timer=setTimeout(function(){
+			// remove _this_ handler
+			$(handle.Selector).off('mouseup');
+			// enter handle move mode
+			OC.FluXX.move(handle);
+		},OC.FluXX.C_THRESHOLD);
 		// make sure to cancel move mode if mouse is released before C_THRESHOLD duration has passed (500ms)
 		$(document).on('mouseup',function(){
 			// don't enter move mode
@@ -103,8 +113,8 @@ OC.FluXX={
 	create:function(id, orientation, anchor, offset, preset){
 		var handle={};
 		handle.Anchor=anchor;						// selector to anchor handle onto
-		handle.Id=id;								// handles id
-		handle.Orientation=orientation;				// vertical or horizontal
+		handle.Id=id;										// handles id
+		handle.Orientation=orientation;	// vertical or horizontal
 		handle.Offset=offset;						// offset from min position
 		handle.Preset=preset;						// preset from max position
 		handle.Position={Val:0,Margin:0,Min:0,Max:0};// initial position values
@@ -121,6 +131,23 @@ OC.FluXX={
 		OC.FluXX.maximize(handle);
 		return handle;
 	}, // OC.FluXX.create
+  /**
+  * @method OC.FluXX.defaults
+  * @brief Injects a few default style rules
+  * @description 
+  * Firefox only animates transitions when the start style is explicitly set!
+  * Instead of writing static rules we fetch those default rule settings from the live document
+  * This way things should be more robust against changes in the OC layout 
+  * @author Christian Reiner
+  */
+  defaults: function(){
+    OC.FluXX.style('#navigation',      'left:'+$('#navigation').css('left')+'; padding-top:'+$('#navigation').css('padding-top')+';');
+    OC.FluXX.style('#content-wrapper', 'padding-left:'+$('#content-wrapper').css('padding-left')+'; padding-top:'+$('#content-wrapper').css('padding-top')+';');
+    OC.FluXX.style('#controls',        'padding-right:'+$('#controls').css('padding-right')+';');
+    OC.FluXX.style('#header',          'top:'+$('#header').css('top')+';');
+    OC.FluXX.style('#fluxx-N',         'margin-top:'+$('#fluxx-N').css('margin-top')+'; left:'+$('#fluxx-N').css('left')+';');
+    OC.FluXX.style('#fluxx-H',         'top:'+$('#fluxx-H').css('top')+';');
+  }, // OC.FluXX.defaults
 	/**
 	* @method OC.FluXX.generate
 	* @brief Generate handles DOM node
@@ -128,21 +155,29 @@ OC.FluXX={
 	*/
 	generate:function(handle){
 		// create a new handle node
-		var node=$('<span id="fluxx-'+handle.Id+'" class="fluxx-handle fluxx-shown" />');
-		var img=$('<img class="svg" draggable="false">');
+		var id='fluxx-'+handle.Id;
+		var node=$('<span />').attr('id',id).addClass('fluxx-handle fluxx-shown');
+		var img=$('<img>').attr('draggable','false').addClass('svg');
 		img.attr('src',OC.filePath('fluxx_compensator','img','actions/fluxx.svg'));
 		node.append(img);
-		if (handle.Orientation==OC.FluXX.C_HORIZONTAL){
-			node.addClass('fluxx-horizontal');
-			// move to visible position
-			node.css('left',($(handle.Anchor).outerWidth()-1.5)+'px');
-		}
-		else{
-			node.addClass('fluxx-vertical');
-			// move to visible position
-			node.css('top',($(handle.Anchor).outerHeight()-1.5)+'px');
-		}
-		$(handle.Anchor).prepend(node);
+		switch (handle.Id){
+			case 'N':
+				node.addClass('fluxx-horizontal');
+				// move to visible position
+				OC.FluXX.style('#'+id,'margin-top:'+($('#header').outerHeight())+'px;');
+				OC.FluXX.style('html.fluxx-state-N-shown #'+id,'left:'+($(handle.Anchor).outerWidth()-1.5)+'px;');
+				break;
+			case 'H':
+				node.addClass('fluxx-vertical');
+				// move to visible position
+				OC.FluXX.style('html.fluxx-state-H-shown #'+id,'top:'+($(handle.Anchor).outerHeight()-1.5)+'px;');
+				break;
+			default:
+				; // unknown handle...
+		} // switch
+		// explicitly inherit z-index from anchor
+		OC.FluXX.style('#'+id,'z-index:'+(parseInt($(handle.Anchor).css('z-index'))+1)+';');
+		$(handle.Anchor).after(node);
 	}, // OC.FluXX.generate
 	/**
 	* @method OC.FluXX.hide
@@ -151,19 +186,14 @@ OC.FluXX={
 	*/
 	hide:function(handle){
 		var dfd = new $.Deferred();
-		if (!$(handle.Selector).hasClass('fluxx-hidden')){
-			$.when(
-				// mark handle with new classmargin-top
-				$(handle.Selector).addClass('fluxx-hidden').removeClass('fluxx-shown')
-			).done(function(){
-				dfd.resolve();
-				// store current handle status inside user preferences
-				OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'hidden',null);
-			}).fail(dfd.reject)
-			// recalculate handle positions
-			$.each(OC.FluXX.Handle, function(){OC.FluXX.limit(this);});
+		if ($(handle.Selector).hasClass('fluxx-hidden'))
+			dfd.resolve();
+		else {
+			// trigger action by marking handle with new class
+			$(handle.Selector).addClass('fluxx-hidden').removeClass('fluxx-shown')
+			// store current handle status inside user preferences
+			OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'hidden',null);
 		}
-		else dfd.resolve();
 		return dfd.promise();
 	}, // OC.FluXX.hide
 	/**
@@ -194,6 +224,7 @@ OC.FluXX={
 			// 2.) hold => enter vertical handle move mode
 			$(handle.Selector).on('mousedown',function(event){
 				// swallow click event
+        event.preventDefault();
 				event.stopPropagation();
 				OC.FluXX.click(handle);
 			});
@@ -208,41 +239,40 @@ OC.FluXX={
 		// some handle specific corrections
 		switch (handle.Id){
 			case 'N':
-				handle.Position.Margin=$(handle.Selector).css('margin-top').replace(/[^-\d\.]/g, '');
-console.log('limit(): ',handle.Id,handle.Position);
-				;// case 'N';
-		}// switch
+				// move handle up and down with the corresponding anchor element (the navigation panel in this case)
+				handle.Position.Margin=parseInt($(handle.Selector).css('margin-top').replace(/[^-\d\.]/g, ''));
+				; // case 'N';
+		} // switch
 		// general orientation specific values
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
-			handle.Position.Min=$(handle.Anchor).css('padding-top').replace(/[^-\d\.]/g, '')
-								+handle.Offset-handle.Position.Margin;
+			handle.Position.Min=parseInt($(handle.Anchor).css('padding-top').replace(/[^-\d\.]/g, ''))
+													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top
-								-$(handle.Selector).outerHeight()-handle.Preset-handle.Position.Margin;
+													-$(handle.Selector).outerHeight()-handle.Preset-handle.Position.Margin;
 		}
 		else{
-			handle.Position.Min=$(handle.Anchor).css('padding-left').replace(/[^-\d\.]/g, '')
-								+handle.Offset-handle.Position.Margin;
+			handle.Position.Min=parseInt($(handle.Anchor).css('padding-left').replace(/[^-\d\.]/g, ''))
+													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left
-								-$(handle.Selector).outerWidth()-handle.Preset-handle.Position.Margin;
+													-$(handle.Selector).outerWidth()-handle.Preset-handle.Position.Margin;
 		}
 	}, // OC.FluXX.limit
 	/**
 	 * @method OC.FluXX.maximize
 	 * @brief Reposition handle "close to max position" if it has been there before
 	 * @param object handle: handle object as defined class internal
-	 * @author Christian Reinermargin-top
+	 * @author Christian Reiner
 	 */
 	maximize:function(handle){
 		// consider all handles
 		$.each(OC.FluXX.Handle, function(){
-			var candidate=this;
 			// act for all handles except the triggering one
-			if (candidate!=handle){
-				var closeToMax=(candidate.Position.Max-candidate.Position.Val);
-				OC.FluXX.limit(candidate);
+			if (this!=handle){
+				var closeToMax=(this.Position.Max-this.Position.Val);
+				OC.FluXX.limit(this);
 				// reposition close to max if been there before, just within limits otherwise
-				var position=(closeToMax>20)?candidate.Position.Val:candidate.Position.Max-closeToMax;
-				OC.FluXX.position(candidate, position);
+				var position=(closeToMax>20) ? this.Position.Val : this.Position.Max-closeToMax;
+				OC.FluXX.position(this, position);
 			}
 		})
 	}, // OC.FluXX.maximize
@@ -251,7 +281,7 @@ console.log('limit(): ',handle.Id,handle.Position);
 	* @brief Set global app mode
 	* @description 
 	* Depending on the active app the global html root element is marked with a css class. 
-	* That class controls any actions or compensations that might be required by that apps apge layout. 
+	* That class controls any actions or compensations that might be required by that apps page layout. 
 	* This way all changes and animations can later be done purely in css, as opposed to js. 
 	* @author Christian Reiner
 	*/
@@ -284,10 +314,12 @@ console.log('limit(): ',handle.Id,handle.Position);
 	move:function(handle){
 		// enable cursor move mode
 		$('html').addClass('fluxx-handle-move-'+handle.Id);
-		$(handle.Selector).effect('highlight',{color:'#FFF'},400);
+		$(handle.Selector).effect('highlight',{color:'#FFF'},'slow');
 		// remove _outer_ reactions (2!) on mouseup
 		$(document).off('mouseup');
 		$(handle.Selector).off('mouseup');
+		// compute limits
+		OC.FluXX.limit(handle);
 		// react on mouseup
 		$(document).on('mouseup',function(){
 			// remove _this_ handler
@@ -296,8 +328,6 @@ console.log('limit(): ',handle.Id,handle.Position);
 			$(document).off('mousemove');
 			// disable cursor move mode
 			$('html').removeClass('fluxx-handle-move-'+handle.Id);
-			$(handle.Selector).css('cursor','pointer');
-			$(handle.Selector).find('img').css('cursor','inherit');
 			// store final handle position
 			OC.FluXX.preference(true,'fluxx-position-'+handle.Id,handle.Position.Val,null);
 		});
@@ -306,7 +336,8 @@ console.log('limit(): ',handle.Id,handle.Position);
 			var delta;
 			if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
 				// we have to correct the raw vertical mouse position by two factors: 
-				// 1. half the handles size and 2. the start position of the anchor which is changed by the other handle
+				// 1. half the handles size, 
+				// 2. the start position of the anchor which is changed by the other handle and
 				delta=$(handle.Selector).height()/2.0;	// correction by half the handles size
 				OC.FluXX.position(handle, event.pageY-delta-handle.Position.Margin);
 				handle.Position.Val=$(handle.Selector).position().top;
@@ -325,7 +356,7 @@ console.log('limit(): ',handle.Id,handle.Position);
 	*/
 	position:function(handle, pos){
 		// hide handle whilst being repositioned
-		$(handle.Anchor).css('overflow','hidden !important');
+		$(handle).css('visibility','hidden');
 		// use specified value as new position, but only inside the given limits
 		handle.Position.Val=(pos>handle.Position.Max)?handle.Position.Max:((pos<handle.Position.Min)?handle.Position.Min:pos);
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation)
@@ -333,7 +364,7 @@ console.log('limit(): ',handle.Id,handle.Position);
 		else
 			$(handle.Selector).css('left',handle.Position.Val+'px');
 		// show handle after having been repositioned
-		$(handle.Anchor).css('overflow','visible');
+		$(handle).css('visibility','visible');
 	}, // OC.FluXX.position
 	/**
 	 * @method OC.FluXX.preference
@@ -353,6 +384,7 @@ console.log('limit(): ',handle.Id,handle.Position);
 				}).fail(function(){
 					return value;
 				})
+				;
 			default:
 			case false:
 				// get a preference
@@ -365,6 +397,7 @@ console.log('limit(): ',handle.Id,handle.Position);
 				}).fail(function(){
 					return value;
 				})
+				;
 		}
 	}, // OC.FluXX.preference
 	/**
@@ -374,19 +407,14 @@ console.log('limit(): ',handle.Id,handle.Position);
 	*/
 	show:function(handle){
 		var dfd = new $.Deferred();
-		if (!$(handle.Selector).hasClass('fluxx-shown')){
-			$.when(
-				// mark handle with new class
-				$(handle.Selector).addClass('fluxx-shown').removeClass('fluxx-hidden')
-			).done(function(){
-				dfd.resolve();
-				// store current handle status inside user preferences
-				OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'shown',null);
-			}).fail(dfd.reject)
-			// recalculate handle positions
-			$.each(OC.FluXX.Handle, function(){OC.FluXX.limit(this);});
+		if ($(handle.Selector).hasClass('fluxx-shown'))
+			dfd.resolve();
+		else {
+			// mark handle with new class
+			$(handle.Selector).addClass('fluxx-shown').removeClass('fluxx-hidden')
+			// store current handle status inside user preferences
+			OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'shown',null);
 		}
-		else dfd.resolve();
 		return dfd.promise();
 	}, // OC.FluXX.show
 	/**
@@ -403,70 +431,69 @@ console.log('limit(): ',handle.Id,handle.Position);
 		}
 	}, // OC.FluXX.state
 	/**
+	* @method OC.FluXX.style
+	* @brief Add style rule directly to the css definitions instead of using inline styles
+	* @author Christian Reiner
+	*/
+	style:function(selector,rule){
+		rule = '{' + rule + '}'
+		var stylesheet = document.styleSheets[0];
+		if (stylesheet.insertRule) {
+			stylesheet.insertRule(selector + rule, stylesheet.cssRules.length);
+		} else if (stylesheet.addRule) {
+			stylesheet.addRule(selector, rule, -1);
+		}
+	},
+	/**
 	* @method OC.FluXX.swap
 	* @brief Swaps the mode of the app between hidden and shown
 	* @author Christian Reiner
 	*/
 	swap: function(handle){
 		var dfd = new $.Deferred();
+		// delay resolution until the animations have finished
+		var events='transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
 		// call action depending on the current mode
-		if ($(handle.Selector).hasClass('fluxx-shown'))
-			$.when(
-				OC.FluXX.hide(handle),
-				OC.FluXX.state(handle,false)
-			).done(dfd.resolve)
-		else
-			$.when(
-				OC.FluXX.show(handle),
-				OC.FluXX.state(handle,true)
-			).done(dfd.resolve)
+		if ($(handle.Selector).hasClass('fluxx-shown')) {
+			$('.fluxx-handle').one(events,dfd.resolve);
+			OC.FluXX.hide(handle);
+			OC.FluXX.state(handle,false);
+		} else {
+			$('.fluxx-handle').one(events,dfd.resolve);
+			OC.FluXX.show(handle);
+			OC.FluXX.state(handle,true);
+		}
 		return dfd.promise();
 	}, // OC.FluXX.swap
+	/**
+	* @method OC.FluXX.time
+	* @brief waits for the transition style to load before starting the actual swapping of a handle
+	* @author Christian Reiner
+	*/
+	time: function(handle){
+		var dfd = new $.Deferred();
+		// swap handle (animation)
+		$.when(
+			OC.FluXX.swap(handle)
+		).done(function(){
+			OC.FluXX.maximize(handle);
+			// remove temporarily included transition rules
+			$('head #fluxx-transitions').remove();
+			dfd.resolve();
+		}).fail(dfd.reject);
+		return dfd.promise();
+	}, // OC.FluXX.time
 	/**
 	* @method OC.FluXX.toggle
 	* @brief Toggles the visibility of the navigation area
 	* @author Christian Reiner
 	*/
 	toggle: function(handle){
-		var dfd = new $.Deferred();
 		// temporarily include transition style rules if not yet present (should not be!)
-		if ($('head link#fluxx-transitions').length)
-			OC.FluXX.swap(handle);
-		else{
-			$('<link/>',{
-				id:'fluxx-transitions',
-				rel:'stylesheet',
-				type:'text/css',
-				href:OC.filePath('fluxx_compensator','css','transitions.css')
-			}).appendTo('head');
-			$('head link#fluxx-transitions').on('load',function(){
-				$('head link#fluxx-transitions').off('load');
-				OC.FluXX.swap(handle);
-				// make sure temporary transition style rules are removed, preferably upon event, time based as catchall
-				OC.FluXX.wait(handle,function(){
-					$('head link#fluxx-transitions').remove();
-					OC.FluXX.maximize(handle);
-				});
-			});
-		}
-		return dfd.promise();
-	}, // OC.FluXX.toggle
-	/**
-	 * @method OC.FluXX.wait
-	 * @brief Wait for transitions to finish
-	 * @author Christian Reiner
-	 */
-	wait: function(handle,callback){
-		// safety-catch in case we somehow miss the trnsitionend event...
-		var timer=setTimeout(function(){$('head link#fluxx-transitions').remove();},10000);
-		// when all planned transitions have finished...
-		$(handle.Selector).on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
-			// remove transition styles to prevent interfering with other transitions
-			$(handle.Selector).off('webkitTransitionEnd oTransitionEnd transitionEnd');
-			// remove safety-catch from above
-			clearTimeout(timer);
-			// finally execute call callback
-			callback();
-		});
-	} // OC.FluXX.wait
-}
+		var transitions=OC.FluXX.transitions.clone().attr('rel','stylesheet').attr('id','fluxx-transitions').appendTo('head');
+		// some safety catch for browsers that do not fire the load event when stuff is loaded (safari)
+		var timer = setTimeout(function(){OC.FluXX.time(handle);},100); // should be preloaded...
+		// the more elegant approach however is to react on the load event (_if_ fired)
+		$('head #fluxx-transitions').one('load',function(){clearTimeout(timer);OC.FluXX.time(handle);});
+	} // OC.FluXX.toggle
+} // OC.FluXX
