@@ -113,8 +113,8 @@ OC.FluXX={
 	create:function(id, orientation, anchor, offset, preset){
 		var handle={};
 		handle.Anchor=anchor;						// selector to anchor handle onto
-		handle.Id=id;								// handles id
-		handle.Orientation=orientation;				// vertical or horizontal
+		handle.Id=id;										// handles id
+		handle.Orientation=orientation;	// vertical or horizontal
 		handle.Offset=offset;						// offset from min position
 		handle.Preset=preset;						// preset from max position
 		handle.Position={Val:0,Margin:0,Min:0,Max:0};// initial position values
@@ -239,21 +239,22 @@ OC.FluXX={
 		// some handle specific corrections
 		switch (handle.Id){
 			case 'N':
-				handle.Position.Margin=$(handle.Selector).css('margin-top').replace(/[^-\d\.]/g, '');
-				;// case 'N';
-		}// switch
+				// move handle up and down with the corresponding anchor element (the navigation panel in this case)
+				handle.Position.Margin=parseInt($(handle.Selector).css('margin-top').replace(/[^-\d\.]/g, ''));
+				; // case 'N';
+		} // switch
 		// general orientation specific values
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
 			handle.Position.Min=$(handle.Anchor).css('padding-top').replace(/[^-\d\.]/g, '')
-								+handle.Offset-handle.Position.Margin;
+													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top
-								-$(handle.Selector).outerHeight()-handle.Preset-handle.Position.Margin;
+													-$(handle.Selector).outerHeight()-handle.Preset-handle.Position.Margin;
 		}
 		else{
 			handle.Position.Min=$(handle.Anchor).css('padding-left').replace(/[^-\d\.]/g, '')
-								+handle.Offset-handle.Position.Margin;
+													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left
-								-$(handle.Selector).outerWidth()-handle.Preset-handle.Position.Margin;
+													-$(handle.Selector).outerWidth()-handle.Preset-handle.Position.Margin;
 		}
 	}, // OC.FluXX.limit
 	/**
@@ -265,14 +266,13 @@ OC.FluXX={
 	maximize:function(handle){
 		// consider all handles
 		$.each(OC.FluXX.Handle, function(){
-			var candidate=this;
 			// act for all handles except the triggering one
-			if (candidate!=handle){
-				var closeToMax=(candidate.Position.Max-candidate.Position.Val);
-				OC.FluXX.limit(candidate);
+			if (this!=handle){
+				var closeToMax=(this.Position.Max-this.Position.Val);
+				OC.FluXX.limit(this);
 				// reposition close to max if been there before, just within limits otherwise
-				var position=(closeToMax>20)?candidate.Position.Val:candidate.Position.Max-closeToMax;
-				OC.FluXX.position(candidate, position);
+				var position=(closeToMax>20) ? this.Position.Val : this.Position.Max-closeToMax;
+				OC.FluXX.position(this, position);
 			}
 		})
 	}, // OC.FluXX.maximize
@@ -479,6 +479,7 @@ OC.FluXX={
 			$.when(
 				OC.FluXX.swap(handle)
 			).done(function(){
+				OC.FluXX.maximize(handle);
 				// remove temporarily included transition rules
 				$('head #fluxx-transitions').remove();
 				dfd.resolve();
