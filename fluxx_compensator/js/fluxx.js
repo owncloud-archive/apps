@@ -80,7 +80,6 @@ OC.FluXX={
 	 * @author Christian Reiner
 	 */
 	click:function(handle){
-console.log('click');
 		// 1.) click & release => toggle navigation hidden or shown
 		// 2.) click & hold => enter handle move mode
 		// raise normal click handling
@@ -112,7 +111,6 @@ console.log('click');
 	* @author Christian Reiner
 	*/
 	create:function(id, orientation, anchor, offset, preset){
-console.log('create');
 		var handle={};
 		handle.Anchor=anchor;						// selector to anchor handle onto
 		handle.Id=id;								// handles id
@@ -143,7 +141,6 @@ console.log('create');
   * @author Christian Reiner
   */
   defaults: function(){
-console.log('defaults');
     OC.FluXX.style('#navigation',      'left:'+$('#navigation').css('left')+'; padding-top:'+$('#navigation').css('padding-top')+';');
     OC.FluXX.style('#content-wrapper', 'padding-left:'+$('#content-wrapper').css('padding-left')+'; padding-top:'+$('#content-wrapper').css('padding-top')+';');
     OC.FluXX.style('#controls',        'padding-right:'+$('#controls').css('padding-right')+';');
@@ -157,7 +154,6 @@ console.log('defaults');
 	* @author Christian Reiner
 	*/
 	generate:function(handle){
-console.log('generate');
 		// create a new handle node
 		var id='fluxx-'+handle.Id;
 		var node=$('<span />').attr('id',id).addClass('fluxx-handle fluxx-shown');
@@ -189,7 +185,6 @@ console.log('generate');
 	* @author Christian Reiner
 	*/
 	hide:function(handle){
-console.log('hide');
 		var dfd = new $.Deferred();
 		if ($(handle.Selector).hasClass('fluxx-hidden'))
 			dfd.resolve();
@@ -207,7 +202,6 @@ console.log('hide');
 	 * @author Christian Reiner
 	 */
 	init:function(){
-console.log('init');
 		// dynamically load stylesheet to make sure it is loaded LAST
 		OC.addStyle('fluxx_compensator','dynamic');
 		// initialize created handles
@@ -242,7 +236,6 @@ console.log('init');
 	* @author Christian Reiner
 	*/
 	limit:function(handle){
-console.log('limit');
 		// some handle specific corrections
 		switch (handle.Id){
 			case 'N':
@@ -270,7 +263,6 @@ console.log('limit');
 	 * @author Christian Reiner
 	 */
 	maximize:function(handle){
-console.log('maximize');
 		// consider all handles
 		$.each(OC.FluXX.Handle, function(){
 			var candidate=this;
@@ -294,7 +286,6 @@ console.log('maximize');
 	* @author Christian Reiner
 	*/
 	mode:function(){
-console.log('mode');
 		// mark mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
@@ -321,7 +312,6 @@ console.log('mode');
 	* @author Christian Reiner
 	*/
 	move:function(handle){
-console.log('move');
 		// enable cursor move mode
 		$('html').addClass('fluxx-handle-move-'+handle.Id);
 		$(handle.Selector).effect('highlight',{color:'#FFF'},'slow');
@@ -365,7 +355,6 @@ console.log('move');
 	* @author Christian Reiner
 	*/
 	position:function(handle, pos){
-console.log('position');
 		// hide handle whilst being repositioned
 		$(handle).css('visibility','hidden');
 		// use specified value as new position, but only inside the given limits
@@ -383,7 +372,6 @@ console.log('position');
 	 * @author Christian Reiner
 	 */
 	preference:function(set, key, value, callback){
-console.log('preference');
 		switch(set){
 			case true:
 				// set a preference
@@ -418,7 +406,6 @@ console.log('preference');
 	* @author Christian Reiner
 	*/
 	show:function(handle){
-console.log('show');
 		var dfd = new $.Deferred();
 		if ($(handle.Selector).hasClass('fluxx-shown'))
 			dfd.resolve();
@@ -436,7 +423,6 @@ console.log('show');
 	* @author Christian Reiner
 	*/
 	state:function(handle,shown){
-console.log('state');
 		// mark the current state (hidden or shown) as class of the html element
 		if (shown){
 			$('html').removeClass('fluxx-state-'+handle.Id+'-hidden').addClass('fluxx-state-'+handle.Id+'-shown');
@@ -450,7 +436,6 @@ console.log('state');
 	* @author Christian Reiner
 	*/
 	style:function(selector,rule){
-console.log('style');
 		rule = '{' + rule + '}'
 		var stylesheet = document.styleSheets[0];
 		if (stylesheet.insertRule) {
@@ -465,7 +450,6 @@ console.log('style');
 	* @author Christian Reiner
 	*/
 	swap: function(handle){
-console.log('swap');
 		var dfd = new $.Deferred();
 		// delay resolution until the animations have finished
 		var events='transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
@@ -487,7 +471,6 @@ console.log('swap');
 	* @author Christian Reiner
 	*/
 	toggle: function(handle){
-console.log('toggle');
 		var dfd = new $.Deferred();
 		// temporarily include transition style rules if not yet present (should not be!)
 		var transitions=OC.FluXX.transitions.clone().attr('rel','stylesheet').attr('id','fluxx-transitions').appendTo('head');
