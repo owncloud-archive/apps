@@ -3,14 +3,13 @@ namespace OCA\crate_it\lib;
 
 class BagItManager{
 	
-	private static $instance;
-	
 	var $base_dir; 
 	var $preview_dir;
-	var $bag_dir;
+	var $crate_dir;
 	var $crate_root;
 	var $manifest;
 	
+	var $selected_crate;
 	var $bag;
 	var $user;
 	
@@ -18,13 +17,19 @@ class BagItManager{
 		$this->user = \OCP\User::getUser();
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
 	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files';
-	    $this->crate_root =$this->base_dir.'/crate_it'; 
+	    $this->crate_root =$this->base_dir.'/crates'; 
 		
 		if(!file_exists($this->crate_root)){
 			mkdir($this->crate_root);
 		}
-		$this->bag_dir = $this->crate_root.'/crate';
-		$this->bag = new \BagIt($this->bag_dir);
+		if(empty($_SESSION['crate_id'])){
+			$this->createCrate('default_crate');
+			$this->selected_crate = 'default_crate';
+			$_SESSION['crate_id'] = 'default_crate';
+		}
+		else {
+			$this->switchCrate($_SESSION['crate_id']);
+		}
 		
 	    $data_dir = $this->bag->getDataDirectory();
 	    $this->manifest = $data_dir.'/manifest.json';
@@ -38,10 +43,44 @@ class BagItManager{
 	}
 	
 	public static function getInstance(){
-		if(!self::$instance){
-			self::$instance = new BagItManager();
+			return new BagItManager();
+	}
+	
+	public function createCrate($name){
+		if(empty($name)){
+			return "Please specify name";
 		}
-		return self::$instance;
+		$this->crate_dir = $this->crate_root.'/'.$name;
+		$this->bag = new \BagIt($this->crate_dir);
+		return "New crate created successfully";
+	}
+	
+	public function switchCrate($name){
+		if(empty($name)){
+			return "Please specify name";
+		}
+		$this->crate_dir = $this->crate_root.'/'.$name;
+		$this->bag = new \BagIt($this->crate_dir);
+		$this->selected_crate = $name;
+		$_SESSION['crate_id'] = $name;
+	}
+	
+	public function getSelectedCrate(){
+		return $this->selected_crate;
+	}
+	
+	public function getCrateList(){
+		$cratelist = array();
+		if ($handle = opendir($this->crate_root)) {
+			$filteredlist = array('.', '..', 'packages');
+			while (false !== ($file = readdir($handle))) {
+				if (!in_array($file, $filteredlist)) {
+					array_push($cratelist, $file);
+				}
+			}
+			closedir($handle);
+		}
+		return $cratelist;
 	}
 	
 	public function addToBag($dir, $file){
@@ -52,12 +91,13 @@ class BagItManager{
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
-		if(is_dir($input_dir.'/'.$file)){
-			return "Cannot add a directory";
+		if($file === 'Shared' || is_dir($input_dir.'/'.$file)){
+			return "Adding directories not supported yet";
 		}
 		
 		if(basename($dir) === 'Shared'){
 			//TODO need to fetch the url from relevant location
+			return "Adding shared files not supported yet";
 		}
 		else if(substr($dir, -1) === '/'){
 			$input_dir .= '/';
@@ -228,7 +268,7 @@ class BagItManager{
 			return null;
 		}
 		$tmp = \OC_Helper::tmpFolder();
-		\OC_Helper::copyr($this->bag_dir, $tmp);
+		\OC_Helper::copyr($this->crate_dir, $tmp);
 		
 		//create a bag at the outputDir
 		$bag = new \BagIt($tmp);

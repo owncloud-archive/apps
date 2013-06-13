@@ -12,9 +12,20 @@ and let user drag and drop -->
 <?php endforeach;?>
 </ul>
 </div>
-<!-- <div id='toc'></div>  -->
 
 <div style="float:left; padding:20px;">
+	<form id="crate_input" action="" method="get">
+		Create new crate: <input type="text" id="create">
+		<input id="subbutton" type="submit" value="Submit">
+	</form>
+	<form action="">
+		<select id="crates">
+			<option id="choose" value="choose" selected>Choose a crate</option>
+			<?php foreach($_['crates'] as $crate):?>
+			<option id="<?php echo $crate;?>" value="<?php echo $crate;?>"><?php echo $crate;?></option>
+			<?php endforeach;?>
+		</select>
+	</form>
 	<input id="clear" type="button" value="Clear Crate"/>
 	<input id="epub" type="button" value="EPUB"/>
 	<input id="download" type="button" value="Download Crate as zip"/>
