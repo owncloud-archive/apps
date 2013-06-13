@@ -492,7 +492,7 @@ OC.FluXX={
 		// temporarily include transition style rules if not yet present (should not be!)
 		var transitions=OC.FluXX.transitions.clone().attr('rel','stylesheet').attr('id','fluxx-transitions').appendTo('head');
 		// some safety catch for browsers that do not fire the load event when stuff is loaded (safari)
-		var timer = setTimeout(function(){$('head #fluxx-transitions').off('load');OC.FluXX.time(handle);},100); // should be preloaded...
+		var timer = setTimeout(function(){$('head #fluxx-transitions').off('load');OC.FluXX.time(handle);},500); // should be preloaded...
 		// the more elegant approach however is to react on the load event (_if_ fired)
 		$('head #fluxx-transitions').one('load',function(){clearTimeout(timer);OC.FluXX.time(handle);});
 	} // OC.FluXX.toggle
