@@ -28,11 +28,20 @@
  * @author Christian Reiner
  */
 
-/* some general mode specific modifications */
-
+/* default handle position rules, required by FF to animate the transitions */
+#fluxx-H {
+  top: 0;
+}
+#fluxx-N {
+  left: 0;
+}
+/* move navigation handle up, required due to the absolute positioning */
+html.fluxx-state-H-hidden #fluxx-N {
+  margin-top: 0 !important;
+}
 /* navigation hidden: move left and add a more impressive shadow as a hint */
 html.fluxx-state-N-hidden #navigation {
-	left: -64px;
+	left: -64px !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
@@ -59,14 +68,9 @@ html.fluxx-state-H-hidden #header {
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 }
 /* move stuff up to top when header is hidden */
-html.fluxx-state-H-hidden #navigation {
-	padding-top: 0;
-}
-html.fluxx-state-H-hidden #navigation .fluxx-handle {
-	margin-top: -45px;
-}
+html.fluxx-state-H-hidden #navigation,
 html.fluxx-state-H-hidden #content-wrapper {
-	padding-top: 0px;
+	padding-top: 0;
 }
 
 /* below some specific app dependent settings to compensate for exotic in-app styles */
