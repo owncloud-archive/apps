@@ -245,13 +245,13 @@ OC.FluXX={
 		} // switch
 		// general orientation specific values
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
-			handle.Position.Min=$(handle.Anchor).css('padding-top').replace(/[^-\d\.]/g, '')
+			handle.Position.Min=parseInt($(handle.Anchor).css('padding-top').replace(/[^-\d\.]/g, ''))
 													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top
 													-$(handle.Selector).outerHeight()-handle.Preset-handle.Position.Margin;
 		}
 		else{
-			handle.Position.Min=$(handle.Anchor).css('padding-left').replace(/[^-\d\.]/g, '')
+			handle.Position.Min=parseInt($(handle.Anchor).css('padding-left').replace(/[^-\d\.]/g, ''))
 													+handle.Offset-handle.Position.Margin;
 			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left
 													-$(handle.Selector).outerWidth()-handle.Preset-handle.Position.Margin;
