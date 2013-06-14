@@ -72,6 +72,10 @@ $(document).ready(function() {
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");
+		if(id === "choose"){
+			$('#crateList').empty();
+			return;
+		}
 		$.ajax({
 			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id,
 			type: 'get',
