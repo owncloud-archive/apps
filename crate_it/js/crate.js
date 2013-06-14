@@ -72,7 +72,29 @@ $(document).ready(function() {
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");
-		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id);
+		$.ajax({
+			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id,
+			type: 'get',
+			complete: function(data){
+				$.ajax({
+					url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+					type: 'get',
+					dataType: 'text/html',
+					data: {'action': 'get_items'},
+					complete: function(data){
+						$('#crateList').empty();
+						var obj = JSON.parse(data.responseText);
+						if(obj != null){
+							var items = [];
+							$.each(obj, function(key, value){
+								items.push('<li id="'+value['id']+'">'+value['title']+'</li>');
+							});
+							$('#crateList').append(items.join(''));
+						}
+					}
+				});
+			}
+		});
 	});
 	
 	

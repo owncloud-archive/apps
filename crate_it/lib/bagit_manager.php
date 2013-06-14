@@ -28,7 +28,8 @@ class BagItManager{
 			$_SESSION['crate_id'] = 'default_crate';
 		}
 		else {
-			$this->switchCrate($_SESSION['crate_id']);
+			$this->initBag($_SESSION['crate_id']);
+			$this->selected_crate = $_SESSION['crate_id'];
 		}
 		
 	    $data_dir = $this->bag->getDataDirectory();
@@ -50,8 +51,7 @@ class BagItManager{
 		if(empty($name)){
 			return "Please specify name";
 		}
-		$this->crate_dir = $this->crate_root.'/'.$name;
-		$this->bag = new \BagIt($this->crate_dir);
+		$this->initBag($name);
 		return "New crate created successfully";
 	}
 	
@@ -59,10 +59,14 @@ class BagItManager{
 		if(empty($name)){
 			return "Please specify name";
 		}
-		$this->crate_dir = $this->crate_root.'/'.$name;
-		$this->bag = new \BagIt($this->crate_dir);
+		$this->initBag($name);
 		$this->selected_crate = $name;
 		$_SESSION['crate_id'] = $name;
+	}
+	
+	private function initBag($name){
+		$this->crate_dir = $this->crate_root.'/'.$name;
+		$this->bag = new \BagIt($this->crate_dir);
 	}
 	
 	public function getSelectedCrate(){

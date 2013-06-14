@@ -6,14 +6,32 @@ $user = OCP\User::getUser();
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
+$crate_id = isset($_GET['crate_id']) ? $_GET['crate_id'] : '';
+$crate_name = isset($_GET['crate_name']) ? $_GET['crate_name'] : '';
 $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
 $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
-$newvalue = isset($_POST['newvalue']) ? $_POST['newvalue'] : '';
+$newvalue = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 
 switch ($action){
+	case 'create':
+		$msg = $bagit_manager->createCrate($crate_name);
+		print $msg;
+		break;
+	case 'switch':
+		$msg = $bagit_manager->switchCrate($crate_id);
+		print $msg;
+		break;
+	case 'get_crate':
+		$msg = $bagit_manager->getSelectedCrate();
+		print $msg;
+		break;
+	case 'get_items':
+		$msg = $bagit_manager->getFetchData();
+		echo json_encode($msg);
+		break;
 	case 'add':
 		$msg = $bagit_manager->addToBag($dir, $file);
 		print $msg;
@@ -25,9 +43,9 @@ switch ($action){
 		$bagit_manager->updateOrder($neworder);
 		break;
 	case 'edit_title':
-		$ok = $bagit_manager->editTitle($element_id, $newvalue);
+		$ok = $bagit_manager->editTitle($element_id, $new_title);
 		if($ok){
-			echo $newvalue;
+			echo $new_title;
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');
