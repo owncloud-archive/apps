@@ -44,7 +44,7 @@ $(document).ready(function() {
 	
 	$('#subbutton').click( function() {
 	    $.ajax({
-	        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=create',
+	        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
 	        type: 'get',
 	        dataType: 'text/html',
 	        data: {'action':'create', 'crate_name':$('#crate_input #create').val()},
