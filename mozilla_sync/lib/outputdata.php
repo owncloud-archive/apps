@@ -78,7 +78,7 @@ class OutputData
 	}
 
 	static private function writeNewLineFormat($outputArray) {
-		self::writeOutput(json_encode($outputArray));
+		self::writeOutput(json_encode($outputArray, JSON_NUMERIC_CHECK));
 		self::writeOutput("\n");
 	}
 
