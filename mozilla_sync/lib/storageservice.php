@@ -354,13 +354,8 @@ class StorageService extends Service
 			}
 		}
 
-		if(count($successArray)>0){
-			$resultArray["success"] = $successArray;
-		}
-		
-		if(count($failedArray)>0){
-			$resultArray["failed"] = $failedArray;
-		}
+		$resultArray["success"] = $successArray;
+		$resultArray["failed"] = (object)$failedArray;
 
 		OutputData::write($resultArray);
 		return true;
