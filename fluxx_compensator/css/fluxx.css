@@ -32,11 +32,12 @@
 .fluxx-handle {
 	opacity: 0.6;
 	position: absolute;
-	width: 16px;
-	height: 16px;
+	width: 12px;
+	height: 12px;
 	border: 0.5px solid #666;
 	cursor: pointer;
 	line-height: 14px;
+	padding: 2px;
 }
 .fluxx-handle.fluxx-horizontal {
 	border-left: 0;
@@ -72,7 +73,8 @@
 	-webkit-transform: scale(1,-1) translate(0,15px);
 }
 .fluxx-handle img {
-	padding: 2px ;
+	margin: 0;
+	padding: 0;
 	width: 12px;
 	height: 12px;
 	border: 0;

@@ -23,6 +23,8 @@
 
 Changelog: 
 
+* Sun Jun 16 2013 Christian Reiner: version 0.2.1
+A few style fixes to improve optics when used inside MS-IE.
 * Thu Jun 13 2013 Christian Reiner: version 0.2.0
 Changed strategy for for fluxx handles, ugly but less cross browser problems. 
 Some style rules defaults now set explicitly to enable transitions in forefox. 
