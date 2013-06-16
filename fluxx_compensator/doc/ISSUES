@@ -23,10 +23,6 @@
 
 This is a short list of known issues:
 
-- There is an optical glitch hoe the handles are presented in MS-IE. 
-Since this is the only browser that falls back to png icons instead of vector 
-graphics most likely this is a question of handling such icons different. 
-
 - Safari (at least under MS-Windows) shows a slow reaction when clicking a handle. 
 This is due to the fact that Safari only reacts on a timeout based safety catch, 
 whilst other browsers react in a load event raised when the transition style 
