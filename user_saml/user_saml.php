@@ -51,6 +51,12 @@ class OC_USER_SAML extends OC_User_Backend {
 			include_once $this->sspPath."/lib/_autoload.php";
 
 			$this->auth = new SimpleSAML_Auth_Simple($this->spSource);
+
+			if (isset($_COOKIE["user_saml_logged_in"]) AND $_COOKIE["user_saml_logged_in"] AND !$this->auth->isAuthenticated()) {
+				unset($_COOKIE["user_saml_logged_in"]);
+				setcookie("user_saml_logged_in", null, -1);
+				OCP\User::logout();
+			}
 		}
 	}
 
@@ -70,6 +76,10 @@ class OC_USER_SAML extends OC_User_Backend {
 		else {
 			OC_Log::write('saml','Not found attribute used to get the username ("'.$this->usernameMapping.'") at the requested saml attribute assertion',OC_Log::DEBUG);
 		}
+
+		$secure_cookie = OC_Config::getValue("forcessl", false);
+		$expires = time() + OC_Config::getValue('remember_login_cookie_lifetime', 60*60*24*15);
+		setcookie("user_saml_logged_in", "1", $expires, '', '', $secure_cookie);
 
 		return $uid;
 	}
