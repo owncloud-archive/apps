@@ -16,7 +16,7 @@ class OC_Calendar_Repeat{
 	 * @return (array)
 	 */
 	public static function get($id) {
-		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?');
+		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*clndr_repeat` WHERE `eventid` = ?');
 		$result = $stmt->execute(array($id));
 		$return = array();
 		while($row = $result->fetchRow()) {
@@ -32,7 +32,7 @@ class OC_Calendar_Repeat{
 	 * @return (array)
 	 */
 	public static function get_inperiod($id, $from, $until) {
-		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?'
+		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*clndr_repeat` WHERE `eventid` = ?'
 		.' AND ((`startdate` >= ? AND `startdate` <= ?)'
 		.' OR (`enddate` >= ? AND `enddate` <= ?))');
 		$result = $stmt->execute(array($id,
@@ -50,7 +50,7 @@ class OC_Calendar_Repeat{
 	 * @return (array)
 	 */
 	public static function getCalendar($id) {
-		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?');
+		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*clndr_repeat` WHERE `calid` = ?');
 		$result = $stmt->execute(array($id));
 		$return = array();
 		while($row = $result->fetchRow()) {
@@ -66,7 +66,7 @@ class OC_Calendar_Repeat{
 	 * @return (array)
 	 */
 	public static function getCalendar_inperiod($id, $from, $until) {
-		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?'
+		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*clndr_repeat` WHERE `calid` = ?'
 		.' AND ((`startdate` >= ? AND `startdate` <= ?)'
 		.' OR (`enddate` >= ? AND `enddate` <= ?))');
 		$result = $stmt->execute(array($id,
@@ -99,7 +99,7 @@ class OC_Calendar_Repeat{
 				continue;
 			}
 			$startenddate = OC_Calendar_Object::generateStartEndDate($vevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($vevent), ($vevent->DTSTART->getDateType() == Sabre\VObject\Property\DateTime::DATE)?true:false, 'UTC');
-			$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*calendar_repeat` (`eventid`,`calid`,`startdate`,`enddate`) VALUES(?,?,?,?)');
+			$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*clndr_repeat` (`eventid`,`calid`,`startdate`,`enddate`) VALUES(?,?,?,?)');
 			$stmt->execute(array($id,OC_Calendar_Object::getCalendarid($id),$startenddate['start'],$startenddate['end']));
 		}
 		return true;
@@ -189,7 +189,7 @@ class OC_Calendar_Repeat{
 	 * @return (bool)
 	 */
 	public static function clean($id) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?');
+		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*clndr_repeat` WHERE `eventid` = ?');
 		$stmt->execute(array($id));
 	}
 	/**
@@ -198,7 +198,7 @@ class OC_Calendar_Repeat{
 	 * @return (bool)
 	 */
 	public static function cleanCalendar($id) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?');
+		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*clndr_repeat` WHERE `calid` = ?');
 		$stmt->execute(array($id));
 	}
 }

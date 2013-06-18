@@ -103,7 +103,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	}
 
 	public function getChildren($itemSource) {
-		$query = OCP\DB::prepare('SELECT `id`, `summary` FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?');
+		$query = OCP\DB::prepare('SELECT `id`, `summary` FROM `*PREFIX*clndr_objects` WHERE `calendarid` = ?');
 		$result = $query->execute(array($itemSource));
 		$children = array();
 		while ($object = $result->fetchRow()) {

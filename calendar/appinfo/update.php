@@ -2,7 +2,7 @@
 
 $installedVersion=OCP\Config::getAppValue('calendar', 'installed_version');
 if (version_compare($installedVersion, '0.2.1', '<')) {
-	$stmt = OCP\DB::prepare( 'SELECT `id`, `calendarcolor` FROM `*PREFIX*calendar_calendars` WHERE `calendarcolor` IS NOT NULL' );
+	$stmt = OCP\DB::prepare( 'SELECT `id`, `calendarcolor` FROM `*PREFIX*clndr_calendars` WHERE `calendarcolor` IS NOT NULL' );
 	$result = $stmt->execute();
 	while( $row = $result->fetchRow()) {
 		$id = $row['id'];
@@ -11,7 +11,7 @@ if (version_compare($installedVersion, '0.2.1', '<')) {
 			continue;
 		}
 		$color = '#' .$color;
-		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_calendars` SET `calendarcolor`=? WHERE `id`=?' );
+		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*clndr_calendars` SET `calendarcolor`=? WHERE `id`=?' );
 		$r = $stmt->execute(array($color,$id));
 	}
 }
@@ -29,7 +29,7 @@ if ($installedVersion == '0.6') {
 	//$query->execute();
 }
 if (version_compare($installedVersion, '0.6.1', '<=')) {
-	$calendar_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_calendar`');
+	$calendar_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*clndr_share_calendar`');
 	$calendar_result = $calendar_stmt->execute();
 	while( $cal = $calendar_result->fetchRow()) {
 		$shareType = OCP\Share::SHARE_TYPE_USER;
@@ -47,7 +47,7 @@ if (version_compare($installedVersion, '0.6.1', '<=')) {
 			// nothing to do, the exception is already written to the log
 		}
 	}
-	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_event`');
+	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*clndr_share_event`');
 	$event_result = $event_stmt->execute();
 	while( $event = $event_result->fetchRow()) {
 		$shareType = OCP\Share::SHARE_TYPE_USER;
