@@ -29,12 +29,11 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
 // Get paramteres
-$filecontents = isset($_POST['filecontents']) ? $_POST['filecontents'] : false;
+$filecontents = $_POST['filecontents'];
 $path = isset($_POST['path']) ? $_POST['path'] : '';
 $mtime = isset($_POST['mtime']) ? $_POST['mtime'] : '';
 
-if($path != '' && $mtime != '' && $filecontents)
-{
+if($path != '' && $mtime != '') {
 	// Get file mtime
 	$filemtime = OC_Filesystem::filemtime($path);
 	if($mtime != $filemtime)
@@ -70,7 +69,4 @@ if($path != '' && $mtime != '' && $filecontents)
 } else if($mtime == '') {
 	OCP\JSON::error(array('data' => array( 'message' => 'File mtime not supplied')));
 	OCP\Util::writeLog('files_texteditor','No file mtime supplied' ,OCP\Util::ERROR);
-} else if(!$filecontents) {
-	OCP\JSON::error(array('data' => array( 'message' => 'File contents not supplied')));
-	OCP\Util::writeLog('files_texteditor','The file contents was not supplied',OCP\Util::ERROR);	
 }
