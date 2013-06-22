@@ -1776,6 +1776,24 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
+	 * Get an array of address books with at least the required permission.
+	 *
+	 * @param int permission
+	 */
+	ContactList.prototype.addressBooksByPermission = function(permission) {
+		var books = [];
+		var self = this;
+		$.each(this.addressbooks, function(idx, book) {
+			console.log('book', book);
+			if(book.permissions & permission) {
+				// Clone the address book not to mess with with original
+				books.push(book);
+			}
+		});
+		return books;
+	};
+
+	/**
 	* Save addressbook data
 	* @param int id
 	*/

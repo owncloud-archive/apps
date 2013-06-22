@@ -26,27 +26,17 @@
 					</li>
 				</ul>
 			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
-				<ul class="hidden">
+				<ul>
 					<li class="import-upload">
-						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
-						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-						<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" id="requesttoken">
-						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
-							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
-						</label>
-						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
-						</form>
-						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
-					</li>
-					<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
-					<li class="import-select hidden">
-						<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
+						<select id="import_into">
+							<option value="-1"><?php p($l->t('Import into...')); ?></option>
 						</select>
-					<button class="doImport"><?php p($l->t('OK')); ?></button>
+						<button class="svg tooltipped rightwards import-upload-button" title="<?php p($l->t('Select file...')); ?>"></button>
+						<input id="import_upload_start" class="tooltipped rightwards" title="<?php p($l->t('Select file...')); ?>" type="file" accept="text/vcard,text/x-vcard,text/directory" name="file" disabled />
 					</li>
-					<li>
+					<li class="import-status">
 						<label id="import-status-text"></label>
-						<div id="import-progress"></div>
+						<div id="import-status-progress"></div>
 					</li>
 				</ul>
 	</div>

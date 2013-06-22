@@ -233,8 +233,122 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-		this.$importFileInput = $('#import_fileupload');
+		this.$importFileInput = $('#import_upload_start');
 		this.$importIntoSelect = $('#import_into');
+		this.$importProgress = $('#import-status-progress');
+		this.$importStatusText = $('#import-status-text');
+	},
+	/**
+	 * Rebuild the select to choose which address book to import into.
+	 */
+	buildImportSelect: function() {
+		var self = this;
+		this.$importIntoSelect.find('option:not([value="-1"])').remove();
+		var addressBooks = this.contacts.addressBooksByPermission(OC.PERMISSION_UPDATE);
+		$.each(addressBooks, function(idx, book) {
+			var $opt = $('<option />');
+			$opt.val(book.id).text(book.displayname);
+			self.$importIntoSelect.append($opt);
+		});
+		if(addressBooks.length === 1) {
+			this.$importIntoSelect.val(this.$importIntoSelect.find('option:not([value="-1"])').first().val()).hide().trigger('change');
+			self.$importFileInput.prop('disabled', false);
+		} else {
+			this.$importIntoSelect.show();
+			self.$importFileInput.prop('disabled', true);
+		}
+	},
+
+	doImport: function(response) {
+		console.log('doImport', response);
+		var done = false;
+		var interval = null;
+		var self = this;
+		var status_url = OC.Router.generate(
+			'contacts_import_status', {addressbookid:response.data.addressbookid}
+		);
+		var import_url = OC.Router.generate(
+			'contacts_import_start', {addressbookid:response.data.addressbookid}
+		);
+		var closeImport = function() {
+			self.$importProgress.fadeOut();
+			setTimeout(function() {
+				$('.import-upload').show();
+				$('.import-status').hide();
+				self.importCount = null;
+				self.$importProgress.progressbar('destroy');
+			}, 5000);
+		};
+		if(response.status === 'success') {
+			this.importCount = response.data.count;
+			this.$importProgress.progressbar('value', '0');
+			this.$importProgress.progressbar('option', 'max', this.importCount);
+			var data = response.data;
+			var getStatus = function(backend, addressbookid, progresskey, interval, done) {
+				if(done) {
+					clearInterval(interval);
+					closeImport();
+					return;
+				}
+				$.when($.post(status_url, {progresskey:progresskey}))
+				.then(function(response) {
+					if(!response.error) {
+						if(response.data.progress) {
+							self.$importProgress.progressbar('value', response.data.progress);
+							self.$importStatusText.text(t('contacts', 'Imported {count} of {total} contacts',
+														{count:response.data.progress, total: self.importCount}));
+						}
+					} else {
+						console.warn('Error', response.message);
+						self.$importStatusText.text(response.message);
+					}
+				}).fail(function(response) {
+					console.log(response.message);
+					$(document).trigger('status.contacts.error', response);
+					done = true;
+				});
+			};
+			$.when($.post(import_url, {filename:data.filename, progresskey:data.progresskey}))
+				.then(function(response) {
+				console.log('response', response);
+				if(!response.error) {
+					console.log('Import done');
+					self.$importStatusText.text(t('contacts', 'Imported {imported} contacts. {failed} failed.',
+													  {imported:response.data.imported, failed: response.data.failed}));
+					$(document).trigger('status.addressbook.imported', {
+						id: response.data.addressbookid
+					});
+					OC.notify({
+						message:t('contacts','Import done. Click here to cancel reloading.'),
+						timeout:5,
+						timeouthandler:function() {
+							console.log('reloading');
+							window.location.href = OC.linkTo('contacts', 'index.php');
+						},
+						clickhandler:function() {
+							console.log('reloading cancelled');
+							OC.notify({cancel:true});
+						}
+					});
+				} else {
+					self.$importStatusText.text(response.message);
+					$(document).trigger('status.contacts.error', response);
+				}
+				done = true;
+			}).fail(function(response) {
+				console.log(response.message);
+				$(document).trigger('status.contacts.error', response);
+				done = true;
+			});
+			interval = setInterval(function() {
+				getStatus(data.backend, data.addressbookid, data.progresskey, interval, done);
+			}, 1500);
+		} else {
+			done = true;
+			self.$importStatusText.text(response.data.message);
+			closeImport();
+			$(document).trigger('status.contacts.error', response);
+		}
 	},
 	// Build the select to add/remove from groups.
 	buildGroupSelect: function() {
@@ -837,6 +951,7 @@ OC.Contacts = OC.Contacts || {
 		var appendAddressBook = function($list, book, add) {
 			if(add) {
 				self.contacts.setAddressbook(book);
+				self.buildImportSelect();
 			}
 			var $li = self.$addressbookTmpl.octemplate({
 				id: book.id,
@@ -858,6 +973,7 @@ OC.Contacts = OC.Contacts || {
 						console.log(jsondata);
 						if(jsondata.status == 'success') {
 							self.contacts.unsetAddressbook(id);
+							self.buildImportSelect();
 							$li.remove();
 							OC.notify({
 								message:t('contacts','Deleting done. Click here to cancel reloading.'),
@@ -980,42 +1096,9 @@ OC.Contacts = OC.Contacts || {
 				} else {
 					$list.find('a.action.share').css('display', 'none');
 				}
+				self.buildImportSelect();
 			} else if($(this).data('id') === 'import') {
 				console.log('import');
-				$('.import-upload').show();
-				$('.import-select').hide();
-
-				var addAddressbookCallback = function(select, name) {
-					var id = false;
-					self.addAddressbook({
-						name: name,
-						description: ''
-					}, function(response) {
-						if(!response || !response.status) {
-							OC.notify({
-								message:t('contacts', 'Network or server error. Please inform administrator.')
-							});
-							return false;
-						} else if(response.status === 'error') {
-							OC.notify({message: response.message});
-							return false;
-						} else if(response.status === 'success') {
-							id = response.addressbook.id;
-						}
-					});
-					return id;
-				};
-
-				self.$importIntoSelect.empty();
-				$.each(self.contacts.addressbooks, function(id, book) {
-					self.$importIntoSelect.append('<option value="' + id + '">' + book.displayname + '</option>');
-				});
-				self.$importIntoSelect.multiSelect({
-					createCallback:addAddressbookCallback,
-					singleSelect: true,
-					createText:String(t('contacts', 'Add address book')),
-					minWidth: 120
-				});
 
 			}
 			$(this).parents('ul').first().find('ul:visible').slideUp();
@@ -1125,209 +1208,49 @@ OC.Contacts = OC.Contacts || {
 			$(this).find('.mailto').fadeOut(100);
 		});
 
-		// Import using jquery.fileupload
-		$(function() {
-			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
-			var aid, importError = false;
-			var $progressbar = $('#import-progress');
-			var $status = $('#import-status-text');
-
-			var waitForImport = function() {
-				if(numfiles == 0 && uploadedfiles == 0) {
-					$progressbar.progressbar('value',100);
-					if(!importError) {
-						OC.notify({
-							message:t('contacts','Import done. Click here to cancel reloading.'),
-							timeout:5,
-							timeouthandler:function() {
-								console.log('reloading');
-								window.location.href = OC.linkTo('contacts', 'index.php');
-							},
-							clickhandler:function() {
-								console.log('reloading cancelled');
-								OC.notify({cancel:true});
-							}
-						});
-					}
-					retries = aid = 0;
-					$progressbar.fadeOut();
-					setTimeout(function() {
-						$status.fadeOut('slow');
-						$('.import-upload').show();
-					}, 3000);
-				} else {
-					setTimeout(function() {
-						waitForImport();
-					}, 1000);
-				}
-			};
-			var doImport = function(file, aid, cb) {
-				$.post(OC.filePath('contacts', '', 'import.php'), { id: aid, file: file, fstype: 'OC_FilesystemView' },
-					function(jsondata) {
-						if(jsondata.status != 'success') {
-							importError = true;
-							OC.notify({message:jsondata.data.message});
-						}
-						if(typeof cb == 'function') {
-							cb(jsondata);
-						}
-				});
-				return false;
-			};
-
-			var importFiles = function(aid, uploadingFiles) {
-				console.log('importFiles', aid, uploadingFiles);
-				if(numfiles != uploadedfiles) {
-					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
-					retries += 1;
-					if(retries > 3) {
-						numfiles = uploadedfiles = retries = aid = 0;
-						uploadingFiles = {};
-						$progressbar.fadeOut();
-						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
-						return;
-					}
-					setTimeout(function() { // Just to let any uploads finish
-						importFiles(aid, uploadingFiles);
-					}, 1000);
-				}
-				$progressbar.progressbar('value', 50);
-				var todo = uploadedfiles;
-				$.each(uploadingFiles, function(fileName, data) {
-					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
-					doImport(fileName, aid, function(response) {
-						if(response.status === 'success') {
-							$status.text(t('contacts', '{success} imported, {failed} failed.',
-								{success:response.data.imported, failed:response.data.failed})).fadeIn();
-						} else {
-							$('.import-upload').show();
-							$('.import-select').hide();
-						}
-						delete uploadingFiles[fileName];
-						numfiles -= 1; uploadedfiles -= 1;
-						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
-					});
-				});
-				//$status.text(t('contacts', 'Importing...')).fadeIn();
-				waitForImport();
-			};
-
-			// Start the actual import.
-			$('.doImport').on('click keypress', function(event) {
-				if(wrongKey(event)) {
-					return;
-				}
-				aid = $(this).prev('select').val();
-				$('.import-select').hide();
-				importFiles(aid, uploadingFiles);
-			});
-
-			$('#import_fileupload').fileupload({
-				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
-				add: function(e, data) {
-					var files = data.files;
-					var totalSize=0;
-					if(files) {
-						numfiles += files.length; uploadedfiles = 0;
-						for(var i=0;i<files.length;i++) {
-							if(files[i].size ==0 && files[i].type== '') {
-								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
-								return;
-							}
-							totalSize+=files[i].size;
-						}
-					}
-					if(totalSize>$('#max_upload').val()) {
-						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
-						numfiles = uploadedfiles = retries = aid = 0;
-						uploadingFiles = {};
-						return;
-					} else {
-						if($.support.xhrFileUpload) {
-							$.each(files, function(i, file) {
-								var fileName = file.name;
-								console.log('file.name', file.name);
-								var jqXHR = $('#import_fileupload').fileupload('send',
-									{
-									files: file,
-									formData: function(form) {
-										var formArray = form.serializeArray();
-										formArray['aid'] = aid;
-										return formArray;
-									}})
-									.success(function(response, textStatus, jqXHR) {
-										if(response.status == 'success') {
-											// import the file
-											uploadedfiles += 1;
-										} else {
-											OC.notify({message:response.data.message});
-											$('.import-upload').show();
-											$('.import-select').hide();
-											$('#import-progress').hide();
-											$('#import-status-text').hide();
-										}
-										return false;
-									})
-									.error(function(jqXHR, textStatus, errorThrown) {
-										console.log(textStatus);
-										OC.notify({message:errorThrown + ': ' + textStatus});
-									});
-								uploadingFiles[fileName] = jqXHR;
-							});
-						} else {
-							data.submit().success(function(data, status) {
-								response = jQuery.parseJSON(data[0].body.innerText);
-								if(response[0] != undefined && response[0].status == 'success') {
-									var file=response[0];
-									delete uploadingFiles[file.name];
-									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
-									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
-									if(size==t('files','Pending')){
-										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
-									}
-									FileList.loadingDone(file.name);
-								} else {
-									OC.notify({message:response.data.message});
-								}
-							});
-						}
-					}
-				},
-				fail: function(e, data) {
-					console.log('fail');
-					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
-					$('.import-upload').show();
-					$('.import-select').hide();
-					// TODO: Remove file from upload queue.
-				},
-				progressall: function(e, data) {
-					var progress = (data.loaded/data.total)*50;
-					$progressbar.progressbar('value',progress);
-				},
-				start: function(e, data) {
-					$progressbar.progressbar({value:0});
-					$progressbar.fadeIn();
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').show();
-					}
-				},
-				stop: function(e, data) {
-					console.log('stop, data', data);
-					// stop only gets fired once so we collect uploaded items here.
-					$('.import-upload').hide();
-					$('.import-select').show();
-
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').hide();
-					}
-				}
-			});
-		});
-
 		$('body').on('touchmove', function(event) {
 			event.preventDefault();
 		});
-		
+
+		// Import handlers
+		this.$importIntoSelect.on('change', function() {
+			// Disable file input if no address book selected
+			var value = $(this).val();
+			self.$importFileInput.prop('disabled', value === '-1' );
+			if(value !== '-1') {
+				var url = OC.Router.generate(
+					'contacts_import_upload', {addressbookid:value}
+				);
+				self.$importFileInput.fileupload('option', 'url', url);
+			}
+		});
+
+		this.$importFileInput.fileupload({
+			dataType: 'json',
+			start: function(e, data) {
+				self.$importProgress.progressbar({value:false});
+				$('.tipsy').remove();
+				$('.import-upload').hide();
+				$('.import-status').show();
+				self.$importProgress.fadeIn();
+				self.$importStatusText.text(t('contacts', 'Uploading...'));
+			},
+			done: function (e, data) {
+				console.log('Upload done:', data.result);
+				self.doImport(data.result);
+			},
+			progressall: function (e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				self.$importProgress.progressbar('value', progress);
+			},
+			fail: function(e, data) {
+				console.log('fail', data);
+				OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+				$('.import-upload').show();
+				$('.import-status').hide();
+			}
+		});
+
 		$(document).on('keypress', function(event) {
 			if(!$(event.target).is('body')) {
 				return;

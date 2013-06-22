@@ -415,30 +415,38 @@ ul.propertylist { width: 450px; }
 	overflow-y: auto;
 }
 /* Single elements */
-#file_upload_target, #import_upload_target, #crop_target { display:none; }
-#import_fileupload {
-    height: 2.29em;
-    /*width: 2.5em;*/
-	width: 95%;
-	margin-top: -2.5em;
-	display:block;
-	clear: right;
+#file_upload_target, #crop_target { display:none; }
+#import_upload_start, .import-upload-button {
+    cursor: pointer;
+    width: 30px; height: 30px;
+    margin: 5px;
+}
+#import_upload_start {
 	cursor: pointer;
 	z-index: 1001;
+	opacity: 0;
+	margin-left: -30px;
 }
 .import-upload-button {
+    display: block;
+	float: left;
 	background-image: url("%webroot%/core/img/actions/upload.svg");
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-    height: 2.29em;
-    width: 2.5em;
     z-index: 100;
-	margin: 0;
-	cursor: pointer;
 }
 
-.doImport{ margin: auto; }
+.import-upload, .import-status {
+	height: 60px;
+}
+.import-upload select {
+	width: 70%; height: 30px;
+	margin: 5px;
+}
+.import-status {
+	display: none;
+}
 
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
 input:not([type="checkbox"]).propertytype { 
