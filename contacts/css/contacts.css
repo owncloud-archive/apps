@@ -181,12 +181,12 @@
 	margin: 0; padding: .2em;
 }
 
-.action, .icon {
+#content .action, #content .icon {
 	display: inline-block; 
 	cursor: pointer;
 	background-repeat: no-repeat;
 }
-.action:not(.text), .icon:not(.text) { 
+#content .action:not(.text), #content .icon:not(.text) {
 	width: 16px; height: 16px !important;
 	padding: 0; margin: 0; 
 	background-position: center;
