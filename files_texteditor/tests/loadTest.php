@@ -60,7 +60,6 @@ class Test_OC_Files_Texteditor_Load extends \PHPUnit_Framework_TestCase {
 				'filecontents' => 'test content',
 				'writeable' => true,
 				'mime' => 'text/plain',
-				'opened' => '',//time(),
 				)
 			);
 
