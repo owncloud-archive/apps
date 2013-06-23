@@ -143,8 +143,8 @@ function doFileSave() {
 		if ($('#editor').attr('data-edited') == 'true') {
 			// Get file path
 			var path = $('#editor').attr('data-dir') + '/' + $('#editor').attr('data-filename');
-			// Get original mtime
-			var mtime = $('#editor').attr('data-mtime');
+			// Get original opening time
+			var opened = $('#editor').attr('data-opened');
 			// Show saving spinner
 			$("#editor_save").die('click', doFileSave);
 			$('#save_result').remove();
@@ -152,7 +152,7 @@ function doFileSave() {
 			// Get the data
 			var filecontents = window.aceEditor.getSession().getValue();
 			// Send the data
-			$.post(OC.filePath('files_texteditor', 'ajax', 'savefile.php'), { filecontents: filecontents, path: path, mtime: mtime }, function (jsondata) {
+			$.post(OC.filePath('files_texteditor', 'ajax', 'savefile.php'), { filecontents: filecontents, path: path, opened: opened }, function (jsondata) {
 				if (jsondata.status != 'success') {
 					// Save failed
 					$('#editor_save').text(t('files_texteditor', 'Save'));
@@ -161,8 +161,8 @@ function doFileSave() {
 					$('#editor_save').live('click', doFileSave);
 				} else {
 					// Save OK
-					// Update mtime
-					$('#editor').attr('data-mtime', jsondata.data.mtime);
+					// Update opening time
+					$('#editor').attr('data-opened', jsondata.data.opened);
 					$('#editor_save').text(t('files_texteditor', 'Save'));
 					$("#editor_save").live('click', doFileSave);
 					// Update titles
@@ -199,8 +199,8 @@ function showFileEditor(dir, filename) {
 				{file: filename, dir: dir},
 				function (result) {
 					if (result.status == 'success') {
-						// Save mtime
-						$('#editor').attr('data-mtime', result.data.mtime);
+						// Save opening time
+						$('#editor').attr('data-opened', result.data.opened);
 						// Initialise the editor
 						$('.actions,#file_action_panel,#content table').hide();
 						// Show the control bar

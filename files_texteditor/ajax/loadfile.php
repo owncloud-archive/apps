@@ -3,7 +3,7 @@
  * ownCloud - files_texteditor
  *
  * @author Tom Needham
- * @copyright 2011 Tom Needham contact@tomneedham.com
+ * @copyright 2013 Tom Needham tom@owncloud.com
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -23,32 +23,16 @@
 // Init owncloud
 
 
-
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
 
-// Set the session key for the file we are about to edit.
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $filename = isset($_GET['file']) ? $_GET['file'] : '';
-if(!empty($filename))
-{
-	$path = $dir.'/'.$filename;
-	$writeable = \OC\Files\Filesystem::isUpdatable($path);
-	$mime = \OC\Files\Filesystem::getMimeType($path);
-	$mtime = \OC\Files\Filesystem::filemtime($path);
-	$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-	$encoding = mb_detect_encoding($filecontents."a", "UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII", true);
-	if ($encoding == "") {
-		// set default encoding if it couldn't be detected
-		$encoding = 'ISO-8859-15';
-	}
-	$filecontents = iconv($encoding, "UTF-8", $filecontents);
-	OCP\JSON::success(array('data' => array(
-		'filecontents' => $filecontents,
-		'writeable' => $writeable,
-		'mime' => $mime,
-		'mtime' => $mtime))
-	);
-} else {
-	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));
-}
+
+$editor = new \OCA\Texteditor\App(
+	\OC\Files\Filesystem::getView(),
+	\OC_L10n::get('files_texteditor')
+);
+
+return json_encode($editor->loadFile($dir, $filename));
+
