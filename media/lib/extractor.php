@@ -49,7 +49,7 @@ class Extractor_GetID3 implements Extractor {
 	public function extract($path) {
 		if(ini_get('allow_url_fopen')) {
 			$file = \OC\Files\Filesystem::getView()->getAbsolutePath($path);
-			$data = @$this->getID3->analyze('oc://' . $file);
+			$data = @$this->getID3->analyze('/user/real/path/here' . $file);
 		} else {
 			// Fallback to the local FS
 			$file = \OC\Files\Filesystem::getLocalFile($path);
