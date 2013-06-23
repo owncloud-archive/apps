@@ -50,6 +50,18 @@ if($id == '') {
 
 OCP\Util::writeLog('contacts', 'savecrop.php: key: '.$tmpkey, OCP\Util::DEBUG);
 
+// For vCard 3.0 the type must be e.g. JPEG or PNG
+// For version 4.0 the full mimetype should be used.
+// https://tools.ietf.org/html/rfc2426#section-3.1.4
+function imageType($version, $mimeType) {
+	if($version === '4.0') {
+		return $mimeType;
+	} else {
+		$parts = explode('/', $mimeType);
+		return strtoupper(array_pop($parts));
+	}
+}
+
 $data = OC_Cache::get($tmpkey);
 if($data) {
 	$image = new OC_Image();
@@ -79,22 +91,20 @@ if($data) {
 						bailOut(OCA\Contacts\App::$l10n
 							->t('Error getting PHOTO property.'));
 					}
+					$type = imageType((string)$vcard->VERSION, $image->mimeType());
 					$property->setValue($image->__toString());
+					$property->parameters = array();
 					$property->parameters[]
 						= new Sabre\VObject\Parameter('ENCODING', 'b');
 					$property->parameters[]
-						= new Sabre\VObject\Parameter('TYPE', $image->mimeType());
+						= new Sabre\VObject\Parameter('TYPE', $type);
 					$vcard->__set('PHOTO', $property);
 				} else {
 					OCP\Util::writeLog('contacts',
-						'savecrop.php: files: Adding PHOTO property.',
+						'savecrop.php: Adding PHOTO property.',
 						OCP\Util::DEBUG);
-					// For vCard 3.0 the type must be e.g. JPEG or PNG
-					// For version 4.0 the full mimetype should be used.
-					// https://tools.ietf.org/html/rfc2426#section-3.1.4
-					$type = $vcard->VERSION == '4.0' 
-						? $image->mimeType() 
-						: strtoupper(array_pop(explode('/', $image->mimeType())));
+					$type = imageType((string)$vcard->VERSION, $image->mimeType());
+
 					$vcard->add('PHOTO',
 						$image->__toString(), array('ENCODING' => 'b',
 						'TYPE' => $type));

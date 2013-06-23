@@ -75,7 +75,13 @@ class Addressbook {
 		}
 
 		if($shared === true) {
-			$addressbooks = array_merge($addressbooks, \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
+			$sharedAddressbooks = \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
+			// workaround for https://github.com/owncloud/core/issues/2814
+			foreach($sharedAddressbooks as $sharedAddressbook) {
+				if(isset($sharedAddressbook['id']) && self::find($sharedAddressbook['id'])) {
+					$addressbooks[] = $sharedAddressbook;
+				}
+			}
 		}
 		if(!$active && !count($addressbooks)) {
 			$id = self::addDefault($uid);
@@ -143,6 +149,9 @@ class Addressbook {
 			return false;
 		}
 		$row = $result->fetchRow();
+		if(!$row) {
+			return false;
+		}
 
 		if($row['userid'] != \OCP\USER::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
@@ -400,8 +409,9 @@ class Addressbook {
 	 * @return boolean
 	 */
 	public static function touch($id) {
-		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_addressbooks` SET `ctag` = `ctag` + 1 WHERE `id` = ?' );
-		$stmt->execute(array($id));
+		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_addressbooks` SET `ctag` = ? + 1 WHERE `id` = ?' );
+		$ctag = time();
+		$stmt->execute(array($ctag, $id));
 
 		return true;
 	}

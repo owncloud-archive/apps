@@ -50,7 +50,8 @@ if(is_array($sharedwithByEvent)) {
 <?php endforeach; ?>
 </ul>
 <?php if(!$eventsharees) {
-	print_unescaped('<div id="sharedWithNobody">' . OC_Util::sanitizeHTML($l->t('Nobody')) . '</div>');
+	$nobody = $l->t('Nobody');
+	print_unescaped('<div id="sharedWithNobody">' . OC_Util::sanitizeHTML($nobody) . '</div>');
 } ?>
 <br />
 <strong><?php p($l->t('Shared via calendar')); ?></strong>

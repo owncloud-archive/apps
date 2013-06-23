@@ -1,0 +1,31 @@
+ownCloud Contacts Changelog
+
+5.0.8
+ - Fix: When users where deleted, any address books shared with them would also deleted.
+
+5.0.7:
+ - Feature: Delete button for single contacts in list. contacts#101
+ - Improvement: Cut ~40% off of initial rendering time.
+ - Fix: Thumbnail was not updated when changing PHOTO via CardDAV. contacts#120
+ - Fix: Drag item only worked on first drag. contacts#33
+ - Fix: The internal client side value for BDAY was malformed after adding a birthday. contacts#104
+ - Fix: URL and EMAIL event handlers reenabled: contacts#109
+ - Fix: Send correct lastModified. contacts#48 contacts#99
+ - Fix: Don't keep attaching event handler for uploaded photo. contacts#24
+ - Fix: Don't recreate default groups after user has deleted them. contacts#47
+ - Fix: Properly format and decode properties on update from 2.1. contacts#54
+ - Fix: When importing into a shared address book, groups were created for the "sharee"
+   instead of the owner. contacts#39
+ - Fix: If a shared address book was selecting while creating a contacts a new group
+   with the same name would be created. contacts#39
+ - Fix: Properties are now properly (un)escaped. contacts#42 contacts#7
+ - Fix: Add workaround for stale shares. core#2814 contacts#78
+ - Fix: Cached thumbnail wasn't removed when photo was delete. contacts#77
+
+5.0.6:
+ - Improvement: If contacts display name doesn't exists check first for ORG then EMAIL.
+ - Fix: Check for existing address books on migrate->import to avoid duplicate records..
+ - Fix: Older Firefox/Iceweasel didn't show email/tel/url because of missing outerHTML.
+ - Fix: Unescape variables in search results and generated birthday events.
+ - Fix: AddressbookProviders could have duplicate keys.
+ - Feature: Add support for IMPP:SIP aka Internet calls.

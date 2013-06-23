@@ -13,16 +13,21 @@ session_write_close();
 $calendar_id = null;
 if (strval(intval($_GET['calendar_id'])) == strval($_GET['calendar_id'])) { // integer for sure.
 	$id = intval($_GET['calendar_id']);
-	$calendarrow = OC_Calendar_App::getCalendar($id, true, false); // Let's at least security check otherwise we might as well use OC_Calendar_Calendar::find()
-	if($calendarrow !== false && is_int($calendar_id['userid']) && $id == $calendar_id['userid']) {
+	$calendarrow = OC_Calendar_App::getCalendar($id, true, false); // Let's at least security check otherwise we might as well use OC_Calendar_Calendar::find())
+	if($calendarrow !== false) {
 		$calendar_id = $id;
+	}else{
+		if(OCP\Share::getItemSharedWithBySource('calendar', $id) === false){
+			OCP\JSON::encodedPrint(array());
+			exit;
+		}
 	}
 }
 $calendar_id = (is_null($calendar_id)?strip_tags($_GET['calendar_id']):$calendar_id);
 
 $start = (version_compare(PHP_VERSION, '5.3.0', '>='))?DateTime::createFromFormat('U', $_GET['start']):new DateTime('@' . $_GET['start']);
 $end = (version_compare(PHP_VERSION, '5.3.0', '>='))?DateTime::createFromFormat('U', $_GET['end']):new DateTime('@' . $_GET['end']);
-$events = OC_Calendar_App::getrequestedEvents($_GET['calendar_id'], $start, $end);
+$events = OC_Calendar_App::getrequestedEvents($calendar_id, $start, $end);
 $output = array();
 foreach($events as $event) {
 	$output = array_merge($output, OC_Calendar_App::generateEventOutput($event, $start, $end));

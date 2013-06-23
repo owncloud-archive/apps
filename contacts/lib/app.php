@@ -93,6 +93,11 @@ class App {
 					'xname' => 'X-JABBER',
 					'protocol' => 'xmpp',
 				),
+				'sip' => array(
+				'displayname' => (string)$l10n->t('Internet call'),
+				'xname' => 'X-SIP',
+				'protocol' => 'sip',
+				),
 				'aim' => array(
 					'displayname' => (string)$l10n->t('AIM'),
 					'xname' => 'X-AIM',
@@ -198,13 +203,13 @@ class App {
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	public static function getVCategories() {
+	public static function getVCategories($user = null) {
 		if (is_null(self::$categories)) {
 			if(\OC_VCategories::isEmpty('contact')) {
 				self::scanCategories();
 			}
 			self::$categories = new \OC_VCategories('contact',
-				null,
+				$user,
 				self::getDefaultCategories());
 		}
 		return self::$categories;
@@ -224,6 +229,9 @@ class App {
 	 * @return (array) $categories
 	 */
 	public static function getDefaultCategories() {
+		if(\OCP\Config::getUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'no') === 'yes') {
+			return array();
+		}
 		return array(
 			(string)self::$l10n->t('Friends'),
 			(string)self::$l10n->t('Family'),
@@ -237,6 +245,9 @@ class App {
 	 * @param $vccontacts VCards to scan. null to check all vcards for the current user.
 	 */
 	public static function scanCategories($vccontacts = null) {
+		if(\OCP\Config::getUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'no') === 'yes') {
+			return;
+		}
 		if (is_null($vccontacts)) {
 			$vcaddressbooks = Addressbook::all(\OCP\USER::getUser());
 			if(count($vcaddressbooks) > 0) {
@@ -267,17 +278,18 @@ class App {
 				}
 			}
 		}
+		\OCP\Config::setUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'yes');
 	}
 
 	/**
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard($id, $contact) {
+	public static function loadCategoriesFromVCard($id, $contact, $user = null) {
 		if(!$contact instanceof \OC_VObject) {
 			$contact = new \OC_VObject($contact);
 		}
-		self::getVCategories()->loadFromVObject($id, $contact, true);
+		self::getVCategories($user)->loadFromVObject($id, $contact, true);
 	}
 
 	/**
@@ -287,20 +299,14 @@ class App {
 	 */
 	public static function lastModified($contact = null) {
 		if(is_null($contact)) {
-			// FIXME: This doesn't take shared address books into account.
-			$sql = 'SELECT MAX(`lastmodified`) FROM `*PREFIX*contacts_cards`, `*PREFIX*contacts_addressbooks` ' .
-				'WHERE  `*PREFIX*contacts_cards`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
-				'`*PREFIX*contacts_addressbooks`.`userid` = ?';
-			$stmt = \OCP\DB::prepare($sql);
-			$result = $stmt->execute(array(\OCP\USER::getUser()));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return null;
+			$addressBooks = Addressbook::all(\OCP\User::getUser());
+			$lastModified = 0;
+			foreach($addressBooks as $addressBook) {
+				if(isset($addressBook['ctag']) and (int)$addressBook['ctag'] > $lastModified) {
+					$lastModified = $addressBook['ctag'];
+				}
 			}
-			$lastModified = $result->fetchOne();
-			if(!is_null($lastModified)) {
-				return new \DateTime('@' . $lastModified);
-			}
+			return new \DateTime('@' . $lastModified);
 		} else if(is_numeric($contact)) {
 			$card = VCard::find($contact, array('lastmodified'));
 			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
@@ -311,9 +317,16 @@ class App {
 		}
 	}
 
-	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
-			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+	public static function cacheThumbnail($id, \OC_Image $image = null, $remove = false, $update = false) {
+		$key = self::THUMBNAIL_PREFIX . $id;
+		if(\OC_Cache::hasKey($key) && $image === null && $remove === false && $update === false) {
+			return \OC_Cache::get($key);
+		}
+		if($remove) {
+			\OC_Cache::remove($key);
+			if(!$update) {
+				return false;
+			}
 		}
 		if(is_null($image)) {
 			$vcard = self::getContactVCard($id);
@@ -346,9 +359,9 @@ class App {
 			return false;
 		}
 		 // Cache for around a month
-		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
+		\OC_Cache::set($key, $image->data(), 3000000);
 		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
-		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+		return \OC_Cache::get($key);
 	}
 
 	public static function updateDBProperties($contactid, $vcard = null) {

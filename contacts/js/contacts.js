@@ -14,7 +14,6 @@ OC.Contacts = OC.Contacts || {};
 	* @param detailtemplates A map of jquery objects used to render the contact parts e.g. EMAIL, TEL etc.
 	*/
 	var Contact = function(parent, id, access, data, listtemplate, dragtemplate, fulltemplate, detailtemplates) {
-		//console.log('contact:', id, access); //parent, id, data, listtemplate, fulltemplate);
 		this.parent = parent,
 			this.id = id,
 			this.access = access,
@@ -25,6 +24,14 @@ OC.Contacts = OC.Contacts || {};
 			this.detailTemplates = detailtemplates;
 		this.undoQueue = [];
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
+	};
+
+	Contact.prototype.getDisplayName = function() {
+		return this.getPreferredValue('FN') || this.getPreferredValue('ORG') || this.getPreferredValue('EMAIL');
+	};
+
+	Contact.prototype.getId = function() {
+		return this.id;
 	};
 
 	Contact.prototype.showActions = function(act) {
@@ -45,6 +52,17 @@ OC.Contacts = OC.Contacts || {};
 		} else {
 			$(obj).removeClass('loading');
 		}*/
+	};
+
+	Contact.prototype.handleURL = function(obj) {
+		if(!obj) {
+			return;
+		}
+		var $container = this.propertyContainerFor(obj);
+		$(document).trigger('request.openurl', {
+			type: $container.data('element'),
+			url: this.valueFor(obj)
+		});
 	};
 
 	Contact.prototype.pushToUndo = function(params) {
@@ -195,9 +213,13 @@ OC.Contacts = OC.Contacts || {};
 						newvalue: $container.find('input.value').val()
 					});
 					self.setAsSaving(obj, false);
-					self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
-					$container.find('input.value').val('');
-					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
+					if(element === 'PHOTO') {
+						self.data.PHOTO[0].value = false;
+					} else {
+						self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
+						$container.find('input.value').val('');
+						self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
+					}
 				}
 				$(document).trigger('status.contact.updated', {
 					property: element,
@@ -327,6 +349,16 @@ OC.Contacts = OC.Contacts || {};
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
 							break;
+						case 'BDAY':
+							// reverse order again.
+							value = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd-mm-yy', value));
+							self.data[element][0] = {
+								name: element,
+								value: value,
+								parameters: self.parametersFor(obj),
+								checksum: jsondata.data.checksum
+							};
+							break;
 						case 'FN':
 							if(!self.data.FN || !self.data.FN.length) {
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
@@ -395,7 +427,6 @@ OC.Contacts = OC.Contacts || {};
 								}, 1000);
 							}
 						case 'NICKNAME':
-						case 'BDAY':
 						case 'ORG':
 						case 'TITLE':
 						case 'NOTE':
@@ -439,6 +470,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.close = function() {
 		console.log('Contact.close', this);
+		$(document).unbind('status.contact.photoupdated');
 		if(this.$fullelem) {
 			this.$fullelem.remove();
 			return true;
@@ -518,7 +550,8 @@ OC.Contacts = OC.Contacts || {};
 				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
-					&& self.groupprops.currentgroup.id !== 'fav') {
+					&& self.groupprops.currentgroup.id !== 'fav'
+					&& self.groupprops.currentgroup.type === 'category') {
 					if(!self.data.CATEGORIES) {
 						self.addToGroup(self.groupprops.currentgroup.name);
 						$(document).trigger('request.contact.addtogroup', {
@@ -683,10 +716,10 @@ OC.Contacts = OC.Contacts || {};
 	Contact.prototype.renderListItem = function(isnew) {
 		this.$listelem = this.$listTemplate.octemplate({
 			id: this.id,
-			name: isnew ? this.getPreferredValue('FN', '') : this.getPreferredValue('FN', ''),
-			email: isnew ? this.getPreferredValue('EMAIL', '') : this.getPreferredValue('EMAIL', ''),
-			tel: isnew ? this.getPreferredValue('TEL', '') : this.getPreferredValue('TEL', ''),
-			adr: isnew ? this.getPreferredValue('ADR', []).clean('').join(', ') : this.getPreferredValue('ADR', []).clean('').join(', '),
+			name: this.getDisplayName(),
+			email: this.getPreferredValue('EMAIL', ''),
+			tel: this.getPreferredValue('TEL', ''),
+			adr: this.getPreferredValue('ADR', []).clean('').join(', '),
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
@@ -694,6 +727,18 @@ OC.Contacts = OC.Contacts || {};
 				&& !(this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
+		}
+		if(this.access.owner === OC.currentUser) {
+			this.$listelem.find('td.name').draggable({
+				distance: 10,
+				revert: 'invalid',
+				//containment: '#content',
+				helper: function (e,ui) {
+					return $(this).clone().appendTo('body').css('zIndex', 5).show();
+				},
+				opacity: 0.8,
+				scope: 'contacts'
+			});
 		}
 		return this.$listelem;
 	};
@@ -808,6 +853,14 @@ OC.Contacts = OC.Contacts || {};
 				return;
 			}
 			self.deleteProperty({obj:event.target});
+		});
+
+		this.$fullelem.on('click keydown', '.globe,.mail', function(event) {
+			$('.tipsy').remove();
+			if(wrongKey(event)) {
+				return;
+			}
+			self.handleURL(event.target);
 		});
 
 		this.$footer.on('click keydown', 'button', function(event) {
@@ -1400,6 +1453,10 @@ OC.Contacts = OC.Contacts || {};
 			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
 				data.contact.getListItemElement().remove();
 				self.insertContact(data.contact.renderListItem(true));
+			} else if(data.property === 'PHOTO') {
+				$(document).trigger('status.contact.photoupdated', {
+					id: data.contact.getId()
+				});
 			}
 		});
 	};
@@ -1630,16 +1687,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @param contact jQuery object.
 	 */
 	ContactList.prototype.insertContact = function($contact) {
-		$contact.draggable({
-			distance: 10,
-			revert: 'invalid',
-			//containment: '#content',
-			helper: function (e,ui) {
-				return $(this).clone().appendTo('body').css('zIndex', 5).show();
-			},
-			opacity: 0.8,
-			scope: 'contacts'
-		});
 		var name = $contact.find('.nametext').text().toLowerCase();
 		var added = false;
 		this.$contactList.find('tr').each(function() {
@@ -1729,6 +1776,24 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
+	 * Get an array of address books with at least the required permission.
+	 *
+	 * @param int permission
+	 */
+	ContactList.prototype.addressBooksByPermission = function(permission) {
+		var books = [];
+		var self = this;
+		$.each(this.addressbooks, function(idx, book) {
+			console.log('book', book);
+			if(book.permissions & permission) {
+				// Clone the address book not to mess with with original
+				books.push(book);
+			}
+		});
+		return books;
+	};
+
+	/**
 	* Save addressbook data
 	* @param int id
 	*/
@@ -1783,17 +1848,11 @@ OC.Contacts = OC.Contacts || {};
 						);
 					self.length +=1;
 					var $item = self.contacts[parseInt(contact.id)].renderListItem();
+					if(!$item) {
+						console.warn('Contact', contact, 'could not be rendered!');
+						return true; // continue
+					}
 					items.push($item.get(0));
-					$item.find('td.name').draggable({
-						cursor: 'move',
-						distance: 10,
-						revert: 'invalid',
-						helper: function (e,ui) {
-							return self.contacts[parseInt(contact.id)].renderDragItem().appendTo('body');
-						},
-						opacity: 1,
-						scope: 'contacts'
-					});
 					if(items.length === 100) {
 						self.$contactList.append(items);
 						items = [];

@@ -57,6 +57,9 @@ if(!is_null($checksum)) {
 	unset($vcard->children[$line]);
 } else {
 	unset($vcard->{$name});
+	if($name === 'PHOTO') {
+		\OC_Cache::remove(OCA\Contacts\App::THUMBNAIL_PREFIX . $id);
+	}
 }
 
 try {

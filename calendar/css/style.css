@@ -27,6 +27,8 @@
 #listview #events .day {width:auto;padding-left:10px;border-bottom: 2px solid #EEEEEE;text-align:left;}
 
 .actions {height: 33px;	min-width: 800px;}
+.actionsfloatleft {float:left;margin-left: 1.4em;}
+.actionsfloatright {float:right;margin-right: 1.4em;}
 .controls {min-width: 800px;}
 #controls button, #controls input { max-height: 26px; padding: 5px; }
 .center {text-align: center;}

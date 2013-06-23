@@ -32,7 +32,6 @@
 					$city=strtr($ex[1], '_', ' ');
 					$continent=$ex[0];
 					print_unescaped('<option value="'.OC_Util::sanitizeHTML($timezone).'"'.($_['timezone'] == $timezone?' selected="selected"':'').'>'.OC_Util::sanitizeHTML($city).'</option>');
-					var_dump($_['timezone']);
 				endforeach;?>
 				</select>
 			</td>

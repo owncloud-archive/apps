@@ -60,7 +60,7 @@ class OC_Calendar_Export{
 	 }
 
 	 /**
-	  * @brief generates the VEVENT with UTC dates
+	  * @brief generates the VEVENT/VTODO/VJOURNAL with UTC dates
 	  * @param array $event
 	  * @return string
 	  */
@@ -70,13 +70,13 @@ class OC_Calendar_Export{
 			return false;
 		}
 
-		$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
+		$sharedAccessClassPermissions = OC_Calendar_Object::getAccessClassPermissions($object);
 		if(OC_Calendar_Object::getowner($event['id']) !== OCP\User::getUser()){
 			if (!($sharedAccessClassPermissions & OCP\PERMISSION_READ)) {
 				return '';
 			}
 		}
-		$object = OC_Calendar_Object::cleanByAccessClass($event['calendarid'], $object);
+		$object = OC_Calendar_Object::cleanByAccessClass($event['id'], $object);
 
 		if($object->VEVENT){
 			$dtstart = $object->VEVENT->DTSTART;

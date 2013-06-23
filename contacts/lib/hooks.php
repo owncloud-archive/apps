@@ -56,7 +56,9 @@ class Hooks{
 		$addressbooks = Addressbook::all($parameters['uid']);
 
 		foreach($addressbooks as $addressbook) {
-			Addressbook::delete($addressbook['id']);
+			if($parameters['uid'] === $addressbook['userid']) {
+				Addressbook::delete($addressbook['id']);
+			}
 		}
 
 		return true;

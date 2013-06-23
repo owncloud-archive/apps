@@ -9,7 +9,9 @@
 
  <table>
 
-  <name>*dbprefix*calendar_objects</name>
+  <name>*dbprefix*clndr_objects</name>
+
+  <was>*dbprefix*calendar_objects</was>
 
   <declaration>
 
@@ -43,14 +45,14 @@
    <field>
     <name>startdate</name>
     <type>timestamp</type>
-    <default>0000-00-00 00:00:00</default>
+    <default>1970-01-01 00:00:00</default>
     <notnull>false</notnull>
    </field>
 
    <field>
     <name>enddate</name>
     <type>timestamp</type>
-    <default>0000-00-00 00:00:00</default>
+    <default>1970-01-01 00:00:00</default>
     <notnull>false</notnull>
    </field>
 
@@ -98,7 +100,9 @@
 
  <table>
 
-  <name>*dbprefix*calendar_calendars</name>
+  <name>*dbprefix*clndr_calendars</name>
+
+  <was>*dbprefix*calendar_calendars</was>
 
   <declaration>
 
@@ -190,7 +194,9 @@
  
  <table>
 
-  <name>*dbprefix*calendar_share_event</name>
+  <name>*dbprefix*clndr_share_event</name>
+
+  <was>*dbprefix*calendar_share_event</was>
 
   <declaration>
   
@@ -237,7 +243,9 @@
  
  <table>
 
-  <name>*dbprefix*calendar_share_calendar</name>
+  <name>*dbprefix*clndr_share_calendar</name>
+
+  <was>*dbprefix*calendar_share_calendar</was>
 
   <declaration>
   
@@ -292,7 +300,9 @@
  
  <table>
 
-  <name>*dbprefix*calendar_repeat</name>
+  <name>*dbprefix*clndr_repeat</name>
+
+  <was>*dbprefix*calendar_repeat</was>
 
   <declaration>
 
@@ -327,14 +337,14 @@
    <field>
     <name>startdate</name>
     <type>timestamp</type>
-    <default>0000-00-00 00:00:00</default>
+    <default>1970-01-01 00:00:00</default>
     <notnull>false</notnull>
    </field>
 
    <field>
     <name>enddate</name>
     <type>timestamp</type>
-    <default>0000-00-00 00:00:00</default>
+    <default>1970-01-01 00:00:00</default>
     <notnull>false</notnull>
    </field>
 

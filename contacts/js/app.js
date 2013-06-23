@@ -233,8 +233,122 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-		this.$importFileInput = $('#import_fileupload');
+		this.$importFileInput = $('#import_upload_start');
 		this.$importIntoSelect = $('#import_into');
+		this.$importProgress = $('#import-status-progress');
+		this.$importStatusText = $('#import-status-text');
+	},
+	/**
+	 * Rebuild the select to choose which address book to import into.
+	 */
+	buildImportSelect: function() {
+		var self = this;
+		this.$importIntoSelect.find('option:not([value="-1"])').remove();
+		var addressBooks = this.contacts.addressBooksByPermission(OC.PERMISSION_UPDATE);
+		$.each(addressBooks, function(idx, book) {
+			var $opt = $('<option />');
+			$opt.val(book.id).text(book.displayname);
+			self.$importIntoSelect.append($opt);
+		});
+		if(addressBooks.length === 1) {
+			this.$importIntoSelect.val(this.$importIntoSelect.find('option:not([value="-1"])').first().val()).hide().trigger('change');
+			self.$importFileInput.prop('disabled', false);
+		} else {
+			this.$importIntoSelect.show();
+			self.$importFileInput.prop('disabled', true);
+		}
+	},
+
+	doImport: function(response) {
+		console.log('doImport', response);
+		var done = false;
+		var interval = null;
+		var self = this;
+		var status_url = OC.Router.generate(
+			'contacts_import_status', {addressbookid:response.data.addressbookid}
+		);
+		var import_url = OC.Router.generate(
+			'contacts_import_start', {addressbookid:response.data.addressbookid}
+		);
+		var closeImport = function() {
+			self.$importProgress.fadeOut();
+			setTimeout(function() {
+				$('.import-upload').show();
+				$('.import-status').hide();
+				self.importCount = null;
+				self.$importProgress.progressbar('destroy');
+			}, 5000);
+		};
+		if(response.status === 'success') {
+			this.importCount = response.data.count;
+			this.$importProgress.progressbar('value', '0');
+			this.$importProgress.progressbar('option', 'max', this.importCount);
+			var data = response.data;
+			var getStatus = function(backend, addressbookid, progresskey, interval, done) {
+				if(done) {
+					clearInterval(interval);
+					closeImport();
+					return;
+				}
+				$.when($.post(status_url, {progresskey:progresskey}))
+				.then(function(response) {
+					if(!response.error) {
+						if(response.data.progress) {
+							self.$importProgress.progressbar('value', response.data.progress);
+							self.$importStatusText.text(t('contacts', 'Imported {count} of {total} contacts',
+														{count:response.data.progress, total: self.importCount}));
+						}
+					} else {
+						console.warn('Error', response.message);
+						self.$importStatusText.text(response.message);
+					}
+				}).fail(function(response) {
+					console.log(response.message);
+					$(document).trigger('status.contacts.error', response);
+					done = true;
+				});
+			};
+			$.when($.post(import_url, {filename:data.filename, progresskey:data.progresskey}))
+				.then(function(response) {
+				console.log('response', response);
+				if(!response.error) {
+					console.log('Import done');
+					self.$importStatusText.text(t('contacts', 'Imported {imported} contacts. {failed} failed.',
+													  {imported:response.data.imported, failed: response.data.failed}));
+					$(document).trigger('status.addressbook.imported', {
+						id: response.data.addressbookid
+					});
+					OC.notify({
+						message:t('contacts','Import done. Click here to cancel reloading.'),
+						timeout:5,
+						timeouthandler:function() {
+							console.log('reloading');
+							window.location.href = OC.linkTo('contacts', 'index.php');
+						},
+						clickhandler:function() {
+							console.log('reloading cancelled');
+							OC.notify({cancel:true});
+						}
+					});
+				} else {
+					self.$importStatusText.text(response.message);
+					$(document).trigger('status.contacts.error', response);
+				}
+				done = true;
+			}).fail(function(response) {
+				console.log(response.message);
+				$(document).trigger('status.contacts.error', response);
+				done = true;
+			});
+			interval = setInterval(function() {
+				getStatus(data.backend, data.addressbookid, data.progresskey, interval, done);
+			}, 1500);
+		} else {
+			done = true;
+			self.$importStatusText.text(response.data.message);
+			closeImport();
+			$(document).trigger('status.contacts.error', response);
+		}
 	},
 	// Build the select to add/remove from groups.
 	buildGroupSelect: function() {
@@ -383,6 +497,41 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.visiblecontacts', function(e, result) {
 			console.log('status.visiblecontacts', result);
 			// TODO: To be decided.
+		});
+
+		$(document).bind('request.openurl', function(e, data) {
+			console.log('request.openurl');
+			switch(data.type) {
+				case 'url':
+					var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-\/]))?/;
+					//if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(data.url)) {
+					if(regexp.test(data.url)) {
+						var newWindow = window.open(data.url,'_blank');
+						newWindow.focus();
+					} else {
+						$(document).trigger('status.contact.error', {
+							status: 'error',
+							message: t('contacts', 'Invalid URL: "{url}"', {url:data.url})
+						});
+					}
+					break;
+				case 'email':
+					var regexp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+					if(regexp.test(data.url)) {
+						console.log('success');
+						try {
+							window.location = 'mailto:' + data.url;
+						} catch(e) {
+							alert(t('contacts', 'There was an error opening a mail composer.'));
+						}
+					} else {
+						$(document).trigger('status.contact.error', {
+							status: 'error',
+							message: t('contacts', 'Invalid email: "{url}"', {url:data.url})
+						});
+					}
+					break;
+			}
 		});
 
 		// A contact id was in the request
@@ -571,6 +720,18 @@ OC.Contacts = OC.Contacts || {
 			self.uploadPhoto(this.files);
 		});
 
+		var target = $('#file_upload_target');
+		target.load(function() {
+			var response=jQuery.parseJSON(target.contents().text());
+			if(response != undefined && response.status == 'success') {
+				console.log('response', response);
+				self.editPhoto(self.currentid, response.data.tmp);
+				//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
+			} else if(response) {
+				OC.notify({message:response.data.message});
+			}
+		});
+
 		$('#groupsheader > .addgroup').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -743,6 +904,15 @@ OC.Contacts = OC.Contacts || {
 			self.setAllChecked(false);
 		});
 
+		this.$contactList.on('mouseenter', 'tr.contact', function(event) {
+			var $td = $(this).find('td').filter(':visible').last();
+			$('<a />').addClass('svg delete action').appendTo($td);
+		});
+
+		this.$contactList.on('mouseleave', 'tr.contact', function(event) {
+			$(this).find('a.delete').remove();
+		});
+
 		// Contact list. Either open a contact or perform an action (mailto etc.)
 		this.$contactList.on('click', 'tr', function(event) {
 			if($(event.target).is('input')) {
@@ -757,13 +927,16 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
-				console.log('mailto', mailto);
-				try {
-					window.location.href=mailto;
-				} catch(e) {
-					alert(t('contacts', 'There was an error opening a mail composer.'));
-				}
+				$(document).trigger('request.openurl', {
+					type: 'email',
+					url: $.trim($(this).find('.email').text())
+				});
+				return;
+			}
+			if($(event.target).is('a.delete')) {
+				$(document).trigger('request.contact.delete', {
+					id: $(this).data('id')
+				});
 				return;
 			}
 			self.openContact($(this).data('id'));
@@ -778,6 +951,7 @@ OC.Contacts = OC.Contacts || {
 		var appendAddressBook = function($list, book, add) {
 			if(add) {
 				self.contacts.setAddressbook(book);
+				self.buildImportSelect();
 			}
 			var $li = self.$addressbookTmpl.octemplate({
 				id: book.id,
@@ -799,6 +973,7 @@ OC.Contacts = OC.Contacts || {
 						console.log(jsondata);
 						if(jsondata.status == 'success') {
 							self.contacts.unsetAddressbook(id);
+							self.buildImportSelect();
 							$li.remove();
 							OC.notify({
 								message:t('contacts','Deleting done. Click here to cancel reloading.'),
@@ -878,7 +1053,7 @@ OC.Contacts = OC.Contacts || {
 							var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
 							appendAddressBook($list, book, true);
 						}
-						$addInput.removeClass('loading');
+						$addInput.removeClass('loading').val('');
 						$addAddressBookPart.find('button input').prop('disabled', false);
 						$addAddressBookPart.hide().prev('button').show();
 					});
@@ -921,42 +1096,9 @@ OC.Contacts = OC.Contacts || {
 				} else {
 					$list.find('a.action.share').css('display', 'none');
 				}
+				self.buildImportSelect();
 			} else if($(this).data('id') === 'import') {
 				console.log('import');
-				$('.import-upload').show();
-				$('.import-select').hide();
-
-				var addAddressbookCallback = function(select, name) {
-					var id = false;
-					self.addAddressbook({
-						name: name,
-						description: ''
-					}, function(response) {
-						if(!response || !response.status) {
-							OC.notify({
-								message:t('contacts', 'Network or server error. Please inform administrator.')
-							});
-							return false;
-						} else if(response.status === 'error') {
-							OC.notify({message: response.message});
-							return false;
-						} else if(response.status === 'success') {
-							id = response.addressbook.id;
-						}
-					});
-					return id;
-				};
-
-				self.$importIntoSelect.empty();
-				$.each(self.contacts.addressbooks, function(id, book) {
-					self.$importIntoSelect.append('<option value="' + id + '">' + book.displayname + '</option>');
-				});
-				self.$importIntoSelect.multiSelect({
-					createCallback:addAddressbookCallback,
-					singleSelect: true,
-					createText:String(t('contacts', 'Add address book')),
-					minWidth: 120
-				});
 
 			}
 			$(this).parents('ul').first().find('ul:visible').slideUp();
@@ -970,10 +1112,18 @@ OC.Contacts = OC.Contacts || {
 			self.currentid = 'new';
 			// Properties that the contact doesn't know
 			console.log('addContact, groupid', self.currentgroup);
+			var $groupelem = self.groups.findById(self.currentgroup);
+			var currentgroup = $groupelem
+				? {
+					id: self.currentgroup,
+					name: self.groups.nameById(self.currentgroup),
+					type: $groupelem.data('type')
+				}
+				: null;
 			var groupprops = {
 				favorite: false,
 				groups: self.groups.categories,
-				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
+				currentgroup: currentgroup
 			};
 			self.$firstRun.hide();
 			self.$contactList.show();
@@ -1058,209 +1208,49 @@ OC.Contacts = OC.Contacts || {
 			$(this).find('.mailto').fadeOut(100);
 		});
 
-		// Import using jquery.fileupload
-		$(function() {
-			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
-			var aid, importError = false;
-			var $progressbar = $('#import-progress');
-			var $status = $('#import-status-text');
-
-			var waitForImport = function() {
-				if(numfiles == 0 && uploadedfiles == 0) {
-					$progressbar.progressbar('value',100);
-					if(!importError) {
-						OC.notify({
-							message:t('contacts','Import done. Click here to cancel reloading.'),
-							timeout:5,
-							timeouthandler:function() {
-								console.log('reloading');
-								window.location.href = OC.linkTo('contacts', 'index.php');
-							},
-							clickhandler:function() {
-								console.log('reloading cancelled');
-								OC.notify({cancel:true});
-							}
-						});
-					}
-					retries = aid = 0;
-					$progressbar.fadeOut();
-					setTimeout(function() {
-						$status.fadeOut('slow');
-						$('.import-upload').show();
-					}, 3000);
-				} else {
-					setTimeout(function() {
-						waitForImport();
-					}, 1000);
-				}
-			};
-			var doImport = function(file, aid, cb) {
-				$.post(OC.filePath('contacts', '', 'import.php'), { id: aid, file: file, fstype: 'OC_FilesystemView' },
-					function(jsondata) {
-						if(jsondata.status != 'success') {
-							importError = true;
-							OC.notify({message:jsondata.data.message});
-						}
-						if(typeof cb == 'function') {
-							cb(jsondata);
-						}
-				});
-				return false;
-			};
-
-			var importFiles = function(aid, uploadingFiles) {
-				console.log('importFiles', aid, uploadingFiles);
-				if(numfiles != uploadedfiles) {
-					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
-					retries += 1;
-					if(retries > 3) {
-						numfiles = uploadedfiles = retries = aid = 0;
-						uploadingFiles = {};
-						$progressbar.fadeOut();
-						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
-						return;
-					}
-					setTimeout(function() { // Just to let any uploads finish
-						importFiles(aid, uploadingFiles);
-					}, 1000);
-				}
-				$progressbar.progressbar('value', 50);
-				var todo = uploadedfiles;
-				$.each(uploadingFiles, function(fileName, data) {
-					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
-					doImport(fileName, aid, function(response) {
-						if(response.status === 'success') {
-							$status.text(t('contacts', '{success} imported, {failed} failed.',
-								{success:response.data.imported, failed:response.data.failed})).fadeIn();
-						} else {
-							$('.import-upload').show();
-							$('.import-select').hide();
-						}
-						delete uploadingFiles[fileName];
-						numfiles -= 1; uploadedfiles -= 1;
-						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
-					});
-				});
-				//$status.text(t('contacts', 'Importing...')).fadeIn();
-				waitForImport();
-			};
-
-			// Start the actual import.
-			$('.doImport').on('click keypress', function(event) {
-				if(wrongKey(event)) {
-					return;
-				}
-				aid = $(this).prev('select').val();
-				$('.import-select').hide();
-				importFiles(aid, uploadingFiles);
-			});
-
-			$('#import_fileupload').fileupload({
-				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
-				add: function(e, data) {
-					var files = data.files;
-					var totalSize=0;
-					if(files) {
-						numfiles += files.length; uploadedfiles = 0;
-						for(var i=0;i<files.length;i++) {
-							if(files[i].size ==0 && files[i].type== '') {
-								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
-								return;
-							}
-							totalSize+=files[i].size;
-						}
-					}
-					if(totalSize>$('#max_upload').val()) {
-						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
-						numfiles = uploadedfiles = retries = aid = 0;
-						uploadingFiles = {};
-						return;
-					} else {
-						if($.support.xhrFileUpload) {
-							$.each(files, function(i, file) {
-								var fileName = file.name;
-								console.log('file.name', file.name);
-								var jqXHR = $('#import_fileupload').fileupload('send',
-									{
-									files: file,
-									formData: function(form) {
-										var formArray = form.serializeArray();
-										formArray['aid'] = aid;
-										return formArray;
-									}})
-									.success(function(response, textStatus, jqXHR) {
-										if(response.status == 'success') {
-											// import the file
-											uploadedfiles += 1;
-										} else {
-											OC.notify({message:response.data.message});
-											$('.import-upload').show();
-											$('.import-select').hide();
-											$('#import-progress').hide();
-											$('#import-status-text').hide();
-										}
-										return false;
-									})
-									.error(function(jqXHR, textStatus, errorThrown) {
-										console.log(textStatus);
-										OC.notify({message:errorThrown + ': ' + textStatus});
-									});
-								uploadingFiles[fileName] = jqXHR;
-							});
-						} else {
-							data.submit().success(function(data, status) {
-								response = jQuery.parseJSON(data[0].body.innerText);
-								if(response[0] != undefined && response[0].status == 'success') {
-									var file=response[0];
-									delete uploadingFiles[file.name];
-									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
-									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
-									if(size==t('files','Pending')){
-										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
-									}
-									FileList.loadingDone(file.name);
-								} else {
-									OC.notify({message:response.data.message});
-								}
-							});
-						}
-					}
-				},
-				fail: function(e, data) {
-					console.log('fail');
-					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
-					$('.import-upload').show();
-					$('.import-select').hide();
-					// TODO: Remove file from upload queue.
-				},
-				progressall: function(e, data) {
-					var progress = (data.loaded/data.total)*50;
-					$progressbar.progressbar('value',progress);
-				},
-				start: function(e, data) {
-					$progressbar.progressbar({value:0});
-					$progressbar.fadeIn();
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').show();
-					}
-				},
-				stop: function(e, data) {
-					console.log('stop, data', data);
-					// stop only gets fired once so we collect uploaded items here.
-					$('.import-upload').hide();
-					$('.import-select').show();
-
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').hide();
-					}
-				}
-			});
-		});
-
 		$('body').on('touchmove', function(event) {
 			event.preventDefault();
 		});
-		
+
+		// Import handlers
+		this.$importIntoSelect.on('change', function() {
+			// Disable file input if no address book selected
+			var value = $(this).val();
+			self.$importFileInput.prop('disabled', value === '-1' );
+			if(value !== '-1') {
+				var url = OC.Router.generate(
+					'contacts_import_upload', {addressbookid:value}
+				);
+				self.$importFileInput.fileupload('option', 'url', url);
+			}
+		});
+
+		this.$importFileInput.fileupload({
+			dataType: 'json',
+			start: function(e, data) {
+				self.$importProgress.progressbar({value:false});
+				$('.tipsy').remove();
+				$('.import-upload').hide();
+				$('.import-status').show();
+				self.$importProgress.fadeIn();
+				self.$importStatusText.text(t('contacts', 'Uploading...'));
+			},
+			done: function (e, data) {
+				console.log('Upload done:', data.result);
+				self.doImport(data.result);
+			},
+			progressall: function (e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				self.$importProgress.progressbar('value', progress);
+			},
+			fail: function(e, data) {
+				console.log('fail', data);
+				OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+				$('.import-upload').show();
+				$('.import-status').hide();
+			}
+		});
+
 		$(document).on('keypress', function(event) {
 			if(!$(event.target).is('body')) {
 				return;
@@ -1439,12 +1429,17 @@ OC.Contacts = OC.Contacts || {
 			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)}
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
+		console.log('$contactelem', $contactelem);
 		var self = this;
-		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {
+			var $contact = $contactelem.find('#contact');
 			var maxheight = document.documentElement.clientHeight - 200; // - ($contactelem.offset().top+70);
-			console.log('contact maxheight', maxheight);
-			$contactelem.find('ul').first().css({'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
+			var $footer = $contactelem.find('footer');
+			var minWidth = 0;
+			$.each($footer.children(), function(idx, child) {
+				minWidth += $(child).outerWidth();
+			});
+			$contact.css({'min-width' : Math.round(minWidth), 'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
 		};
 		$(window).resize(adjustElems);
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
@@ -1473,7 +1468,6 @@ OC.Contacts = OC.Contacts || {
 			return;
 		}
 		var file = filelist[0];
-		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
 		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
@@ -1485,16 +1479,6 @@ OC.Contacts = OC.Contacts || {
 			});
 			return;
 		} else {
-			target.load(function() {
-				var response=jQuery.parseJSON(target.contents().text());
-				if(response != undefined && response.status == 'success') {
-					console.log('response', response);
-					self.editPhoto(self.currentid, response.data.tmp);
-					//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
-				} else {
-					OC.notify({message:response.data.message});
-				}
-			});
 			form.submit();
 		}
 	},
@@ -1554,6 +1538,7 @@ OC.Contacts = OC.Contacts || {
 
 		var cropphoto = new Image();
 		$(cropphoto).load(function () {
+			var x = 5, y = 5, w = this.width-10, h = this.height-10;
 			$(this).attr('id', 'cropbox');
 			$(this).prependTo($dlg).fadeIn();
 			$(this).Jcrop({
@@ -1565,7 +1550,7 @@ OC.Contacts = OC.Contacts || {
 				bgOpacity:	.4,
 				boxWidth:	400,
 				boxHeight:	400,
-				setSelect:	[ 100, 130, 50, 50 ]//,
+				setSelect:	[ w, h, x, y ]//,
 				//aspectRatio: 0.8
 			});
 			$('#edit_photo_dialog').html($dlg).dialog({
@@ -1585,7 +1570,7 @@ OC.Contacts = OC.Contacts || {
 								$('#edit_photo_dialog').remove();
 							},
 							open: function(event, ui) {
-								// Jcrop maybe?
+								showCoords({x:x,y:y,w:w,h:h});
 							}
 						});
 		}).error(function () {
@@ -1736,6 +1721,11 @@ OC.Contacts = OC.Contacts || {
 };
 
 (function( $ ) {
+
+	function outerHTML(node){
+		return node.outerHTML || new XMLSerializer().serializeToString(node);
+	}
+
 	/**
 	* Object Template
 	* Inspired by micro templating done by e.g. underscore.js
@@ -1750,11 +1740,11 @@ OC.Contacts = OC.Contacts || {
 			var self = this;
 
 			if(typeof this.options.escapeFunction === 'function') {
-				$.each(this.vars, function(key, val) {
-					if(typeof val === 'string') {
-						self.vars[key] = self.options.escapeFunction(val);
+				for (var key = 0; key < this.vars.length; key++) {
+					if(typeof this.vars[key] === 'string') {
+						this.vars[key] = self.options.escapeFunction(this.vars[key]);
 					}
-				});
+				}
 			}
 
 			var _html = this._build(this.vars);
@@ -1762,7 +1752,7 @@ OC.Contacts = OC.Contacts || {
 		},
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
-			var data = this.elem.attr('type') === 'text/template' ? this.elem.html() : this.elem.get(0).outerHTML;
+			var data = this.elem.attr('type') === 'text/template' ? this.elem.html() : outerHTML(this.elem.get(0));
 			try {
 				return data.replace(/{([^{}]*)}/g,
 					function (a, b) {

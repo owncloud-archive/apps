@@ -24,7 +24,8 @@ if(!$data) {
 $object = OC_VObject::parse($data['calendardata']);
 $vevent = $object->VEVENT;
 $object = OC_Calendar_Object::cleanByAccessClass($id, $object);
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
+$accessclass = $vevent->getAsString('CLASS');
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $accessclass);
 
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
@@ -55,11 +56,10 @@ switch($dtstart->getDateType()) {
 		break;
 }
 
-$accessclass = $vevent->getAsString('CLASS');
-$summary = $vevent->getAsString('SUMMARY');
-$location = $vevent->getAsString('LOCATION');
+$summary = strtr($vevent->getAsString('SUMMARY'), array('\,' => ',', '\;' => ';'));
+$location = strtr($vevent->getAsString('LOCATION'), array('\,' => ',', '\;' => ';'));
 $categories = $vevent->getAsString('CATEGORIES');
-$description = $vevent->getAsString('DESCRIPTION');
+$description = strtr($vevent->getAsString('DESCRIPTION'), array('\,' => ',', '\;' => ';'));
 $last_modified = $vevent->__get('LAST-MODIFIED');
 if ($last_modified) {
 	$lastmodified = $last_modified->getDateTime()->format('U');
