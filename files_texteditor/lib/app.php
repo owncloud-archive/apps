@@ -22,7 +22,7 @@
  */
 
 
-namespace OCA\Texteditor;
+namespace OCA\Files_Texteditor;
 
 class App {
 	private $l10n;
@@ -52,7 +52,7 @@ class App {
 		$writeable = $this->view->isUpdatable($path);
 		$mime = $this->view->getMimeType($path);
 		$contents = $this->view->file_get_contents($path);
-		if(!$contents) {
+		if($contents === false) {
 			return array(
 				'success' => false,
 				'message' => 'There was an error while opening the file',
@@ -70,7 +70,6 @@ class App {
 				'filecontents' => $contents,
 				'writeable' => $writeable,
 				'mime' => $mime,
-				'opened' => time(),
 				)
 			);
 	}
@@ -104,9 +103,6 @@ class App {
 				clearstatcache();
 				return array(
 					'success' => true,
-					'data' => array(
-						'opened' => time(),
-						),
 					);
 			} else {
 				return array(

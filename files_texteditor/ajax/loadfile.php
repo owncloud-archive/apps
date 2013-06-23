@@ -22,17 +22,15 @@
 
 // Init owncloud
 
-
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
 
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $filename = isset($_GET['file']) ? $_GET['file'] : '';
 
-$editor = new \OCA\Texteditor\App(
+$editor = new \OCA\Files_Texteditor\App(
 	\OC\Files\Filesystem::getView(),
 	\OC_L10n::get('files_texteditor')
 );
-
-return json_encode($editor->loadFile($dir, $filename));
+echo json_encode($editor->loadFile($dir, $filename));
 

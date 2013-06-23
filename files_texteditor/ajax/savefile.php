@@ -22,7 +22,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
-$editor = new \OCA\Texteditor\App(
+$editor = new \OCA\Files_Texteditor\App(
 	\OC\Files\Filesystem::getView(),
 	\OC_L10n::get('files_texteditor')
 );
@@ -33,4 +33,4 @@ $path = isset($_POST['path']) ? $_POST['path'] : '';
 $opened = isset($_POST['opened']) ? $_POST['opened'] : '';
 
 // Save the file
-return json_encode($editor->saveFile($path, $contents, $opened));
+echo json_encode($editor->saveFile($path, $contents, $opened));

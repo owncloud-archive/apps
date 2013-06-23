@@ -153,7 +153,7 @@ function doFileSave() {
 			var filecontents = window.aceEditor.getSession().getValue();
 			// Send the data
 			$.post(OC.filePath('files_texteditor', 'ajax', 'savefile.php'), { filecontents: filecontents, path: path, opened: opened }, function (jsondata) {
-				if (jsondata.status != 'success') {
+				if (!jsondata.success) {
 					// Save failed
 					$('#editor_save').text(t('files_texteditor', 'Save'));
 					$('#notification').html(t('files_texteditor', 'Failed to save file'));
@@ -162,7 +162,8 @@ function doFileSave() {
 				} else {
 					// Save OK
 					// Update opening time
-					$('#editor').attr('data-opened', jsondata.data.opened);
+					var unixtime = Math.round(+new Date()/1000);
+					$('#editor').attr('data-opened', unixtime);
 					$('#editor_save').text(t('files_texteditor', 'Save'));
 					$("#editor_save").live('click', doFileSave);
 					// Update titles
@@ -198,9 +199,10 @@ function showFileEditor(dir, filename) {
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
 				function (result) {
-					if (result.status == 'success') {
+					if (result.success) {
 						// Save opening time
-						$('#editor').attr('data-opened', result.data.opened);
+						var unixtime = Math.round(+new Date()/1000);
+						$('#editor').attr('data-opened', unixtime);
 						// Initialise the editor
 						$('.actions,#file_action_panel,#content table').hide();
 						// Show the control bar
