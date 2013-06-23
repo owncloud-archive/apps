@@ -41,7 +41,7 @@ class Test_OC_Files_Texteditor_Save extends \PHPUnit_Framework_TestCase {
 		$viewMock->expects($this->any())
 			->method('hasUpdated')
 			->will($this->returnValue(false));
-		$this->files = new \OCA\Texteditor\App($viewMock, $l10nMock);
+		$this->files = new \OCA\Files_Texteditor\App($viewMock, $l10nMock);
 	}
 
 	/**
