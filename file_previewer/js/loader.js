@@ -15,11 +15,26 @@ function showPreview(dir,filename){
 		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-		var viewer = getRequestURL(dir, filename, '.html');
+		//var viewer = getRequestURL(dir, filename, '.html');
+		var viewer = getFilePath(dir, filename);
 		//var viewer = OC.linkTo('file_previewer', 'docViewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename.replace('&', '%26'));
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		$("#pageWidthOption").attr("selected","selected");
 	}
+}
+
+function getFilePath(dir, filename) {
+	dir = encodeURIComponent(dir).replace(/%2F/g, '/');
+	filename = encodeURIComponent(filename.replace('&', '%26'));
+	var baseUrl = '';
+	if(dir === '/'){
+		baseUrl = dir + filename;	
+	}
+	else{
+		baseUrl = dir + '/' + filename;
+	}
+	var viewer = OC.Router.generate('previewer', { link: baseUrl});
+	return viewer;
 }
 
 function getRequestURL(dir, filename, type) {

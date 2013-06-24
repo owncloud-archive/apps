@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Apache_Solr_HttpTransport_Response</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Apache_Solr_HttpTransport_Response</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents the required pieces of an HTTP response provided by HTTP transport</p>
+<p class="description"><p>implementations and then consumed by the Apache_Solr_Response class which provides  decoding</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_HttpTransport---Response.php.html">/HttpTransport/Response.php</a> (line <span class="field"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a44">44</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																										
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getDefaultStatusMessage" title="details" class="method-name">getDefaultStatusMessage</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$statusCode</span>)
+									</div>
+																																																		
+				<div class="method-definition">
+											<span class="method-result">Apache_Solr_HttpTransport_Response</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$contentType</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$responseBody</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBody" title="details" class="method-name">getBody</a>
+										()
+									</div>
+																						
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getEncoding" title="details" class="method-name">getEncoding</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getMimeType" title="details" class="method-name">getMimeType</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getStatusCode" title="details" class="method-name">getStatusCode</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getStatusMessage" title="details" class="method-name">getStatusMessage</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetDefaultStatusMessage" id="getDefaultStatusMessage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getDefaultStatusMessage</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a112">112</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the HTTP status message based on status code</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultStatusMessage
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$statusCode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$statusCode</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a166">166</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construct a HTTP transport response</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Apache_Solr_HttpTransport_Response</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$statusCode</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$contentType</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$responseBody</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$statusCode</span><span class="var-description">: The HTTP status code</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$contentType</span><span class="var-description">: The VALUE of the Content-Type HTTP header</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$responseBody</span><span class="var-description">: The body of the HTTP response</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBody" id="getBody"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBody</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a251">251</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the raw response body</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBody
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetEncoding" id="getEncoding"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEncoding</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a241">241</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the charset encoding of the response body.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEncoding
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetMimeType" id="getMimeType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMimeType</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a231">231</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the mimetype of the response body</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getMimeType
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetStatusCode" id="getStatusCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatusCode</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a211">211</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the status code of the response</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getStatusCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetStatusMessage" id="getStatusMessage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatusMessage</span> (line <span class="line-number"><a href="../../__filesource/fsource_Apache_Solr_HttpTransportResponse.php.html#a221">221</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the status message of the response</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getStatusMessage
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 04 May 2011 11:01:16 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
