@@ -178,7 +178,7 @@
 "Add new contact" => "Neuen Kontakt hinzufügen",
 "Add new addressbook" => "Neues Adressbuch hinzufügen",
 "Delete current contact" => "Aktuellen Kontakt löschen",
-"<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or import existing contacts from a VCF file.</p>" => "<h3>Du hast keinen Kontakt in deinem Adressbuch.</h3><p>Füge einen neuen Kontakt hinzu oder importiere bestehende Kontakte aus einer VCF-Datei.</p>",
+"<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or import existing contacts from a VCF file.</p>" => "<h3>Du hast keinen Kontakt in Deinem Adressbuch.</h3><p>Füge einen neuen Kontakt hinzu oder importiere bestehende Kontakte aus einer VCF-Datei.</p>",
 "Add contact" => "Kontakt hinzufügen",
 "Compose mail" => "E-Mail schreiben",
 "Delete group" => "Gruppe löschen",
