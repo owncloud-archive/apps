@@ -33,7 +33,7 @@ if(!$aid) {
 	if(count($ids) > 0) {
 		$aid = min($ids); // first active addressbook.
 	} else {
-		$addressbooks = OCA\Contacts\Addressbook::all(OCP\User::getUser());
+		$addressbooks = OCA\Contacts\Addressbook::all(OCP\User::getUser(), true, false);
 		if(count($addressbooks) === 0) {
 			bailOut(OCA\Contacts\App::$l10n->t('You have no addressbooks.'));
 		} else {
