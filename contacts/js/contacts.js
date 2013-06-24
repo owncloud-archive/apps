@@ -251,7 +251,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Contact.saveProperty', params);
 		if(!this.id) {
 			var self = this;
-			this.add({isnew:true}, function(response) {
+			this.add({isnew:true, aid:this.access.id}, function(response) {
 				if(!response || response.status === 'error') {
 					console.warn('No response object');
 					return false;
@@ -1708,10 +1708,17 @@ OC.Contacts = OC.Contacts || {};
 	* @param object props
 	*/
 	ContactList.prototype.addContact = function(props) {
+		var addressBook;
+		$.each(this.addressbooks, function(idx, book) {
+			if(book.owner === OC.currentUser) {
+				addressBook = book;
+				return false; // break loop
+			}
+		});
 		var contact = new Contact(
 			this,
 			null,
-			{owner:OC.currentUser, permissions: 31},
+			addressBook,
 			null,
 			this.$contactListItemTemplate,
 			this.$contactDragItemTemplate,
