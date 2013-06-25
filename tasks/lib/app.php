@@ -46,9 +46,9 @@ class OC_Task_App {
 	public static function arrayForJSON($id, $vtodo, $user_timezone)
 	{
                 $task = array( 'id' => $id );
-		$task['summary'] = $vtodo->getAsString('SUMMARY');
-		$task['description'] = $vtodo->getAsString('DESCRIPTION');
-		$task['location'] = $vtodo->getAsString('LOCATION');
+		$task['summary'] = strtr($vtodo->getAsString('SUMMARY'), array('\,' => ',', '\;' => ';'));
+		$task['description'] = strtr($vtodo->getAsString('DESCRIPTION'), array('\,' => ',', '\;' => ';'));
+		$task['location'] = strtr($vtodo->getAsString('LOCATION'), array('\,' => ',', '\;' => ';'));
 		$task['categories'] = $vtodo->getAsArray('CATEGORIES');
 		$due = $vtodo->DUE;
 		if ($due) {
