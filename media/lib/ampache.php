@@ -261,6 +261,7 @@ class Ampache {
 			\OC_Util::setupFS($song["song_user"]);
 
 			header('Content-type: ' . \OC_Filesystem::getMimeType($song['song_path']));
+			header('Content-Length: ' . $song['song_size']);
 			\OC_Filesystem::readfile($song['song_path']);
 		}
 	}
