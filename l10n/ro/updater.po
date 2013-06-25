@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Dimon Pockemon <>, 2013
+# dimaursu16 <dima@ceata.org>, 2013
 # Eugen Mihalache <eugemjj@gmail.com>, 2012
 # ripkid666 <ripkid666@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-06-25 00:49+0200\n"
-"PO-Revision-Date: 2013-06-23 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-06-26 00:49+0200\n"
+"PO-Revision-Date: 2013-06-25 19:50+0000\n"
+"Last-Translator: dimaursu16 <dima@ceata.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,4 +43,4 @@ msgstr "Actualizare"
 
 #: templates/admin.php:24
 msgid "Up to date"
-msgstr ""
+msgstr "La zi"
