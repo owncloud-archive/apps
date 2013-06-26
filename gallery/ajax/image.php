@@ -45,6 +45,6 @@ if ($mimePart === 'image') {
 		$image->show();
 	} else { //use the original file if we dont need to rotate, saves having to re-encode the image
 		header('Content-Type: ' . $mime);
-		readfile($local);
+		$ownerView->readfile($img);
 	}
 }
