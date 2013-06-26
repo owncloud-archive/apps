@@ -24,11 +24,12 @@ else {
 	$preview = '/'.basename($path_parts['dirname']).'/'.$path_parts['basename'];
 }
 
-static $storage_id = "";
+//static $storage_id = "";
+$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 
 try
 {
-	$results = $solr->search($query, 0, 20);
+	/*$results = $solr->search($query, 0, 20);
 	$base_ids = array();
 	if($results)
 	{
@@ -40,13 +41,12 @@ try
 				}
 			}
 		}
-	}
+	}*/
 	
-	if(!empty($sid))
-	{
+	if(!empty($sid)) {
 		$url = 'http://localhost:9997/portal/default/download/'.$sid.$preview;
 	}
-	else{
+	else {
 		$url = 'http://localhost:9997/portal/default/download/'.$storage_id.'/'.$preview;
 	}
 	
@@ -69,7 +69,7 @@ try
 	  	 
 	  	$matches = array();
 	  	 
-	  	$src = preg_match_all($rgx, $content, $matches, PREG_SET_ORDER);
+	  	preg_match_all($rgx, $content, $matches, PREG_SET_ORDER);
 	
 	  	$altered_tags = array();
 	  	

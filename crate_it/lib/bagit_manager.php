@@ -232,20 +232,44 @@ class BagItManager{
 		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
 		
 		$source_dir = $this->base_dir.'/files';
+		
+		$tempfile = tempnam(sys_get_temp_dir(),'');
+		if (file_exists($tempfile)) {
+			unlink($tempfile);
+		}
+		mkdir($tempfile);
+		
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
-			$html_file = $path_parts['filename'].'.html';
-			$dir = str_replace($source_dir, "", $path_parts['dirname']);
-			$url = $this->preview_dir.$dir.'/'.$path_parts['basename'].'/'.$html_file;
-			$pre_content .= "<a href='".$url."'>".$html_file."</a></br>";
+			$html_file = $path_parts['filename'].'.htm';
+			
+			//$dir = str_replace($source_dir, "", $path_parts['dirname']);
+			//$url = $this->preview_dir.$dir.'/'.$path_parts['basename'].'/'.$html_file;
+
+			//get html files from the fascinator - do a solr search get storage id
+			//Save them to a tmp folder
+			if($source_dir === $path_parts['dirname']) {
+				$query = 'full_path:"/files/'.$path_parts['basename'] .'"';
+			}
+			else {
+				$s = substr($path_parts['dirname'], strlen($source_dir));
+				$query = 'full_path:"/files'. $s.'/'.$path_parts['basename'] .'"';
+			}
+			
+			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
+			
+			$url = 'http://localhost:9997/portal/default/download/'.$storage_id.'/'.$html_file;
+			
+			//Download file
+			$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
+			system($comm, $retval);
+			$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
+			
+			//make links to those htmls in temp dir
+			$pre_content .= "<a href='".$prev_path."/".$html_file."'>".$html_file."</a><br>";
 		}
 		$manifest_html = $pre_content."</p></body></html>";
 		
-		$tempfile = tempnam(sys_get_temp_dir(),'');
-    	if (file_exists($tempfile)) { 
-    		unlink($tempfile); 
-    	}
-    	mkdir($tempfile);
     	if (is_dir($tempfile)) {
     		$fp = fopen($tempfile.'/manifest.html', 'w+');
 			fwrite($fp, $manifest_html);
@@ -308,6 +332,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'r');
 		$contents = file_get_contents($this->manifest);
 		$cont_array = json_decode($contents, true);
+		fclose($fp);
 		return array_values($cont_array["titles"]);
 	}
 	

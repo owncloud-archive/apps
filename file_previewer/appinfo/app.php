@@ -7,3 +7,4 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
 OCP\Util::addscript('file_previewer', 'loader');
 
 OC::$CLASSPATH['Apache_Solr_Service'] = 'apps/file_previewer/3rdparty/SolrPhpClient/Apache/Solr/Service.php';
+OC::$CLASSPATH['OCA\file_previewer\lib\Solr'] = 'apps/file_previewer/lib/solr.php';

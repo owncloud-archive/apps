@@ -9,10 +9,13 @@ OC::$CLASSPATH['BagIt'] = 'apps/crate_it/3rdparty/BagIt/bagit.php';
 OC::$CLASSPATH['BagItManifest'] = 'apps/crate_it/3rdparty/BagIt/bagit_manifest.php';
 OC::$CLASSPATH['BagItFetch'] = 'apps/crate_it/3rdparty/BagIt/bagit_fetch.php';
 
+OC::$CLASSPATH['OCA\file_previewer\lib\Solr'] = 'apps/file_previewer/lib/solr.php';
+
 //load the required files
 OCP\Util::addscript( 'crate_it', 'loader');
 OCP\Util::addscript('crate_it', 'crate');
 OCP\Util::addscript('crate_it/3rdparty', 'jeditable/jquery.jeditable');
+OCP\Util::addStyle('crate_it', 'crate');
 //OCP\Util::addscript('crate_it', 'organiser');
 //OCP\Util::addscript('crate_it/3rdparty', 'tree/jquery.tree.min');
 //OCP\Util::addStyle('crate_it/3rdparty/js/themes/default', 'style');
