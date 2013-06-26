@@ -1,6 +1,7 @@
+
 $(function() {
-	if	(typeof FileActions!=='undefined') {
-		FileActions.register('image', 'View', OC.PERMISSION_READ, function() {
+	if (typeof FileActions!=='undefined') {
+		FileActions.register('image', '', OC.PERMISSION_READ, function() {
 			var link = FileActions.currentFile.find('a.name');
 			link.attr('rel', "image").fancybox({
 				"titleFormat": function() {
@@ -8,8 +9,6 @@ $(function() {
 				},
 				"titlePosition": "inside"
 			});
-
-			return '';
 		}, function() {});
 	}
 
