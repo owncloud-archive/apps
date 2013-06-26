@@ -34,6 +34,20 @@ OC.Contacts = OC.Contacts || {};
 		return this.id;
 	};
 
+	Contact.prototype.getOwner = function() {
+		return this.access.owner;
+	};
+
+
+	Contact.prototype.getPermissions = function() {
+		return this.access.permissions;
+	};
+
+	Contact.prototype.hasPermission = function(permission) {
+		//console.log('hasPermission', this.getPermissions(), permission, this.getPermissions() & permission);
+		return (this.getPermissions() & permission);
+	};
+
 	Contact.prototype.showActions = function(act) {
 		this.$footer.children().hide();
 		if(act && act.length > 0) {
@@ -573,6 +587,7 @@ OC.Contacts = OC.Contacts || {};
 			}
 		});
 	};
+
 	/**
 	 * Delete contact from data store and remove it from the DOM
 	 * @param cb Optional callback function which
@@ -602,6 +617,36 @@ OC.Contacts = OC.Contacts || {};
 				} else {
 					retval['message'] = t('contacts', 'There was an unknown error when trying to delete this contact');
 					retval['id'] = self.id;
+				}
+				cb(retval);
+			}
+		});
+	};
+
+	/**
+	 * Move contact to another address book
+	 * @param object addressBook
+	 * @param function cb Optional callback function which
+	 * @returns An object with a variable 'status' of either success
+	 *	or 'error'
+	 */
+	Contact.prototype.move = function(addressBook, cb) {
+		var self = this;
+		$.post(OC.filePath('contacts', 'ajax', 'contact/move.php'),
+			   {id: this.id, aid: addressBook.id}, function(jsondata) {
+			if(jsondata && jsondata.status === 'success') {
+				self.access = addressBook;
+			}
+			if(typeof cb == 'function') {
+				var retval = {status: jsondata ? jsondata.status : 'error'};
+				if(jsondata) {
+					if(jsondata.status === 'success') {
+						retval['id'] = jsondata.id;
+					} else {
+						retval['message'] = jsondata.data.message;
+					}
+				} else {
+					retval['message'] = t('contacts', 'There was an unknown error when trying to move this contact');
 				}
 				cb(retval);
 			}
@@ -784,6 +829,47 @@ OC.Contacts = OC.Contacts || {};
 			}
 		};
 		
+		var buildAddressBookSelect = function(availableAddressBooks) {
+			console.log('address books', availableAddressBooks.length, availableAddressBooks);
+			$.each(availableAddressBooks, function(idx, addressBook) {
+				//console.log('addressBook', idx, addressBook);
+				var displayname = addressBook.displayname;
+				if(addressBook.owner !== OC.currentUser) {
+					displayname += ' (' + addressBook.owner + ')';
+				}
+				var $option = $('<option />')
+					.val(addressBook.id)
+					.text(displayname)
+					.data('addressBook', addressBook);
+				if(self.access.id === addressBook.id) {
+					$option.attr('selected', 'selected');
+				}
+				self.$addressBookSelect.append($option);
+			});
+			self.$addressBookSelect.multiselect({
+				header: false,
+				multiple: false,
+				selectedList: 3,
+				noneSelectedText: self.$addressBookSelect.attr('title')
+			});
+			self.$addressBookSelect.on('multiselectclick', function(event, ui) {
+				console.log('AddressBook select', ui);
+				self.$addressBookSelect.val(ui.value);
+				var opt = self.$addressBookSelect.find(':selected');
+				if(self.id) {
+					self.move(opt.data('addressBook'), function(response) {
+						if(response.status === 'success') {
+							OC.notify({message:t('contacts', 'Contact moved')});
+						} else {
+							OC.notify({message:t('contacts', response.message)});
+						}
+					});
+				} else {
+					self.access = opt.data('addressBook');
+				}
+			});
+		};
+
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
@@ -815,6 +901,12 @@ OC.Contacts = OC.Contacts || {};
 		this.$groupSelect = this.$fullelem.find('#contactgroups');
 		buildGroupSelect(groupprops.groups);
 		
+		var writeableAddressBooks = this.parent.addressBooksByPermission(OC.PERMISSION_CREATE);
+		if(writeableAddressBooks.length > 1 && this.hasPermission(OC.PERMISSION_DELETE)) {
+			this.$addressBookSelect = this.$fullelem.find('#contactaddressbooks');
+			buildAddressBookSelect(writeableAddressBooks);
+		}
+
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
 			//console.log('add', $(this).val());

@@ -198,6 +198,9 @@
 			<div class="groupscontainer propertycontainer" data-element="categories">
 				<select id="contactgroups" title="<?php p($l->t('Select groups')); ?>" name="value" multiple></select>
 			</div>
+			<div>
+				<select class="hidden" id="contactaddressbooks" title="<?php p($l->t('Select address book')); ?>" name="value"></select>
+			</div>
 			<dl class="form">
 				<dt data-element="nickname">
 					<?php p($l->t('Nickname')); ?>

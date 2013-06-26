@@ -1,6 +1,9 @@
 ownCloud Contacts Changelog
 
 5.0.8
+ - Regression fix: It is again possible to select which address book a new contact should
+   be saved in.
+ - Regression fix: It is again possible to move contacts between address books.
  - Fix: When users where deleted, any address books shared with them would also deleted.
 
 5.0.7:
