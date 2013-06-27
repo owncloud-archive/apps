@@ -249,11 +249,11 @@ class BagItManager{
 			//get html files from the fascinator - do a solr search get storage id
 			//Save them to a tmp folder
 			if($source_dir === $path_parts['dirname']) {
-				$query = 'full_path:"/files/'.$path_parts['basename'] .'"';
+				$query = 'full_path:"/data/'.$this->user.'/files/'.$path_parts['basename'] .'"';
 			}
 			else {
 				$s = substr($path_parts['dirname'], strlen($source_dir));
-				$query = 'full_path:"/files'. $s.'/'.$path_parts['basename'] .'"';
+				$query = 'full_path:"/data/'.$this->user.'/files'. $s.'/'.$path_parts['basename'] .'"';
 			}
 			
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);

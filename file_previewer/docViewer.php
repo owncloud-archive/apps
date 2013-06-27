@@ -14,13 +14,13 @@ $path_parts = pathinfo($file);
 $extension = $path_parts['extension'];
 
 if($extension === "doc" || $extension === "docx") {
-	$file_path = "/files".$file;
-	$query = 'full_path:"/files'. $file .'"';
+	$file_path = "/data/".$user."/files".$file;
+	$query = 'full_path:"/data/'.$user.'/files'. $file .'"';
 	$preview = $path_parts['filename'].'.htm';
 }
 else {
 	$file_path = "/files";
-	$query = 'identifier:"'. $file .'"';
+	$query = 'identifier:"/data/'.$user.'/'. $file .'"';
 	$preview = '/'.basename($path_parts['dirname']).'/'.$path_parts['basename'];
 }
 
