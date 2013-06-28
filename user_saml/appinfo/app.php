@@ -24,7 +24,7 @@
 
 if (OCP\App::isEnabled('user_saml')) {
 	$ocVersion = implode('.',OCP\Util::getVersion());
-	if (version_compare($ocVersion,'4.93','<')) {
+	if (version_compare($ocVersion,'5.0','<')) {
 		if ( ! function_exists('p')) {
 			function p($string) {
 				print(OC_Util::sanitizeHTML($string));
