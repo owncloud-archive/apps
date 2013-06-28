@@ -21,6 +21,12 @@
 * 
 */
 
+// Check if it is a valid URL
+if (filter_var($_POST['url'], FILTER_VALIDATE_URL) === FALSE) {
+  OC_JSON::error();
+  exit();
+}
+
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
