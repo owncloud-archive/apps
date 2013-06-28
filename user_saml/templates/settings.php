@@ -21,6 +21,7 @@
 		<p><label for="saml_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="saml_email_mapping" name="saml_email_mapping" value="<?php p($_['saml_email_mapping']); ?>" /></p>
 		<p><label for="saml_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="saml_group_mapping" name="saml_group_mapping" value="<?php p($_['saml_group_mapping']); ?>" /></p>
 	</fieldset>
+	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>" id="requesttoken">
 	<input type="submit" value="Save" />
 	</div>
 
