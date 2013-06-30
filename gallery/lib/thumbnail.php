@@ -38,7 +38,7 @@ class Thumbnail {
 		if ($this->useOriginal) {
 			$this->path = $imagePath;
 		} else {
-			$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
+			$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
 			if (strrpos($imagePath, '.')) {
 				$extension = substr($imagePath, strrpos($imagePath, '.') + 1);
 				$image = substr($imagePath, 0, strrpos($imagePath, '.'));
@@ -168,7 +168,7 @@ class AlbumThumbnail extends Thumbnail {
 			$this->view = new \OC\Files\View('/' . $user . '/files');
 			$this->user = $user;
 		}
-		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
 		$this->path = $galleryDir . $imagePath . '.png';
 		if (!file_exists($this->path)) {
 			self::create($imagePath, $square);
