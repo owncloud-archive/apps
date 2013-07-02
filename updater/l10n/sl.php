@@ -3,5 +3,6 @@
 "Done." => "Končano.",
 "Here is your backup: " => "Varnostna kopija:",
 "Error" => "Napaka",
-"Update" => "Posodobi"
+"Update" => "Posodobi",
+"Up to date" => "Ni posodobitev"
 );
