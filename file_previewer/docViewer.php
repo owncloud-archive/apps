@@ -8,24 +8,30 @@ $sid = isset($_GET['sid']) ? $_GET['sid'] : '';
 
 $user = OCP\User::getUser();
 
-$solr = new \Apache_Solr_Service('localhost', 9997, '/solr/fascinator/');
+$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+if(file_exists($config_file)) {
+	$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
+	$fascinator = $configs['fascinator'];
+}
+else {
+	echo "No configuration file";
+	return;
+}
+$solr = new \Apache_Solr_Service($fascinator['solr']['host'], $fascinator['solr']['port'], $fascinator['solr']['path']);
 
 $path_parts = pathinfo($file);
 $extension = $path_parts['extension'];
 
 if($extension === "doc" || $extension === "docx") {
-	$file_path = "/data/".$user."/files".$file;
 	$query = 'full_path:"/data/'.$user.'/files'. $file .'"';
+	$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 	$preview = $path_parts['filename'].'.htm';
+	$url = $fascinator['downloadURL'].$storage_id.'/'.$preview;
 }
 else {
-	$file_path = "/files";
-	$query = 'identifier:"/data/'.$user.'/'. $file .'"';
 	$preview = '/'.basename($path_parts['dirname']).'/'.$path_parts['basename'];
+	$url = $fascinator['downloadURL'].$sid.$preview;
 }
-
-//static $storage_id = "";
-$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 
 try
 {
@@ -42,14 +48,6 @@ try
 			}
 		}
 	}*/
-	
-	if(!empty($sid)) {
-		$url = 'http://localhost:9997/portal/default/download/'.$sid.$preview;
-	}
-	else {
-		$url = 'http://localhost:9997/portal/default/download/'.$storage_id.'/'.$preview;
-	}
-	
 	
 	$cookie_file = '/tmp/cookie-session';
   	$ch = curl_init();
