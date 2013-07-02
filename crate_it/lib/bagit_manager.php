@@ -15,6 +15,17 @@ class BagItManager{
 	
 	private function __construct(){
 		$this->user = \OCP\User::getUser();
+		
+		$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+		if(file_exists($config_file)) {
+			$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
+			$this->fascinator = $configs['fascinator'];
+		}
+		else {
+			echo "No configuration file";
+			return;
+		}
+		
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
 	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files';
 	    $this->crate_root =$this->base_dir.'/crates'; 
@@ -258,7 +269,7 @@ class BagItManager{
 			
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 			
-			$url = 'http://localhost:9997/portal/default/download/'.$storage_id.'/'.$html_file;
+			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$html_file;
 			
 			//Download file
 			$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
