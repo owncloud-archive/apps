@@ -252,11 +252,9 @@ class BagItManager{
 		
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
-			$html_file = $path_parts['filename'].'.htm';
 			
-			//$dir = str_replace($source_dir, "", $path_parts['dirname']);
-			//$url = $this->preview_dir.$dir.'/'.$path_parts['basename'].'/'.$html_file;
-
+			$prev_file = $path_parts['filename'].'.htm';
+				
 			//get html files from the fascinator - do a solr search get storage id
 			//Save them to a tmp folder
 			if($source_dir === $path_parts['dirname']) {
@@ -269,15 +267,18 @@ class BagItManager{
 			
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 			
-			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$html_file;
+			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
 			
 			//Download file
 			$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
 			system($comm, $retval);
-			$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
 			
-			//make links to those htmls in temp dir
-			$pre_content .= "<a href='".$prev_path."/".$html_file."'>".$html_file."</a><br>";
+			if($retval === 0) {
+				$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
+				//make links to those htmls in temp dir
+				$pre_content .= "<a href='".$prev_path."/".$prev_file."'>".$prev_file."</a><br>";
+			}
+			
 		}
 		$manifest_html = $pre_content."</p></body></html>";
 		
