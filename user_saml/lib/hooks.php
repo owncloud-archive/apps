@@ -192,15 +192,14 @@ function random_password()
 
 function send_init_password($random_password,$email,$name)
 {
-                                $tmpl = new OC_Template('apps/user_saml', 'init_password');
-                                $tmpl->assign('password', $random_password, false);
-                                $msg = $tmpl->fetchPage();
-                                $l = OC_L10N::get('apps/user_saml');
-                                $from = OCP\Util::getDefaultEmailAddress('noreply');
-                                try {
-                                        OC_Mail::send($email, $name, $l->t('ownCloud desktop password'), $msg, $from, 'ownCloud');
-                                } catch (Exception $e) {
-                                        OC_Template::printErrorPage( 'A problem occurs during sending the e-mail please contact your administrator.');
-                                }
-
+        $tmpl = new OC_Template('apps/user_saml', 'init_password');
+        $tmpl->assign('password', $random_password, false);
+        $msg = $tmpl->fetchPage();
+        $l = OC_L10N::get('apps/user_saml');
+        $from = OCP\Util::getDefaultEmailAddress('noreply');
+        try {
+                OC_Mail::send($email, $name, $l->t('ownCloud desktop password'), $msg, $from, 'ownCloud');
+        } catch (Exception $e) {
+                OC_Template::printErrorPage( 'A problem occurs during sending the e-mail please contact your administrator.');
+        }
 }
