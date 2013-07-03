@@ -18,6 +18,8 @@
 	</fieldset>
 	<fieldset id="samlSettings-2">
 		<p><label for="saml_username_mapping"><?php p($l->t('Username'));?></label><input type="text" id="saml_username_mapping" name="saml_username_mapping" value="<?php p($_['saml_username_mapping']); ?>" /></p>
+		<p><label for="saml_displayname_mapping"><?php p($l->t('Displayname'));?></label><input type="text" id="saml_displayname_mapping" name="saml_displayname_mapping" value="<?php p($_['saml_displayname_mapping']); ?>" /></p>
+		<p><label for="saml_preferredlanguage_mapping"><?php p($l->t('Preferred language'));?></label><input type="text" id="saml_preferredlanguage_mapping" name="saml_preferredlanguage_mapping" value="<?php p($_['saml_preferredlanguage_mapping']); ?>" /></p>
 		<p><label for="saml_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="saml_email_mapping" name="saml_email_mapping" value="<?php p($_['saml_email_mapping']); ?>" /></p>
 		<p><label for="saml_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="saml_group_mapping" name="saml_group_mapping" value="<?php p($_['saml_group_mapping']); ?>" /></p>
 	</fieldset>

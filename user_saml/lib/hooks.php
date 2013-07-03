@@ -36,6 +36,12 @@ class OC_USER_SAML_Hooks {
 
 				$attributes = $samlBackend->auth->getAttributes();
 
+				if (array_key_exists($samlBackend->displayNameMapping, $attributes)) {
+					$saml_displayname = $attributes[$samlBackend->displayNameMapping][0];
+				}
+				if (array_key_exists($samlBackend->preferredLanguageMapping, $attributes)) {
+					$saml_preferredlanguage = $attributes[$samlBackend->preferredLanguageMapping][0];
+				}
 				if (array_key_exists($samlBackend->mailMapping, $attributes)) {
 					$saml_email = $attributes[$samlBackend->mailMapping][0];
 				}
@@ -57,10 +63,19 @@ class OC_USER_SAML_Hooks {
 						$random_password = random_password();
 						OC_Log::write('saml','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
+                                                send_init_password($random_password,$saml_email,$saml_displayname);
 
 						if(OC_User::userExists($uid)) {
 							if (isset($saml_email)) {
 								update_mail($uid, $saml_email);
+
+							}
+							if (isset($saml_displayname)) {
+								update_displayname($uid, $saml_displayname);
+
+							}
+							if (isset($saml_preferredlanguage)) {
+								update_preferredlanguage($uid, $saml_preferredlanguage);
 
 							}
 							if (isset($saml_groups)) {
@@ -74,6 +89,14 @@ class OC_USER_SAML_Hooks {
 						OC_Log::write('saml','Updating data of the user: '.$uid,OC_Log::DEBUG);
 						if(isset($saml_email)) {
 							update_mail($uid, $saml_email);
+						}
+						if (isset($saml_displayname)) {
+							update_displayname($uid, $saml_displayname);
+
+						}
+						if (isset($saml_preferredlanguage)) {
+							update_preferredlanguage($uid, $saml_preferredlanguage);
+
 						}
 						if (isset($saml_groups)) {
 							update_groups($uid, $saml_groups, $samlBackend->protectedGroups, false);
@@ -106,9 +129,25 @@ function update_mail($uid, $email) {
 	}
 }
 
+function update_preferredlanguage($uid, $samllang) {
+        $langmap = array(
+          "hu" => "hu_HU",
+          "en" => "en",
+        );
+        $language = $langmap[$samllang];
+	if ($language != OC_Preferences::getValue($uid, 'core', 'lang', '')) {
+		OC_Preferences::setValue($uid, 'core', 'lang', $language);
+		OC_Log::write('saml','Set language "'.$language.'" for the user: '.$uid, OC_Log::DEBUG);
+	}
+}
+function update_displayname($uid, $displayname) {
+	if ($displayname != OC_User::getDisplayName($uid)) {
+		OC_User::setDisplayName($uid, $displayname);
+		OC_Log::write('saml','Set displayName "'.$displayname.'" for the user: '.$uid, OC_Log::DEBUG);
+	}
+}
 
 function update_groups($uid, $groups, $protected_groups=array(), $just_created=false) {
-
 	if(!$just_created) {
 		$old_groups = OC_Group::getUserGroups($uid);
 		foreach($old_groups as $group) {
@@ -149,4 +188,19 @@ function random_password()
 		$random_string .= $random_char;
 	}
 	return $random_string;
+}
+
+function send_init_password($random_password,$email,$name)
+{
+                                $tmpl = new OC_Template('apps/user_saml', 'init_password');
+                                $tmpl->assign('password', $random_password, false);
+                                $msg = $tmpl->fetchPage();
+                                $l = OC_L10N::get('apps/user_saml');
+                                $from = OCP\Util::getDefaultEmailAddress('noreply');
+                                try {
+                                        OC_Mail::send($email, $name, $l->t('ownCloud desktop password'), $msg, $from, 'ownCloud');
+                                } catch (Exception $e) {
+                                        OC_Template::printErrorPage( 'A problem occurs during sending the e-mail please contact your administrator.');
+                                }
+
 }
