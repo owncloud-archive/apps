@@ -131,8 +131,8 @@ function update_mail($uid, $email) {
 
 function update_preferredlanguage($uid, $samllang) {
         $langmap = array(
-          "hu" => "hu_HU",
-          "en" => "en",
+                "hu" => "hu_HU",
+                "en" => "en",
         );
         $language = $langmap[$samllang];
 	if ($language != OC_Preferences::getValue($uid, 'core', 'lang', '')) {
