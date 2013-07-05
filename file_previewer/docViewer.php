@@ -22,7 +22,9 @@ $solr = new \Apache_Solr_Service($fascinator['solr']['host'], $fascinator['solr'
 $path_parts = pathinfo($file);
 $extension = $path_parts['extension'];
 
-if($extension === "doc" || $extension === "docx") {
+if($extension === "doc" || $extension === "docx" || $extension === "xls" || $extension === "xlsx"
+		|| $extension === "ppt" || $extension === "pptx" || $extension === "odt" || $extension === "odp"
+	  	|| $extension === "ods") {
 	$query = 'full_path:"/data/'.$user.'/files'. $file .'"';
 	$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 	$preview = $path_parts['filename'].'.htm';
@@ -35,20 +37,6 @@ else {
 
 try
 {
-	/*$results = $solr->search($query, 0, 20);
-	$base_ids = array();
-	if($results)
-	{
-		foreach ($results->response->docs as $doc) {
-			foreach ($doc as $field => $value) {
-				if($field === "storage_id"){
-					$storage_id = $value;
-					break;
-				}
-			}
-		}
-	}*/
-	
 	$cookie_file = '/tmp/cookie-session';
   	$ch = curl_init();
   	curl_setopt($ch,CURLOPT_URL,$url);
@@ -63,69 +51,13 @@ try
   	
   	if(empty($sid)){
 	  	//Find the source and alter the source
-	  	$rgx = "/<img [^>]*src=\"([^\"]+)\"[^>]*>/";
+	  	$rgx = "/(<img [^>]*src=[\"\'])([^\"\']*)([\"\'][^>]*\/?>)/i";
 	  	 
-	  	$matches = array();
-	  	 
-	  	preg_match_all($rgx, $content, $matches, PREG_SET_ORDER);
-	
-	  	$altered_tags = array();
-	  	
-	  	foreach ($matches as $value) {
-	  		$tag = $value[0];
-	  		$src_link = $value[1];
-	  		$new_link = $src_link."?sid=".$storage_id;
-	  		$new_tag = str_replace($src_link, $new_link, $tag);
-	  		$altered_tags[$tag] = $new_tag;
-	  	}
-	  	//var_dump($altered_tags);
-	  	//var_dump($matches);
-	  	
-	  	foreach ($altered_tags as $key => $value) {
-	  		$content = str_replace($key, $value, $content);
-	  	}
+	  	$content = preg_replace($rgx, '$1$2?sid='.$storage_id.'$3', $content);
   	}
 	
   	echo $content;
-  	//echo $result;
-	
-	//$data = array();
-	
-	/*$options = array(
-			'http' => array(
-					'header'  => "Content-type: text/html",
-					'method'  => 'GET',
-					'content' => http_build_query($data),
-			),
-	);
-	
-	$context  = stream_context_create($options);*/
-	//$result = file_get_contents($url);//, false, $context);
-	
-	//var_dump($result);
-	
-	//var_dump($result);
-	/*$q = 'file_path:"'. $file_path .'" AND (id:"'.implode('" OR id:"', $base_ids).'")';
-	$query2 = 'file_path:"'. $file_path .'" AND preview_type:"html" AND (preview:"'.$path_parts['filename'].'.htm" OR preview:"'.$path_parts['basename'].'.html")';
-	$real_doc = $solr->search($query2, 0, 10);
-	if($real_doc){
-		foreach ($real_doc->response->docs as $doc) {
-			foreach ($doc as $field => $value) {
-				if($field === "file_path"){
-					if(is_array($value)){
-						$v = end($value);
-					}
-					else {
-						$v = $value;
-					}
-					if($v === $file_path)
-					{
-						
-					}
-				}
-			}
-		}
-	}*/
+  	
 }
 catch (Exception $e)
 {

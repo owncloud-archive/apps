@@ -57,13 +57,49 @@ $(document).ready(function() {
 	if(!$.browser.msie){//doesn't work on IE
 		
 		if(location.href.indexOf("files")!=-1) {
-			if(typeof FileActions!=='undefined'){
+			/*if(typeof FileActions!=='undefined'){
 				FileActions.register('application/msword','Prev', OC.PERMISSION_READ, '',function(filename) {
 					showPreview($('#dir').val(),filename);
 				});
 				FileActions.setDefault('application/msword','Prev');
+			}*/
+			if(typeof FileActions!=='undefined'){
+
+				var supportedMimes = new Array(
+					'application/msword',
+					'application/msexcel',
+					'application/mspowerpoint',
+					'application/vnd.oasis.opendocument.text', 
+					'application/vnd.oasis.opendocument.spreadsheet',
+					'application/vnd.oasis.opendocument.graphics',
+					'application/vnd.oasis.opendocument.presentation');
+				for (var i = 0; i < supportedMimes.length; ++i){
+					var mime = supportedMimes[i];
+					FileActions.register(mime,'Prev',OC.PERMISSION_READ,'',function(filename){
+						showPreview($('#dir').val(),filename);
+					});
+					FileActions.setDefault(mime,'Prev');
+				}
 			}
 		}
+		
+		/*if(location.href.indexOf("files")!=-1) {
+			if(typeof FileActions!=='undefined'){
+				FileActions.register('application/msexcel','Prev', OC.PERMISSION_READ, '',function(filename) {
+					showPreview($('#dir').val(),filename);
+				});
+				FileActions.setDefault('application/msexcel','Prev');
+			}
+		}
+		
+		if(location.href.indexOf("files")!=-1) {
+			if(typeof FileActions!=='undefined'){
+				FileActions.register('application/mspowerpoint','Prev', OC.PERMISSION_READ, '',function(filename) {
+					showPreview($('#dir').val(),filename);
+				});
+				FileActions.setDefault('application/mspowerpoint','Prev');
+			}
+		}*/
 		
 		if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined') {
