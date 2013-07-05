@@ -33,6 +33,9 @@ $(document).ready(function(){
 	$('#imprint #imprint-option-position').on('change',function(){
 		OC.AppConfig.setValue('imprint','position',$(this).val());
 	})
+	$('#imprint #imprint-option-anonposition').on('change',function(){
+		OC.AppConfig.setValue('imprint','anonposition',$(this).val());
+	})
 	$('#imprint').find('#imprint-content').on('focusout',function(){
 		OC.AppConfig.setValue('imprint','content',$(this).val());
 	})
@@ -40,6 +43,9 @@ $(document).ready(function(){
 	// initialize options with stored settings
 	OC.AppConfig.getValue('imprint','position','',function(data){
 		$('#imprint #imprint-option-position option[value="'+data+'"]').attr('selected', 'yes')
+	});
+	OC.AppConfig.getValue('imprint','anonposition','',function(data){
+		$('#imprint #imprint-option-anonposition option[value="'+data+'"]').attr('selected', 'yes')
 	});
 	OC.AppConfig.getValue('imprint','content','',function(data){
 		$('#imprint #imprint-content').html(data);
