@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Magnus Höglund <magnus@linux.com>, 2013
-# medialabs <medialabs@gmail.com>, 2013
+# medialabs, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-06-08 00:49+0200\n"
-"PO-Revision-Date: 2013-06-07 09:22+0000\n"
-"Last-Translator: medialabs <medialabs@gmail.com>\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 22:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:83 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
@@ -53,11 +53,11 @@ msgstr "Placering"
 msgid "Standalone app"
 msgstr "Fristående app"
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr "Sidhuvud vänster"
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr "Sidhuvud höger"
 
@@ -69,11 +69,15 @@ msgstr "Navigering uppe"
 msgid "Navigation bottom"
 msgstr "Navigering nere"
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:54
+msgid "During login"
+msgstr ""
+
+#: templates/tmpl_settings.php:61
 msgid "Content"
 msgstr "Innehåll"
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
