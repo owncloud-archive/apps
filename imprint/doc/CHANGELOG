@@ -22,6 +22,8 @@
 *****
 
 Changelog: 
+* Fri Jul 05 2013 Christian Reiner: version 0.1.13
+Separat setting to place link during anonymous access (login).
 * Sun Apr 07 2013 Christian Reiner: version 0.1.12
 Fixed reference to another app that crashed OC. 
 * Sat Apr 06 2013 Christian Reiner: version 0.1.11
