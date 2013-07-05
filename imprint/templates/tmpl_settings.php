@@ -51,6 +51,12 @@
 				<option value="navigation-top"><?php p($l->t("Navigation top"));?></option>
 				<option value="navigation-bottom"><?php p($l->t("Navigation bottom"));?></option>
 			</select>
+			<label for="imprint-option-anonposition" class="imprint-option"><?php p($l->t("During login").": ");?></label>
+			<select id="imprint-option-anonposition" class="imprint-option" type="select" name="anonposition">
+				<option value=""></option>
+				<option value="header-left"><?php p($l->t("Header left"));?></option>
+				<option value="header-right"><?php p($l->t("Header right"));?></option>
+			</select>
 			<br>
 			<label   for="imprint-content" class="imprint-option"><?php p($l->t("Content").': ');?></label>
 			<textarea id="imprint-content" class="imprint-option"></textarea>
