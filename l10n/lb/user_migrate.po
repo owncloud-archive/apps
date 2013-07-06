@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Michel Weimerskirch <michel@weimerskirch.net>, 2013
 # sim0n <sim0n@trypill.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-05 00:49+0200\n"
-"PO-Revision-Date: 2013-07-04 07:53+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-07 00:49+0200\n"
+"PO-Revision-Date: 2013-07-06 13:30+0000\n"
+"Last-Translator: Michel Weimerskirch <michel@weimerskirch.net>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "Export"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr ""
+msgstr "Beim Generéiere vum Export-Fichier ass eppes schif gaangen."
 
 #: js/export.js:19
 msgid "An error has occurred"

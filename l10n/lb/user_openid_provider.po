@@ -4,13 +4,14 @@
 # 
 # Translators:
 # llaera <llaera@outlook.com>, 2013
+# Michel Weimerskirch <michel@weimerskirch.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-06 00:57+0200\n"
-"PO-Revision-Date: 2013-07-05 17:20+0000\n"
-"Last-Translator: llaera <llaera@outlook.com>\n"
+"POT-Creation-Date: 2013-07-07 00:49+0200\n"
+"PO-Revision-Date: 2013-07-06 12:10+0000\n"
+"Last-Translator: Michel Weimerskirch <michel@weimerskirch.net>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr "OpenID Provider gespaichert Saiten"
+msgstr "Gespäichert Säite vum OpenID-Provider"
 
 #: templates/settings.php:8
 msgid "Trusted"
-msgstr "Secher"
+msgstr "Sécher"
 
 #: templates/settings.php:8
 msgid "Denied"

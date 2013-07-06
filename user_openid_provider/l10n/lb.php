@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
-"OpenID Provider remembered sites" => "OpenID Provider gespaichert Saiten",
-"Trusted" => "Secher",
+"OpenID Provider remembered sites" => "Gespäichert Säite vum OpenID-Provider",
+"Trusted" => "Sécher",
 "Denied" => "Verweigert",
 "Remove" => "Läschen"
 );

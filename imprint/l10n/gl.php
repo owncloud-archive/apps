@@ -11,6 +11,7 @@
 "Header right" => "Cabeceira dereita",
 "Navigation top" => "Enriba na navegación",
 "Navigation bottom" => "Embaixo na navegación",
+"During login" => "Durante o acceso",
 "Content" => "Contido",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Pode empregar o formato HTML (p.ex. &lt;br&gt; para un salto de liña) e os atributos de estilo na liña (p.ex &lt;a style=\"color:red;\"&gt;)."
 );

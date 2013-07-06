@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# pratik kumar <kpratik217@gmail.com>, 2013
 # rktaiwala <rktaiwala@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-06 00:57+0200\n"
-"PO-Revision-Date: 2013-07-05 00:11+0000\n"
-"Last-Translator: rktaiwala <rktaiwala@gmail.com>\n"
+"POT-Creation-Date: 2013-07-07 00:49+0200\n"
+"PO-Revision-Date: 2013-07-06 09:11+0000\n"
+"Last-Translator: pratik kumar <kpratik217@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "दस्तावेज़ साझा किया गया था"
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "आप के साथ उपयोक्ता%s त्वरित दस्तावेज़%s साझा "
 
 #: appinfo/app.php:99
 msgid "My pad"
