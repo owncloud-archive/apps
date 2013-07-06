@@ -36,9 +36,15 @@ OCP\App::addNavigationEntry(array(
 		'name' => $l->t('Pictures'))
 );
 
+// make slideshow available in files and public shares
+OCP\Util::addScript('gallery', 'jquery.mousewheel-3.1.1');
+OCP\Util::addScript( 'gallery', 'slideshow' );
+OCP\Util::addStyle( 'gallery', 'slideshow' );
 
+// register filesystem hooks to update thumbnails
 OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Gallery\Thumbnail', 'writeHook');
 OCP\Util::connectHook('OC_Filesystem', 'post_delete', 'OCA\Gallery\Thumbnail', 'removeHook');
 
+// register share backend
 OCP\Share::registerBackend('picture', 'OCA\Gallery\Share\Picture', null, array('gif', 'jpeg', 'jpg', 'png', 'svg', 'svgz'));
 OCP\Share::registerBackend('gallery', 'OCA\Gallery\Share\Gallery', 'picture');

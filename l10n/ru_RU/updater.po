@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <cdewqazxsqwe@gmail.com>, 2013.
-#   <cdewqazxsqwe@gmail.com>, 2012.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2013
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
+"POT-Creation-Date: 2013-06-04 00:56+0200\n"
+"PO-Revision-Date: 2013-06-02 23:16+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,10 @@ msgstr ""
 msgid "Error"
 msgstr "Ошибка"
 
-#: templates/admin.php:24
+#: templates/admin.php:22
 msgid "Update"
 msgstr "Обновить"
+
+#: templates/admin.php:24
+msgid "Up to date"
+msgstr ""

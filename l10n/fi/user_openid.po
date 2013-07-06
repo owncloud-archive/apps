@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-13 23:12+0200\n"
+"POT-Creation-Date: 2013-05-25 00:49+0200\n"
 "PO-Revision-Date: 2012-08-12 22:45+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/owncloud/language/fi/)\n"
@@ -15,7 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr ""
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr ""
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
@@ -39,6 +47,10 @@ msgstr ""
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
+msgstr ""
+
+#: templates/settings.php:3
+msgid "OpenID"
 msgstr ""
 
 #: templates/settings.php:4

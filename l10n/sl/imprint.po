@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-20 00:48+0200\n"
-"PO-Revision-Date: 2013-04-19 20:20+0000\n"
-"Last-Translator: mateju <>\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 22:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:83 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
@@ -52,11 +52,11 @@ msgstr "postavitev"
 msgid "Standalone app"
 msgstr "Samostojni program"
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr "Leva glava"
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr "Desna glava"
 
@@ -68,11 +68,15 @@ msgstr "Vrh krmarjenja"
 msgid "Navigation bottom"
 msgstr "Dno krmarjenja"
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:54
+msgid "During login"
+msgstr ""
+
+#: templates/tmpl_settings.php:61
 msgid "Content"
 msgstr "Vsebina"
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-29 00:49+0200\n"
-"PO-Revision-Date: 2013-04-28 22:30+0000\n"
+"POT-Creation-Date: 2013-04-30 00:49+0200\n"
+"PO-Revision-Date: 2013-04-29 17:40+0000\n"
 "Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "album"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr ""
+msgstr "Legg til i speleliste"
 
 #: js/music.js:18
 msgid "Add album to playlist"
@@ -73,7 +73,7 @@ msgstr "Innstillingar"
 
 #: templates/music.php:35
 msgid "Ampache address:"
-msgstr ""
+msgstr "Ampache-adresse:"
 
 #: templates/music.php:44
 msgid "Artist"

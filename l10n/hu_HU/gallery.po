@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 08:23+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-05 00:49+0200\n"
+"PO-Revision-Date: 2013-07-04 07:52+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,6 +27,10 @@ msgstr "Képek"
 #: js/gallery.js:269
 msgid "Shared by"
 msgstr "Megosztotta Önnel"
+
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr "Hiba történt a diasor sablonjának betöltésekor"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

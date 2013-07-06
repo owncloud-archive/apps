@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Admin" => "Stjórnun"
+"Legal notice" => "Lagaleg atriði"
 );

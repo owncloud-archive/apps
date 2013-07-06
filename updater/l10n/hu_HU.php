@@ -3,5 +3,6 @@
 "Done." => "Kész.",
 "Here is your backup: " => "Itt a mentés:",
 "Error" => "Hiba",
-"Update" => "Frissítés"
+"Update" => "Frissítés",
+"Up to date" => "Frissítve"
 );

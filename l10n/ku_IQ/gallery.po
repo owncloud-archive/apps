@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hozha Koyi <hozhan@gmail.com>, 2012.
+# Hozha Koyi <hozhan@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-05-26 00:49+0200\n"
+"PO-Revision-Date: 2013-05-25 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,10 @@ msgstr "وێنه‌کان"
 
 #: js/gallery.js:269
 msgid "Shared by"
+msgstr ""
+
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
 msgstr ""
 
 #: templates/index.php:4 templates/index.php:5

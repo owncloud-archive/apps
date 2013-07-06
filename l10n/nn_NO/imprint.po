@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 22:57+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: nn_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:83 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Standalone app"
 msgstr ""
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr ""
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr ""
 
@@ -67,11 +67,15 @@ msgstr ""
 msgid "Navigation bottom"
 msgstr ""
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:54
+msgid "During login"
+msgstr ""
+
+#: templates/tmpl_settings.php:61
 msgid "Content"
 msgstr ""
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."

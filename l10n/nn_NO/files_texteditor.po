@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 08:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 00:11+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
-msgstr "Lagre"
+msgstr "Lagra"
 
 #: js/editor.js:75
 msgid "Search:"
-msgstr ""
+msgstr "Søk:"
 
 #: js/editor.js:78
 msgid "Close"
@@ -35,20 +36,20 @@ msgstr "Neste"
 
 #: js/editor.js:133
 msgid "Clear"
-msgstr ""
+msgstr "Tøm"
 
 #: js/editor.js:151
 msgid "Saving..."
-msgstr ""
+msgstr "Lagrar …"
 
 #: js/editor.js:159
 msgid "Failed to save file"
-msgstr ""
+msgstr "Klarte ikkje lagra fila"
 
 #: js/editor.js:251
 msgid "An error occurred!"
-msgstr ""
+msgstr "Ein feil oppstod!"
 
 #: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
-msgstr ""
+msgstr "Du har ulagra endringar, klikk her for å gå tilbake"

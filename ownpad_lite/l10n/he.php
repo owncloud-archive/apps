@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"Document was shared" => "המסמך שותף",
+"User %s shared quick document %s with you." => "המשתמש %s שיתף אתך מסמך זריז %s.",
 "My pad" => "הלוח שלי",
 "Settings" => "הגדרות",
 "Pad Title" => "כותרת הלוח",

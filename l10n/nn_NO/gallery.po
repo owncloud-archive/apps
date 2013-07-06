@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <erviker@gmail.com>, 2012.
+# erviker <erviker@gmail.com>, 2012
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-05 00:49+0200\n"
+"PO-Revision-Date: 2013-07-04 07:52+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,18 +21,22 @@ msgstr ""
 
 #: appinfo/app.php:36
 msgid "Pictures"
-msgstr ""
+msgstr "Bilete"
 
 #: js/gallery.js:269
 msgid "Shared by"
-msgstr ""
+msgstr "Delt av"
+
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr "Klarte ikkje lasta lysbiletmal"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "«Biletvisar»-programmet må òg vera skrudd på for å bruka dette programmet."

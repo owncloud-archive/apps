@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <romihardiyanto@gmail.com>, 2013.
+# rodin <romihardiyanto@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 22:57+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:83 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
@@ -52,11 +52,11 @@ msgstr "Lokasi"
 msgid "Standalone app"
 msgstr "Aplikasi mandiri"
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr "Tajuk kiri"
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr "Tajuk kanan"
 
@@ -68,11 +68,15 @@ msgstr "Navigasi atas"
 msgid "Navigation bottom"
 msgstr "Navigasi bawah"
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:54
+msgid "During login"
+msgstr ""
+
+#: templates/tmpl_settings.php:61
 msgid "Content"
 msgstr "Konten"
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."

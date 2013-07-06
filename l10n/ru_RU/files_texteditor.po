@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <cdewqazxsqwe@gmail.com>, 2012.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"POT-Creation-Date: 2013-06-04 00:56+0200\n"
+"PO-Revision-Date: 2013-06-03 00:32+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,6 @@ msgstr "Не удалось сохранить файл"
 msgid "An error occurred!"
 msgstr "Произошла ошибка!"
 
-#: js/editor.js:272
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
 msgstr "Были несохраненные изменения, нажмите здесь, чтобы вернуться"

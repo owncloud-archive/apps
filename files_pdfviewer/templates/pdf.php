@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
 
     <!-- oC changes-->
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.7.2.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkToRoute('js_config'));?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/js.js')); ?>"></script>
@@ -109,7 +109,8 @@
 
                 <button id="download" class="toolbarButton download" title="Download" tabindex="15" data-l10n-id="download">
                   <span data-l10n-id="download_label">Download</span>
-                </button>
+                </button> 
+
                 <!-- <div class="toolbarButtonSpacer"></div> -->
                 <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="16" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
               </div>

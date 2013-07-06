@@ -3,5 +3,6 @@
 "Done." => "Gereed.",
 "Here is your backup: " => "Hier is uw backup:",
 "Error" => "Fout",
-"Update" => "Bijwerken"
+"Update" => "Bijwerken",
+"Up to date" => "Bijgewerkt"
 );

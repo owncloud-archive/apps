@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 10:44+0000\n"
+"POT-Creation-Date: 2013-07-05 00:49+0200\n"
+"PO-Revision-Date: 2013-07-04 07:52+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,10 @@ msgstr "Pildid"
 #: js/gallery.js:269
 msgid "Shared by"
 msgstr "Jagas"
+
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr "Viga slaidiseansi kujunduse valimisel"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

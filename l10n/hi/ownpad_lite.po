@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# rktaiwala <rktaiwala@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 16:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 00:11+0000\n"
+"Last-Translator: rktaiwala <rktaiwala@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "दस्तावेज़ साझा किया गया था"
 
 #: ajax/share.php:27
 #, php-format
@@ -28,7 +29,7 @@ msgstr ""
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "मेरा पैड"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -36,23 +37,23 @@ msgstr "सेटिंग्स"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr ""
+msgstr "पैड शीर्षक"
 
 #: templates/index.php:19
 msgid "Open"
-msgstr ""
+msgstr "खोलें"
 
 #: templates/index.php:20
 msgid "Share with"
-msgstr ""
+msgstr "के साथ साझा"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr ""
+msgstr "साझा करें"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Etherpad सेवा यूआरएल"
 
 #: templates/settings.php:21
 msgid "Username"
@@ -60,4 +61,4 @@ msgstr "प्रयोक्ता का नाम"
 
 #: templates/settings.php:28
 msgid "Save"
-msgstr ""
+msgstr "सहेजें"

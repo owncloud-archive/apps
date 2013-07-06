@@ -51,6 +51,13 @@ class Indexer {
 				Util::WARN);
 			return false;
 		}
+		
+		if(!$view->file_exists($path)) {
+			Util::writeLog('search_lucene',
+				'file vanished, ignoring',
+				Util::DEBUG);
+			return true;
+		}
 
 		$root = $view->getRoot();
 		$pk = md5($root . $path);
@@ -135,9 +142,9 @@ class Indexer {
 			return true;
 
 		} else {
-            Util::writeLog('search_lucene',
+			Util::writeLog('search_lucene',
 				'need mimetype for content extraction',
-                Util::ERROR);
+				Util::ERROR);
 			return false;
 		}
 	}
@@ -217,9 +224,9 @@ class Indexer {
 		}
 
 		if (isset($data['error'])) {
-            Util::writeLog('search_lucene',
+			Util::writeLog('search_lucene',
 				'failed to extract meta information for ' . $view->getAbsolutePath($path) . ': ' . $data['error']['0'],
-                Util::WARN);
+				Util::WARN);
 
 			return;
 		}
@@ -233,8 +240,8 @@ class Indexer {
 	static public function getUnindexed() {
 		$files = array();
 		$absoluteRoot = Filesystem::getView()->getAbsolutePath('/');
-		$mounts = \OC\Files\Mount::findIn($absoluteRoot);
-		$mount = \OC\Files\Mount::find($absoluteRoot);
+		$mounts = Filesystem::getMountPoints($absoluteRoot);
+		$mount = Filesystem::getMountPoint($absoluteRoot);
 		if (!in_array($mount, $mounts)) {
 			$mounts[] = $mount;
 		}
@@ -247,7 +254,16 @@ class Indexer {
 			. ' AND `status` is null OR `status` = "N"');
 
 		foreach ($mounts as $mount) {
-			$storage = $mount->getStorage();
+			if (is_string($mount)) {
+				$storage = Filesystem::getStorage($mount);
+			} else if ($mount instanceof \OC\Files\Mount\Mount) {
+				$storage = $mount->getStorage();
+			} else {
+				$storage = null;
+				Util::writeLog('search_lucene',
+					'expected string or instance of \OC\Files\Mount\Mount got ' . json_encode($mount),
+					Util::DEBUG);
+			}
 			//only index local files for now
 			if ($storage instanceof \OC\Files\Storage\Local) {
 				$cache = $storage->getCache();

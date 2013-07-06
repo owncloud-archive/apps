@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 08:25+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-05 00:49+0200\n"
+"PO-Revision-Date: 2013-07-04 07:54+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,6 +35,10 @@ msgstr "Hier is uw backup:"
 msgid "Error"
 msgstr "Fout"
 
-#: templates/admin.php:24
+#: templates/admin.php:22
 msgid "Update"
 msgstr "Bijwerken"
+
+#: templates/admin.php:24
+msgid "Up to date"
+msgstr "Bijgewerkt"

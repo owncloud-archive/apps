@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-04-29 00:49+0200\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/wizard.php:7
+#: templates/wizard.php:9
 msgid "Welcome to ownCloud"
 msgstr ""
 
-#: templates/wizard.php:8
+#: templates/wizard.php:11
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
 msgstr ""
 
-#: templates/wizard.php:11
+#: templates/wizard.php:17
 msgid "Get the apps to sync your files"
 msgstr ""
 
-#: templates/wizard.php:23
+#: templates/wizard.php:28
 msgid "Connect your desktop apps to ownCloud"
 msgstr ""
 
-#: templates/wizard.php:25
+#: templates/wizard.php:31
 msgid "Connect your Calendar"
 msgstr ""
 
-#: templates/wizard.php:28
+#: templates/wizard.php:34
 msgid "Connect your Contacts"
 msgstr ""
 
-#: templates/wizard.php:31
+#: templates/wizard.php:38
 msgid "Access files via WebDAV"
 msgstr ""
 
-#: templates/wizard.php:34
+#: templates/wizard.php:43
 msgid ""
 "There’s more information in the <a href=\"http://doc.owncloud.org/server/5.0/"
 "user_manual/\">documentation</a> and on our <a href=\"http://owncloud.org"
 "\">website</a>."
 msgstr ""
 
-#: templates/wizard.php:35
+#: templates/wizard.php:44
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from "
