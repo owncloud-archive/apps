@@ -3,9 +3,9 @@
 /**
  * ownCloud - External plugin
  *
- * @author Frank Karlitschek
- * @copyright 2012 Frank Karlitschek frank@owncloud.org
- *
+ * @author Tobia De Koninck
+ * @copyright 2013 Tobia De Koninck tobia@ledfan.be
+ * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
  * License as published by the Free Software Foundation; either
@@ -24,10 +24,23 @@
 OC::$CLASSPATH['OC_External'] = 'external/lib/external.php';
 OCP\Util::addStyle( 'external', 'style');
 
-OCP\App::registerAdmin('external', 'settings');
-
-$sites = OC_External::getSites();
-for ($i = 0; $i < sizeof($sites); $i++) {
-	OCP\App::addNavigationEntry(
-			array('id' => 'external_index' . ($i + 1), 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1), 'icon' => OCP\Util::imagePath('external', 'external.png'), 'name' => $sites[$i][0]));
+if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
+    OCP\App::registerPersonal('external', 'personal');
 }
+
+OCP\App::registerAdmin('external', 'admin');
+
+if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
+	$sites = OC_External::getSites();
+	for ($i = 0; $i < sizeof($sites); $i++) {
+		OCP\App::addNavigationEntry(
+				array('id' => 'external_index' . ($i + 1) . 'user', 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1) . '&user=true', 'icon' => OCP\Util::imagePath('external', 'external.png'),  'name' => $sites[$i][0]));
+	}
+}
+
+$globalSites = OC_External::getGlobalSites();
+for ($i = 0; $i < sizeof($globalSites); $i++) {
+	OCP\App::addNavigationEntry(
+			array('id' => 'external_index' . ($i + 1), 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1), 'icon' =>  OCP\Util::imagePath('external', 'external.png'), 'name' => $globalSites[$i][0]));
+}
+

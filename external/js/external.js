@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	function pageY(elem) {
+    function pageY(elem) {
 		return elem.offsetParent ? (elem.offsetTop + pageY(elem.offsetParent)) : elem.offsetTop;
 	}
 

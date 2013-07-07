@@ -4,7 +4,7 @@
 	<name>External</name>
 	<description>Show external Application in the ownCloud menu</description>
 	<licence>AGPL</licence>
-	<author>Frank Karlitschek</author>
+	<author>Tobia De Koninck</author>
 	<require>4.93</require>
 	<shipped>true</shipped>
 </info>

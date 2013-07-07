@@ -1,3 +1,10 @@
+<?php 
+/**
+ * 2013 Tobia De Koninck tobia@ledfan.be
+ * This file is licensed under the Affero General Public License version 3 or later.
+ * See the COPYING-README file.
+ */
+?> 
 <form id="external">
 	<fieldset class="personalblock">
 		<legend><strong><?php p($l->t('External Sites'));?></strong></legend>
@@ -15,7 +22,7 @@
 
 		</ul>
 
-        <input type="button" id="add_external_site" value="<?php p($l->t("Add")); ?>" />
+        <input type="button" id="add_external_site" value="<?php p($l->t("Add extra field")); ?>" /><br>
 		<span class="msg"></span>
 	</fieldset>
 </form>
