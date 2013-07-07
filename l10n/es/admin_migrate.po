@@ -6,13 +6,14 @@
 # Art O. Pal <artopal@fastmail.fm>, 2012
 # juanman <juanma@kde.org.ar>, 2012
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2013
+# Korrosivo <yo@rubendelcampo.es>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-07 00:49+0200\n"
-"PO-Revision-Date: 2013-07-05 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-08 00:50+0200\n"
+"PO-Revision-Date: 2013-07-07 08:10+0000\n"
+"Last-Translator: Korrosivo <yo@rubendelcampo.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "Se creará un archivo comprimido que contendrá los datos de esta instan
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr "Por favor elegir el tipo de exportación:"
+msgstr "Por favor, elija el tipo de exportación:"
 
 #: templates/settings.php:11
 msgid "ownCloud instance (user data and database)"

@@ -9,7 +9,7 @@
 "1=highest" => "1=mayor",
 "5=medium" => "5=media",
 "9=lowest" => "9=menor",
-"Empty Summary" => "Resumen vacío",
+"Empty Summary" => "Vaciar resumen",
 "Invalid percent complete" => "Porcentaje completado no válido",
 "Invalid priority" => "Prioridad no válida",
 "The calendar application also need to be enabled to use this application." => "La aplicación de calendario también tiene que ser activada para usar esta aplicación.",

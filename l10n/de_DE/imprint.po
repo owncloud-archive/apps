@@ -5,14 +5,15 @@
 # Translators:
 # a.tangemann <a.tangemann@web.de>, 2013
 # arkascha <foss@christian-reiner.info>, 2013
+# JamFX <niko@nik-o-mat.de>, 2013
 # kabum <uu.kabum@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-06 00:57+0200\n"
-"PO-Revision-Date: 2013-07-05 22:57+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-08 00:50+0200\n"
+"PO-Revision-Date: 2013-07-07 05:50+0000\n"
+"Last-Translator: JamFX <niko@nik-o-mat.de>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +73,7 @@ msgstr "Navigation unten"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
-msgstr ""
+msgstr "Während der Anmeldung"
 
 #: templates/tmpl_settings.php:61
 msgid "Content"

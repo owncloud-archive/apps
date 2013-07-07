@@ -13,6 +13,7 @@
 "Port" => "درگاه",
 "Port number of Antivirus Host." => "شماره پورت میزبان آنتی ویروس.",
 "Action for infected files found while scanning" => "اقدام لازم در مورد فایل های آلوده ی یافت شده در حین اسکن",
+"Only log" => "فقط لاگ",
 "Delete file" => "حذف فایل",
 "Save" => "ذخیره"
 );
