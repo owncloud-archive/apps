@@ -1,6 +1,6 @@
 <div id="controls">
 	<div id='breadcrumbs'></div>
-	<?php if ($_['encryptionEnabled']): ?>
+	<?php if ($_['encryptionEnabled'] === false): ?>
 	<span class="right">
 		<button class="share"><?php p($l->t("Share")); ?></button>
 		<a class="share" data-item-type="gallery" data-item="" title="<?php p($l->t("Share")); ?>"
