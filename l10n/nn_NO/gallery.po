@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:11+0000\n"
+"POT-Creation-Date: 2013-07-09 00:49+0200\n"
+"PO-Revision-Date: 2013-07-07 23:11+0000\n"
 "Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Delt av"
 msgid "Error loading slideshow template"
 msgstr "Klarte ikkje lasta lysbiletmal"
 
-#: templates/index.php:4 templates/index.php:5
+#: templates/index.php:5 templates/index.php:6
 msgid "Share"
 msgstr "Del"
 

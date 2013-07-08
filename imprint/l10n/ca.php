@@ -11,6 +11,7 @@
 "Header right" => "Encapçalament dret",
 "Navigation top" => "Navegació superior",
 "Navigation bottom" => "Navegació inferior",
+"During login" => "Durada de l'accés",
 "Content" => "Contingut",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Podeu usar marques html  (com &lt;br&gt; per un salt de línia) i atributs d'estil en línia (com &lt;a style=\"color:red;\"&gt;)."
 );

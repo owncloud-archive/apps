@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# llaera <llaera@outlook.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-07 00:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-09 00:49+0200\n"
+"PO-Revision-Date: 2013-07-08 07:00+0000\n"
+"Last-Translator: llaera <llaera@outlook.com>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Den Dokument ass gedeelt ginn"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "User %s huet denn quick Document %s mad dir gedeelt"
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "Mein Notitzbuch"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -36,7 +37,7 @@ msgstr "Astellungen"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr ""
+msgstr "Pad Titel"
 
 #: templates/index.php:19
 msgid "Open"
@@ -52,7 +53,7 @@ msgstr "Deelen"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Etherpad service URL"
 
 #: templates/settings.php:21
 msgid "Username"

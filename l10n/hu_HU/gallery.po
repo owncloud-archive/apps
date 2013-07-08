@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:11+0000\n"
+"POT-Creation-Date: 2013-07-09 00:49+0200\n"
+"PO-Revision-Date: 2013-07-07 23:11+0000\n"
 "Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Megosztotta Önnel"
 msgid "Error loading slideshow template"
 msgstr "Hiba történt a diasor sablonjának betöltésekor"
 
-#: templates/index.php:4 templates/index.php:5
+#: templates/index.php:5 templates/index.php:6
 msgid "Share"
 msgstr "Megosztás"
 
