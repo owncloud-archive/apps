@@ -15,9 +15,17 @@ function showPreview(dir,filename){
 		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-		//var viewer = getRequestURL(dir, filename, '.html');
 		var viewer = getFilePath(dir, filename);
-		//var viewer = OC.linkTo('file_previewer', 'docViewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename.replace('&', '%26'));
+		/*$.get(viewer, function(data) {
+			$("#content").html(oldcontent+'<iframe id="previewFrame" style="width:100%;height:100%;display:block;"></iframe>');
+			var ifrm = $("#previewFrame")[0].contentWindow.document;
+			ifrm.open();
+			ifrm.write(data);
+			ifrm.close();
+		}).fail(function(data){
+			OC.Notification.show(data.responseText);
+			setTimeout(function() {OC.Notification.hide();}, 1000);
+		});*/
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		$("#pageWidthOption").attr("selected","selected");
 	}
@@ -55,16 +63,8 @@ function getRequestURL(dir, filename, type) {
 
 $(document).ready(function() {
 	if(!$.browser.msie){//doesn't work on IE
-		
 		if(location.href.indexOf("files")!=-1) {
-			/*if(typeof FileActions!=='undefined'){
-				FileActions.register('application/msword','Prev', OC.PERMISSION_READ, '',function(filename) {
-					showPreview($('#dir').val(),filename);
-				});
-				FileActions.setDefault('application/msword','Prev');
-			}*/
 			if(typeof FileActions!=='undefined'){
-
 				var supportedMimes = new Array(
 					'application/msword',
 					'application/msexcel',
@@ -82,24 +82,6 @@ $(document).ready(function() {
 				}
 			}
 		}
-		
-		/*if(location.href.indexOf("files")!=-1) {
-			if(typeof FileActions!=='undefined'){
-				FileActions.register('application/msexcel','Prev', OC.PERMISSION_READ, '',function(filename) {
-					showPreview($('#dir').val(),filename);
-				});
-				FileActions.setDefault('application/msexcel','Prev');
-			}
-		}
-		
-		if(location.href.indexOf("files")!=-1) {
-			if(typeof FileActions!=='undefined'){
-				FileActions.register('application/mspowerpoint','Prev', OC.PERMISSION_READ, '',function(filename) {
-					showPreview($('#dir').val(),filename);
-				});
-				FileActions.setDefault('application/mspowerpoint','Prev');
-			}
-		}*/
 		
 		if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined') {

@@ -49,6 +49,11 @@ try
   	$result = curl_getinfo($ch);
   	curl_close($ch);
   	
+  	//if error, send msg;
+  	if(empty($content))
+  	{
+  		$content = "No previews available";
+  	}
   	if(empty($sid)){
 	  	//Find the source and alter the source
 	  	$rgx = "/(<img [^>]*src=[\"\'])([^\"\']*)([\"\'][^>]*\/?>)/i";
