@@ -42,13 +42,13 @@ $(document).ready(function() {
 		$('#crateList').empty();
 	});
 	
-	$('#subbutton').click( function() {
+	$('#subbutton').click(function(event) {
 	    $.ajax({
 	        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
 	        type: 'get',
 	        dataType: 'text/html',
 	        data: {'action':'create', 'crate_name':$('#crate_input #create').val()},
-	        complete: function(data){
+	        success: function(data){
 	        	$('#crates option').filter(function(){
 					return $(this).attr("id") == data.responseText;
 				}).prop('selected', true);
