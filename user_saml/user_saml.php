@@ -31,6 +31,8 @@ class OC_USER_SAML extends OC_User_Backend {
 	public $protectedGroups;
 	public $defaultGroup;
 	public $usernameMapping;
+	public $displayNameMapping;
+	public $preferredLanguageMapping;
 	public $mailMapping;
 	public $groupMapping;
 	public $auth;
@@ -44,6 +46,8 @@ class OC_USER_SAML extends OC_User_Backend {
 		$this->defaultGroup = OCP\Config::getAppValue('user_saml', 'saml_default_group', '');
 		$this->protectedGroups = explode (',', str_replace(' ', '', OCP\Config::getAppValue('user_saml', 'saml_protected_groups', '')));
 		$this->usernameMapping = OCP\Config::getAppValue('user_saml', 'saml_username_mapping', '');
+		$this->displayNameMapping = OCP\Config::getAppValue('user_saml', 'saml_displayname_mapping', '');
+		$this->preferredLanguageMapping = OCP\Config::getAppValue('user_saml', 'saml_preferredlanguage_mapping', '');
 		$this->mailMapping = OCP\Config::getAppValue('user_saml', 'saml_email_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_saml', 'saml_group_mapping', '');
 
