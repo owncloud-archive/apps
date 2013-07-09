@@ -276,9 +276,9 @@ class Storage
 			// database framework adds '' characters which cause syntax error in MySql.
 			//
 			// For example:
-			//   - correct     LIMIT 0,5 is correct,
-			//   - not correct LIMIT '0','5'
-			$whereString .= ' LIMIT '. $offset .','. $limit;
+			//   - correct LIMIT 5 OFFSET 0
+			//   - not correct LIMIT '5' OFFSET '0'
+			$whereString .= ' LIMIT '. $limit .' OFFSET '. $offset;
 		}
 
 		return $whereString;
