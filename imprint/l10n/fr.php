@@ -11,6 +11,7 @@
 "Header right" => "En-tête droit",
 "Navigation top" => "Navigation haut",
 "Navigation bottom" => "Navigation bas",
+"During login" => "Lors de la connexion",
 "Content" => "Contenu",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Vous pouvez utiliser le balisage HTML (par ex. : &lt;br&gt; pour un saut de ligne) et les attributs de style en ligne (ex : &lt;a style=\"color:red;\"&gt;)."
 );

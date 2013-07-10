@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-10 00:49+0200\n"
-"PO-Revision-Date: 2013-07-09 08:40+0000\n"
+"POT-Creation-Date: 2013-07-11 01:08+0200\n"
+"PO-Revision-Date: 2013-07-10 09:30+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -75,19 +75,19 @@ msgstr "شماره پورت میزبان آنتی ویروس."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "طول جریان داده"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "مقدار بیشترین طول جریان داده نرم افزارClamAV  به بایت."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "مسیر به clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "مسیر به clamscan انجام پذیر است."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
