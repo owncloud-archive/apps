@@ -6,6 +6,6 @@
 		<a class="share" data-item-type="gallery" data-item="" title="<?php p($l->t("Share")); ?>"
 		   data-possible-permissions="31"></a>
 	</span>
-	<? endif; ?>
+	<?php endif; ?>
 </div>
 <div id='gallery' class="hascontrols"></div>
