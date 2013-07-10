@@ -27,7 +27,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.getDisplayName = function() {
-		return this.getPreferredValue('FN') || this.getPreferredValue('ORG') || this.getPreferredValue('EMAIL');
+		return this.getPreferredValue('FN') || this.getPreferredValue('ORG', []).clean('').join(', ') || this.getPreferredValue('EMAIL');
 	};
 
 	Contact.prototype.getId = function() {
