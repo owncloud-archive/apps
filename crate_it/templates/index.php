@@ -14,7 +14,7 @@ and let user drag and drop -->
 </div>
 
 <div style="float:left; padding:20px;">
-	<form id="crate_input" action="" method="get">
+	<form id="crate_input" method="get">
 		Create new crate: <input type="text" id="create">
 		<input id="subbutton" type="submit" value="Submit">
 	</form>

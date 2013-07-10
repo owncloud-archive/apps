@@ -18,11 +18,18 @@ $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 switch ($action){
 	case 'create':
 		$msg = $bagit_manager->createCrate($crate_name);
-		print $msg;
+		if(!$msg){
+			header('HTTP/1.1 400 No name given');
+		}
+		else {
+			print $msg;
+		}
 		break;
 	case 'switch':
-		$msg = $bagit_manager->switchCrate($crate_id);
-		print $msg;
+		$ok = $bagit_manager->switchCrate($crate_id);
+		if(!$ok){
+			header('HTTP/1.1 400 No name',400);
+		}
 		break;
 	case 'get_crate':
 		$msg = $bagit_manager->getSelectedCrate();

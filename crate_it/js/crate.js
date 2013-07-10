@@ -42,31 +42,50 @@ $(document).ready(function() {
 		$('#crateList').empty();
 	});
 	
+	/*$('#subbutton').attr('disabled', 'disabled');
+	$('#crate_input #create').keyup(function() {
+        if($(this).val() != '') {
+            $('#subbutton').removeAttr('disabled');
+        }
+     });*/
+	
 	$('#subbutton').click(function(event) {
 	    $.ajax({
 	        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
 	        type: 'get',
-	        dataType: 'text/html',
+	        dataType: 'html',
 	        data: {'action':'create', 'crate_name':$('#crate_input #create').val()},
 	        success: function(data){
-	        	$('#crates option').filter(function(){
-					return $(this).attr("id") == data.responseText;
-				}).prop('selected', true);
+	        	$('#crate_input #create').val('');
+	        	$("#crates").append('<option id='+data+' value='+data+' >'+data+'</option>');
+	        	OC.Notification.show('Crate '+data+' successfully created');
+				setTimeout(function() {OC.Notification.hide();}, 1500);
+	        	//$('#subbutton').attr('disabled', 'disabled');
+	        	/*$('#crates option').filter(function(){
+					return $(this).attr("id") == data;
+				}).prop('selected', true);*/
+			},
+			error: function(data){
+				OC.Notification.show(data.statusText);
+				setTimeout(function() {OC.Notification.hide();}, 1500);
+				$('#crate_input #create').focus();
 			}
 	    });
+	    return false;
 	});
-	
-	var selected_crate ='';
 	
 	$.ajax({
 		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=get_crate',
 		type: 'get',
-		dataType: 'text/html',
-		complete: function(data){
-			selected_crate = data.responseText;
+		dataType: 'html',
+		success: function(data){
 			$('#crates option').filter(function(){
-				return $(this).attr("id") == selected_crate;
+				return $(this).attr("id") == data;
 			}).prop('selected', true);
+		},
+		error: function(data){
+			var e = data.statusText;
+			alert(e);
 		}
 	});
 	
@@ -79,29 +98,39 @@ $(document).ready(function() {
 		$.ajax({
 			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id,
 			type: 'get',
-			complete: function(data){
+			dataType: 'html',
+			success: function(data){
 				$.ajax({
 					url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
 					type: 'get',
-					dataType: 'text/html',
+					dataType: 'json',
 					data: {'action': 'get_items'},
-					complete: function(data){
+					success: function(data){
 						$('#crateList').empty();
-						var obj = JSON.parse(data.responseText);
-						if(obj != null){
+						if(data != null){
 							var items = [];
-							$.each(obj, function(key, value){
+							$.each(data, function(key, value){
 								items.push('<li id="'+value['id']+'">'+value['title']+'</li>');
 							});
 							$('#crateList').append(items.join(''));
 						}
+					},
+					error: function(data){
+						var e = data.statusText;
+						alert(e);
 					}
 				});
+			},
+			error: function(data){
+				var e = data.statusText;
+				alert(e);
 			}
 		});
 	});
 	
-	
+});	
+
+
 	
 	
 	
@@ -233,5 +262,5 @@ $(document).ready(function() {
         }
     });*/
 	
-});
+
 

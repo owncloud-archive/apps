@@ -60,19 +60,20 @@ class BagItManager{
 	
 	public function createCrate($name){
 		if(empty($name)){
-			return "Please specify name";
+			return false;
 		}
 		$this->initBag($name);
-		return "New crate created successfully";
+		return $name;
 	}
 	
 	public function switchCrate($name){
 		if(empty($name)){
-			return "Please specify name";
+			return false;
 		}
 		$this->initBag($name);
 		$this->selected_crate = $name;
 		$_SESSION['crate_id'] = $name;
+		return true;
 	}
 	
 	private function initBag($name){
@@ -98,8 +99,7 @@ class BagItManager{
 		return $cratelist;
 	}
 	
-	public function addToBag($dir, $file){
-		
+	public function addToBag($dir, $file) {
 		$input_dir = $this->base_dir.'/files';
 		$data_dir = 'data';
 		$title = '';
@@ -136,43 +136,27 @@ class BagItManager{
 			}
 		}
 		
-		//add the file urls to fetch.txt so when you package the bag,
-		//you can populate the data dir with those files
-		$fetch_items = $this->bag->fetch->getData();
-		$file_exists = false;
-		foreach ($fetch_items as $item) {
-			if($item['url'] === $input_dir.$file) {
-				$file_exists = true;
-				break;
-			}
-		}
-		if($file_exists) {
-			return "File is already in crate";
-		}
-		else {
-			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
-			
-			//add an entry to manifest as well
-			//TODO id and title
-			$id = hash('sha256', $relative_path);
-			
+		$id = hash('sha256', $relative_path);
+		if(filesize($this->manifest) == 0) {
+			$fp = fopen($this->manifest, 'w');
 			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
 					'filename' => $input_dir.$file)));
-			if(filesize($this->manifest) == 0) {
-				$fp = fopen($this->manifest, 'w');
-				fwrite($fp, json_encode($entry));
-				fclose($fp);
+			fwrite($fp, json_encode($entry));
+			fclose($fp);
+		}
+		else {
+			$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+			$elements = &$contents['titles'];
+			foreach ($elements as $item) {
+				if($item['id'] === $id) {
+					return "File is already in crate";
+				}
 			}
-			else {
-				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-				$elements = &$contents['titles'];
-				array_push($elements, array('id' => $id, 'title' => $title,
-				'filename' => $input_dir.$file));
-				//$contents['titles'] = $elements;
-				$fp = fopen($this->manifest, 'w');
-				fwrite($fp, json_encode($contents));
-				fclose($fp);
-			}
+			array_push($elements, array('id' => $id, 'title' => $title,
+							'filename' => $input_dir.$file));
+			$fp = fopen($this->manifest, 'w');
+			fwrite($fp, json_encode($contents));
+			fclose($fp);
 		}
 		
 		// update the hashes
@@ -191,9 +175,7 @@ class BagItManager{
 	}
 	
 	public function clearBag(){
-		$this->bag->fetch->clear();
-		
-		//clear the manifest as well
+		//clear the manifest 
 		$fp = fopen($this->manifest, 'w+');
 		fclose($fp);
 		$this->bag->update();
@@ -227,7 +209,7 @@ class BagItManager{
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$items = &$contents['titles'];
 		foreach ($items as &$item) {
-			if($item['id'] === $id){
+			if($item['id'] === $id) {
 				$item['title'] = $newvalue;
 			}
 		}
@@ -281,7 +263,6 @@ class BagItManager{
 			
 		}
 		$manifest_html = $pre_content."</p></body></html>";
-		
     	if (is_dir($tempfile)) {
     		$fp = fopen($tempfile.'/manifest.html', 'w+');
 			fwrite($fp, $manifest_html);
@@ -292,7 +273,6 @@ class BagItManager{
     	}
 		//send the epub to user
 		return $tempfile.'/temp.epub';
-		
 	}
 	
 	private function getItemList(){
@@ -301,7 +281,6 @@ class BagItManager{
 	}
 	
 	public function createZip(){
-		
 		$bag_items = $this->bag->fetch->getData();
 		if(count($bag_items) === 0)
 		{
