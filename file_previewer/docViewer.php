@@ -25,7 +25,10 @@ $extension = $path_parts['extension'];
 if($extension === "doc" || $extension === "docx" || $extension === "xls" || $extension === "xlsx"
 		|| $extension === "ppt" || $extension === "pptx" || $extension === "odt" || $extension === "odp"
 	  	|| $extension === "ods") {
-	$query = 'full_path:"/data/'.$user.'/files'. $file .'"';
+	$full_path = '/data/'.$user.'/files'. $file;
+	$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
+	$full_path = strtr(rawurlencode($full_path), $revert);
+	$query = 'full_path:"'.$full_path.'"';
 	$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 	$preview = $path_parts['filename'].'.htm';
 	$url = $fascinator['downloadURL'].$storage_id.'/'.$preview;
