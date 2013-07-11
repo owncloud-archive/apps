@@ -11,6 +11,7 @@
 "Header right" => "Encabezado derecho",
 "Navigation top" => "Navegación extremo superior",
 "Navigation bottom" => "Navegación extremo inferior",
+"During login" => "Durante inicio de sesión",
 "Content" => "Contenido",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Podés usar código html (p.ej. &lt;br&gt; para un salto de línea) y atributos de estilo (p.ej.  &lt;a style=\"color:red;\"&gt;)."
 );
