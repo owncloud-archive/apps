@@ -32,8 +32,6 @@ function showPreview(dir,filename){
 }
 
 function getFilePath(dir, filename) {
-	dir = encodeURIComponent(dir).replace(/%2F/g, '/');
-	filename = encodeURIComponent(filename.replace('&', '%26'));
 	var baseUrl = '';
 	if(dir === '/'){
 		baseUrl = dir + filename;	
@@ -46,8 +44,6 @@ function getFilePath(dir, filename) {
 }
 
 function getRequestURL(dir, filename, type) {
-	dir = encodeURIComponent(dir).replace(/%2F/g, '/');
-	filename = encodeURIComponent(filename.replace('&', '%26'));
 	var baseUrl = '';
 	if(dir === '/'){
 		baseUrl = dir + filename + '/';	
