@@ -26,8 +26,8 @@ if($extension === "doc" || $extension === "docx" || $extension === "xls" || $ext
 		|| $extension === "ppt" || $extension === "pptx" || $extension === "odt" || $extension === "odp"
 	  	|| $extension === "ods") {
 	$full_path = '/data/'.$user.'/files'. $file;
-	$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
-	$full_path = strtr(rawurlencode($full_path), $revert);
+	//$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
+	//$full_path = strtr(rawurlencode($full_path), $revert);
 	$query = 'full_path:"'.$full_path.'"';
 	$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 	$preview = $path_parts['filename'].'.htm';
