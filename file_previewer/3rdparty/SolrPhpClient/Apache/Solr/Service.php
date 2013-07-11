@@ -307,7 +307,7 @@ class Apache_Solr_Service
 		// 5.1.2 the arg_separator parameter was not available, so don't use it
 		if ($this->_queryBracketsEscaped)
 		{
-			$queryString = http_build_query($params, null, $this->_queryStringDelimiter);
+			$queryString = http_build_query($params, null, $this->_queryStringDelimiter, PHP_QUERY_RFC3986);
 			return preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $queryString);
 		}
 		else
