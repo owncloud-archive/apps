@@ -31,7 +31,7 @@
 /* style the 'handle' itself used to switch the navigation */
 .fluxx-handle {
 	opacity: 0.6;
-	position: absolute;
+	position: fixed;
 	width: 12px;
 	height: 12px;
 	border: 0.5px solid #666;
