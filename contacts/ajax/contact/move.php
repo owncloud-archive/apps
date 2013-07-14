@@ -36,6 +36,7 @@ try {
 	$msg = $e->getMessage();
 	OCP\Util::writeLog('contacts', 'Error moving contacts "'.implode(',', $id).'" to addressbook "'.$aid.'"'.$msg, OCP\Util::ERROR);
 	OC_JSON::error(array('data' => array('message' => $msg,)));
+	exit();
 }
 
 OC_JSON::success(array('data' => array('ids' => $id,)));
