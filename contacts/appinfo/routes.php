@@ -35,7 +35,7 @@ $this->create('contacts_import_start', 'addressbook/{addressbookid}/import/start
 	->requirements(array('addressbookid'));
 
 $this->create('contacts_import_status', 'addressbook/{addressbookid}/import/status')
-	->post()
+	->get()
 	->action(
 		function($params) {
 			session_write_close();

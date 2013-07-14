@@ -859,10 +859,11 @@ class VCard {
 		if ($addressbook['userid'] != \OCP\User::getUser()) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $aid);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE)) {
-				return false;
+				throw new \Exception(App::$l10n->t('You don\'t have permissions to move contacts into this address book'));
 			}
 		}
 		if(is_array($id)) {
+			// NOTE: This block is currently not used and need rewrite if used!
 			foreach ($id as $index => $cardId) {
 				$card = self::find($cardId);
 				if (!$card) {
@@ -885,13 +886,13 @@ class VCard {
 				$result = $stmt->execute($vals);
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-					return false;
+					throw new \Exception(App::$l10n->t('Database error during move.'));
 				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 				\OCP\Util::writeLog('contacts', __METHOD__.', ids: '.join(',', $vals), \OCP\Util::DEBUG);
 				\OCP\Util::writeLog('contacts', __METHOD__.', SQL:'.$prep, \OCP\Util::DEBUG);
-				return false;
+				throw new \Exception(App::$l10n->t('Database error during move.'));
 			}
 		} else {
 			$stmt = null;
@@ -900,27 +901,28 @@ class VCard {
 			} else {
 				$card = self::find($id);
 				if (!$card) {
-					return false;
+					throw new \Exception(App::$l10n->t('Error finding card to move.'));
 				}
 				$oldAddressbook = Addressbook::find($card['addressbookid']);
 				if ($oldAddressbook['userid'] != \OCP\User::getUser()) {
-					$sharedContact = \OCP\Share::getItemSharedWithBySource('contact', $id, \OCP\Share::FORMAT_NONE, null, true);
-					if (!$sharedContact || !($sharedContact['permissions'] & \OCP\PERMISSION_DELETE)) {
-						return false;
+					$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $oldAddressbook['id']);
+					if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)) {
+						throw new \Exception(App::$l10n->t('You don\'t have permissions to move contacts from this address book'));
 					}
 				}
+				Addressbook::touch($oldAddressbook['id']);
 				$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `addressbookid` = ? WHERE `id` = ?' );
 			}
 			try {
 				$result = $stmt->execute(array($aid, $id));
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-					return false;
+					throw new \Exception(App::$l10n->t('Database error during move.'));
 				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::DEBUG);
 				\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
-				return false;
+				throw new \Exception(App::$l10n->t('Database error during move.'));
 			}
 		}
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_moveToAddressbook', array('aid' => $aid, 'id' => $id));

@@ -347,7 +347,7 @@ $(document).ready(function(){
 		if( $('#tasks_list div').length > 0 ){
 			$('#tasks_list div').first().addClass('active');
 		}
-		$(categories).each(function(i, category) {
+		$.each(categories, function(i, category) {
 			$('#tasks_lists .all').after(OC.Tasks.List.create_list_div(category));
 		});
 		$('#tasks_lists .all').click(function(){

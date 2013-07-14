@@ -25,9 +25,11 @@
 // Check if we are a user
 OCP\User::checkLoggedIn();
 
+$defaults = new \OCP\Defaults();
+
 //links to clients
 $clients = array(
-	'desktop' => OC_Config::getValue('customclient_desktop', OC_Defaults::getSyncClientUrl()),
+	'desktop' => OC_Config::getValue('customclient_desktop', $defaults->getSyncClientUrl()),
 	'android' => OC_Config::getValue('customclient_android', 'https://play.google.com/store/apps/details?id=com.owncloud.android'),
 	'ios'     => OC_Config::getValue('customclient_ios', 'https://itunes.apple.com/us/app/owncloud/id543672169?mt=8')
 );

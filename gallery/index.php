@@ -15,4 +15,5 @@ OCP\Util::addScript('gallery', 'slideshow');
 OCP\Util::addStyle('gallery', 'styles');
 
 $tmpl = new OCP\Template('gallery', 'index', 'user');
+$tmpl->assign("encryptionEnabled" , \OCP\App::isEnabled('files_encryption'));
 $tmpl->printPage();

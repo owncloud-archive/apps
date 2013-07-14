@@ -368,8 +368,8 @@ ul.propertylist { width: 450px; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
 
 #contacts-settings .settings { 
-	/*width: 20px; height: 20px; 
-	float: left;*/
+	width: 20px; height: 20px;
+	/*float: left;*/
 	height:1.4em;
 	background-repeat: no-repeat;
 	background-position:0px 4px;
