@@ -9,5 +9,6 @@
 	<shipped>true</shipped>
 	<types>
 		<authentication/>
+		<prelogin/>
 	</types>
 </info>
