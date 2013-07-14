@@ -81,6 +81,11 @@ class OC_Bookmarks_Bookmarks{
 	public static function findBookmarks($offset, $sqlSortColumn, $filters, $filterTagOnly, $limit = 10) {
 		$CONFIG_DBTYPE = OCP\Config::getSystemValue( 'dbtype', 'sqlite' );
 		if(is_string($filters)) $filters = array($filters);
+		
+		if(! in_array($sqlSortColumn, array('id', 'url', 'title', 'user_id',
+		'description', 'public', 'added', 'lastmodified','clickcount',))) {
+			$sqlSortColumn = 'bookmarks_sorting_recent';
+		}
 
 		$params=array(OCP\USER::getUser());
 
@@ -143,17 +148,17 @@ class OC_Bookmarks_Bookmarks{
 
 		$query = OCP\DB::prepare("
 			DELETE FROM `*PREFIX*bookmarks`
-			WHERE `id` = $id
+			WHERE `id` = ?
 			");
 
-		$result = $query->execute();
+		$result = $query->execute(array($id));
 
 		$query = OCP\DB::prepare("
 			DELETE FROM `*PREFIX*bookmarks_tags`
-			WHERE `bookmark_id` = $id
+			WHERE `bookmark_id` = ?
 			");
 
-		$result = $query->execute();
+		$result = $query->execute(array($id));
 		return true;
 	}
 

@@ -261,7 +261,7 @@ OC.Contacts = OC.Contacts || {
 
 	doImport: function(response) {
 		console.log('doImport', response);
-		var done = false;
+		var done = false, isChecking = false;
 		var interval = null;
 		var self = this;
 		var status_url = OC.Router.generate(
@@ -290,7 +290,11 @@ OC.Contacts = OC.Contacts || {
 					closeImport();
 					return;
 				}
-				$.when($.post(status_url, {progresskey:progresskey}))
+				if(isChecking) {
+					return;
+				}
+				isChecking = true;
+				$.when($.get(status_url, {progresskey:progresskey}))
 				.then(function(response) {
 					if(!response.error) {
 						if(response.data.progress) {
@@ -302,10 +306,11 @@ OC.Contacts = OC.Contacts || {
 						console.warn('Error', response.message);
 						self.$importStatusText.text(response.message);
 					}
+					isChecking = false;
 				}).fail(function(response) {
 					console.log(response.message);
 					$(document).trigger('status.contacts.error', response);
-					done = true;
+					isChecking = false;
 				});
 			};
 			$.when($.post(import_url, {filename:data.filename, progresskey:data.progresskey}))
@@ -1236,12 +1241,9 @@ OC.Contacts = OC.Contacts || {
 				self.$importStatusText.text(t('contacts', 'Uploading...'));
 			},
 			done: function (e, data) {
+				self.$importStatusText.text(t('contacts', 'Importing...'));
 				console.log('Upload done:', data.result);
 				self.doImport(data.result);
-			},
-			progressall: function (e, data) {
-				var progress = parseInt(data.loaded / data.total * 100, 10);
-				self.$importProgress.progressbar('value', progress);
 			},
 			fail: function(e, data) {
 				console.log('fail', data);
