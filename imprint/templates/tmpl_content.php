@@ -43,8 +43,7 @@
 	</head>
 	<body id="imprint-content">
 <?php
-	$content = OCP\Config::getAppValue('imprint','content',FALSE);
-	print_unescaped((strlen($content)!=strlen(strip_tags($content))) ? $content : "<pre>\n".$content."\n</pre>");
+	print_unescaped ( $_['processed-content'] );
 ?>
 	</body>
 </html>
