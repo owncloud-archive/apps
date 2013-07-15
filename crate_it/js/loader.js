@@ -10,7 +10,7 @@ $(document).ready(function(){
 						dataType: 'text/html',
 						complete: function(data){
 							OC.Notification.show(data.responseText);
-							setTimeout(function() {OC.Notification.hide();}, 1000);
+							setTimeout(function() {OC.Notification.hide();}, 3000);
 						}
 					});
 				});
