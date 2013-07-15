@@ -149,7 +149,7 @@ class BagItManager{
 			$elements = &$contents['titles'];
 			foreach ($elements as $item) {
 				if($item['id'] === $id) {
-					return "File is already in crate";
+					return "File is already in the crate ".$this->selected_crate;
 				}
 			}
 			array_push($elements, array('id' => $id, 'title' => $title,
@@ -161,7 +161,7 @@ class BagItManager{
 		
 		// update the hashes
 		$this->bag->update();
-		return "File added to crate";
+		return "File added to the crate ".$this->selected_crate;
 	}
 	
 	private function getTitle($file) {
