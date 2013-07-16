@@ -4,7 +4,7 @@ var videoViewer = {
 		'<source type="%type%" src="%src%" />' + 
 		'</video>',
 		show : function () {
-			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+videoViewer.file+'</h3></div></div>').appendTo('body');
+			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+escapeHTML(videoViewer.file)+'</h3></div></div>').appendTo('body');
 			
 			$('#videoviewer_overlay').fadeIn('fast',function(){
 				$('#videoviewer_popup').fadeIn('fast');

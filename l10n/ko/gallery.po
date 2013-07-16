@@ -3,17 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 남자사람  <cessnagi@gmail.com>, 2012.
-#   <limonade83@gmail.com>, 2012.
-# Park Shinjo <kde@peremen.name>, 2013.
-# Shinjo Park <kde@peremen.name>, 2012.
+# 남자사람 <cessnagi@gmail.com>, 2012
+# 남자사람 <cessnagi@gmail.com>, 2012
+# yunhye <limonade83@gmail.com>, 2012
+# Shinjo Park <kde@peremen.name>, 2013
+# Shinjo Park <kde@peremen.name>, 2012-2013
+# yunhye <limonade83@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:11+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +27,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "사진"
 
-#: js/gallery.js:245
+#: js/gallery.js:269
 msgid "Shared by"
 msgstr "공유한 사용자:"
 
-#: templates/index.php:4 templates/index.php:5
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr "슬라이드 쇼 템플릿을 불러오는 중 오류 발생"
+
+#: templates/index.php:5 templates/index.php:6
 msgid "Share"
 msgstr "공유"
 

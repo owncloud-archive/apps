@@ -29,16 +29,13 @@
  */
 
 /* animate the fluxx handles themselves */
-html body .fluxx-handle,
-html body .fluxx-handle * {
-	transition:all 300ms;-o-transition:all 300ms;-ms-transition:all 300ms;-moz-transition:all 300ms;-khtml-transition:all 300ms;-webkit-transition:all 300ms;
-}
-/* animate general layout elements */
-html body > header > #header,
-html body > nav > #navigation,
-html body > nav > #navigation #settings,
-html body #content-wrapper,
-html body #controls {
+.fluxx-handle,
+.fluxx-handle img,
+#header,
+#navigation,
+#navigation #settings,
+#content-wrapper,
+#controls {
 	transition:all 300ms;-o-transition:all 300ms;-ms-transition:all 300ms;-moz-transition:all 300ms;-khtml-transition:all 300ms;-webkit-transition:all 300ms;
 }
 
@@ -67,7 +64,7 @@ html.fluxx-mode-gallery { }
 html.fluxx-mode-media { }
 
 /* 'notes' app */
-html.fluxx-mode-notes #entries { }
+html.fluxx-mode-notes { }
 
 /* 'shorty' app */
 html.fluxx-mode-shorty { }

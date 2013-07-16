@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012-2013.
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:11+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "Pildid"
 
-#: js/gallery.js:245
+#: js/gallery.js:269
 msgid "Shared by"
 msgstr "Jagas"
 
-#: templates/index.php:4 templates/index.php:5
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr "Viga slaidiseansi kujunduse valimisel"
+
+#: templates/index.php:5 templates/index.php:6
 msgid "Share"
 msgstr "Jaga"
 

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# mateju <>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 10:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-07-06 00:57+0200\n"
+"PO-Revision-Date: 2013-07-05 22:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,62 +18,66 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:64 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "Pravno obvestilo"
 
-#: templates/tmpl_dummy.php:37
+#: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Ni še vsebine"
 
-#: templates/tmpl_dummy.php:38
+#: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "Najprej je treba nastaviti vsebino pravnega obvestila"
 
-#: templates/tmpl_dummy.php:40
-msgid "The configuration is done here"
-msgstr ""
+#: templates/tmpl_dummy.php:53
+msgid "That configuration is done in the administration section."
+msgstr "Nastavitve je mogoče urejati med skrbniškimi nastavitvami."
 
-#: templates/tmpl_dummy.php:43
-msgid "Admin"
-msgstr "Skrbništvo"
+#: templates/tmpl_dummy.php:55
+msgid "That configuration has to be done by the system administration."
+msgstr "Te nastavitve lahko spreminja le skrbnik sistema."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
-msgstr ""
+msgstr "Natis"
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "postavitev"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "Samostojni program"
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
-msgstr ""
+msgstr "Leva glava"
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
-msgstr ""
+msgstr "Desna glava"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "Vrh krmarjenja"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
+msgstr "Dno krmarjenja"
+
+#: templates/tmpl_settings.php:54
+msgid "During login"
 msgstr ""
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:61
 msgid "Content"
-msgstr ""
+msgstr "Vsebina"
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
-msgstr ""
+msgstr "Uporabiti je dovoljeno tudi oblikovanja HTML (na primer &lt;br&gt; za prelom vrstice) in atribute znotrajvrstičnih slogov (na primer &lt;a style=\"color:red;\"&gt;)."

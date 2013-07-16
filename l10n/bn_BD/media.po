@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -65,22 +65,22 @@ msgstr "শব্দহীন বাতিল কর"
 msgid "Rescan Collection"
 msgstr "সংগ্রহ পূনঃরায় স্ক্যান কর"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "নিয়ামকসমূহ"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr ""
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "শিল্পী"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "অ্যালবাম"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "শিরোনাম"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

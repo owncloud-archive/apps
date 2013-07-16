@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hozha Koyi <hozhan@gmail.com>, 2012.
+# Hozha Koyi <hozhan@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -66,22 +66,22 @@ msgstr "کردنه‌وه‌ی ده‌نگ"
 msgid "Rescan Collection"
 msgstr "دووباره‌ پشکنینی کۆکراوه"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "ده‌ستكاری"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr ""
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "گۆرانی بێژ"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "ئه‌لبووم"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "ناونیشان"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

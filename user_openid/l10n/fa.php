@@ -5,5 +5,6 @@
 "Realm: <b>" => "حوزه",
 "User: <b>" => "کاربر:<b>",
 "Login" => "ورود",
-"Error: <b>No user Selected" => "خطا:<b>هیچ کاربری انتخاب نشده"
+"Error: <b>No user Selected" => "خطا:<b>هیچ کاربری انتخاب نشده",
+"OpenID" => "OpenID"
 );

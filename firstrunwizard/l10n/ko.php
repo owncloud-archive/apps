@@ -1,4 +1,11 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "첫 실행 마법사",
-"Show First Run Wizard again" => "첫 실행 마법사 다시 보이기"
+"Welcome to ownCloud" => "ownCloud에 오신 것을 환영합니다",
+"Your personal web services. All your files, contacts, calendar and more, in one place." => "내 개인 웹 서비스입니다. 모든 파일, 연락처, 일정 등을 한 자리에 모을 수 있습니다.",
+"Get the apps to sync your files" => "파일 동기화 앱 가져오기",
+"Connect your desktop apps to ownCloud" => "데스크톱 앱을 ownCloud에 연결하기",
+"Connect your Calendar" => "내 달력 연결하기",
+"Connect your Contacts" => "내 연락처 연결하기",
+"Access files via WebDAV" => "WebDAV로 파일에 접근하기",
+"There’s more information in the <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a href=\"http://owncloud.org\">website</a>." => "더 많은 정보를 보려면 <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">문서</a> 및 <a href=\"http://owncloud.org\">웹 사이트</a>를 참고하십시오.",
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "ownCloud를 좋아하신다면 <a href=\"mailto:?subject=ownCloud&body=ownCloud는 내 파일을 공유하고 동기화할 수 있는 공개 소프트웨어입니다. http://owncloud.org 사이트에서 무료로 사용할 수 있습니다.\">친구들에게 알려 주세요</a>!"
 );

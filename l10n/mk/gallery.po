@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Georgi Stanojevski <glisha@gmail.com>, 2012.
-# Miroslav Jovanovic <j.miroslav@gmail.com>, 2012.
-# Miroslav Jovanovic <jmiroslav@softhome.net>, 2012.
+# Georgi Stanojevski <glisha@gmail.com>, 2012
+# Miroslav Jovanovic <j.miroslav@gmail.com>, 2012
+# Miroslav Jovanovic <jmiroslav@softhome.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:11+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -24,11 +24,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "Слики"
 
-#: js/gallery.js:245
+#: js/gallery.js:269
 msgid "Shared by"
 msgstr ""
 
-#: templates/index.php:4 templates/index.php:5
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
+msgstr ""
+
+#: templates/index.php:5 templates/index.php:6
 msgid "Share"
 msgstr "Сподели"
 

@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <dzubchikd@gmail.com>, 2012.
-#   <skoptev@ukr.net>, 2012.
-# пан Володимир <volodya327@gmail.com>, 2013.
+# Dmytro Dzubenko <dzubchikd@gmail.com>, 2012
+# skoptev <skoptev@ukr.net>, 2012
+# volodya327 <volodya327@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
-"Last-Translator: volodya327 <volodya327@gmail.com>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,22 +68,22 @@ msgstr "Звук викл."
 msgid "Rescan Collection"
 msgstr "Повторне сканування колекції"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Налаштування"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "Адреса Ampache:"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Виконавець"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Альбом"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Заголовок"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr "Медіа"
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr "Адреса Ampache:"

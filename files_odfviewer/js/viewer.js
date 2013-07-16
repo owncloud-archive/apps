@@ -18,7 +18,9 @@ function viewOdf(dir, file) {
         // fade out file list and show pdf canvas
         $('table').fadeOut('slow').promise().done(function(){;
             var canvashtml = '<div id="odf-canvas"></div>';
-            $('table').after(canvashtml);
+			$('table').after(canvashtml);
+			// in case we are on the public sharing page we shall display the odf into the preview tag
+			$('#preview').html(canvashtml);
 
             var odfelement = document.getElementById("odf-canvas");
             var odfcanvas = new odf.OdfCanvas(odfelement);

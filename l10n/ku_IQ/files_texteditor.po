@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hozha Koyi <hozhan@gmail.com>, 2012.
+# Hozha Koyi <hozhan@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:32+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-14 00:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,10 @@ msgstr "پاشکه‌وتده‌کات..."
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:246
+#: js/editor.js:251
 msgid "An error occurred!"
 msgstr "هه‌ڵه‌یه‌ك ڕوویدا!"
 
-#: js/editor.js:266
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
 msgstr "له‌وێ گۆڕانکاری پاشکه‌وت نه‌کراو هه‌بوو، تکایه کرته‌بکه‌ لێره‌ بۆ گه‌ڕانه‌وه"

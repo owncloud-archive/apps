@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"POT-Creation-Date: 2013-07-16 00:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,10 +45,10 @@ msgstr ""
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:246
+#: js/editor.js:251
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:266
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"POT-Creation-Date: 2013-07-16 00:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: templates/admin.php:24
+#: templates/admin.php:22
 msgid "Update"
+msgstr ""
+
+#: templates/admin.php:24
+msgid "Up to date"
 msgstr ""

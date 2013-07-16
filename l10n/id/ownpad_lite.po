@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mr.pige_ina@yahoo.co.id>, 2012.
+# elmakong <mr.pige_ina@yahoo.co.id>, 2012
+# rodin <romihardiyanto@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-14 00:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -20,45 +21,45 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Dokumen dibagikan"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "Pengguna %s berbagi dokumen cepat %s dengan Anda."
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr "pad saya"
+msgstr "Pad saya"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr "pengaturan"
+msgstr "Setelan"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr "judul pad"
+msgstr "Judul Pad"
 
 #: templates/index.php:19
 msgid "Open"
-msgstr "buka"
+msgstr "Buka"
 
 #: templates/index.php:20
 msgid "Share with"
-msgstr "bagikan dengan"
+msgstr "Bagikan dengan"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr "berbagi"
+msgstr "Bagikan"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr "tautan servis etherpad"
+msgstr "URL layanan etherpad"
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr "nama pengguna"
+msgstr "Nama pengguna"
 
 #: templates/settings.php:28
 msgid "Save"
-msgstr "simpan"
+msgstr "Simpan"

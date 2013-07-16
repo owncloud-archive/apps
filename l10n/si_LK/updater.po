@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chamara Disanayake <chamara@nic.lk>, 2012.
+# Chamara Disanayake <chamara@nic.lk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 23:01+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,10 @@ msgstr ""
 msgid "Error"
 msgstr "දෝෂයක්"
 
-#: templates/admin.php:24
+#: templates/admin.php:22
 msgid "Update"
 msgstr "යාවත්කාල කිරීම"
+
+#: templates/admin.php:24
+msgid "Up to date"
+msgstr ""

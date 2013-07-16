@@ -227,15 +227,15 @@ var JadeHighlightRules = function() {
             regex : escapedRe
         }, {
             token : "string",
-            regex : '[^"\\\\]+',
+            regex : '[^"\\\\]+'
         }, {
             token : "string",
             regex : "\\\\$",
-            next  : "qqstring",
+            next  : "qqstring"
         }, {
             token : "string",
             regex : '"|$',
-            next  : "tag_attributes",
+            next  : "tag_attributes"
         }
     ],
     "qstring" : [
@@ -244,15 +244,15 @@ var JadeHighlightRules = function() {
             regex : escapedRe
         }, {
             token : "string",
-            regex : "[^'\\\\]+",
+            regex : "[^'\\\\]+"
         }, {
             token : "string",
             regex : "\\\\$",
-            next  : "qstring",
+            next  : "qstring"
         }, {
             token : "string",
             regex : "'|$",
-            next  : "tag_attributes",
+            next  : "tag_attributes"
         }
     ]
 };
@@ -290,7 +290,10 @@ function github_embed(tag, prefix) {
 var MarkdownHighlightRules = function() {
 
     this.$rules = {
-        "basic" : [{ // code span `
+        "basic" : [{
+            token : "constant.language.escape",
+            regex : /\\[\\`*_{}\[\]()#+\-.!]/
+        }, { // code span `
             token : "support.function",
             regex : "(`+)(.*?[^`])(\\1)"
         }, { // reference
@@ -628,7 +631,7 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token: "string.regexp",
                 regex: "\\/",
-                next: "regex",
+                next: "regex"
             }, {
                 token : "text",
                 regex : "\\s+|^$",
@@ -646,7 +649,7 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token: "string.regexp",
                 regex: "/\\w*",
-                next: "no_regex",
+                next: "no_regex"
             }, {
                 token : "invalid",
                 regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/
@@ -659,7 +662,7 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token: "constant.language.escape",
                 regex: /\[\^?/,
-                next: "regex_character_class",
+                next: "regex_character_class"
             }, {
                 token: "empty",
                 regex: "$",
@@ -675,7 +678,7 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token: "constant.language.escape",
                 regex: "]",
-                next: "regex",
+                next: "regex"
             }, {
                 token: "constant.language.escape",
                 regex: "-"
@@ -693,10 +696,10 @@ var JavaScriptHighlightRules = function() {
                 regex: identifierRe
             }, {
                 token: "punctuation.operator",
-                regex: "[, ]+",
+                regex: "[, ]+"
             }, {
                 token: "punctuation.operator",
-                regex: "$",
+                regex: "$"
             }, {
                 token: "empty",
                 regex: "",
@@ -718,11 +721,11 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token : "string",
                 regex : "\\\\$",
-                next  : "qqstring",
+                next  : "qqstring"
             }, {
                 token : "string",
                 regex : '"|$',
-                next  : "no_regex",
+                next  : "no_regex"
             }, {
                 defaultToken: "string"
             }
@@ -734,11 +737,11 @@ var JavaScriptHighlightRules = function() {
             }, {
                 token : "string",
                 regex : "\\\\$",
-                next  : "qstring",
+                next  : "qstring"
             }, {
                 token : "string",
                 regex : "'|$",
-                next  : "no_regex",
+                next  : "no_regex"
             }, {
                 defaultToken: "string"
             }
@@ -965,7 +968,7 @@ var HtmlHighlightRules = function() {
             next : "style"
         }, {
             token : "meta.tag", // opening tag
-            regex : "<\\/?",
+            regex : "<\\/?(?=\\S)",
             next : "tag"
         }, {
             token : "text",
@@ -1757,6 +1760,7 @@ define('ace/mode/coffee_highlight_rules', ['require', 'exports', 'module' , 'ace
                     regex : '"""',
                     next : [
                         {token : "string", regex : '"""', next : "start"},
+                        {token : "paren.string", regex : '#{', push : "start"},
                         {token : "constant.language.escape", regex : stringEscape},
                         {defaultToken: "string"}
                     ]
@@ -1771,6 +1775,7 @@ define('ace/mode/coffee_highlight_rules', ['require', 'exports', 'module' , 'ace
                     stateName: "qqstring",
                     token : "string.start", regex : '"', next : [
                         {token : "string.end", regex : '"', next : "start"},
+                        {token : "paren.string", regex : '#{', push : "start"},
                         {token : "constant.language.escape", regex : stringEscape},
                         {defaultToken: "string"}
                     ]
@@ -1781,6 +1786,21 @@ define('ace/mode/coffee_highlight_rules', ['require', 'exports', 'module' , 'ace
                         {token : "constant.language.escape", regex : stringEscape},
                         {defaultToken: "string"}
                     ]
+                }, {
+                    regex: "[{}]", onMatch: function(val, state, stack) {
+                        this.next = "";
+                        if (val == "{" && stack.length) {
+                            stack.unshift("start", state);
+                            return "paren";
+                        }
+                        if (val == "}" && stack.length) {
+                            stack.shift();
+                            this.next = stack.shift();
+                            if (this.next.indexOf("string") != -1)
+                                return "paren.string";
+                        }
+                        return "paren";
+                    }
                 }, {
                     token : "string.regex",
                     regex : "///",
@@ -1854,7 +1874,7 @@ define('ace/mode/coffee_highlight_rules', ['require', 'exports', 'module' , 'ace
                 regex : '###',
                 next : "start"
             }, {
-                defaultToken : "comment",
+                defaultToken : "comment"
             }]
         };
         this.normalizeRules();

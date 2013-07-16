@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
 "OpenID Changed" => "OpenID pakeistas",
-"Invalid request" => "Klaidinga užklausa"
+"Invalid request" => "Klaidinga užklausa",
+"Login" => "Prisijungti"
 );

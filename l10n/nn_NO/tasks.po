@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:12+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,104 +20,104 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "Ugyldig dato/tid"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr ""
+msgstr "Oppgåver"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "Frist"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "Stad"
 
-#: js/tasks.js:420
+#: js/tasks.js:454
 msgid "No category"
-msgstr ""
+msgstr "Ingen kategori"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "Uspesifisert"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=høgaste"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=middels"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=lågaste"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "Tomt samandrag"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "Ugyldig prosent fullført"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Ugyldig prioritet"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "Kalenderprogrammet må òg vera slått på for å bruka dette programmet."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "Legg til oppgåve"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Sorter: frist"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Sorter: liste"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Sorter: fullført"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Sorter: stad"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Sorter: prioritet"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Sorter: merkjelapp"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "Lastar inn oppgåver …"
 
 #: templates/tasks.php:20
 msgid "Important"
-msgstr ""
+msgstr "Viktig"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "Meir"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "Mindre"
 
 #: templates/tasks.php:29
 msgid "Delete"

@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# ubuntucymraeg <owen.llywelyn@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-14 00:01+0000\n"
+"Last-Translator: ubuntucymraeg <owen.llywelyn@gmail.com>\n"
+"Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cy_GB\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != 11) ? 2 : 3;\n"
+
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
+msgid "Save"
+msgstr "Cadw"
+
+#: js/editor.js:75
+msgid "Search:"
+msgstr "Chwilio:"
+
+#: js/editor.js:78
+msgid "Close"
+msgstr "Cau"
+
+#: js/editor.js:132
+msgid "Next"
+msgstr "Nesaf"
+
+#: js/editor.js:133
+msgid "Clear"
+msgstr "Clirio"
+
+#: js/editor.js:151
+msgid "Saving..."
+msgstr "Yn cadw..."
+
+#: js/editor.js:159
+msgid "Failed to save file"
+msgstr "Methwyd cadw'r ffeil"
+
+#: js/editor.js:251
+msgid "An error occurred!"
+msgstr "Digwyddodd gwall!"
+
+#: js/editor.js:273
+msgid "There were unsaved changes, click here to go back"
+msgstr "Roedd newidiadau heb eu cadw, cliciwch fan hyn i ddychwelyd"

@@ -5,19 +5,19 @@ class OC_User_xmpp_Hooks {
 		$xmpplogin=new OC_xmpp_login($params['uid'],OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$params['password'],OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
 		$xmpplogin->doLogin();
                 
-		$stmt = OCP\DB::prepare('SELECT ocUser FROM *PREFIX*xmpp WHERE ocUser = "'.$params['uid'].'"');
-                $result = $stmt->execute();
+		$stmt = OCP\DB::prepare('SELECT `ocUser` FROM `*PREFIX*xmpp` WHERE `ocUser` = ?');
+                $result = $stmt->execute(array($params['uid']));
                 if($result->numRows()!=0){
 			OC_User_xmpp_Hooks::deleteXmppSession();
                 }
-                $stmt = OCP\DB::prepare('INSERT INTO *PREFIX*xmpp (ocUser,jid,rid,sid) VALUES ("'.$params['uid'].'","'.$xmpplogin->jid.'","'.$xmpplogin->rid.'","'.$xmpplogin->sid.'")');
-                $result=$stmt->execute();
+                $stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*xmpp` (`ocUser`,`jid`,`rid`,`sid`) VALUES (?,?,?,?)');
+                $result=$stmt->execute(array($params['uid'], $xmpplogin->jid, $xmpplogin->rid, $xmpplogin->sid));
 
 	}
 
 	static public function deleteXmppSession(){
-		$stmt = OCP\DB::prepare('DELETE FROM *PREFIX*xmpp WHERE ocUser = "'.OCP\User::getUser().'"');
-		$stmt->execute();
+		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*xmpp` WHERE `ocUser` = ?');
+		$stmt->execute(array(OCP\User::getUser()));
 	}
 
 	static public function createXmppUser($info){

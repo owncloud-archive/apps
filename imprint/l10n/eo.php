@@ -1,4 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Admin" => "Administranto",
+"Nothing here yet" => "Nenio ĉeestas ankoraŭ",
 "Content" => "Enhavo"
 );

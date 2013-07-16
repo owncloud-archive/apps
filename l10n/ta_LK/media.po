@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <suganthi@nic.lk>, 2012.
+# suganthi <suganthi@nic.lk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -66,22 +66,22 @@ msgstr "ஒலி நிறுத்தவில்லை"
 msgid "Rescan Collection"
 msgstr "தொகுப்புகளை மீள் வருடுக"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr ""
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "கலைஞர்"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "தொகுப்பு"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "தலைப்பு"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Ilivanov <ilivanov@gmail.com>, 2013.
+# Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 23:01+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +24,20 @@ msgstr "В процес..."
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "Готово."
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Тук е Вашия архив:"
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"
 msgstr "Грешка"
 
-#: templates/admin.php:24
+#: templates/admin.php:22
 msgid "Update"
 msgstr "Обновяване"
+
+#: templates/admin.php:24
+msgid "Up to date"
+msgstr ""

@@ -56,30 +56,47 @@ if (version_compare($ocVersion,'4.93','<')) // OC-5
 }
 
 // add link according to what position is selected inside the apps options
-switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
-{
-	case 'header-left':
-		OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
-		break;
-	case 'header-right':
-		OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
-		break;
-	case 'navigation-top':
-		OCP\Util::addScript ( 'imprint', 'imprint_navigation_top' );
-		break;
-	case 'navigation-bottom':
-		OCP\Util::addScript ( 'imprint', 'imprint_navigation_bottom' );
-		break;
-	default:
-	case 'standalone':
-		// no js required, we add the imprint as a normal app to the navigation
-		OCP\App::addNavigationEntry ( array (
-			'id' => 'imprint',
-			'order' => 99999,
-			'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-			'icon' => (5<=intval(substr(OC_Util::getVersionString(),0,1)))
-						? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
-						: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
-			'name' => $l->t("Legal notice") ) );
+if( ! \OC_User::isLoggedIn()) {
+	// user NOT logged in, anonymous access, only limited positions to place the link:
+	switch ( OCP\Config::getAppValue( 'imprint', 'anonposition', '' ) )
+	{
+		case 'header-left':
+			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
+			break;
+		case 'header-right':
+			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
+			break;
+		default:
+			// don't show a link!
+			break;
 	} // switch
+} else { // if logged in
+	// user logged in, we have more positions to place the link:
+	switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
+	{
+		case 'header-left':
+			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
+			break;
+		case 'header-right':
+			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
+			break;
+		case 'navigation-top':
+			OCP\Util::addScript ( 'imprint', 'imprint_navigation_top' );
+			break;
+		case 'navigation-bottom':
+			OCP\Util::addScript ( 'imprint', 'imprint_navigation_bottom' );
+			break;
+		default:
+		case 'standalone':
+			// no js required, we add the imprint as a normal app to the navigation
+			OCP\App::addNavigationEntry ( array (
+				'id' => 'imprint',
+				'order' => 99999,
+				'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+				'icon' => (5<=intval(substr(OC_Util::getVersionString(),0,1)))
+							? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
+							: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
+				'name' => $l->t("Legal notice") ) );
+	} // switch
+} // if logged in
 ?>

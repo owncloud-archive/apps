@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
-# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013
+# miki_mika1362 <miki_mika1362@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -75,23 +75,23 @@ msgstr "شماره پورت میزبان آنتی ویروس."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "طول جریان داده"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "مقدار بیشترین طول جریان داده نرم افزارClamAV  به بایت."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "مسیر به clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "مسیر به clamscan انجام پذیر است."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "عدم نیاز به بودن در حالت آماده‌باش"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
@@ -99,7 +99,7 @@ msgstr "اقدام لازم در مورد فایل های آلوده ی یافت
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "فقط لاگ"
 
 #: templates/settings.php:12
 msgid "Delete file"

@@ -1,6 +1,6 @@
 <?php
 
-require_once '3rdparty/php-lib-remote-rs/lib/OAuth/RemoteResourceServer.php';
+require_once '3rdparty/php-oauth-lib-rs/lib/OAuth/RemoteResourceServer.php';
 
 use \OAuth\RemoteResourceServer as RemoteResourceServer;
 use \OAuth\RemoteResourceServerException as RemoteResourceServerException;
@@ -8,15 +8,12 @@ use \OAuth\RemoteResourceServerException as RemoteResourceServerException;
 class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend
 {
     private $currentUser;
-    private $tokenInfoEndpoint;
-    private $useResourceOwnerId;
-    private $userIdAttributeName;
+    private $introspectionEndpoint;
 
-    public function __construct($tokenInfoEndpoint, $useResourceOwnerId = TRUE, $userIdAttributeName = "uid")
+    public function __construct($introspectionEndpoint)
     {
-        $this->tokenInfoEndpoint = $tokenInfoEndpoint;
-        $this->useResourceOwnerId = $useResourceOwnerId;
-        $this->userIdAttributeName = $userIdAttributeName;
+        $this->introspectionEndpoint = $introspectionEndpoint;
+        $this->currentUser = null;
     }
 
     public function getCurrentUser()
@@ -27,42 +24,34 @@ class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend
     public function authenticate(Sabre_DAV_Server $server, $realm)
     {
         $config = array(
-            "tokenInfoEndpoint" => $this->tokenInfoEndpoint,
-            "throwException" => TRUE,
-            "resourceServerRealm" => $realm,
+            "introspectionEndpoint" => $this->introspectionEndpoint,
+            "realm" => $realm
         );
 
         try {
             $resourceServer = new RemoteResourceServer($config);
-
-            $resourceServer->verifyRequest();
-
-            if ($this->useResourceOwnerId) {
-                // when using the user_id
-                $this->currentUser = $resourceServer->getResourceOwnerId();
-            } else {
-                // when using a (SAML) attribute
-                $attributes = $resourceServer->getAttributes();
-                $this->currentUser = $attributes[$this->userIdAttributeName][0];
-            }
+            $tokenIntrospection = $resourceServer->verifyRequest(apache_request_headers(), $_GET);
+            $this->currentUser = $tokenIntrospection->getSub();
 
             OC_User::setUserid($this->currentUser);
             OC_Util::setupFS($this->currentUser);
 
             return true;
-
         } catch (RemoteResourceServerException $e) {
-            $server->httpResponse->setHeader('WWW-Authenticate', $e->getAuthenticateHeader());
-
-            // FIXME: do we need to set the status here explicitly, or does the
-            // Exception below take care of this?
-            $server->httpResponse->sendStatus($e->getResponseCode());
-            if ("403" === $e->getResponseCode()) {
-                throw new Sabre_DAV_Exception_Forbidden($e->getDescription());
-            } else {
-                throw new Sabre_DAV_Exception_NotAuthenticated($e->getDescription());
+            switch ($e->getMessage()) {
+                case "insufficient_entitlement":
+                case "insufficient_scope":
+                    $server->httpResponse->setHeader('WWW-Authenticate', $e->getAuthenticateHeader());
+                    throw new Sabre_DAV_Exception_Forbidden($e->getDescription());
+                case "invalid_request":
+                    throw new Sabre_DAV_Exception_NotAuthenticated($e->getDescription());
+                case "invalid_token":
+                case "no_token":
+                    $server->httpResponse->setHeader('WWW-Authenticate', $e->getAuthenticateHeader());
+                    throw new Sabre_DAV_Exception_NotAuthenticated($e->getDescription());
+                case "internal_server_error":
+                    throw new Sabre_DAV_Exception($e->getDescription());
             }
         }
     }
-
 }

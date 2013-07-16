@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:12+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,29 +20,29 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "Eksporter denne ownCloud-installasjonen"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Dette vil oppretta ei komprimert fil som inneheld data frå denne ownCloud-installasjonen."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Ver venleg og vel eksporttypen:"
 
 #: templates/settings.php:11
 msgid "ownCloud instance (user data and database)"
-msgstr ""
+msgstr "ownCloud-installasjonen (brukardata og database)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"
-msgstr ""
+msgstr "Systemfilene til ownCloud"
 
 #: templates/settings.php:13
 msgid "Just user files"
-msgstr ""
+msgstr "Berre brukarfilene"
 
 #: templates/settings.php:14
 msgid "Export"

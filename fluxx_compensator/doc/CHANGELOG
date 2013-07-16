@@ -23,10 +23,25 @@
 
 Changelog: 
 
+* Fri Jul 12 2013 Christian Reiner: version 0.2.2
+Prevent scrolling of fluxx handles. 
+* Sun Jun 16 2013 Christian Reiner: version 0.2.1
+A few style fixes to improve optics when used inside MS-IE.
+* Thu Jun 13 2013 Christian Reiner: version 0.2.0
+Changed strategy for for fluxx handles, ugly but less cross browser problems. 
+Some style rules defaults now set explicitly to enable transitions in forefox. 
+Much enhanced cross browser compatibility, only some optical issue with IE left. 
+* Sun Apr 28 2013 Christian Reiner: version 0.1.4
+Include navigation handle in moving of content when header panel is hidden.
+Apply intelligent positioning to navigation handle when header is hidden too.
+Fixed a few glitches in handle movements under certain conditions.
+* Wed Apr 17 2013 Christian Reiner: version 0.1.3
+Some optical fixes to the handles position and shadow. 
+Slide navigations content up too when the header panel is hidden. 
 * Mon Apr 09 2013 Christian Reiner: version 0.1.2
 Fixed handle positioning for non-priviledged user accounts.
 * Sat Mar 23 2013 Christian Reiner: version 0.1.1
-Corrected handles anchor definition to work correct on more exotic page layouts. 
+Corrected handles anchor definition to work correct on exotic page layouts. 
 This is required by the 'external' app which embeds a frame as main widgets. 
 * Tue Feb 19 2013 Christian Reiner: version 0.1.0
 Initial release.

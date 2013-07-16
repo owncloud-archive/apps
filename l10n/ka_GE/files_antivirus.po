@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# drlinux64 <romeo@energo-pro.ge>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,89 +20,89 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "მივესალმოთ {user}–ს"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "ბოდიშით, მაგრამ ფაილი რომელიც თქვენ ატვიღთეთ შეიცავდა ვირუსს და ის აუცილებლად უნდა წაშლილიყო."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "ეს არის ინფორმაციული მეილი {host}–დან. გთხოვთ არ უპასუხოთ."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "ფაილი ატვირთულია: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "ანტივირუსის კონფიგურაცია"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "რეჟიმი"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "შესრულებადი"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "დემონი"
 
 #: templates/settings.php:7
 msgid "Host"
-msgstr ""
+msgstr "ჰოსტი"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "ანტივირუს ჰოსტის მისამართი"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "შესრულებადი რეჟიმი არ არის საჭირო."
 
 #: templates/settings.php:8
 msgid "Port"
-msgstr ""
+msgstr "პორტი"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "ანტივირუს ჰოსტის პორტის მისამართი."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "სთრიმის სიგრძე"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength–ის მნიშვნელობა byte–ბში."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "გზა clamscan–თან"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "გზა clamscan გამშვებამდე."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "დემონ რეძიმი არ არის საჭირო."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "მოქმედება ინფიცირებულ ფაილებზე რომლებიც ნაპოვნი იქნა სკანირების დროს"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "მხოლოდ ლოგირება"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "ფაილების წაშლა"
 
 #: templates/settings.php:15
 msgid "Save"

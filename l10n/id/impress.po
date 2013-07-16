@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mr.pige_ina@yahoo.co.id>, 2012.
+# elmakong <mr.pige_ina@yahoo.co.id>, 2012
+# rodin <romihardiyanto@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 01:20+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:12+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "dokumentasi"
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr "tidak ada file kesan yang ditemukan dalam ownCloud anda. mohon unggah .impress file."
+msgstr "Tidak ada berkas Impress yang ditemukan dalam ownCloud Anda. Mohon unggah berkas .impress."
 
 #: templates/presentations.php:12
 msgid "Name"

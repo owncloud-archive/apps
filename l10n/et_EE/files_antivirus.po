@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2013.
+# pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
+# Rivo Zängov <eraser@eraser.ee>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +27,19 @@ msgstr "Tere {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Kahju, kuid üleslaetavast failist leiti pahavara ning fail tuli kustutada."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Käesolev email on teavitus masinast {host}. Palun ära vasta."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Laetud üles fail: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Viirustõrje seadistus"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -46,7 +47,7 @@ msgstr "Režiim"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "Käivita"
+msgstr "Käivitatav"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -78,7 +79,7 @@ msgstr "Striimi pikkus"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength väärtus baitides."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
@@ -94,7 +95,7 @@ msgstr "Pole deemonirežiimis nõutav."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Skaneerimisel leitud nakatunud failidega sooritatav toiming"
 
 #: templates/settings.php:12
 msgid "Only log"

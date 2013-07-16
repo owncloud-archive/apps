@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Димитър Кръстев <dimitar.t.krastev@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2012-08-25 23:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-14 00:01+0000\n"
+"Last-Translator: Димитър Кръстев <dimitar.t.krastev@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr "Запис"
 
 #: js/editor.js:75
 msgid "Search:"
-msgstr ""
+msgstr "Търсене:"
 
 #: js/editor.js:78
 msgid "Close"
@@ -31,11 +32,11 @@ msgstr "Затвори"
 
 #: js/editor.js:132
 msgid "Next"
-msgstr ""
+msgstr "Следваща"
 
 #: js/editor.js:133
 msgid "Clear"
-msgstr ""
+msgstr "Изчисти"
 
 #: js/editor.js:151
 msgid "Saving..."
@@ -43,12 +44,12 @@ msgstr "Записване..."
 
 #: js/editor.js:159
 msgid "Failed to save file"
-msgstr ""
+msgstr "Неуспешно запазване на файл"
 
-#: js/editor.js:246
+#: js/editor.js:251
 msgid "An error occurred!"
-msgstr ""
+msgstr "Възникна грешка!"
 
-#: js/editor.js:266
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
-msgstr ""
+msgstr "Имаше незапазени промени, кликнете тук за да се върнете"

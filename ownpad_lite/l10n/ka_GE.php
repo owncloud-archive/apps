@@ -1,9 +1,11 @@
 <?php $TRANSLATIONS = array(
+"Document was shared" => "დოკუმენტი გაზიარდა",
+"User %s shared quick document %s with you." => "მომხმარებელმა %s გაგიზიარათ ფაილი %s",
 "My pad" => "ჩემი ფედი",
 "Settings" => "პარამეტრები",
 "Pad Title" => "ფედის სახელი",
 "Open" => "გახსნა",
-"Share with" => "გაუზიარე",
+"Share with" => "გააზიარე შემდეგით:",
 "Share" => "გაზიარება",
 "Etherpad service URL" => "Etherpad URL სერვისი",
 "Username" => "მომხმარებლის სახელი",

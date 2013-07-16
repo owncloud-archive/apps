@@ -30,6 +30,7 @@ Gallery.fillAlbums = function () {
 };
 Gallery.fillAlbums.fill = function (albums, images) {
 	var imagePath, albumPath, parent;
+	images.sort();
 	for (i = 0; i < images.length; i++) {
 		imagePath = images[i];
 		albumPath = OC.dirname(imagePath);
@@ -102,7 +103,7 @@ Gallery.share = function (event) {
 		event.preventDefault();
 		event.stopPropagation();
 		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
-			$('a.share').data('item', info.fileid)
+			$('a.share').data('item', info.fileid).data('link', true)
 				.data('possible-permissions', info.permissions).
 				click();
 		});
@@ -279,105 +280,24 @@ Gallery.view.showUsers = function () {
 	}
 };
 
-Gallery.slideshow = {};
-Gallery.scrollLocation = 0;
-Gallery.slideshow.start = function (start, options) {
-	var content = $('#content');
-	start = start || 0;
-	Thumbnail.concurrent = 1; //make sure we can load the image and doesn't get blocked by loading thumbnail
-	if (content.is(":visible")) {
-		Gallery.scrollLocation = $(window).scrollTop();
-	}
-	$('a.image').slideShow($('#slideshow'), start, options);
-	content.hide();
-};
-
-Gallery.slideshow.end = function () {
-	jQuery.fn.slideShow.stop();
-};
-
-Gallery.slideshow.next = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	jQuery.fn.slideShow.hideImage();
-	jQuery.fn.slideShow.next();
-};
-
-Gallery.slideshow.previous = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	jQuery.fn.slideShow.hideImage();
-	jQuery.fn.slideShow.previous();
-};
-
-Gallery.slideshow.pause = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	$('#slideshow').children('.play').show();
-	$('#slideshow').children('.pause').hide();
-	Gallery.slideshow.playPause.playing = false;
-	jQuery.fn.slideShow.pause();
-};
-
-Gallery.slideshow.play = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	$('#slideshow').children('.play').hide();
-	$('#slideshow').children('.pause').show();
-	Gallery.slideshow.playPause.playing = true;
-	jQuery.fn.slideShow.play();
-};
-
-Gallery.slideshow.playPause = function () {
-	if (Gallery.slideshow.playPause.playing) {
-		Gallery.slideshow.pause();
-	} else {
-		Gallery.slideshow.play();
-	}
-};
-Gallery.slideshow.playPause.playing = true;
-
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
 		OC.Breadcrumb.container = $('#breadcrumbs');
-		window.onhashchange()
-
-		//close slideshow on esc
-		$(document).keyup(function (e) {
-			if (e.keyCode === 27) { // esc
-				Gallery.slideshow.end();
-			} else if (e.keyCode == 37) { // left
-				Gallery.slideshow.previous();
-			} else if (e.keyCode == 39) { // right
-				Gallery.slideshow.next();
-			} else if (e.keyCode == 32) { // space
-				Gallery.slideshow.playPause();
-			}
-		});
-		var slideshow = $('#slideshow');
-		slideshow.children('.next').click(Gallery.slideshow.next);
-		slideshow.children('.previous').click(Gallery.slideshow.previous);
-		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
-		slideshow.children('.pause').click(Gallery.slideshow.pause);
-		slideshow.children('.play').click(Gallery.slideshow.play);
-		slideshow.click(Gallery.slideshow.next);
-
+		window.onhashchange();
 		$('button.share').click(Gallery.share);
 	});
 
 	$('#gallery').on('click', 'a.image', function (event) {
-		var i = $('#gallery').children('a.image').index(this),
+		var images = $('#gallery').children('a.image');
+		var i = images.index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		location.hash = image;
-		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+		if (location.hash != image) {
+			location.hash = image;
+			Slideshow.start(images, i, {play: Slideshow.playPause.playing});
+		}
 	});
-	$('body').append($('#slideshow')); //move the slideshow outside the content so we can hide the content
 
 	jQuery.fn.slideShow.onstop = function () {
 		$('#content').show();
@@ -392,9 +312,8 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
-	console.log(OC.dirname(album));
 	if (Gallery.images.indexOf(album) === -1) {
-		Gallery.slideshow.end();
+		Slideshow.end();
 		Gallery.view.viewAlbum(album);
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <dagor.vint@hotmail.com>, 2012.
-# Rivo Zängov <eraser@eraser.ee>, 2011-2012.
+# dagor <dagor.vint@hotmail.com>, 2012
+# pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
+# Rivo Zängov <eraser@eraser.ee>, 2011-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-01 00:49+0200\n"
+"PO-Revision-Date: 2013-04-30 09:30+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "Muusika"
 
 #: js/collection.js:100 js/collection.js:210 js/collection.js:257
 msgid "songs"
-msgstr "lugusid"
+msgstr "lugu"
 
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
@@ -65,24 +66,24 @@ msgstr "Hääl tagasi"
 
 #: templates/music.php:22
 msgid "Rescan Collection"
-msgstr "Skänni kollekttsiooni uuesti"
+msgstr "Skänni kollektsiooni uuesti"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Seaded"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "Ampache aadress:"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Esitaja"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Album"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Pealkiri"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

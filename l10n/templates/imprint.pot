@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"POT-Creation-Date: 2013-07-16 00:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: appinfo/app.php:64 js/imprint_header_left.js:33
+#: appinfo/app.php:99 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
 msgstr ""
 
-#: templates/tmpl_dummy.php:37
+#: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
 msgstr ""
 
-#: templates/tmpl_dummy.php:38
+#: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
 msgstr ""
 
-#: templates/tmpl_dummy.php:40
-msgid "The configuration is done here"
+#: templates/tmpl_dummy.php:53
+msgid "That configuration is done in the administration section."
 msgstr ""
 
-#: templates/tmpl_dummy.php:43
-msgid "Admin"
+#: templates/tmpl_dummy.php:55
+msgid "That configuration has to be done by the system administration."
 msgstr ""
 
 #: templates/tmpl_settings.php:42
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Standalone app"
 msgstr ""
 
-#: templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr ""
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr ""
 
@@ -67,11 +67,15 @@ msgstr ""
 msgid "Navigation bottom"
 msgstr ""
 
-#: templates/tmpl_settings.php:55
+#: templates/tmpl_settings.php:54
+msgid "During login"
+msgstr ""
+
+#: templates/tmpl_settings.php:61
 msgid "Content"
 msgstr ""
 
-#: templates/tmpl_settings.php:60
+#: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."

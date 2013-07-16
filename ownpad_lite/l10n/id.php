@@ -1,11 +1,13 @@
 <?php $TRANSLATIONS = array(
-"My pad" => "pad saya",
-"Settings" => "pengaturan",
-"Pad Title" => "judul pad",
-"Open" => "buka",
-"Share with" => "bagikan dengan",
-"Share" => "berbagi",
-"Etherpad service URL" => "tautan servis etherpad",
-"Username" => "nama pengguna",
-"Save" => "simpan"
+"Document was shared" => "Dokumen dibagikan",
+"User %s shared quick document %s with you." => "Pengguna %s berbagi dokumen cepat %s dengan Anda.",
+"My pad" => "Pad saya",
+"Settings" => "Setelan",
+"Pad Title" => "Judul Pad",
+"Open" => "Buka",
+"Share with" => "Bagikan dengan",
+"Share" => "Bagikan",
+"Etherpad service URL" => "URL layanan etherpad",
+"Username" => "Nama pengguna",
+"Save" => "Simpan"
 );

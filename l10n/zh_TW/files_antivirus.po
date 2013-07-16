@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
+# pellaeon <nfsmwlin@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"POT-Creation-Date: 2013-07-15 00:50+0200\n"
+"PO-Revision-Date: 2013-07-13 23:13+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "模式"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "可執行"
+msgstr "執行檔"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -66,7 +66,7 @@ msgstr "在可執行模式中不需要"
 
 #: templates/settings.php:8
 msgid "Port"
-msgstr "連接阜"
+msgstr "連接埠"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."

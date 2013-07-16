@@ -30,31 +30,32 @@
 
 /* style the 'handle' itself used to switch the navigation */
 .fluxx-handle {
-	z-index: 9000;
 	opacity: 0.6;
-	position: absolute;
-	width: 16px;
-	height: 16px;
+	position: fixed;
+	width: 12px;
+	height: 12px;
 	border: 0.5px solid #666;
 	cursor: pointer;
-	line-height: 1.0em;
+	line-height: 14px;
+	padding: 2px;
 }
 .fluxx-handle.fluxx-horizontal {
 	border-left: 0;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-	box-shadow: 1px 0px 2px #666;
+	box-shadow: 0 0 2px #666;
 }
 .fluxx-handle.fluxx-vertical {
 	border-top: 0;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	box-shadow: 0px 1px 2px #666;
+	box-shadow: 0 0 2px #666;
 }
 .fluxx-handle.fluxx-shown {
 	background-color: #ddd;
-	box-shadow: 0px 1px 2px #999;
+	box-shadow: 0 0 2px #999;
 }
+/* flip and move handle when panel is shown */
 .fluxx-handle.fluxx-horizontal.fluxx-shown {
 	transform: scale(-1,1) translate(15px,0);
 	-o-transform: scale(-1,1) translate(15px,0);
@@ -72,7 +73,8 @@
 	-webkit-transform: scale(1,-1) translate(0,15px);
 }
 .fluxx-handle img {
-	padding: 2px ;
+	margin: 0;
+	padding: 0;
 	width: 12px;
 	height: 12px;
 	border: 0;
@@ -104,9 +106,9 @@ html .fluxx-handle.fluxx-vertical img {
 }
 
 /* switch cursor to a 'move' indication during move mode */
-html.fluxx-handle-move-H, html.fluxx-handle-move-H * {
+html.fluxx-handle-move-H * {
 	cursor: col-resize !important;
 }
-html.fluxx-handle-move-N, html.fluxx-handle-move-N * {
+html.fluxx-handle-move-N * {
 	cursor: row-resize !important;
 }

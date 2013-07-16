@@ -28,17 +28,20 @@
  * @author Christian Reiner
  */
 
-/* some general static modifications required due to strange OC base definitions */
-html.fluxx-state-H-hidden {}
-html.fluxx-state-N-hidden {}
-html.fluxx-state-H-shown {}
-html.fluxx-state-N-shown {}
-
-/* some general mode specific modifications */
-
+/* default handle position rules, required by FF to animate the transitions */
+#fluxx-H {
+  top: 0;
+}
+#fluxx-N {
+  left: 0;
+}
+/* move navigation handle up, required due to the absolute positioning */
+html.fluxx-state-H-hidden #fluxx-N {
+  margin-top: 0 !important;
+}
 /* navigation hidden: move left and add a more impressive shadow as a hint */
-html.fluxx-state-N-hidden body > nav > #navigation {
-	left: -64px;
+html.fluxx-state-N-hidden #navigation {
+	left: -64px !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
@@ -47,16 +50,16 @@ html.fluxx-state-N-hidden body > nav > #navigation {
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 }
 /* move content to the left when navigation is hidden */
-html.fluxx-state-N-hidden body #content-wrapper {
+html.fluxx-state-N-hidden #content-wrapper {
 	padding-left: 0;
 }
-html.fluxx-state-N-hidden body #controls {
+html.fluxx-state-N-hidden #controls {
 	padding-right: 6px;
 }
 
 /* header hidden: move up and show more impressive shadow as a hint */
-html.fluxx-state-H-hidden body > header > #header {
-	top: -3.5em !important;
+html.fluxx-state-H-hidden #header {
+	top: -45px !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
@@ -64,45 +67,39 @@ html.fluxx-state-H-hidden body > header > #header {
 	-khtml-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 }
-/* move content up to top when header is hidden */
-html.fluxx-state-H-hidden body > nav> #navigation {
-	top: 0 !important;
-}
-html.fluxx-state-H-hidden body #content-wrapper {
-	padding-top: 0px;
-}
-/* move bottom aligned 'settings' navigation entry down to the bottom again */
-html.fluxx-state-H-hidden body > nav > #navigation #settings {
-	bottom: 0;
+/* move stuff up to top when header is hidden */
+html.fluxx-state-H-hidden #navigation,
+html.fluxx-state-H-hidden #content-wrapper {
+	padding-top: 0;
 }
 
-/* some specific app dependent settings */
+/* below some specific app dependent settings to compensate for exotic in-app styles */
 
 /* no _known_ mode detected, so _guess_ */
-html.fluxx-modeless body { }
+html.fluxx-modeless { }
 
 /* 'bookarks' app */
 html.fluxx-mode-bookmarks { }
-html.fluxx-mode-bookmarks.fluxx-state-N-hidden body #content #firstrun { left: 20em; }
+html.fluxx-mode-bookmarks.fluxx-state-N-hidden #firstrun { left: 280px; }
 
 /* 'calendar' app */
-html.fluxx-mode-calendar body { }
+html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts body { }
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content #contactsheader { left: 20em; }
+html.fluxx-mode-contacts { }
+html.fluxx-mode-contacts.fluxx-state-N-hidden #contactsheader { left: 280px; }
 
 /* 'files' app */
-html.fluxx-mode-files body { }
+html.fluxx-mode-files { }
 
 /* 'gallery' app */
-html.fluxx-mode-gallery body { }
+html.fluxx-mode-gallery { }
 
 /* 'media' app */
-html.fluxx-mode-media body { }
+html.fluxx-mode-media { }
 
 /* 'notes' app */
-html.fluxx-mode-notes body { }
+html.fluxx-mode-notes { }
 
 /* 'shorty' app */
-html.fluxx-mode-shorty body { }
+html.fluxx-mode-shorty { }
