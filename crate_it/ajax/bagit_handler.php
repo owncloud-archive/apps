@@ -10,7 +10,7 @@ $crate_id = isset($_GET['crate_id']) ? $_GET['crate_id'] : '';
 $crate_name = isset($_GET['crate_name']) ? $_GET['crate_name'] : '';
 $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
 $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
-$newvalue = isset($_POST['new_title']) ? $_POST['new_title'] : '';
+$new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
