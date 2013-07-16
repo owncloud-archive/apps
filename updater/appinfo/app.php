@@ -22,6 +22,11 @@ class App {
 		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_ID . '/lib/downloader.php';
 		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_ID . '/lib/updater.php';
 		\OC::$CLASSPATH['OCA\Updater\Helper'] = self::APP_ID . '/lib/helper.php';
+		\OC::$CLASSPATH['OCA\Updater\Location'] = self::APP_ID . '/lib/location.php';
+		\OC::$CLASSPATH['OCA\Updater\Location_3rdparty'] = self::APP_ID . '/lib/location/3rdparty.php';
+		\OC::$CLASSPATH['OCA\Updater\Location_Apps'] = self::APP_ID . '/lib/location/apps.php';
+		\OC::$CLASSPATH['OCA\Updater\Location_Core'] = self::APP_ID . '/lib/location/core.php';
+		
 		//Allow config page
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}

@@ -135,6 +135,7 @@ class Helper {
 		$fullPath = array_values(self::getDirectories());
 		$fullPath[] = rtrim(App::getBackupBase(), '/');
 		$fullPath[] = \OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" );
+		$fullPath[] = \OC::$SERVERROOT."/themes";
 		
 		$exclusions = array(
 			'full' => $fullPath,
