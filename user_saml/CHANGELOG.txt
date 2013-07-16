@@ -6,6 +6,7 @@ Version 0.4 (Tested with OwnCloud 5.0.8)
 
 * Add csrf protection on setting form
 * Add a config param to force the saml login
+* Use openssl_random_pseudo_bytes instead of mt_rand (if available)
 
 
 Version 0.3 (Tested with OwnCloud 4.5.2)

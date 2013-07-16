@@ -3,6 +3,11 @@ CHANGELOG
 
 Version 0.1.1
 -------------
+* Added CSRF protection on setting form
+* Use openssl_random_pseudo_bytes instead of mt_rand (if available)
+
+
+Version 0.1
+-------------
 
 * Initial plugin
-* Added CSRF protection on setting form
