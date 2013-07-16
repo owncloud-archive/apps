@@ -26,6 +26,7 @@ class OC_USER_SAML extends OC_User_Backend {
 	// cached settings
 	protected $sspPath;
 	protected $spSource;
+	public $forceLogin;
 	public $autocreate;
 	public $updateUserData;
 	public $protectedGroups;
@@ -39,6 +40,7 @@ class OC_USER_SAML extends OC_User_Backend {
 	public function __construct() {
 		$this->sspPath = OCP\Config::getAppValue('user_saml', 'saml_ssp_path', '');
 		$this->spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');
+		$this->forceLogin = OCP\Config::getAppValue('user_saml', 'saml_force_saml_login', false);
 		$this->autocreate = OCP\Config::getAppValue('user_saml', 'saml_autocreate', false);
 		$this->updateUserData = OCP\Config::getAppValue('user_saml', 'saml_update_user_data', false);
 		$this->defaultGroup = OCP\Config::getAppValue('user_saml', 'saml_default_group', '');
