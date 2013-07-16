@@ -15,4 +15,5 @@ $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 $tmpl = new OCP\Template('crate_it', 'index', 'user');
 $tmpl->assign('bagged_files', $bagit_manager->getFetchData());
 $tmpl->assign('crates', $bagit_manager->getCrateList());
+$tmpl->assign('selected_crate', $bagit_manager->getSelectedCrate());
 $tmpl->printPage();

@@ -81,7 +81,7 @@ $(document).ready(function() {
 	    return false;
 	});
 	
-	$.ajax({
+	/*$.ajax({
 		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=get_crate',
 		type: 'get',
 		dataType: 'html',
@@ -94,7 +94,8 @@ $(document).ready(function() {
 			var e = data.statusText;
 			alert(e);
 		}
-	});
+	});*/
+	
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");

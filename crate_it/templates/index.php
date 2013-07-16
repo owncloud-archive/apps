@@ -19,9 +19,9 @@ and let user drag and drop -->
 		<input id="subbutton" type="submit" value="Submit">
 	</form>
 	<select id="crates">
-		<option id="choose" value="choose" selected>Choose a crate</option>
+		<option id="choose" value="choose">Choose a crate</option>
 		<?php foreach($_['crates'] as $crate):?>
-		<option id="<?php echo $crate;?>" value="<?php echo $crate;?>"><?php echo $crate;?></option>
+		<option id="<?php echo $crate;?>" value="<?php echo $crate;?>" <?php if($_['selected_crate'] == $crate){echo 'selected';}?>><?php echo $crate;?></option>
 		<?php endforeach;?>
 	</select>
 	<input id="clear" type="button" value="Clear Crate"/>
