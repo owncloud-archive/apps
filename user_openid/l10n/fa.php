@@ -6,5 +6,7 @@
 "User: <b>" => "کاربر:<b>",
 "Login" => "ورود",
 "Error: <b>No user Selected" => "خطا:<b>هیچ کاربری انتخاب نشده",
-"OpenID" => "OpenID"
+"OpenID" => "OpenID",
+"you can authenticate to other sites with this address" => "شما میتوانید با این آدرس به سایت های دیگر اعتبار دهید.",
+"Authorized OpenID provider" => "ارائه دهنده اجازه OpenID "
 );
