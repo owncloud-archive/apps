@@ -28,14 +28,17 @@ if($extension === "doc" || $extension === "docx" || $extension === "xls" || $ext
 	$full_path = '/data/'.$user.'/files'. $file;
 	//$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
 	//$full_path = strtr(rawurlencode($full_path), $revert);
-	$query = 'full_path:"'.$full_path.'"';
+	$query = 'full_path:"'.md5($full_path).'"';
 	$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
 	$preview = $path_parts['filename'].'.htm';
 	$url = $fascinator['downloadURL'].$storage_id.'/'.$preview;
+	$url = str_replace(' ', '%20', $url);
+	//OCP\Util::writeLog('file_previewer', 'Log message from Solr plugin - In latest method', 4);
 }
 else {
 	$preview = '/'.basename($path_parts['dirname']).'/'.$path_parts['basename'];
 	$url = $fascinator['downloadURL'].$sid.$preview;
+	$url = str_replace(' ', '%20', $url);
 }
 
 try

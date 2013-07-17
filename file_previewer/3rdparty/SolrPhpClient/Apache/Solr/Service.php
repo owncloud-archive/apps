@@ -307,14 +307,11 @@ class Apache_Solr_Service
 		// 5.1.2 the arg_separator parameter was not available, so don't use it
 		if ($this->_queryBracketsEscaped)
 		{
-			OCP\Util::writeLog('file_previewer', 'Log message from Solr plugin - In latest method', 4);
-			$queryString = http_build_query($params, null, $this->_queryStringDelimiter, PHP_QUERY_RFC3986);
-			OCP\Util::writeLog('file_previewer', 'Encoded queryString - In latest method - '.$queryString, 4);
+			$queryString = http_build_query($params, null, $this->_queryStringDelimiter);
 			return preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $queryString);
 		}
 		else
 		{
-			OCP\Util::writeLog('file_previewer', 'Log message from Solr plugin - In obsolete method', 4);
 			$queryString = http_build_query($params);
 			return preg_replace('/\\[(?:[0-9]|[1-9][0-9]+)\\]=/', '=', $queryString);
 		}
@@ -1168,8 +1165,6 @@ class Apache_Solr_Service
 
 		$queryString = $this->_generateQueryString($params);
 		
-		OCP\Util::writeLog('file_previewer', 'Encoded queryString - after regex modification - '.$queryString, 4);
-
 		if ($method == self::METHOD_GET)
 		{
 			return $this->_sendRawGet($this->_searchUrl . $this->_queryDelimiter . $queryString);
