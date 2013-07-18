@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <info>
 	<id>external</id>
-	<name>External</name>
-	<description>Show external Application in the ownCloud menu</description>
+	<name>External Sites</name>
+	<description>Enables admins to add external sites to the app navigation.</description>
 	<licence>AGPL</licence>
 	<author>Frank Karlitschek</author>
 	<require>4.93</require>
