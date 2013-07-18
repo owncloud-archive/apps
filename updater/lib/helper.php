@@ -96,9 +96,28 @@ class Helper {
 		}
 
 		if (is_dir($path)) {
-			\OC_Helper::rmdirr($path);
+			self::rmdirr($path);
 		} else {
 			@unlink($path);
+		}
+	}
+	
+	protected static function rmdirr($dir) {
+		if(is_dir($dir)) {
+			$files = @scandir($dir);
+			foreach($files as $file) {
+				if ($file != "." && $file != "..") {
+					self::rmdirr("$dir/$file");
+				}
+			}
+			@rmdir($dir);
+		}elseif(file_exists($dir)) {
+			@unlink($dir);
+		}
+		if(file_exists($dir)) {
+			return false;
+		}else{
+			return true;
 		}
 	}
 
@@ -135,6 +154,7 @@ class Helper {
 		$fullPath = array_values(self::getDirectories());
 		$fullPath[] = rtrim(App::getBackupBase(), '/');
 		$fullPath[] = \OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" );
+		$fullPath[] = \OC::$SERVERROOT."/themes";
 		
 		$exclusions = array(
 			'full' => $fullPath,

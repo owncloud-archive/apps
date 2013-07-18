@@ -94,6 +94,10 @@ class Downloader {
 		Helper::removeIfExists(self::getPackageDir($version));
 	}
 	
+	public static function isClean($version){
+		return !@file_exists(self::getPackageDir($version));
+	}
+	
 	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}
