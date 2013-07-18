@@ -28,7 +28,7 @@ class Location_Apps extends Location {
 			$errors[] = $this->oldBase;
 		}
 		
-		$this->collect();
+		$this->collect(true);
 		foreach ($this->appsToUpdate as $item) {
 			$path = \OC_App::getAppPath($item);
 			if (!is_writable($path)) {
@@ -75,9 +75,9 @@ class Location_Apps extends Location {
 	}
 
 	public function collect($dryRun = false) {
-		foreach (\OC_App::getEnabledApps() as $appId) {
+		foreach (\OC_App::getAllApps() as $appId) {
 			if (\OC_App::isShipped($appId)) {
-				if (@file_exists($this->newBase . '/' . $appId)) {
+				if ($dryRun || @file_exists($this->newBase . '/' . $appId)) {
 					$this->appsToUpdate[$appId] = $appId;
 				} else {
 					$this->appsToDisable[$appId] = $appId;
