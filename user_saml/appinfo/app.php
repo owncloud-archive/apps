@@ -43,7 +43,9 @@ if (OCP\App::isEnabled('user_saml')) {
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_SAML_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_SAML_Hooks', 'logout');
 
-	if( isset($_GET['app']) && $_GET['app'] == 'user_saml' ) {
+	$forceLogin = OCP\Config::getAppValue('user_saml', 'saml_force_saml_login', false);
+
+	if( (isset($_GET['app']) && $_GET['app'] == 'user_saml') || (!OCP\User::isLoggedIn() && $forceLogin && !isset($_GET['admin_login']) )) {
 
 		require_once 'user_saml/auth.php';
 
@@ -66,25 +68,7 @@ if (OCP\App::isEnabled('user_saml')) {
 	}
 
 	if (!OCP\User::isLoggedIn()) {
-		$forceLogin = OCP\Config::getAppValue('user_saml', 'saml_force_saml_login', false);
-		if($forceLogin && !isset($_GET['admin_login'])) {
-			require_once 'user_saml/auth.php';
-
-			if (isset($_GET["linktoapp"])) {
-				$path = OC::$WEBROOT . '/?app='.$_GET["linktoapp"];
-                if (isset($_GET["linktoargs"])) {
-					$path .= '&'.urldecode($_GET["linktoargs"]);
-				}
-				header( 'Location: ' . $path);
-				exit();
-			}
-
-			OC::$REQUESTEDAPP = '';
-			OC_Util::redirectToDefaultPage();
-		}
-		else {
-			// Load js code in order to render the SAML link and to hide parts of the normal login form
-			OCP\Util::addScript('user_saml', 'utils');
-		}
+		// Load js code in order to render the SAML link and to hide parts of the normal login form
+		OCP\Util::addScript('user_saml', 'utils');
 	}
 }
