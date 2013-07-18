@@ -1,5 +1,13 @@
+	angular.module('updater', []).
+		config(['$routeProvider', function($routeProvider) {
+			$routeProvider.
+			when('/index', {   controller: backupCtrl}).
+			when('/update', {templateUrl: 'templates/partials/update.html', controller: updateCtrl}).
+			otherwise({redirectTo: '/index'});
+		}]);
+
 $(document).ready(function() {
-	$('#updater_backup').click(function() {
+/*	$('#updater_backup').click(function() {
 		$('#upd-progress').show();
 		$('#updater_backup').attr('disabled', 'disabled');
 		$('#updater_backup').after('<div id="upgrade_status">' + t('updater', 'In progress...') + '</div>');
@@ -29,4 +37,5 @@ $(document).ready(function() {
 			}
 			)
 	});
+*/
 });

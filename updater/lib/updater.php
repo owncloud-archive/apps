@@ -83,6 +83,10 @@ class Updater {
 	public static function cleanUp(){
 		Helper::removeIfExists(self::getTempDir());
 	}
+	
+	public static function isClean(){
+		return !@file_exists(self::getTempDir());
+	}
 
 	public static function getTempDir(){
 		return App::getBackupBase() . 'tmp';

@@ -31,7 +31,7 @@ abstract class Location {
 	public function check() {
 		$errors = array();
 
-		if (!is_writable($this->oldBase)) {
+		if ($this->oldBase && !is_writable($this->oldBase)) {
 			$errors[] = $this->oldBase;
 		}
 
