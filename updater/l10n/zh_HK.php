@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "錯誤"
+"Download" => "下載",
+"Delete" => "刪除"
 );

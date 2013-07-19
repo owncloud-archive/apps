@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "出错",
-"Update" => "更新"
+"Update" => "更新",
+"Download" => "下载",
+"Delete" => "删除"
 );

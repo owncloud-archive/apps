@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"In progress..." => "У току…",
-"Error" => "Грешка",
-"Update" => "Ажурирај"
+"Update" => "Ажурирај",
+"Download" => "Преузми",
+"Delete" => "Обриши"
 );

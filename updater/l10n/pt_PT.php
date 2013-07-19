@@ -1,8 +1,6 @@
 <?php $TRANSLATIONS = array(
-"In progress..." => "Em curso...",
-"Done." => "Concluído.",
 "Here is your backup: " => "Aqui está a sua cópia de segurança:",
-"Error" => "Erro",
 "Update" => "Actualizar",
-"Up to date" => "Actualizado"
+"Download" => "Transferir",
+"Delete" => "Eliminar"
 );
