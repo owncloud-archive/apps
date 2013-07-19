@@ -39,10 +39,10 @@ if($loglist==''){
 }
 if($loglist!='' && $inilist==''){	
 	$cache->set($dir_cache_file, $loglist);	
-	\OC_Log::write('files_tree', 'cache saved to file ' . $dir_cache_file, \OC_Log::DEBUG);
+	\OCP\Util::writeLog('files_tree', 'cache saved to file ' . $dir_cache_file, \OC_Log::DEBUG);
 }
 /* Sendind results */
-$dirs_stat = OC_Preferences::getValue($uid,'files_tree','dirs_stat','');
+$dirs_stat = OCP\Config::getUserValue($uid,'files_tree','dirs_stat','');
 if($dirs_stat=='') $dirs_stat=array();
 else $dirs_stat=unserialize($dirs_stat);
 	
