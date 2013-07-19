@@ -1,6 +1,6 @@
 <?php
 
-$currentVersion=OC_Appconfig::getValue('search_lucene', 'installed_version');
+$currentVersion=OCP\Config::getAppValue('search_lucene', 'installed_version');
 
 if (version_compare($currentVersion, '0.5.0', '<')) {
 	//force reindexing of files
