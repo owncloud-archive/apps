@@ -20,7 +20,7 @@
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 * 
 */
-OC_Util::addScript('files_svgedit', 'ocsvg');
+OCP\Util::addScript('files_svgedit', 'ocsvg');
 OC_App::register(array(
     'order' => 50,
     'id' => 'files_svgedit',

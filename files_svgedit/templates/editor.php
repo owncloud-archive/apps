@@ -16,7 +16,7 @@ var ocsvgFile = {
 	<input type="button" id="ocsvgBtnClose" value="<?php p($l->t('Close')); ?>" />
 </div>
 <div id="svgEditor">
-    <iframe src="<?php print_unescaped(OC_Helper::linkTo('files_svgedit', 'svg-edit/svg-editor.html')); ?>" id="svgedit"></iframe>
+    <iframe src="<?php print_unescaped(OCP\Util::linkTo('files_svgedit', 'svg-edit/svg-editor.html')); ?>" id="svgedit"></iframe>
 </div>
 <div id="svgEditorSave" title="<?php p($l->t('Save')); ?>">
 	<ul>
