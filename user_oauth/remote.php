@@ -26,7 +26,7 @@
 $RUNTIME_APPTYPES=array('filesystem','authentication');
 OC_App::loadApps($RUNTIME_APPTYPES);
 
-$introspectionEndpoint = \OC_Config::getValue( "introspectionEndpoint", "https://frko.surfnetlabs.nl/workshop/php-oauth/introspect.php" );
+$introspectionEndpoint = \OCP\Config::getSystemValue( "introspectionEndpoint", "https://frko.surfnetlabs.nl/workshop/php-oauth/introspect.php" );
 
 require_once 'oauth.php';
 
