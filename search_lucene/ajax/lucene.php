@@ -47,7 +47,7 @@ function index() {
 			}
 
 			if (!$result) {
-				OC_JSON::error(array('message' => 'Could not index file.'));
+				OCP\JSON::error(array('message' => 'Could not index file.'));
 				$eventSource->send('error', $path);
 			}
 		} catch (Exception $e) { //sqlite might report database locked errors when stock filescan is in progress
@@ -55,7 +55,7 @@ function index() {
 			\OCP\Util::writeLog('search_lucene',
 				$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
 				\OCP\Util::ERROR);
-			OC_JSON::error(array('message' => 'Could not index file.'));
+			OCP\JSON::error(array('message' => 'Could not index file.'));
 			$eventSource->send('error', $e->getMessage());
 			//try to mark the file as new to let it reindex
 			$fileStatus->markNew();  // Add UI to trigger rescan of files with status 'E'rror?
