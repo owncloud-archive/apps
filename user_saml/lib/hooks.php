@@ -45,20 +45,20 @@ class OC_USER_SAML_Hooks {
 				}
 				else if (!empty($samlBackend->defaultGroup)) {
 					$saml_groups = array($samlBackend->defaultGroup);
-					OC_Log::write('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
+					OCP\Util::writeLog('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
 				}
 
-				if (!OC_User::userExists($uid)) {
+				if (!OCP\User::userExists($uid)) {
 					if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $uid)) {
-						OC_Log::write('saml','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
+						OCP\Util::writeLog('saml','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
 						return false;
 					}
 					else {
 						$random_password = random_password();
-						OC_Log::write('saml','Creating new user: '.$uid, OC_Log::DEBUG);
+						OCP\Util::writeLog('saml','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
 
-						if(OC_User::userExists($uid)) {
+						if(OCP\User::userExists($uid)) {
 							if (isset($saml_email)) {
 								update_mail($uid, $saml_email);
 
@@ -71,7 +71,7 @@ class OC_USER_SAML_Hooks {
 				}
 				else {
 					if ($samlBackend->updateUserData) {
-						OC_Log::write('saml','Updating data of the user: '.$uid,OC_Log::DEBUG);
+						OCP\Util::writeLog('saml','Updating data of the user: '.$uid,OC_Log::DEBUG);
 						if(isset($saml_email)) {
 							update_mail($uid, $saml_email);
 						}
@@ -90,7 +90,7 @@ class OC_USER_SAML_Hooks {
 	static public function logout($parameters) {
 		$samlBackend = new OC_USER_SAML();
 		if ($samlBackend->auth->isAuthenticated()) {
-			OC_Log::write('saml','Executing SAML logout: '.$parameters['uid'],OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Executing SAML logout: '.$parameters['uid'],OC_Log::DEBUG);
 			$samlBackend->auth->logout();
 		}
 		return true;
@@ -100,9 +100,9 @@ class OC_USER_SAML_Hooks {
 
 
 function update_mail($uid, $email) {
-	if ($email != OC_Preferences::getValue($uid, 'settings', 'email', '')) {
-		OC_Preferences::setValue($uid, 'settings', 'email', $email);
-		OC_Log::write('saml','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
+	if ($email != OCP\Config::getUserValue($uid, 'settings', 'email', '')) {
+		OCP\Config::setUserValue($uid, 'settings', 'email', $email);
+		OCP\Util::writeLog('saml','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
 	}
 }
 
@@ -114,23 +114,23 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 		foreach($old_groups as $group) {
 			if(!in_array($group, $protected_groups) && !in_array($group, $groups)) {
 				OC_Group::removeFromGroup($uid,$group);
-				OC_Log::write('saml','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('saml','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
 			}
 		}
 	}
 
 	foreach($groups as $group) {
 		if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $group)) {
-			OC_Log::write('saml','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
 		}
 		else {
 			if (!OC_Group::inGroup($uid, $group)) {
 				if (!OC_Group::groupExists($group)) {
 					OC_Group::createGroup($group);
-					OC_Log::write('saml','New group created: '.$group, OC_Log::DEBUG);
+					OCP\Util::writeLog('saml','New group created: '.$group, OC_Log::DEBUG);
 				}
 				OC_Group::addToGroup($uid, $group);
-				OC_Log::write('saml','Added "'.$uid.'" to the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('saml','Added "'.$uid.'" to the group "'.$group.'"', OC_Log::DEBUG);
 			}
 		}
 	}
