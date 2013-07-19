@@ -65,7 +65,7 @@ class Thumbnail {
 		if (!$this->view->file_exists($imagePath)) {
 			return;
 		}
-		$this->image = new \OC_Image($this->view->getLocalFile($imagePath));
+		$this->image = new \OCP\Image($this->view->getLocalFile($imagePath));
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
@@ -79,7 +79,7 @@ class Thumbnail {
 
 	public function get() {
 		if (is_null($this->image)) {
-			$this->image = new \OC_Image($this->path);
+			$this->image = new \OCP\Image($this->path);
 		}
 		return $this->image;
 	}
@@ -97,8 +97,8 @@ class Thumbnail {
 			$mime = \OC_Helper::getMimetype($this->path);
 		}
 		if ($fp) {
-			\OC_Response::enableCaching();
-			\OC_Response::setLastModifiedHeader($mtime);
+			\OCP\Response::enableCaching();
+			\OCP\Response::setLastModifiedHeader($mtime);
 			header('Content-Length: ' . $size);
 			header('Content-Type: ' . $mime);
 
