@@ -34,7 +34,7 @@ class Storage {
     
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC\Files\Filesystem::searchByMime('text/impress');
+		$list=\OCP\Files::searchByMime('text/impress');
 		foreach($list as $l) {
 			$size=\OC\Files\Filesystem::filesize($l["path"]);
 			if ($size > 0) {
