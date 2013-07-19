@@ -49,7 +49,7 @@ if ($source && $recipients) {
 
 	try {
 		$emailFrom = \OCP\Util::getDefaultEmailAddress('noreply');
-		\OC_Mail::send(
+		\OCP\Util::sendMail(
 			$emailTo, $nameTo, $subject, $message, $emailFrom, $nameFrom
 		);
 	} catch (Exception $e) {
