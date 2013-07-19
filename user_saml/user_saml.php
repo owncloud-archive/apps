@@ -65,10 +65,10 @@ class OC_USER_SAML extends OC_User_Backend {
 
 		if (array_key_exists($this->usernameMapping, $attributes)) {
 			$uid = $attributes[$this->usernameMapping][0];
-			OC_Log::write('saml','Authenticated user '.$uid,OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Authenticated user '.$uid,OC_Log::DEBUG);
 		}
 		else {
-			OC_Log::write('saml','Not found attribute used to get the username ("'.$this->usernameMapping.'") at the requested saml attribute assertion',OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Not found attribute used to get the username ("'.$this->usernameMapping.'") at the requested saml attribute assertion',OC_Log::DEBUG);
 		}
 
 		return $uid;
