@@ -13,6 +13,7 @@ remove the file if it's infected.
 
 The App is not complete yet, the following works/is done:
 * It can be configured to work with the executable or the daemon mode of ClamAV
+* If used in daemon mode it can connect through network- or local file-socket
 * In daemon mode, it sends files to a remote/local server using INSTREAM command
 * When the user uploads a file, it's checked
 * If an uploaded file is infected, it's deleted and a notification is shown to the user on screen and an email is sent with details.
@@ -34,6 +35,10 @@ The App is not complete yet, the following works/is done:
 
 * Owncloud 4
 * ClamAV (Binaries or a server running ClamAV in daemon mode)
+
+## 3rd party software used
+* Simplesocketclient for connecting to ClamAV file-socket: http://github.com/kijin/simplesocket
+
 
 ## Install
 
