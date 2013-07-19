@@ -9,7 +9,7 @@
 class OC_Files_Antivirus_BackgroundScanner {
 	public static function check() {
 		// get mimetype code for directory
-		$query = \OC_DB::prepare('SELECT `id` FROM `*PREFIX*mimetypes` WHERE `mimetype` = ?');
+		$query = \OCP\DB::prepare('SELECT `id` FROM `*PREFIX*mimetypes` WHERE `mimetype` = ?');
 		$result = $query->execute(array('httpd/unix-directory'));
 		if ($row = $result->fetchRow()) {
 			$dir_mimetype = $row['id'];
@@ -25,8 +25,8 @@ class OC_Files_Antivirus_BackgroundScanner {
 		$stmt = OCP\DB::prepare($sql, 5);
 		try {
 			$result = $stmt->execute(array($dir_mimetype, 'local::%'));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+			if (\OCP\DB::isError($result)) {
+				\OCP\Util::writeLog('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return;
 			}
 		} catch(\Exception $e) {
@@ -75,8 +75,8 @@ class OC_Files_Antivirus_BackgroundScanner {
 				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
 					$result = $stmt->execute(array($id, time()));
-					if (\OC_DB::isError($result)) {
-						\OC_Log::write('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+					if (\OCP\DB::isError($result)) {
+						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 						return;
 					}
 				} catch(\Exception $e) {

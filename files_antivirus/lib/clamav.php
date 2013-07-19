@@ -35,7 +35,7 @@ class OC_Files_Antivirus {
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
 			if ($files_view->file_exists($path)) {
-				$root=OC_User::getHome(OC_User::getUser()).'/files';
+				$root=OC_User::getHome(OCP\User::getUser()).'/files';
 				$file = $root.$path;
 				$result = self::clamav_scan($file);
 				switch($result) {
@@ -46,16 +46,16 @@ class OC_Files_Antivirus {
 						//remove file
 						$files_view->unlink($path);
 						OCP\JSON::error(array("data" => array( "message" => "Virus detected! Can't upload the file." )));
-						$email = OC_Preferences::getValue(OC_User::getUser(), 'settings', 'email', '');
+						$email = OCP\Config::getUserValue(OCP\User::getUser(), 'settings', 'email', '');
 						\OCP\Util::writeLog('files_antivirus', 'Email: '.$email, \OCP\Util::DEBUG);
 						if (!empty($email) ) {
-							$tmpl = new OC_Template('files_antivirus', 'notification');
+							$tmpl = new OCP\Template('files_antivirus', 'notification');
 							$tmpl->assign('file', $path);
 							$tmpl->assign('host', OCP\Util::getServerHost());
-							$tmpl->assign('user', OC_User::getDisplayName());
+							$tmpl->assign('user', OCP\User::getDisplayName());
 							$msg = $tmpl->fetchPage();
 							$from = OCP\Util::getDefaultEmailAddress('security-noreply');
-							OCP\Util::sendMail($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
+							OCP\Util::sendMail($email, OCP\User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
 						}
 						exit();
 						break;
