@@ -2,7 +2,7 @@
 
 $tmpl = null;
 
-$email = OC_Preferences::getValue(OCP\User::getUser(), 'settings', 'email');
+$email = OCP\Config::getUserValue(OCP\User::getUser(), 'settings', 'email');
 //no email address set
 if($email === null) {
   $tmpl = new OCP\Template( 'mozilla_sync', 'noemail');
