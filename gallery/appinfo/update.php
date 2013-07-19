@@ -1,6 +1,6 @@
 <?php
 
-$currentVersion=OC_Appconfig::getValue('gallery', 'installed_version');
+$currentVersion=OCP\Config::getAppValue('gallery', 'installed_version');
 if (version_compare($currentVersion, '0.5.0', '<')) {
 	$stmt = OCP\DB::prepare('DROP TABLE IF EXISTS `*PREFIX*gallery_photos`');
 	$stmt->execute();

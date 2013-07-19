@@ -11,7 +11,7 @@ OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
 list($owner, $img) = explode('/', $_GET['file'], 2);
-if ($owner !== OC_User::getUser()) {
+if ($owner !== OCP\User::getUser()) {
 	\OC\Files\Filesystem::initMountPoints($owner);
 	$parts = explode('/', $img, 3);
 	if (count($parts) === 3) {
@@ -29,7 +29,7 @@ if ($owner !== OC_User::getUser()) {
 			$img = $sharedGallery;
 		}
 	} else {
-		OC_JSON::error('no such file');
+		OCP\JSON::error('no such file');
 		die();
 	}
 }

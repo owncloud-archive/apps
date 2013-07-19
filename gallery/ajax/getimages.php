@@ -9,8 +9,8 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 
-$images = \OC\Files\Filesystem::searchByMime('image');
-$user = \OC_User::getUser();
+$images = \OCP\Files::searchByMime('image');
+$user = \OCP\User::getUser();
 
 foreach ($images as &$image) {
 	$path = $user . $image['path'];
