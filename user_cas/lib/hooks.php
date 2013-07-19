@@ -43,20 +43,20 @@ class OC_USER_CAS_Hooks {
 				}
 				else if (!empty($casBackend->defaultGroup)) {
 					$cas_groups = array($casBackend->defaultGroup);
-					OC_Log::write('cas','Using default group "'.$casBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
+					OCP\Util::writeLog('cas','Using default group "'.$casBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
 				}
 
-				if (!OC_User::userExists($uid)) {
+				if (!OCP\User::userExists($uid)) {
 					if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $uid)) {
-						OC_Log::write('cas','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
+						OCP\Util::writeLog('cas','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
 						return false;
 					}
 					else {
 						$random_password = random_password();
-						OC_Log::write('cas','Creating new user: '.$uid, OC_Log::DEBUG);
+						OCP\Util::writeLog('cas','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
 
-						if(OC_User::userExists($uid)) {
+						if(OCP\User::userExists($uid)) {
 							if (isset($cas_email)) {
 								update_mail($uid, $cas_email);
 
@@ -69,7 +69,7 @@ class OC_USER_CAS_Hooks {
 				}
 				else {
 					if ($casBackend->updateUserData) {
-						OC_Log::write('cas','Updating data of the user: '.$uid,OC_Log::DEBUG);
+						OCP\Util::writeLog('cas','Updating data of the user: '.$uid,OC_Log::DEBUG);
 						if(isset($cas_email)) {
 							update_mail($uid, $cas_email);
 						}
@@ -88,7 +88,7 @@ class OC_USER_CAS_Hooks {
 	static public function logout($parameters) {
 		$casBackend = new OC_USER_CAS();
 		if (phpCAS::isAuthenticated()) {
-			OC_Log::write('cas','Executing CAS logout: '.$parameters['uid'],OC_Log::DEBUG);
+			OCP\Util::writeLog('cas','Executing CAS logout: '.$parameters['uid'],OC_Log::DEBUG);
 			phpCAS::logout();
 		}
 		return true;
@@ -98,9 +98,9 @@ class OC_USER_CAS_Hooks {
 
 
 function update_mail($uid, $email) {
-	if ($email != OC_Preferences::getValue($uid, 'settings', 'email', '')) {
-		OC_Preferences::setValue($uid, 'settings', 'email', $email);
-		OC_Log::write('cas','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
+	if ($email != OCP\Config::getUserValue($uid, 'settings', 'email', '')) {
+		OCP\Config::setUserValue($uid, 'settings', 'email', $email);
+		OCP\Util::writeLog('cas','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
 	}
 }
 
@@ -112,23 +112,23 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 		foreach($old_groups as $group) {
 			if(!in_array($group, $protected_groups) && !in_array($group, $groups)) {
 				OC_Group::removeFromGroup($uid,$group);
-				OC_Log::write('cas','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('cas','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
 			}
 		}
 	}
 
 	foreach($groups as $group) {
 		if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $group)) {
-			OC_Log::write('cas','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
+			OCP\Util::writeLog('cas','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
 		}
 		else {
 			if (!OC_Group::inGroup($uid, $group)) {
 				if (!OC_Group::groupExists($group)) {
 					OC_Group::createGroup($group);
-					OC_Log::write('cas','New group created: '.$group, OC_Log::DEBUG);
+					OCP\Util::writeLog('cas','New group created: '.$group, OC_Log::DEBUG);
 				}
 				OC_Group::addToGroup($uid, $group);
-				OC_Log::write('cas','Added "'.$uid.'" to the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('cas','Added "'.$uid.'" to the group "'.$group.'"', OC_Log::DEBUG);
 			}
 		}
 	}
