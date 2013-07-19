@@ -11,9 +11,9 @@
 	}
 
 	function thumb($path) {
-		$thumb_path = \OCP\Config::getSystemValue( 'datadirectory' ).'/'.\OC_User::getUser().'/reader';
+		$thumb_path = \OCP\Config::getSystemValue( 'datadirectory' ).'/'.\OCP\User::getUser().'/reader';
 		if (file_exists($thumb_path.$path)) {
-			return new \OC_Image($thumb_path.$path);
+			return new \OCP\Image($thumb_path.$path);
 		}
 		if (!\OC_Filesystem::file_exists($path)) {
 			return false;

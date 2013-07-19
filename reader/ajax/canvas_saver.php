@@ -14,7 +14,7 @@
 	if (!is_dir($save_dir)) {		
 		mkdir($save_dir, 0777, true);
 	}
-	$image = new OC_Image($filteredData);
+	$image = new OCP\Image($filteredData);
 	if ($image->valid()) {
 		$image->centerCrop(100);
 		$image->fixOrientation();
