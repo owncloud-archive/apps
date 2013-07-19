@@ -40,7 +40,7 @@ if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 	$tmpl = new OCP\Template( 'imprint', 'tmpl_dummy' );
 	OCP\Util::addStyle  ( 'imprint','imprint' );
 	// workaround for OC-4.x's chaotoc header layout
-	if (5>intval(substr(OC_Util::getVersionString(),0,1)))
+	if (5>intval(substr(OCP\Util::getVersionString(),0,1)))
 		OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 }
 else

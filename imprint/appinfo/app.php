@@ -34,7 +34,7 @@ $l = new OC_L10n('imprint');
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
 // workaround for OC-4.x's chaotoc header layout
-if (5>intval(substr(OC_Util::getVersionString(),0,1)))
+if (5>intval(substr(OCP\Util::getVersionString(),0,1)))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 
 // backwards compatibility for OC5's global p() functions
@@ -44,7 +44,7 @@ if (version_compare($ocVersion,'4.93','<')) // OC-5
 	if ( ! function_exists('p'))
 	{
 		function p($string) {
-			print(OC_Util::sanitizeHTML($string));
+			print(OCP\Util::sanitizeHTML($string));
 		}
 	}
 	if ( ! function_exists('print_unescaped'))
@@ -56,7 +56,7 @@ if (version_compare($ocVersion,'4.93','<')) // OC-5
 }
 
 // add link according to what position is selected inside the apps options
-if( ! \OC_User::isLoggedIn()) {
+if( ! \OCP\User::isLoggedIn()) {
 	// user NOT logged in, anonymous access, only limited positions to place the link:
 	switch ( OCP\Config::getAppValue( 'imprint', 'anonposition', '' ) )
 	{
@@ -93,7 +93,7 @@ if( ! \OC_User::isLoggedIn()) {
 				'id' => 'imprint',
 				'order' => 99999,
 				'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon' => (5<=intval(substr(OC_Util::getVersionString(),0,1)))
+				'icon' => (5<=intval(substr(OCP\Util::getVersionString(),0,1)))
 							? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
 							: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
 				'name' => $l->t("Legal notice") ) );
