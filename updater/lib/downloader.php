@@ -19,7 +19,7 @@ class Downloader {
 	protected static $package = false;
 
 	public static function getPackage($url, $version) {
-		self::$package = \OC_Helper::tmpFile();
+		self::$package = \OCP\Files::tmpFile();
 		if (!self::$package){
 			throw new \Exception('Unable to create a temporary file');
 		}
