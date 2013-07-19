@@ -43,7 +43,7 @@ if (OCP\App::isEnabled('user_cas')) {
 
 		if (!OC_User::login('', '')) {
 			$error = true;
-			OC_Log::write('cas','Error trying to authenticate the user', OC_Log::DEBUG);
+			OCP\Util::writeLog('cas','Error trying to authenticate the user', OC_Log::DEBUG);
 		}
 		
 		if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] != 'app=user_cas') {
