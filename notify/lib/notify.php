@@ -91,8 +91,8 @@
  *  - deleteById(1337)
  */
 
-//\OC_Hook::connect('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
-//\OC_Hook::connect('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
+//\OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
+//\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
 
 class OC_Notify {
 	// reusable prepared statements:
@@ -218,7 +218,7 @@ class OC_Notify {
             if(!isset(self::$notifyStmt)) {
 				self::$notifyStmt = OCP\DB::prepare("INSERT INTO `*PREFIX*notifications` (`class`, `uid`, `moment`) VALUES (?, ?, NOW())");
 			}
-			OC_Hook::emit("notify", "pre_sendUserNotification", array(
+			OCP\Util::emitHook("notify", "pre_sendUserNotification", array(
 				"classId" => $classId,
 				"uid" => $uid,
 				"params" => $params
@@ -235,7 +235,7 @@ class OC_Notify {
                 }
             }
 			OCP\DB::commit();
-			OC_Hook::emit("notify", "post_sendUserNotification", array(
+			OCP\Util::emitHook("notify", "post_sendUserNotification", array(
 				"id" => $id,
 				"classId" => $classId,
 				"uid" => $uid,
@@ -276,7 +276,7 @@ class OC_Notify {
         $notifications = $result->fetchAll();
         $paramStmt = OCP\DB::prepare("SELECT `key`, `value` FROM `*PREFIX*notification_params` WHERE `nid` = ?");
         foreach($notifications as $i => $n) {
-            $l = OC_L10N::get($n["app"], $lang);
+            $l = OCP\Util::getL10N($n["app"], $lang);
             $notifications[$i]["summary"] = $l->t($n["summary"]);
             $notifications[$i]["content"] = $l->t($n["content"]);
             $result = $paramStmt->execute(array($n["id"]));
