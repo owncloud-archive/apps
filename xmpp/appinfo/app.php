@@ -16,13 +16,6 @@ OCP\Util::connectHook('OC_Contacts_VCard', 'post_updateVCard', "OC_User_xmpp_Hoo
 OCP\App::registerAdmin('xmpp', 'adminSettings');
 OCP\App::registerPersonal('xmpp', 'userSettings');
 
-
-OCP\App::register(Array(
-	'order' => 10,
-	'id' => 'xmpp',
-	'name' => 'xmpp'
-));
-
 # Scripts i stils xat
 OCP\Util::addScript('xmpp', 'mini');
 OCP\Util::addScript('xmpp', 'strophe');
