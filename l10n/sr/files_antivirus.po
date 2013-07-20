@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-19 00:48-0400\n"
-"PO-Revision-Date: 2013-07-18 05:14+0000\n"
+"POT-Creation-Date: 2013-07-20 00:48-0400\n"
+"PO-Revision-Date: 2013-07-20 04:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -52,58 +52,71 @@ msgstr "Извршна датотека"
 msgid "Daemon"
 msgstr "Демон"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "Домаћин"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Адреса рачунара с антивирусом."
+msgid "Socket"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr ""
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "Није обавезно у извршном режиму."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "Домаћин"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Адреса рачунара с антивирусом."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Порт"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "Број порта рачунара с антивирусом."
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Дужина тока"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "Вредност StreamMaxLength ClamAV-а у бајтовима."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "Путања до clamscan-а"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "Путања до извршне датотеке clamscan-а."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "Није обавезно у режиму демона."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "Радња за заражене датотеке пронађене при скенирању"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "Само забележи"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Обриши датотеку"
 
-#: templates/settings.php:15
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Сачувај"
