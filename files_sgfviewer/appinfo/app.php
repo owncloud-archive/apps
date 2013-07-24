@@ -1,5 +1,5 @@
 <?php
 //load the required files
-OC_Util::addStyle( 'files_sgfviewer', 'player');
-OC_Util::addScript( 'files_sgfviewer', 'all.compressed');
-OC_Util::addScript( 'files_sgfviewer', 'viewer');
+OCP\Util::addStyle( 'files_sgfviewer', 'player');
+OCP\Util::addScript( 'files_sgfviewer', 'all.compressed');
+OCP\Util::addScript( 'files_sgfviewer', 'viewer');

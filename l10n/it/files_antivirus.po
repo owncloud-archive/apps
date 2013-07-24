@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# polxmod <paolo.velati@gmail.com>, 2013
 # Teolo78 <teolo78@gmail.com>, 2013
 # Vincenzo Reale <vinx.reale@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -53,58 +54,71 @@ msgstr "Eseguibile"
 msgid "Daemon"
 msgstr "Demone"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "Host"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "Demone (Socket)"
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Indirizzo IP Host Antivirus"
+msgid "Socket"
+msgstr "Socket"
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr "Socket di Clamav."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "Non richiesto in modalità eseguibile."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "Host"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Indirizzo IP Host Antivirus"
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Porta"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "Numero di Porta Host Antivirus"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Lunghezza Stream"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength valore in bytes."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "Percorso a clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "Percorso all'eseguibile di clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "Non richiesto in modalità demone."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "Azione per i file infetti trovati durante la scansione"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "Solo log"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Elimina il file"
 
-#: templates/settings.php:15
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Salva"

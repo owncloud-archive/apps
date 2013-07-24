@@ -40,6 +40,7 @@ var videoViewer = {
 	file : null,
 	location : null,
 	player : null,
+	dir: null,
 	mimeTypes : [
 		'video/mp4',
 		'video/webm',
@@ -53,6 +54,7 @@ var videoViewer = {
 	],
 	onView : function(file) {
 		videoViewer.file = file;
+		videoViewer.dir = $('#dir').val();
 		videoViewer.location = videoViewer.getMediaUrl(file);
 		videoViewer.mime = FileActions.getCurrentMimeType();
 		
@@ -87,8 +89,7 @@ var videoViewer = {
 		videoViewer.UI.hide();
 	},
 	getMediaUrl : function(file) {
-		var dir = $('#dir').val();
-		return fileDownloadPath(dir, file);
+		return fileDownloadPath(videoViewer.dir, file);
 	},
 	onKeyDown : function(e) {
 		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {

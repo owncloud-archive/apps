@@ -37,7 +37,7 @@
 	<head>
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
-		<?php if (5>intval(substr(OC_Util::getVersionString(),0,1))) { ?>
+		<?php if (5>intval(substr(OCP\Util::getVersionString(),0,1))) { ?>
 			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
 		<?php } ?>
 	</head>
@@ -49,7 +49,7 @@
 				if (   OCP\User::isLoggedIn()
 					&& (  (    method_exists('OC_User','isAdminUser')
 							&& OC_User::isAdminUser(OCP\User::getUser()) )
-						|| OC_Group::inGroup(OC_User::getUser(), 'admin') ) )
+						|| OC_Group::inGroup(OCP\User::getUser(), 'admin') ) )
 					p($l->t("That configuration is done in the administration section."));
 				else
 					p($l->t("That configuration has to be done by the system administration."));

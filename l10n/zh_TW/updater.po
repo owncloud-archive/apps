@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -20,26 +20,103 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "進行中…"
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "正在檢查您的安裝..."
 
-#: js/updater.js:16
-msgid "Done."
-msgstr "完成。"
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "無法升級，請確認您的網頁伺服器有權限寫入這些檔案和目錄："
 
-#: js/updater.js:17
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "找不到版本號"
+
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "無法升級，請確認您的網頁伺服器有權限刪除這些目錄："
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "修改此目錄及其內容的權限設定來允許升級程式刪除，或是手動將其刪除。"
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "下載套件..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "無法下載套件"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "建立備份..."
+
+#: ajax/update.php:96
 msgid "Here is your backup: "
 msgstr "這是您的備份檔案："
 
-#: js/updater.js:21 js/updater.js:27
-msgid "Error"
-msgstr "錯誤"
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "建立備份失敗"
 
-#: templates/admin.php:22
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "移動檔案..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "完成了，點下面的連結來開始資料庫更新。"
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "升級失敗"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "升級失敗，請將問題回報給 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud 社群</a>。"
+
+#: templates/admin.php:20
+msgid "Update Center"
+msgstr "升級中心"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "備份管理"
+
+#: templates/update.php:19 templates/update.php:45
 msgid "Update"
 msgstr "更新"
 
-#: templates/admin.php:24
-msgid "Up to date"
-msgstr "最新的"
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "備份目錄"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "備份"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "完成"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "下載"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "刪除"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "找不到備份"

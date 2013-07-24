@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Fehler"
+"Download" => "Download",
+"Delete" => "Läschen"
 );

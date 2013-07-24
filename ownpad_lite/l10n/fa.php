@@ -7,6 +7,7 @@
 "Open" => "باز کردن",
 "Share with" => "به اشتراک گذاشتن با",
 "Share" => "اشتراک‌گذاری",
+"Etherpad service URL" => " آدرس سرویس Etherpad",
 "Username" => "نام کاربری",
 "Save" => "ذخیره"
 );

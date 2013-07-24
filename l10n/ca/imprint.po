@@ -4,13 +4,14 @@
 # 
 # Translators:
 # rogerc, 2013
+# rogerc, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-06 00:57+0200\n"
-"PO-Revision-Date: 2013-07-05 22:57+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-09 00:49+0200\n"
+"PO-Revision-Date: 2013-07-08 09:20+0000\n"
+"Last-Translator: rogerc\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +71,7 @@ msgstr "Navegació inferior"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
-msgstr ""
+msgstr "Durada de l'accés"
 
 #: templates/tmpl_settings.php:61
 msgid "Content"

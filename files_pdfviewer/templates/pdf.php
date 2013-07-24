@@ -6,24 +6,24 @@
     <title>PDF.js viewer</title>
 
 
-    <link rel="stylesheet" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
+    <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
 
     <!-- oC changes-->
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkToRoute('js_config'));?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/js.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToRoute('js_config'));?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/js.js')); ?>"></script>
     <!-- oC changes -->
 
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/compatibility.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/compatibility.js')); ?>"></script>
 
 
-    <link rel="resource" type="application/l10n" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/locale/locale.properties')); ?>"/>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/l10n.js')); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js')); ?>"></script>
+    <link rel="resource" type="application/l10n" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/locale/locale.properties')); ?>"/>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/l10n.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js')); ?>"></script>
 
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', 'js/files.php')); ?>?file=<?php print_unescaped(urlencode($_['file'])); ?>&amp;dir=<?php print_unescaped(urlencode($_['dir'])); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'js/files.php')); ?>?file=<?php print_unescaped(urlencode($_['file'])); ?>&amp;dir=<?php print_unescaped(urlencode($_['dir'])); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.js')); ?>"></script>
   </head>
 
   <body>

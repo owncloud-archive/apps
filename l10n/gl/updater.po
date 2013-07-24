@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,26 +21,103 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "En proceso..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Comprobando a instalación..."
 
-#: js/updater.js:16
-msgid "Done."
-msgstr "Feito."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Non é posíbel facer a anovación. Asegúrese de que o seu servidor web ten permisos de escritura para os seguintes ficheiros e directorios:"
 
-#: js/updater.js:17
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Non se atopa a versión"
+
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Non é posíbel facer a anovación. O seu servidor web ten permisos abondo para retirar o seguinte directorio:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Actualice os permisos deste directorio e o seu contido ou retíreo manualmente antes."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Descargando o paquete..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Non é posíbel obter o paquete"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Creando a copia de seguranza..."
+
+#: ajax/update.php:96
 msgid "Here is your backup: "
 msgstr "Aquí está a copia de seguranza: "
 
-#: js/updater.js:21 js/updater.js:27
-msgid "Error"
-msgstr "Erro"
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Non foi posíbel crear a copia de seguranza"
 
-#: templates/admin.php:22
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Movendo ficheiros..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Feito todo. Prema na ligazón de embaixo para comezar a actualización da base de datos."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Non foi posíbel facer a actualización"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "A actualización non foi satisfactoria. informe deste problema á  <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunidade de ownCloud</a>."
+
+#: templates/admin.php:20
+msgid "Update Center"
+msgstr "Centro de actualizacións"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Xestión das copias de seguranza"
+
+#: templates/update.php:19 templates/update.php:45
 msgid "Update"
 msgstr "Actualizar"
 
-#: templates/admin.php:24
-msgid "Up to date"
-msgstr "Actualizado"
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Directorio das copias de seguranza"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Copia de seguranza"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Feito o"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Descargar"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Non se atoparon copias de seguranza"

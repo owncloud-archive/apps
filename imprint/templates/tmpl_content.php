@@ -37,14 +37,13 @@
 	<head>
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
-		<?php if (5>intval(substr(OC_Util::getVersionString(),0,1))) { ?>
+		<?php if (5>intval(substr(OCP\Util::getVersionString(),0,1))) { ?>
 			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
 		<?php } ?>
 	</head>
 	<body id="imprint-content">
 <?php
-	$content = OCP\Config::getAppValue('imprint','content',FALSE);
-	print_unescaped((strlen($content)!=strlen(strip_tags($content))) ? $content : "<pre>\n".$content."\n</pre>");
+	print_unescaped ( $_['processed-content'] );
 ?>
 	</body>
 </html>

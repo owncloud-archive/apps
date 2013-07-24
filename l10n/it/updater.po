@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# polxmod <paolo.velati@gmail.com>, 2013
 # Vincenzo Reale <vinx.reale@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-06 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,26 +19,103 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "In corso..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Controllo dell'installazione in corso..."
 
-#: js/updater.js:16
-msgid "Done."
-msgstr "Completato."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Impossibile aggiornare. Assicurati che il tuo server web abbia l'accesso in scrittura ai seguenti file e cartelle:"
 
-#: js/updater.js:17
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Versione non trovata"
+
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Impossibile aggiornare. Il tuo server web non ha i permessi necessari per rimuovere le seguenti cartelle:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Aggiorna i permessi su questa cartella e il suo contenuto oppure rimuovila manualmente."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Scaricamento pacchetto in corso..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Impossibile ottenere il pacchetto"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Creazione backup in corso..."
+
+#: ajax/update.php:96
 msgid "Here is your backup: "
 msgstr "Qui è la tua copia di sicurezza:"
 
-#: js/updater.js:21 js/updater.js:27
-msgid "Error"
-msgstr "Errore"
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Impossibile creare il backup"
 
-#: templates/admin.php:22
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Spostamento file in corso..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Tutte le operazioni completate. Fai clic sul collegamento seguente per iniziare l'aggiornamento del database."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Aggiornamento non riuscito"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "L'aggiornamento non è riuscito. Segnala il problema alla <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunità di ownCloud</a>."
+
+#: templates/admin.php:20
+msgid "Update Center"
+msgstr "Centro aggiornamenti"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Gestione backup"
+
+#: templates/update.php:19 templates/update.php:45
 msgid "Update"
 msgstr "Aggiorna"
 
-#: templates/admin.php:24
-msgid "Up to date"
-msgstr "Aggiornato"
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Cartella backup"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Backup"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Completato il"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Scarica"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Nessun backup trovato"

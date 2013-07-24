@@ -25,6 +25,7 @@ OCP\User::checkAdminUser();
 
 $params = array(
 	'av_mode' => 'executable',
+	'av_socket' => '/var/run/clamav/clamd.ctl',
 	'av_host' => '',
 	'av_port' => '',
 	'av_chunk_size' => '1024',
