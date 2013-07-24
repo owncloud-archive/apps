@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Mouxy <daniel@mouxy.net>, 2013
+# Helder Meneses <helder.meneses@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-23 00:48-0400\n"
-"PO-Revision-Date: 2013-07-22 05:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 21:56+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,15 +55,15 @@ msgstr "Daemon"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
-msgstr ""
+msgstr "Daemon (Socket)"
 
 #: templates/settings.php:7
 msgid "Socket"
-msgstr ""
+msgstr "Ligação"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr ""
+msgstr "Ligação Calmav"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
