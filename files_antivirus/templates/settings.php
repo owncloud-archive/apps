@@ -2,8 +2,9 @@
 	<fieldset class="personalblock">
 		<legend><strong><?php p($l->t('Antivirus Configuration'));?></strong></legend>
 		<p class='av_mode'><label for="av_mode"><?php p($l->t('Mode'));?></label>
-			<select id="av_mode" name="av_mode"><?php print_unescaped(html_select_options(array('executable' => $l->t('Executable'), 'daemon' => $l->t('Daemon')), $_['av_mode'])) ?></select>
+			<select id="av_mode" name="av_mode"><?php print_unescaped(html_select_options(array('executable' => $l->t('Executable'), 'daemon' => $l->t('Daemon'), 'socket' => $l->t('Daemon (Socket)')), $_['av_mode'])) ?></select>
 		</p>
+                <p class='av_socket'><label for="av_socket"><?php p($l->t('Socket'));?></label><input type="text" id="av_socket" name="av_socket" value="<?php p($_['av_socket']); ?>" title="<?php p($l->t('Clamav Socket.')).' '.$l->t('Not required in Executable Mode.'); ?>"></p>
 		<p class='av_host'><label for="av_host"><?php p($l->t('Host'));?></label><input type="text" id="av_host" name="av_host" value="<?php p($_['av_host']); ?>" title="<?php p($l->t('Address of Antivirus Host.')). ' ' .$l->t('Not required in Executable Mode.');?>"></p>
 		<p class='av_port'><label for="av_port"><?php p($l->t('Port'));?></label><input type="text" id="av_port" name="av_port" value="<?php p($_['av_port']); ?>" title="<?php p($l->t('Port number of Antivirus Host.')). ' ' .$l->t('Not required in Executable Mode.');?>"></p>
 		<p class='av_chunk_size'><label for="av_chunk_size"><?php p($l->t('Stream Length'));?></label><input type="text" id="av_chunk_size" name="av_chunk_size" value="<?php p($_['av_chunk_size']); ?>" title="<?php p($l->t('ClamAV StreamMaxLength value in bytes.')). ' ' .$l->t('Not required in Executable Mode.');?>"> bytes</p>

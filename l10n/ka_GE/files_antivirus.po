@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-09 00:49+0200\n"
-"PO-Revision-Date: 2013-07-07 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -52,58 +52,71 @@ msgstr "შესრულებადი"
 msgid "Daemon"
 msgstr "დემონი"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "ჰოსტი"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "ანტივირუს ჰოსტის მისამართი"
+msgid "Socket"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr ""
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "შესრულებადი რეჟიმი არ არის საჭირო."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "ჰოსტი"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "ანტივირუს ჰოსტის მისამართი"
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "პორტი"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "ანტივირუს ჰოსტის პორტის მისამართი."
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "სთრიმის სიგრძე"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength–ის მნიშვნელობა byte–ბში."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "გზა clamscan–თან"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "გზა clamscan გამშვებამდე."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "დემონ რეძიმი არ არის საჭირო."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "მოქმედება ინფიცირებულ ფაილებზე რომლებიც ნაპოვნი იქნა სკანირების დროს"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "მხოლოდ ლოგირება"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "ფაილების წაშლა"
 
-#: templates/settings.php:15
+#: templates/settings.php:16
 msgid "Save"
 msgstr "შენახვა"

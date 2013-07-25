@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-09 00:49+0200\n"
-"PO-Revision-Date: 2013-07-07 23:13+0000\n"
-"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,58 +53,71 @@ msgstr "قابل اجرا"
 msgid "Daemon"
 msgstr "برنامه کمکی"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "میزبانی"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "آدرس میزبان آنتی ویروس."
+msgid "Socket"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr ""
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "هیچ پیشنیازی در حالت اجرایی نیست."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "میزبانی"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "آدرس میزبان آنتی ویروس."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "درگاه"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "شماره پورت میزبان آنتی ویروس."
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
-msgstr ""
+msgstr "طول جریان داده"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Path to clamscan"
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Path to clamscan executable."
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "مقدار بیشترین طول جریان داده نرم افزارClamAV  به بایت."
 
 #: templates/settings.php:11
+msgid "Path to clamscan"
+msgstr "مسیر به clamscan"
+
+#: templates/settings.php:11
+msgid "Path to clamscan executable."
+msgstr "مسیر به clamscan انجام پذیر است."
+
+#: templates/settings.php:11
+msgid "Not required in Daemon Mode."
+msgstr "عدم نیاز به بودن در حالت آماده‌باش"
+
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "اقدام لازم در مورد فایل های آلوده ی یافت شده در حین اسکن"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "فقط لاگ"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "حذف فایل"
 
-#: templates/settings.php:15
+#: templates/settings.php:16
 msgid "Save"
 msgstr "ذخیره"

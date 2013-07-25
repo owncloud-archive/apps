@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "வழு",
-"Update" => "இற்றைப்படுத்தல்"
+"Update" => "இற்றைப்படுத்தல்",
+"Download" => "பதிவிறக்குக",
+"Delete" => "நீக்குக"
 );

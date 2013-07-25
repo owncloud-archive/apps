@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-09 00:49+0200\n"
-"PO-Revision-Date: 2013-07-07 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -52,58 +52,71 @@ msgstr "執行檔"
 msgid "Daemon"
 msgstr "常駐程式"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "主機"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "常駐程式 (Socket)"
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "防毒軟體主機的 IP 位址。"
+msgid "Socket"
+msgstr "Socket"
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr "Clamav Socket"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "在可執行模式中不需要"
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "主機"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "防毒軟體主機的 IP 位址。"
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "連接埠"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "防毒軟體主機的埠號 (port) 。"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "串流長度"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength 設定值 (bytes) 。"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "到 clamscan 的路徑"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "到 clamscan 執行檔的路徑。"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "在常駐模式下不需要。"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "掃描時找到被感染的檔案所採取的動作"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "僅做記錄"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "刪除檔案"
 
-#: templates/settings.php:15
+#: templates/settings.php:16
 msgid "Save"
 msgstr "儲存"

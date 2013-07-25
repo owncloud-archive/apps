@@ -75,6 +75,8 @@ class OC_Files_Antivirus {
 				return self::_clamav_scan_via_daemon($filepath);
 			case 'executable':
 				return self::_clamav_scan_via_exec($filepath);
+			case 'socket':
+				return self::_clamav_scan_via_socket($filepath);
 		}
 	}
 
@@ -193,5 +195,46 @@ class OC_Files_Antivirus {
 				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$result, \OCP\Util::WARN);
 				return CLAMAV_SCANRESULT_UNCHECKED;
 		}
+	}
+	private static function _clamav_scan_via_socket( $filepath ) {
+		$av_socket = \OCP\Config::getAppValue( 'files_antivirus', 'av_socket', '' );
+		require_once( 'simplesocketclient.php' );
+		$socket = new SimpleSocketClient( $av_socket, false, 5 );
+		if( $socket->connect() === false ) {
+			\OCP\Util::writeLog( 'files_antivirus', 'Could not connect to Clamd via socket '.$av_socket.'!', \OCP\Util::ERROR );
+			return CLAMAV_SCANRESULT_UNCHECKED;
+		}
+		$socket->write('SCAN ' . $filepath );
+		$response = $socket->readline();
+		$response = trim($response);
+		$socket->disconnect();
+
+		if (!strncmp($response, $filepath . ':', strlen($filepath) + 1)) {
+
+			// Cut the filename from the response.
+			$response = substr($response, strlen($filepath) + 2);
+
+                        // OK
+			if ($response === 'OK') {
+				\OCP\Util::writeLog( 'files_antivirus', 'Result CLEAN!', \OCP\Util::DEBUG );
+				return CLAMAV_SCANRESULT_CLEAN;
+			}
+
+                        // FOUND
+                        if (substr($response, strlen($response) - 5) === 'FOUND') {
+				$virus = substr($response, 0, strlen($response) - 6);
+				\OCP\Util::writeLog( 'files_antivirus', 'Virus detected in file. Clamd reported '.$virus , \OCP\Util::WARN );
+				return CLAMAV_SCANRESULT_INFECTED;
+			}
+
+                        // ERROR
+                        if (substr($response, strlen($response) - 5) === 'ERROR') {
+				substr( $response, 0, strlen( $response ) - 6 );
+				\OCP\Util::writeLog( 'files_antivirus', 'File could not be scanned. Clamd reported '.$response, \OCP\Util::ERROR );
+				return CLAMAV_SCANRESULT_UNCHECKED;
+			}
+		}
+		\OCP\Util::writeLog( 'files_antivirus', 'No response from Clamd!', \OCP\Util::ERROR );
+		return CLAMAV_SCANRESULT_UNCHECKED;
 	}
 }

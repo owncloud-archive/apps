@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Error" => "పొరపాటు"
+"Delete" => "తొలగించు"
 );

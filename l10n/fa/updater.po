@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-09 00:49+0200\n"
-"PO-Revision-Date: 2013-07-07 23:13+0000\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -18,26 +18,103 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "در حال انجام..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "نصب و راه اندازی خود را بررسی کنید..."
 
-#: js/updater.js:16
-msgid "Done."
-msgstr "انجام شد."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "ارتقا امکان پذیر نیست. مطمئن شوید که وب سرور شما دسترسی نوشتن به فایل ها و دایرکتوری زیر را داراست:"
 
-#: js/updater.js:17
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "نسخه یافت نشد"
+
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "ارتقا امکان پذیر نیست.وب سرور شما به اندازه کافی دارای مجوز برای حذف دایرکتوری زیر نیست:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "بروز مجوز در این دایرکتوری و محتوای آن و یا حذف آن به صورت دستی برای اولین بار."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "دانلود بسته ..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "قادر به واکشی بسته نیست"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "ایجاد نسخه پشتیبان..."
+
+#: ajax/update.php:96
 msgid "Here is your backup: "
 msgstr "فایل پشتیبان شما اینجاست:"
 
-#: js/updater.js:21 js/updater.js:27
-msgid "Error"
-msgstr "خطا"
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "عدم موفقیت در ایجاد پشتیبان گیری"
 
-#: templates/admin.php:22
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "انتقال فایل ها ..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "همه انجام شده. لینک زیر را برای شروع ارتقاء پایگاه داده کلیک کنید."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "بروز رسانی ناموفق بود."
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "به روز رسانی ناموفق بود. لطفا این مسئله را به انجمن ownCloud اطلاع رسانی<a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">کنید</a>."
+
+#: templates/admin.php:20
+msgid "Update Center"
+msgstr "مرکز به روز رسانی "
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "مدیریت پشتیبان گیری"
+
+#: templates/update.php:19 templates/update.php:45
 msgid "Update"
 msgstr "به روز رسانی"
 
-#: templates/admin.php:24
-msgid "Up to date"
-msgstr "تا تاریخ"
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "پوشه پشتیبان گیری"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "پشتیبان گیری"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "انجام شده در"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "دانلود"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "حذف"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "هیچ پشتیبانی یافت نشد"

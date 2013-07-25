@@ -1,7 +1,5 @@
 <div id="firstrunwizard">
 
-<?php $defaults = new OCP\Defaults(); ?>
-
 <a id="closeWizard" class="close">
 	<img class="svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'actions/delete.svg')); ?>">
 </a>
@@ -10,7 +8,7 @@
 <?php if (OC_Util::getEditionString() === ''): ?>
 <p><?php p($l->t('Your personal web services. All your files, contacts, calendar and more, in one place.'));?></p>
 <?php else: ?>
-<p><?php p($defaults->getSlogan()); ?></p>
+<p><?php p($theme->getSlogan()); ?></p>
 <?php endif; ?>
 
 
@@ -34,7 +32,7 @@
 	<img class="appsmall appsmall-contacts svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'places/contacts-dark.svg')); ?>" /> <?php p($l->t('Connect your Contacts'));?>
 </a>
 <?php endif; ?>
-<a class="button" href="<?php p($defaults->getDocBaseUrl()); ?>/server/5.0/user_manual/connecting_webdav.html">
+<a class="button" href="<?php p($theme->getDocBaseUrl()); ?>/server/5.0/user_manual/connecting_webdav.html">
 	<img class="appsmall svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'places/folder.svg')); ?>" /> <?php p($l->t('Access files via WebDAV'));?>
 </a>
 

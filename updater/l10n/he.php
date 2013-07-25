@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "שגיאה",
-"Update" => "עדכון"
+"Update" => "עדכון",
+"Download" => "הורדה",
+"Delete" => "מחיקה"
 );

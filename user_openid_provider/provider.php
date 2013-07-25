@@ -5,7 +5,7 @@ set_include_path(get_include_path().PATH_SEPARATOR.__DIR__.'/3rdparty');
 require_once 'Zend/OpenId/Provider.php';
 
 if (!isset($_REQUEST['openid_mode'])) {
-	OC_Template::printGuestPage('user_openid_provider', 'main');
+	OCP\Template::printGuestPage('user_openid_provider', 'main');
 	die;
 }
 

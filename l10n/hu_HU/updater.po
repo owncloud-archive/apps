@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ebela <bela@dandre.hu>, 2013
 # gyeben <gyonkibendeguz@gmail.com>, 2013
 # Laszlo Tornoci <torlasz@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-09 00:49+0200\n"
-"PO-Revision-Date: 2013-07-07 23:13+0000\n"
-"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
+"Last-Translator: ebela <bela@dandre.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,26 +20,103 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "Folyamatban..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "A telepített alkalmazásod ellenörzése ..."
 
-#: js/updater.js:16
-msgid "Done."
-msgstr "Kész."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "A frissítés nem lehetséges. Ellenőrizd a web szerveren van-e írás jogod a következő fileokhoz és könyvtárakhoz:"
 
-#: js/updater.js:17
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Verziószám nem található"
+
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "A frissítés nem lehetséges. A web szerveren nincs elég jogod a következő könyvtár eltávolításához:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Állitsd be a jogokat a könyvtáron és benne található tartalmat töröld ki kézzel."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Csomag letöltése...."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Nem lehetett leszedni a csomagot"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Biztonsági mentés létehozása ..."
+
+#: ajax/update.php:96
 msgid "Here is your backup: "
 msgstr "Itt a mentés:"
 
-#: js/updater.js:21 js/updater.js:27
-msgid "Error"
-msgstr "Hiba"
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Nem sikerült létrehozni a biztonsági mentést"
 
-#: templates/admin.php:22
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Fileok mozgatása..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Minden kész. Kattints ide az adatbázis frissítés megkezdéséhez."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "A frissítés sikertelen"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "A frissítés sikertelen. Kérlek jelezd az esetet a <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud közösségnek</a>."
+
+#: templates/admin.php:20
+msgid "Update Center"
+msgstr "Frissítés Központ"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Biztonsági mentések kezelése"
+
+#: templates/update.php:19 templates/update.php:45
 msgid "Update"
 msgstr "Frissítés"
 
-#: templates/admin.php:24
-msgid "Up to date"
-msgstr "Frissítve"
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Biztonsági mentés könyvtára"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Biztonsági mentés"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Kész"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Letöltés"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Törlés"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Nem található biztonsági mentés"

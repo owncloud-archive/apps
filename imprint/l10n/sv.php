@@ -11,6 +11,7 @@
 "Header right" => "Sidhuvud höger",
 "Navigation top" => "Navigering uppe",
 "Navigation bottom" => "Navigering nere",
+"During login" => "Under inloggning",
 "Content" => "Innehåll",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Du kan använda html markup (e.x. &lt;br&gt; för en radbrytning) och inline style attribut (e.x. &lt;a style=\"color:red;\"&gt;)."
 );

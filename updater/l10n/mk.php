@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Грешка",
-"Update" => "Ажурирај"
+"Update" => "Ажурирај",
+"Download" => "Преземи",
+"Delete" => "Избриши"
 );

@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"In progress..." => "Trong tiến trình...",
-"Error" => "Lỗi",
-"Update" => "Cập nhật"
+"Update" => "Cập nhật",
+"Download" => "Tải về",
+"Delete" => "Xóa"
 );

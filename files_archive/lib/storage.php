@@ -139,7 +139,7 @@ class Archive extends Common {
 	}
 
 	private function toTmpFile($path) {
-		$tmpFile = \OC_Helper::tmpFile();
+		$tmpFile = \OCP\Files::tmpFile();
 		$this->archive->extractFile($path, $tmpFile);
 		return $tmpFile;
 	}

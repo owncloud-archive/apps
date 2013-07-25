@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Gwall"
+"Download" => "Llwytho i lawr",
+"Delete" => "Dileu"
 );
