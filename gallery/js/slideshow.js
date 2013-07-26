@@ -275,6 +275,10 @@ $(document).ready(function () {
 	$.when(Slideshow._getSlideshowTemplate()).then(function($tmpl) {
 		$('body').append($tmpl); //move the slideshow outside the content so we can hide the content
 		
+		if(!SVGSupport()){ //replace all svg images with png images for browser that dont support svg
+			replaceSVG();
+		}
+		
 		var slideshow = $('#slideshow');
 		slideshow.children('.next').click(Slideshow.next);
 		slideshow.children('.previous').click(Slideshow.previous);
