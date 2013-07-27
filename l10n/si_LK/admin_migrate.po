@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:02+0000\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -19,31 +19,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "මෙම ownCloud ප්‍රස්තාව නිර්යාත කරන්න"
-
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "මෙමඟින් මෙම ownCloud ප්‍රස්තාවෙහි දත්ත සියල්ල අඩංගු ගොනුවක් හැකිළුනු ගොනුවක් ලෙස සකස් කර දෙනු ලැබේ"
-
-#: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "නිර්යාත කරන ආකාරය තෝරන්න"
-
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
+msgid "Export data"
 msgstr ""
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "ownCloud පද්ධති ගොනුවන්"
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr ""
 
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "පරිශීලක ගොනු පමණක්"
+#: templates/settings.php:7
+msgid "Only system files"
+msgstr ""
 
-#: templates/settings.php:14
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr ""
+
+#: templates/settings.php:9
 msgid "Export"
 msgstr "නිර්යාත කරන්න"

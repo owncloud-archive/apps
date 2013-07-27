@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:02+0000\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -33,9 +33,5 @@ msgid "An error has occurred"
 msgstr "Произошла ошибка"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Перемещение аккаунта пользователя"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Экспорт и импорт учетных записей пользователей"
+msgid "Account Export/Import"
+msgstr ""
