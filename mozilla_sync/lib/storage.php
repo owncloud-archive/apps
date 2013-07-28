@@ -180,7 +180,7 @@ class Storage
 	* @brief Convert modifiers array to sql string
 	*
 	*/
-	static public function modifiersToString(&$modifiers, &$queryArgs) {
+	static public function modifiersToString(&$modifiers, &$queryArgs, &$limit, &$offset) {
 		$whereString = '';
 
 		//
@@ -263,23 +263,12 @@ class Storage
 		//
 		// limit and offset
 		//
-		$offset = 0;
-		if(isset($modifiers['offset'])) {
-			$offset = intval($modifiers['offset']);
-		}
-		if(isset($modifiers['limit'])) {
-			$limit = intval($modifiers['limit']);
-			//
-			// WARNING!
-			//
-			// LIMIT parameters are passed via string, not array arguments, beacuse
-			// database framework adds '' characters which cause syntax error in MySql.
-			//
-			// For example:
-			//   - correct     LIMIT 0,5 is correct,
-			//   - not correct LIMIT '0','5'
-			$whereString .= ' LIMIT '. $offset .','. $limit;
-		}
+        if(isset($modifiers['limit'])) {
+            $limit = intval($modifiers['limit']);
+        }
+        if(isset($modifiers['offset'])) {
+            $offset = intval($modifiers['offset']);
+        }
 
 		return $whereString;
 	}
