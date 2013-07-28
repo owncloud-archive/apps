@@ -162,7 +162,8 @@ class StorageService extends Service
 			}
 
 			$key = $row['name'];
-			$value = $row['modified'];
+            // Return modified as float, not string
+			$value = (float) $row['modified'];
 
 			$resultArray[$key] = $value;
 		}
@@ -289,6 +290,12 @@ class StorageService extends Service
 
 		while (($row = $result->fetchRow())) {
 			$hasData = true;
+            
+            // Return modified as float, not string
+            if ($row['modified'] != null) {
+                $row['modified'] = (float) $row['modified'];
+            }
+
 			if(isset($modifiers['full'])) {
 				OutputData::write($row);
 			}
@@ -431,6 +438,11 @@ class StorageService extends Service
 			Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
 			return true;
 		}
+        
+        // Return modified as float, not string
+        if ($row['modified'] != null) {
+            $row['modified'] = (float) $row['modified'];
+        }
 
 		OutputData::write($row);
 		return true;
