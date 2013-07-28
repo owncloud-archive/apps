@@ -122,7 +122,7 @@ class User
 		$query = \OCP\DB::prepare( 'SELECT 1 FROM `*PREFIX*mozilla_sync_users` WHERE `sync_user` = ?');
 		$result = $query->execute( array($userHash) );
 
-		return $result->numRows() === '1';
+		return $result->numRows() === 1;
 	}
 
 	/**
