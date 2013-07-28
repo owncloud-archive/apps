@@ -62,6 +62,9 @@ class StorageService extends Service
 			}
 			switch($this->urlParser->getCommand(1)) {
 				case 'collections': $this->getInfoCollections($userId); break;
+				case 'collection_usage': $this->getInfoCollectionUsage($userId); break;
+				case 'collection_counts': $this->getInfoCollectionCounts($userId); break;
+				case 'quota': $this->getInfoQuota($userId); break;
 				default: Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
 			}
 
@@ -170,42 +173,152 @@ class StorageService extends Service
 		OutputData::write( $resultArray );
 		return true;
 	}
-
-	/**
-	* NOT IMPLEMENTED!!
-	*
-	* Will return 404 HTTP status
+	
+    /**
+	* @brief Returns a hash of collections associated with the account, along with the data volume used for each (in KB). 
 	*
 	* HTTP request: GET https://server/pathname/version/username/info/collection_usage
 	*
-	* Returns a hash of collections associated with the account,
-	* along with the data volume used for each (in KB).
-	*/
-	//TODO: collection usage
-
-	/**
-	* NOT IMPLEMENTED!!
+	* Example:
 	*
-	* Will return 404 HTTP status
+	* HTTP/1.0 200 OK
+	* Server: PasteWSGIServer/0.5 Python/2.6.6
+	* Date: Sun, 25 Mar 2012 16:29:21 GMT
+	* Content-Type: application/json
+	* Content-Length: 227
+	* X-Weave-Records: 9
+	* X-Weave-Timestamp: 1332692961.71
+	*
+	* {"passwords": 258.134, "tabs": 25.258, "clients": 1.525,
+	* "crypto": 0.347, "forms": 119.666, "meta": 0.343,
+	* "bookmarks": 267.791, "prefs": 15.642, "history": 2577.264}
+	*
+	* @param integer $userId
+	* @return bool true if success
+	*/
+	private function getInfoCollectionUsage($userId) {
+
+		$query = \OCP\DB::prepare( 'SELECT name,
+									(SELECT SUM(CHAR_LENGTH(payload)) FROM *PREFIX*mozilla_sync_wbo
+									WHERE *PREFIX*mozilla_sync_wbo.collectionid = *PREFIX*mozilla_sync_collections.id
+									) as size
+									FROM *PREFIX*mozilla_sync_collections WHERE userid = ?');
+		$result = $query->execute( array($userId) );
+
+		if($result == false) {
+			return false;
+		}
+
+		$resultArray = array();
+
+		while (($row = $result->fetchRow())) {
+
+			// Skip empty collections
+			if($row['size'] == null) {
+				continue;
+			}
+
+			$key = $row['name'];
+            // Convert bytes to KB
+			$value = ((float) $row['size'])/1000.0;
+
+			$resultArray[$key] = $value;
+		}
+
+		OutputData::write( $resultArray );
+		return true;
+	}
+
+    /**
+	* @brief Returns a hash of collections associated with the account, along with the total number of items in each collection.
 	*
 	* HTTP request: GET https://server/pathname/version/username/info/collection_counts
 	*
-	* Returns a hash of collections associated with the account,
-	* along with the total number of items in each collection.
-	*/
-	//TODO: collection counts
-
-	/**
-	* NOT IMPLEMENTED!!
+	* Example:
 	*
-	* Will return 404 HTTP status
+	* HTTP/1.0 200 OK
+	* Server: PasteWSGIServer/0.5 Python/2.6.6
+	* Date: Sun, 25 Mar 2012 16:29:21 GMT
+	* Content-Type: application/json
+	* Content-Length: 227
+	* X-Weave-Records: 9
+	* X-Weave-Timestamp: 1332692961.71
+	* 
+	* {"passwords": 574, "tabs": 2, "clients": 4,
+	* "crypto": 1, "forms": 502, "meta": 1,
+	* "bookmarks": 485, "prefs": 85, "history": 5163}
+	*
+	* @param integer $userId
+	* @return bool true if success
+	*/
+	private function getInfoCollectionCounts($userId) {
+
+		$query = \OCP\DB::prepare( 'SELECT name,
+									(SELECT COUNT(payload) FROM *PREFIX*mozilla_sync_wbo
+									WHERE *PREFIX*mozilla_sync_wbo.collectionid = *PREFIX*mozilla_sync_collections.id
+									) as counts
+									FROM *PREFIX*mozilla_sync_collections WHERE userid = ?');
+		$result = $query->execute( array($userId) );
+
+		if($result == false) {
+			return false;
+		}
+
+		$resultArray = array();
+
+		while (($row = $result->fetchRow())) {
+
+			// Skip empty collections
+			if($row['counts'] == null) {
+				continue;
+			}
+
+			$key = $row['name'];
+			$value = $row['counts'];
+
+			$resultArray[$key] = $value;
+		}
+
+		OutputData::write( $resultArray );
+		return true;
+	}
+    
+    /**
+	* @brief  Returns a list containing the user's current usage and quota (in KB). The second value will be null if no quota is defined.
 	*
 	* HTTP request: GET https://server/pathname/version/username/info/quota
 	*
-	* Returns a list containing the user’s current usage and quota (in KB).
-	* The second value will be null if no quota is defined.
+	* Example:
+	*
+	* HTTP/1.0 200 OK
+	* Server: PasteWSGIServer/0.5 Python/2.6.6
+	* Date: Sun, 25 Mar 2012 16:29:21 GMT
+	* Content-Type: application/json
+	* Content-Length: 227
+	* X-Weave-Records: 9
+	* X-Weave-Timestamp: 1332692961.71
+	* 
+	* [16.1923828125, null]
+	*
+	* @param integer $userId
+	* @return bool true if success
 	*/
-	//TODO: quota
+	private function getInfoQuota($userId) {
+
+		$query = \OCP\DB::prepare( 'SELECT SUM(CHAR_LENGTH(payload)) as size
+                                    FROM *PREFIX*mozilla_sync_wbo JOIN *PREFIX*mozilla_sync_collections
+                                    ON *PREFIX*mozilla_sync_wbo.collectionid = *PREFIX*mozilla_sync_collections.id WHERE userid = ?');
+        $result = $query->execute( array($userId) );
+        
+        if($result == false || $result->numRows() != 1) {
+			return false;
+		}
+
+        $size = ((float) ($result->fetchRow()['size']))/1000.0;
+
+		OutputData::write(array($size, null));
+		return true;
+	}
 
 	/**
 	* @brief Returns a list of the WBO ids contained in a collection
