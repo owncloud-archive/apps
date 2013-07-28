@@ -1,0 +1,10 @@
+{
+  "links":[{
+    "href": "https://example.com:8012/?user=admin&path=",
+    "rel": "remotestorage",
+    "type": "draft-dejong-remotestorage-01",
+    "properties": {
+      "http://tools.ietf.org/html/rfc6749#section-4.2": "https://example.com/index.php/apps/open_web_apps/main.php"
+    }
+ }]
+}

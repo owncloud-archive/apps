@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>open_web_apps</id>
+	<name>open web apps</name>
+	<description>EXPERIMENTAL! This app is only meant for people who like to experiment with the latest web technology. See http://remotestorage.io/ for more info. It allows launching open web apps with access to your storage. This app only works if you have a second origin on your webserver. So for instance if you're running the ownCloud GUI over ssl on port 443, then you need to add a second webserver config on some other port, say port 444 for example. If you use http (for instance on localhost) then it is enough to point one more (sub-)domain to your server. This second Apache config should then point to {WEB_ROOT}/apps/open_web_apps/storage_root/, and have 'AllowOverride All' and mod_rewrite enabled, so that all requests to https://yourdomain.com:444/some/path are served by apps/open_web_apps/storage_root/index.php. You also need to run 'sudo apt-get install php5-curl libxattr1-dev pear ; sudo pecl install xattr ; sudo service apache2 restart' for the remotestorage Content-Types to work, copy the webfinger file into the /.well-known directory in your main webroot, set its Content-Type to application/json, and add CORS headers to it. Can't say I didn't warn you. :) You can read the full install instructions on https://github.com/michielbdejong/owncloud-owa, and open github issues on that repo if anything is unclear.</description>
+  <public><remotestorage>remotestorage.php</remotestorage></public>
+  <public><remotestorageauth>remotestorageauth.php</remotestorageauth></public>
+  <public><webfinger>webfinger.php</webfinger></public>
+	<licence>AGPL</licence>
+	<author>Michiel de Jong</author>
+	<require>4</require>
+</info>
