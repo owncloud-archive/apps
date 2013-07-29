@@ -21,6 +21,8 @@
  *
  */
 
+	OCP\App::checkAppEnabled('user_saml');
+
 	$sspPath = OCP\Config::getAppValue('user_saml', 'saml_ssp_path', '');
 	$spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');
 	$autocreate = OCP\Config::getAppValue('user_saml', 'saml_autocreate', false);

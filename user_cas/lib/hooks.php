@@ -52,10 +52,17 @@ class OC_USER_CAS_Hooks {
 						return false;
 					}
 					else {
-						$random_password = random_password();
+						if (!empty($casBackend->changecasuserpwd))
+						{
+							$random_password = $casBackend->changecasuserpwd;
+						}
+						else
+						{
+							$random_password = random_password();
+						}
 						OC_Log::write('cas','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
-
+						
 						if(OC_User::userExists($uid)) {
 							if (isset($cas_email)) {
 								update_mail($uid, $cas_email);

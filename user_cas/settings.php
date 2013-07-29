@@ -23,7 +23,7 @@
 
 OC_Util::checkAdminUser();
 
-$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_email_mapping', 'cas_group_mapping');
+$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_email_mapping', 'cas_group_mapping','cas_password_change_at_creation');
 
 OCP\Util::addscript('user_cas', 'settings');
 
@@ -62,5 +62,6 @@ $tmpl->assign( 'cas_protected_groups', OCP\Config::getAppValue('user_cas', 'cas_
 $tmpl->assign( 'cas_default_group', OCP\Config::getAppValue('user_cas', 'cas_default_group', ''));
 $tmpl->assign( 'cas_email_mapping', OCP\Config::getAppValue('user_cas', 'cas_email_mapping', 'mail'));
 $tmpl->assign( 'cas_group_mapping', OCP\Config::getAppValue('user_cas', 'cas_group_mapping', ''));
+$tmpl->assign( 'cas_password_change_at_creation', OCP\Config::getAppValue('user_cas', 'cas_password_change_at_creation', ''));
 
 return $tmpl->fetchPage();

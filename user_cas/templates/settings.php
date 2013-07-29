@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" type="text/css" href="../apps/user_cas/css/cas.css" />
 
 <form id="cas" action="#" method="post">
@@ -40,7 +39,8 @@
 	<p><label for="cas_autocreate"><?php p($l->t('Autocreate user after cas login?'));?></label><input type="checkbox" id="cas_autocreate" name="cas_autocreate" <?php print_unescaped((($_['cas_autocreate'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_update_user_data"><?php p($l->t('Update user data after login?'));?></label><input type="checkbox" id="cas_update_user_data" name="cas_update_user_data" <?php print_unescaped((($_['cas_update_user_data'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_protected_groups"><?php p($l->t('Groups that will not be unlinked from the user when sync the CAS server and the owncloud'));?></label><input type="text" id="cas_protected_groups" name="cas_protected_groups" value="<?php p($_['cas_protected_groups']); ?>" /></p> <?php p($l->t('(protected grop are multivalued, use comma to separate the values)')); ?>
-        <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and not group data found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
+    <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and not group data found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
+	<p><label for="cas_password_change_at_creation"><?php p($l->t('Force CAS users to have this password'));?></label><input type="text" id="cas_password_change_at_creation" name="cas_password_change_at_creation" value="<?php p($_['cas_password_change_at_creation']); ?>" /></p>
 	</fieldset>
 	<fieldset id="casSettings-3">
 		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php p($_['cas_email_mapping']); ?>" /></p>

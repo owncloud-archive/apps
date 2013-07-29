@@ -44,12 +44,16 @@ if (OCP\App::isEnabled('user_saml')) {
 			OC_Log::write('saml','Error trying to authenticate the user', OC_Log::DEBUG);
 		}
 		
-		if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] != 'app=user_saml') {
-			header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
+		if (isset($_GET["linktoapp"])) {
+			$path = OC::$WEBROOT . '/?app='.$_GET["linktoapp"];
+                        if (isset($_GET["linktoargs"])) {
+				$path .= '&'.urldecode($_GET["linktoargs"]);
+			}
+			header( 'Location: ' . $path);
 			exit();
 		}
 
-        OC::$REQUESTEDAPP = '';
+		OC::$REQUESTEDAPP = '';
 		OC_Util::redirectToDefaultPage();
 	}
 
