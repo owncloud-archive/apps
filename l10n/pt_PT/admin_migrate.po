@@ -6,13 +6,14 @@
 # Mouxy <daniel@mouxy.net>, 2012
 # Mouxy <daniel@mouxy.net>, 2013
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012
+# Helder Meneses <helder.meneses@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-27 00:49-0400\n"
-"PO-Revision-Date: 2013-07-27 04:50+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-30 00:49-0400\n"
+"PO-Revision-Date: 2013-07-29 15:30+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,19 +23,19 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export data"
-msgstr ""
+msgstr "Exportar dados"
 
 #: templates/settings.php:6
 msgid "All system files and user data"
-msgstr ""
+msgstr "Todos os ficheiros de sistema e dados do utilizador"
 
 #: templates/settings.php:7
 msgid "Only system files"
-msgstr ""
+msgstr "Apenas ficheiros de sistema"
 
 #: templates/settings.php:8
 msgid "Only user data"
-msgstr ""
+msgstr "Apenas dados do utilizador"
 
 #: templates/settings.php:9
 msgid "Export"
