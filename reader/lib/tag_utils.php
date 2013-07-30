@@ -38,7 +38,7 @@ function check_consistency_with_database($root,$pdfs) {
 	foreach ($pdfs as $pdf) {
 		$new_array_pdfs[] = $root.$pdf;
 	}
-	$sql = 'SELECT `filepath` from `*PREFIX*ebook_library`';
+	$sql = 'SELECT `filepath` from `*PREFIX*eBook_library`';
 	$stmt = OCP\DB::prepare($sql);
 	$res =  $stmt->execute();
 	while ($r = $res->fetchRow()) {
