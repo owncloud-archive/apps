@@ -9,8 +9,7 @@
 	display: none;
 	background-color: black;
 	background-repeat: no-repeat;
-	background-image: url("../img/progress.gif");
-	background-size: 16px 16px;
+	background-image: url("%webroot%/core/img/loading-dark.gif");
 	background-position: center center;
 }
 
