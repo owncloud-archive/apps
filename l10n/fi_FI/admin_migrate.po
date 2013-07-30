@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:02+0000\n"
+"POT-Creation-Date: 2013-07-28 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 06:00+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -20,31 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Vie tämä ownCloud-instanssi"
+msgid "Export data"
+msgstr "Vie data"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Tämä luo pakatun tiedoston, joka sisältää tämän ownCloud-instanssin datan."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr "Kaikki järjestelmätiedostot ja käyttäjädata"
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Valitse viennin tyyppi:"
+msgid "Only system files"
+msgstr "Vain järjestelmätiedostot"
 
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
-msgstr "ownCloud-instanssi (käyttäjädata ja tietokanta)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr "Vain käyttäjädata"
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "ownCloud-järjestelmätiedostot"
-
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "Vain käyttäjätiedostot"
-
-#: templates/settings.php:14
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Vie"

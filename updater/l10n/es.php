@@ -18,6 +18,7 @@
 "Update" => "Actualizar",
 "Backup directory" => "Carpeta de actualización",
 "Backup" => "Respaldos",
+"Done on" => "Hecho en",
 "Download" => "Descargar",
 "Delete" => "Eliminar",
 "No backups found" => "No se encontraron respaldos"

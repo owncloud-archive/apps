@@ -5,6 +5,7 @@
 # Translators:
 # Mirodin <blobbyjj@ymail.com>, 2012
 # deh3nne, 2012
+# Mario Siegmann <mario_siegmann@web.de>, 2013
 # JamFX <niko@nik-o-mat.de>, 2012
 # I Robot <owncloud-bot@tmit.eu>, 2012
 # traductor <transifex-2.7.mensaje@spamgourmet.com>, 2013
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-29 00:49-0400\n"
+"PO-Revision-Date: 2013-07-28 15:20+0000\n"
+"Last-Translator: Mario Siegmann <mario_siegmann@web.de>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,9 +37,5 @@ msgid "An error has occurred"
 msgstr "Es ist ein Fehler aufgetreten."
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Migration von Nutzerkonten"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Export und Import von ownCloud-Nutzerkonten"
+msgid "Account Export/Import"
+msgstr "Konto Export/Import"

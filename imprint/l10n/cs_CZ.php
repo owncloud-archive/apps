@@ -11,6 +11,7 @@
 "Header right" => "Hlavička vpravo",
 "Navigation top" => "Navigace nahoře",
 "Navigation bottom" => "Navigace dole",
+"During login" => "Během přihlášení",
 "Content" => "Obsah",
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Můžete použít značky html (např. &lt;br&gt; pro konec řádku) a přímé nastavení vzhledu atributu (např. &lt;a style=\"color:red;\"&gt;)."
 );
