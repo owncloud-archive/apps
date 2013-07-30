@@ -3,8 +3,7 @@ jQuery.fn.slideShow = function (container, start, options) {
 	start = start || 0;
 	settings = jQuery.extend({
 		'interval': 5000,
-		'play': true,
-		'maxScale': 2
+		'play': true
 	}, options);
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
@@ -60,20 +59,20 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 		screenRatio = container.width() / container.height(),
 		width = null, height = null, top = null;
 	if (ratio > screenRatio) {
-		if (container.width() > image.natWidth * jQuery.fn.slideShow.settings.maxScale) {
-			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
-			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
-			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+		if (container.width() > image.natWidth) {
+			top = ((container.height() - image.natHeight) / 2) + 'px';
+			height = image.natHeight + 'px';
+			width = image.natWidth + 'px';
 		} else {
 			width = container.width()+'px';
 			height = (container.width()/ratio)+'px';
 			top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
 		}
 	} else {
-		if (container.height() > image.natHeight * jQuery.fn.slideShow.settings.maxScale) {
-			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
-			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
-			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+		if (container.height() > image.natHeight) {
+			top = ((container.height() - image.natHeight) / 2) + 'px';
+			height = image.natHeight + 'px';
+			width = image.natWidth + 'px';
 		} else {
 			top = 0;
 			height = container.height()+'px';
