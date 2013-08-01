@@ -1091,10 +1091,6 @@ OC.Contacts = OC.Contacts || {};
 									if(typeof et !== 'string') {
 										continue;
 									}
-									//console.log('et', et);
-									if(et.toUpperCase() === 'INTERNET') {
-										continue;
-									}
 									$property.find('select.type option').each(function() {
 										if($(this).val().toUpperCase() === et.toUpperCase()) {
 											$(this).attr('selected', 'selected');
