@@ -48,7 +48,8 @@ if($path != '' && $mtime != '') {
 			clearstatcache();
 			// Get new mtime
 			$newmtime = \OC\Files\Filesystem::filemtime($path);
-			OCP\JSON::success(array('data' => array('mtime' => $newmtime)));
+			$newsize = \OC\Files\Filesystem::filesize($path);
+			OCP\JSON::success(array('data' => array('mtime' => $newmtime, 'size' => $newsize)));
 		} else {
 			// Not writeable!
 			OCP\JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
