@@ -335,7 +335,7 @@ $(document).ready(function () {
 	}
 	OC.search.customResults.Text = function (row, item) {
 		var text = item.link.substr(item.link.indexOf('download') + 8);
-		var a = row.find('a');
+		var a = row.find('td.result a');
 		a.data('file', text);
 		a.attr('href', '#');
 		a.click(function () {
