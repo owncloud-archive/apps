@@ -40,6 +40,10 @@ class OC_USER_SAML_Hooks {
 					$saml_email = $attributes[$samlBackend->mailMapping][0];
 				}
 
+				if (array_key_exists($samlBackend->displayNameMapping, $attributes)) {
+					$display_name = $attributes[$samlBackend->displayNameMapping][0];
+				}
+
 				if (array_key_exists($samlBackend->groupMapping, $attributes)) {
 					$saml_groups = $attributes[$samlBackend->groupMapping];
 				}
@@ -57,7 +61,6 @@ class OC_USER_SAML_Hooks {
 						$random_password = OC_Util::generate_random_bytes(20);
 						OC_Log::write('saml','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
-
 						if(OC_User::userExists($uid)) {
 							if (isset($saml_email)) {
 								update_mail($uid, $saml_email);
@@ -65,6 +68,9 @@ class OC_USER_SAML_Hooks {
 							}
 							if (isset($saml_groups)) {
 								update_groups($uid, $saml_groups, $samlBackend->protectedGroups, true);
+							}
+							if (isset($display_name)) {
+								update_display_name($uid, $display_name);
 							}
 						}
 					}
@@ -77,6 +83,9 @@ class OC_USER_SAML_Hooks {
 						}
 						if (isset($saml_groups)) {
 							update_groups($uid, $saml_groups, $samlBackend->protectedGroups, false);
+						}
+						if (isset($display_name)) {
+							update_display_name($uid, $display_name);
 						}
 					}
 				}
@@ -134,4 +143,8 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 			}
 		}
 	}
+}
+
+function update_display_name($uid, $display_name) {
+	OC_User::setDisplayName($uid, $display_name);
 }
