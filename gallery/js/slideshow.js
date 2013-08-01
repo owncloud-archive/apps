@@ -3,7 +3,7 @@ jQuery.fn.slideShow = function (container, start, options) {
 	start = start || 0;
 	settings = jQuery.extend({
 		'interval': 5000,
-		'play': true,
+		'play'    : true,
 		'maxScale': 2
 	}, options);
 	jQuery.fn.slideShow.container = container;
@@ -19,7 +19,7 @@ jQuery.fn.slideShow = function (container, start, options) {
 	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
 	jQuery(window).resize(function () {
-		jQuery.fn.slideShow.loadImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]).then(function(image) {
+		jQuery.fn.slideShow.loadImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]).then(function (image) {
 			jQuery.fn.slideShow.fitImage(container, image);
 		});
 	});
@@ -65,8 +65,8 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
 			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
 		} else {
-			width = container.width()+'px';
-			height = (container.width()/ratio)+'px';
+			width = container.width() + 'px';
+			height = (container.width() / ratio) + 'px';
 			top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
 		}
 	} else {
@@ -76,20 +76,23 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
 		} else {
 			top = 0;
-			height = container.height()+'px';
-			width = (container.height()*ratio)+"px";
+			height = container.height() + 'px';
+			width = (container.height() * ratio) + "px";
 		}
 	}
 	jQuery(image).css({
-		top: top,
-		width: width,
+		top   : top,
+		width : width,
 		height: height
 	});
 };
 
 jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 	var container = jQuery.fn.slideShow.container;
+
+	container.css('background-position', 'center');
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
+		container.css('background-position', '-10000px 0');
 		if (url === jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]) {
 			container.children('img').remove();
 			container.append(image);
