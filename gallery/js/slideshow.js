@@ -61,9 +61,9 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 		width = null, height = null, top = null;
 	if (ratio > screenRatio) {
 		if (container.width() > image.natWidth * jQuery.fn.slideShow.settings.maxScale) {
-			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
-			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
-			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+			top = ((container.height() - image.natHeight) / 2) + 'px';
+			height = image.natHeight + 'px';
+			width = image.natWidth + 'px';
 		} else {
 			width = container.width() + 'px';
 			height = (container.width() / ratio) + 'px';
@@ -71,9 +71,9 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 		}
 	} else {
 		if (container.height() > image.natHeight * jQuery.fn.slideShow.settings.maxScale) {
-			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
-			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
-			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+			top = ((container.height() - image.natHeight) / 2) + 'px';
+			height = image.natHeight + 'px';
+			width = image.natWidth + 'px';
 		} else {
 			top = 0;
 			height = container.height() + 'px';
