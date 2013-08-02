@@ -66,7 +66,7 @@ function setSyntaxMode(ext) {
 
 function showControls(dir, filename, writeable) {
 	// Loads the control bar at the top.
-	OC.Breadcrumb.push(filename, '#');
+	OC.Breadcrumb.show(dir, filename, '#');
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeable) {
@@ -265,7 +265,7 @@ function showFileEditor(dir, filename) {
 
 // Fades out the editor.
 function hideFileEditor() {
-	OC.Breadcrumb.pop();
+	OC.Breadcrumb.show($('#dir').val());
 	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols,#editor').hide();
@@ -295,7 +295,7 @@ function reopenEditor() {
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor').show();
 	$('#editorcontrols').show();
-	OC.Breadcrumb.push($('#editor').attr('data-filename') + ' *', '#');
+	OC.Breadcrumb.show($('#editor').attr('data-dir'), $('#editor').attr('data-filename') + ' *', '#');
 	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 	is_editor_shown = true;
 	giveEditorFocus();
