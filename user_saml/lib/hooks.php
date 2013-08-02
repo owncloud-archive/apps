@@ -83,9 +83,9 @@ class OC_USER_SAML_Hooks {
 						OC_Log::write('saml','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
 						if(OC_User::userExists($uid)) {
+							OC_Util::setupFS($uid);
 							if (isset($saml_email)) {
 								update_mail($uid, $saml_email);
-
 							}
 							if (isset($saml_groups)) {
 								update_groups($uid, $saml_groups, $samlBackend->protectedGroups, true);
@@ -98,6 +98,7 @@ class OC_USER_SAML_Hooks {
 				}
 				else {
 					if ($samlBackend->updateUserData) {
+						OC_Util::setupFS($uid);
 						OC_Log::write('saml','Updating data of the user: '.$uid,OC_Log::DEBUG);
 						if(isset($saml_email)) {
 							update_mail($uid, $saml_email);
