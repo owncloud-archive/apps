@@ -26,28 +26,49 @@
 class OC_USER_SAML_Hooks {
 
 	static public function post_login($parameters) {
-		$uid = $parameters['uid'];
+		$userid = $parameters['uid'];
 		$samlBackend = new OC_USER_SAML();
 
 		if ($samlBackend->auth->isAuthenticated()) {
 			$attributes = $samlBackend->auth->getAttributes();
 
-			if (array_key_exists($samlBackend->usernameMapping, $attributes) && $attributes[$samlBackend->usernameMapping][0] == $uid) {
+			$usernameFound = false;
+			foreach($samlBackend->usernameMapping as $usernameMapping) {
+				if (array_key_exists($usernameMapping, $attributes) && !empty($attributes[$usernameMapping][0])) {
+					$usernameFound = true;
+					$uid = $attributes[$usernameMapping][0];
+					OC_Log::write('saml','Authenticated user '.$uid,OC_Log::DEBUG);
+					break;
+				}
+			}
+
+			if ($usernameFound && $uid == $userid) {
 
 				$attributes = $samlBackend->auth->getAttributes();
 
-				if (array_key_exists($samlBackend->mailMapping, $attributes)) {
-					$saml_email = $attributes[$samlBackend->mailMapping][0];
+				$saml_email = '';
+				foreach ($samlBackend->mailMapping as $mailMapping) {
+					if (array_key_exists($mailMapping, $attributes) && !empty($attributes[$mailMapping][0])) {
+						$saml_email = $attributes[$mailMapping][0];
+						break;
+					}
 				}
 
-				if (array_key_exists($samlBackend->displayNameMapping, $attributes)) {
-					$display_name = $attributes[$samlBackend->displayNameMapping][0];
+				$saml_display_name = '';
+				foreach ($samlBackend->displayNameMapping as $displayNameMapping) {
+					if (array_key_exists($displayNameMapping, $attributes) && !empty($attributes[$displayNameMapping][0])) {
+						$saml_display_name = $attributes[$displayNameMapping][0];
+						break;
+					}
 				}
 
-				if (array_key_exists($samlBackend->groupMapping, $attributes)) {
-					$saml_groups = $attributes[$samlBackend->groupMapping];
+				$saml_groups = array();
+				foreach ($samlBackend->groupMapping as $groupMapping) {
+					if (array_key_exists($groupMapping, $attributes) && !empty($attributes[$groupMapping])) {
+						$saml_groups = array_merge($saml_groups, $attributes[$groupMapping]);
+					}
 				}
-				else if (!empty($samlBackend->defaultGroup)) {
+				if (empty($saml_groups) && !empty($samlBackend->defaultGroup)) {
 					$saml_groups = array($samlBackend->defaultGroup);
 					OC_Log::write('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
 				}
@@ -69,8 +90,8 @@ class OC_USER_SAML_Hooks {
 							if (isset($saml_groups)) {
 								update_groups($uid, $saml_groups, $samlBackend->protectedGroups, true);
 							}
-							if (isset($display_name)) {
-								update_display_name($uid, $display_name);
+							if (isset($saml_display_name)) {
+								update_display_name($uid, $saml_display_name);
 							}
 						}
 					}
@@ -84,8 +105,8 @@ class OC_USER_SAML_Hooks {
 						if (isset($saml_groups)) {
 							update_groups($uid, $saml_groups, $samlBackend->protectedGroups, false);
 						}
-						if (isset($display_name)) {
-							update_display_name($uid, $display_name);
+						if (isset($saml_display_name)) {
+							update_display_name($uid, $saml_display_name);
 						}
 					}
 				}
@@ -116,12 +137,12 @@ function update_mail($uid, $email) {
 }
 
 
-function update_groups($uid, $groups, $protected_groups=array(), $just_created=false) {
+function update_groups($uid, $groups, $protectedGroups=array(), $just_created=false) {
 
 	if(!$just_created) {
 		$old_groups = OC_Group::getUserGroups($uid);
 		foreach($old_groups as $group) {
-			if(!in_array($group, $protected_groups) && !in_array($group, $groups)) {
+			if(!in_array($group, $protectedGroups) && !in_array($group, $groups)) {
 				OC_Group::removeFromGroup($uid,$group);
 				OC_Log::write('saml','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
 			}
@@ -145,6 +166,6 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 	}
 }
 
-function update_display_name($uid, $display_name) {
-	OC_User::setDisplayName($uid, $display_name);
+function update_display_name($uid, $displayName) {
+	OC_User::setDisplayName($uid, $displayName);
 }
