@@ -28,6 +28,9 @@ $params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 
 OCP\Util::addscript('user_cas', 'settings');
 
 if ($_POST) {
+	// CSRF check
+	OCP\JSON::callCheck();
+
 	foreach($params as $param) {
 		if (isset($_POST[$param])) {
 			OCP\Config::setAppValue('user_cas', $param, $_POST[$param]);
