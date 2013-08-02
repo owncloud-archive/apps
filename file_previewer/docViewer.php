@@ -3,10 +3,11 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('file_previewer');
 
-$file = isset($_GET['link']) ? $_GET['link'] : '';
+$filename = isset($_GET['link']) ? $_GET['link'] : '';
 $sid = isset($_GET['sid']) ? $_GET['sid'] : '';
 
 $user = OCP\User::getUser();
+
 
 $config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
 if(file_exists($config_file)) {
@@ -17,15 +18,28 @@ else {
 	echo "No configuration file";
 	return;
 }
-$solr = new \Apache_Solr_Service($fascinator['solr']['host'], $fascinator['solr']['port'], $fascinator['solr']['path']);
+if (\OC\Files\Filesystem::isReadable($filename)) {
+	list($storage) = \OC\Files\Filesystem::resolvePath($filename);
+	if ($storage instanceof \OC\Files\Storage\Local) {
+		$full_path = \OC\Files\Filesystem::getLocalFile($filename);
+	}
+} elseif (!\OC\Files\Filesystem::file_exists($filename)) {
+	header("HTTP/1.0 404 Not Found");
+	$tmpl = new OC_Template('', '404', 'guest');
+	$tmpl->assign('file', $name);
+	$tmpl->printPage();
+} else {
+	header("HTTP/1.0 403 Forbidden");
+	die('403 Forbidden');
+}
 
-$path_parts = pathinfo($file);
+$path_parts = pathinfo($filename);
 $extension = $path_parts['extension'];
 
 if($extension === "doc" || $extension === "docx" || $extension === "xls" || $extension === "xlsx"
 		|| $extension === "ppt" || $extension === "pptx" || $extension === "odt" || $extension === "odp"
 	  	|| $extension === "ods") {
-	$full_path = '/data/'.$user.'/files'. $file;
+	//$full_path = '/data/'.$user.'/files'. $filename;
 	//$revert = array('%21'=>'!', '%2A'=>'*', '%27'=>"'", '%28'=>'(', '%29'=>')');
 	//$full_path = strtr(rawurlencode($full_path), $revert);
 	$query = 'full_path:"'.md5($full_path).'"';
