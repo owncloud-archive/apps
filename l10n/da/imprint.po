@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-28 00:49-0400\n"
-"PO-Revision-Date: 2013-07-27 18:30+0000\n"
+"POT-Creation-Date: 2013-08-02 00:49-0400\n"
+"PO-Revision-Date: 2013-08-01 11:20+0000\n"
 "Last-Translator: Sappe\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Her er intet, endnu."
 
 #: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "Indholdet af den juridiske meddelelse skal konfigureres først"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
@@ -42,7 +42,7 @@ msgstr "Konfigurationen skal foretages af en systemadministrator."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
-msgstr ""
+msgstr "Imprint"
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
@@ -80,4 +80,4 @@ msgstr "Indhold"
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
-msgstr ""
+msgstr "Du kan bruge html markup (f.eks. &lt;br&gt; for linjeskift) og inline style attributter (f.eks. &lt;a style=\"color:red;\"&gt;)."
