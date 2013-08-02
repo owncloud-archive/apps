@@ -9,9 +9,18 @@
 
 #samlSettings input[type="text"] {
     margin-left: 15px;
-    width: 15em;
+    width: 25em;
 }
 
 #samlSettings input[name="saml_ssp_path"] {
-    width: 20em;
+    width: 30em;
 }
+
+#samlSettings input[name="saml_sp_source"] {
+    width: 15em;
+}
+
+#samlSettings input[name="saml_default_group"] {
+    width: 15em;
+}
+
