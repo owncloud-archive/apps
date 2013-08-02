@@ -1802,12 +1802,20 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.addContact = function(props) {
 		var addressBook;
+		// Find the first address book with write permissions
 		$.each(this.addressbooks, function(idx, book) {
-			if(book.owner === OC.currentUser) {
+			if(book.owner === OC.currentUser || book.permissions & OC.PERMISSION_CREATE) {
 				addressBook = book;
 				return false; // break loop
 			}
 		});
+		if(!addressBook) {
+			$(document).trigger('status.contact.error', {
+				status: 'error',
+				message: t('contacts', 'You have no writable address books.')
+			});
+			return null;
+		}
 		var contact = new Contact(
 			this,
 			null,
