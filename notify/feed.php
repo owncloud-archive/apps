@@ -36,8 +36,8 @@ if(!isset($_SERVER["PHP_AUTH_USER"]) or !OCP\User::checkPassword($uid = $_SERVER
 	header('HTTP/1.0 401 Unauthorized');
 	exit;
 }
-$lang = OC_Preferences::getValue($uid, 'core', 'lang', OC_L10N::findLanguage());
-$l = OC_L10N::get('notify', $lang);
+$lang = OCP\Config::getUserValue($uid, 'core', 'lang', OC_L10N::findLanguage());
+$l = OCP\Util::getL10N('notify', $lang);
 //TODO: use different feed creator library (like Zend_Feed) and switch html flag to true
 $notifications = OC_Notify::getNotifications($uid, 50, $lang, false);
 $baseAddress = (isset($_SERVER["HTTPS"]) ? 'https://' : 'http://') . $_SERVER["SERVER_NAME"];
