@@ -1,8 +1,3 @@
-function setEditorSize() {
-	// Sets the size of the text editor window.
-	fillWindow($('#editor'));
-}
-
 function getFileExtension(file) {
 	var parts = file.split('.');
 	return parts[parts.length - 1];
@@ -196,7 +191,7 @@ function showFileEditor(dir, filename) {
 			}
 			$('#editor').remove();
 			// Loads the file editor and display it.
-			$('#content').append('<div id="editor"></div>');
+			$('#content').append('<div id="editor_container"><div id="editor"></div></div>');
 			var data = $.getJSON(
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
@@ -221,7 +216,6 @@ function showFileEditor(dir, filename) {
 						if ( ! result.data.writeable ) {
 							aceEditor.setReadOnly(true);
 						}
-						setEditorSize();
 						if (result.data.mime && result.data.mime === 'text/html') {
 							setSyntaxMode('html');
 						} else {
@@ -266,9 +260,9 @@ function showFileEditor(dir, filename) {
 // Fades out the editor.
 function hideFileEditor() {
 	OC.Breadcrumb.show($('#dir').val());
-	if ($('#editor').attr('data-edited') == 'true') {
+	if ($('#editor_container').attr('data-edited') == 'true') {
 		// Hide, not remove
-		$('#editorcontrols,#editor').hide();
+		$('#editorcontrols,#editor_container').hide();
 		// Fade out editor
 		// Reset document title
 		document.title = $('body').attr('old_title');
@@ -279,7 +273,7 @@ function hideFileEditor() {
 		is_editor_shown = false;
 	} else {
 		// Fade out editor
-		$('#editor, #editorcontrols').remove();
+		$('#editor_container, #editorcontrols').remove();
 		// Reset document title
 		document.title = $('body').attr('old_title');
 		$('.actions,#file_access_panel').show();
@@ -293,7 +287,7 @@ function reopenEditor() {
 	$('.actions,#file_action_panel').hide();
 	$('#content table').hide();
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
-	$('#editor').show();
+	$('#editor_container').show();
 	$('#editorcontrols').show();
 	OC.Breadcrumb.show($('#editor').attr('data-dir'), $('#editor').attr('data-filename') + ' *', '#');
 	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
@@ -301,10 +295,6 @@ function reopenEditor() {
 	giveEditorFocus();
 }
 
-// resizes the editor window
-$(window).resize(function () {
-	setEditorSize();
-});
 var is_editor_shown = false;
 $(document).ready(function () {
 	if (typeof FileActions !== 'undefined') {
@@ -353,7 +343,7 @@ $(document).ready(function () {
 	};
 	// Binds the file save and close editor events, and gotoline button
 	bindControlEvents();
-	$('#editor').remove();
+	$('#editor_container').remove();
 	$('#notification').click(function () {
 		if ($('#notification').data('reopeneditor')) {
 			reopenEditor();
