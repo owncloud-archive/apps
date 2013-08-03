@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# rogerc, 2013
 # rogerc, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 07:50+0000\n"
+"Last-Translator: rogerc\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,9 +32,5 @@ msgid "An error has occurred"
 msgstr "S'ha produït un error"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Migració del compte d'usuari"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Exporta i importa comptes d'usuari ownCloud."
+msgid "Account Export/Import"
+msgstr "Importa/Exporta compte"

@@ -1,9 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Export this ownCloud instance" => "Exportatu ownCloud instantzia hau",
-"This will create a compressed file that contains the data of this owncloud instance." => "Honek owncloud instantzia honen datuak dituen konprimitako fitxategi bat sortuko du.",
-"Please choose the export type:" => "Mesedez hautatu exportazio mota:",
-"ownCloud instance (user data and database)" => "ownCloud instantzia (erabiltzaile datuak eta datu basea)",
-"ownCloud system files" => "ownCloud Sistema fitxategiak",
-"Just user files" => "Bakarrik erabiltzaileen fitxategiak",
+"Export data" => "Data esportatu",
+"All system files and user data" => "Sistema fitxategi guztiak eta erabiltzaile datuak",
+"Only system files" => "Bakarrik sistemaren fitxategiak",
+"Only user data" => "Bakarrik erabiltzaileen datuak",
 "Export" => "Exportatu"
 );

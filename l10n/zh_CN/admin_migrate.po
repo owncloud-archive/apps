@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -20,31 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "导出此 ownCloud 实例"
+msgid "Export data"
+msgstr ""
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "这将创建一个压缩文件，该文件中囊括了此 owncloud 实例的数据。"
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "请选择导出类型"
+msgid "Only system files"
+msgstr ""
 
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
-msgstr "ownCloud 实例 (用户数据和数据库)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr ""
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "ownCloud 系统文件"
-
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "仅用户文件"
-
-#: templates/settings.php:14
+#: templates/settings.php:9
 msgid "Export"
 msgstr "导出"

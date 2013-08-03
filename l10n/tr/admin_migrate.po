@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,31 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Bu ownCloud durumunu dışa aktar"
+msgid "Export data"
+msgstr ""
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Bu ownCloud durumundaki veriyi içeren sıkıştırılmış bir dosya oluşturacaktır."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Lütfen dışa aktarım türünü seçin:"
+msgid "Only system files"
+msgstr ""
 
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
-msgstr "ownCloud durumu (kullanıcı verisi ve veritabanı)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr ""
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "ownCloud sistem dosyaları"
-
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "Sadece kullanıcı dosyaları"
-
-#: templates/settings.php:14
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Dışa aktar"

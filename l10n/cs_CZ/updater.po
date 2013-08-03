@@ -3,16 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Twiguard <nightwitcher@seznam.cz>, 2013
 # Honza K. <honza889@gmail.com>, 2013
 # Martin <fireball@atlas.cz>, 2012
+# pstast <petr@stastny.eu>, 2013
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 16:37+0000\n"
+"Last-Translator: pstast <petr@stastny.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,41 +24,41 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Kontroluji vaši instalaci..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "Aktualizaci nelze provést. Zkontrolujte, že má váš webový server právo zápisu do následujících adresářů a souborů:"
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr ""
+msgstr "Verze nebyla nalezena"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "Aktualizaci nelze provést. Váš webový server nemá dostatečná oprávnění ke smazání následujícího adresáře:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "Upravte oprávnění u tohoto adresáře a jeho obsahu nebo jej nejdřív ručně smažte."
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr ""
+msgstr "Stahuji balíček..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Nepodařilo se stáhnout balíček"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr ""
+msgstr "Vytvářím zálohu..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -64,34 +66,34 @@ msgstr "Zde je vaše záloha:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Vytvoření zálohy se nezdařilo"
 
 #: ajax/update.php:103
 msgid "Moving files..."
-msgstr ""
+msgstr "Přesouvám soubory..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "Hotovo. Klikněte na následující odkaz pro zahájení aktualizace databáze."
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr ""
+msgstr "Aktualizace se nezdařila"
 
 #: js/controllers.js:25
 msgid ""
 "The update was unsuccessful. Please report this issue to the <a "
 "href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
 "community</a>."
-msgstr ""
+msgstr "Aktualizace nebyla úspěšná. Nahlaste prosím tento problém <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud komunitě</a>."
 
 #: templates/admin.php:20
 msgid "Update Center"
-msgstr ""
+msgstr "Centrum aktualizací"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Správa zálohování"
 
 #: templates/update.php:19 templates/update.php:45
 msgid "Update"
@@ -99,15 +101,15 @@ msgstr "Aktualizovat"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Zálohovací adresář"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Záloha"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Dokončeno"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"
@@ -119,4 +121,4 @@ msgstr "Smazat"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Žádné zálohy nebyly nalezeny"

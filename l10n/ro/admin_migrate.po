@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
-"Last-Translator: ripkid666 <ripkid666@gmail.com>\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +21,21 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Eportă această instanță ownCloud"
+msgid "Export data"
+msgstr ""
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Această acțiune va crea un fișier arhivat care va conține datele acestei instanțe owncloud."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Te rugăm să alegi tipul de exportat:"
+msgid "Only system files"
+msgstr ""
 
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
-msgstr " Instanță ownCloud ( date utilizatori si baza de date )"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr ""
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "Fișiere de sistem ownCloud"
-
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "Doar fișierele utilizatorilor"
-
-#: templates/settings.php:14
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Exportă"

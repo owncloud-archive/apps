@@ -6,13 +6,14 @@
 # Mouxy <daniel@mouxy.net>, 2012
 # Mouxy <daniel@mouxy.net>, 2013
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012
+# Helder Meneses <helder.meneses@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-07-30 00:49-0400\n"
+"PO-Revision-Date: 2013-07-29 15:30+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +22,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Exportar esta instância ownCloud"
+msgid "Export data"
+msgstr "Exportar dados"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Isto irá criar um ficheiro comprimido que contém os dados desta instância ownCloud."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr "Todos os ficheiros de sistema e dados do utilizador"
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Por favor escolha o tipo de exportação:"
+msgid "Only system files"
+msgstr "Apenas ficheiros de sistema"
 
-#: templates/settings.php:11
-msgid "ownCloud instance (user data and database)"
-msgstr "Instância do ownCloud (dados do utilizador e base de dados)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr "Apenas dados do utilizador"
 
-#: templates/settings.php:12
-msgid "ownCloud system files"
-msgstr "ficheiros de sistema ownCloud"
-
-#: templates/settings.php:13
-msgid "Just user files"
-msgstr "Apenas ficheiros do utilizador"
-
-#: templates/settings.php:14
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Exportar"

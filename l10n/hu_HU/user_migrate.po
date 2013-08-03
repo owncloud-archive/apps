@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
+"POT-Creation-Date: 2013-07-27 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 04:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +31,5 @@ msgid "An error has occurred"
 msgstr "Hiba történt"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Felhasználói fiók átköltöztetése"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "ownCloud felhasználói fiókok exportálása és importálása."
+msgid "Account Export/Import"
+msgstr ""

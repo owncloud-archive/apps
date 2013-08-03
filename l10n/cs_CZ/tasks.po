@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Twiguard <nightwitcher@seznam.cz>, 2013
 # Martin <fireball@atlas.cz>, 2012
 # Michal Hrušecký <Michal@hrusecky.net>, 2012
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 05:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 16:23+0000\n"
+"Last-Translator: pstast <petr@stastny.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Neplatné datum/čas"
+msgstr "Neplatný datum/čas"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -75,7 +76,7 @@ msgstr "Neplatná priorita"
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "Aplikace kalendáře musí být povolena pro použití této aplikace."
+msgstr "Aplikace kalendáře musí být také povolena pro použití této aplikace."
 
 #: templates/tasks.php:3
 msgid "Add Task"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-22 00:48-0400\n"
-"PO-Revision-Date: 2013-07-21 14:50+0000\n"
-"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 05:41+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +21,13 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr "Controllo la tua installazione..."
+msgstr "Controllo dell'installazione in corso..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr "Impossibile aggiornare. Assicurati che il tuo webserver abbia l'accesso alla scrittura sui seguenti file e cartelle:"
+msgstr "Impossibile aggiornare. Assicurati che il tuo server web abbia l'accesso in scrittura ai seguenti file e cartelle:"
 
 #: ajax/update.php:60
 msgid "Version not found"
@@ -37,7 +37,7 @@ msgstr "Versione non trovata"
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr "Impossibile aggiornare. Il tuo webserver non ha i permessi necessari per rimuovere le seguenti cartelle:"
+msgstr "Impossibile aggiornare. Il tuo server web non ha i permessi necessari per rimuovere le seguenti cartelle:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
@@ -47,7 +47,7 @@ msgstr "Aggiorna i permessi su questa cartella e il suo contenuto oppure rimuovi
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr "Scaricamento pacchetto..."
+msgstr "Scaricamento pacchetto in corso..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
@@ -55,7 +55,7 @@ msgstr "Impossibile ottenere il pacchetto"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr "Creazione backup..."
+msgstr "Creazione backup in corso..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -63,19 +63,19 @@ msgstr "Qui è la tua copia di sicurezza:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr "Impossibile creare backup"
+msgstr "Impossibile creare il backup"
 
 #: ajax/update.php:103
 msgid "Moving files..."
-msgstr "Spostamento file..."
+msgstr "Spostamento file in corso..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr "Tutte le operazioni completate. Clicca sul link qui sotto per iniziare l'aggiornamento del database."
+msgstr "Tutte le operazioni completate. Fai clic sul collegamento seguente per iniziare l'aggiornamento del database."
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr "Update non riuscito"
+msgstr "Aggiornamento non riuscito"
 
 #: js/controllers.js:25
 msgid ""
@@ -86,11 +86,11 @@ msgstr "L'aggiornamento non è riuscito. Segnala il problema alla <a href=\"http
 
 #: templates/admin.php:20
 msgid "Update Center"
-msgstr "Centro Aggiornamenti"
+msgstr "Centro aggiornamenti"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr "Gestione Backup"
+msgstr "Gestione backup"
 
 #: templates/update.php:19 templates/update.php:45
 msgid "Update"
@@ -98,7 +98,7 @@ msgstr "Aggiorna"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr "Cartella Backup"
+msgstr "Cartella backup"
 
 #: templates/update.php:27
 msgid "Backup"
@@ -106,7 +106,7 @@ msgstr "Backup"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr "Completato su"
+msgstr "Completato il"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"
