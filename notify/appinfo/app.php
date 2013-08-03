@@ -20,7 +20,7 @@
 *
 */
 
-$l = OC_L10N::get('notify');
+$l = OCP\Util::getL10N('notify');
 OC::$CLASSPATH['OC_Notify'] = 'notify/lib/notify.php';
 if(OCP\User::isLoggedIn()) {
 	// this makes no sense for guests, so only for users
