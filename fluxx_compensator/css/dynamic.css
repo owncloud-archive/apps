@@ -88,6 +88,8 @@ html.fluxx-mode-calendar { }
 /* 'contacts' app */
 html.fluxx-mode-contacts { }
 html.fluxx-mode-contacts.fluxx-state-N-hidden #contactsheader { left: 280px; }
+html.fluxx-mode-contacts.fluxx-state-H-hidden #groupsheader,
+html.fluxx-mode-contacts.fluxx-state-H-hidden #contactsheader { top: 0px; }
 
 /* 'files' app */
 html.fluxx-mode-files { }
