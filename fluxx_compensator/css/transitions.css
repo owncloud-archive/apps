@@ -28,7 +28,7 @@
  * @author Christian Reiner
  */
 
-/* animate the fluxx handles themselves */
+/* animate the fluxx handles themselves and the main desktop components */
 .fluxx-handle,
 .fluxx-handle img,
 #header,
@@ -50,7 +50,8 @@ html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
 html.fluxx-mode-contacts { }
-html.fluxx-mode-contacts #content #contactsheader {
+html.fluxx-mode-contacts #groupsheader,html.fluxx-mode-contacts #groupsheader *,
+html.fluxx-mode-contacts #content #contactsheader,html.fluxx-mode-contacts #content #contactsheader * {
 	transition:all 300ms;-o-transition:all 300ms;-ms-transition:all 300ms;-moz-transition:all 300ms;-khtml-transition:all 300ms;-webkit-transition:all 300ms;
 }
 
