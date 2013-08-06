@@ -22,6 +22,11 @@ if (\OC\Files\Filesystem::isReadable($filename)) {
 	list($storage) = \OC\Files\Filesystem::resolvePath($filename);
 	if ($storage instanceof \OC\Files\Storage\Local) {
 		$full_path = \OC\Files\Filesystem::getLocalFile($filename);
+		if(!file_exists('/home/lloyd/fullpath.txt')){
+			$fp = fopen('/home/lloyd/fullpath.txt', 'w');
+			fwrite($fp, $full_path);
+			fclose($fp);
+		}
 	}
 } elseif (!\OC\Files\Filesystem::file_exists($filename)) {
 	header("HTTP/1.0 404 Not Found");
