@@ -581,6 +581,27 @@ class VCard {
 				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
 			return false;
 		}
+
+		// Work around issue in older VObject sersions
+		// https://github.com/fruux/sabre-vobject/issues/24
+		foreach($vcard->children as $property) {
+			foreach($property->parameters as $key=>$parameter) {
+				$delim = '';
+				if(strpos($parameter->value, ',') !== false) {
+					$delim = ',';
+				} elseif(strpos($parameter->value, '\\,') !== false) {
+					$delim = '\\,';
+				} else {
+					continue;
+				}
+				$values = explode($delim, $parameter->value);
+				$parameter->value = array_shift($values);
+				foreach($values as $value) {
+					$property->add($parameter->name, $value);
+				}
+			}
+		}
+
 		try {
 			self::edit($oldcard['id'], $vcard);
 			return true;
