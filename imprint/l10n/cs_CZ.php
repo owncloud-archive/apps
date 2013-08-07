@@ -1,9 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Legal notice" => "Právní upozornění",
 "Nothing here yet" => "Zatím zde nic není",
-"The content of the legal notice has to be configured first" => "Obsah právního oznámení musí být nejprve nastaven.",
+"The content of the legal notice has to be configured first" => "Obsah právního upozornění musí být nejprve nastaven",
 "That configuration is done in the administration section." => "Nastavení proveďte v sekci správce.",
-"That configuration has to be done by the system administration." => "Nastavení musí být provedeno správcem systému.",
+"That configuration has to be done by the system administration." => "Nastavení musí být provedeno ve správě systému.",
 "Imprint" => "Imprint",
 "Placement" => "Umístění",
 "Standalone app" => "Samostatná aplikace",
@@ -13,5 +13,5 @@
 "Navigation bottom" => "Navigace dole",
 "During login" => "Během přihlášení",
 "Content" => "Obsah",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Můžete použít značky html (např. &lt;br&gt; pro konec řádku) a přímé nastavení vzhledu atributu (např. &lt;a style=\"color:red;\"&gt;)."
+"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Můžete použít značky HTML (např. &lt;br&gt; pro konec řádku) a inline atributy CSS stylů (např. &lt;a style=\"color:red;\"&gt;)."
 );

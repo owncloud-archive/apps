@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Greetings {user}," => "Vítejte {user},",
-"Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Bohužel byl v odeslaném souboru nalezen malware a ten musel být odstraněn.",
-"This email is a notification from {host}. Please, do not reply." => "Tento e-mail je oznámení od {host}. Prosím neodpovídejte na něj.",
+"Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Bohužel byl v odeslaném souboru nalezen malware, soubor musel být odstraněn.",
+"This email is a notification from {host}. Please, do not reply." => "Tento e-mail je oznámení od {host}. Prosím, neodpovídejte na něj.",
 "File uploaded: {file}" => "Soubor odeslán: {file}",
 "Antivirus Configuration" => "Nastavení antiviru",
 "Mode" => "Režim",
@@ -20,7 +20,7 @@
 "Path to clamscan" => "Cesta k clamscan",
 "Path to clamscan executable." => "Cesta k programu clamscan.",
 "Not required in Daemon Mode." => "Není vyžadováno v režimu démona.",
-"Action for infected files found while scanning" => "Činnost pro infikované soubory nalezené při prohledávání",
+"Action for infected files found while scanning" => "Akce pro infikované soubory nalezené při prohledávání",
 "Only log" => "Pouze zaznamenat",
 "Delete file" => "Smazat soubor",
 "Save" => "Uložit"
