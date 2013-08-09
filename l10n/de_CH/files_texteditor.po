@@ -3,13 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# deh3nne, 2012
+# FlorianScholz <work@bgstyle.de>, 2013
+# I Robot <owncloud-bot@tmit.eu>, 2012
+# Mirodin <blobbyjj@ymail.com>, 2012
+# nIerSify <chris.schuette86@googlemail.com>, 2012
+# traductor <transifex-2.7.mensaje@spamgourmet.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-07 06:59-0400\n"
-"PO-Revision-Date: 2013-08-07 09:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-09 05:57-0400\n"
+"PO-Revision-Date: 2013-08-07 13:50+0000\n"
+"Last-Translator: FlorianScholz <work@bgstyle.de>\n"
 "Language-Team: German (Switzerland) (http://www.transifex.com/projects/p/owncloud/language/de_CH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,36 +25,36 @@ msgstr ""
 
 #: js/editor.js:68 js/editor.js:153 js/editor.js:161
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: js/editor.js:70
 msgid "Search:"
-msgstr ""
+msgstr "Suche:"
 
 #: js/editor.js:73
 msgid "Close"
-msgstr ""
+msgstr "Schliessen"
 
 #: js/editor.js:127
 msgid "Next"
-msgstr ""
+msgstr "Weiter"
 
 #: js/editor.js:128
 msgid "Clear"
-msgstr ""
+msgstr "Leeren"
 
 #: js/editor.js:146
 msgid "Saving..."
-msgstr ""
+msgstr "Speichern..."
 
 #: js/editor.js:154
 msgid "Failed to save file"
-msgstr ""
+msgstr "Speichern der Datei fehlgeschlagen"
 
 #: js/editor.js:256
 msgid "An error occurred!"
-msgstr ""
+msgstr "Ein Fehler ist aufgetreten!"
 
 #: js/editor.js:278
 msgid "There were unsaved changes, click here to go back"
-msgstr ""
+msgstr "Einige Änderungen wurde noch nicht gespeichert. Klicken Sie hier, um zurückzugehen."
