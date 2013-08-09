@@ -23,6 +23,8 @@
 
 Changelog: 
 
+* Sun Aug 04 2013 Christian Reiner: version 0.2.3
+FIxed layout in contacts app mode by an additional app specific css rule. 
 * Fri Jul 12 2013 Christian Reiner: version 0.2.2
 Prevent scrolling of fluxx handles. 
 * Sun Jun 16 2013 Christian Reiner: version 0.2.1

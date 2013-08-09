@@ -1,7 +1,7 @@
 <div id="firstrunwizard">
 
 <a id="closeWizard" class="close">
-	<img class="svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'actions/delete.svg')); ?>">
+	<img class="svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'actions/close.svg')); ?>">
 </a>
 
 <h1><?php p($l->t('Welcome to ownCloud'));?></h1>

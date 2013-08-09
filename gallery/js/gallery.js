@@ -314,7 +314,7 @@ window.onhashchange = function () {
 	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
-		Gallery.view.viewAlbum(album);
+		Gallery.view.viewAlbum(decodeURIComponent(album));
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));
 		$('#gallery a.image[data-path="' + album + '"]').click();
