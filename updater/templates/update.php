@@ -40,7 +40,6 @@
 		</table>
 	</fieldset>
 	<fieldset ng-controller="updateCtrl" ng-show="navigation=='update'">
-		<?php print_unescaped(OC_Updater::ShowUpdatingHint()) ?>
 		<button ng-click="update()" ng-show="<?php p($isNewVersionAvailable) ?>" id="updater-start">
 			<?php p($l->t('Update')) ?>
 		</button>
