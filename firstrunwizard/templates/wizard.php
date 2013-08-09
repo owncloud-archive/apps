@@ -32,7 +32,7 @@
 	<img class="appsmall appsmall-contacts svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'places/contacts-dark.svg')); ?>" /> <?php p($l->t('Connect your Contacts'));?>
 </a>
 <?php endif; ?>
-<a class="button" href="<?php p($theme->getDocBaseUrl()); ?>/server/5.0/user_manual/connecting_webdav.html">
+<a class="button" href="<?php p($theme->getDocBaseUrl()); ?>/server/5.0/user_manual/files/files.html">
 	<img class="appsmall svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'places/folder.svg')); ?>" /> <?php p($l->t('Access files via WebDAV'));?>
 </a>
 
