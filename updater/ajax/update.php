@@ -19,8 +19,8 @@ set_time_limit(0);
 
 $updateEventSource = new \OC_EventSource();
 $watcher = new UpdateWatcher($updateEventSource);
-\OC_Hook::connect('update', 'success', $watcher, 'success');
-\OC_Hook::connect('update', 'failure', $watcher, 'failure');
+\OCP\Util::connectHook('update', 'success', $watcher, 'success');
+\OCP\Util::connectHook('update', 'failure', $watcher, 'failure');
 
 $watcher->success((string) App::$l10n->t('Checking your installation...'));
 // Check if we have enough permissions
