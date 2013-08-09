@@ -19,7 +19,7 @@ class App {
 	public static $l10n;
 	
 	public static function init() {
-		self::$l10n = \OC_L10N::get(self::APP_ID);
+		self::$l10n = \OCP\Util::getL10N(self::APP_ID);
 		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_ID . '/lib/backup.php';
 		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_ID . '/lib/downloader.php';
 		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_ID . '/lib/updater.php';
@@ -30,7 +30,7 @@ class App {
 		\OC::$CLASSPATH['OCA\Updater\Location_Core'] = self::APP_ID . '/lib/location/core.php';
 		
 		//Allow config page
-		\OC_APP::registerAdmin(self::APP_ID, 'admin');
+		\OCP\App::registerAdmin(self::APP_ID, 'admin');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class App {
 	 * @return string
 	 */
 	public static function getBackupBase() {
-		return \OC_Config::getValue("datadirectory", \OC::$SERVERROOT . "/data") . '/updater_backup/';
+		return \OCP\Config::getSystemValue("datadirectory", \OC::$SERVERROOT . "/data") . '/updater_backup/';
 	}
 	
 	public static function getLegacyBackupBase() {
@@ -46,7 +46,7 @@ class App {
 	}
 	
 	public static function log($message, $level= \OC_Log::ERROR) {
-		\OC_Log::write(self::APP_ID, $message, $level);
+		\OCP\Util::writeLog(self::APP_ID, $message, $level);
 	}
 }
 
