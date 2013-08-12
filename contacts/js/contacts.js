@@ -379,6 +379,7 @@ OC.Contacts = OC.Contacts || {};
 							};
 							break;
 						case 'FN':
+							value = escapeHTML(value);
 							if(!self.data.FN || !self.data.FN.length) {
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
 							}
