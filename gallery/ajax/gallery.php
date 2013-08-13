@@ -9,7 +9,9 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 
-list($owner, $gallery) = explode('/', $_GET['gallery'], 2);
+$split = explode('/', $_GET['gallery'], 2);
+$owner = $split[0];
+$gallery = array_key_exists(1, $split) ? $split[1] : NULL;
 
 $ownerView = new \OC\Files\View('/' . $owner . '/files');
 if ($owner !== OC_User::getUser()) {

@@ -10,6 +10,7 @@ OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('gallery');
 OCP\App::setActiveNavigationEntry('gallery_index');
 
+OCP\Util::addScript('gallery', 'jquery.mousewheel-3.1.1');
 OCP\Util::addScript('gallery', 'gallery');
 OCP\Util::addScript('gallery', 'slideshow');
 OCP\Util::addStyle('gallery', 'styles');

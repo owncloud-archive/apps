@@ -66,7 +66,7 @@ function setSyntaxMode(ext) {
 
 function showControls(dir, filename, writeable) {
 	// Loads the control bar at the top.
-	OC.Breadcrumb.push(filename, '#');
+	OC.Breadcrumb.show(dir, filename, '#');
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeable) {
@@ -82,11 +82,11 @@ function showControls(dir, filename, writeable) {
 }
 
 function bindControlEvents() {
-	$("#editor_save").die('click', doFileSave).live('click', doFileSave);
-	$('#editor_close').die('click', hideFileEditor).live('click', hideFileEditor);
-	$('#editorsearchval').die('keyup', doSearch).live('keyup', doSearch);
-	$('#clearsearchbtn').die('click', resetSearch).live('click', resetSearch);
-	$('#nextsearchbtn').die('click', nextSearchResult).live('click', nextSearchResult);
+	$('#content').on('click', '#editor_save', doFileSave);
+	$('#content').on('click', '#editor_close', hideFileEditor);
+	$('#content').on('keyup', '#editorsearchval', doSearch);
+	$('#content').on('click', '#clearsearchbtn', resetSearch);
+	$('#content').on('click', '#nextsearchbtn', nextSearchResult);
 }
 
 // returns true or false if the editor is in view or not
@@ -191,6 +191,9 @@ function showFileEditor(dir, filename) {
 		if (!editorIsShown()) {
 			is_editor_shown = true;
 			// Delete any old editors
+			if ($('#notification').data('reopeneditor')) {
+				OC.Notification.hide();
+			}
 			$('#editor').remove();
 			// Loads the file editor and display it.
 			$('#content').append('<div id="editor"></div>');
@@ -246,6 +249,7 @@ function showFileEditor(dir, filename) {
 								doFileSave();
 							}
 						});
+						giveEditorFocus();
 					} else {
 						// Failed to get the file.
 						OC.dialogs.alert(result.data.message, t('files_texteditor', 'An error occurred!'));
@@ -261,7 +265,7 @@ function showFileEditor(dir, filename) {
 
 // Fades out the editor.
 function hideFileEditor() {
-	OC.Breadcrumb.pop();
+	OC.Breadcrumb.show($('#dir').val());
 	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols,#editor').hide();
@@ -291,9 +295,10 @@ function reopenEditor() {
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor').show();
 	$('#editorcontrols').show();
-	OC.Breadcrumb.push($('#editor').attr('data-filename') + ' *', '#');
+	OC.Breadcrumb.show($('#editor').attr('data-dir'), $('#editor').attr('data-filename') + ' *', '#');
 	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 	is_editor_shown = true;
+	giveEditorFocus();
 }
 
 // resizes the editor window
@@ -335,7 +340,7 @@ $(document).ready(function () {
 	}
 	OC.search.customResults.Text = function (row, item) {
 		var text = item.link.substr(item.link.indexOf('download') + 8);
-		var a = row.find('a');
+		var a = row.find('td.result a');
 		a.data('file', text);
 		a.attr('href', '#');
 		a.click(function () {
@@ -352,7 +357,7 @@ $(document).ready(function () {
 	$('#notification').click(function () {
 		if ($('#notification').data('reopeneditor')) {
 			reopenEditor();
+			OC.Notification.hide();
 		}
-		$('#notification').fadeOut();
 	});
 });

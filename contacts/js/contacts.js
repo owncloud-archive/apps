@@ -112,7 +112,9 @@ OC.Contacts = OC.Contacts || {};
 			case 'ORG':
 			case 'BDAY':
 			case 'NOTE':
-				this.$fullelem.find('[data-element="' + name.toLowerCase() + '"]').addClass('new').show();
+				$elem = this.$fullelem.find('[data-element="' + name.toLowerCase() + '"]');
+				$elem.addClass('new').show();
+				$elem.find('input:not(:checkbox),textarea').first().focus();
 				$option.prop('disabled', true);
 				break;
 			case 'TEL':
@@ -123,6 +125,7 @@ OC.Contacts = OC.Contacts || {};
 				$list.show();
 				$list.append($elem);
 				$elem.find('input.value').addClass('new');
+				$elem.find('input:not(:checkbox)').first().focus();
 				break;
 			case 'ADR':
 				var $elem = this.renderAddressProperty();
@@ -131,6 +134,7 @@ OC.Contacts = OC.Contacts || {};
 				$list.append($elem);
 				$elem.find('.display').trigger('click');
 				$elem.find('input.value').addClass('new');
+				$elem.find('input:not(:checkbox)').first().focus();
 				break;
 			case 'IMPP':
 				var $elem = this.renderIMProperty();
@@ -138,6 +142,7 @@ OC.Contacts = OC.Contacts || {};
 				$list.show();
 				$list.append($elem);
 				$elem.find('input.value').addClass('new');
+				$elem.find('input:not(:checkbox)').first().focus();
 				break;
 		}
 
@@ -374,6 +379,7 @@ OC.Contacts = OC.Contacts || {};
 							};
 							break;
 						case 'FN':
+							value = escapeHTML(value);
 							if(!self.data.FN || !self.data.FN.length) {
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
 							}
@@ -1091,10 +1097,6 @@ OC.Contacts = OC.Contacts || {};
 									if(typeof et !== 'string') {
 										continue;
 									}
-									//console.log('et', et);
-									if(et.toUpperCase() === 'INTERNET') {
-										continue;
-									}
 									$property.find('select.type option').each(function() {
 										if($(this).val().toUpperCase() === et.toUpperCase()) {
 											$(this).attr('selected', 'selected');
@@ -1801,12 +1803,20 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.addContact = function(props) {
 		var addressBook;
+		// Find the first address book with write permissions
 		$.each(this.addressbooks, function(idx, book) {
-			if(book.owner === OC.currentUser) {
+			if(book.owner === OC.currentUser || book.permissions & OC.PERMISSION_CREATE) {
 				addressBook = book;
 				return false; // break loop
 			}
 		});
+		if(!addressBook) {
+			$(document).trigger('status.contact.error', {
+				status: 'error',
+				message: t('contacts', 'You have no writable address books.')
+			});
+			return null;
+		}
 		var contact = new Contact(
 			this,
 			null,
