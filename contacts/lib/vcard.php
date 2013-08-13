@@ -246,6 +246,33 @@ class VCard {
 	}
 
 	/**
+	* Work around issue in older VObject sersions
+	* https://github.com/fruux/sabre-vobject/issues/24
+	* @param $vcard Reference to a Sabre_VObject_Property.
+	*/
+	public static function fixPropertyParameters(&$vcard) {
+		// Work around issue in older VObject sersions
+		// https://github.com/fruux/sabre-vobject/issues/24
+		foreach($vcard->children as $property) {
+			foreach($property->parameters as $key=>$parameter) {
+				$delim = '';
+				if(strpos($parameter->value, ',') !== false) {
+					$delim = ',';
+				} elseif(strpos($parameter->value, '\\,') !== false) {
+					$delim = '\\,';
+				} else {
+					continue;
+				}
+				$values = explode($delim, $parameter->value);
+				$parameter->value = array_shift($values);
+				foreach($values as $value) {
+					$property->add($parameter->name, $value);
+				}
+			}
+		}
+	}
+
+	/**
 	* @brief Checks if a contact with the same UID already exist in the address book.
 	* @param $aid Address book ID.
 	* @param $uid UID (passed by reference).
@@ -301,6 +328,7 @@ class VCard {
 			// Decode string properties and remove obsolete properties.
 			if($upgrade) {
 				self::decodeProperty($property);
+				self::fixPropertyParameters($vcard);
 			}
 			if(function_exists('iconv')) {
 				$property->value = str_replace("\r\n", "\n", iconv(mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), 'utf-8', $property->value));
@@ -581,6 +609,9 @@ class VCard {
 				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
 			return false;
 		}
+
+		self::fixPropertyParameters($vcard);
+
 		try {
 			self::edit($oldcard['id'], $vcard);
 			return true;
