@@ -37,7 +37,7 @@
 	<head>
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
-		<?php if (5>intval(substr(OC_Util::getVersionString(),0,1))) { ?>
+		<?php if (5>OCP\Util::getVersion()[0]) { ?>
 			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
 		<?php } ?>
 	</head>
