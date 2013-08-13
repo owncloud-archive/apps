@@ -1130,10 +1130,13 @@ OC.Contacts = OC.Contacts || {
 				groups: self.groups.categories,
 				currentgroup: currentgroup
 			};
+			self.tmpcontact = self.contacts.addContact(groupprops);
+			if(!self.tmpcontact) {
+				return;
+			}
 			self.$firstRun.hide();
 			self.$contactList.show();
 			self.$contactList.addClass('dim');
-			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
 		};

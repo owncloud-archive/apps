@@ -28,7 +28,7 @@ Calendar_Import={
 		},
 		close: function(){
 			Calendar_Import.reset();
-			$(this).dialog('destroy').remove();
+			$('#calendar_import_dialog').dialog('destroy').remove();
 			$('#calendar_import_dialog').remove();
 		},
 		init: function(){

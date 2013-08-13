@@ -76,7 +76,7 @@ class Ampache {
 			if ($this->checkAuth($params['auth'])) {
 				$this->updateAuth($params['auth']);
 			} else {
-				$this->error(400, 'Invalid login');
+				$this->error(401, 'Invalid login');
 				return;
 			}
 		}
@@ -183,7 +183,7 @@ class Ampache {
 
 	public function artists($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$exact = isset($params['exact']) ? ($params['exact'] == 'true') : false;
@@ -193,7 +193,7 @@ class Ampache {
 
 	public function artist_songs($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$songs = $this->collection->getSongs($filter);
@@ -203,7 +203,7 @@ class Ampache {
 
 	public function artist_albums($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$albums = $this->collection->getAlbums($filter);
@@ -213,7 +213,7 @@ class Ampache {
 
 	public function albums($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$exact = isset($params['exact']) ? ($params['exact'] == 'true') : false;
@@ -223,7 +223,7 @@ class Ampache {
 
 	public function album_songs($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$songs = $this->collection->getSongs(0, $params['filter']);
 		if (count($songs) > 0) {
@@ -236,7 +236,7 @@ class Ampache {
 
 	public function songs($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$exact = isset($params['exact']) ? ($params['exact'] == 'true') : false;
@@ -246,7 +246,7 @@ class Ampache {
 
 	public function song($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		if ($song = $this->collection->getSong($params['filter'])) {
 			$this->printSongs(array($song));
@@ -255,7 +255,7 @@ class Ampache {
 
 	public function play($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		if ($song = $this->collection->getSong($params['song'])) {
 			\OC_Util::setupFS($song["song_user"]);
@@ -267,7 +267,7 @@ class Ampache {
 
 	public function url_to_song($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$url = $params['url'];
 		$songId = substr($url, strrpos($url, 'song=') + 5);
@@ -278,7 +278,7 @@ class Ampache {
 
 	public function search_songs($params) {
 		if (!$this->checkAuth($params)) {
-			$this->error(400, 'Invalid Login');
+			$this->error(401, 'Invalid Login');
 		}
 		$filter = isset($params['filter']) ? $params['filter'] : '';
 		$artists = $this->collection->getArtists($filter);

@@ -432,73 +432,81 @@ class OC_Calendar_App{
 			$event['calendardata'] = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud's Internal iCal System\n"
 				. $event['vevent']->serialize() .  "END:VCALENDAR";
 		}
-		$object = OC_VObject::parse($event['calendardata']);
-		if(!$object) {
-			\OCP\Util::writeLog('calendar', __METHOD__.' Error parsing event: '.print_r($event, true), \OCP\Util::DEBUG);
-			return array();
-		}
-
-		$output = array();
-
-		if($object->name === 'VEVENT') {
-			$vevent = $object;
-		} elseif(isset($object->VEVENT)) {
-			$vevent = $object->VEVENT;
-		} else {
-			\OCP\Util::writeLog('calendar', __METHOD__.' Object contains not event: '.print_r($event, true), \OCP\Util::DEBUG);
-			return $output;
-		}
-		$id = $event['id'];
-		if(OC_Calendar_Object::getowner($id) !== OCP\USER::getUser()) {
-			// do not show events with private or unknown access class
-			if (isset($vevent->CLASS)
-				&& ($vevent->CLASS->value === 'PRIVATE'
-				|| $vevent->CLASS->value === ''))
-			{
+		try{
+			$object = OC_VObject::parse($event['calendardata']);
+			if(!$object) {
+				\OCP\Util::writeLog('calendar', __METHOD__.' Error parsing event: '.print_r($event, true), \OCP\Util::DEBUG);
+				return array();
+			}
+	
+			$output = array();
+	
+			if($object->name === 'VEVENT') {
+				$vevent = $object;
+			} elseif(isset($object->VEVENT)) {
+				$vevent = $object->VEVENT;
+			} else {
+				\OCP\Util::writeLog('calendar', __METHOD__.' Object contains not event: '.print_r($event, true), \OCP\Util::DEBUG);
 				return $output;
 			}
-			$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
-		}
-		$allday = ($vevent->DTSTART->getDateType() == Sabre\VObject\Property\DateTime::DATE)?true:false;
-		$last_modified = @$vevent->__get('LAST-MODIFIED');
-		$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
-		$staticoutput = array('id'=>(int)$event['id'],
-						'title' => (!is_null($vevent->SUMMARY) && $vevent->SUMMARY->value != '')? strtr($vevent->SUMMARY->value, array('\,' => ',', '\;' => ';')) : self::$l10n->t('unnamed'),
-						'description' => isset($vevent->DESCRIPTION)?strtr($vevent->DESCRIPTION->value, array('\,' => ',', '\;' => ';')):'',
-						'lastmodified'=>$lastmodified,
-						'allDay'=>$allday);
-		if(OC_Calendar_Object::isrepeating($id) && OC_Calendar_Repeat::is_cached_inperiod($event['id'], $start, $end)) {
-			$cachedinperiod = OC_Calendar_Repeat::get_inperiod($id, $start, $end);
-			foreach($cachedinperiod as $cachedevent) {
-				$dynamicoutput = array();
-				if($allday) {
-					$start_dt = new DateTime($cachedevent['startdate'], new DateTimeZone('UTC'));
-					$end_dt = new DateTime($cachedevent['enddate'], new DateTimeZone('UTC'));
-					$dynamicoutput['start'] = $start_dt->format('Y-m-d');
-					$dynamicoutput['end'] = $end_dt->format('Y-m-d');
-				}else{
-					$start_dt = new DateTime($cachedevent['startdate'], new DateTimeZone('UTC'));
-					$end_dt = new DateTime($cachedevent['enddate'], new DateTimeZone('UTC'));
-					$start_dt->setTimezone(new DateTimeZone(self::$tz));
-					$end_dt->setTimezone(new DateTimeZone(self::$tz));
-					$dynamicoutput['start'] = $start_dt->format('Y-m-d H:i:s');
-					$dynamicoutput['end'] = $end_dt->format('Y-m-d H:i:s');
+			$id = $event['id'];
+			if(OC_Calendar_Object::getowner($id) !== OCP\USER::getUser()) {
+				// do not show events with private or unknown access class
+				if (isset($vevent->CLASS)
+					&& ($vevent->CLASS->value === 'PRIVATE'
+					|| $vevent->CLASS->value === ''))
+				{
+					return $output;
 				}
-				$output[] = array_merge($staticoutput, $dynamicoutput);
+				$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
 			}
-		}else{
-			if(OC_Calendar_Object::isrepeating($id) || $event['repeating'] == 1) {
-				$object->expand($start, $end);
-			}
-			foreach($object->getComponents() as $singleevent) {
-				if(!($singleevent instanceof Sabre\VObject\Component\VEvent)) {
-					continue;
+			$allday = ($vevent->DTSTART->getDateType() == Sabre\VObject\Property\DateTime::DATE)?true:false;
+			$last_modified = @$vevent->__get('LAST-MODIFIED');
+			$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
+			$staticoutput = array('id'=>(int)$event['id'],
+							'title' => (!is_null($vevent->SUMMARY) && $vevent->SUMMARY->value != '')? strtr($vevent->SUMMARY->value, array('\,' => ',', '\;' => ';')) : self::$l10n->t('unnamed'),
+							'description' => isset($vevent->DESCRIPTION)?strtr($vevent->DESCRIPTION->value, array('\,' => ',', '\;' => ';')):'',
+							'lastmodified'=>$lastmodified,
+							'allDay'=>$allday);
+			if(OC_Calendar_Object::isrepeating($id) && OC_Calendar_Repeat::is_cached_inperiod($event['id'], $start, $end)) {
+				$cachedinperiod = OC_Calendar_Repeat::get_inperiod($id, $start, $end);
+				foreach($cachedinperiod as $cachedevent) {
+					$dynamicoutput = array();
+					if($allday) {
+						$start_dt = new DateTime($cachedevent['startdate'], new DateTimeZone('UTC'));
+						$end_dt = new DateTime($cachedevent['enddate'], new DateTimeZone('UTC'));
+						$dynamicoutput['start'] = $start_dt->format('Y-m-d');
+						$dynamicoutput['end'] = $end_dt->format('Y-m-d');
+					}else{
+						$start_dt = new DateTime($cachedevent['startdate'], new DateTimeZone('UTC'));
+						$end_dt = new DateTime($cachedevent['enddate'], new DateTimeZone('UTC'));
+						$start_dt->setTimezone(new DateTimeZone(self::$tz));
+						$end_dt->setTimezone(new DateTimeZone(self::$tz));
+						$dynamicoutput['start'] = $start_dt->format('Y-m-d H:i:s');
+						$dynamicoutput['end'] = $end_dt->format('Y-m-d H:i:s');
+					}
+					$output[] = array_merge($staticoutput, $dynamicoutput);
 				}
-				$dynamicoutput = OC_Calendar_Object::generateStartEndDate($singleevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($singleevent), $allday, self::$tz);
-				$output[] = array_merge($staticoutput, $dynamicoutput);
+			}else{
+				if(OC_Calendar_Object::isrepeating($id) || $event['repeating'] == 1) {
+					$object->expand($start, $end);
+				}
+				foreach($object->getComponents() as $singleevent) {
+					if(!($singleevent instanceof Sabre\VObject\Component\VEvent)) {
+						continue;
+					}
+					$dynamicoutput = OC_Calendar_Object::generateStartEndDate($singleevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($singleevent), $allday, self::$tz);
+					$output[] = array_merge($staticoutput, $dynamicoutput);
+				}
 			}
+			\OCP\Util::writeLog('calendar', __METHOD__.' event: '.print_r($event['summary'], true) . ' done', \OCP\Util::DEBUG);
+			return $output;
+		}catch(Exception $e) {
+			$uid = 'unknown';
+			if(isset($event['uri'])){
+				$uid = $event['uri'];
+			}
+			\OCP\Util::writeLog('calendar', 'Event (' . $uid . ') contains invalid data!',\OCP\Util::WARN);
 		}
-		\OCP\Util::writeLog('calendar', __METHOD__.' event: '.print_r($event['summary'], true) . ' done', \OCP\Util::DEBUG);
-		return $output;
 	}
 }

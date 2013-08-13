@@ -342,6 +342,19 @@ $(document).ready(function () {
 		slideshow.children('.play').click(Gallery.slideshow.play);
 		slideshow.click(Gallery.slideshow.next);
 
+		if ($.fn.mousewheel) {
+			slideshow.bind('mousewheel.fb', function(e, delta) {
+					e.preventDefault();
+				if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
+					if (delta > 0) {
+						Gallery.slideshow.previous();
+					} else {
+						Gallery.slideshow.next();
+					}
+				}
+			});
+		}
+		
 		$('button.share').click(Gallery.share);
 	});
 });
