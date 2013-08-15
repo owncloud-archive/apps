@@ -1002,10 +1002,11 @@ OC.Contacts = OC.Contacts || {};
 			self.saveProperty({obj:event.target});
 		});
 
-		this.$fullelem.find('[data-element="bday"]')
-			.find('input').datepicker({
+		var $bdayinput = this.$fullelem.find('[data-element="bday"]').find('input');
+		$bdayinput.datepicker({
 				dateFormat : 'dd-mm-yy'
 		});
+		$bdayinput.attr('placeholder', $.datepicker.formatDate('dd-mm-yy', new Date()));
 		this.$fullelem.find('.favorite').on('click', function () {
 			var state = $(this).hasClass('active');
 			if(!self.data) {
