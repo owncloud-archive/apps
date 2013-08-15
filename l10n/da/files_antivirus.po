@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# claus_chr <claus_chr@webspeed.dk>, 2013
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-31 00:49-0400\n"
-"PO-Revision-Date: 2013-07-30 12:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-15 16:57-0400\n"
+"PO-Revision-Date: 2013-08-14 20:30+0000\n"
+"Last-Translator: claus_chr <claus_chr@webspeed.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,15 +55,15 @@ msgstr "Daemon"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
-msgstr ""
+msgstr "Dæmon (sokkel)"
 
 #: templates/settings.php:7
 msgid "Socket"
-msgstr ""
+msgstr "Sokkel"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr ""
+msgstr "Clamav-sokkel"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
