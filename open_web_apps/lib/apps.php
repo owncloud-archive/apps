@@ -90,7 +90,7 @@ class MyApps {
         return false;
       }
       $manifestPath = 'apps/'.$id.'/manifest.json';
-      MyStorage::store($uid, $manifestPath, 'application/json', json_encode(array(
+      MyStorage::store($uid, $manifestPath, 'application/json', false, json_encode(array(
         'launch_path' => $launchPath,
         'name' => $name,
         'icons' => array(

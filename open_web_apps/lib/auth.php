@@ -12,7 +12,7 @@ class MyAuth {
       $stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*remotestorage_access` (`access_token`, `uid_owner`, `module`, `level`) VALUES (?, ?, ?, ?)' );
       $result = $stmt->execute(array($token, $uid, $module, $level));
     } catch(Exception $e) {
-      var_dump($e);
+      error_log(var_export($e, true));
       OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
       OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
       return false;

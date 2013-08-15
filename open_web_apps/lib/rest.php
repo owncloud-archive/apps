@@ -48,6 +48,15 @@ class MyRest {
   private static function getMimeType($headers) {
     return $headers['Content-Type'];
   }
+  private static function getIfMatch($headers) {
+    if($headers['If-None-Match'] == '*') {
+      return null;
+    } else if($headers['If-Match']) {
+      return $headers['If-Match'];
+    } else {
+      return array();//something that is not null and not a string
+    }
+  }
   private static function isDir($path) {
     return ($path=='' || substr($path, -1) == '/');
   }
@@ -55,16 +64,17 @@ class MyRest {
     if($verb == 'GET') {
       if(self::may((self::isDir($path)?'l':'r'), $uid, $path, $headers)) {
         if(self::isDir($path)) {
-          $obj = array(
-            'timestamp' => 0,
-            'mimeType' => 'application/json',
-            'content' => json_encode(MyStorage::getDir($uid, $path))
-          );
+          $obj = MyStorage::getDir($uid, $path);
         } else {
           $obj = MyStorage::get($uid, $path);
         }
         if($obj['mimeType']) {
-          //todo: check for If-None-Match header
+          $matchers = explode(',', $headers['If-None-Match']);
+          foreach($matchers as $m) {
+            if($m == strval($obj['timestamp'])) {
+//              return array(304, array('ETag' => strval($obj['timestamp'])));
+            }
+          }
           return array(200, array('Content-Type' => $obj['mimeType'], 'ETag' => strval($obj['timestamp'])), $obj['content']);
         } else {
           return array(404, array(), 'Not found');
@@ -78,8 +88,8 @@ class MyRest {
       } else {
         if(self::may('w', $uid, $path, $headers)) {
           //todo: check for If-Match header
-          $timestamp = MyStorage::store($uid, $path, self::getMimeType($headers), $body);
-         return array(200, array('ETag' => strval($timestamp)), '');
+          $res = MyStorage::store($uid, $path, self::getMimeType($headers), self::getIfMatch($headers), $body);
+         return array($res['match']?200:412, array('ETag' => strval($res['timestamp'])), '');
          } else {
           return array(401, array(), 'Computer says no');
         }
@@ -89,10 +99,9 @@ class MyRest {
         return array(401, array(), 'Computer says no');
       } else {
         if(self::may('d', $uid, $path, $headers)) {
-          $timestamp = MyStorage::remove($uid, $path, self::getMimeType($headers));
-          if($timestamp) {
-            //todo: check for If-Match header
-            return array(200, array('ETag' => strval($timestamp)), '');
+          $res = MyStorage::remove($uid, $path, self::getIfMatch($headers));
+          if($res['timestamp']) {
+            return array($res['match']?200:412, array('ETag' => $res['timestamp']), '');
           } else {
             return array(404, array(), 'Not found');
           }

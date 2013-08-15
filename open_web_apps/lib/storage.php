@@ -34,11 +34,13 @@ class MyStorage {
   static function getDir($uid, $path) {
     $view = self::getView($uid);
     $res = array();
+    $timestamp = '0';
 		if($view->file_exists($path)) {
-      $handle=$view->opendir($path);      
+      $timestamp = strval($view->filemtime($path));
+      $handle=$view->opendir($path);
       while (false !== ($entry = readdir($handle))) {
         if($entry==null) {
-          return $res;
+          break;
         }
         if($entry != '.' && $entry != '..') {
           if($view->is_dir($path.$entry)) {
@@ -49,8 +51,12 @@ class MyStorage {
         }
       }
       closedir($handle);
-    }//else, res stays as an empty array
-    return $res;
+    }
+    return array(
+      'timestamp' => $timestamp,
+      'mimeType' => (count($res)?'application/json':null),//null mimetype will trigger 404 response
+      'content' => json_encode($res)
+    );
   }
   
   static function get($uid, $path) {
@@ -73,15 +79,26 @@ class MyStorage {
       return array();
     }
   }
-  static function store($uid, $path, $mimeType, $contents) {
+  static function store($uid, $path, $mimeType, $matchThis, $contents) {
     $view = self::getView($uid);
     $pathParts = explode('/', $path);
     for($i=1; $i<count($pathParts); $i++) {
       $view->mkdir(implode('/', array_slice($pathParts, 0, $i)));
     }
+    if($matchThis===null) {//If-None-Match: *
+      if($view->file_exists($path)) {
+        return array('match'=>false);
+      }
+    } else if($matchThis) {
+      if(!$view->file_exists($path)
+          || $matchThis !== strval($view->filemtime($path))) {
+        return array('match'=>false);
+      }
+    } // else no If-Match or If-None-Match header was sent
+
     $view->file_put_contents($path, $contents);
     @xattr_set(OC_Config::getValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type', $mimeType);
-    return $view->filemtime($path);
+    return array('match' => true, 'timestamp' => $view->filemtime($path));
   }
 
   private static function getContainingDir($path) {
@@ -97,13 +114,15 @@ class MyStorage {
     }
     return substr(implode('/', array_slice($pathParts, 0, count($pathParts)-$chop)).'/', 1);
   }
-  static function remove($uid, $path) {
+  static function remove($uid, $path, $matchThis) {
     $view = self::getView($uid);
-    $stat = $view->stat($path);
-    if(!$stat) {
+    if(!$view->file_exists($path)) {
       return false;
     }
-    $timestamp = $view->filemtime($path);
+    $timestamp = strval($view->filemtime($path));
+    if($matchThis && $matchThis != $timestamp) {
+      return array('match'=>false, 'timestamp'=>$timestamp);
+    }
     $view->unlink($path);
     $path = self::getContainingDir($path);
     while($path != null) {
@@ -115,6 +134,6 @@ class MyStorage {
       }
       $path = self::getContainingDir($path);
     }
-    return $timestamp;
+    return array('match' => true, 'timestamp' => $timestamp);
   }
 }

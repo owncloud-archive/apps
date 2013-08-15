@@ -33,7 +33,7 @@ class Test_RemoteStorage extends UnitTestCase {
 	}
 
 	function testStorage() {
-    $timestamp = MyStorage::store('dummy', 'zapps/todomvc/manifest.json', 'application/json', '{"url":"http://todomvc.michiel.5apps.com"}');
+    $timestamp = MyStorage::store('dummy', 'zapps/todomvc/manifest.json', 'application/json', false, '{"url":"http://todomvc.michiel.5apps.com"}');
     $dirList = MyStorage::getDir('dummy', 'zapps/todomvc/');
     $found = false;
     foreach($dirList as $k=>$v) {
