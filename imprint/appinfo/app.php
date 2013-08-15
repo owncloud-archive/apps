@@ -34,7 +34,7 @@ $l = new OC_L10n('imprint');
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
 // workaround for OC-4.x's chaotoc header layout
-if (5>reset(OCP\Util::getVersion()))
+if (5>@reset(OCP\Util::getVersion()))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 
 // backwards compatibility for OC5's global p() functions
@@ -93,7 +93,7 @@ if( ! \OCP\User::isLoggedIn()) {
 				'id'    => 'imprint',
 				'order' => 99999,
 				'href'  => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon'  => (5<=reset(OCP\Util::getVersion()))
+				'icon'  => (5<=@reset(OCP\Util::getVersion()))
 									? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
 									: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
 				'name'  => $l->t("Legal notice") ) );
