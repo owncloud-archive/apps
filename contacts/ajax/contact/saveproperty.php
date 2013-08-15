@@ -141,7 +141,7 @@ if(in_array($name, $multi_properties)) {
 		$checksum = substr(md5($property->serialize()), 0, 8);
 		try {
 			VCard::edit($id, $vcard);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			bailOut($e->getMessage());
 		}
 		\OCP\JSON::success(array('data' => array(
@@ -164,8 +164,12 @@ if(in_array($name, $multi_properties)) {
 /* preprocessing value */
 switch($element) {
 	case 'BDAY':
-		$date = New \DateTime($value);
-		$value = $date->format('Y-m-d');
+		try {
+			$date = new \DateTime($value);
+			$value = $date->format('Y-m-d');
+		} catch(\Exception $e) {
+			bailOut(App::$l10n->t('Could not parse date: %s', array($value)));
+		}
 		break;
 	case 'FN':
 		if(!$value) {

@@ -370,7 +370,7 @@ OC.Contacts = OC.Contacts || {};
 							break;
 						case 'BDAY':
 							// reverse order again.
-							value = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd-mm-yy', value));
+							value = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate(datepickerFormatDate, value));
 							self.data[element][0] = {
 								name: element,
 								value: value,
@@ -888,7 +888,7 @@ OC.Contacts = OC.Contacts || {};
 				title: this.getPreferredValue('TITLE', ''),
 				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
 				bday: this.getPreferredValue('BDAY', '').length >= 10
-					? $.datepicker.formatDate('dd-mm-yy',
+					? $.datepicker.formatDate(datepickerFormatDate,
 						$.datepicker.parseDate('yy-mm-dd',
 							this.getPreferredValue('BDAY', '').substring(0, 10)))
 					: '',
@@ -1004,9 +1004,9 @@ OC.Contacts = OC.Contacts || {};
 
 		var $bdayinput = this.$fullelem.find('[data-element="bday"]').find('input');
 		$bdayinput.datepicker({
-				dateFormat : 'dd-mm-yy'
+				dateFormat : datepickerFormatDate
 		});
-		$bdayinput.attr('placeholder', $.datepicker.formatDate('dd-mm-yy', new Date()));
+		$bdayinput.attr('placeholder', $.datepicker.formatDate(datepickerFormatDate, new Date()));
 		this.$fullelem.find('.favorite').on('click', function () {
 			var state = $(this).hasClass('active');
 			if(!self.data) {
