@@ -40,7 +40,7 @@ switch ($action){
 		echo json_encode($msg);
 		break;
 	case 'add':
-		$msg = $bagit_manager->addToBag($dir, $file);
+		$msg = $bagit_manager->addToBag($file);
 		print $msg;
 		break;
 	case 'clear':

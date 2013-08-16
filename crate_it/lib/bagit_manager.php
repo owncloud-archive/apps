@@ -99,10 +99,7 @@ class BagItManager{
 		return $cratelist;
 	}
 	
-	public function addToBag($dir, $file) {
-		$input_dir = $this->base_dir.'/files';
-		$data_dir = 'data';
-		$title = '';
+	public function addToBag($file) {
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
@@ -110,7 +107,27 @@ class BagItManager{
 			return "Adding directories not supported yet";
 		}
 		
-		if(basename($dir) === 'Shared'){
+		if (\OC\Files\Filesystem::isReadable($file)) {
+			list($storage) = \OC\Files\Filesystem::resolvePath($file);
+			if ($storage instanceof \OC\Files\Storage\Local) {
+				$full_path = \OC\Files\Filesystem::getLocalFile($file);
+				/*if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
+					$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
+					fwrite($fp, $full_path);
+					fclose($fp);
+				}*/
+			}
+		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
+			header("HTTP/1.0 404 Not Found");
+			$tmpl = new OC_Template('', '404', 'guest');
+			$tmpl->assign('file', $name);
+			$tmpl->printPage();
+		} else {
+			header("HTTP/1.0 403 Forbidden");
+			die('403 Forbidden');
+		}
+		
+		/*if(basename($dir) === 'Shared'){
 			//TODO need to fetch the url from relevant location
 			return "Adding shared files not supported yet";
 		}
@@ -134,13 +151,20 @@ class BagItManager{
 			if(empty($title)){
 				$title = substr($dir, 1).'/'.$file;
 			}
+		}*/
+		
+		$preview_file = "tt.txt";
+		$title = $this->getTitle($preview_file);
+		if(empty($title)){
+			$title = $file;
 		}
 		
-		$id = hash('sha256', $relative_path);
+		//$id = hash('sha256', $full_path);
+		$id = md5($full_path);
 		if(filesize($this->manifest) == 0) {
 			$fp = fopen($this->manifest, 'w');
 			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
-					'filename' => $input_dir.$file)));
+					'filename' => $full_path)));
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
@@ -153,7 +177,7 @@ class BagItManager{
 				}
 			}
 			array_push($elements, array('id' => $id, 'title' => $title,
-							'filename' => $input_dir.$file));
+							'filename' => $full_path));
 			$fp = fopen($this->manifest, 'w');
 			fwrite($fp, json_encode($contents));
 			fclose($fp);
@@ -239,15 +263,15 @@ class BagItManager{
 				
 			//get html files from the fascinator - do a solr search get storage id
 			//Save them to a tmp folder
-			if($source_dir === $path_parts['dirname']) {
+			/*if($source_dir === $path_parts['dirname']) {
 				$query = 'full_path:"/data/'.$this->user.'/files/'.$path_parts['basename'] .'"';
 			}
 			else {
 				$s = substr($path_parts['dirname'], strlen($source_dir));
 				$query = 'full_path:"/data/'.$this->user.'/files'. $s.'/'.$path_parts['basename'] .'"';
-			}
+			}*/
 			
-			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId($query);
+			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
 			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
 			
