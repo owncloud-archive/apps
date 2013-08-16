@@ -18,24 +18,27 @@ else {
 	echo "No configuration file";
 	return;
 }
-if (\OC\Files\Filesystem::isReadable($filename)) {
-	list($storage) = \OC\Files\Filesystem::resolvePath($filename);
-	if ($storage instanceof \OC\Files\Storage\Local) {
-		$full_path = \OC\Files\Filesystem::getLocalFile($filename);
-		if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
-			$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
-			fwrite($fp, $full_path);
-			fclose($fp);
+
+if(empty($sid)){
+	if (\OC\Files\Filesystem::isReadable($filename)) {
+		list($storage) = \OC\Files\Filesystem::resolvePath($filename);
+		if ($storage instanceof \OC\Files\Storage\Local) {
+			$full_path = \OC\Files\Filesystem::getLocalFile($filename);
+			if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
+				$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
+				fwrite($fp, $full_path);
+				fclose($fp);
+			}
 		}
+	} elseif (!\OC\Files\Filesystem::file_exists($filename)) {
+		header("HTTP/1.0 404 Not Found");
+		$tmpl = new OC_Template('', '404', 'guest');
+		$tmpl->assign('file', $name);
+		$tmpl->printPage();
+	} else {
+		header("HTTP/1.0 403 Forbidden");
+		die('403 Forbidden');
 	}
-} elseif (!\OC\Files\Filesystem::file_exists($filename)) {
-	header("HTTP/1.0 404 Not Found");
-	$tmpl = new OC_Template('', '404', 'guest');
-	$tmpl->assign('file', $name);
-	$tmpl->printPage();
-} else {
-	header("HTTP/1.0 403 Forbidden");
-	die('403 Forbidden');
 }
 
 $path_parts = pathinfo($filename);
