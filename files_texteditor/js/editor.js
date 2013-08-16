@@ -61,9 +61,9 @@ function setSyntaxMode(ext) {
 
 function showControls(dir, filename, writeable) {
 	// Loads the control bar at the top.
-	OC.Breadcrumb.show(dir, filename, '#');
+	OC.Breadcrumb._show($('#editor_container #controls'), dir, filename, '#');
 	// Load the new toolbar.
-	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
+	var editorbarhtml = '<div id="editorcontrols">';
 	if (writeable) {
 		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
 	}
@@ -72,16 +72,24 @@ function showControls(dir, filename, writeable) {
 	editorbarhtml += '<div class="separator"></div><button id="editor_close">';
 	editorbarhtml += t('files_texteditor', 'Close') + '</button></div>';
 
-	$('#controls').append(editorbarhtml);
-	$('#editorcontrols').show();
+	$('#editor_container #controls').append(editorbarhtml);
 }
 
 function bindControlEvents() {
-	$('#content').on('click', '#editor_save', doFileSave);
-	$('#content').on('click', '#editor_close', hideFileEditor);
-	$('#content').on('keyup', '#editorsearchval', doSearch);
-	$('#content').on('click', '#clearsearchbtn', resetSearch);
-	$('#content').on('click', '#nextsearchbtn', nextSearchResult);
+	$('#editor_container').on('click', '#editor_save', doFileSave);
+	$('#editor_container').on('click', '#editor_close', hideFileEditor);
+	$('#editor_container').on('keyup', '#editorsearchval', doSearch);
+	
+	$('#editor_container').on('click', '#clearsearchbtn', resetSearch);
+	$('#editor_container').on('click', '#nextsearchbtn', nextSearchResult);
+	
+	//close slideshow on esc
+	$(document).keyup(function (e) {
+		if (e.keyCode === 27) { // esc
+			hideFileEditor();
+		}
+	});
+	
 }
 
 // returns true or false if the editor is in view or not
@@ -169,7 +177,7 @@ function doFileSave() {
 					}
 					// Update titles
 					$('#editor').attr('data-edited', 'false');
-					$('.crumb.last').text($('#editor').attr('data-filename'));
+					$('#editor_container #controls .crumb.last').text($('#editor').attr('data-filename'));
 					document.title = $('#editor').attr('data-filename') + ' - ownCloud';
 				}
 			}, 'json');
@@ -196,18 +204,16 @@ function showFileEditor(dir, filename) {
 			if ($('#notification').data('reopeneditor')) {
 				OC.Notification.hide();
 			}
-			$('#editor').remove();
-			// Loads the file editor and display it.
-			$('#content').append('<div id="editor_container"><div id="editor"></div></div>');
+			$('#editor_container').remove();
 			var data = $.getJSON(
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
 				function (result) {
 					if (result.status === 'success') {
+						// Loads the file editor and display it.
+						$('body').append('<div id="editor_container"><div id="controls"></div><div id="editor"></div></div>');
 						// Save mtime
 						$('#editor').attr('data-mtime', result.data.mtime);
-						// Initialise the editor
-						$('.actions,#file_action_panel,#content table').hide();
 						// Show the control bar
 						showControls(dir, filename, result.data.writeable);
 						// Update document title
@@ -234,7 +240,8 @@ function showFileEditor(dir, filename) {
 						window.aceEditor.getSession().on('change', function () {
 							if ($('#editor').attr('data-edited') != 'true') {
 								$('#editor').attr('data-edited', 'true');
-								$('.crumb.last').text($('.crumb.last').text() + ' *');
+								var leaf = $('#editor_container #controls .crumb.last');
+								leaf.text(leaf.text() + ' *');
 								document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 							}
 						});
@@ -250,15 +257,20 @@ function showFileEditor(dir, filename) {
 								doFileSave();
 							}
 						});
+						bindControlEvents();
 						giveEditorFocus();
 					} else {
 						// Failed to get the file.
 						OC.dialogs.alert(result.data.message, t('files_texteditor', 'An error occurred!'));
+						is_editor_shown = false;
 					}
 					// End success
 				}
 				// End ajax
-			);
+			).fail(function(jqXHR, textStatus, errorThrown){
+					OC.dialogs.alert(textStatus, t('files_texteditor', 'An error occurred!'));
+					is_editor_shown = false;
+				});
 			return data;
 		}
 	}
@@ -266,37 +278,25 @@ function showFileEditor(dir, filename) {
 
 // Fades out the editor.
 function hideFileEditor() {
-	OC.Breadcrumb.show($('#dir').val());
-	if ($('#editor_container').attr('data-edited') == 'true') {
+	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
-		$('#editorcontrols,#editor_container').hide();
-		// Fade out editor
-		// Reset document title
-		document.title = $('body').attr('old_title');
-		$('.actions,#file_access_panel').show();
-		$('#content table').show();
+		$(' #editor_container').hide();
+		// show undo
 		OC.Notification.show(t('files_texteditor', 'There were unsaved changes, click here to go back'));
 		$('#notification').data('reopeneditor', true);
-		is_editor_shown = false;
 	} else {
 		// Fade out editor
-		$('#editor_container, #editorcontrols').remove();
-		// Reset document title
-		document.title = $('body').attr('old_title');
-		$('.actions,#file_access_panel').show();
-		$('#content table').show();
-		is_editor_shown = false;
+		$('#editor_container').remove();
 	}
+
+	// Reset document title
+	document.title = $('body').attr('old_title');
+	is_editor_shown = false;
 }
 
 // Reopens the last document
 function reopenEditor() {
-	$('.actions,#file_action_panel').hide();
-	$('#content table').hide();
-	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
-	$('#editorcontrols').show();
-	OC.Breadcrumb.show($('#editor').attr('data-dir'), $('#editor').attr('data-filename') + ' *', '#');
 	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 	is_editor_shown = true;
 	giveEditorFocus();
@@ -348,8 +348,7 @@ $(document).ready(function () {
 			showFileEditor(dir, file);
 		});
 	};
-	// Binds the file save and close editor events, and gotoline button
-	bindControlEvents();
+	
 	$('#editor_container').remove();
 	$('#notification').click(function () {
 		if ($('#notification').data('reopeneditor')) {
