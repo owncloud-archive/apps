@@ -274,6 +274,7 @@ class BagItManager{
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
 			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
+			$url = str_replace(' ', '%20', $url);
 			
 			//Download file
 			$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
