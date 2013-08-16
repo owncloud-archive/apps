@@ -49,7 +49,7 @@ function setSyntaxMode(ext) {
 	filetype["textile"] = "textile"; // related to markdown
 	filetype["xml"] = "xml";
 
-	if (filetype[ext] != null) {
+	if (filetype[ext]) {
 		// Then it must be in the array, so load the custom syntax mode
 		// Set the syntax mode
 		OC.addScript('files_texteditor', 'aceeditor/mode-' + filetype[ext], function () {
@@ -104,7 +104,7 @@ function nextSearchResult() {
 // Performs the initial search
 function doSearch() {
 	// check if search box empty?
-	if ($('#editorsearchval').val() == '') {
+	if ($('#editorsearchval').val() === '') {
 		// Hide clear button
 		window.aceEditor.gotoLine(0);
 		$('#nextsearchbtn').remove();
@@ -123,7 +123,7 @@ function doSearch() {
 		});
 		// Show next and clear buttons
 		// check if already there
-		if ($('#nextsearchbtn').length == 0) {
+		if ($('#nextsearchbtn').length === 0) {
 			var nextbtnhtml = '<button id="nextsearchbtn">' + t('files_texteditor', 'Next') + '</button>';
 			var clearbtnhtml = '<button id="clearsearchbtn">' + t('files_texteditor', 'Clear') + '</button>';
 			$('#editorsearchval').after(nextbtnhtml).after(clearbtnhtml);
@@ -135,7 +135,7 @@ function doSearch() {
 function doFileSave() {
 	if (editorIsShown()) {
 		// Changed contents?
-		if ($('#editor').attr('data-edited') == 'true') {
+		if ($('#editor').attr('data-edited') === 'true') {
 			// Get file path
 			var path = $('#editor').attr('data-dir') + '/' + $('#editor').attr('data-filename');
 			// Get original mtime
@@ -148,7 +148,7 @@ function doFileSave() {
 			var filecontents = window.aceEditor.getSession().getValue();
 			// Send the data
 			$.post(OC.filePath('files_texteditor', 'ajax', 'savefile.php'), { filecontents: filecontents, path: path, mtime: mtime }, function (jsondata) {
-				if (jsondata.status != 'success') {
+				if (jsondata.status !== 'success') {
 					// Save failed
 					$('#editor_save').text(t('files_texteditor', 'Save'));
 					$('#notification').html(t('files_texteditor', 'Failed to save file'));
@@ -186,7 +186,7 @@ function giveEditorFocus() {
 // Loads the file editor. Accepts two parameters, dir and filename.
 function showFileEditor(dir, filename) {
 	// Check if unsupported file format
-	if(FileActions.getCurrentMimeType() == 'text/rtf') {
+	if(FileActions.getCurrentMimeType() === 'text/rtf') {
 		// Download the file instead.
 		window.location = OC.filePath('files', 'ajax', 'download.php') + '?files=' + encodeURIComponent(filename) + '&dir=' + encodeURIComponent($('#dir').val());
 	} else {
@@ -203,7 +203,7 @@ function showFileEditor(dir, filename) {
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
 				function (result) {
-					if (result.status == 'success') {
+					if (result.status === 'success') {
 						// Save mtime
 						$('#editor').attr('data-mtime', result.data.mtime);
 						// Initialise the editor
