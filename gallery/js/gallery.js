@@ -295,12 +295,14 @@ $(document).ready(function () {
 		event.preventDefault();
 		if (location.hash != image) {
 			location.hash = image;
+			Thumbnail.paused = true;
 			Slideshow.start(images, i, {play: Slideshow.playPause.playing});
 		}
 	});
 
 	jQuery.fn.slideShow.onstop = function () {
 		$('#content').show();
+		Thumbnail.paused = false;
 		$(window).scrollTop(Gallery.scrollLocation);
 		location.hash = Gallery.currentAlbum;
 		Thumbnail.concurrent = 3;
