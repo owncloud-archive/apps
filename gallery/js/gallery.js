@@ -265,11 +265,11 @@ Gallery.view.showUsers = function () {
 	var i, j, user, head, subAlbums, album;
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
-		head = $('<h2/>');
-		head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
-		$('#gallery').append(head);
 		subAlbums = Gallery.subAlbums[user];
-		if (subAlbums) {
+		if (subAlbums.length > 0) {
+			head = $('<h2/>');
+			head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
+			$('#gallery').append(head);
 			for (j = 0; j < subAlbums.length; j++) {
 				album = subAlbums[j];
 				album = Gallery.subAlbums[album][0];//first level sub albums is share source id

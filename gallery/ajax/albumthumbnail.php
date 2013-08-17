@@ -20,7 +20,7 @@ if ($owner !== OCP\User::getUser()) {
 		$shareId = $parts[0];
 		$img = '';
 	}
-	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
+	if (OCP\Share::getItemSharedWith('file', $shareId)) {
 		$ownerView = new \OC\Files\View('/' . $owner . '/files');
 		$sharedGallery = $ownerView->getPath($shareId);
 		if ($img) {
