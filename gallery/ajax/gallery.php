@@ -17,7 +17,7 @@ $ownerView = new \OC\Files\View('/' . $owner . '/files');
 if ($owner !== OCP\User::getUser()) {
 	\OC\Files\Filesystem::initMountPoints($owner);
 	list($shareId, , $gallery) = explode('/', $gallery, 3);
-	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
+	if (OCP\Share::getItemSharedWith('file', $shareId)) {
 		$sharedGallery = $ownerView->getPath($shareId);
 		if ($gallery) {
 			$gallery = $sharedGallery . '/' . $gallery;
