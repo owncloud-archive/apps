@@ -32,19 +32,19 @@ OC::$CLASSPATH['OCA\Search_Lucene\Lucene'] = 'search_lucene/lib/lucene.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Indexer'] = 'search_lucene/lib/indexer.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Hooks'] = 'search_lucene/lib/hooks.php';
 
-OC::$CLASSPATH['Zend_Search_Lucene'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Index_Term'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Index/Term.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Search_Query_Term'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Search/Query/Term.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Field'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Field.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Document'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Document.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Document_Html'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Document/Html.php';
-OC::$CLASSPATH['Zend_Search_Lucene_Analysis_Analyzer'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Analysis/Analyzer.php';
+OC::$CLASSPATH['Zend_Search_Lucene'] = 'search_lucene/3rdparty/Zend/Search/Lucene.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Index_Term'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Index/Term.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Search_Query_Term'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Search/Query/Term.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Field'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Field.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Document'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Document_Html'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document/Html.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Analysis_Analyzer'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Analysis/Analyzer.php';
 
 OC::$CLASSPATH['getID3'] = 'getid3/getid3.php';
 
-OC::$CLASSPATH['App_Search_Helper_PdfParser'] = 'apps/search_lucene/3rdparty/pdf2text.php';
+OC::$CLASSPATH['App_Search_Helper_PdfParser'] = 'search_lucene/3rdparty/pdf2text.php';
 
-OC::$CLASSPATH['Zend_Pdf'] = 'apps/search_lucene/3rdparty/Zend/Pdf.php';
+OC::$CLASSPATH['Zend_Pdf'] = 'search_lucene/3rdparty/Zend/Pdf.php';
 
 // --- always add js & css -----------------------------------------------
 
