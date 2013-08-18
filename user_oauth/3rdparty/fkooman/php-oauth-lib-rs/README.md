@@ -11,12 +11,13 @@ Licensed under the Apache License, Version 2.0;
    http://www.apache.org/licenses/LICENSE-2.0
 
 # API
-Using the library is straightforward:
+Using the library is straightforward, you can install it in your project using
+[Composer](http://www.getcomposer.org).
 
     <?php
-    require_once 'lib/OAuth/RemoteResourceServer.php';
+    require_once 'vendor/autoload.php';
 
-    use \OAuth\RemoteResourceServer as RemoteResourceServer;
+    use fkooman\oauth\rs\RemoteResourceServer;
 
     $config = array(
         "introspectionEndpoint" => "http://localhost/php-oauth/introspect.php",
@@ -100,10 +101,10 @@ a `JSON` formatted response you can send back to the client, this is OPTIONAL.
 Here is an example on how to use this library with your own exception handling:
 
     <?php
-    require_once 'lib/OAuth/RemoteResourceServer.php';
+    require_once 'vendor/autoload.php';
 
-    use \OAuth\RemoteResourceServer as RemoteResourceServer;
-    use \OAuth\RemoteResourceServerException as RemoteResourceServerException;
+    use fkooman\oauth\rs\RemoteResourceServer;
+    use fkooman\oauth\rs\RemoteResourceServerException;
 
     $config = array(
         "introspectionEndpoint" => "http://localhost/php-oauth/introspect.php",

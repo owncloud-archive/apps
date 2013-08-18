@@ -28,7 +28,7 @@ OC_App::loadApps($RUNTIME_APPTYPES);
 
 $introspectionEndpoint = \OCP\Config::getSystemValue( "introspectionEndpoint", "https://frko.surfnetlabs.nl/workshop/php-oauth/introspect.php" );
 
-require_once 'oauth.php';
+require_once '3rdparty/autoload.php';
 
 // Backends
 $authBackend = new OC_Connector_Sabre_OAuth($introspectionEndpoint);

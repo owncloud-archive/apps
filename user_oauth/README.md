@@ -13,15 +13,16 @@ Install this code in the directory `user_oauth` in the `apps` directory of your
 ownCloud installation.
 
 This module needs an external library to verify the OAuth tokens at the OAuth 
-authorization server. A script can be used to install this dependency, by 
-default is in included in the `3rdparty` directory. So you only need this if 
-you want to download the library again or update it.
+authorization server. [Composer](http://www.getcomposer.org) can be used to 
+install this dependency, by default is in included in the `3rdparty` directory. 
+So you only need this if you want to download the library again or update it.
 
     $ cd /path/to/owncloud/apps/user_oauth
-    $ cd 3rdparty
-    $ sh fetch_3rdparty_libs.sh
+    $ php composer.phar install
 
-You need Git installed on your server to fetch the 3rd party dependency.
+Or to update:
+
+    $ php composer.phar update
 
 You can enable the `user_oauth` app after login with the `admin` account. Go to 
 `Settings`, then `Apps` and finally select the `OAuth` module from the list of 

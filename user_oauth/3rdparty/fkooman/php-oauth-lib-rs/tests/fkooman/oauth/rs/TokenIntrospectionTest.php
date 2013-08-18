@@ -15,14 +15,13 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . "lib" . DIRECTORY_SEPARATOR . "OAuth" . DIRECTORY_SEPARATOR . "RemoteResourceServer.php";
+require_once 'vendor/autoload.php';
 
-use \OAuth\TokenIntrospection as TokenIntrospection;
-use \OAuth\RemoteResourceServerException as RemoteResourceServerException;
+use fkooman\oauth\rs\TokenIntrospection;
+use fkooman\oauth\rs\RemoteResourceServerException;
 
 class TokenIntrospectionTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @dataProvider validTokenProvider
      */

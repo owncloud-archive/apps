@@ -1,7 +1,7 @@
 {
     "active": true, 
     "client_id": "html-manage-authorizations", 
-    "exp": 2366844432, 
+    "exp": 1766844432, 
     "iat": 1366815632, 
     "scope": "authorizations", 
     "sub": "48a5788a56b3dc9035e981aa9c8924360c1906e4", 

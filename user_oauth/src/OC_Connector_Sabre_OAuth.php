@@ -1,9 +1,7 @@
 <?php
 
-require_once '3rdparty/php-oauth-lib-rs/lib/OAuth/RemoteResourceServer.php';
-
-use \OAuth\RemoteResourceServer as RemoteResourceServer;
-use \OAuth\RemoteResourceServerException as RemoteResourceServerException;
+use fkooman\oauth\rs\RemoteResourceServer;
+use fkooman\oauth\rs\RemoteResourceServerException;
 
 class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend
 {
