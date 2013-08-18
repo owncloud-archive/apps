@@ -258,7 +258,6 @@ OC.Contacts = OC.Contacts || {
 			self.$importFileInput.prop('disabled', true);
 		}
 	},
-
 	doImport: function(response) {
 		console.log('doImport', response);
 		var done = false, isChecking = false;
@@ -505,8 +504,32 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.openurl', function(e, data) {
-			console.log('request.openurl');
+			console.log('request.openurl', data);
 			switch(data.type) {
+				case 'adr':
+					var address = data.url;
+					// FIXME: I suck at regexp. /Tanghus
+					var adrstr = '';
+					if(address[2].trim() != '') {
+						adrstr += address[2].trim() + ',';
+					}
+					if(address[3].trim() != '') {
+						adrstr += address[3].trim() + ',';
+					}
+					if(address[4].trim() != '') {
+						adrstr += address[4].trim() + ',';
+					}
+					if(address[5].trim() != '') {
+						adrstr += address[5].trim() + ',';
+					}
+					if(address[6].trim() != '') {
+						adrstr += address[6].trim();
+					}
+					adrstr = encodeURIComponent(adrstr);
+					var uri = 'http://open.mapquest.com/?q=' + adrstr;
+					var newWindow = window.open(uri, '_blank');
+					newWindow.focus();
+					break;
 				case 'url':
 					var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-\/]))?/;
 					//if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(data.url)) {
