@@ -218,9 +218,10 @@ if(!$value) {
 		case 'ADR':
 		case 'N':
 			if(is_array($value)) {
-			$property->setParts($value);
+				debug('Saving array N ' . print_r($value, true));
+				$property->setParts($value);
 			} else {
-				debug('Saving N ' . $value);
+				debug('Saving string N ' . $value);
 				$vcard->N = $value;
 			}
 			break;
