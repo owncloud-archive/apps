@@ -21,7 +21,7 @@ foreach ($images as &$image) {
 }
 
 $shared = array();
-$sharedSources = OCP\Share::getItemsSharedWith('gallery');
+$sharedSources = OCP\Share::getItemsSharedWith('file');
 $users = array();
 foreach ($sharedSources as $sharedSource) {
 	$owner = $sharedSource['uid_owner'];
@@ -36,7 +36,7 @@ foreach ($sharedSources as $sharedSource) {
 		$shareView = new \OC\Files\View('/' . $owner . '/files' . $path);
 		$sharedImages = $shareView->searchByMime('image');
 		foreach ($sharedImages as $sharedImage) {
-			$sharedImage['path'] = $owner . '/' . $sharedSource['item_source'] . '/' . $shareName . $sharedImage['path'];
+			$sharedImage['path'] = $owner . $sharedSource['file_target'] . '/' . $shareName . $sharedImage['path'];
 			$images[] = $sharedImage;
 		}
 	}

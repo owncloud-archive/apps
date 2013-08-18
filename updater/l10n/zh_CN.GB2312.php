@@ -1,5 +1,25 @@
 <?php $TRANSLATIONS = array(
+"Checking your installation..." => "正在检查你的安装...",
+"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "无法进行升级。请确认你的服务器拥有对以下目录进行写入的权限:",
+"Version not found" => "找不到版本号",
+"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "无法进行升级。你的服务器没有足够的权限移除以下目录:",
+"Update permissions on this directory and its content or remove it manually first." => "更改这个文件夹以及它的子文件夹的权限或先手动移除它。",
+"Downloading package..." => "下载文件包中...",
+"Unable to fetch package" => "无法获取文件包",
+"Creating backup..." => "创建备份",
+"Here is your backup: " => "这是你的备份:",
+"Failed to create backup" => "备份创建失败",
+"Moving files..." => "正在移动文件...",
+"All done. Click to the link below to start database upgrade." => "完成。点击下面的链接开始升级数据库。",
+"Update failed" => "升级失败",
+"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "升级不成功。 请将这个问题报告到 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud 讨论区</a>.",
+"Update Center" => "升级中心",
+"Backup Management" => "备份管理",
 "Update" => "更新",
+"Backup directory" => "备份目录",
+"Backup" => "备份",
+"Done on" => "完成",
 "Download" => "下载",
-"Delete" => "删除"
+"Delete" => "删除",
+"No backups found" => "找不到任何备份"
 );

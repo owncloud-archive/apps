@@ -13,20 +13,7 @@ session_write_close();
 list($owner, $img) = explode('/', $_GET['file'], 2);
 $square = isset($_GET['square']) ? (bool)$_GET['square'] : false;
 if ($owner !== OCP\User::getUser()) {
-	\OC\Files\Filesystem::initMountPoints($owner);
-	list($shareId, , $img) = explode('/', $img, 3);
-	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
-		$ownerView = new \OC\Files\View('/' . $owner . '/files');
-		$sharedGallery = $ownerView->getPath($shareId);
-		if ($img) {
-			$img = $sharedGallery . '/' . $img;
-		} else {
-			$img = $sharedGallery;
-		}
-	} else {
-		OCP\JSON::error('no such file');
-		die();
-	}
+	list(, $img) = explode('/', $img, 2);
 }
 
 $image = new \OCA\Gallery\Thumbnail('/' . $img, $owner, $square);

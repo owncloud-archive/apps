@@ -34,7 +34,7 @@ $l = new OC_L10n('imprint');
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
 // workaround for OC-4.x's chaotoc header layout
-if (5>intval(substr(OCP\Util::getVersionString(),0,1)))
+if (5>@reset(OCP\Util::getVersion()))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 
 // backwards compatibility for OC5's global p() functions
@@ -90,13 +90,13 @@ if( ! \OCP\User::isLoggedIn()) {
 		case 'standalone':
 			// no js required, we add the imprint as a normal app to the navigation
 			OCP\App::addNavigationEntry ( array (
-				'id' => 'imprint',
+				'id'    => 'imprint',
 				'order' => 99999,
-				'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon' => (5<=intval(substr(OCP\Util::getVersionString(),0,1)))
-							? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
-							: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
-				'name' => $l->t("Legal notice") ) );
+				'href'  => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+				'icon'  => (5<=@reset(OCP\Util::getVersion()))
+									? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
+									: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
+				'name'  => $l->t("Legal notice") ) );
 	} // switch
 } // if logged in
 ?>

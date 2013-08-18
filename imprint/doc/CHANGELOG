@@ -22,8 +22,11 @@
 *****
 
 Changelog: 
+* Tue Aug 13 2013 Christian Reiner: version 0.1.15
+Fixed a hard crash introduced by someones well meant contribution some weeks ago.
+The faulty code got released by accident and is fixed now in this version.
 * Mon Jul 15 2013 Christian Reiner: version 0.1.14
-Small performance fix by preventing double evalutation of content. 
+Small performance fix by preventing double evalutation of content.
 * Fri Jul 05 2013 Christian Reiner: version 0.1.13
 Separat setting to place link during anonymous access (login).
 * Sun Apr 07 2013 Christian Reiner: version 0.1.12

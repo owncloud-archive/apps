@@ -53,7 +53,7 @@ class Backup {
 	public static function getPath() {
 		if (!self::$path) {
 			$backupBase = App::getBackupBase();
-			$currentVersion = \OC_Config::getValue('version', '0.0.0');
+			$currentVersion = \OCP\Config::getSystemValue('version', '0.0.0');
 			$path = $backupBase . $currentVersion . '-';
 
 			do {
