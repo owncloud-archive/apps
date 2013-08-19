@@ -260,6 +260,9 @@ Slideshow._getSlideshowTemplate = function () {
 };
 
 $(document).ready(function () {
+	if ($('#body-login').length > 0) {
+		return true; //deactivate slideshow on login page
+	}
 
 	//close slideshow on esc
 	$(document).keyup(function (e) {
