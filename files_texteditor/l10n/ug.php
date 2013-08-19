@@ -4,5 +4,8 @@
 "Close" => "ياپ",
 "Next" => "كېيىنكى",
 "Clear" => "تازىلا",
-"Saving..." => "ساقلاۋاتىدۇ…"
+"Saving..." => "ساقلاۋاتىدۇ…",
+"Failed to save file" => "ھۆججەتنى ساقلىيالمىدى",
+"An error occurred!" => "خاتالىق كۆرۈلدى!",
+"There were unsaved changes, click here to go back" => "ساقلانمىغان ئۆزگىرىشلەر بار، چېكىلسە قايتىدۇ"
 );

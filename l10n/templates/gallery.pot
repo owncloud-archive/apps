@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-08-15 16:57-0400\n"
+"POT-Creation-Date: 2013-08-19 13:05-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:269
+#: js/gallery.js:271
 msgid "Shared by"
 msgstr ""
 
-#: js/slideshow.js:306
+#: js/slideshow.js:309
 msgid "Error loading slideshow template"
 msgstr ""
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr ""
 
