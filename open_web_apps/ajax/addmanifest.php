@@ -23,11 +23,11 @@ function fetchManifest($url) {
   curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
   curl_setopt($curl, CURLOPT_URL, $url);
   curl_setopt($curl, CURLOPT_USERAGENT, "ownCloud Server Crawler");
-  if(OC_Config::getValue('proxy','')<>'') {
-    curl_setopt($curl, CURLOPT_PROXY, OC_Config::getValue('proxy'));
+  if(OCP\Config::getSystemValue('proxy','')<>'') {
+    curl_setopt($curl, CURLOPT_PROXY, OCP\Config::getSystemValue('proxy'));
   }
-  if(OC_Config::getValue('proxyuserpwd','')<>'') {
-    curl_setopt($curl, CURLOPT_PROXYUSERPWD, OC_Config::getValue('proxyuserpwd'));
+  if(OCP\Config::getSystemValue('proxyuserpwd','')<>'') {
+    curl_setopt($curl, CURLOPT_PROXYUSERPWD, OCP\Config::getSystemValue('proxyuserpwd'));
   }
   $str = curl_exec($curl);
   curl_close($curl);

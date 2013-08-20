@@ -16,6 +16,7 @@ These instructions assume standard install with apache2 on a debian-like system.
 * copy the 'webfinger' file to /var/www/.well-known/webfinger, changing:
   * 'https://example.com' to the domain you run owncloud on
   * 'https://example.com:8012' to your storage origin
+* note that this will only enable remoteStorage for the user called 'admin'! if you want it to work for other users on the same installation, you will need to create a dynamic webfinger file, that replaces the word 'admin' in that static file, to whatever was requested in the "?resource=acct:user@host" query. See http://tools.ietf.org/html/draft-ietf-appsawg-webfinger-14 for more info about serving webfinger records.
 * assuming there are no files other than 'webfinger' in that directory, then in /etc/apache2/sites-enabled/default-ssl, add:
 
 ````

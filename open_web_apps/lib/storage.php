@@ -64,7 +64,7 @@ class MyStorage {
 		if($view->file_exists($path)) {
       $contents = $view->file_get_contents($path);
       try {
-        $mimeType = xattr_get(OC_Config::getValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type');
+        $mimeType = @xattr_get(OCP\Config::getSystemValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type');
       } catch(Exception $e) {
       }
       if(!$mimeType) {
@@ -97,7 +97,7 @@ class MyStorage {
     } // else no If-Match or If-None-Match header was sent
 
     $view->file_put_contents($path, $contents);
-    @xattr_set(OC_Config::getValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type', $mimeType);
+    @xattr_set(OCP\Config::getSystemValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type', $mimeType);
     return array('match' => true, 'timestamp' => $view->filemtime($path));
   }
 
