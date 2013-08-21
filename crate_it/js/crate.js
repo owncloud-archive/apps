@@ -101,6 +101,7 @@ $(document).ready(function() {
 		var id = $(this).find(':selected').attr("id");
 		if(id === "choose"){
 			$('#crateList').empty();
+			$('#crateName').text("");
 			return;
 		}
 		$.ajax({
@@ -115,6 +116,7 @@ $(document).ready(function() {
 					data: {'action': 'get_items'},
 					success: function(data){
 						$('#crateList').empty();
+						$('#crateName').text(id);
 						if(data != null){
 							var items = [];
 							$.each(data, function(key, value){

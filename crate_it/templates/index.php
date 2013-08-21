@@ -1,5 +1,5 @@
 <div>
-	<span style="font-weight:bold;font-size:large; padding:20px;">Items</span>
+	<span id="crateName" style="font-weight:bold;font-size:large; padding:20px;"><?php echo $_['selected_crate'] ?></span>
 </div>
 
 <div style="padding-left:20px;">
