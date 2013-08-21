@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-31 00:49-0400\n"
-"PO-Revision-Date: 2013-07-30 12:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-21 06:08-0400\n"
+"PO-Revision-Date: 2013-08-20 19:10+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "Dokument bol zdieľaný"
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr "Používateľ %s s Vami zdieľa dokument %s."
+msgstr "Používateľ %s s vami zdieľa dokument %s."
 
 #: appinfo/app.php:99
 msgid "My pad"
@@ -51,7 +51,7 @@ msgstr "Zdieľať s"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr "Zdieľaj"
+msgstr "Zdieľať"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
@@ -59,7 +59,7 @@ msgstr "URL služby Etherpad"
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr "Prihlasovacie meno"
+msgstr "Používateľské meno"
 
 #: templates/settings.php:28
 msgid "Save"

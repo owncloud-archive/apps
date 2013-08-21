@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-09 05:57-0400\n"
-"PO-Revision-Date: 2013-08-07 12:21+0000\n"
+"POT-Creation-Date: 2013-08-21 06:08-0400\n"
+"PO-Revision-Date: 2013-08-19 18:22+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgid ""
 "community</a>."
 msgstr "Η ενημέρωση απέτυχε. Παρακαλώ αφήστε αναφορά στην <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">κοινότητα ownCloud</a>."
 
-#: templates/admin.php:20
+#: templates/admin.php:18
 msgid "Update Center"
 msgstr "Κέντρο Ενημερώσεων"
 
@@ -94,7 +94,7 @@ msgstr "Κέντρο Ενημερώσεων"
 msgid "Backup Management"
 msgstr "Διαχείριση αντιγράφων ασφαλείας"
 
-#: templates/update.php:19 templates/update.php:45
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Ενημέρωση"
 
