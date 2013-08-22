@@ -227,6 +227,12 @@ class BagItManager{
 		$this->bag->update();
 	}
 	
+	public function renameCrate($new_name){
+		rename($this->crate_dir, $this->crate_root.'/'.$new_name);
+		$this->switchCrate($new_name);
+		return true;
+	}
+	
 	//TODO
 	public function editTitle($id, $newvalue){
 		//edit title here

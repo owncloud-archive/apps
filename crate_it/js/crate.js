@@ -96,6 +96,27 @@ $(document).ready(function() {
 		}
 	});*/
 	
+	$('#crateName').bind('dblclick', function() {
+        $(this).prop('contentEditable', true);
+    }).blur(
+        function() {
+            $(this).prop('contentEditable', false);
+            
+            //change the name of the option
+            $('#crates').find(':selected').text($('#crateName').text());
+            $.ajax({
+    			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate&new_name='+$('#crateName').text(),
+    			type: 'get',
+    			dataType: 'html',
+    			success: function(data){
+    				//alert("success");
+    			},
+    			error: function(data){
+    				var e = data.statusText;
+    				alert(e);
+    			}
+    		});
+      });
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");

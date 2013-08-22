@@ -11,6 +11,7 @@ $crate_name = isset($_GET['crate_name']) ? $_GET['crate_name'] : '';
 $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
 $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
 $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
+$new_name = isset($_GET['new_name']) ? $_GET['new_name'] : '';
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
@@ -53,6 +54,15 @@ switch ($action){
 		$ok = $bagit_manager->editTitle($element_id, $new_title);
 		if($ok){
 			echo $new_title;
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'rename_crate':
+		$ok = $bagit_manager->renameCrate($new_name);
+		if($ok){
+			echo $new_name;
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');
