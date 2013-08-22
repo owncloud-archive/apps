@@ -1,8 +1,8 @@
-<div>
-	<span id="crateName" style="font-weight:bold;font-size:large; padding:20px;"><?php echo $_['selected_crate'] ?></span>
+<div style="padding-top:20px">
+	<span id="crateName" title="Double click to edit..." style="font-weight:bold;font-size:large; padding-left:20px;"><?php echo $_['selected_crate'] ?></span>
 </div>
 
-<div style="padding-left:20px;">
+<div style="padding-left:20px;padding-top:5px">
 <!-- don't think about hiearchi now, just create a list
 and let user drag and drop -->
 

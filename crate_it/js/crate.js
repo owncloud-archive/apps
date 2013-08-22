@@ -1,3 +1,13 @@
+function makeCrateListEditable(){
+	$('#crateList li').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
+		id : 'elementid',
+		name : 'new_title',
+		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+		tooltip : 'Double click to edit...',
+		event : 'dblclick'
+	});
+}
+
 $(document).ready(function() {
 	
 	$('#crateList').sortable({
@@ -11,14 +21,7 @@ $(document).ready(function() {
 	});
 	
 	$('#crateList').disableSelection();
-	
-	$('#crateList li').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
-		id : 'elementid',
-		name : 'new_title',
-		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-		tooltip : 'Double click to edit...',
-		event : 'dblclick'
-	});
+	makeCrateListEditable();
 	
 	$('#download').click('click', function(event) { 
 		if($('#crateList li').length == 0){
@@ -104,6 +107,8 @@ $(document).ready(function() {
             
             //change the name of the option
             $('#crates').find(':selected').text($('#crateName').text());
+            $('#crates').find(':selected').prop("id", $('#crateName').text());
+            $('#crates').find(':selected').prop("value", $('#crateName').text());
             $.ajax({
     			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate&new_name='+$('#crateName').text(),
     			type: 'get',
@@ -145,6 +150,7 @@ $(document).ready(function() {
 							});
 							$('#crateList').append(items.join(''));
 						}
+						makeCrateListEditable();
 					},
 					error: function(data){
 						var e = data.statusText;
