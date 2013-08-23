@@ -293,13 +293,14 @@ class BagItManager{
 			}
 			
 		}
+		$epub_title = $tempfile.'/'.$this->selected_crate.'.html';
 		$manifest_html = $pre_content."</p></body></html>";
     	if (is_dir($tempfile)) {
-    		$fp = fopen($tempfile.'/manifest.html', 'w+');
+    		$fp = fopen($epub_title, 'w+');
 			fwrite($fp, $manifest_html);
 			fclose($fp);
 			//feed it to calibre
-			$command = 'ebook-convert '.$tempfile.'/manifest.html '.$tempfile.'/temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
+			$command = 'ebook-convert '.$epub_title.' '.$tempfile.'/temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
 			system($command, $retval);
     	}
 		//send the epub to user
