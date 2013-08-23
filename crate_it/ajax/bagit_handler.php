@@ -75,13 +75,14 @@ switch ($action){
 			echo "No epub";
 			break;
 		}
-		
 		if (headers_sent()) throw new Exception('Headers sent.');
 		while (ob_get_level() && ob_end_clean());
 		if (ob_get_level()) throw new Exception('Buffering is still active.');
+		
+		$epub_name = $bagit_manager->getSelectedCrate();
 		header("Content-type:application/epub+zip");
 		header("Content-Type: application/force-download");
-		header("Content-Disposition: attachment;filename=crate.epub");
+		header("Content-Disposition: attachment;filename=".$epub_name.".epub");
 		readfile($epub);
 		break;
 	case 'zip':
