@@ -266,6 +266,7 @@ class BagItManager{
 			$path_parts = pathinfo($value['filename']);
 			
 			$prev_file = $path_parts['filename'].'.htm';
+			$prev_title = $value['title'];
 				
 			//get html files from the fascinator - do a solr search get storage id
 			//Save them to a tmp folder
@@ -289,7 +290,7 @@ class BagItManager{
 			if($retval === 0) {
 				$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
 				//make links to those htmls in temp dir
-				$pre_content .= "<a href='".$prev_path."/".$prev_file."'>".$prev_file."</a><br>";
+				$pre_content .= "<a href='".$prev_path."/".$prev_file."'>".$prev_title."</a><br>";
 			}
 			
 		}

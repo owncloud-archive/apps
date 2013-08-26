@@ -1,11 +1,15 @@
 function makeCrateListEditable(){
-	$('#crateList li').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
+	$('#crateList li span').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
 		id : 'elementid',
 		name : 'new_title',
 		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
 		tooltip : 'Double click to edit...',
 		event : 'dblclick'
 	});
+}
+
+function viewPreview(sender){
+	window.open('www.google.com','_blank');
 }
 
 $(document).ready(function() {
@@ -19,6 +23,18 @@ $(document).ready(function() {
             $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
         }
 	});
+	
+	/*var viewButton = $('<span />').addClass('viewButton').text('View');
+	
+	var s = "<a title=\"View\" href=\"javascript:generateLink('" + options.rowId +
+    "')\">This is blah</a>";*/
+	
+	//var viewButton = '<a onclick="viewPreview(this)" style="float:right;">View</a>';
+	//$('#crateList li').append(viewButton);
+	
+	/*$('#crateList li span').click('click', function(event){
+		alert("clicked on view");
+	});*/
 	
 	$('#crateList').disableSelection();
 	makeCrateListEditable();
@@ -146,7 +162,7 @@ $(document).ready(function() {
 						if(data != null){
 							var items = [];
 							$.each(data, function(key, value){
-								items.push('<li id="'+value['id']+'">'+value['title']+'</li>');
+								items.push('<li id="'+value['id']+'"><span id="'+value['id']+'">'+value['title']+'</span></li>');
 							});
 							$('#crateList').append(items.join(''));
 						}
