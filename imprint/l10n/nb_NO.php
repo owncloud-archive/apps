@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Admin" => "Admin"
+"Content" => "Innhold"
 );

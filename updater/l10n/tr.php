@@ -18,6 +18,7 @@
 "Update" => "Güncelleme",
 "Backup directory" => "Yedekleme dizini",
 "Backup" => "Yedekleme",
+"Done on" => "Yapılan",
 "Download" => "İndir",
 "Delete" => "Sil",
 "No backups found" => "Yedek bulunamadı"

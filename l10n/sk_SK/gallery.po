@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:01+0000\n"
+"POT-Creation-Date: 2013-08-21 06:08-0400\n"
+"PO-Revision-Date: 2013-08-20 19:10+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -25,17 +25,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "Obrázky"
 
-#: js/gallery.js:269
+#: js/gallery.js:271
 msgid "Shared by"
 msgstr "Zdieľa"
 
-#: js/slideshow.js:267
+#: js/slideshow.js:309
 msgid "Error loading slideshow template"
-msgstr "Chyba pri načítaní prezentačnej šablóny"
+msgstr "Chyba pri načítaní šablóny prezentácie"
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr "Zdieľaj"
+msgstr "Zdieľať"
 
 #: templates/no-image-app.php:9
 msgid ""

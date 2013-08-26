@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-08-21 06:08-0400\n"
+"PO-Revision-Date: 2013-08-20 19:20+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr "Úlohy"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr "Do"
+msgstr "Do termínu"
 
 #: js/tasks.js:115
 msgid "List"
@@ -42,7 +42,7 @@ msgstr "Umiestnenie"
 
 #: js/tasks.js:454
 msgid "No category"
-msgstr "Žiadna kategória"
+msgstr "Bez kategórie"
 
 #: lib/app.php:33
 msgid "Unspecified"
@@ -66,7 +66,7 @@ msgstr "Prázdny sumár"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "Neplatné percento dokončení"
+msgstr "Neplatné percento dokončenia"
 
 #: lib/app.php:107
 msgid "Invalid priority"
@@ -83,31 +83,31 @@ msgstr "Pridať úlohu"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "A/Z Termín"
+msgstr "Zoradiť podľa termínu"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "A/Z Zoznam"
+msgstr "Zoradiť podľa zoznamu"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "A/Z Komplet"
+msgstr "Zoradiť podľa dokončenia"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "A/Z Umiestnenie"
+msgstr "Zoradiť podľa umiestnenia"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "A/Z Priorita"
+msgstr "Zoradiť podľa dôležitosti"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "A/Z Štítok"
+msgstr "Zoradiť podľa štítka"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Nahrávam úlohy"
+msgstr "Nahrávam úlohy..."
 
 #: templates/tasks.php:20
 msgid "Important"

@@ -6,12 +6,12 @@
 "That configuration has to be done by the system administration." => "Nastavenie musí byť vykonané administrátorom systému.",
 "Imprint" => "Podmienky používania",
 "Placement" => "Umiestnenie",
-"Standalone app" => "Samostatná záložka",
+"Standalone app" => "Samostatná aplikácia",
 "Header left" => "V hlavičke vľavo",
 "Header right" => "V hlavičke vpravo",
-"Navigation top" => "V záložkách navrchu",
-"Navigation bottom" => "V záložkách naspodu",
+"Navigation top" => "V navigácii navrchu",
+"Navigation bottom" => "V navigácii naspodu",
 "During login" => "Počas prihlásenia",
 "Content" => "Obsah",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Môžete použiť HTML značky (napr. &lt;br&gt; for a linebreak) a atribúty inline štýlov (napr. &lt;a style=\"color:red;\"&gt;)."
+"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Môžete použiť HTML značky (napr. &lt;br&gt; pre koniec riadka) a inline atribúty štýlov (napr. &lt;a style=\"color:red;\"&gt;)."
 );
