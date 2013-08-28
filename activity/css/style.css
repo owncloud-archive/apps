@@ -1,0 +1,63 @@
+.activityheadline { font-weight: bold; font-size:2.5em; color: #666; padding:10px;}
+
+.activitysubject { font-weight: bold; font-size:1.2em; color: #555;}
+.activitymessage { font-size:0.8em; color:#999;}
+.activitytime {
+	font-size:0.8em;
+	color:#BBB;
+	float:right;
+	position: absolute;
+	bottom: 0px;
+	right: 5px;
+
+}
+
+.activityerror { font-weight: bold; font-size:1.2em; color: #666; padding:10px; text-align: center;}
+
+
+.rssbutton {
+	font-size: 0.6em;
+	float: right;
+	margin:0.6em;
+}
+
+#container {
+  background: #FFF;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+		  border-radius: 5px;
+}
+
+.box {
+  width: 200px;
+  float: left;
+  padding: 10px;
+  margin: 10px;
+  background: #EEE;
+  font-weight: 300;
+  -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+		  border-radius: 5px;
+}
+
+/* Infinite Scroll loader */
+#infscr-loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  left: 45%;
+  bottom: 40px;
+  width: 200px;
+  padding: 10px;
+  background: #000;
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+		  border-radius: 10px;
+}
+

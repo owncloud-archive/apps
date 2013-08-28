@@ -1,0 +1,55 @@
+<?php
+
+/**
+* ownCloud - Activity Application
+*
+* @author Frank Karlitschek
+* @copyright 2013 Frank Karlitschek frank@owncloud.org
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+* License as published by the Free Software Foundation; either
+* version 3 of the License, or any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+*
+* You should have received a copy of the GNU Lesser General Public
+* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+
+
+// The rss activity button
+echo('<a href="'.$_['rsslink'].'" class="button rssbutton">RSS feed</a><br /><br />');
+
+if(count($_['activity'])==0) {
+	
+	echo('<div class="activityerror">No activities yet. You will see a list of events here when you start to use your ownCloud.</div>');
+		
+} else {
+
+
+	// The headline
+	echo('<div class="activityheadline">Today</div>');
+
+
+	// Show the activities. The container is needed for the endless scrolling
+	echo('<div id="container" >');
+	foreach($_['activity'] as $event) {
+		OCA\Activity\Data::show($event);
+	}
+	echo('</div>');
+
+
+	// Dummy navigation. Needed for endless scrolling
+	if(isset($_['nextpage'])) echo('
+	<nav id="page-nav">
+	  <a href="'.$_['nextpage'].'"></a>
+	</nav>
+
+	');
+
+}
