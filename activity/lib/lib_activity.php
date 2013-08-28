@@ -48,6 +48,9 @@ class Data {
 		$query = \OC_DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`)' . ' VALUES(?, ?, ?, ?, ?, ?, ? )');
 		$query->execute(array($app, $subject, $message, $file, $link, $user, $timestamp));
 
+		// call the expire function only every 1000x time to preserve performance.
+		if(rand(0,1000)==0) \OCA\Activity\Data::expire();
+
 		return(true);
 	}
 
@@ -71,7 +74,7 @@ class Data {
 				$activity[] = $row;
 		}
 		return($activity);
-		
+				
 	}
 
 
@@ -93,6 +96,22 @@ class Data {
 		echo('</div>');
 		
 	}
+
+
+	/**
+	* @brief Expire old events
+	*/
+	public static function expire() {
+		// keep activity feed entries for one year
+		$ttl=(60*60*24*365);
+
+		$timelimit=time()-$ttl;
+		$query = \OC_DB::prepare('DELETE FROM `*PREFIX*activity` where timestamp<?');
+		$result = $query->execute(array($timelimit));
+	}
+
+
+
 
 
 	/**
