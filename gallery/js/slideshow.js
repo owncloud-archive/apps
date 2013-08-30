@@ -306,7 +306,7 @@ $(document).ready(function () {
 		}
 	})
 		.fail(function () {
-			alert(t('core', 'Error loading slideshow template'));
+			console.log('Error loading slideshow template');
 		});
 
 
