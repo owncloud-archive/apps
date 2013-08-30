@@ -50,8 +50,11 @@ class Hook {
 	 * @param $params The hook params
 	 */
 	public static function file_write($params) {
-		error_log('write hook'.$params['path']);
-		\OCA\Activity\Data::send('files', $params['path'].' changed', '', $params['path'], $params['path']);
+		//debug
+		error_log('write hook '.$params['path']);
+
+		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
+		\OCA\Activity\Data::send('files', $params['path'].' changed', '', $params['path'], $link);
 	}
 
 	/**
@@ -59,8 +62,11 @@ class Hook {
 	 * @param $params The hook params
 	 */
 	public static function file_delete($params) {
-		error_log('delete hook');
-		\OCA\Activity\Data::send('files', $params['path'].' deleted', '', $params['path'], $params['path']);
+		//debug
+		error_log('delete hook '.$params['path']);
+
+		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
+		\OCA\Activity\Data::send('files', $params['path'].' deleted', '', $params['path'], $link);
 	}
 
 
@@ -69,11 +75,13 @@ class Hook {
 	 * @param @param $params The hook params
 	 */
 	public static function file_create($params) {
-		error_log('create hook');
-		\OCA\Activity\Data::send('files', $params['path'].' created', '', $params['path'], $params['path']);
+		//debug
+		error_log('create hook '.$params['path']);
+
+		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
+		\OCA\Activity\Data::send('files', $params['path'].' created', '', $params['path'], $link);
 	}
 	
-
 
 
 }

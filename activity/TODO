@@ -7,9 +7,7 @@ Todos:
 - Implement an public OCP API so that all apps can push events
 - Implement automatic grouping of events so that the activities are easier to read
 - Implement filtering of event types
-- system to send notification email for important events
+- system to send notification email for important events 
 - integration in search
-- Add actions if click on event
 - New icon
-
 

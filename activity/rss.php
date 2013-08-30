@@ -34,5 +34,5 @@ $activities=OCA\Activity\Data::read(0,30);
 $rsslink=\OCP\Util::linkToAbsolute('activity','rss.php');
 
 // generate and show the rss feed
-echo(OCA\Activities\Data::generaterss($rsslink, $activities));
+echo(OCA\Activity\Data::generaterss($rsslink, $activities));
 

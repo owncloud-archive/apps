@@ -86,7 +86,7 @@ class Data {
 
 		echo('<div class="box">');
 
-		if($event['link']<>'') echo('<a href="'.$event['subject'].'">');
+		if($event['link']<>'') echo('<a href="'.$event['link'].'">');
 		echo('<span class="activitysubject">'.$event['subject'].'</span><br />');
 		echo('<span class="activitymessage">'.$event['message'].'</span><br />');
 		echo('<br />');
