@@ -15,18 +15,19 @@ button.share {
 #gallery > a.album > img {
 	width: 200px;
 	height: 200px;
-	border-radius: 10px;
-	box-shadow: 0 1px 0 white, inset 0 1px 1px #bbb;
-	border: 1px solid #eee;
+	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 #gallery > a.album > label {
 	color: white;
 	text-shadow: 0 0 10px #000;
 	position: absolute;
-	bottom: 5px;
+	bottom: 0;
 	width: 100%;
 	text-align: center;
+	font-size: 18px;
+	padding-bottom: 5px;
 }
 
 #gallery > a {
