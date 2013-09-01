@@ -45,7 +45,7 @@ class Data {
 		$user=\OCP\User::getUser();
 
 		// store in DB
-		$query = \OC_DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`)' . ' VALUES(?, ?, ?, ?, ?, ?, ? )');
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`)' . ' VALUES(?, ?, ?, ?, ?, ?, ? )');
 		$query->execute(array($app, $subject, $message, $file, $link, $user, $timestamp));
 
 		// call the expire function only every 1000x time to preserve performance.
@@ -68,7 +68,7 @@ class Data {
 		$user=\OCP\User::getUser();
 		
 		// fetch from DB
-		$query = \OC_DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc',$count,$start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc',$count,$start);
 		$result = $query->execute(array($user));
 		
 		$activity=array();
@@ -91,7 +91,7 @@ class Data {
 		$user=\OCP\User::getUser();
 		
 		// search in DB
-		$query = \OC_DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc',$count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc',$count);
 		$result = $query->execute(array($user,'%'.$txt.'%','%'.$txt.'%','%'.$txt.'%'));		//$result = $query->execute(array($user,'%'.$txt.''));
 		
 		$activity=array();
@@ -141,7 +141,7 @@ class Data {
 		$ttl=(60*60*24*365);
 
 		$timelimit=time()-$ttl;
-		$query = \OC_DB::prepare('DELETE FROM `*PREFIX*activity` where timestamp<?');
+		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*activity` where timestamp<?');
 		$result = $query->execute(array($timelimit));
 	}
 

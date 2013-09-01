@@ -25,7 +25,6 @@
 namespace OCA\Activity;
 
 use \OC_OCS_Result;
-use \OC_App;
 
 /**
  * @brief The class to handle the filesystem hooks
