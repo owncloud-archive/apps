@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ibrahim_9090 <ibrahim9090@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-06 00:57+0200\n"
-"PO-Revision-Date: 2013-07-05 22:57+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-09-01 11:41-0400\n"
+"PO-Revision-Date: 2013-09-01 13:20+0000\n"
+"Last-Translator: ibrahim_9090 <ibrahim9090@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,62 +22,62 @@ msgstr ""
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "إشعار قانوني"
 
 #: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
-msgstr ""
+msgstr "لا شيئ هنا إلى الآن."
 
 #: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "يجب أن يتم تهيئة محتوى الإشعار القانوني أولا."
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "هذا الإعداد قد تم في القسم الإداري."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "هذا الإعداد يجب أن يتم بواسطة إدارة النظام."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
-msgstr ""
+msgstr "الدمغة."
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "وضع"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "تطبيق مستقل"
 
 #: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
-msgstr ""
+msgstr "رأس صفحة أيسر"
 
 #: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
-msgstr ""
+msgstr "رأس صفحة أيمن"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "تصفح أعلى"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr ""
+msgstr "تصفح أسقل"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
-msgstr ""
+msgstr "خلال تسجيل الدخول"
 
 #: templates/tmpl_settings.php:61
 msgid "Content"
-msgstr ""
+msgstr "محتوى"
 
 #: templates/tmpl_settings.php:66
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
-msgstr ""
+msgstr "يمكنك استخدام علامة HTML (مثال: lt;br&gt& من أجل فاصل أسطر)  وكذا صفات محاذاة النمط (مثال: lt;a style=\"color:red;\"&gt&)."
