@@ -1,6 +1,6 @@
-.activityheadline { font-weight: bold; font-size:2.5em; color: #666; padding:10px;}
+.activityheadline { font-weight: bold; font-size:2.2em; color: #666; padding:10px;}
 
-.activitysubject { font-weight: bold; font-size:1.2em; color: #555;}
+.activitysubject { font-weight: bold; font-size:1.0em; color: #555;}
 .activitymessage { font-size:0.8em; color:#999;}
 .activitytime {
 	font-size:0.8em;
@@ -33,7 +33,7 @@
 }
 
 .box {
-  width: 200px;
+  width: 150px;
   float: left;
   padding: 10px;
   margin: 10px;

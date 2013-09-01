@@ -108,12 +108,23 @@ class Data {
 	*/
 	public static function show($event) {
 
+		$user=\OCP\User::getUser();
+
 		echo('<div class="box">');
 
 		if($event['link']<>'') echo('<a href="'.$event['link'].'">');
 		echo('<span class="activitysubject">'.$event['subject'].'</span><br />');
-		echo('<span class="activitymessage">'.$event['message'].'</span><br />');
-		echo('<br />');
+		echo('<span class="activitymessage">'.$event['message'].'</span>');
+
+
+ 		$rootView = new \OC\Files\View('');
+ 		$exist=$rootView->file_exists('/'.$user.'/files'.$event['file']);
+ 		unset($rootView);
+		// show a preview image if the file still exists
+ 		if($exist) {
+			echo('<img src="'.\OCP\Util::linkToRoute( 'core_ajax_preview' ,array('file'=>$event['file'],'x'=>150,'y'=>150)).'" />');
+		}
+
 		if($event['link']<>'') echo('</a>');
 		echo('<span class="activitytime">'.\OCP\relative_modified_date($event['timestamp']).'</span><br />');
 		
@@ -133,9 +144,6 @@ class Data {
 		$query = \OC_DB::prepare('DELETE FROM `*PREFIX*activity` where timestamp<?');
 		$result = $query->execute(array($timelimit));
 	}
-
-
-
 
 
 	/**
