@@ -64,9 +64,11 @@ class Data {
 	*/
 	public static function read($start,$count) {
 
+		// get current user
 		$user=\OCP\User::getUser();
 		
-		$query = \OC_DB::prepare('SELECT `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? order by timestamp desc',$count,$start);
+		// fetch from DB
+		$query = \OC_DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc',$count,$start);
 		$result = $query->execute(array($user));
 		
 		$activity=array();
@@ -77,6 +79,28 @@ class Data {
 				
 	}
 
+	/**
+	* @brief Get a list of events which contain the  query string
+	* @param $query The query string
+	* @param $count The number of statements to read
+	* @return $events
+	*/
+	public static function search($txt,$count) {
+	
+		// get current user
+		$user=\OCP\User::getUser();
+		
+		// search in DB
+		$query = \OC_DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc',$count);
+		$result = $query->execute(array($user,'%'.$txt.'%','%'.$txt.'%','%'.$txt.'%'));		//$result = $query->execute(array($user,'%'.$txt.''));
+		
+		$activity=array();
+		while ($row = $result->fetchRow()) {
+				$activity[] = $row;
+		}
+		return($activity);
+				
+	}
 
 	/**
 	* @brief Show a specific event in the activities

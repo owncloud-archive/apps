@@ -3,11 +3,9 @@ Todos:
 
 - Add dividers for different days
 - Integrate file previews
-- Implement OCS API to read events for integration in Desktop/Mobile
 - Implement an public OCP API so that all apps can push events
 - Implement automatic grouping of events so that the activities are easier to read
 - Implement filtering of event types
-- system to send notification email for important events 
-- integration in search
+- system to send notification email for important events
 - New icon
 
