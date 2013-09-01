@@ -8,7 +8,6 @@
 	<require>4.93</require>
 	<shipped>false</shipped>
 	<standalone/>
-	<default_enable/>
 	<types>
 		<filesystem/>
 	</types>
