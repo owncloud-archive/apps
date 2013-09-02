@@ -28,6 +28,8 @@ button.share {
 	text-align: center;
 	font-size: 18px;
 	padding-bottom: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #gallery > a {
