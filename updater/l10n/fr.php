@@ -5,6 +5,7 @@
 "Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Mise à niveau impossible. Le serveur n'a pas les permissions nécessaires pour enlever le répertoire suivant :",
 "Update permissions on this directory and its content or remove it manually first." => "Modifiez les permissions sur ce dossier et son contenu ou enlevez le manuellement avant toute chose.",
 "Downloading package..." => "Téléchargement du paquet en cours...",
+"Unable to fetch package" => "Impossible de récupérer le paquet",
 "Creating backup..." => "Sauvegarde en cours de création...",
 "Here is your backup: " => "Voici votre sauvegarde :",
 "Failed to create backup" => "La sauvegarde a échoué.",
@@ -17,6 +18,7 @@
 "Update" => "Mettre à jour",
 "Backup directory" => "Dossier de sauvegarde.",
 "Backup" => "Sauvegarde.",
+"Done on" => "Terminé le",
 "Download" => "Télécharger",
 "Delete" => "Supprimer",
 "No backups found" => "Aucune sauvegarde n'a été trouvée."
