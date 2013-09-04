@@ -57,8 +57,8 @@ function setSyntaxMode(ext) {
 	if (filetype[ext] != null) {
 		// Then it must be in the array, so load the custom syntax mode
 		// Set the syntax mode
-		OC.addScript('files_texteditor', 'aceeditor/mode-' + filetype[ext], function () {
-			var SyntaxMode = require("ace/mode/" + filetype[ext]).Mode;
+		OC.addScript('files_texteditor', 'vendor/ace/src-noconflict/mode-' + filetype[ext], function () {
+			var SyntaxMode = ace.require("ace/mode/" + filetype[ext]).Mode;
 			window.aceEditor.getSession().setMode(new SyntaxMode());
 		});
 	}
@@ -227,7 +227,7 @@ function showFileEditor(dir, filename) {
 						} else {
 							setSyntaxMode(getFileExtension(filename));
 						}
-						OC.addScript('files_texteditor', 'aceeditor/theme-clouds', function () {
+						OC.addScript('files_texteditor', 'vendor/ace/src-noconflict/theme-clouds', function () {
 							window.aceEditor.setTheme("ace/theme/clouds");
 						});
 						window.aceEditor.getSession().on('change', function () {
