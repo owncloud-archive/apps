@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-07 08:00+0000\n"
+"POT-Creation-Date: 2013-09-05 05:36-0400\n"
+"PO-Revision-Date: 2013-09-03 18:20+0000\n"
 "Last-Translator: Korrosivo <yo@rubendelcampo.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -67,11 +67,11 @@ msgstr "Encabezado derecho"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr "Navegar al principio"
+msgstr "Navegación superior"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr "Navegar al fondo"
+msgstr "Navegación inferior"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
