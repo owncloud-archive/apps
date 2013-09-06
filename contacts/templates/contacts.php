@@ -345,27 +345,28 @@
 					</select>
 					<input type="checkbox" id="adr_pref_{idx}" class="parameter tooltipped downwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" /><label for="adr_pref_{idx}"><?php p($l->t('Preferred')); ?></label>
 				</li>
-				<li>
+				<li><!-- Note to translators: The placeholders for address properties should be a well known address
+						so users can see where the data belongs according to https://tools.ietf.org/html/rfc2426#section-3.2.1 -->
 					<input class="value stradr tooltipped rightwards onfocus" type="text" id="adr_2" name="value[2]" value="{adr2}" 
-					placeholder="<?php p($l->t('1 Main Street')); ?>"
+					placeholder="<?php p($l->t('1600 Pennsylvania Avenue, NW')); ?>"
 					title="<?php p($l->t('Street address')); ?>" />
 				</li>
 				<li>
 					<input class="value zip tooltipped rightwards onfocus" type="text" id="adr_5" name="value[5]" value="{adr5}" 
-						placeholder="<?php p($l->t('12345')); ?>"
+						placeholder="<?php p($l->t('20500')); ?>"
 						title="<?php p($l->t('Postal code')); ?>" />
 					<input class="value city tooltipped rightwards onfocus" type="text" id="adr_3" name="value[3]" value="{adr3}" 
-						placeholder="<?php p($l->t('Your city')); ?>"
+						placeholder="<?php p($l->t('Washington, D.C.')); ?>"
 						title="<?php p($l->t('City')); ?>" />
 				</li>
 				<li>
 					<input class="value region tooltipped rightwards onfocus" type="text" id="adr_4" name="value[4]" value="{adr4}" 
-						placeholder="<?php p($l->t('Some region')); ?>"
+						placeholder="<?php p($l->t('District of Columbia')); ?>"
 						title="<?php p($l->t('State or province')); ?>" />
 				</li>
 				<li>
 					<input class="value country tooltipped rightwards onfocus" type="text" id="adr_6" name="value[6]" value="{adr6}" 
-						placeholder="<?php p($l->t('Your country')); ?>"
+						placeholder="<?php p($l->t('USA')); ?>"
 						title="<?php p($l->t('Country')); ?>" />
 				</li>
 			</ul>
