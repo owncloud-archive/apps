@@ -148,13 +148,12 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 		$data = OCA\Contacts\VCard::all($addressbookid);
 		$cards = array();
 		foreach($data as $i) {
-			//OCP\Util::writeLog('contacts', __METHOD__.', uri: ' . $i['uri'], OCP\Util::DEBUG);
 			$cards[] = array(
 				'id' => $i['id'],
 				//'carddata' => $i['carddata'],
 				'size' => strlen($i['carddata']),
 				'etag' => '"' . md5($i['carddata']) . '"',
-				'uri' => $i['uri'],
+				'uri' => urlencode($i['uri']),
 				'lastmodified' => $i['lastmodified'] );
 		}
 
@@ -169,7 +168,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getCard($addressbookid, $carduri) {
-		return OCA\Contacts\VCard::findWhereDAVDataIs($addressbookid, $carduri);
+		return OCA\Contacts\VCard::findWhereDAVDataIs($addressbookid, urldecode($carduri));
 
 	}
 
