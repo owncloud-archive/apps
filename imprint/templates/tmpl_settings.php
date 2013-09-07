@@ -63,7 +63,7 @@
 			<br>
 			<label   for="imprint-usage"   class="imprint-option"></label>
 			<span     id="imprint-usage"   class="imprint-option imprint-hint">
-				<?php p($l->t("You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)."));?>
+				<?php p($l->t("You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)."));?>
 			</span>
 		</div>
   </fieldset>
