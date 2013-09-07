@@ -43,7 +43,7 @@ if($_POST){
 }
 
 // fill template
-$tmpl = new OC_Template( 'files_antivirus', 'settings');
+$tmpl = new OCP\Template( 'files_antivirus', 'settings');
 $tmpl->assign('requesttoken', OCP\Util::callRegister());
 OCP\Util::addScript('files_antivirus', 'settings');
 foreach($params as $param => $default){
