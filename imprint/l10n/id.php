@@ -9,6 +9,5 @@
 "Header right" => "Tajuk kanan",
 "Navigation top" => "Navigasi atas",
 "Navigation bottom" => "Navigasi bawah",
-"Content" => "Konten",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Anda dapat menggunakan kode markup HTML (mis. &lt;br&gt; untuk barus baru) dan atribut inline style (mis. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Konten"
 );

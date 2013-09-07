@@ -7,15 +7,16 @@
 # felix.liberio <felix.liberio@gmail.com>, 2013
 # juanman <juanma@kde.org.ar>, 2012
 # pablomillaquen <pablomillaquen@gmail.com>, 2013
+# Korrosivo <yo@rubendelcampo.es>, 2013
 # xsergiolpx <sergioballesterossolanas@gmail.com>, 2013
 # xhiena <xhiena@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
-"Last-Translator: pablomillaquen <pablomillaquen@gmail.com>\n"
+"POT-Creation-Date: 2013-09-07 04:33-0400\n"
+"PO-Revision-Date: 2013-09-05 18:40+0000\n"
+"Last-Translator: Korrosivo <yo@rubendelcampo.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,11 +56,11 @@ msgstr "Descargando el paquete..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr "No se puede traer el paquete"
+msgstr "No se pudo obtener el paquete"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr "Creando respaldo..."
+msgstr "Realizando copia de seguridad..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -67,7 +68,7 @@ msgstr "Aquí está tu copia de seguridad:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr "Falló el intento de crear un respaldo"
+msgstr "Falló la creación de la copia de seguridad"
 
 #: ajax/update.php:103
 msgid "Moving files..."
@@ -75,7 +76,7 @@ msgstr "Moviendo archivos..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr "Todo listo. Haga clic en el enlace siguiente para iniciar la actualización de la base de datos"
+msgstr "Todo listo. Haga clic en el siguiente enlace para iniciar la actualización de la base de datos"
 
 #: ajax/update.php:112
 msgid "Update failed"
@@ -90,7 +91,7 @@ msgstr "La actualización no tuvo éxito. Reporte este problema a la <a href=\"h
 
 #: templates/admin.php:18
 msgid "Update Center"
-msgstr "Centro de actualización"
+msgstr "Centro de actualizaciones"
 
 #: templates/update.php:18
 msgid "Backup Management"
@@ -102,11 +103,11 @@ msgstr "Actualizar"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr "Carpeta de actualización"
+msgstr "Directorio de respaldos"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr "Respaldos"
+msgstr "Copia de seguridad"
 
 #: templates/update.php:28
 msgid "Done on"
@@ -122,4 +123,4 @@ msgstr "Eliminar"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr "No se encontraron respaldos"
+msgstr "No se encontraron copias de seguridad"

@@ -12,6 +12,5 @@
 "Navigation top" => "کنترل بالا",
 "Navigation bottom" => "کنترل پایین",
 "During login" => "در هنگام ورود به سیستم",
-"Content" => "محتوا",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "شما می توانید از نشانه های HTML استفاده کنید (e.g. &lt;br&gt; for a linebreak) و ویژگی های سبک های درون خطی (e.g. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "محتوا"
 );

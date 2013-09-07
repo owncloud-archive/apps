@@ -9,6 +9,5 @@
 "Header right" => "Antraštė dešinėje",
 "Navigation top" => "Meniu viršuje",
 "Navigation bottom" => "Meniu mygtukas",
-"Content" => "Turinys",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Jūs galite naudoti html  (pvz. &lt;br&gt;) ir stilius (pvz. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Turinys"
 );

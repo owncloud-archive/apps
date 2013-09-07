@@ -12,6 +12,5 @@
 "Navigation top" => "Navigatsioon üles",
 "Navigation bottom" => "Navigatsioon alla",
 "During login" => "Logimise kestel",
-"Content" => "Sisu",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Saad kasutada HTML märgendeid (nt. &lt;br&gt; reavahetuseks) ning sisestiili atribuute (nt. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Sisu"
 );

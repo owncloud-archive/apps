@@ -11,6 +11,5 @@
 "Header right" => "Pennyn dde",
 "Navigation top" => "Llywio brig",
 "Navigation bottom" => "Llywio gwaelod",
-"Content" => "Cynnwys",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Gallwch ddefnyddio html (e.e. &lt;br&gt; i greu toriad llinell) a phriodoledd arddull mewnlin (e.e. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Cynnwys"
 );

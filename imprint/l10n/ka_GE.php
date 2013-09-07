@@ -11,6 +11,5 @@
 "Header right" => "სათაური მარჯვნივ",
 "Navigation top" => "ნავიგაცია ზევით",
 "Navigation bottom" => "ნავიგაცია ქვევით",
-"Content" => "კონტენტი",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "თქვენ შეგითლიათ გამოიყენოთ html markup–ი  (მაგ. &lt;br&gt; linebreak–ისთვის) ან inline style–ის ატრიბუტები (მაგ. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "კონტენტი"
 );

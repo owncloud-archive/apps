@@ -12,6 +12,5 @@
 "Navigation top" => "Навігація зверху",
 "Navigation bottom" => "Навігація знизу",
 "During login" => "Під час входу",
-"Content" => "Зміст",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Ви можете використовувати HTML розмітку (наприклад, &lt;br&gt; для переводу рядка) і вбудовані атрибути стилю (наприклад, &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Зміст"
 );

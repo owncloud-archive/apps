@@ -12,6 +12,5 @@
 "Navigation top" => "تصفح أعلى",
 "Navigation bottom" => "تصفح أسقل",
 "During login" => "خلال تسجيل الدخول",
-"Content" => "محتوى",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "يمكنك استخدام علامة HTML (مثال: lt;br&gt& من أجل فاصل أسطر)  وكذا صفات محاذاة النمط (مثال: lt;a style=\"color:red;\"&gt&)."
+"Content" => "محتوى"
 );

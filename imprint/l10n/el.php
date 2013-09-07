@@ -12,6 +12,5 @@
 "Navigation top" => "Πλοήγηση στο επάνω μέρος",
 "Navigation bottom" => "Πλοήγηση στο κάτω μέρος",
 "During login" => "Κατά τη διάρκεια της εισόδου",
-"Content" => "Περιεχόμενο",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Μπορείτε να χρησιμοποιήσετε σήμανση html (π.χ. <br> για να αφήσετε μια κενή γραμμή) και ενωματωμένα χαρακτηριστικά στυλ (π.χ. <a style=\"color:red;\">)."
+"Content" => "Περιεχόμενο"
 );

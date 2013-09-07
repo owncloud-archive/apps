@@ -12,6 +12,5 @@
 "Navigation top" => "ナビゲーションの上",
 "Navigation bottom" => "ナビゲーションの下",
 "During login" => "ログイン中",
-"Content" => "内容",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "HTMLマークアップ（例： 改行は &lt;br&gt;）とスタイル属性（例： &lt;a style=\"color:red;\"&gt;）を使用できます。"
+"Content" => "内容"
 );

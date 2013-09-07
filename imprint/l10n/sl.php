@@ -11,6 +11,5 @@
 "Header right" => "Desna glava",
 "Navigation top" => "Vrh krmarjenja",
 "Navigation bottom" => "Dno krmarjenja",
-"Content" => "Vsebina",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Uporabiti je dovoljeno tudi oblikovanja HTML (na primer &lt;br&gt; za prelom vrstice) in atribute znotrajvrstičnih slogov (na primer &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Vsebina"
 );

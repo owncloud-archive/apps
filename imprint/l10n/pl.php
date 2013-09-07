@@ -12,6 +12,5 @@
 "Navigation top" => "Nawigacja u góry",
 "Navigation bottom" => "Nawigacja u dołu",
 "During login" => "Podczas logowania",
-"Content" => "Treść",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Można użyć znaczników html (np. &lt;br&gt; for a linebreak)  i atrybuty stylu inline (np. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Treść"
 );

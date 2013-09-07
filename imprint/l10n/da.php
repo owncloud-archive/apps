@@ -12,6 +12,5 @@
 "Navigation top" => "Navigation top",
 "Navigation bottom" => "Navigation bund",
 "During login" => "Under login",
-"Content" => "Indhold",
-"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Du kan bruge html markup (f.eks. &lt;br&gt; for linjeskift) og inline style attributter (f.eks. &lt;a style=\"color:red;\"&gt;)."
+"Content" => "Indhold"
 );
