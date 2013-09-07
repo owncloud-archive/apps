@@ -89,7 +89,7 @@ class UrlParam{
 	}
 }
 
-App::$l10n = \OC_L10N::get(App::APP_ID);
+App::$l10n = \OCP\Util::getL10N(App::APP_ID);
 
 \OCP\App::addNavigationEntry( array(
 	'id' => 'ownpad_lite_index',
