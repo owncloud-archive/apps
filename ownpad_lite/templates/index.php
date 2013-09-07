@@ -23,4 +23,4 @@
 <div id="ownpad-content"></div>
 <div id="ownpad-appsettings"><div id="appsettings" class="popup hidden topright"></div></div>
 
-<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkToRoute('ownpad_lite'));?>"></script>
+<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToRoute('ownpad_lite'));?>"></script>
