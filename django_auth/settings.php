@@ -20,25 +20,25 @@
  *
  */
 
-OC_Util::checkAdminUser();
+OCP\User::checkAdminUser();
 
 $params = array('staff_is_admin', 'superuser_is_admin');
 
 if ($_POST) {
 	foreach($params as $param) {
 		if(isset($_POST[$param])) {
-			OC_Appconfig::setValue('django_auth', $param, $_POST[$param]);
+			OCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
 		}
 		else {
 			// unchecked checkboxes are not included in the post paramters
-			OC_Appconfig::setValue('django_auth', $param, 0);
+			OCP\Config::setAppValue('django_auth', $param, 0);
 		}
 	}
 }
 
 // fill template
-$tmpl = new OC_Template( 'django_auth', 'settings');
-$tmpl->assign('staff_is_admin',    OC_Appconfig::getValue( 'django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN ));
-$tmpl->assign('superuser_is_admin',OC_Appconfig::getValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
+$tmpl = new OCP\Template( 'django_auth', 'settings');
+$tmpl->assign('staff_is_admin',    OCP\Config::getAppValue( 'django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN ));
+$tmpl->assign('superuser_is_admin',OCP\Config::getAppValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
 
 return $tmpl->fetchPage();
