@@ -8,7 +8,7 @@ require_once '../../../lib/base.php';
 
 
 // Check if we are a user
-OC_JSON::checkLoggedIn();
+OCP\JSON::checkLoggedIn();
 
 // Get paramteres
 $filecontents = $_POST['file']['filecontents'];
@@ -38,20 +38,20 @@ if($path != '' && $mtime != '') {
 			} else {
 				$msg = "File has been modified since opening!";
 			}
-            OC_JSON::error(array("data" => array("message" => $msg)));
-            //OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
+            OCP\JSON::error(array("data" => array("message" => $msg)));
+            //OCP\Util::writeLog('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
             exit();
         }
     } else {
         // file doesn't exist yet, so let's create it!
         if($file == '') {
-            OC_JSON::error(array("data" => array( "message" => "Empty Filename") ));
+            OCP\JSON::error(array("data" => array( "message" => "Empty Filename") ));
             exit();
         }
 		\OC\Files\Filesystem::mkdir($dir);
 		if(!\OC\Files\Filesystem::touch($dir . '/' . $file)) {
-            OC_JSON::error(array("data" => array("message" => "Error when creating new file!")));
-            OC_Log::write('files_svgedit', "Failed to create file: " . $path, OC_Log::ERROR);
+            OCP\JSON::error(array("data" => array("message" => "Error when creating new file!")));
+            OCP\Util::writeLog('files_svgedit', "Failed to create file: " . $path, OC_Log::ERROR);
             exit();
         }
     }
@@ -70,13 +70,13 @@ if($path != '' && $mtime != '') {
         clearstatcache();
         // Get new mtime
         $newmtime = \OC\Files\Filesystem::filemtime($path);
-        OC_JSON::success(array('data' => array('mtime' => $newmtime)));
+        OCP\JSON::success(array('data' => array('mtime' => $newmtime)));
     } else {
         // Not writable!
-        OC_JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
-        OC_Log::write('files_svgedit',"User does not have permission to write to file: ".$path,OC_Log::ERROR);
+        OCP\JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
+        OCP\Util::writeLog('files_svgedit',"User does not have permission to write to file: ".$path,OC_Log::ERROR);
     }
 } else {
-	OC_JSON::error(array('data' => array( 'message' => 'File path or mtime not supplied')));
-	OC_Log::write('files_svgedit',"Invalid path supplied:".$path,OC_Log::ERROR);	
+	OCP\JSON::error(array('data' => array( 'message' => 'File path or mtime not supplied')));
+	OCP\Util::writeLog('files_svgedit',"Invalid path supplied:".$path,OC_Log::ERROR);	
 }
