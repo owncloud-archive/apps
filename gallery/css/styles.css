@@ -10,13 +10,17 @@ button.share {
 
 #gallery > a.album {
 	width: 200px;
-	background-color: #e8e8e8;
+}
+
+#gallery > a.album > img {
+	width: 200px;
+	height: 200px;
 	border-radius: 10px;
 	box-shadow: 0 1px 0 white, inset 0 1px 1px #bbb;
 	border: 1px solid #eee;
 }
 
-#gallery > a.album>label {
+#gallery > a.album > label {
 	color: white;
 	position: absolute;
 	bottom: 5px;
@@ -96,7 +100,7 @@ button.share {
 	position: absolute;
 	z-index: 1100;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity = 30);
+	filter: alpha(opacity=30);
 	opacity: .3;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -111,7 +115,7 @@ button.share {
 
 #slideshow > input:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-	filter: alpha(opacity = 60);
+	filter: alpha(opacity=60);
 	opacity: .6;
 }
 
@@ -159,7 +163,7 @@ button.share {
 	width: 32px;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 	background-image: url("%webroot%/core/img/actions/view-pause.svg");
-	filter: alpha(opacity = 30);
+	filter: alpha(opacity=30);
 	opacity: .3;
 	height: 0;
 }
