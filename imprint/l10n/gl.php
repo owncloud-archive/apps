@@ -12,5 +12,6 @@
 "Navigation top" => "Enriba na navegación",
 "Navigation bottom" => "Embaixo na navegación",
 "During login" => "Durante o acceso",
-"Content" => "Contido"
+"Content" => "Contido",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Pode empregar o formato de marcado HTML (p.ex.  <br> para un salto de liña) e os atributos de estilo na liña (p.ex <a style=\"color:red;\">)."
 );

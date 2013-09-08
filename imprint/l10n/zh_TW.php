@@ -12,5 +12,6 @@
 "Navigation top" => "側欄頂端",
 "Navigation bottom" => "側欄底端",
 "During login" => "登入時",
-"Content" => "內容"
+"Content" => "內容",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "可以用 HTML 標記（像是 <br> 表示換行）和行內樣式屬性（如 <a style=\"color:red;\"> ）。"
 );
