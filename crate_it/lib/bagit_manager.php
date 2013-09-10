@@ -103,9 +103,6 @@ class BagItManager{
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
-		if($file === 'Shared' || is_dir($input_dir.'/'.$file)){
-			return "Adding directories not supported yet";
-		}
 		
 		if (\OC\Files\Filesystem::isReadable($file)) {
 			list($storage) = \OC\Files\Filesystem::resolvePath($file);
@@ -116,6 +113,10 @@ class BagItManager{
 					fwrite($fp, $full_path);
 					fclose($fp);
 				}*/
+				if($file === '/Shared' || is_dir($full_path))
+				{
+					return "Adding directories not supported yet";
+				}
 			}
 		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
 			header("HTTP/1.0 404 Not Found");
