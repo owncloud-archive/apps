@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-31 00:49-0400\n"
-"PO-Revision-Date: 2013-07-30 12:12+0000\n"
+"POT-Creation-Date: 2013-09-10 08:41-0400\n"
+"PO-Revision-Date: 2013-09-09 07:30+0000\n"
 "Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -19,16 +19,16 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Dokumentet er delt"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "Brukaren %s delte dokumentet %s med deg."
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "Blokka mi"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -36,7 +36,7 @@ msgstr "Innstillingar"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr ""
+msgstr "Tittel på blokka"
 
 #: templates/index.php:19
 msgid "Open"
@@ -52,7 +52,7 @@ msgstr "Del"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "URL til Etherpad-tenesta"
 
 #: templates/settings.php:21
 msgid "Username"

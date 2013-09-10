@@ -12,5 +12,6 @@
 "Navigation top" => "Navegació superior",
 "Navigation bottom" => "Navegació inferior",
 "During login" => "Durada de l'accés",
-"Content" => "Contingut"
+"Content" => "Contingut",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Podeu usar marques html  (per exemple <br> per un salt de línia) i atributs d'estil en línia (per exemple <a style=\"color:red;\">)."
 );

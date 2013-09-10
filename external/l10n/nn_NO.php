@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"External Sites" => "Eksterne nettstadar",
+"External Sites" => "Eksterne nettstader",
 "Name" => "Namn",
 "URL" => "Nettstad",
 "Remove site" => "Fjern nettstad",
