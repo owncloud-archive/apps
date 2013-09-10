@@ -880,10 +880,25 @@ OC.Contacts = OC.Contacts || {};
 			});
 		};
 
-		var n = this.getPreferredValue('N', ['', '', '', '', '']);
-		//console.log('Contact.renderContact', this.data);
-		var values = this.data
-			? {
+		var values;
+		if(this.data) {
+			var n = this.getPreferredValue('N', ['', '', '', '', '']),
+				bday = this.getPreferredValue('BDAY', '');
+			if(bday.length >= 10) {
+				try {
+					bday = $.datepicker.parseDate('yy-mm-dd', bday.substring(0, 10));
+					bday = $.datepicker.formatDate(datepickerFormatDate, bday);
+				} catch (e) {
+					var message = t('contacts', 'Error parsing birthday {bday}: {error}', {bday:bday, error: e});
+					console.warn(message);
+					bday = '';
+					$(document).trigger('status.contact.error', {
+						status: 'error',
+						message: message
+					});
+				}
+			}
+			values = {
 				id: this.id,
 				favorite:groupprops.favorite ? 'active' : '',
 				name: this.getPreferredValue('FN', ''),
@@ -891,14 +906,12 @@ OC.Contacts = OC.Contacts || {};
 				nickname: this.getPreferredValue('NICKNAME', ''),
 				title: this.getPreferredValue('TITLE', ''),
 				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
-				bday: this.getPreferredValue('BDAY', '').length >= 10
-					? $.datepicker.formatDate(datepickerFormatDate,
-						$.datepicker.parseDate('yy-mm-dd',
-							this.getPreferredValue('BDAY', '').substring(0, 10)))
-					: '',
+				bday: bday,
 				note: this.getPreferredValue('NOTE', '')
-				}
-			: {id:'', favorite:'', name:'', nickname:'', title:'', org:'', bday:'', note:'', n0:'', n1:'', n2:'', n3:'', n4:''};
+			}
+		} else {
+			values = {id:'', favorite:'', name:'', nickname:'', title:'', org:'', bday:'', note:'', n0:'', n1:'', n2:'', n3:'', n4:''};
+		}
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
 
 		this.$footer = this.$fullelem.find('footer');
