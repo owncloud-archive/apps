@@ -8,13 +8,14 @@ function hideDOCviewer() {
 
 showPreview.oldCode='';
 showPreview.lastTitle='';
+var oldcontent = '';
 
 function showPreview(dir,filename){
 	if(!showPreview.shown){
 		$("#editor").hide();
 		$('#content table').hide();
 		$("#controls").hide();
-		var oldcontent = $("#content").html();
+		oldcontent = $("#content").html();
 		var viewer = getFilePath(dir, filename);
 		/*$.get(viewer, function(data) {
 			$("#content").html(oldcontent+'<iframe id="previewFrame" style="width:100%;height:100%;display:block;"></iframe>');
@@ -26,10 +27,28 @@ function showPreview(dir,filename){
 			OC.Notification.show(data.responseText);
 			setTimeout(function() {OC.Notification.hide();}, 1000);
 		});*/
+		window.location.hash = "#preview";
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
+		
+		
+		
+		/*$('#content').html(oldcontent);
+		$("#editor").show();
+		$('#content table').show();
+		$("#controls").show();*/
 		$("#pageWidthOption").attr("selected","selected");
 	}
 }
+
+$(window).on("hashchange", function() {
+    if (!/#preview/.test(window.location.hash)) {
+    	$('#content').html(oldcontent);
+		$("#editor").show();
+		$('#content table').show();
+		//$("#controls").show();
+		oldcontent = '';
+    }
+  });
 
 function getFilePath(dir, filename) {
 	var baseUrl = '';
@@ -39,7 +58,7 @@ function getFilePath(dir, filename) {
 	else{
 		baseUrl = dir + '/' + filename;
 	}
-	var viewer = OC.Router.generate('previewer', { link: baseUrl});
+	var viewer = OC.Router.generate('previewer', { fname: baseUrl});
 	return viewer;
 }
 
@@ -59,7 +78,7 @@ function getRequestURL(dir, filename, type) {
 
 $(document).ready(function() {
 	if(!$.browser.msie){//doesn't work on IE
-		if(location.href.indexOf("files")!=-1) {
+		//if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined'){
 				var supportedMimes = new Array(
 					'application/msword',
@@ -77,16 +96,16 @@ $(document).ready(function() {
 					FileActions.setDefault(mime,'Prev');
 				}
 			}
-		}
+		//}
 		
-		if(location.href.indexOf("files")!=-1) {
+		//if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined') {
 				FileActions.register('application/msword','ePub', OC.PERMISSION_READ, '',function(filename) {
 					//window.location = OC.linkTo('file_previewer', 'docViewer.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename.replace('&', '%26'))+'&type=epub';
 					window.location = getRequestURL($('#dir').val(), filename, '.epub');
 				});
 			}
-		}
+		//}
 		
 		
 	}
