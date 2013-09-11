@@ -6,9 +6,10 @@
 <!-- don't think about hiearchi now, just create a list
 and let user drag and drop -->
 
-<ul id="crateList" style="max-width:35%">
+<ul id="crateList" style="min-width:35%;display:inline-block;">
 <?php foreach($_['bagged_files'] as $entry):?>
-	<li id="<?php echo $entry['id'];?>"><span id="<?php echo $entry['id'];?>"><?php print_unescaped($entry['title']);?></span></li>
+	<li id="<?php echo $entry['id'];?>"><span id="<?php echo $entry['id'];?>" style="padding-right: 10px;"><?php print_unescaped($entry['title']);?></span>
+	<a id="<?php echo $entry['id'];?>" style="float:right;">View</a></li>
 <?php endforeach;?>
 </ul>
 </div>

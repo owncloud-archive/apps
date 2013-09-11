@@ -3,8 +3,14 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('file_previewer');
 
-$filename = isset($_GET['link']) ? $_GET['link'] : '';
+$filename = isset($_GET['fname']) ? $_GET['fname'] : '';
 $sid = isset($_GET['sid']) ? $_GET['sid'] : '';
+$fname = isset($_GET['fn']) ? $_GET['fn'] : '';
+
+if(!empty($fname))
+{
+	$filename = $fname;
+}
 
 $user = OCP\User::getUser();
 

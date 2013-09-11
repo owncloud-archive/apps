@@ -12,6 +12,7 @@ $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
 $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
 $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 $new_name = isset($_GET['new_name']) ? $_GET['new_name'] : '';
+$file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
@@ -63,6 +64,18 @@ switch ($action){
 		$ok = $bagit_manager->renameCrate($new_name);
 		if($ok){
 			echo $new_name;
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'preview':
+		$preview = $bagit_manager->getPreview($file_id);
+		if($preview){
+			//echo $preview;
+			$l = OCP\Util::linkTo( "file_previewer", "docViewer.php" );
+			$l .= "?fn=".$preview;
+			header("Location: ".$l);
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');

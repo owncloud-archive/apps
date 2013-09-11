@@ -103,7 +103,6 @@ class BagItManager{
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
-		
 		if (\OC\Files\Filesystem::isReadable($file)) {
 			list($storage) = \OC\Files\Filesystem::resolvePath($file);
 			if ($storage instanceof \OC\Files\Storage\Local) {
@@ -127,32 +126,6 @@ class BagItManager{
 			header("HTTP/1.0 403 Forbidden");
 			die('403 Forbidden');
 		}
-		
-		/*if(basename($dir) === 'Shared'){
-			//TODO need to fetch the url from relevant location
-			return "Adding shared files not supported yet";
-		}
-		else if(substr($dir, -1) === '/'){
-			$input_dir .= '/';
-			$data_dir .= '/';
-			$relative_path = $file;
-			//Get the title from the preview
-			$preview_file = $this->preview_dir.'/'.$file.'/'.$filename.'.html';
-			$title = $this->getTitle($preview_file);
-			if(empty($title)){
-				$title = $file;
-			}
-		}
-		else{
-			$input_dir .= $dir.'/';
-			$data_dir .= $dir.'/';
-			$relative_path = substr($dir, 1).'/'.$file;
-			$preview_file = $this->preview_dir.'/'.substr($dir, 1).'/'.$file.'/'.$filename.'.html';
-			$title = $this->getTitle($preview_file);
-			if(empty($title)){
-				$title = substr($dir, 1).'/'.$file;
-			}
-		}*/
 		
 		$preview_file = "tt.txt";
 		$title = $this->getTitle($preview_file);
@@ -251,6 +224,24 @@ class BagItManager{
 		return true;
 	}
 	
+	public function getPreview($file_id){
+        foreach ($this->getItemList() as $value) {
+	    	if($value['id'] === $file_id){
+		    	$path_parts = pathinfo($value['filename']);
+		        $dir_prefix = \OC::$SERVERROOT.'/data/';
+                $dir = str_replace($dir_prefix, "", $path_parts['dirname']);
+                $dir_parts = explode("/", $dir);
+                if($this->user === $dir_parts[0]){
+                	$dir = str_replace($this->base_dir.'/files', "", $path_parts['dirname']);
+                }
+                else {
+                    $dir = '/Shared'.str_replace($dir_prefix.$dir_parts[0].'/files', "", $path_parts['dirname']);
+                }
+                return $dir.'/'.$path_parts['basename'];
+		    }
+		}
+	}
+	
 	public function createEpub(){
 		//create temp html from manifest
 		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
@@ -269,16 +260,6 @@ class BagItManager{
 			$prev_file = $path_parts['filename'].'.htm';
 			$prev_title = $value['title'];
 				
-			//get html files from the fascinator - do a solr search get storage id
-			//Save them to a tmp folder
-			/*if($source_dir === $path_parts['dirname']) {
-				$query = 'full_path:"/data/'.$this->user.'/files/'.$path_parts['basename'] .'"';
-			}
-			else {
-				$s = substr($path_parts['dirname'], strlen($source_dir));
-				$query = 'full_path:"/data/'.$this->user.'/files'. $s.'/'.$path_parts['basename'] .'"';
-			}*/
-			
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
 			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
