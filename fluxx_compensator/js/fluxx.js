@@ -134,10 +134,10 @@ OC.FluXX={
   /**
   * @method OC.FluXX.defaults
   * @brief Injects a few default style rules
-  * @description 
+  * @description
   * Firefox only animates transitions when the start style is explicitly set!
   * Instead of writing static rules we fetch those default rule settings from the live document
-  * This way things should be more robust against changes in the OC layout 
+  * This way things should be more robust against changes in the OC layout
   * @author Christian Reiner
   */
   defaults: function(){
@@ -279,24 +279,24 @@ OC.FluXX={
 	/**
 	* @method OC.FluXX.mode
 	* @brief Set global app mode
-	* @description 
-	* Depending on the active app the global html root element is marked with a css class. 
-	* That class controls any actions or compensations that might be required by that apps page layout. 
-	* This way all changes and animations can later be done purely in css, as opposed to js. 
+	* @description
+	* Depending on the active app the global html root element is marked with a css class.
+	* That class controls any actions or compensations that might be required by that apps page layout.
+	* This way all changes and animations can later be done purely in css, as opposed to js.
 	* @author Christian Reiner
 	*/
 	mode:function(){
 		// mark mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
-			bookmarks_index:	'bookmarks',
-			files_index:		'files',
-			notes_index:		'notes',
-			media_index:		'media',
-			calendar_index:		'calendar',
-			contacts_index:		'contacts',
-			gallery_index:		'gallery',
-			shorty_index:		'shorty'
+			bookmarks_index: 'bookmarks',
+			files_index:     'files',
+			notes_index:     'notes',
+			media_index:     'media',
+			calendar_index:  'calendar',
+			contacts_index:  'contacts',
+			gallery_index:   'gallery',
+			shorty_index:    'shorty'
 		};
 		var index=$('body nav #navigation #apps').find('li .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
@@ -335,8 +335,8 @@ OC.FluXX={
 		$(document).on('mousemove',function(event){
 			var delta;
 			if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
-				// we have to correct the raw vertical mouse position by two factors: 
-				// 1. half the handles size, 
+				// we have to correct the raw vertical mouse position by two factors:
+				// 1. half the handles size,
 				// 2. the start position of the anchor which is changed by the other handle and
 				delta=$(handle.Selector).height()/2.0;	// correction by half the handles size
 				OC.FluXX.position(handle, event.pageY-delta-handle.Position.Margin);

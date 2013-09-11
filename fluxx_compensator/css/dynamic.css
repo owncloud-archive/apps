@@ -99,6 +99,9 @@ html.fluxx-mode-gallery { }
 
 /* 'media' app */
 html.fluxx-mode-media { }
+html.fluxx-mode-media.fluxx-state-N-hidden #rightcontent { left: -64px; }
+html.fluxx-mode-media.fluxx-state-H-hidden #rightcontent { top: -3.5em; }
+
 
 /* 'notes' app */
 html.fluxx-mode-notes { }
