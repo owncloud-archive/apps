@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Export" => "هه‌ناردن"
+"Export" => "هه‌ناردن",
+"An error has occurred" => "هه‌ڵه‌ك ڕوویدا"
 );
