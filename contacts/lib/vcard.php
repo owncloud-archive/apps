@@ -256,14 +256,11 @@ class VCard {
 		foreach($vcard->children as $property) {
 			foreach($property->parameters as $key=>$parameter) {
 				$delim = '';
-				if(strpos($parameter->value, ',') !== false) {
-					$delim = ',';
-				} elseif(strpos($parameter->value, '\\,') !== false) {
-					$delim = '\\,';
-				} else {
+				if(strpos($parameter->value, ',') === false) {
 					continue;
 				}
-				$values = explode($delim, $parameter->value);
+				$values = explode(',', $parameter->value);
+				$values = array_map('trim', $values);
 				$parameter->value = array_shift($values);
 				foreach($values as $value) {
 					$property->add($parameter->name, $value);
