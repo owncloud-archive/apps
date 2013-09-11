@@ -40,7 +40,7 @@
 		Simply click the handler to hide/show the navigation panel. To move the handler to where you want it to be, just hold the handler and drag it.
 		The older amongst us will know where the name 'FluXX Compensator (Y)' comes from... ;-)
 	</description>
-	<version>0.2.3</version>
+	<version>0.2.4</version>
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
 	<require>4.93</require>
