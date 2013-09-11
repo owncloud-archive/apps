@@ -27,7 +27,7 @@ function showPreview(dir,filename){
 			OC.Notification.show(data.responseText);
 			setTimeout(function() {OC.Notification.hide();}, 1000);
 		});*/
-		window.location.hash = "#preview";
+		//window.location.hash = "#preview";
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		
 		
@@ -40,7 +40,7 @@ function showPreview(dir,filename){
 	}
 }
 
-$(window).on("hashchange", function() {
+/*$(window).on("hashchange", function() {
     if (!/#preview/.test(window.location.hash)) {
     	$('#content').html(oldcontent);
 		$("#editor").show();
@@ -48,7 +48,7 @@ $(window).on("hashchange", function() {
 		//$("#controls").show();
 		oldcontent = '';
     }
-  });
+  });*/
 
 function getFilePath(dir, filename) {
 	var baseUrl = '';

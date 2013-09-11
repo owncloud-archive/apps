@@ -1,6 +1,6 @@
 <?php
-$this->create('previewer', '{link}')
-	->requirements(array('link' => '.*'))
+$this->create('previewer', '{fname}')
+	->requirements(array('fname' => '.*'))
 	->actionInclude('file_previewer/docViewer.php');
 
 $this->create('package_downloader', '{fname}')
