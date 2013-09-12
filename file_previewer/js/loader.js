@@ -14,23 +14,19 @@ function showPreview(dir,filename){
 	if(!showPreview.shown){
 		$("#editor").hide();
 		$('#content table').hide();
-		$("#controls").hide();
+		$("#controls").children().not('[class^="crumb "]').hide();
+		
+		//show home button 
+		if(!$("#controls div").hasClass('crumb')){
+			$("#controls").prepend('<div class="crumb" data-dir=""><a href="' + OC.linkTo('files', 'index.php')+'?dir="><img src="' +
+					OC.imagePath('core', 'places/home.svg') + '" class="svg" /></a></div>');
+		}
+		
 		oldcontent = $("#content").html();
 		var viewer = getFilePath(dir, filename);
-		/*$.get(viewer, function(data) {
-			$("#content").html(oldcontent+'<iframe id="previewFrame" style="width:100%;height:100%;display:block;"></iframe>');
-			var ifrm = $("#previewFrame")[0].contentWindow.document;
-			ifrm.open();
-			ifrm.write(data);
-			ifrm.close();
-		}).fail(function(data){
-			OC.Notification.show(data.responseText);
-			setTimeout(function() {OC.Notification.hide();}, 1000);
-		});*/
+		
 		//window.location.hash = "#preview";
-		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
-		
-		
+		$("#content").html(oldcontent+'<iframe style="padding-top:1cm;width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		
 		/*$('#content').html(oldcontent);
 		$("#editor").show();
