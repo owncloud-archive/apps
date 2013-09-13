@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Netinkama data/laikas",
 "Tasks" => "Užduotys",
-"Due" => "Iki",
+"Due" => "Terminas",
 "List" => "Sąrašas",
 "Location" => "Vieta",
 "No category" => "Be kategorijos",

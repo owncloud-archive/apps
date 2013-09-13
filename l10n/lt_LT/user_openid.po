@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Liudas Ališauskas <liudas.alisauskas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-06-23 00:49+0200\n"
-"PO-Revision-Date: 2013-06-22 10:30+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-09-13 19:45-0400\n"
+"PO-Revision-Date: 2013-09-13 08:00+0000\n"
+"Last-Translator: Liudas Ališauskas <liudas.alisauskas@gmail.com>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,19 +28,19 @@ msgstr "Klaidinga užklausa"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "Tai OpenID serverio galinis taškas. Daugiau informacijos rasite "
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "Tapatybė: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "Realm: <b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr ""
+msgstr "Naudotojas:"
 
 #: templates/nomode.php:17
 msgid "Login"
@@ -47,20 +48,20 @@ msgstr "Prisijungti"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr ""
+msgstr "Klaida: <b>Nepasirinktas naudotojas"
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "galite deklaruoti tapatybę kituose tinkluose su šiuo adresu"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "Leisti OpenID tiekėjai"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "Jūsų adresas Wordpress, Identi.ca, &hellip;"

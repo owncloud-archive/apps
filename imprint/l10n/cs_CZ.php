@@ -12,5 +12,6 @@
 "Navigation top" => "Navigace nahoře",
 "Navigation bottom" => "Navigace dole",
 "During login" => "Během přihlášení",
-"Content" => "Obsah"
+"Content" => "Obsah",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Můžete použít HTML značky (např. <br> pro odřádkování) a atributy stylu (např. <a style=\"color:red;\">)."
 );

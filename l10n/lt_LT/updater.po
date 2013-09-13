@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Dr. ROX <to.dr.rox@gmail.com>, 2012
+# Dr. ROX <to.dr.rox@gmail.com>, 2012
+# Liudas <liudas@aksioma.lt>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-09-13 19:45-0400\n"
+"PO-Revision-Date: 2013-09-13 07:40+0000\n"
+"Last-Translator: Liudas Ališauskas <liudas.alisauskas@gmail.com>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,76 +22,76 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Tikrinama Jūsų instaliacija..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "Versijos pakėlimas neįmanomas. Įsitikinkite, kad Jūsų serveris turi rašymo teises šiuose failuose ir kataloguose:"
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr ""
+msgstr "Versija nerasta"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "Versijos pakėlimas neįmanomas. Įsitikinkite, kad Jūsų serveris neturi pakankamai teisių pašalinti šį katalogą:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "Atnaujinkite leidimus šiam katalogui ir jo turiniui, arba pirma pašalinkite jį rankiniu būdu."
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr ""
+msgstr "Atsiunčiamas paketas..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Nepavyksta gauti paketo"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr ""
+msgstr "Kuriama atsarginė kopija..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Tai Jūsų atsarginė kopija: "
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Nepavyko sukurti atsarginės kopijos"
 
 #: ajax/update.php:103
 msgid "Moving files..."
-msgstr ""
+msgstr "Perkeliami failai..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "Viskas atlikta. Spauskite nuorodą žemiau, kad pradėti versijos pakėlimą."
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr ""
+msgstr "Atnaujinimas nepavyko"
 
 #: js/controllers.js:25
 msgid ""
 "The update was unsuccessful. Please report this issue to the <a "
 "href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
 "community</a>."
-msgstr ""
+msgstr "Atnaujinimas buvo sėkmingas. Prašome pranešti apie tai <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud bendruomenei</a>."
 
 #: templates/admin.php:18
 msgid "Update Center"
-msgstr ""
+msgstr "Atnaujinimo centras"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Atsarginės kopijos tvarkymas"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
@@ -97,15 +99,15 @@ msgstr "Atnaujinti"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Atsarginių kopijų katalogas"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Atsarginė kopija"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Atlikta"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"
@@ -117,4 +119,4 @@ msgstr "Ištrinti"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Nerasta atsarginių kopijų"
