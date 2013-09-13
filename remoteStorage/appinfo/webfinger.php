@@ -1,4 +1,4 @@
-<?php if(OC_User::userExists(WF_USER)): ?>
+<?php if(OCP\User::userExists(WF_USER)): ?>
     {
         "rel":"remoteStorage",
         "template":"<?php echo WF_BASEURL; ?>/remote.php/remoteStorage/<?php echo WF_USER; ?>/remoteStorage/{category}/",
