@@ -277,38 +277,39 @@ $(document).ready(function () {
 		}
 	});
 
-	$.when(Slideshow._getSlideshowTemplate()).then(function ($tmpl) {
-		$('body').append($tmpl); //move the slideshow outside the content so we can hide the content
+	OC.Router.registerLoadedCallback(function(){
+		$.when(Slideshow._getSlideshowTemplate()).then(function ($tmpl) {
+			$('body').append($tmpl); //move the slideshow outside the content so we can hide the content
 
-		if (!SVGSupport()) { //replace all svg images with png images for browser that dont support svg
-			replaceSVG();
-		}
+			if (!SVGSupport()) { //replace all svg images with png images for browser that dont support svg
+				replaceSVG();
+			}
 
-		var slideshow = $('#slideshow');
-		slideshow.children('.next').click(Slideshow.next);
-		slideshow.children('.previous').click(Slideshow.previous);
-		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
-		slideshow.children('.pause').click(Slideshow.pause);
-		slideshow.children('.play').click(Slideshow.play);
-		slideshow.click(Slideshow.next);
+			var slideshow = $('#slideshow');
+			slideshow.children('.next').click(Slideshow.next);
+			slideshow.children('.previous').click(Slideshow.previous);
+			slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
+			slideshow.children('.pause').click(Slideshow.pause);
+			slideshow.children('.play').click(Slideshow.play);
+			slideshow.click(Slideshow.next);
 
-		if ($.fn.mousewheel) {
-			slideshow.bind('mousewheel.fb', function (e, delta) {
-				e.preventDefault();
-				if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
-					if (delta > 0) {
-						Slideshow.previous();
-					} else {
-						Slideshow.next();
+			if ($.fn.mousewheel) {
+				slideshow.bind('mousewheel.fb', function (e, delta) {
+					e.preventDefault();
+					if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
+						if (delta > 0) {
+								Slideshow.previous();
+						} else {
+							Slideshow.next();
+						}
 					}
-				}
+				});
+			}
+		})
+			.fail(function () {
+				alert(t('core', 'Error loading slideshow template'));
 			});
-		}
-	})
-		.fail(function () {
-			alert(t('core', 'Error loading slideshow template'));
-		});
-
+	});
 
 	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined') {
 		FileActions.register('image', 'View', OC.PERMISSION_READ, '', function (filename) {
