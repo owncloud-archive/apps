@@ -65,11 +65,11 @@ function showControls(dir, filename, writeable) {
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeable) {
-		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
+		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button>';
 	}
-	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:');
+	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search');
 	editorbarhtml += '</label><input type="text" name="editorsearchval" id="editorsearchval">';
-	editorbarhtml += '<div class="separator"></div><button id="editor_close">';
+	editorbarhtml += '<button id="editor_close">';
 	editorbarhtml += t('files_texteditor', 'Close') + '</button></div>';
 
 	$('#controls').append(editorbarhtml);

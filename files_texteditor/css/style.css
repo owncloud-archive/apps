@@ -21,5 +21,11 @@
 
 #editor_save {
 	margin-left: 7px;
+	margin-right: 20px;
 	float: left;
+}
+
+#editor_close {
+	float: right;
+	margin-right: 9px;
 }
