@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Gorde",
-"Search:" => "Bilaketa:",
 "Close" => "Itxi",
 "Next" => "Hurrengoa",
 "Clear" => "Garbitu",

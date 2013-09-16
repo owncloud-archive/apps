@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Save" => "저장",
-"Search:" => "검색:",
 "Close" => "닫기",
 "Next" => "다음",
 "Clear" => "지우기",

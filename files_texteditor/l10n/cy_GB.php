@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Cadw",
-"Search:" => "Chwilio:",
 "Close" => "Cau",
 "Next" => "Nesaf",
 "Clear" => "Clirio",
