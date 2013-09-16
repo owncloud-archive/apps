@@ -13,7 +13,6 @@
 ?>
 
 <fieldset class="personalblock">
-	<strong>Updater</strong>
-	<br />
+	<legend><strong>Updater</strong></legend>
 	<a href="<?php p(\OCP\Util::linkTo('updater', 'update.php')) ?>"><?php p($l->t('Update Center')) ?></a>
 </fieldset>
