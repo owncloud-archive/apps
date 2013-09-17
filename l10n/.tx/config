@@ -6,6 +6,12 @@ file_filter = <lang>/gallery.po
 source_file = templates/gallery.pot
 source_lang = en
 
+[owncloud.activity]
+file_filter = <lang>/activity.po
+source_file = templates/activity.pot
+source_lang = en
+type = PO
+
 [owncloud.admin_dependencies_chk]
 file_filter = <lang>/admin_dependencies_chk.po
 source_file = templates/admin_dependencies_chk.pot

@@ -30,7 +30,13 @@ OC::$CLASSPATH['OCA\Activity\Search'] = 'activity/lib/lib_search.php';
 
 
 // add an navigation entry
-OCP\App::addNavigationEntry(array('id' => 'activity', 'order' => 80, 'href' => OCP\Util::linkTo('activity', 'index.php'), 'icon' => OCP\Util::imagePath('activity', 'activity.png'), 'name' => 'Activity'));
+$l=OC_L10N::get('activity');
+OCP\App::addNavigationEntry(array(
+	'id' => 'activity',
+	'order' => 80,
+	'href' => OCP\Util::linkTo('activity', 'index.php'),
+	'icon' => OCP\Util::imagePath('activity', 'activity.png'),
+	'name' => $l->t('Activity')));
 
 // register the hooks for filesystem operations. All other events from other apps has to be send via the public api
 OCA\Activity\Hook::register();
