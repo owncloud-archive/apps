@@ -353,7 +353,7 @@ $(document).ready(function () {
 	// customize file results when we can edit them
 	OC.search.customResults.file = function (row, item) {
 		var validFile = /(text\/*|application\/xml)/;
-		if (validFile.test(row.data('mimetype'))) {
+		if (validFile.test(item.mime_type)) {
 			var a = row.find('td.result a');
 			a.data('file', item.name);
 			a.attr('href', '#');
