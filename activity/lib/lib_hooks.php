@@ -23,7 +23,6 @@
 
 
 namespace OCA\Activity;
-use OC_L10N;
 
 /**
  * @brief The class to handle the filesystem hooks
@@ -56,8 +55,9 @@ class Hook {
 		error_log('write hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = OC_L10N::get('activity');
-		$subject = $l->t('%s changed', substr($params['path'], 1));
+		$l = \OC_L10N::get('activity');
+		$l->t('test');
+		$subject = (string)$l->t('%s changed', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
 
@@ -70,8 +70,8 @@ class Hook {
 		error_log('delete hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = OC_L10N::get('activity');
-		$subject = $l->t('%s deleted', substr($params['path'], 1));
+		$l = \OC_L10N::get('activity');
+		$subject = (string)$l->t('%s deleted', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
 
@@ -85,8 +85,8 @@ class Hook {
 		error_log('create hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = OC_L10N::get('activity');
-		$subject = $l->t('%s created', substr($params['path'], 1));
+		$l = \OC_L10N::get('activity');
+		$subject = (string)$l->t('%s created', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
 

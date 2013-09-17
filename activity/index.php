@@ -34,25 +34,29 @@ OCP\App::setActiveNavigationEntry('activity');
 OCP\Util::addScript('activity', 'jquery.masonry.min');
 OCP\Util::addScript('activity', 'jquery.infinitescroll.min');
 OCP\Util::addScript('activity', 'script');
-OCP\Util::addStyle( 'activity', 'style');
+OCP\Util::addStyle('activity', 'style');
 
 // get the page that is requested. Needed for endless scrolling
-if(isset($_GET['page'])) $page= intval($_GET['page']); else $page=0;
+if (isset($_GET['page'])) {
+	$page = intval($_GET['page']);
+} else {
+	$page = 0;
+}
 
 // get rss url
-$rsslink=\OCP\Util::linkToAbsolute('activity','rss.php');
-$nextpage=\OCP\Util::linkToAbsolute('activity','index.php',array('page'=>$page+1));
+$rsslink = \OCP\Util::linkToAbsolute('activity', 'rss.php');
+$nextpage = \OCP\Util::linkToAbsolute('activity', 'index.php', array('page' => $page + 1));
 
 // read activities data
-$count=30;
-$activity=OCA\Activity\Data::read(($page)*$count,30);
+$count = 30;
+$activity = OCA\Activity\Data::read(($page) * $count, 30);
 
 
 // show activity template
 $tmpl = new \OCP\Template('activity', 'list', 'user');
 $tmpl->assign('rsslink', $rsslink);
 $tmpl->assign('activity', $activity);
-if($page==0) $tmpl->assign('nextpage', $nextpage);
+if ($page == 0) $tmpl->assign('nextpage', $nextpage);
 $tmpl->printPage();
 
 
