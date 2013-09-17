@@ -42,8 +42,11 @@ class Search extends \OC_Search_Provider{
 		
 		$results=array();
 		foreach($data as $d){
-			$file=$fileData['path'];
-			$results[]=new \OC_Search_Result(basename($file),$d['subject'].' ('.\OCP\Util::formatDate($d['timestamp']).')',\OC_Helper::linkTo( 'activity', 'index.php' ),'Activity');
+			$file=$d['file'];
+			$results[]=new \OC_Search_Result(
+				basename($file),
+				$d['subject'].' ('.\OCP\Util::formatDate($d['timestamp']).')',
+				\OC_Helper::linkTo( 'activity', 'index.php' ),'Activity');
 		}
 		
 		return $results;
