@@ -23,6 +23,7 @@
 
 
 namespace OCA\Activity;
+use OC_L10N;
 
 /**
  * @brief The class to handle the filesystem hooks
@@ -30,8 +31,9 @@ namespace OCA\Activity;
 class Hook {
 
 	/**
-	* @brief Registers the filesystem hooks for basic filesystem operations. All other events has to be triggered by the apps.
-	*/
+	 * @brief Registers the filesystem hooks for basic filesystem operations.
+	 * All other events has to be triggered by the apps.
+	 */
 	public static function register() {
 
 		//Listen to create file signal
@@ -47,44 +49,46 @@ class Hook {
 
 	/**
 	 * @brief Store the write hook events
-	 * @param $params The hook params
+	 * @param array $params The hook params
 	 */
 	public static function file_write($params) {
 		//debug
-		error_log('write hook '.$params['path']);
+		error_log('write hook ' . $params['path']);
 
-		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
-		$subject=substr($params['path'],1).' changed';
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
+		$l = OC_L10N::get('activity');
+		$subject = $l->t('%s changed', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
 
 	/**
 	 * @brief Store the delete hook events
-	 * @param $params The hook params
+	 * @param array $params The hook params
 	 */
 	public static function file_delete($params) {
 		//debug
-		error_log('delete hook '.$params['path']);
+		error_log('delete hook ' . $params['path']);
 
-		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
-		$subject=substr($params['path'],1).' deleted';
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
+		$l = OC_L10N::get('activity');
+		$subject = $l->t('%s deleted', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
 
 
 	/**
 	 * @brief Store the create hook events
-	 * @param @param $params The hook params
+	 * @param array $params The hook params
 	 */
 	public static function file_create($params) {
 		//debug
-		error_log('create hook '.$params['path']);
+		error_log('create hook ' . $params['path']);
 
-		$link=\OCP\Util::linkToAbsolute('files','index.php',array('dir' => dirname($params['path'])));
-		$subject=substr($params['path'],1).' created';
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
+		$l = OC_L10N::get('activity');
+		$subject = $l->t('%s created', substr($params['path'], 1));
 		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
 	}
-	
 
 
 }
