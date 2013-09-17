@@ -186,7 +186,7 @@ function giveEditorFocus() {
 // Loads the file editor. Accepts two parameters, dir and filename.
 function showFileEditor(dir, filename) {
 	// Check if unsupported file format
-	if(FileActions.getCurrentMimeType() == 'text/rtf') {
+	if(FileActions.getCurrentMimeType() === 'text/rtf') {
 		// Download the file instead.
 		window.location = OC.filePath('files', 'ajax', 'download.php') + '?files=' + encodeURIComponent(filename) + '&dir=' + encodeURIComponent($('#dir').val());
 	} else {
@@ -203,7 +203,7 @@ function showFileEditor(dir, filename) {
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
 				function (result) {
-					if (result.status == 'success') {
+					if (result.status === 'success') {
 						// Save mtime
 						$('#editor').attr('data-mtime', result.data.mtime);
 						// Initialise the editor
@@ -335,6 +335,8 @@ $(document).ready(function () {
 		FileActions.setDefault('application/x-pearl', 'Edit');
 
 	}
+	
+	//legacy search result customization
 	OC.search.customResults.Text = function (row, item) {
 		var text = item.link.substr(item.link.indexOf('download') + 8);
 		var a = row.find('td.result a');
@@ -347,6 +349,18 @@ $(document).ready(function () {
 			var dir = text.substr(0, pos);
 			showFileEditor(dir, file);
 		});
+	};
+	// customize file results when we can edit them
+	OC.search.customResults.file = function (row, item) {
+		var validFile = /(text\/*|application\/xml)/;
+		if (validFile.test(row.data('mimetype'))) {
+			var a = row.find('td.result a');
+			a.data('file', item.name);
+			a.attr('href', '#');
+			a.click(function () {
+				showFileEditor(OC.dirname(item.path), item.name);
+			});
+		}
 	};
 	// Binds the file save and close editor events, and gotoline button
 	bindControlEvents();
