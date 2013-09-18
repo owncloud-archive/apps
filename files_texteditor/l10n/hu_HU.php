@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Mentés",
+"Search" => "Keresés",
 "Close" => "Bezár",
 "Next" => "Következő",
 "Clear" => "Törlés",

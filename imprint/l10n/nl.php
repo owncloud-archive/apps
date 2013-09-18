@@ -12,5 +12,6 @@
 "Navigation top" => "Navigatie bovenaan",
 "Navigation bottom" => "Navigatie onderaan",
 "During login" => "Tijdens inloggen",
-"Content" => "Inhoud"
+"Content" => "Inhoud",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "U kunt html markup gebruiken (bv. <br> voor een nieuwe regel) en inline style attributen (bv. <a style=\"color:red;\">)."
 );

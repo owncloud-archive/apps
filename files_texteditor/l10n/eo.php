@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Konservi",
+"Search" => "Serĉi",
 "Close" => "Fermi",
 "Next" => "Jena",
 "Clear" => "Forviŝi",

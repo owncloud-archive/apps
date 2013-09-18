@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "حفظ",
+"Search" => "البحث",
 "Close" => "إغلاق",
 "Next" => "التالي",
 "Clear" => "محو",

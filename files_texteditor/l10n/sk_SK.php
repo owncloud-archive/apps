@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Uložiť",
+"Search" => "Hľadaj",
 "Close" => "Zatvoriť",
 "Next" => "Ďalšia",
 "Clear" => "Vyčistiť",

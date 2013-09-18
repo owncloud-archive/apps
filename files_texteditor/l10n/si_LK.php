@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "සුරකින්න",
+"Search" => "සොයන්න",
 "Close" => "වසන්න",
 "Next" => "ඊලඟ",
 "Saving..." => "සුරැකෙමින් පවතී",
