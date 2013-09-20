@@ -1,8 +1,8 @@
 <?php $TRANSLATIONS = array(
 "Checking your installation..." => "Checking your installation...",
-"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:",
+"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Upgrade is not possible. Make sure that your web-server has write access to the following files and directories:",
 "Version not found" => "Version not found",
-"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Upgrade is not possible. Your webserver does not have the necessary permissions to remove the following directory:",
+"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Upgrade is not possible. Your web-server does not have the necessary permissions to remove the following directory:",
 "Update permissions on this directory and its content or remove it manually first." => "Update permissions on this directory and its content or remove it manually first.",
 "Downloading package..." => "Downloading package...",
 "Unable to fetch package" => "Unable to fetch package",
