@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Lokal_Profil <lokal_profil@hotmail.com>, 2013
-# Christer Eriksson <post@hc3web.com>, 2012
+# Christer Eriksson <post@hceriksson.com>, 2012
 # Magnus Höglund <magnus@linux.com>, 2012
 # Magnus Höglund <magnus@linux.com>, 2012
 # medialabs, 2013
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:01+0000\n"
+"POT-Creation-Date: 2013-09-22 10:47-0400\n"
+"PO-Revision-Date: 2013-09-20 12:00+0000\n"
 "Last-Translator: medialabs\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -28,15 +28,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "Bilder"
 
-#: js/gallery.js:269
+#: js/gallery.js:271
 msgid "Shared by"
 msgstr "Delad av"
 
-#: js/slideshow.js:267
+#: js/slideshow.js:309
 msgid "Error loading slideshow template"
 msgstr "Fel vid laddning av mallen för bildspelet"
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "Dela"
 

@@ -5,7 +5,7 @@
 # Translators:
 # Flávio Veras <flaviove@gmail.com>, 2013
 # sedir <philippi.sedir@gmail.com>, 2012
-# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013
+# Rodrigo Tavares <rodrigost23@gmail.com>, 2013
 # tbsoares <tbsoares@gmail.com>, 2012
 # Thiago Vicente <thiagovice@gmail.com>, 2012
 # Van Der Fran <transifex@vanderland.com>, 2012
@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:01+0000\n"
+"POT-Creation-Date: 2013-09-22 10:47-0400\n"
+"PO-Revision-Date: 2013-09-20 12:00+0000\n"
 "Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "Imagens"
 
-#: js/gallery.js:269
+#: js/gallery.js:271
 msgid "Shared by"
 msgstr "Compartilhada por"
 
-#: js/slideshow.js:267
+#: js/slideshow.js:309
 msgid "Error loading slideshow template"
 msgstr "Erro ao carregar o modelo de slideshow"
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "Compartilhar"
 

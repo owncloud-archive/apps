@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:01+0000\n"
+"POT-Creation-Date: 2013-09-22 10:47-0400\n"
+"PO-Revision-Date: 2013-09-20 12:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -22,15 +22,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "படங்கள்"
 
-#: js/gallery.js:269
+#: js/gallery.js:271
 msgid "Shared by"
 msgstr ""
 
-#: js/slideshow.js:267
+#: js/slideshow.js:309
 msgid "Error loading slideshow template"
 msgstr ""
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "பகிர்வு"
 
