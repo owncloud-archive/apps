@@ -30,6 +30,11 @@ namespace OCA\Activity;
  */
 class Data
 {
+	const PRIORITY_VERYLOW 	= 10;
+	const PRIORITY_LOW	= 20;
+	const PRIORITY_MEDIUM	= 30;
+	const PRIORITY_HIGH	= 40;
+	const PRIORITY_VERYHIGH	= 50;
 
 	/**
 	 * @brief Send an event into the activity stream
@@ -40,15 +45,16 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $message = '', $file = '', $link = '')
+	public static function send($app, $subject, $message = '', $file = '', $link = '', $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
 	{
 
+error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		$timestamp = time();
 		$user = \OCP\User::getUser();
 
 		// store in DB
-		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`)' . ' VALUES(?, ?, ?, ?, ?, ?, ? )');
-		$query->execute(array($app, $subject, $message, $file, $link, $user, $timestamp));
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`, `priority`)' . ' VALUES(?, ?, ?, ?, ?, ?, ?, ? )');
+		$query->execute(array($app, $subject, $message, $file, $link, $user, $timestamp, $prio));
 
 		// call the expire function only every 1000x time to preserve performance.
 		if (rand(0, 1000) == 0) {
@@ -72,7 +78,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -96,7 +102,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
