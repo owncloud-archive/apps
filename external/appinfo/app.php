@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ownCloud - External plugin
+ * ownCloud - External app
  *
  * @author Frank Karlitschek
  * @copyright 2012 Frank Karlitschek frank@owncloud.org

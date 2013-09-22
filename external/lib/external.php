@@ -1,10 +1,10 @@
 <?php
 
 /**
- * ownCloud - gallery application
+ * ownCloud - external App
  *
- * @author Bartek Przybylski
- * @copyright 2012 Bartek Przybylski bart.p.pl@gmail.com
+ * @author Frank Karlitschek
+ * @copyright 2013 Frank Karlitschek frank@owncloud.org
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
