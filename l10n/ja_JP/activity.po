@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# tt yn <tetuyano+transi@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-20 07:49-0400\n"
-"PO-Revision-Date: 2013-09-18 14:00+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-09-22 10:47-0400\n"
+"PO-Revision-Date: 2013-09-21 14:30+0000\n"
+"Last-Translator: tt yn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,37 +20,37 @@ msgstr ""
 
 #: appinfo/app.php:39
 msgid "Activity"
-msgstr ""
+msgstr "活動"
 
 #: lib/lib_hooks.php:59
 msgid "test"
-msgstr ""
+msgstr "テスト"
 
 #: lib/lib_hooks.php:60
 #, php-format
 msgid "%s changed"
-msgstr ""
+msgstr "%s 更新"
 
 #: lib/lib_hooks.php:74
 #, php-format
 msgid "%s deleted"
-msgstr ""
+msgstr "%s 削除"
 
 #: lib/lib_hooks.php:89
 #, php-format
 msgid "%s created"
-msgstr ""
+msgstr "%s 作成"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "RSSフィード"
 
 #: templates/list.php:32
 #, php-format
 msgid ""
 "No activities yet. You will see a list of events here when you start to use "
 "your %s."
-msgstr ""
+msgstr "活動状況無し。%s を使用開始したら、ここでイベントリストを見ることができます。"
 
 #: templates/list.php:39
 msgid "Today"
