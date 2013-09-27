@@ -12,7 +12,12 @@ function makeCrateListEditable(){
 function makeViewButtonClickable(){
 	$('#crateList li a').click('click', function(event){
 		var id = event.target.id;
-		window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
+		if($(this).data("action") === 'delete'){
+			return;
+		}
+		else{
+			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
+		}
 	});
 }
 

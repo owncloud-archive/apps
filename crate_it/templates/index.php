@@ -9,7 +9,10 @@ and let user drag and drop -->
 <ul id="crateList" style="min-width:35%;display:inline-block;">
 <?php foreach($_['bagged_files'] as $entry):?>
 	<li id="<?php echo $entry['id'];?>"><span id="<?php echo $entry['id'];?>" style="padding-right: 10px;"><?php print_unescaped($entry['title']);?></span>
-	<a id="<?php echo $entry['id'];?>" style="float:right;">View</a></li>
+	<a id="<?php echo $entry['id'];?>" data-action="delete" title="Delete" style="float:right;">
+	   <img class="svg" src="/owncloud/core/img/actions/delete.svg"></a>
+	<a id="<?php echo $entry['id'];?>" style="float:right;">View</a>
+	</li>
 <?php endforeach;?>
 </ul>
 </div>
