@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_persona</id>
+	<name>Mozilla Persona user backend</name>
+	<description>Allow login with Mozilla Persona (former browserId). Please check README otherwise it won't work ;) </description>
+	<version>0.3.1</version>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<require>5.0</require>
+	<types>
+		<authentication />
+		<prelogin />
+	</types>
+</info>
+
