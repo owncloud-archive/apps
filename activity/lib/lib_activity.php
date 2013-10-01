@@ -49,6 +49,7 @@ class Data
 	{
 
 error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
+
 		$timestamp = time();
 		$user = \OCP\User::getUser();
 
@@ -60,6 +61,9 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		if (rand(0, 1000) == 0) {
 			\OCA\Activity\Data::expire();
 		}
+
+		// fire a hook so that other apps like notification systems can connect
+		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio));
 
 		return true;
 	}
