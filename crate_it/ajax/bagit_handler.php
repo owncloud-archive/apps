@@ -48,6 +48,12 @@ switch ($action){
 	case 'clear':
 		$bagit_manager->clearBag();
 		break;
+	case 'delete':
+		$ok = $bagit_manager->removeItem($file_id);
+		if(!$ok){
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
 	case 'update':
 		$bagit_manager->updateOrder($neworder);
 		break;

@@ -127,7 +127,12 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		$preview_file = "tt.txt";
+		//TODO we need to get preview from file_previewer app 
+		$preview_file = $this->getPreviewPath($full_path);
+		/*if(empty($preview_file))
+		{
+			return "No preview available. File not added to crate.";
+		}*/
 		$title = $this->getTitle($preview_file);
 		if(empty($title)){
 			$title = $file;
@@ -162,14 +167,16 @@ class BagItManager{
 		return "File added to the crate ".$this->selected_crate;
 	}
 	
+	//TODO uncomment once title is ok
 	private function getTitle($file) {
-		if (preg_match('/<title>(.+)<\/title>/', file_get_contents($file), $matches)
+		/*if (preg_match('/<title>(.+)<\/title>/', file_get_contents($file), $matches)
 				&& isset($matches[1] )) {
 			return $matches[1];
 		}
 		else {
 			return "";
-		}
+		}*/
+		return "";
 	}
 	
 	public function clearBag(){
@@ -224,6 +231,23 @@ class BagItManager{
 		return true;
 	}
 	
+	//TODO remove item from manifest
+	public function removeItem($id){
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$items = &$contents['titles'];
+	    
+		for ($i = 0; $i < count($items); $i++) {
+			if($items[$i]['id'] ==  $id)
+			{
+				array_splice($items, $i, 1);
+			}
+		}
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		return true;
+	}
+	
 	public function getPreview($file_id){
         foreach ($this->getItemList() as $value) {
 	    	if($value['id'] === $file_id){
@@ -242,17 +266,36 @@ class BagItManager{
 		}
 	}
 	
+	private function getPreviewPath($full_path){
+		$path_parts = pathinfo($full_path);
+		$prev_file = $path_parts['filename'].'.htm';
+		$tempfile = $this->createTempDirectory();
+		$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($full_path).'"');
+			
+		$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
+		$url = str_replace(' ', '%20', $url);
+			
+		//Download file
+		$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
+		system($comm, $retval);
+			
+		if($retval === 0) {
+			$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
+			//make links to those htmls in temp dir
+			return $prev_path."/".$prev_file;
+		}
+		else{
+			return Null;
+		}
+	}
+	
 	public function createEpub(){
 		//create temp html from manifest
 		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
 		
 		$source_dir = $this->base_dir.'/files';
 		
-		$tempfile = tempnam(sys_get_temp_dir(),'');
-		if (file_exists($tempfile)) {
-			unlink($tempfile);
-		}
-		mkdir($tempfile);
+		$tempfile = $this->createTempDirectory();
 		
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
@@ -288,6 +331,15 @@ class BagItManager{
     	}
 		//send the epub to user
 		return $tempfile.'/temp.epub';
+	}
+	
+	private function createTempDirectory(){
+		$tempfile = tempnam(sys_get_temp_dir(),'');
+		if (file_exists($tempfile)) {
+			unlink($tempfile);
+		}
+		mkdir($tempfile);
+		return $tempfile;
 	}
 	
 	private function getItemList(){

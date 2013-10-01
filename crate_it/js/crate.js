@@ -9,11 +9,22 @@ function makeCrateListEditable(){
 	});
 }
 
-function makeViewButtonClickable(){
+function makeActionButtonsClickable(){
 	$('#crateList li a').click('click', function(event){
-		var id = event.target.id;
+		var id = event.currentTarget.id;
 		if($(this).data("action") === 'delete'){
-			return;
+			$.ajax({
+				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+				type:'get',
+				dataType:'html',
+				data:{'action':'delete', 'file_id':id},
+				success:function(data){
+					$('#crateList li#'+id).remove();
+				},
+				error:function(data){
+					
+				}
+			});
 		}
 		else{
 			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
@@ -33,7 +44,7 @@ $(document).ready(function() {
         }
 	});
 	
-	makeViewButtonClickable();
+	makeActionButtonsClickable();
 	
 	$('#crateList').disableSelection();
 	makeCrateListEditable();
@@ -162,12 +173,13 @@ $(document).ready(function() {
 							var items = [];
 							$.each(data, function(key, value){
 								items.push('<li id="'+value['id']+'"><span id="'+value['id']+'">'+value['title']+'</span><a id="'+
+										value['id']+'" data-action="delete" title="Delete" style="float:right;"><img src="/owncloud/core/img/actions/delete.svg"></a><a id="'+
 										value['id']+'" style="float:right;">View</a></li>');
 							});
 							$('#crateList').append(items.join(''));
 						}
 						makeCrateListEditable();
-						makeViewButtonClickable();
+						makeActionButtonsClickable();
 					},
 					error: function(data){
 						var e = data.statusText;
