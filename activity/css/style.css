@@ -9,8 +9,26 @@
 .activitysubject { font-size:1.0em; color: #333;}
 .activitymessage { font-size:0.8em; color:#666;}
 
-.activityerror { font-weight: bold; font-size:1.2em; color: #666; padding:10px; text-align: center;}
-
+.noactivities{
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.noactivities .head{
+	font-size: 1.5em;
+	color: #333;
+	font-weight: bold;
+	text-shadow: #fff 0 1px 0;
+}
+.noactivities .body{
+	color: #666;
+	margin-top: 10px;
+	font-size: 1em;
+}
 
 .rssbutton {
 	font-size: 0.8em;
