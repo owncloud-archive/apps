@@ -25,13 +25,13 @@
 /** @var $theme OC_Defaults */
 
 // The rss activity button
-echo('<a href="' . $_['rsslink'] . '" class="button rssbutton">' . $l->t('RSS feed') . '</a><br /><br />');
+echo('<a href="' . $_['rsslink'] . '" class="button rssbutton">' . $l->t('RSS feed') . '</a>');
 
 if (count($_['activity']) == 0) {
-
-	$error = $l->t('No activities yet. You will see a list of events here when you start to use your %s.', $theme->getTitle());
-	echo('<div class="activityerror">' . $error . '</div>');
-
+	echo('<div class="noactivities">' .
+		'<div class="head">' . $l->t('No activities yet.') . '</div>' .
+		'<div class="body">' . $l->t('You will see a list of events here when you start to use your %s.', $theme->getTitle()) . '</div>' .
+		'</div>');
 } else {
 
 
