@@ -1,7 +1,16 @@
 
   $(function(){
-  
+
+	function processElements($elem){
+		$elem.find('.avatar').each(function(){
+			var $this = $(this);
+			$this.avatar($this.data('user'), 32);
+		});
+		$elem.find('.activitytime').tipsy({gravity:'s', fade:true});
+	}
+
 	var $container = $('#container');
+	processElements($container);
   
 	$container.imagesLoaded(function(){
   	  $container.masonry({
@@ -23,6 +32,7 @@
   	  function( newElements ) {
   		// hide new items while they are loading
   		var $newElems = $( newElements ).css({ opacity: 0 });
+		processElements($newElems);
   		// ensure that images load before adding to masonry layout
   		$newElems.imagesLoaded(function(){
   		  // show elems now they're ready
@@ -33,4 +43,4 @@
   	);
   
     });
-    
+

@@ -1,22 +1,19 @@
-.activityheadline { font-weight: bold; font-size:2.2em; color: #666; padding:10px;}
-
-.activitysubject { font-weight: bold; font-size:1.0em; color: #555;}
-.activitymessage { font-size:0.8em; color:#999;}
-.activitytime {
-	font-size:0.8em;
-	color:#BBB;
-	float:right;
-	position: absolute;
-	bottom: 0px;
-	right: 5px;
-
+.activityheadline {
+	font-weight: bold;
+	font-size:2.2em;
+	color: #666;
+	margin-top: 10px;
+	padding: 10px 20px;
 }
+
+.activitysubject { font-size:1.0em; color: #333;}
+.activitymessage { font-size:0.8em; color:#666;}
 
 .activityerror { font-weight: bold; font-size:1.2em; color: #666; padding:10px; text-align: center;}
 
 
 .rssbutton {
-	font-size: 0.6em;
+	font-size: 0.8em;
 	float: right;
 	margin:0.6em;
 }
@@ -33,15 +30,59 @@
 }
 
 .box {
-  width: 150px;
+  width: 240px;
   float: left;
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
   background: #EEE;
   font-weight: 300;
+  border: 1px solid #DDD;
   -webkit-border-radius: 5px;
 	 -moz-border-radius: 5px;
 		  border-radius: 5px;
+}
+
+.box .avatar{
+	float: left;
+	margin-right: 20px;
+}
+
+.box .header{
+	height: 32px;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+}
+
+.box .messagecontainer{
+	width: 100%;
+	display: block;
+}
+
+.box .preview{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.box .user{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	display: inline-block;
+	width: 180px;
+}
+
+.box .user{
+	font-weight: bold;
+}
+
+.box .activitytime {
+	float: left;
+	color:#666;
+	font-size: 0.8em;
 }
 
 /* Infinite Scroll loader */

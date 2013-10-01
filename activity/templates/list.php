@@ -25,7 +25,7 @@
 /** @var $theme OC_Defaults */
 
 // The rss activity button
-echo('<a href="' . $_['rsslink'] . '" class="button rssbutton">' . $l->t('RSS feed') . '</a><br /><br />');
+echo('<a href="' . $_['rsslink'] . '" class="button rssbutton">' . $l->t('RSS feed') . '</a>');
 
 if (count($_['activity']) == 0) {
 

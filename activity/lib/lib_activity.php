@@ -82,7 +82,7 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -106,7 +106,7 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		$user = \OCP\User::getUser();
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
@@ -123,14 +123,23 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 	 */
 	public static function show($event)
 	{
+		$user = $event['user'];
 
-		$user = \OCP\User::getUser();
-
+		// TODO: move into template?
 		echo('<div class="box">');
 
+		echo('<div class="header">');
+		echo('<span class="avatar" data-user="' . htmlspecialchars($user) . '"></span>');
+		echo('<span>');
+		echo('<span class="user">' . htmlspecialchars($user) . '</span>');
+		echo('<span class="activitytime" title="' . \OCP\Util::formatDate($event['timestamp']) . '">' . htmlspecialchars(\OCP\relative_modified_date($event['timestamp'])) . '</span><br />');
+		echo('</span>');
+		echo('</div>');
+		echo('<div class="messagecontainer">');
+
 		if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
-		echo('<span class="activitysubject">' . $event['subject'] . '</span><br />');
-		echo('<span class="activitymessage">' . $event['message'] . '</span>');
+		echo('<div class="activitysubject">' . htmlspecialchars($event['subject']) . '</div>');
+		echo('<div class="activitymessage">' . htmlspecialchars($event['message']) . '</div>');
 
 
 		$rootView = new \OC\Files\View('');
@@ -138,12 +147,11 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		unset($rootView);
 		// show a preview image if the file still exists
 		if ($exist) {
-			echo('<img src="' . \OCP\Util::linkToRoute('core_ajax_preview', array('file' => $event['file'], 'x' => 150, 'y' => 150)) . '" />');
+			echo('<img class="preview" src="' . \OCP\Util::linkToRoute('core_ajax_preview', array('file' => $event['file'], 'x' => 150, 'y' => 150)) . '" />');
 		}
 
 		if ($event['link'] <> '') echo('</a>');
-		echo('<span class="activitytime">' . \OCP\relative_modified_date($event['timestamp']) . '</span><br />');
-
+		echo('</div>'); // end messagecontainer
 		echo('</div>');
 
 	}
