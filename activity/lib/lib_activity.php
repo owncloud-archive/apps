@@ -48,7 +48,6 @@ class Data
 	public static function send($app, $subject, $message = '', $file = '', $link = '', $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
 	{
 
-error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 
 		$timestamp = time();
 		$user = \OCP\User::getUser();

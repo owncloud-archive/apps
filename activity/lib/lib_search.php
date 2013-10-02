@@ -38,7 +38,6 @@ class Search extends \OC_Search_Provider{
 	function search($query){
 		
 		$data=\OCA\Activity\Data::search($query,100);
-		error_log(count($data).' '.$query);
 		
 		$results=array();
 		foreach($data as $d){
