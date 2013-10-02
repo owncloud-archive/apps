@@ -132,7 +132,7 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 		echo('<span class="avatar" data-user="' . htmlspecialchars($user) . '"></span>');
 		echo('<span>');
 		echo('<span class="user">' . htmlspecialchars($user) . '</span>');
-		echo('<span class="activitytime" title="' . \OCP\Util::formatDate($event['timestamp']) . '">' . htmlspecialchars(\OCP\relative_modified_date($event['timestamp'])) . '</span>');
+		echo('<span class="activitytime tooltip" title="' . \OCP\Util::formatDate($event['timestamp']) . '">' . htmlspecialchars(\OCP\relative_modified_date($event['timestamp'])) . '</span>');
 		echo('</span>');
 		echo('</div>');
 		echo('<div class="messagecontainer">');
@@ -152,7 +152,7 @@ error_log(\OCA\Activity\Data::PRIORITY_MEDIUM);
 
 		if ($event['link'] <> '') echo('</a>');
 		echo('</div>'); // end messagecontainer
-		echo('</div>');
+		echo('</div>'); // end box
 
 	}
 
