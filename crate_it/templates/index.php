@@ -1,20 +1,23 @@
 <div style="padding-top:20px">
-	<span id="crateName" title="Double click to edit..." style="font-weight:bold;font-size:large; padding-left:20px;"><?php echo $_['selected_crate'] ?></span>
+	<span id="crateName" style="font-weight:bold;font-size:large; padding-left:20px;"><?php echo $_['selected_crate'] ?></span>
 </div>
 
 <div style="padding-left:20px;padding-top:5px">
 <!-- don't think about hiearchi now, just create a list
 and let user drag and drop -->
 
-<ul id="crateList" style="min-width:35%;display:inline-block;">
+<table id="cratesTable">
+<tbody id="crateList">
 <?php foreach($_['bagged_files'] as $entry):?>
-	<li id="<?php echo $entry['id'];?>"><span id="<?php echo $entry['id'];?>" style="padding-right: 10px;"><?php print_unescaped($entry['title']);?></span>
-	<a id="<?php echo $entry['id'];?>" data-action="delete" title="Delete" style="float:right;">
-	   <img src="/owncloud/core/img/actions/delete.svg"></a>
-	<a id="<?php echo $entry['id'];?>" style="float:right;">View</a>
-	</li>
+	<tr id="<?php echo $entry['id'];?>">
+	<td><span class="title" style="padding-right: 150px;"><?php print_unescaped($entry['title']);?></span></td>
+	<td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>
+	<td><div><a data-action="delete" title="Delete">
+	   <img src="/owncloud/core/img/actions/delete.svg"></a></div></td>
+	</tr>
 <?php endforeach;?>
-</ul>
+</tbody>
+</table>
 </div>
 
 <div style="float:left; padding:20px;">

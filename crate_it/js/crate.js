@@ -1,17 +1,19 @@
 function makeCrateListEditable(){
-	$('#crateList li span').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
-		id : 'elementid',
+	$('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
 		name : 'new_title',
 		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
 		tooltip : 'Double click to edit...',
 		event : 'dblclick',
-		style : 'inherit'
+		style : 'inherit',
+		submitdata : function(value, settings){
+			return {'elementid':this.parentNode.parentNode.getAttribute('id')};
+		}
 	});
 }
 
 function makeActionButtonsClickable(){
-	$('#crateList li a').click('click', function(event){
-		var id = event.currentTarget.id;
+	$('#crateList tr a').click('click', function(event){
+		var id = this.parentNode.parentNode.parentNode.getAttribute('id');
 		if($(this).data("action") === 'delete'){
 			$.ajax({
 				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
@@ -19,7 +21,7 @@ function makeActionButtonsClickable(){
 				dataType:'html',
 				data:{'action':'delete', 'file_id':id},
 				success:function(data){
-					$('#crateList li#'+id).remove();
+					$('#crateList tr#'+id).remove();
 				},
 				error:function(data){
 					
@@ -50,7 +52,7 @@ $(document).ready(function() {
 	makeCrateListEditable();
 	
 	$('#download').click('click', function(event) { 
-		if($('#crateList li').length == 0){
+		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(function() {OC.Notification.hide();}, 3000);
 			return;
@@ -62,7 +64,7 @@ $(document).ready(function() {
 	});
 	
 	$('#epub').click(function(event) {
-		if($('#crateList li').length == 0){
+		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(function() {OC.Notification.hide();}, 3000);
 			return;
@@ -125,7 +127,7 @@ $(document).ready(function() {
 		}
 	});*/
 	
-	$('#crateName').bind('dblclick', function() {
+	/*$('#crateName').bind('dblclick', function() {
         $(this).prop('contentEditable', true);
     }).blur(
         function() {
@@ -147,7 +149,20 @@ $(document).ready(function() {
     				alert(e);
     			}
     		});
-      });
+      });*/
+	
+	$('#crateName').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate', {
+		name : 'new_name',
+		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+		tooltip : 'Double click to edit...',
+		event : 'dblclick',
+		style : 'inherit',
+		callback: function(value, settings){
+			$('#crates').find(':selected').text(value);
+            $('#crates').find(':selected').prop("id", value);
+            $('#crates').find(':selected').prop("value", value);
+		}
+	});
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");
@@ -172,9 +187,9 @@ $(document).ready(function() {
 						if(data != null){
 							var items = [];
 							$.each(data, function(key, value){
-								items.push('<li id="'+value['id']+'"><span id="'+value['id']+'">'+value['title']+'</span><a id="'+
-										value['id']+'" data-action="delete" title="Delete" style="float:right;"><img src="/owncloud/core/img/actions/delete.svg"></a><a id="'+
-										value['id']+'" style="float:right;">View</a></li>');
+								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
+										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
+										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
 							});
 							$('#crateList').append(items.join(''));
 						}

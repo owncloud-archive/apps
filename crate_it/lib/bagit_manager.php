@@ -231,7 +231,7 @@ class BagItManager{
 		return true;
 	}
 	
-	//TODO remove item from manifest
+	//remove an item from manifest
 	public function removeItem($id){
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$items = &$contents['titles'];

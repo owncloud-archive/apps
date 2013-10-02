@@ -11,7 +11,7 @@ $crate_name = isset($_GET['crate_name']) ? $_GET['crate_name'] : '';
 $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
 $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
 $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
-$new_name = isset($_GET['new_name']) ? $_GET['new_name'] : '';
+$new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 
 //Get an instance of BagItManager
