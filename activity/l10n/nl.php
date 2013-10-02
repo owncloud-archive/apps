@@ -5,5 +5,4 @@
 "%s deleted" => "%s verwijderd",
 "%s created" => "%s aangemaakt",
 "RSS feed" => "RSS feed",
-"Today" => "Vandaag"
 );

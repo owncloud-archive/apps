@@ -5,5 +5,4 @@
 "%s deleted" => "%s kustutatud",
 "%s created" => "%s loodud",
 "RSS feed" => "RSS voog",
-"Today" => "Täna"
 );

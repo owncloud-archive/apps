@@ -5,5 +5,4 @@
 "%s deleted" => "%s poistettiin",
 "%s created" => "%s luotiin",
 "RSS feed" => "RSS-syöte",
-"Today" => "Tänään"
 );
