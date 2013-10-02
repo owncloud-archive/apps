@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-18 09:42-0400\n"
-"PO-Revision-Date: 2013-09-18 13:42+0000\n"
+"POT-Creation-Date: 2013-10-02 08:05-0400\n"
+"PO-Revision-Date: 2013-10-02 12:06+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/owncloud/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,12 @@ msgid "RSS feed"
 msgstr ""
 
 #: templates/list.php:32
+msgid "No activities yet."
+msgstr ""
+
+#: templates/list.php:33
 #, php-format
-msgid ""
-"No activities yet. You will see a list of events here when you start to use "
-"your %s."
+msgid "You will see a list of events here when you start to use your %s."
 msgstr ""
 
 #: templates/list.php:39

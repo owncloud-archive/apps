@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-24 00:49-0400\n"
-"PO-Revision-Date: 2013-07-23 05:03+0000\n"
+"POT-Creation-Date: 2013-10-02 08:05-0400\n"
+"PO-Revision-Date: 2013-10-01 18:29+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/owncloud/language/te/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgid ""
 "community</a>."
 msgstr ""
 
-#: templates/admin.php:20
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Backup Management"
 msgstr ""
 
-#: templates/update.php:19 templates/update.php:45
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr ""
 

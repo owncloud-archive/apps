@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# rogerc, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-20 07:49-0400\n"
-"PO-Revision-Date: 2013-09-18 14:00+0000\n"
+"POT-Creation-Date: 2013-10-02 08:05-0400\n"
+"PO-Revision-Date: 2013-10-02 12:06+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -19,36 +20,38 @@ msgstr ""
 
 #: appinfo/app.php:39
 msgid "Activity"
-msgstr ""
+msgstr "Activitat"
 
 #: lib/lib_hooks.php:59
 msgid "test"
-msgstr ""
+msgstr "prova"
 
 #: lib/lib_hooks.php:60
 #, php-format
 msgid "%s changed"
-msgstr ""
+msgstr "%s canviat"
 
 #: lib/lib_hooks.php:74
 #, php-format
 msgid "%s deleted"
-msgstr ""
+msgstr "%s esborrat"
 
 #: lib/lib_hooks.php:89
 #, php-format
 msgid "%s created"
-msgstr ""
+msgstr "%s creat"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "Font RSS"
 
 #: templates/list.php:32
+msgid "No activities yet."
+msgstr ""
+
+#: templates/list.php:33
 #, php-format
-msgid ""
-"No activities yet. You will see a list of events here when you start to use "
-"your %s."
+msgid "You will see a list of events here when you start to use your %s."
 msgstr ""
 
 #: templates/list.php:39

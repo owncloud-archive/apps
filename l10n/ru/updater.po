@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
+"POT-Creation-Date: 2013-10-02 08:05-0400\n"
+"PO-Revision-Date: 2013-10-01 18:29+0000\n"
 "Last-Translator: Alexander Shashkevych <alex@stunpix.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgid ""
 "community</a>."
 msgstr "При обновлении произошла ошибка. Пожалуйста сообщите об этой ошибке <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud сообществу</a>."
 
-#: templates/admin.php:18
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr "Центр обновлений"
 

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
+"POT-Creation-Date: 2013-10-02 08:05-0400\n"
+"PO-Revision-Date: 2013-10-01 18:29+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgid ""
 "community</a>."
 msgstr "升級失敗，請將問題回報給 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud 社群</a>。"
 
-#: templates/admin.php:18
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr "升級中心"
 
