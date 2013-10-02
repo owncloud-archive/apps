@@ -6,6 +6,7 @@
 		<licence>AGPL</licence>
 		<author>Frank Karlitschek</author>
 		<shipped>true</shipped>
+		<default_enable/>
 		<require>4.9</require>
 		<types>
 				<filesystem/>
