@@ -34,18 +34,12 @@ if (count($_['activity']) == 0) {
 		'</div>');
 } else {
 
-
-	// The headline
-	echo('<div class="activityheadline">' . $l->t('Today') . '</div>');
-
-
 	// Show the activities. The container is needed for the endless scrolling
-	echo('<div id="container" >');
-	foreach ($_['activity'] as $event) {
-		OCA\Activity\Data::show($event);
-	}
+	echo('<div id="container">');
+	$tmpl = new \OCP\Template('activity', 'activities.part', '');
+	$tmpl->assign('activity', $_['activity']);
+	$tmpl->printPage();
 	echo('</div>');
-
 
 	// Dummy navigation. Needed for endless scrolling
 	if (isset($_['nextpage'])) echo('

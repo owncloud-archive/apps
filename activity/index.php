@@ -38,14 +38,14 @@ OCP\Util::addStyle('activity', 'style');
 
 // get the page that is requested. Needed for endless scrolling
 if (isset($_GET['page'])) {
-	$page = intval($_GET['page']);
+	$page = intval($_GET['page']) - 1;
 } else {
 	$page = 0;
 }
 
 // get rss url
 $rsslink = \OCP\Util::linkToAbsolute('activity', 'rss.php');
-$nextpage = \OCP\Util::linkToAbsolute('activity', 'index.php', array('page' => $page + 1));
+$nextpage = \OCP\Util::linkToAbsolute('activity', 'index.php', array('page' => $page + 2));
 
 // read activities data
 $count = 30;
@@ -58,5 +58,4 @@ $tmpl->assign('rsslink', $rsslink);
 $tmpl->assign('activity', $activity);
 if ($page == 0) $tmpl->assign('nextpage', $nextpage);
 $tmpl->printPage();
-
 

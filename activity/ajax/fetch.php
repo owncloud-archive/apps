@@ -21,29 +21,25 @@
 *
 */
 
-
 // some housekeeping
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('activity');
 
-
 // read the next 30 items for the endless scrolling
-$activity=OCA\Activity\Data::read(0,30);
-
-// show the next 30 entries including the container that is needed for the endless scrolling
-echo('<div id="container" class="transitions-enabled infinite-scroll clearfix">');
-foreach($activity as $event) {
-	OCA\Activity\Data::show($event);
+// get the page that is requested. Needed for endless scrolling
+$count = 30;
+if (isset($_GET['page'])) {
+	$page = intval($_GET['page']) - 1;
+} else {
+	$page = 0;
 }
-echo('</div>');
 
+$activity=OCA\Activity\Data::read($page * $count, $count);
+$nextpage = \OCP\Util::linkToAbsolute('activity', 'index.php', array('page' => $page + 2));
 
-// a dummy page navigation that is needed for the endless scrolling
-echo('
-<nav id="page-nav">
-  <a href="'.$_['nextpage'].'">next</a>
-</nav>
-
-');
-
+// show the next 30 entries
+$tmpl = new \OCP\Template('activity', 'activities.part', '');
+$tmpl->assign('activity', $activity);
+if ($page == 0) $tmpl->assign('nextpage', $nextpage);
+$tmpl->printPage();
 
