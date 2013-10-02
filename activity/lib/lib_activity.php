@@ -45,16 +45,22 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $message = '', $file = '', $link = '', $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
+	public static function send($app, $subject, $message = '', $file = '', $link = '', $affecteduser = '', $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
 	{
 
 
 		$timestamp = time();
 		$user = \OCP\User::getUser();
+		
+		if($affecteduser === '') {
+			$auser = \OCP\User::getUser();
+		} else{
+			$auser = $affecteduder;
+		}
 
 		// store in DB
-		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `timestamp`, `priority`)' . ' VALUES(?, ?, ?, ?, ?, ?, ?, ? )');
-		$query->execute(array($app, $subject, $message, $file, $link, $user, $timestamp, $prio));
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `affecteduser`, `timestamp`, `priority`)' . ' VALUES(?, ?, ?, ?, ?, ?, ?, ?, ? )');
+		$query->execute(array($app, $subject, $message, $file, $link, $user, $auser, $timestamp, $prio));
 
 		// call the expire function only every 1000x time to preserve performance.
 		if (rand(0, 1000) == 0) {
@@ -62,7 +68,7 @@ class Data
 		}
 
 		// fire a hook so that other apps like notification systems can connect
-		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio));
+		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'user' => $user, 'affecteduser' => $affecteduser, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio));
 
 		return true;
 	}
@@ -81,7 +87,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user` FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -105,7 +111,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
@@ -122,7 +128,7 @@ class Data
 	 */
 	public static function show($event)
 	{
-		$user = $event['user'];
+		$user = $event['affecteduser'];
 
 		// TODO: move into template?
 		echo('<div class="box">');
