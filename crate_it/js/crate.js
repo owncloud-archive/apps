@@ -95,7 +95,7 @@ $(document).ready(function() {
 	        data: {'action':'create', 'crate_name':$('#crate_input #create').val()},
 	        success: function(data){
 	        	$('#crate_input #create').val('');
-	        	$("#crates").append('<option id='+data+' value='+data+' >'+data+'</option>');
+	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
 				setTimeout(function() {OC.Notification.hide();}, 3000);
 	        	//$('#subbutton').attr('disabled', 'disabled');
