@@ -157,7 +157,8 @@ $(document).ready(function() {
 		tooltip : 'Double click to edit...',
 		event : 'dblclick',
 		style : 'inherit',
-		callback: function(value, settings){
+		height : '15px',
+		callback : function(value, settings){
 			$('#crates').find(':selected').text(value);
             $('#crates').find(':selected').prop("id", value);
             $('#crates').find(':selected').prop("value", value);
