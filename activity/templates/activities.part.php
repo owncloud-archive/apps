@@ -26,7 +26,9 @@
 
 $lastDate = null;
 foreach ($_['activity'] as $event) {
-	$currentDate = strip_time($event['timestamp']);
+	// group by date
+	// TODO: use more efficient way to group by date (don't group by localized string...)
+	$currentDate = (string)(\OCP\relative_modified_date($event['timestamp'], true));
 	if ($currentDate !== $lastDate){
 		// not first group ?
 		if ($lastDate !== null){
@@ -36,7 +38,7 @@ foreach ($_['activity'] as $event) {
 		}
 		$lastDate = $currentDate;
 		echo('<div class="group" data-date="' . $currentDate . '">');
-		echo('<div class="groupheader"><span class="tooltip" title="' . \OCP\Util::formatDate($currentDate, true) .'">' . ucfirst(\OCP\relative_modified_date($currentDate, true)) . '</span></div>');
+		echo('<div class="groupheader"><span class="tooltip" title="' . \OCP\Util::formatDate(strip_time($event['timestamp']), true) .'">' . ucfirst($currentDate) . '</span></div>');
 		echo('<div class="boxcontainer">');
 	}
 	\OCA\Activity\Data::show($event);
