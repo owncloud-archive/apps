@@ -273,9 +273,9 @@ class StorageService extends Service
 		$whereString = 'WHERE `collectionid` = ?';
 		array_push($queryArgs, $collectionId);
 
-		$whereString .= Storage::modifiersToString($modifiers, $queryArgs);
+		$whereString .= Storage::modifiersToString($modifiers, $queryArgs, $limit, $offset);
 
-		$query = \OCP\DB::prepare( 'SELECT ' . $queryFields . ' FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString );
+		$query = \OCP\DB::prepare( 'SELECT ' . $queryFields . ' FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString, $limit, $offset );
 		$result = $query->execute( $queryArgs );
 
 		if($result == false) {
@@ -380,9 +380,9 @@ class StorageService extends Service
 		$whereString = 'WHERE `collectionid` = ?';
 		array_push($queryArgs, $collectionId);
 
-		$whereString .= Storage::modifiersToString($modifiers, $queryArgs);
+		$whereString .= Storage::modifiersToString($modifiers, $queryArgs, $limit, $offset);
 
-		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString, $limit, $offset );
 		$result = $query->execute( $queryArgs );
 
 		if($result == false) {
