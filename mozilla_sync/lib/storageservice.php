@@ -355,7 +355,7 @@ class StorageService extends Service
 		}
 
 		$resultArray["success"] = $successArray;
-		$resultArray["failed"] = $failedArray;
+		$resultArray["failed"] = (object)$failedArray;
 
 		OutputData::write($resultArray);
 		return true;
