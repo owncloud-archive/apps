@@ -5,5 +5,4 @@
 "%s deleted" => "%s 削除",
 "%s created" => "%s 作成",
 "RSS feed" => "RSSフィード",
-"Today" => "今日"
 );

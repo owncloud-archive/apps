@@ -5,5 +5,4 @@
 "%s deleted" => "%s esborrat",
 "%s created" => "%s creat",
 "RSS feed" => "Font RSS",
-"Today" => "Avui"
 );

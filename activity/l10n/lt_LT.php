@@ -5,5 +5,4 @@
 "%s deleted" => "%s ištrinta",
 "%s created" => "%s sukurta",
 "RSS feed" => "RSS sklaidos kanalas",
-"Today" => "Šiandien"
 );

@@ -5,5 +5,4 @@
 "%s deleted" => "%s smazáno",
 "%s created" => "%s vytvořeno",
 "RSS feed" => "RSS kanál",
-"Today" => "Dnes"
 );

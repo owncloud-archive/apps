@@ -5,5 +5,4 @@
 "%s deleted" => "%s törölve",
 "%s created" => "%s létrejött",
 "RSS feed" => "RSS hírcsatorna",
-"Today" => "Ma"
 );

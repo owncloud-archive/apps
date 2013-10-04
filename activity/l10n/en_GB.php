@@ -5,5 +5,4 @@
 "%s deleted" => "%s deleted",
 "%s created" => "%s created",
 "RSS feed" => "RSS feed",
-"Today" => "Today"
 );
