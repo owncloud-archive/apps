@@ -1,5 +1,5 @@
 <?php
-OC::$CLASSPATH['OC_ReaderSearchProvider'] = 'apps/reader/lib/search.php';
+OC::$CLASSPATH['OC_ReaderSearchProvider'] = 'reader/lib/search.php';
 
 OCP\App::register(array(
   'order' => 20,
