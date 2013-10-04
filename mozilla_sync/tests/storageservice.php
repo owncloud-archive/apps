@@ -16,7 +16,7 @@ class Test_StorageService extends PHPUnit_Framework_TestCase {
     // Create ownCloud Test User
     OC_User::createUser($this->userName, $this->password);
     OC_User::setUserId($this->userName);
-    OC_Preferences::setValue($this->userName,'settings', 'email', $this->email);
+    OCP\Config::setUserValue($this->userName,'settings', 'email', $this->email);
 
     OCA_mozilla_sync\OutputData::$outputFlag = OCA_mozilla_sync\OutputData::ConstOutputBuffer;
     OCA_mozilla_sync\Utils::setTestState();
