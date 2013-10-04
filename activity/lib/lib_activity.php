@@ -146,6 +146,8 @@ class Data
 	public static function show($event)
 	{
 		$user = $event['affecteduser'];
+		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
+		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
 
 		// TODO: move into template?
 		echo('<div class="box">');
@@ -154,7 +156,7 @@ class Data
 		echo('<span class="avatar" data-user="' . \OC_Util::sanitizeHTML($user) . '"></span>');
 		echo('<span>');
 		echo('<span class="user">' . \OC_Util::sanitizeHTML($user) . '</span>');
-		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML(\OCP\Util::formatDate($event['timestamp'])) . '">' . \OC_Util::sanitizeHTML(\OCP\relative_modified_date($event['timestamp'])) . '</span>');
+		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML($formattedDate) . '">' . \OC_Util::sanitizeHTML($formattedTimestamp) . '</span>');
 		echo('</span>');
 		echo('</div>');
 		echo('<div class="messagecontainer">');
