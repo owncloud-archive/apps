@@ -21,6 +21,10 @@
 	margin-right: auto;
 }
 
+#slideshow img:hover {
+	background: black url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEX/AAD/AP8AAP8A//8A/wD//wB/AAB/AH8AAH8Af38AfwCCfwAAAAAZGRkzMzNMTEy64p6SAAAAF0lEQVQI12P4DwRngICBQgaIAHEoZAAASHBywR1kvCwAAAAASUVORK5CYII=)repeat;
+}
+
 #slideshow > input {
 	background: none;
 	border: 0 transparent;
