@@ -169,7 +169,7 @@ function doFileSave() {
 					}
 					// Update titles
 					$('#editor').attr('data-edited', 'false');
-					$('.crumb.last').text($('#editor').attr('data-filename'));
+					$('.crumb.last a').text($('#editor').attr('data-filename'));
 					document.title = $('#editor').attr('data-filename') + ' - ownCloud';
 				}
 			}, 'json');
@@ -234,7 +234,7 @@ function showFileEditor(dir, filename) {
 						window.aceEditor.getSession().on('change', function () {
 							if ($('#editor').attr('data-edited') != 'true') {
 								$('#editor').attr('data-edited', 'true');
-								$('.crumb.last').text($('.crumb.last').text() + ' *');
+								$('.crumb.last a').text($('.crumb.last a').text() + ' *');
 								document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 							}
 						});
