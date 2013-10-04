@@ -145,6 +145,7 @@ class Data
 	 */
 	public static function show($event)
 	{
+		$l=\OC_L10N::get('lib');
 		$user = $event['affecteduser'];
 		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
 		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
@@ -157,24 +158,45 @@ class Data
 		echo('<span>');
 		echo('<span class="user">' . \OC_Util::sanitizeHTML($user) . '</span>');
 		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML($formattedDate) . '">' . \OC_Util::sanitizeHTML($formattedTimestamp) . '</span>');
+		echo('<span class="appname">' . \OC_Util::sanitizeHTML($event['app']) . '</span>');
 		echo('</span>');
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
-		if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
-		echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
-		echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
-
-
-		$rootView = new \OC\Files\View('');
-		$exist = $rootView->file_exists('/' . $user . '/files' . $event['file']);
-		unset($rootView);
-		// show a preview image if the file still exists
-		if ($exist) {
-			echo('<img class="preview" src="' . \OCP\Util::linkToRoute('core_ajax_preview', array('file' => $event['file'], 'x' => 150, 'y' => 150)) . '" />');
+		if ($event['isGrouped']){
+			$count = 0;
+			echo('<ul class="activitysubject grouped">');
+			foreach($event['events'] as $subEvent){
+				echo('<li>');
+				if ($subEvent['link'] <> '') echo('<a href="' . $subEvent['link'] . '">');
+				echo($subEvent['subject']);
+				if ($subEvent['link'] <> '') echo('</a>');
+				echo('</li>');
+				$count++;
+				if ($count > 5){
+					echo('<li class="more">' . $l->n('%n more...', '%n more...', count($event['events']) - $count) . '</li>');
+					break;
+				}
+			}
+			echo('</ul>');
+		}
+		else{
+			if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
+			echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
+			echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
 		}
 
-		if ($event['link'] <> '') echo('</a>');
+		$rootView = new \OC\Files\View('');
+		if ($event['file'] !== null){
+			$exist = $rootView->file_exists('/' . $user . '/files' . $event['file']);
+			unset($rootView);
+			// show a preview image if the file still exists
+			if ($exist) {
+				echo('<img class="preview" src="' . \OCP\Util::linkToRoute('core_ajax_preview', array('file' => $event['file'], 'x' => 150, 'y' => 150)) . '" />');
+			}
+		}
+
+		if (!$event['isGrouped'] && $event['link'] <> '') echo('</a>');
 		echo('</div>'); // end messagecontainer
 		echo('</div>'); // end box
 

@@ -129,6 +129,22 @@
 	font-size: 0.8em;
 }
 
+.box .appname {
+	float: right;
+	color: #333;
+	font-size: 0.8em;
+}
+
+.box .grouped{
+	list-style: none;
+}
+
+.box .grouped .more{
+	cursor: default;
+	color: #666;
+	text-align: right;
+}
+
 /* Infinite Scroll loader */
 #infscr-loading {
   text-align: center;
