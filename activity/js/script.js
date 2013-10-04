@@ -28,8 +28,8 @@ $(function(){
 				return OC.filePath('activity', 'ajax', 'fetch.php') + '?page=' + page;
 			},
 			loading: {
-				finishedMsg: 'No more pages to load.',
-				msgText: 'Loading older activities',
+				finishedMsg: t('activity', 'No more activities to load.'),
+				msgText: t('activity', 'Loading older activities'),
 				img: 'http://i.imgur.com/6RMhx.gif'
 			}
 		},
