@@ -5,5 +5,4 @@
 "%s deleted" => "%s удалено",
 "%s created" => "%s создано",
 "RSS feed" => "Лента RSS",
-"Today" => "Сегодня"
 );
