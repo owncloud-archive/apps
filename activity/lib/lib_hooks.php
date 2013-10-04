@@ -44,6 +44,9 @@ class Hook {
 		//Listen to write file signal
 		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hook", "file_write");
 
+		//Listen to share signal
+		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hook", "share");
+
 	}
 
 	/**
@@ -57,6 +60,11 @@ class Hook {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s changed';
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
+		
+		if(substr($params['path'],0,8)=='/Shared/') {
+			error_log('write to a shared file ' . $params['path']);
+		}
+		
 	}
 
 	/**
@@ -70,6 +78,11 @@ class Hook {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s deleted';
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
+
+		if(substr($params['path'],0,8)=='/Shared/') {
+			error_log('delete a shared file ' . $params['path']);
+		}
+
 	}
 
 	/**
@@ -83,6 +96,55 @@ class Hook {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s created';
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
+
+		if(substr($params['path'],0,8)=='/Shared/') {
+			error_log('create fiel in a shared folder ' . $params['path']);
+		}
+
+	}
+
+	/**
+	 * @brief Store the share events
+	 * @param array $params The hook params
+	 */
+	public static function share($params) {
+		//debug
+		error_log('share hook ' . $params['path']);
+	
+		// NOTE: $params has keys:
+		// [itemType] => file
+		// itemSource -> int, filecache file ID
+		// [parent] =>
+		// [itemTarget] => /13
+		// shareWith -> string, uid of user being shared to
+		// fileTarget -> path of file being shared
+		// uidOwner -> owner of the original file being shared
+		// [shareType] => 0
+		// [shareWith] => test1
+		// [uidOwner] => admin
+		// [permissions] => 17
+		// [fileSource] => 13
+		// [fileTarget] => /test8
+		// [id] => 10
+		// [token] =>
+		// [run] => whether emitting script should continue to run
+	
+		if ($params['itemType'] === 'file' || $params['itemType'] === 'folder') {
+	
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['fileTarget'])));
+			$link2 = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname('/Shared/'.$params['fileTarget'])));
+
+			$sharedFrom = \OCP\Util::getUser();
+			$sharedWith = $params['sharedWith'];
+
+			$subject = 'You shared %s with %s';
+			\OCA\Activity\Data::send('files', $subject, array(substr($params['path'], 1), $sharedWith), '', array(), $params['path'], $link, \OCP\User::getUser(), 4);
+			
+			$subject = '%1 shared %s with you';
+			\OCA\Activity\Data::send('files', $subject, array($sharedFrom, substr('/Shared/'.$params['path'], 1)), '', array(), '/Shared/'.$params['path'], $link2, \OCP\User::getUser(), 5);
+			
+		}
+
 	}
 
 
