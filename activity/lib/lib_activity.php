@@ -151,17 +151,17 @@ class Data
 		echo('<div class="box">');
 
 		echo('<div class="header">');
-		echo('<span class="avatar" data-user="' . htmlspecialchars($user) . '"></span>');
+		echo('<span class="avatar" data-user="' . \OC_Util::sanitizeHTML($user) . '"></span>');
 		echo('<span>');
-		echo('<span class="user">' . htmlspecialchars($user) . '</span>');
-		echo('<span class="activitytime tooltip" title="' . \OCP\Util::formatDate($event['timestamp']) . '">' . htmlspecialchars(\OCP\relative_modified_date($event['timestamp'])) . '</span>');
+		echo('<span class="user">' . \OC_Util::sanitizeHTML($user) . '</span>');
+		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML(\OCP\Util::formatDate($event['timestamp'])) . '">' . \OC_Util::sanitizeHTML(\OCP\relative_modified_date($event['timestamp'])) . '</span>');
 		echo('</span>');
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
 		if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
-		echo('<div class="activitysubject">' . htmlspecialchars($event['subject']) . '</div>');
-		echo('<div class="activitymessage">' . htmlspecialchars($event['message']) . '</div>');
+		echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
+		echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
 
 
 		$rootView = new \OC\Files\View('');
