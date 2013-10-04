@@ -22,7 +22,7 @@
  */
 
 
-OC::$CLASSPATH['OCA_FirstRunWizard\Config'] = 'apps/firstrunwizard/lib/firstrunwizard.php';
+OC::$CLASSPATH['OCA_FirstRunWizard\Config'] = 'firstrunwizard/lib/firstrunwizard.php';
 
 OCP\Util::addStyle( 'firstrunwizard', 'colorbox');
 OCP\Util::addScript( 'firstrunwizard', 'jquery.colorbox');
