@@ -24,6 +24,7 @@ $(function(){
 			itemSelector : '.group',     // selector for all items you'll retrieve
 			pixelsFromNavToBottom: 150,
 			extraScrollPx: 50,
+			prefill: true,
 			path : function(page){
 				return OC.filePath('activity', 'ajax', 'fetch.php') + '?page=' + page;
 			},
