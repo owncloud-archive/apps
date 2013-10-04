@@ -61,7 +61,19 @@
 				<length>255</length>
 			</field>
 			<field>
+				<name>subjectparams</name>
+				<type>text</type>
+				<notnull>true</notnull>
+				<length>255</length>
+			</field>
+			<field>
 				<name>message</name>
+				<type>text</type>
+				<notnull>false</notnull>
+				<length>255</length>
+			</field>
+			<field>
+				<name>messageparams</name>
 				<type>text</type>
 				<notnull>false</notnull>
 				<length>255</length>

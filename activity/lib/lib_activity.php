@@ -45,9 +45,8 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $message = '', $file = '', $link = '', $affecteduser = '', $type = 0, $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
+	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
 	{
-
 
 		$timestamp = time();
 		$user = \OCP\User::getUser();
@@ -55,12 +54,12 @@ class Data
 		if($affecteduser === '') {
 			$auser = \OCP\User::getUser();
 		} else{
-			$auser = $affecteduder;
+			$auser = $affecteduser;
 		}
 
 		// store in DB
-		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `message`, `file`, `link`, `user`, `affecteduser`, `timestamp`, `priority`, `type`)' . ' VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ? )');
-		$query->execute(array($app, $subject, $message, $file, $link, $user, $auser, $timestamp, $prio, $type));
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity`(`app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `user`, `affecteduser`, `timestamp`, `priority`, `type`)' . ' VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )');
+		$query->execute(array($app, $subject, serialize($subjectparams), $message, serialize($messageparams), $file, $link, $user, $auser, $timestamp, $prio, $type));
 
 		// call the expire function only every 1000x time to preserve performance.
 		if (rand(0, 1000) == 0) {
@@ -68,11 +67,26 @@ class Data
 		}
 
 		// fire a hook so that other apps like notification systems can connect
+		// todo translations
 		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'user' => $user, 'affecteduser' => $affecteduser, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio, 'type' => $type));
 
 		return true;
 	}
 
+	/**
+	 * @brief Translate an event string with the translations from the app where it was send from
+	 * @param string $app The app where this event comes from
+	 * @param string $text The text including placeholders
+	 * @param array $params The parameter for the placeholder
+	 * @return string translated
+	 */
+	public static function translation($app, $text, $params)
+	{
+		$l = \OCP\Util::getL10N($app);
+		$result = $l->t($text, $params);
+		unset($l);
+		return($result);
+	}
 
 	/**
 	 * @brief Read a list of events from the activity stream
@@ -82,16 +96,17 @@ class Data
 	 */
 	public static function read($start, $count)
 	{
-
 		// get current user
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
 		while ($row = $result->fetchRow()) {
+			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
 			$activity[] = $row;
 		}
 		return $activity;
@@ -116,6 +131,8 @@ class Data
 
 		$activity = array();
 		while ($row = $result->fetchRow()) {
+			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
 			$activity[] = $row;
 		}
 		return $activity;

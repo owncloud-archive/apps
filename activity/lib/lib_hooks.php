@@ -55,10 +55,8 @@ class Hook {
 		error_log('write hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = \OC_L10N::get('activity');
-		$l->t('test');
-		$subject = (string)$l->t('%s changed', substr($params['path'], 1));
-		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
+		$subject = '%s changed';
+		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
 	}
 
 	/**
@@ -70,11 +68,9 @@ class Hook {
 		error_log('delete hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = \OC_L10N::get('activity');
-		$subject = (string)$l->t('%s deleted', substr($params['path'], 1));
-		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
+		$subject = '%s deleted';
+		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
 	}
-
 
 	/**
 	 * @brief Store the create hook events
@@ -85,9 +81,8 @@ class Hook {
 		error_log('create hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$l = \OC_L10N::get('activity');
-		$subject = (string)$l->t('%s created', substr($params['path'], 1));
-		\OCA\Activity\Data::send('files', $subject, '', $params['path'], $link);
+		$subject = '%s created';
+		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
 	}
 
 
