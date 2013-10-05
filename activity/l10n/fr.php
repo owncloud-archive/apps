@@ -1,8 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Activity" => "Activité",
-"test" => "test",
-"%s changed" => "%s modifié",
-"%s deleted" => "%s supprimé",
-"%s created" => "%s créé",
 "RSS feed" => "Flux RSS",
+"No activities yet." => "Aucune activité.",
+"You will see a list of events here when you start to use your %s." => "Vous verrez ici une liste d'événements lorsque vous commencerez à utiliser votre %s."
 );

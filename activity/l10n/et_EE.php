@@ -1,8 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Activity" => "Toimingud",
-"test" => "test",
-"%s changed" => "%s muudetud",
-"%s deleted" => "%s kustutatud",
-"%s created" => "%s loodud",
 "RSS feed" => "RSS voog",
+"No activities yet." => "Tegevusi pole veel.",
+"You will see a list of events here when you start to use your %s." => "Siin näed sa sündmuste nimekirja kui sa hakkad %s kasutama."
 );

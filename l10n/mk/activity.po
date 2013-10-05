@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-02 08:05-0400\n"
-"PO-Revision-Date: 2013-10-02 12:06+0000\n"
+"POT-Creation-Date: 2013-10-05 09:09-0400\n"
+"PO-Revision-Date: 2013-10-05 13:09+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -21,23 +21,12 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: lib/lib_hooks.php:59
-msgid "test"
+#: js/script.js:32
+msgid "No more activities to load."
 msgstr ""
 
-#: lib/lib_hooks.php:60
-#, php-format
-msgid "%s changed"
-msgstr ""
-
-#: lib/lib_hooks.php:74
-#, php-format
-msgid "%s deleted"
-msgstr ""
-
-#: lib/lib_hooks.php:89
-#, php-format
-msgid "%s created"
+#: js/script.js:33
+msgid "Loading older activities"
 msgstr ""
 
 #: templates/list.php:28
@@ -52,7 +41,3 @@ msgstr ""
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
 msgstr ""
-
-#: templates/list.php:39
-msgid "Today"
-msgstr "Денеска"
