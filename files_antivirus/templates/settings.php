@@ -1,6 +1,6 @@
 <form id="antivirus" action="#" method="post">
 	<fieldset class="personalblock">
-		<legend><strong><?php p($l->t('Antivirus Configuration'));?></strong></legend>
+		<h2><?php p($l->t('Antivirus Configuration'));?></h2>
 		<p class='av_mode'><label for="av_mode"><?php p($l->t('Mode'));?></label>
 			<select id="av_mode" name="av_mode"><?php print_unescaped(html_select_options(array('executable' => $l->t('Executable'), 'daemon' => $l->t('Daemon'), 'socket' => $l->t('Daemon (Socket)')), $_['av_mode'])) ?></select>
 		</p>
