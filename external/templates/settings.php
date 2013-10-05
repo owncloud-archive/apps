@@ -1,6 +1,6 @@
 <form id="external">
 	<fieldset class="personalblock">
-		<legend><strong><?php p($l->t('External Sites'));?></strong></legend>
+		<h2><?php p($l->t('External Sites'));?></h2>
 		<ul class="external_sites">
 
 		<?php

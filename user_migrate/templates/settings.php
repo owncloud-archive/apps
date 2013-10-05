@@ -1,5 +1,5 @@
 <fieldset class="personalblock" id="migration-settings-block">
-	<legend><strong><?php p($l->t('Account Export/Import'));?></strong></legend>
+	<h2><?php p($l->t('Account Export/Import'));?></h2>
 	<?php if(isset($_['error'])) { ?>
 		<h3><?php p($_['error']['error']); ?></h3>
 		<p><?php p($_['error']['hint']); ?></p>

@@ -1,6 +1,6 @@
 <form id="export" action="#" method="post">
     <fieldset class="personalblock">
-        <legend><strong><?php p($l->t('Export data'));?></strong></legend>
+        <h2><?php p($l->t('Export data'));?></h2>
         <p>
         <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" id="requesttoken">
         <input type="radio" id="export_instance" name="export_type" value="instance" checked /><label for="export_instance"><?php p($l->t('All system files and user data'));?></label><br />
@@ -15,7 +15,7 @@
 ?>
 <form id="import" action="#" method="post" enctype="multipart/form-data">
     <fieldset class="personalblock">
-        <legend><strong><?php p($l->t('Import an ownCloud instance. THIS WILL DELETE ALL CURRENT OWNCLOUD DATA'));?></strong></legend>
+        <h2><?php p($l->t('Import an ownCloud instance. THIS WILL DELETE ALL CURRENT OWNCLOUD DATA'));?></h2>
         <p><?php p($l->t('All current ownCloud data will be replaced by the ownCloud instance that is uploaded.'));?>
         </p>
         <p><input type="file" id="owncloud_import" name="owncloud_import"><label for="owncloud_import"><?php p($l->t('ownCloud Export Zip File'));?></label>
