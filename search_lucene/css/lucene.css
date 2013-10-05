@@ -8,4 +8,5 @@ form.searchbox #spinner {
 	float: right;
 	margin-right: -27px;
 	background-image: url('%webroot%/core/img/loading.gif');
+	background-size: 16px;
 }
