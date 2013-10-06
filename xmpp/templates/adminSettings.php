@@ -1,6 +1,6 @@
 <form id="xmppadmin" action="#" method="post">
 	<fieldset class="personalblock">
-		<legend><strong><?php p($l->t('XMPP Admin Account'));?></strong></legend>
+		<h2><?php p($l->t('XMPP Admin Account'));?></h2>
         <p>
         	<label for="usermail"><?php p($l->t('Username'));?>
         		<input type="text" id="xmppAdminUser" name="xmppAdminUser" value="<?php p($_['xmppAdminUser']);?>">
