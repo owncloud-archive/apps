@@ -30,7 +30,7 @@ $l = OCP\Util::getL10N('gallery');
 
 OCP\App::addNavigationEntry(array(
 		'id' => 'gallery_index',
-		'order' => 20,
+		'order' => 3,
 		'href' => OCP\Util::linkTo('gallery', 'index.php'),
 		'icon' => OCP\Util::imagePath('core', 'places/picture.svg'),
 		'name' => $l->t('Pictures'))

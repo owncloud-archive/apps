@@ -33,7 +33,7 @@ OC::$CLASSPATH['OCA\Activity\Search'] = 'activity/lib/lib_search.php';
 $l=OC_L10N::get('activity');
 OCP\App::addNavigationEntry(array(
 	'id' => 'activity',
-	'order' => 80,
+	'order' => 1,
 	'href' => OCP\Util::linkTo('activity', 'index.php'),
 	'icon' => OCP\Util::imagePath('activity', 'activity.png'),
 	'name' => $l->t('Activity')));
