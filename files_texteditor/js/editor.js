@@ -307,6 +307,10 @@ $(window).resize(function () {
 });
 var is_editor_shown = false;
 $(document).ready(function () {
+	if ($('#isPublic').val()){
+		// disable editor in public mode (not supported yet)
+		return;
+	}
 	if (typeof FileActions !== 'undefined') {
 		FileActions.register('text', 'Edit', OC.PERMISSION_READ, '', function (filename) {
 			showFileEditor($('#dir').val(), filename);
