@@ -6,12 +6,12 @@
 "That configuration has to be done by the system administration." => "Selle peab seadistama süsteemi administraator.",
 "Imprint" => "Impressum",
 "Placement" => "Asetus",
-"Standalone app" => "Sõltumatu rakendus",
+"Standalone app" => "Eraldi rakendus",
 "Header left" => "Vasak päis",
 "Header right" => "Parem päis",
 "Navigation top" => "Navigatsioon üles",
 "Navigation bottom" => "Navigatsioon alla",
-"During login" => "Logimise kestel",
+"During login" => "Sisselogimise ajal",
 "Content" => "Sisu",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Saad kasutada HTML märgendeid (nt. <br>; for a reavahetuseks) ning sisestiili atribuute (nt. <a style=\"color:red;\">)."
 );
