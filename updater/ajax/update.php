@@ -106,7 +106,7 @@ try {
 	// We are done. Some cleanup
 	Downloader::cleanUp($packageVersion);
 	Updater::cleanUp();
-	$watcher->success((string) App::$l10n->t('All done. Click to the link below to start database upgrade.'));
+	$watcher->done((string) App::$l10n->t('All done. Click to the link below to start database upgrade.'));
 } catch (\Exception $e){
 	App::log($e->getMessage());
 	$watcher->failure((string) App::$l10n->t('Update failed'));
