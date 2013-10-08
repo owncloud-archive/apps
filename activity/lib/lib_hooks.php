@@ -62,7 +62,11 @@ class Hook {
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
 		
 		if(substr($params['path'],0,8)=='/Shared/') {
-			error_log('write to a shared file ' . $params['path']);
+			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
+			$realfile=substr($params['path'],7);
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
+			$subject = '%s changed by %s';
+			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6,\OCA\Activity\Data::PRIORITY_HIGH);
 		}
 		
 	}
@@ -80,7 +84,11 @@ class Hook {
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
 
 		if(substr($params['path'],0,8)=='/Shared/') {
-			error_log('delete a shared file ' . $params['path']);
+			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
+			$realfile=substr($params['path'],7);
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
+			$subject = '%s deleted by %s';
+			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 7,\OCA\Activity\Data::PRIORITY_HIGH);
 		}
 
 	}
@@ -98,7 +106,11 @@ class Hook {
 		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
 
 		if(substr($params['path'],0,8)=='/Shared/') {
-			error_log('create fiel in a shared folder ' . $params['path']);
+			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
+			$realfile=substr($params['path'],7);
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
+			$subject = '%s created by %s';
+			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8,\OCA\Activity\Data::PRIORITY_HIGH);
 		}
 
 	}
