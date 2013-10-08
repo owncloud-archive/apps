@@ -100,7 +100,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `user` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY timestamp desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -126,7 +126,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `user` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
@@ -146,7 +146,8 @@ class Data
 	public static function show($event)
 	{
 		$l=\OC_L10N::get('lib');
-		$user = $event['affecteduser'];
+		$user = $event['user'];
+
 		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
 		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
 
@@ -163,7 +164,7 @@ class Data
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
-		if ($event['isGrouped']){
+		if (isset($event['isGrouped']) and $event['isGrouped']){
 			$count = 0;
 			echo('<ul class="activitysubject grouped">');
 			foreach($event['events'] as $subEvent){
