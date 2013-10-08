@@ -1,8 +1,6 @@
 
 Todos:
 
-- Add dividers for different days
 - Implement an public OCP API so that all apps can push events
-- Implement automatic grouping of events so that the activities are easier to read
 - Implement filtering of event types
 
