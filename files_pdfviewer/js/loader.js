@@ -26,13 +26,11 @@ showPDFviewer.lastTitle='';
 
 $(document).ready(function(){
 	if(!$.browser.msie){//doesn't work on IE
-		if(location.href.indexOf("files")!=-1) {
-			if(typeof FileActions!=='undefined'){
-				FileActions.register('application/pdf','Edit', OC.PERMISSION_READ, '',function(filename){
-					showPDFviewer($('#dir').val(),filename);
-				});
-				FileActions.setDefault('application/pdf','Edit');
-			}
+		if ($('#filesApp').val() && typeof FileActions!=='undefined'){
+			FileActions.register('application/pdf','Edit', OC.PERMISSION_READ, '',function(filename){
+				showPDFviewer($('#dir').val(),filename);
+			});
+			FileActions.setDefault('application/pdf','Edit');
 		}
 	}
 });
