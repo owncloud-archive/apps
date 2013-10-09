@@ -25,7 +25,8 @@ showPDFviewer.oldCode='';
 showPDFviewer.lastTitle='';
 
 $(document).ready(function(){
-	if(!$.browser.msie){//doesn't work on IE
+	// doesn't work in IE or public link mode
+	if(!$.browser.msie && !$('#isPublic').val()){
 		if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined'){
 				FileActions.register('application/pdf','Edit', OC.PERMISSION_READ, '',function(filename){
