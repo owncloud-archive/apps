@@ -47,6 +47,13 @@ class Hook {
 		//Listen to share signal
 		\OCP\Util::connectHook('OCP\Share', 'post_shared', "OCA\Activity\Hook", "share");
 
+		// hooking up the activity manager
+		if (property_exists('OC', 'server')) {
+			$am = \OC::$server->getActivityManager();
+			$am->registerConsumer(function() {
+				return new \OCA\Activity\Consumer();
+			});
+		}
 	}
 
 	/**
