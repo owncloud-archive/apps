@@ -278,18 +278,18 @@ class BagItManager{
 	private function getPreviewPath($full_path){
 		$path_parts = pathinfo($full_path);
 		$prev_file = $path_parts['filename'].'.htm';
-		$tempfile = $this->createTempDirectory();
+		$temp_dir = \OC_Helper::tmpFolder();
 		$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($full_path).'"');
 			
 		$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
 		$url = str_replace(' ', '%20', $url);
 			
 		//Download file
-		$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
+		$comm = "wget -p --convert-links -nH -P ".$temp_dir."previews ".$url;
 		system($comm, $retval);
 			
 		if($retval === 0) {
-			$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
+			$prev_path = $temp_dir.'previews/portal/default/download/'.$storage_id;
 			//make links to those htmls in temp dir
 			return $prev_path."/".$prev_file;
 		}
@@ -304,7 +304,7 @@ class BagItManager{
 		
 		$source_dir = $this->base_dir.'/files';
 		
-		$tempfile = $this->createTempDirectory();
+		$temp_dir = \OC_Helper::tmpFolder();
 		
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
@@ -318,37 +318,28 @@ class BagItManager{
 			$url = str_replace(' ', '%20', $url);
 			
 			//Download file
-			$comm = "wget -p --convert-links -nH -P ".$tempfile."/previews ".$url;
+			$comm = "wget -p --convert-links -nH -P ".$temp_dir."previews ".$url;
 			system($comm, $retval);
 			
 			if($retval === 0) {
-				$prev_path = $tempfile.'/previews/portal/default/download/'.$storage_id;
+				$prev_path = $temp_dir.'previews/portal/default/download/'.$storage_id;
 				//make links to those htmls in temp dir
 				$pre_content .= "<a href='".$prev_path."/".$prev_file."'>".$prev_title."</a><br>";
 			}
 			
 		}
-		$epub_title = $tempfile.'/'.$this->selected_crate.'.html';
+		$epub_title = $temp_dir.$this->selected_crate.'.html';
 		$manifest_html = $pre_content."</p></body></html>";
-    	if (is_dir($tempfile)) {
+    	if (is_dir($temp_dir)) {
     		$fp = fopen($epub_title, 'w+');
 			fwrite($fp, $manifest_html);
 			fclose($fp);
 			//feed it to calibre
-			$command = 'ebook-convert '.$epub_title.' '.$tempfile.'/temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
+			$command = 'ebook-convert '.$epub_title.' '.$temp_dir.'temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
 			system($command, $retval);
     	}
 		//send the epub to user
-		return $tempfile.'/temp.epub';
-	}
-	
-	private function createTempDirectory(){
-		$tempfile = tempnam(sys_get_temp_dir(),'');
-		if (file_exists($tempfile)) {
-			unlink($tempfile);
-		}
-		mkdir($tempfile);
-		return $tempfile;
+		return $temp_dir.'temp.epub';
 	}
 	
 	private function getItemList(){
