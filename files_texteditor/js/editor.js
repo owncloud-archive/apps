@@ -266,7 +266,11 @@ function showFileEditor(dir, filename) {
 
 // Fades out the editor.
 function hideFileEditor() {
-	OC.Breadcrumb.show($('#dir').val());
+	if (window.FileList){
+		// reload the directory content with the updated file size + thumbnail
+		// and also the breadcrumb
+		window.FileList.reload();
+	}
 	if ($('#editor_container').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols,#editor_container').hide();
