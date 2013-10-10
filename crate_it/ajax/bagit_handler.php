@@ -111,13 +111,15 @@ switch ($action){
 			echo "No files in the bag to download";
 			break;
 		}
+		$path_parts = pathinfo($zip_file);
+		$filename = $path_parts['basename'];
 		//Download file
 		if (headers_sent()) throw new Exception('Headers sent.');
 		while (ob_get_level() && ob_end_clean());
 		if (ob_get_level()) throw new Exception('Buffering is still active.');
 		header("Content-type:application/zip");
 		header("Content-Type: application/force-download");
-		header("Content-Disposition: attachment;filename=crate.zip");
+		header("Content-Disposition: attachment;filename=".$filename);
 		readfile($zip_file);
 		break;
 }

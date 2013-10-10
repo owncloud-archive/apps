@@ -13,6 +13,15 @@ class BagItManager{
 	var $bag;
 	var $user;
 	
+	/**
+	 * Set the values to following variables
+	 * 
+	 * $fascinator - fascinator url
+	 * $base_dir - oc user's data directory
+	 * $crate_root - crates directory ( $base_dir/crates )
+	 * $selected_crate - currently selected crate
+	 * $manifest - manifest which holds files info - id,title and absolute path
+	 */
 	private function __construct(){
 		$this->user = \OCP\User::getUser();
 		
@@ -348,41 +357,24 @@ class BagItManager{
 	}
 	
 	public function createZip(){
-		$bag_items = $this->bag->fetch->getData();
-		if(count($bag_items) === 0)
-		{
-			return null;
-		}
-		$tmp = \OC_Helper::tmpFolder();
-		\OC_Helper::copyr($this->crate_dir, $tmp);
-		
-		//create a bag at the outputDir
-		$bag = new \BagIt($tmp);
+		$tmp_dir = \OC_Helper::tmpFolder();
+		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
+		$bag = new \BagIt($tmp_dir);
 		
 		if(count($bag->getBagErrors(true)) == 0){
-			//use the fetch file to add data to bag, but don't use $bag->fetch->download(), 
-			//yea I know it's weird but have to do at this time
-			$fetch_items = $bag->fetch->getData();
-			foreach ($fetch_items as $item){
-				$bag->addFile($item['url'], $item['filename']);
+			foreach ($this->getItemList() as $item){
+				$path_parts = pathinfo($item['filename']);
+				$bag->addFile($item['filename'], $item['title']);
 			}
 			$bag->update();
-		
-			//TODO see if there's one already
-			//check if it's latest, if so only create the package
-			if(!file_exists($this->crate_root.'/packages')){
-				mkdir($this->crate_root.'/packages');
-			}
-			$zip_file = $this->crate_root.'/packages/crate';
-			$bag->package($zip_file, 'zip');
-			
-			return $zip_file.'.zip';
+			$bag->package($tmp_dir.'/'.$this->selected_crate, 'zip');
+			return $tmp_dir.'/'.$this->selected_crate.'.zip';
 		}
 		else
 		{
 			$err = $bag->getBagErrors(true);
 			print $err;
-		}		
+		}
 	}
 	
 	public function getFetchData(){

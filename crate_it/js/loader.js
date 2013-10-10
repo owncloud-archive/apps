@@ -1,10 +1,10 @@
 function getFileName(dir, filename) {
 	var baseUrl = '';
 	if(dir === '/'){
-		baseUrl = dir + filename;	
+		baseUrl = filename;	
 	}
 	else{
-		baseUrl = dir + '/' + filename;
+		baseUrl = dir.replace(/^\//g,'') + '/' + filename;
 	}
 	return baseUrl;
 }
