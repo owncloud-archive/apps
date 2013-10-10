@@ -49,10 +49,12 @@ class Hook {
 
 		// hooking up the activity manager
 		if (property_exists('OC', 'server')) {
-			$am = \OC::$server->getActivityManager();
-			$am->registerConsumer(function() {
-				return new \OCA\Activity\Consumer();
-			});
+			if (method_exists(\OC::$server, 'getActivityManager')) {
+				$am = \OC::$server->getActivityManager();
+				$am->registerConsumer(function() {
+					return new \OCA\Activity\Consumer();
+				});
+			}
 		}
 	}
 
