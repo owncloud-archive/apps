@@ -34,7 +34,7 @@ var videoViewer = {
 				size = {width: 320, height: 240};
 			}
 			return size;
-		},
+		}
 	},
 	mime : null,
 	file : null,
