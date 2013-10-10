@@ -23,6 +23,7 @@
 
 
 // register the path of the libraries
+OC::$CLASSPATH['OCA\Activity\Consumer'] = 'activity/lib/lib_consumer.php';
 OC::$CLASSPATH['OCA\Activity\Data'] = 'activity/lib/lib_activity.php';
 OC::$CLASSPATH['OCA\Activity\Hook'] = 'activity/lib/lib_hooks.php';
 OC::$CLASSPATH['OCA\Activity\OCS'] = 'activity/lib/lib_ocs.php';
