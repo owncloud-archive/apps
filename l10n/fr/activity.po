@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-05 09:09-0400\n"
-"PO-Revision-Date: 2013-10-05 13:09+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-10-10 20:23-0400\n"
+"PO-Revision-Date: 2013-10-08 20:33+0000\n"
+"Last-Translator: ogre_sympathique <ogre.sympathique@speed.1s.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: appinfo/app.php:39
+#: appinfo/app.php:40
 msgid "Activity"
 msgstr "Activité"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "Plus aucune activité à charger."
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "Chargement d'activités plus anciennes"
 
 #: templates/list.php:28
 msgid "RSS feed"

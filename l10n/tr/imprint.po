@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Caner BAŞARAN <basaran.caner@gmail.com>, 2013
 # ismail yenigül <ismail.yenigul@surgate.com>, 2013
 # tridinebandim, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-07 04:33-0400\n"
-"PO-Revision-Date: 2013-09-07 08:34+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-10-10 20:23-0400\n"
+"PO-Revision-Date: 2013-10-08 21:40+0000\n"
+"Last-Translator: Caner BAŞARAN <basaran.caner@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,4 +82,4 @@ msgstr "İçerik"
 msgid ""
 "You can use html markup (e.g. <br> for a linebreak) and inline style "
 "attributes (e.g. <a style=\"color:red;\">)."
-msgstr ""
+msgstr "Html biçimlendirme (örneğin <br> bir satır aralığı) ve satır içi stil niteliklerini (örneğin <a style=\"color:red;\">) kullanabilirsiniz."

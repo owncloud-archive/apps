@@ -12,5 +12,6 @@
 "Navigation top" => "Üst Dolaşım",
 "Navigation bottom" => "Alt dolaşım",
 "During login" => "Giriş esnasında",
-"Content" => "İçerik"
+"Content" => "İçerik",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Html biçimlendirme (örneğin <br> bir satır aralığı) ve satır içi stil niteliklerini (örneğin <a style=\"color:red;\">) kullanabilirsiniz."
 );
