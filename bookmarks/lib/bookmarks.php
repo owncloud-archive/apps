@@ -81,7 +81,7 @@ class OC_Bookmarks_Bookmarks{
 	public static function findBookmarks($offset, $sqlSortColumn, $filters, $filterTagOnly, $limit = 10) {
 		$CONFIG_DBTYPE = OCP\Config::getSystemValue( 'dbtype', 'sqlite' );
 		if(is_string($filters)) $filters = array($filters);
-		
+
 		if(! in_array($sqlSortColumn, array('id', 'url', 'title', 'user_id',
 		'description', 'public', 'added', 'lastmodified','clickcount',))) {
 			$sqlSortColumn = 'bookmarks_sorting_recent';
@@ -110,7 +110,10 @@ class OC_Bookmarks_Bookmarks{
 				$sql .= ' having true ';
 			}
 			foreach($filters as $filter) {
-				$sql .= ' AND lower(url || title || description || tags ) like ? ';
+				if($CONFIG_DBTYPE == 'mysql')
+					$sql .= ' AND lower( concat(url,title,description,tags )) like ? ';
+				else
+					$sql .= ' AND lower(url || title || description || tags ) like ? ';
 				$params[] = '%' . strtolower($filter) . '%';
 			}
 		}
