@@ -63,8 +63,6 @@ class Hook {
 	 * @param array $params The hook params
 	 */
 	public static function file_write($params) {
-		//debug
-		error_log('write hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s changed';
@@ -85,8 +83,6 @@ class Hook {
 	 * @param array $params The hook params
 	 */
 	public static function file_delete($params) {
-		//debug
-		error_log('delete hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s deleted';
@@ -107,8 +103,6 @@ class Hook {
 	 * @param array $params The hook params
 	 */
 	public static function file_create($params) {
-		//debug
-		error_log('create hook ' . $params['path']);
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s created';
@@ -129,8 +123,6 @@ class Hook {
 	 * @param array $params The hook params
 	 */
 	public static function share($params) {
-		//debug
-		error_log('share hook ' . $params['fileTarget']);
 
 		if ($params['itemType'] === 'file' || $params['itemType'] === 'folder') {
 	
