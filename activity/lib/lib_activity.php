@@ -107,6 +107,7 @@ class Data
 		while ($row = $result->fetchRow()) {
 			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
 			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+			$row['user'] = \OCP\User::getDisplayName($row['user']);
 			$activity[] = $row;
 		}
 		return $activity;
