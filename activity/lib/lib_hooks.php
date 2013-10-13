@@ -140,11 +140,16 @@ class Hook {
 			$sharedFrom = \OCP\User::getUser();
 			$shareWith = $params['shareWith'];
 
-			$subject = 'You shared %s with %s';
-			\OCA\Activity\Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, \OCA\Activity\Data::PRIORITY_MEDIUM );
+			if(!empty($shareWith)) {
+				$subject = 'You shared %s with %s';
+				\OCA\Activity\Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, \OCA\Activity\Data::PRIORITY_MEDIUM );
 			
-			$subject = '%s shared %s with you';
-			\OCA\Activity\Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, \OCA\Activity\Data::PRIORITY_MEDIUM);
+				$subject = '%s shared %s with you';
+				\OCA\Activity\Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, \OCA\Activity\Data::PRIORITY_MEDIUM);
+			} else {
+				$subject = 'You shared %s';
+				\OCA\Activity\Data::send('files', $subject, array(substr($params['fileTarget'], 1)), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, \OCA\Activity\Data::PRIORITY_MEDIUM );
+			}
 			
 		}
 
