@@ -107,7 +107,6 @@ class Data
 		while ($row = $result->fetchRow()) {
 			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
 			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
-			$row['user'] = \OCP\User::getDisplayName($row['user']);
 			$activity[] = $row;
 		}
 		return $activity;
@@ -158,7 +157,7 @@ class Data
 		echo('<div class="header">');
 		echo('<span class="avatar" data-user="' . \OC_Util::sanitizeHTML($user) . '"></span>');
 		echo('<span>');
-		echo('<span class="user">' . \OC_Util::sanitizeHTML($user) . '</span>');
+		echo('<span class="user">' . \OC_Util::sanitizeHTML(\OCP\User::getDisplayName($user)) . '</span>');
 		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML($formattedDate) . '">' . \OC_Util::sanitizeHTML($formattedTimestamp) . '</span>');
 		echo('<span class="appname">' . \OC_Util::sanitizeHTML($event['app']) . '</span>');
 		echo('</span>');
