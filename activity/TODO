@@ -1,6 +1,5 @@
 
 Todos:
 
-- Implement an public OCP API so that all apps can push events
 - Implement filtering of event types
 
