@@ -597,8 +597,6 @@ class VCard {
 	 */
 	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
-		// Force update of thumbnail when from CardDAV
-		App::cacheThumbnail($oldcard['id'], null, false, true);
 		try {
 			$vcard = \Sabre\VObject\Reader::read($data);
 		} catch(\Exception $e) {
@@ -611,6 +609,8 @@ class VCard {
 
 		try {
 			self::edit($oldcard['id'], $vcard);
+			// Force update of thumbnail when from CardDAV
+			App::cacheThumbnail($oldcard['id'], null, false, true);
 			return true;
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '

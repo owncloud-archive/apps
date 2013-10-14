@@ -323,7 +323,13 @@ class App {
 			return \OC_Cache::get($key);
 		}
 		if($remove) {
-			\OC_Cache::remove($key);
+			if(!\OC_Cache::remove($key)) {
+				\OCP\Util::writeLog('contacts',
+					__METHOD__. ', Error removing cached thumbnail' . $key,
+					\OCP\Util::ERROR
+				);
+				return false;
+			}
 			if(!$update) {
 				return false;
 			}
@@ -359,8 +365,9 @@ class App {
 			return false;
 		}
 		 // Cache for around a month
-		\OC_Cache::set($key, $image->data(), 3000000);
-		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
+		if(!\OC_Cache::set($key, $image->data(), 3000000)) {
+			\OCP\Util::writeLog('contacts', __METHOD__. ', Error caching thumbnail' . $key, \OCP\Util::ERROR);
+		}
 		return \OC_Cache::get($key);
 	}
 
