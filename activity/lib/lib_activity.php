@@ -100,7 +100,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY timestamp desc', $count, $start);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY `timestamp` desc', $count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -126,7 +126,7 @@ class Data
 		$user = \OCP\User::getUser();
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY timestamp desc', $count);
+		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY `timestamp` desc', $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
@@ -213,7 +213,7 @@ class Data
 		$ttl = (60 * 60 * 24 * 365);
 
 		$timelimit = time() - $ttl;
-		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*activity` where timestamp<?');
+		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*activity` where `timestamp`<?');
 		$query->execute(array($timelimit));
 	}
 
