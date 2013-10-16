@@ -255,22 +255,38 @@ class BagItManager{
 		return true;
 	}
 	
-	public function getPreview($file_id){
+	/**
+	 * Get file path from file id
+	 * 
+	 * @param string $file_id
+	 * @return string
+	 */
+	public function getPathFromFileId($file_id){
         foreach ($this->getItemList() as $value) {
 	    	if($value['id'] === $file_id){
-		    	$path_parts = pathinfo($value['filename']);
-		        $dir_prefix = \OC::$SERVERROOT.'/data/';
-                $dir = str_replace($dir_prefix, "", $path_parts['dirname']);
-                $dir_parts = explode("/", $dir);
-                if($this->user === $dir_parts[0]){
-                	$dir = str_replace($this->base_dir.'/files', "", $path_parts['dirname']);
-                }
-                else {
-                    $dir = '/Shared'.str_replace($dir_prefix.$dir_parts[0].'/files', "", $path_parts['dirname']);
-                }
+	    		$dir = $this->getParentDirectory($value['filename']);
                 return $dir.'/'.$path_parts['basename'];
 		    }
 		}
+	}
+	
+	/**
+	 * Get the directory where a file resides.
+	 * 
+	 * $file The file path
+	 */
+	private function getParentDirectory($filePath){
+		$path_parts = pathinfo($filePath);
+		$dir_prefix = \OC::$SERVERROOT.'/data/';
+		$dir = str_replace($dir_prefix, "", $path_parts['dirname']);
+		$dir_parts = explode("/", $dir);
+		if($this->user === $dir_parts[0]){
+			$dir = str_replace($this->base_dir.'/files', "", $path_parts['dirname']);
+		}
+		else {
+			$dir = '/Shared'.str_replace($dir_prefix.$dir_parts[0].'/files', "", $path_parts['dirname']);
+		}
+		return $dir;
 	}
 	
 	private function getPreviewPath($full_path){
@@ -353,7 +369,8 @@ class BagItManager{
 		if(count($bag->getBagErrors(true)) == 0){
 			foreach ($this->getItemList() as $item){
 				$path_parts = pathinfo($item['filename']);
-				$bag->addFile($item['filename'], $item['title']);
+				$dir = $this->getParentDirectory($item['filename']);
+				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
 			}
 			$bag->update();
 			$bag->package($tmp_dir.'/'.$this->selected_crate, 'zip');

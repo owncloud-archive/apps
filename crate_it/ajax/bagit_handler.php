@@ -76,7 +76,7 @@ switch ($action){
 		}
 		break;
 	case 'preview':
-		$preview = $bagit_manager->getPreview($file_id);
+		$preview = $bagit_manager->getPathFromFileId($file_id);
 		if($preview){
 			//echo $preview;
 			$l = OCP\Util::linkTo( "file_previewer", "docViewer.php" );
