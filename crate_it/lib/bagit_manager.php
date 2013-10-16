@@ -176,16 +176,14 @@ class BagItManager{
 		return "File added to the crate ".$this->selected_crate;
 	}
 	
-	//TODO uncomment once title is ok
 	private function getTitle($file) {
-		/*if (preg_match('/<title>(.+)<\/title>/', file_get_contents($file), $matches)
+		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
 				&& isset($matches[1] )) {
 			return $matches[1];
 		}
 		else {
 			return "";
-		}*/
-		return "";
+		}
 	}
 	
 	public function clearBag(){
