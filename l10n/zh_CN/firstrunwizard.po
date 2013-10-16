@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:27+0000\n"
+"POT-Creation-Date: 2013-10-15 21:31-0400\n"
+"PO-Revision-Date: 2013-10-16 01:32+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -22,40 +22,40 @@ msgstr ""
 msgid "Welcome to ownCloud"
 msgstr "欢迎来到 ownCloud"
 
-#: templates/wizard.php:8
+#: templates/wizard.php:9
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
 msgstr "你的个人专属网络服务。你的文件，联系人，日历及其他数据，全在这里。"
 
-#: templates/wizard.php:11
+#: templates/wizard.php:15
 msgid "Get the apps to sync your files"
 msgstr "安装应用进行文件同步"
 
-#: templates/wizard.php:23
+#: templates/wizard.php:26
 msgid "Connect your desktop apps to ownCloud"
 msgstr "连接桌面应用程序到ownCloud服务器"
 
-#: templates/wizard.php:25
+#: templates/wizard.php:29
 msgid "Connect your Calendar"
 msgstr "连接你的日历"
 
-#: templates/wizard.php:28
+#: templates/wizard.php:32
 msgid "Connect your Contacts"
 msgstr "连接你的通讯录"
 
-#: templates/wizard.php:31
+#: templates/wizard.php:36
 msgid "Access files via WebDAV"
 msgstr "通过 WebDAV 访问你的文件"
 
-#: templates/wizard.php:34
+#: templates/wizard.php:41
 msgid ""
-"There’s more information in the <a "
+"There’s more information in the <a target=\"_blank\" "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
-"and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr "访问  <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">文档</a> 及 <a href=\"http://owncloud.org\">网站</a>获取更多信息。"
+"and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
+msgstr ""
 
-#: templates/wizard.php:35
+#: templates/wizard.php:42
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

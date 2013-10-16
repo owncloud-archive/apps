@@ -5,14 +5,14 @@
 # Translators:
 # dudanogueira <dudanogueira@gmail.com>, 2013
 # Flávio Veras <flaviove@gmail.com>, 2013
-# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013
+# Rodrigo Tavares <rodrigost23@gmail.com>, 2013
 # tbsoares <tbsoares@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
+"POT-Creation-Date: 2013-10-15 21:31-0400\n"
+"PO-Revision-Date: 2013-10-14 00:41+0000\n"
 "Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgid ""
 "community</a>."
 msgstr "A atualização falhou. Por favor, relate este problema para a <a href=\"https://github.com/owncloud/core/issues\" target=\"_blank\">comunidade ownCloud</a>."
 
-#: templates/admin.php:18
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr "Central de Atalização"
 

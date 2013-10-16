@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-21 06:08-0400\n"
-"PO-Revision-Date: 2013-08-19 18:22+0000\n"
+"POT-Creation-Date: 2013-10-15 21:31-0400\n"
+"PO-Revision-Date: 2013-10-14 00:41+0000\n"
 "Last-Translator: rogerc\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgid ""
 "community</a>."
 msgstr "L'actualització ha fallat. Informeu d'aquest problema a la  <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunitat ownCloud</a>."
 
-#: templates/admin.php:18
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr "Centre d'actualitzacions"
 
