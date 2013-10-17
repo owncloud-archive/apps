@@ -366,12 +366,54 @@ class BagItManager{
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
 		$bag = new \BagIt($tmp_dir);
 		
+		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><article>
+					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
+					<section resource="creative work" typeof="http://schema.org/CreativeWork">
+							  <h1>Package Title</h1>
+							  <span property="http://schema.org/name http://purl.org/dc/elements/1.1/title">'.$this->selected_crate.'</span>
+							  <h1>Package Creation Date</h1>
+							  <span content="'.date("Y-m-d H:i:s").'" property="http://schema.org/dateCreated">'.date("F jS, Y").'</span>
+							  <h1>Package File Name</h1>
+							  <span property="http://schema.org/name">'.$this->selected_crate.'.zip</span>
+							  <h1>ID</h1>
+							  <span property="http://schema.org/name">'.$id.'</span>
+							  <h1>Description</h1>
+							  <span property="http://schema.org/description">some set of files related to a research</span>
+							  <h1>Software Information</h1>
+							  <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
+							  	<table>
+							  		<tbody>
+							  			<tr>
+							  				<td>Generating Software Application</td>
+							  				<td property="http://schema.org/name">Cr8it</td>
+							  			</tr>
+							  			<tr>
+							  				<td>Software Version</td>
+							  				<td property="http://schema.org/softwareVersion">v0.1</td>
+							  			</tr>
+							  		</tbody>
+							  	</table>
+							  </section>
+						   </section>';
 		if(count($bag->getBagErrors(true)) == 0){
 			foreach ($this->getItemList() as $item){
 				$path_parts = pathinfo($item['filename']);
 				$dir = $this->getParentDirectory($item['filename']);
 				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
+				
+				//content information
+				$sec = 'actual title info goes here';
+				
+				//section 2 - software info - crate it
+				//section 3 - organization - uws
+				//section 4 - content - summary of files
 			}
+			$metadata .= '</article><body></body>';
+			//now add the readme file
+			$readme = $tmp_dir.'data/README.html';
+			$fp = fopen($readme, 'w+');
+			fwrite($fp, $metadata);
+			fclose($fp);
 			$bag->update();
 			$bag->package($tmp_dir.'/'.$this->selected_crate, 'zip');
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
