@@ -1,3 +1,17 @@
+window.ODFViewer = {
+	getExcludedMimes: function(){
+		return [];
+	},
+	getSupportedMimes: function(){
+		return [
+			'application/vnd.oasis.opendocument.text',
+			'application/vnd.oasis.opendocument.spreadsheet',
+			'application/vnd.oasis.opendocument.graphics',
+			'application/vnd.oasis.opendocument.presentation'
+		];
+	}
+};
+
 function viewOdf(dir, file) {
     OC.addStyle('files_odfviewer', 'webodf');
     OC.addStyle('files_odfviewer', 'odfviewer');
@@ -45,13 +59,13 @@ function closeOdfViewer(){
 $(document).ready(function() {
 	if(typeof FileActions!=='undefined'){
 
-		var supportedMimes = new Array(
-			'application/vnd.oasis.opendocument.text', 
-			'application/vnd.oasis.opendocument.spreadsheet',
-			'application/vnd.oasis.opendocument.graphics',
-			'application/vnd.oasis.opendocument.presentation');
+		var supportedMimes = ODFViewer.getSupportedMimes(),
+			excludedMimes = ODFViewer.getExcludedMimes() || [];
 		for (var i = 0; i < supportedMimes.length; ++i){
 			var mime = supportedMimes[i];
+			if (excludedMimes.indexOf(mime) >= 0){
+				continue;
+			}
 			FileActions.register(mime,'View',OC.PERMISSION_READ,'',function(filename){
 				viewOdf($('#dir').val(),filename);
 			});
