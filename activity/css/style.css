@@ -1,5 +1,15 @@
-.activitysubject { font-size:1.0em; color: #333;}
-.activitymessage { font-size:0.8em; color:#666;}
+.activitysubject {
+	font-size:1.0em;
+	color: #333;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+}
+.activitymessage {
+	font-size:0.8em;
+	color:#666;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+}
 
 .noactivities{
 	position: absolute;
