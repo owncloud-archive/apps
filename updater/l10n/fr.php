@@ -2,7 +2,7 @@
 "Checking your installation..." => "Vérification de votre installation...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "La mise à niveau n'est pas possible. Veuillez vérifier que votre serveur dispose bien des droits d'accès en écriture sur les fichiers et dossiers suivants :",
 "Version not found" => "Version introuvable.",
-"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Mise à niveau impossible. Le serveur n'a pas les permissions nécessaires pour enlever le répertoire suivant :",
+"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Mise à niveau impossible. Le serveur n'a pas les permissions nécessaires pour supprimer le répertoire suivant :",
 "Update permissions on this directory and its content or remove it manually first." => "Modifiez les permissions sur ce dossier et son contenu ou enlevez le manuellement avant toute chose.",
 "Downloading package..." => "Téléchargement du paquet en cours...",
 "Unable to fetch package" => "Impossible de récupérer le paquet",

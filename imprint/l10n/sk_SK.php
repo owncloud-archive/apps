@@ -12,5 +12,6 @@
 "Navigation top" => "V navigácii navrchu",
 "Navigation bottom" => "V navigácii naspodu",
 "During login" => "Počas prihlásenia",
-"Content" => "Obsah"
+"Content" => "Obsah",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Môžete používať html značky (e.g. <br> pre riadkovanie) a atribúty štýlov (napr. <a style=\"color:red;\">)."
 );
