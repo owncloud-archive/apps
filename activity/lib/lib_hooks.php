@@ -28,6 +28,9 @@ namespace OCA\Activity;
  * @brief The class to handle the filesystem hooks
  */
 class Hook {
+	
+	public static $createhookfired = false;
+	public static $createhookfile = '';
 
 	/**
 	 * @brief Registers the filesystem hooks for basic filesystem operations.
@@ -64,16 +67,36 @@ class Hook {
 	 */
 	public static function file_write($params) {
 
-		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$subject = '%s changed';
-		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
+		if( HOOK::$createhookfired ) {
+			$params['path'] = HOOK::$createhookfile;
+
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
+			$subject = '%s created';
+			\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
 		
-		if(substr($params['path'],0,8)=='/Shared/') {
-			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
-			$realfile=substr($params['path'],7);
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-			$subject = '%s changed by %s';
-			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6,\OCA\Activity\Data::PRIORITY_HIGH);
+			if(substr($params['path'],0,8)=='/Shared/') {
+				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
+				$realfile=substr($params['path'],7);
+				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
+				$subject = '%s created by %s';
+				\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8,\OCA\Activity\Data::PRIORITY_HIGH);
+			}
+			HOOK::$createhookfired = false;
+			HOOK::$createhookfile = '';
+			
+		} else {
+
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
+			$subject = '%s changed';
+			\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
+		
+			if(substr($params['path'],0,8)=='/Shared/') {
+				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
+				$realfile=substr($params['path'],7);
+				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
+				$subject = '%s changed by %s';
+				\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6,\OCA\Activity\Data::PRIORITY_HIGH);
+			}
 		}
 		
 	}
@@ -104,17 +127,9 @@ class Hook {
 	 */
 	public static function file_create($params) {
 
-		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$subject = '%s created';
-		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
-
-		if(substr($params['path'],0,8)=='/Shared/') {
-			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
-			$realfile=substr($params['path'],7);
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-			$subject = '%s created by %s';
-			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8,\OCA\Activity\Data::PRIORITY_HIGH);
-		}
+		// remember the create event for later consumption
+		HOOK::$createhookfired = true;
+		HOOK::$createhookfile = $params['path'];
 
 	}
 
