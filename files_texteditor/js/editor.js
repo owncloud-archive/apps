@@ -207,7 +207,9 @@ function showFileEditor(dir, filename) {
 						// Save mtime
 						$('#editor').attr('data-mtime', result.data.mtime);
 						// Initialise the editor
-						$('.actions,#file_action_panel,#content table').hide();
+						if (window.FileList){
+							FileList.setViewerMode(true);
+						}
 						// Show the control bar
 						showControls(dir, filename, result.data.writeable);
 						// Update document title
@@ -277,7 +279,7 @@ function hideFileEditor() {
 		// Fade out editor
 		// Reset document title
 		document.title = $('body').attr('old_title');
-		$('.actions,#file_access_panel').show();
+		FileList.setViewerMode(false);
 		$('#content table').show();
 		OC.Notification.show(t('files_texteditor', 'There were unsaved changes, click here to go back'));
 		$('#notification').data('reopeneditor', true);
@@ -287,7 +289,7 @@ function hideFileEditor() {
 		$('#editor_container, #editorcontrols').remove();
 		// Reset document title
 		document.title = $('body').attr('old_title');
-		$('.actions,#file_access_panel').show();
+		FileList.setViewerMode(false);
 		$('#content table').show();
 		is_editor_shown = false;
 	}
@@ -295,8 +297,7 @@ function hideFileEditor() {
 
 // Reopens the last document
 function reopenEditor() {
-	$('.actions,#file_action_panel').hide();
-	$('#content table').hide();
+	FileList.setViewerMode(false);
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
 	$('#editorcontrols').show();
