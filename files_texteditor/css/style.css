@@ -1,3 +1,8 @@
+.ie8 #editor_container div{
+	/* override core style.css font-size:100% that messes up the editor in IE8 */
+	font-size: 12px !important;
+}
+
 #editor_container #editor {
 	position: relative;
 	display: block;
