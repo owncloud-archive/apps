@@ -366,7 +366,7 @@ class BagItManager{
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
 		$bag = new \BagIt($tmp_dir);
 		
-		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><article>
+		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><body><article>
 					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
 					<section resource="creative work" typeof="http://schema.org/CreativeWork">
 							  <h1>Package Title</h1>
@@ -391,24 +391,70 @@ class BagItManager{
 							  				<td>Software Version</td>
 							  				<td property="http://schema.org/softwareVersion">v0.1</td>
 							  			</tr>
+							  			<tr>
+							  				<td>URLs</td>
+							  				<td>
+							  					<span><a href="https://github.com/uws-eresearch/apps" property="http://schema.org/url">
+							  								https://github.com/uws-eresearch/apps</a></span>
+							  					<span><a href="http://eresearch.uws.edu.au/blog/projects/projectsresearch-data-repository/" property="http://schema.org/url">
+							  								http://eresearch.uws.edu.au/blog/projects/projectsresearch-data-repository</a></span>
+							  				</td>
+							  			</tr>
 							  		</tbody>
 							  	</table>
 							  </section>
-						   </section>';
+						   </section>
+						   <h1>Organisational Information</h1>
+						   <section property="http://purl.org/dc/terms/references" typeof="http://schema.org/Organisation" resource="">
+							  	<table>
+							  		<tbody>
+							  			<tr>
+							  				<td></td>
+							  				<td></td>
+							  			</tr>
+							  		</tbody>
+							  	</table>
+						   </section>
+						   <h1>Summary of Files</h1>
+							 <table>
+							  		<thead>
+							  			<tr>
+							  				<th>Name</th>
+							  				<th>Title</th>
+							  				<th>Type</th>
+							  				<th>Size</th>
+							  				<th>Research</th>
+							  				<th>Download</th>
+							  				<th>View</th>
+							  		    <tr>
+							  		</thead>
+							  		<tbody>';
 		if(count($bag->getBagErrors(true)) == 0){
 			foreach ($this->getItemList() as $item){
 				$path_parts = pathinfo($item['filename']);
 				$dir = $this->getParentDirectory($item['filename']);
 				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
 				
-				//content information
-				$sec = 'actual title info goes here';
+				$name = empty($dir) ? $path_parts['basename'] : $dir.'/'.$path_parts['basename'];
 				
-				//section 2 - software info - crate it
-				//section 3 - organization - uws
-				//section 4 - content - summary of files
+				//Please note that this doesn't work in windows environments
+				$file = escapeshellarg($item['filename']);
+				$mime = shell_exec("file -bi " . $file);
+				$mime = substr($mime, 0, strpos($mime,';'));
+				
+				$size = $this->humanReadableFileSize(filesize($item['filename']));
+				$sec = '<tr>
+							<td>'.$name.'</td>
+							<td>'.$item['title'].'</td>
+							<td>'.$mime.'</td>
+							<td>'.$size.'</td>
+							<td></td>
+							<td><a href="">Download</a></td>
+							<td><a href="">View</a></td>
+						</tr>';
+				$metadata .= $sec;
 			}
-			$metadata .= '</article><body></body>';
+			$metadata .= '</article></body></html>';
 			//now add the readme file
 			$readme = $tmp_dir.'data/README.html';
 			$fp = fopen($readme, 'w+');
@@ -423,6 +469,12 @@ class BagItManager{
 			$err = $bag->getBagErrors(true);
 			print $err;
 		}
+	}
+	
+	private function humanReadableFileSize($bytes, $decimals = 2) {
+	  $sz = 'BKMGTP';
+	  $factor = floor((strlen($bytes) - 1) / 3);
+	  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
 	}
 	
 	public function getFetchData(){
