@@ -1,3 +1,8 @@
+.ie8 .ace_editor div{
+	/* override core style.css font-size:100% that messes up the editor in IE8 */
+	font-size: 12px !important;
+	color: #123456;
+}
 #editor{
 	position: fixed;
 	display: block;
