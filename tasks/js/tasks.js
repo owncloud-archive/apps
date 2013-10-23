@@ -331,7 +331,7 @@ OC.Tasks = {
 		}, 'json');
 	},
 	categoriesChanged:function(newcategories){
-		categories = $.map(newcategories, function(v) {return v;});
+		categories = $.map(newcategories, function(v) {return v.name;});
 		console.log('Task categories changed to: ' + categories);
 		$('input.categories').multiple_autocomplete('option', 'source', categories);
 	},
@@ -393,8 +393,11 @@ $(document).ready(function(){
 			});
 			$(this).toggleClass('active');
 		});
-		OCCategories.changed = OC.Tasks.categoriesChanged;
-		OCCategories.app = 'calendar';
+		$(OC.Tags).on('change', function(event, data) {
+			if(data.type === 'event') {
+				OC.Tasks.categoriesChanged(data.tags);
+			}
+		});
 	});
 
 	/*-------------------------------------------------------------------------
