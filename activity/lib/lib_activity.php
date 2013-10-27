@@ -170,7 +170,7 @@ class Data
 			foreach($event['events'] as $subEvent){
 				echo('<li>');
 				if ($subEvent['link'] <> '') echo('<a href="' . $subEvent['link'] . '">');
-				echo($subEvent['subject']);
+				echo(\OC_Util::sanitizeHTML($subEvent['subject']));
 				if ($subEvent['link'] <> '') echo('</a>');
 				echo('</li>');
 				$count++;
