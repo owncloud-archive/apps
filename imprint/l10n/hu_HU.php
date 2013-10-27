@@ -12,5 +12,6 @@
 "Navigation top" => "Navigáció fent",
 "Navigation bottom" => "Navigáció lent",
 "During login" => "Bejelentkezés közben",
-"Content" => "Tartalom"
+"Content" => "Tartalom",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "HTML kódok (pl. <br> a sortörés jelzésére) és inline stílusok (pl.  <a style=\"color:red;\">) is használhatók."
 );

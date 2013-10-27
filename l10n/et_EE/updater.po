@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-14 00:41+0000\n"
-"Last-Translator: yllar <yllar.pajus@gmail.com>\n"
+"POT-Creation-Date: 2013-10-27 00:22-0400\n"
+"PO-Revision-Date: 2013-10-21 19:20+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgstr "Paki hankimine nurjus"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr "Varukoopia tegemine…"
+msgstr "Varukoopia loomine…"
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -72,7 +72,7 @@ msgstr "Failide liigutamine…"
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr "Kõik valmis. Klõpsa andmebaasi uuenduse alistamiseks allolevat linki."
+msgstr "Kõik valmis. Klõpsa andmebaasi uuenduse alustamiseks allolevat linki."
 
 #: ajax/update.php:112
 msgid "Update failed"
@@ -87,11 +87,11 @@ msgstr "Uuendamine nurjus. Palun teata sellest <a href=\"https://github.com/ownc
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr "Uuendamis keskus"
+msgstr "Uuendamiskeskus"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr "Varukoopiate haldus"
+msgstr "Varukoopiate haldamine"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
@@ -99,7 +99,7 @@ msgstr "Uuenda"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr "Varukoopia kataloog"
+msgstr "Varukoopiate kataloog"
 
 #: templates/update.php:27
 msgid "Backup"

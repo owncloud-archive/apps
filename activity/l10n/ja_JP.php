@@ -1,6 +1,8 @@
 <?php $TRANSLATIONS = array(
-"Activity" => "活動",
+"Activity" => "アクティビティ",
+"No more activities to load." => "これ以上読み込むアクティビティはありません。",
+"Loading older activities" => "古いアクティビティを読み込み中",
 "RSS feed" => "RSSフィード",
-"No activities yet." => "活動状況無し。",
-"You will see a list of events here when you start to use your %s." => "%s を使用開始したら、ここでイベントリストを見ることができます。"
+"No activities yet." => "アクティビティはまだありません。",
+"You will see a list of events here when you start to use your %s." => "%s の使用を開始すると、ここでイベントリストを見ることができます。"
 );

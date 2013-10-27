@@ -7,7 +7,7 @@
 "Downloading package..." => "Sťahujem balíček...",
 "Unable to fetch package" => "Nepodarilo sa stiahnuť balíček",
 "Creating backup..." => "Vytváram zálohu...",
-"Here is your backup: " => "Tu je Vaša záloha:",
+"Here is your backup: " => "Tu je vaša záloha:",
 "Failed to create backup" => "Vytvorenie zálohy sa nepodarilo",
 "Moving files..." => "Presúvam súbory...",
 "All done. Click to the link below to start database upgrade." => "Hotovo. Kliknite na nasledovný odkaz pre začatie aktualizácie databázy.",

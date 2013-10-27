@@ -16,7 +16,7 @@
 "Add Task" => "Görev Ekle",
 "Order Due" => "İleri Tarihli İş",
 "Order List" => "İş Listesi",
-"Order Complete" => "İş Tamamlandı",
+"Order Complete" => "Tamamlanmış İş",
 "Order Location" => "İş Konumu",
 "Order Priority" => "İş Önceliği",
 "Order Label" => "İş Etiketi",

@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Ruaj",
-"Next" => "Mëpasshëm"
+"Next" => "Mëpasshëm",
+"Saving..." => "Duke ruajtur..."
 );

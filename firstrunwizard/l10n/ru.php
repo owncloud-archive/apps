@@ -6,5 +6,6 @@
 "Connect your Calendar" => "Подключите Ваш календарь",
 "Connect your Contacts" => "Подключите Ваши контакты",
 "Access files via WebDAV" => "Доступ к файлам через WebDAV",
+"There’s more information in the <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "Более подробная информация в <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">документации</a> и на нашем <a target=\"_blank\" href=\"http://owncloud.org\">сайте</a>.",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Если Вам понравился ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\"> рекомендуйте его своим друзьям</a>!"
 );

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013
 # tt yn <tetuyano+transi@gmail.com>, 2013
 # skay <skayford87@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-17 12:31-0400\n"
-"PO-Revision-Date: 2013-10-17 05:56+0000\n"
-"Last-Translator: skay <skayford87@gmail.com>\n"
+"POT-Creation-Date: 2013-10-27 00:22-0400\n"
+"PO-Revision-Date: 2013-10-24 04:20+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,15 +22,15 @@ msgstr ""
 
 #: appinfo/app.php:40
 msgid "Activity"
-msgstr "活動"
+msgstr "アクティビティ"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "これ以上読み込むアクティビティはありません。"
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "古いアクティビティを読み込み中"
 
 #: templates/list.php:28
 msgid "RSS feed"
@@ -37,9 +38,9 @@ msgstr "RSSフィード"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr "活動状況無し。"
+msgstr "アクティビティはまだありません。"
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr "%s を使用開始したら、ここでイベントリストを見ることができます。"
+msgstr "%s の使用を開始すると、ここでイベントリストを見ることができます。"
