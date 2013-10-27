@@ -1,8 +1,8 @@
 
 #upd-progress{ margin:5px 3px;width:600px;}
 #upd-progress div {width:0;background-color:#5CE228;min-height:20px;}
-#updater-content { width: 640px;margin: 20px auto;padding: 5px 20px 10px 20px;
-background: #FFE .8em .8em no-repeat;border: 1px solid #CCC;
+#updater-content { width: 640px;margin: 20px 0 20px -180px;padding: 5px 20px 10px 20px;
+background: #FFF .8em .8em no-repeat;border: 1px solid #CCC;
 -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 cursor: default;
 }
@@ -17,5 +17,5 @@ background-color:#e2e2e2;border: 1px solid #cce;border-bottom:0 none;}
 #updater-content table th{padding:5px 10px;border-bottom:1px solid #999;}
 #updater-content table td{padding:5px 10px}
 
-#body-login fieldset input, 
-#body-login fieldset input[type="text"]{font-size:1em;width:300px;}
+#updater-content fieldset input, 
+#updater-content fieldset input[type="text"]{font-size:1em;width:360px;}
