@@ -23,7 +23,7 @@
 
 Changelog:
 
-* Wed Oct 28 2013 Christian Reiner: version 0.2.5
+* Mon Oct 28 2013 Christian Reiner: version 0.2.5
 Compatibility with owncloud version 6
 * Wed Sep 11 2013 Christian Reiner: version 0.2.4
 Handling rules for the media app (aka 'music') fixing sliding the main content.
