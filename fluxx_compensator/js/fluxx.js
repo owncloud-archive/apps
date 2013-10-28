@@ -203,7 +203,10 @@ OC.FluXX={
 	 */
 	init:function(){
 		// dynamically load stylesheet to make sure it is loaded LAST
-		OC.addStyle('fluxx_compensator','dynamic');
+		// we detect owncloud version 6 by its additional 'wrapper' div inside the list of apps in the navigation
+		if (0===$('#navigation #apps div.wrapper').length)
+				 OC.addStyle('fluxx_compensator','dynamic-5');
+		else OC.addStyle('fluxx_compensator','dynamic-6');
 		// initialize created handles
 		$.each(OC.FluXX.Handle, function(){
 			var handle=this;

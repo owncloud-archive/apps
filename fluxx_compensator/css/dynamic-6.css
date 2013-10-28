@@ -23,8 +23,8 @@
 */
 
 /**
- * @file css/dynamic.css
- * @brief Dynamic style definitions modifying the apps builtin styles
+ * @file css/dynamic-6.css
+ * @brief Dynamic style definitions modifying the apps builtin styles, version for owncloud-6
  * @author Christian Reiner
  */
 
@@ -41,7 +41,7 @@ html.fluxx-state-H-hidden #fluxx-N {
 }
 /* navigation hidden: move left and add a more impressive shadow as a hint */
 html.fluxx-state-N-hidden #navigation {
-	left: -64px !important;
+	left: -80px !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
