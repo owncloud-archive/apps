@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-20 07:49-0400\n"
-"PO-Revision-Date: 2013-09-19 05:47+0000\n"
+"POT-Creation-Date: 2013-10-29 04:34-0400\n"
+"PO-Revision-Date: 2013-10-28 10:44+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,10 @@ msgstr "Salvataggio in corso..."
 msgid "Failed to save file"
 msgstr "Salvataggio del file non riuscito"
 
-#: js/editor.js:256
+#: js/editor.js:258
 msgid "An error occurred!"
 msgstr "Si è verificato un errore!"
 
-#: js/editor.js:278
+#: js/editor.js:284
 msgid "There were unsaved changes, click here to go back"
 msgstr "C'erano delle modifiche non salvate, fai clic qui per tornare indietro"

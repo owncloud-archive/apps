@@ -6,14 +6,14 @@
 # Javier Llorente <javier@opensuse.org>, 2012
 # valarauco <manudeloz86@gmail.com>, 2012
 # pedro.navia <pedro.navia@etecsa.cu>, 2012
-# Korrosivo <yo@rubendelcampo.es>, 2013
+# Rubén del Campo <yo@rubendelcampo.es>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-08 00:50+0200\n"
-"PO-Revision-Date: 2013-07-07 08:10+0000\n"
-"Last-Translator: Korrosivo <yo@rubendelcampo.es>\n"
+"POT-Creation-Date: 2013-10-29 04:34-0400\n"
+"PO-Revision-Date: 2013-10-28 10:43+0000\n"
+"Last-Translator: Rubén del Campo <yo@rubendelcampo.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
