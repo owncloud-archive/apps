@@ -31,10 +31,19 @@ define('CLAMAV_SCANRESULT_INFECTED', 1);
 class OC_Files_Antivirus {
 
 	public static function av_scan($path) {
-		$path=$path[\OC\Files\Filesystem::signal_param_path];
+		$path = $path[\OC\Files\Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
-			if ($files_view->file_exists($path)) {
+
+			// check if path is a directory
+			if($files_view->is_dir($path)) {
+				return;
+			}
+
+			// we should have a file to work with, and the file shouldn't
+			// be empty
+			$fileExists = $files_view->file_exists($path);
+			if ($fileExists && $files_view->filesize($path) > 0) {
 				$result = self::clamav_scan($files_view, $path);
 				switch($result) {
 					case CLAMAV_SCANRESULT_UNCHECKED:
@@ -82,7 +91,7 @@ class OC_Files_Antivirus {
 
 	private static function _clamav_scan_get_socket_connection() {
 		$av_socket = \OCP\Config::getAppValue( 'files_antivirus', 'av_socket', '' );
-        $shandler = stream_socket_client('unix://' . $av_socket, $errno, $errstr, 5);
+		$shandler = stream_socket_client('unix://' . $av_socket, $errno, $errstr, 5);
 		if (!$shandler) {
 			\OCP\Util::writeLog('files_antivirus', 'Cannot connect to "' . $av_socket . '": ' . $errstr . ' (code ' . $errno . ')', \OCP\Util::ERROR);
 			return false;
