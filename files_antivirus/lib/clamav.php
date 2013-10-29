@@ -35,9 +35,7 @@ class OC_Files_Antivirus {
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
 			if ($files_view->file_exists($path)) {
-				$root=OC_User::getHome(OC_User::getUser()).'/files';
-				$file = $root.$path;
-				$result = self::clamav_scan($file);
+				$result = self::clamav_scan($files_view, $path);
 				switch($result) {
 					case CLAMAV_SCANRESULT_UNCHECKED:
 						//TODO: Show warning to the user: The file can not be checked
@@ -68,29 +66,38 @@ class OC_Files_Antivirus {
 		}
 	}
 
-	public static function clamav_scan($filepath) {
+	public static function clamav_scan($fileView, $filepath) {
 		$av_mode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
+		$result = 0;
+		\OCP\Util::writeLog('files_antivirus', 'Scanning file : '.$filepath, \OCP\Util::DEBUG);
 		switch($av_mode) {
 			case 'daemon':
-				return self::_clamav_scan_via_daemon($filepath);
+				return self::_clamav_scan_via_daemon($fileView, $filepath, false);
 			case 'executable':
-				return self::_clamav_scan_via_exec($filepath);
+				return self::_clamav_scan_via_exec($fileView, $filepath);
 		}
 	}
 
-	private static function _clamav_scan_via_daemon($filepath) {
+	private static function _clamav_scan_get_daemon_connection() {
 		$av_host = \OCP\Config::getAppValue('files_antivirus', 'av_host', '');
 		$av_port = \OCP\Config::getAppValue('files_antivirus', 'av_port', '');
-		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
-
-		// try to open a socket to clamav
 		$shandler = ($av_host && $av_port) ? @fsockopen($av_host, $av_port) : false;
-		if(!$shandler) {
+		if (!$shandler) {
 			\OCP\Util::writeLog('files_antivirus', 'The clamav module is not configured for daemon mode.', \OCP\Util::ERROR);
 			return false;
 		}
+		return $shandler;
+	}
 
-		$fhandler = fopen($filepath, "r");
+	private static function _clamav_scan_via_daemon($fileView, $filepath) {
+		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
+		$shandler = self::_clamav_scan_get_daemon_connection();
+
+		if(!$shandler) {
+			return false;
+		}
+
+		$fhandler = $fileView->fopen($filepath, "r");
 		if(!$fhandler) {
 			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
 			return false;
@@ -131,7 +138,8 @@ class OC_Files_Antivirus {
 		}
 	}
 
-	private static function _clamav_scan_via_exec($filepath) {
+	private static function _clamav_scan_via_exec($fileView, $filepath) {
+		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
 		\OCP\Util::writeLog('files_antivirus', 'Exec scan: '.$filepath, \OCP\Util::DEBUG);
 		// get the path to the executable
 		$av_path = \OCP\Config::getAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
@@ -142,10 +150,41 @@ class OC_Files_Antivirus {
 			return CLAMAV_SCANRESULT_UNCHECKED;
 		}
 
-		// using 2>&1 to grab the full command-line output.
-		$cmd = escapeshellcmd($av_path) ." ". escapeshellarg($filepath) . " 2>&1";
-		exec($cmd, $output, $result);
+		$fhandler = $fileView->fopen($filepath, "r");
+		if(!$fhandler) {
+			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
+			return CLAMAV_SCANRESULT_UNCHECKED;
+		}
 
+		// using 2>&1 to grab the full command-line output.
+		$cmd = escapeshellcmd($av_path) ." - 2>&1";
+		$descriptorSpec = array(
+			0 => array("pipe","r"), // STDIN
+			1 => array("pipe","w")  // STDOUT
+		);
+		$process = proc_open($cmd, $descriptorSpec, $pipes);
+		if (!is_resource($process)) {
+			\OCP\Util::writeLog('files_antivirus', 'Error starting clamscan process', \OCP\Util::ERROR);
+			fclose($fhandler);
+			return CLAMAV_SCANRESULT_UNCHECKED;
+		}
+
+		// write to stdin
+		$shandler = $pipes[0];
+
+		while (!feof($fhandler)) {
+			$chunk = fread($fhandler, $av_chunk_size);
+			fwrite($shandler, $chunk);
+		}
+
+		fclose($shandler);
+		fclose($fhandler);
+
+		$output = stream_get_contents($pipes[1]);
+
+		fclose($pipes[1]);
+
+		$result = proc_close($process);
 
 		/**
 		 * clamscan return values (documented from man clamscan)
@@ -162,6 +201,7 @@ class OC_Files_Antivirus {
 			case 1:
 				$line = 0;
 				$report = array();
+				$output = explode("\n", $output);
 				while ( strpos($output[$line], "--- SCAN SUMMARY ---") === FALSE ) {
 					if (preg_match('/.*: (.*) FOUND$/', $output[$line], $matches)) {
 						$report[] = $matches[1];
