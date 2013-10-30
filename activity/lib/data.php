@@ -45,7 +45,7 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = \OCA\Activity\Data::PRIORITY_MEDIUM)
+	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM)
 	{
 
 		$timestamp = time();
@@ -63,7 +63,7 @@ class Data
 
 		// call the expire function only every 1000x time to preserve performance.
 		if (rand(0, 1000) == 0) {
-			\OCA\Activity\Data::expire();
+			Data::expire();
 		}
 
 		// fire a hook so that other apps like notification systems can connect
@@ -105,8 +105,8 @@ class Data
 
 		$activity = array();
 		while ($row = $result->fetchRow()) {
-			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
 			$activity[] = $row;
 		}
 		return $activity;
@@ -131,8 +131,8 @@ class Data
 
 		$activity = array();
 		while ($row = $result->fetchRow()) {
-			$row['subject'] = \OCA\Activity\Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = \OCA\Activity\Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
 			$activity[] = $row;
 		}
 		return $activity;

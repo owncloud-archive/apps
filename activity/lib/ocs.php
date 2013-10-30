@@ -38,20 +38,20 @@ class OCS {
 
 		$start = isset($_GET['start']) ? $_GET['start'] : 0;
 		$count = isset($_GET['count']) ? $_GET['count'] : 30;
-		
-		$data=\OCA\Activity\Data::read($start,$count);
-		$activities=array();
+
+		$data = Data::read($start,$count);
+		$activities = array();
 
 		foreach($data as $d) {
-			$activity=array();
-			$activity['id']=$d['activity_id'];
-			$activity['subject']=$d['subject'];
-			$activity['message']=$d['message'];
-			$activity['file']=$d['file'];
-			$activity['link']=$d['link'];
-			$activity['date']=date('c',$d['timestamp']);
-				
-			$activities[]=$activity;
+			$activity = array();
+			$activity['id'] = $d['activity_id'];
+			$activity['subject'] = $d['subject'];
+			$activity['message'] = $d['message'];
+			$activity['file'] = $d['file'];
+			$activity['link'] = $d['link'];
+			$activity['date'] = date('c', $d['timestamp']);
+
+			$activities[] = $activity;
 		}
 
 		return new OC_OCS_Result($activities);
@@ -60,4 +60,3 @@ class OCS {
 
 
 }
-

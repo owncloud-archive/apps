@@ -27,7 +27,7 @@ namespace OCA\Activity;
 /**
  * @brief The class to handle the filesystem hooks
  */
-class Hook {
+class Hooks {
 	
 	public static $createhookfired = false;
 	public static $createhookfile = '';
@@ -39,23 +39,23 @@ class Hook {
 	public static function register() {
 
 		//Listen to create file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_create', "OCA\Activity\Hook", "file_create");
+		\OCP\Util::connectHook('OC_Filesystem', 'post_create', "OCA\Activity\Hooks", "file_create");
 
 		//Listen to delete file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'delete', "OCA\Activity\Hook", "file_delete");
+		\OCP\Util::connectHook('OC_Filesystem', 'delete', "OCA\Activity\Hooks", "file_delete");
 
 		//Listen to write file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hook", "file_write");
+		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hooks", "file_write");
 
 		//Listen to share signal
-		\OCP\Util::connectHook('OCP\Share', 'post_shared', "OCA\Activity\Hook", "share");
+		\OCP\Util::connectHook('OCP\Share', 'post_shared', "OCA\Activity\Hooks", "share");
 
 		// hooking up the activity manager
 		if (property_exists('OC', 'server')) {
 			if (method_exists(\OC::$server, 'getActivityManager')) {
 				$am = \OC::$server->getActivityManager();
 				$am->registerConsumer(function() {
-					return new \OCA\Activity\Consumer();
+					return new Consumer();
 				});
 			}
 		}
@@ -67,35 +67,35 @@ class Hook {
 	 */
 	public static function file_write($params) {
 
-		if( HOOK::$createhookfired ) {
-			$params['path'] = HOOK::$createhookfile;
+		if( self::$createhookfired ) {
+			$params['path'] = self::$createhookfile;
 
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 			$subject = '%s created';
-			\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
+			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
 		
 			if(substr($params['path'],0,8)=='/Shared/') {
 				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 				$realfile=substr($params['path'],7);
 				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
 				$subject = '%s created by %s';
-				\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8,\OCA\Activity\Data::PRIORITY_HIGH);
+				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8, Data::PRIORITY_HIGH);
 			}
-			HOOK::$createhookfired = false;
-			HOOK::$createhookfile = '';
+			self::$createhookfired = false;
+			self::$createhookfile = '';
 			
 		} else {
 
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 			$subject = '%s changed';
-			\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
+			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
 		
 			if(substr($params['path'],0,8)=='/Shared/') {
 				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 				$realfile=substr($params['path'],7);
 				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
 				$subject = '%s changed by %s';
-				\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6,\OCA\Activity\Data::PRIORITY_HIGH);
+				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6, Data::PRIORITY_HIGH);
 			}
 		}
 		
@@ -109,14 +109,14 @@ class Hook {
 
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
 		$subject = '%s deleted';
-		\OCA\Activity\Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
+		Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
 
 		if(substr($params['path'],0,8)=='/Shared/') {
 			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 			$realfile=substr($params['path'],7);
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
 			$subject = '%s deleted by %s';
-			\OCA\Activity\Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 7,\OCA\Activity\Data::PRIORITY_HIGH);
+			Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 7, Data::PRIORITY_HIGH);
 		}
 
 	}
@@ -128,8 +128,8 @@ class Hook {
 	public static function file_create($params) {
 
 		// remember the create event for later consumption
-		HOOK::$createhookfired = true;
-		HOOK::$createhookfile = $params['path'];
+		self::$createhookfired = true;
+		self::$createhookfile = $params['path'];
 
 	}
 
@@ -149,13 +149,13 @@ class Hook {
 
 			if(!empty($shareWith)) {
 				$subject = 'You shared %s with %s';
-				\OCA\Activity\Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, \OCA\Activity\Data::PRIORITY_MEDIUM );
+				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			
 				$subject = '%s shared %s with you';
-				\OCA\Activity\Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, \OCA\Activity\Data::PRIORITY_MEDIUM);
+				Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, Data::PRIORITY_MEDIUM);
 			} else {
 				$subject = 'You shared %s';
-				\OCA\Activity\Data::send('files', $subject, array(substr($params['fileTarget'], 1)), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, \OCA\Activity\Data::PRIORITY_MEDIUM );
+				Data::send('files', $subject, array(substr($params['fileTarget'], 1)), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			}
 			
 		}

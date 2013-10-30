@@ -102,5 +102,3 @@ if (count($eventsInGroup) > 0){
 }
 echo('</div>'); // boxcontainer
 echo('</div>'); // group
-
-?>

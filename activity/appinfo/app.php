@@ -21,15 +21,6 @@
  *
  */
 
-
-// register the path of the libraries
-OC::$CLASSPATH['OCA\Activity\Consumer'] = 'activity/lib/lib_consumer.php';
-OC::$CLASSPATH['OCA\Activity\Data'] = 'activity/lib/lib_activity.php';
-OC::$CLASSPATH['OCA\Activity\Hook'] = 'activity/lib/lib_hooks.php';
-OC::$CLASSPATH['OCA\Activity\OCS'] = 'activity/lib/lib_ocs.php';
-OC::$CLASSPATH['OCA\Activity\Search'] = 'activity/lib/lib_search.php';
-
-
 // add an navigation entry
 $l=OC_L10N::get('activity');
 OCP\App::addNavigationEntry(array(
@@ -40,7 +31,7 @@ OCP\App::addNavigationEntry(array(
 	'name' => $l->t('Activity')));
 
 // register the hooks for filesystem operations. All other events from other apps has to be send via the public api
-OCA\Activity\Hook::register();
+OCA\Activity\Hooks::register();
 
 OC_Search::registerProvider('\OCA\Activity\Search');
 

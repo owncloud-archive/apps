@@ -40,6 +40,6 @@ class Consumer implements IConsumer
 	 * @return mixed
 	 */
 	function receive($app, $subject, $subjectParams, $message, $messageParams, $file, $link, $affectedUser, $type, $priority) {
-		\OCA\Activity\Data::send($app, $subject, $subjectParams, $message, $messageParams, $file, $link, $affectedUser, $type, $priority);
+		Data::send($app, $subject, $subjectParams, $message, $messageParams, $file, $link, $affectedUser, $type, $priority);
 	}
 }
