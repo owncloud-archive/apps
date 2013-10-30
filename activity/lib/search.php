@@ -36,20 +36,19 @@ class Search extends \OC_Search_Provider{
 	* @return search results
 	*/
 	function search($query){
-		
-		$data=\OCA\Activity\Data::search($query,100);
-		
-		$results=array();
+
+		$data = Data::search($query, 100);
+
+		$results = array();
 		foreach($data as $d){
-			$file=$d['file'];
-			$results[]=new \OC_Search_Result(
+			$file = $d['file'];
+			$results[] = new \OC_Search_Result(
 				basename($file),
 				$d['subject'].' ('.\OCP\Util::formatDate($d['timestamp']).')',
-				\OC_Helper::linkTo( 'activity', 'index.php' ),'Activity');
+				\OC_Helper::linkTo( 'activity', 'index.php' ), 'Activity');
 		}
-		
+
 		return $results;
 	}
 
 }
-
