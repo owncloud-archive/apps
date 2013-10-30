@@ -477,6 +477,39 @@ class BagItManager{
 	  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
 	}
 	
+	public function lookUpMint($for_code, $level){
+		
+		try {
+			
+			//User needs to get the mint url from config
+			$url = 'http://basset.uws.edu.au:9001/mint/ANZSRC_FOR/opensearch/lookup?count=999&level='.$level;
+			
+			//now call the mint
+			$ch = curl_init();
+			curl_setopt($ch,CURLOPT_URL,$url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$content = curl_exec($ch);
+			
+			//You get a json file as content. process this and show the result
+			 
+			$result = curl_getinfo($ch);
+			curl_close($ch);
+			
+			if(empty($content))
+			{
+				$content = "No data available";
+			}
+			else {
+				$content_array = json_decode($content);
+				$results = $content_array->results;
+				return $results;
+			}
+		} 
+		catch (Exception $e) {
+			die("error");
+		}
+	}
+	
 	public function getFetchData(){
 		//read from manifest
 		$fp = fopen($this->manifest, 'r');

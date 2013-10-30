@@ -22,6 +22,7 @@ function makeActionButtonsClickable(){
 				data:{'action':'delete', 'file_id':id},
 				success:function(data){
 					$('#crateList tr#'+id).remove();
+					hideForCodes();
 				},
 				error:function(data){
 					
@@ -32,6 +33,12 @@ function makeActionButtonsClickable(){
 			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
 		}
 	});
+}
+
+function hideForCodes(){
+	if($('#crateList tr').length == 0){
+		$('#anzsrc_for').hide();
+	}
 }
 
 $(document).ready(function() {
@@ -45,6 +52,8 @@ $(document).ready(function() {
             $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
         }
 	});
+	
+	hideForCodes();
 	
 	makeActionButtonsClickable();
 	
@@ -78,6 +87,7 @@ $(document).ready(function() {
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
 		$('#crateList').empty();
+		hideForCodes();
 	});
 	
 	/*$('#subbutton').attr('disabled', 'disabled');
@@ -170,6 +180,7 @@ $(document).ready(function() {
 		if(id === "choose"){
 			$('#crateList').empty();
 			$('#crateName').text("");
+			$('#anzsrc_for').hide();
 			return;
 		}
 		$.ajax({
@@ -185,7 +196,7 @@ $(document).ready(function() {
 					success: function(data){
 						$('#crateList').empty();
 						$('#crateName').text(id);
-						if(data != null){
+						if(data != null && data.length > 0){
 							var items = [];
 							$.each(data, function(key, value){
 								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
@@ -193,6 +204,10 @@ $(document).ready(function() {
 										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
 							});
 							$('#crateList').append(items.join(''));
+							$('#anzsrc_for').show();
+						}
+						else {
+							hideForCodes();
 						}
 						makeCrateListEditable();
 						makeActionButtonsClickable();
@@ -209,6 +224,36 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('#for_top_level').change(function(){
+		var id = $(this).find(':selected').attr("id");
+		if(id === "select_top"){
+			//remove all the child selects
+			var first = $('#for_second_level option:first').detach();
+			$('#for_second_level').children().remove();
+			$('#for_second_level').append(first);
+			return;
+		}
+		//make a call to the backend, get next level codes, populate option
+		$.ajax({
+			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=get_for_codes&level='+id,
+			type: 'get',
+			dataType: 'json',
+			success: function(data){
+				if(data !=null){
+					for(var i=0; i<data.length; i++){
+						$("#for_second_level").append('<option id="'+data[i]+'" value="'+data[i]+'" >'+data[i]+'</option>');
+					}
+				}
+			},
+			error: function(data){
+				var e = data.statusText;
+				alert(e);
+			}
+		});
+	});
+		
+	
 	
 });	
 

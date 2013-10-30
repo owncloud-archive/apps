@@ -63,3 +63,7 @@ font-size: 11px;
 padding: 11px 0 0 0px;
 border-top:1px solid #dedede;
 }
+#container
+{
+	overflow: auto;
+}

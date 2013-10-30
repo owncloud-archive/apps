@@ -13,6 +13,7 @@ $element_id = isset($_POST['elementid']) ? $_POST['elementid'] : '';
 $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
+$level = isset($_GET['level']) ? $_GET['level'] : '';
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
@@ -122,4 +123,14 @@ switch ($action){
 		header("Content-Disposition: attachment;filename=".$filename);
 		readfile($zip_file);
 		break;
+	case 'get_for_codes':
+		//need to access the tmpl var
+		$results = $bagit_manager->lookUpMint("", 'top');
+		foreach ($results as $item) {
+			$vars = get_object_vars($item);
+			if($vars["rdf:about"] === $level){
+				//send skos:narrower array
+				echo json_encode(array_values($vars['skos:narrower']));
+			}
+		}
 }
