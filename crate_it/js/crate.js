@@ -35,6 +35,12 @@ function makeActionButtonsClickable(){
 	});
 }
 
+function removeFORCodes(){
+	var first = $('#for_second_level option:first').detach();
+	$('#for_second_level').children().remove();
+	$('#for_second_level').append(first);
+}
+
 function hideForCodes(){
 	if($('#crateList tr').length == 0){
 		$('#anzsrc_for').hide();
@@ -229,9 +235,7 @@ $(document).ready(function() {
 		var id = $(this).find(':selected').attr("id");
 		if(id === "select_top"){
 			//remove all the child selects
-			var first = $('#for_second_level option:first').detach();
-			$('#for_second_level').children().remove();
-			$('#for_second_level').append(first);
+			removeFORCodes();
 			return;
 		}
 		//make a call to the backend, get next level codes, populate option
@@ -241,6 +245,7 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data){
 				if(data !=null){
+					removeFORCodes();
 					for(var i=0; i<data.length; i++){
 						$("#for_second_level").append('<option id="'+data[i]+'" value="'+data[i]+'" >'+data[i]+'</option>');
 					}
