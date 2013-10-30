@@ -33,17 +33,34 @@ class OC_Files_Antivirus_BackgroundScanner {
 			\OCP\Util::writeLog('files_antivirus', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			return;
 		}
+
+		$serverContainer = OC::$server;
+		/** @var $serverContainer \OCP\IServerContainer */
+		$root = $serverContainer->getRootFolder();
+
 		// scan the found files
 		while ($row = $result->fetchRow()) {
-			$storage = self::getStorage($row['id']);
-			if ($storage !== null) {
-				self::scan($row['fileid'], $row['path'], $storage);
+			$file = $root->getById($row['fileid']); // this should always work ...
+			if (!empty($file)) {
+				$file = $file[0];
+				$storage = $file->getStorage();
+				$path = $file->getInternalPath();
+				self::scan($file->getId(), $storage, $path);
 			} else {
-				\OCP\Util::writeLog('files_antivirus', 'File "'.$row['path'].'" has a non local storage backend "'.$row['id'].'"', \OCP\Util::ERROR);
+				// ... but sometimes it doesn't, try to get the storage
+				$storage = self::getStorage($row['id']);
+				if ($storage !== null && $storage->is_dir('')) {
+					self::scan($row['fileid'], $storage, $row['path']);
+				} else {
+					\OCP\Util::writeLog('files_antivirus', 'Can\'t get \OCP\Files\File for id "'.$row['fileid'].'"', \OCP\Util::ERROR);
+				}
 			}
 		}
 	}
 
+	/*
+	* This function is a hack, it doesn't work if the $storage_id is a hash.
+	*/
 	protected static function getStorage($storage_id) {
 		if (strpos($storage_id, 'local::') === 0) {
 			$arguments = array(
@@ -54,7 +71,7 @@ class OC_Files_Antivirus_BackgroundScanner {
 		return null;
 	}
 
-	public static function scan($id, $path, $storage) {
+	public static function scan($id, $storage, $path) {
 		$result = OC_Files_Antivirus::clamav_scan($storage, $path);
 		switch($result) {
 			case CLAMAV_SCANRESULT_UNCHECKED:
@@ -71,8 +88,14 @@ class OC_Files_Antivirus_BackgroundScanner {
 				}
 				break;
 			case CLAMAV_SCANRESULT_CLEAN:
-				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
+					$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus` WHERE `fileid` = ?');
+					$result = $stmt->execute(array($id));
+					if (\OCP\DB::isError($result)) {
+						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+						return;
+					}
+					$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 					$result = $stmt->execute(array($id, time()));
 					if (\OCP\DB::isError($result)) {
 						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
