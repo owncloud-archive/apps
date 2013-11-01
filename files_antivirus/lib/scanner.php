@@ -64,7 +64,7 @@ class OC_Files_Antivirus_BackgroundScanner {
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
-					unlink($file);
+					$storage->unlink($path);
 				}
 				else {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
