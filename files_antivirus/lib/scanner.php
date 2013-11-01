@@ -55,8 +55,7 @@ class OC_Files_Antivirus_BackgroundScanner {
 	}
 
 	public static function scan($id, $path, $storage) {
-		$file = $storage->getLocalFile($path);
-		$result = OC_Files_Antivirus::clamav_scan($file);
+		$result = OC_Files_Antivirus::clamav_scan($storage, $path);
 		switch($result) {
 			case CLAMAV_SCANRESULT_UNCHECKED:
 				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
@@ -65,7 +64,7 @@ class OC_Files_Antivirus_BackgroundScanner {
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
-					unlink($file);
+					$storage->unlink($path);
 				}
 				else {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);

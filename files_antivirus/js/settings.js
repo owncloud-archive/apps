@@ -3,19 +3,16 @@ function av_mode_show_options(str){
 		$('p.av_socket').hide('slow');
 		$('p.av_host').show('slow');
 		$('p.av_port').show('slow');
-		$('p.av_chunk_size').show('slow');
 		$('p.av_path').hide('slow');
 	} else if ( str == 'socket' ) {
 		$('p.av_socket').show('slow');
 		$('p.av_path').hide('slow');
 		$('p.av_host').hide('slow');
 		$('p.av_port').hide('slow');
-		$('p.av_chunk_size').hide('slow');
         } else if (str == 'executable'){
 		$('p.av_socket').hide('slow');
 		$('p.av_host').hide('slow');
 		$('p.av_port').hide('slow');
-		$('p.av_chunk_size').hide('slow');
 		$('p.av_path').show('slow');
 	}
 }
