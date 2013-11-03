@@ -153,6 +153,7 @@ class Data
 
 		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
 		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
+		$displayName = \OCP\User::getDisplayName($user);
 
 		// TODO: move into template?
 		echo('<div class="box">');
@@ -160,7 +161,7 @@ class Data
 		echo('<div class="header">');
 		echo('<span class="avatar" data-user="' . \OC_Util::sanitizeHTML($user) . '"></span>');
 		echo('<span>');
-		echo('<span class="user">' . \OC_Util::sanitizeHTML(\OCP\User::getDisplayName($user)) . '</span>');
+		echo('<span class="user">' . \OC_Util::sanitizeHTML($displayName) . '</span>');
 		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML($formattedDate) . '">' . \OC_Util::sanitizeHTML($formattedTimestamp) . '</span>');
 		echo('<span class="appname">' . \OC_Util::sanitizeHTML($event['app']) . '</span>');
 		echo('</span>');
