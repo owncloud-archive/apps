@@ -145,8 +145,11 @@ class Data
 	 */
 	public static function show($event)
 	{
-		$l=\OC_L10N::get('lib');
+		$l = \OC_L10N::get('lib');
 		$user = $event['user'];
+		if (!isset($event['isGrouped'])){
+			$event['isGrouped'] = false;
+		}
 
 		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
 		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
@@ -164,7 +167,7 @@ class Data
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
-		if (isset($event['isGrouped']) and $event['isGrouped']){
+		if ($event['isGrouped']){
 			$count = 0;
 			echo('<ul class="activitysubject grouped">');
 			foreach($event['events'] as $subEvent){
