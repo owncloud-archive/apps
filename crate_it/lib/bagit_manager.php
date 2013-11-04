@@ -136,8 +136,8 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		//TODO we need to get preview from file_previewer app 
-		$preview_file = $this->getPreviewPath($full_path);
+		//TODO we don't need to get the preview from the fascinator 
+		//$preview_file = $this->getPreviewPath($full_path);
 		/*if(empty($preview_file))
 		{
 			return "No preview available. File not added to crate.";

@@ -13,7 +13,7 @@ and let user drag and drop -->
 <?php foreach($_['bagged_files'] as $entry):?>
 	<tr id="<?php echo $entry['id'];?>">
 	<td><span class="title" style="padding-right: 150px;"><?php print_unescaped($entry['title']);?></span></td>
-	<td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>
+	<!-- <td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td> -->
 	<td><div><a data-action="delete" title="Delete">
 	   <img src="/owncloud/core/img/actions/delete.svg"></a></div></td>
 	</tr>
@@ -60,7 +60,7 @@ and let user drag and drop -->
 		<?php endforeach;?>
 	</select>
 	<input id="clear" type="button" value="Clear Crate"/>
-	<input id="epub" type="button" value="EPUB"/>
+	<!-- <input id="epub" type="button" value="EPUB"/> -->
 	<input id="download" type="button" value="Download Crate as zip"/>
 </div>
 <div>
