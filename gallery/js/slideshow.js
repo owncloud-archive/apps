@@ -3,9 +3,17 @@ jQuery.fn.slideShow = function (container, start, options) {
 	start = start || 0;
 	settings = jQuery.extend({
 		'interval': 5000,
-		'play'    : true,
+		'play'    : false,
 		'maxScale': 2
 	}, options);
+	if (settings.play){
+		$('#slideshow').children('.play').hide();
+		$('#slideshow').children('.pause').show();
+	}
+	else{
+		$('#slideshow').children('.play').show();
+		$('#slideshow').children('.pause').hide();
+	}
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
 	jQuery.fn.slideShow.current = start;
@@ -315,7 +323,7 @@ $(document).ready(function () {
 			var images = $('#fileList tr[data-mime^="image"] a.name');
 			var start = 0;
 			$.each(images, function (i, e) {
-				if ($(e).parents('tr').data('file') == filename) {
+				if ($(e).closest('tr').data('file') == filename) {
 					start = i;
 				}
 			});
