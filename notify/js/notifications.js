@@ -5,7 +5,7 @@ OC.notify = {
 	dom: {
 		icon: $('<a id="notify-icon" class="header-right header-action" href="#" title="' + t('notify', 'Notifications') + '"><img class="svg" alt="' + t('notify', 'Notifications') + '" src="' + OC.imagePath('notify', 'headerIcon.svg') + '" /></a>'),
 		counter: $('<span id="notify-counter" data-count="0">0</span>'),
-		listContainer: $('<div id="notify-list"><div id="notify-loading"></div><div id="notify-headline"><span id="notify-title">' + t('notify', 'Notifications') + '</span><div class="actionicons"><a href="' + OC.webroot + '/settings/personal.php#notify" id="notify-config" title="' + t('notify', 'Preferences') + '">' + t('notify', 'Preferences') + '</a><span id="notify-readall" title="' + t('notify', 'Mark all as read') + '">' + t('notify', 'Mark all as read') + '</span><span id="notify-deleteread" title="' + t('notify', 'Delete all read notifications') + '">' + t('notify', 'Delete all read notifications') + '</span></div></div>'),
+		listContainer: $('<div id="notify-list"><div id="notify-loading"></div><div id="notify-headline"><span id="notify-title">' + t('notify', 'Notifications') + '</span><div class="actionicons"><a href="#notify" id="notify-config" title="' + t('notify', 'Preferences') + '">' + t('notify', 'Preferences') + '</a><span id="notify-readall" title="' + t('notify', 'Mark all as read') + '">' + t('notify', 'Mark all as read') + '</span><span id="notify-deleteread" title="' + t('notify', 'Delete all read notifications') + '">' + t('notify', 'Delete all read notifications') + '</span></div></div>'),
 		list: $('<ul></ul>'),
 		notificationTemplate: $('<li class="notification"><a class="content" href="#"></a><div class="actionicons"><span class="deleteicon" title="' + t('notify', 'Delete this notification') + '">delete</span></div></li>'),
 		fitContainerSize: function() {
@@ -232,7 +232,7 @@ $(document).ready(function() {
     }).resize(OC.notify.dom.fitContainerSize);
     //TODO: do it right and tipsy
     //OC.notify.dom.listContainer.find('.actionicons span').tipsy();
-    OC.notify.dom.listContainer.find('#notify-config').click(function(e) { e.stopPropagation(); });
+    OC.notify.dom.listContainer.find('#notify-config').click(function(e) { this.href = OC.Router.generate('settings_personal') + '#notify';e.stopPropagation(); });
     OC.notify.dom.listContainer.find('#notify-refresh').click(OC.notify.loadNotifications);
     OC.notify.dom.listContainer.find('#notify-readall').click(OC.notify.markAllRead);
     OC.notify.dom.listContainer.find('#notify-deleteread').click(OC.notify.deleteRead);
