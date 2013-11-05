@@ -4,7 +4,6 @@ namespace OCA\crate_it\lib;
 class BagItManager{
 	
 	var $base_dir; 
-	var $preview_dir;
 	var $crate_dir;
 	var $crate_root;
 	var $manifest;
@@ -36,7 +35,6 @@ class BagItManager{
 		}
 		
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
-	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files';
 	    $this->crate_root =$this->base_dir.'/crates'; 
 		
 		if(!file_exists($this->crate_root)){
@@ -65,6 +63,10 @@ class BagItManager{
 	
 	public static function getInstance(){
 			return new BagItManager();
+	}
+	
+	public function showPreviews(){
+		return $this->fascinator['status'];
 	}
 	
 	public function createCrate($name){

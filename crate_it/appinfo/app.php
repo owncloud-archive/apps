@@ -19,6 +19,14 @@ OCP\Util::addStyle('crate_it', 'crate');
 //OCP\Util::addscript('crate_it', 'organiser');
 //OCP\Util::addscript('crate_it/3rdparty', 'tree/jquery.tree.min');
 //OCP\Util::addStyle('crate_it/3rdparty/js/themes/default', 'style');
+$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+if(!file_exists($config_file)){
+	$fp = fopen($config_file, 'x');
+	$entry = array("fascinator" => array("status" => "off","downloadURL" => "http://localhost:9997/portal/default/download/",
+			"solr" => array("host" => "localhost", "port" => 9997, "path" => "/solr/fascinator/")));
+	fwrite($fp, json_encode($entry));
+	fclose($fp);
+}
 
 OCP\App::addNavigationEntry( array( "id" => "crate",
 									"order" => 250,
