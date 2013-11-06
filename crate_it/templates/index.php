@@ -50,6 +50,19 @@ and let user drag and drop -->
 </div>
 </div></div>
 
+<div style="float:right;">
+	<form method="post">
+		<div>
+			<label for="description" >Description</label>
+		</div>
+		<textarea id="description" rows="4" cols="80">
+		</textarea>
+		<div>
+			<input type="submit" value="save" style="float:right;" />
+		</div>
+	</form>
+</div>
+
 <div style="float:left; padding:20px;">
 	<form id="crate_input" method="get">
 		Create new crate: <input type="text" id="create">
