@@ -56,7 +56,8 @@ class BagItManager{
 		//create manifest file if it doesn't exist
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
-			fclose($fp);
+			$contents = ['description' => ''];
+			fclose($fp, json_encode($contents));
 			$this->bag->update();
 		}
 	}
@@ -240,6 +241,16 @@ class BagItManager{
 		return true;
 	}
 	
+
+	public function setDescription($description) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$contents['description'] = $description;
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		return true;
+	}
+
 	//remove an item from manifest
 	public function removeItem($id){
 		$contents = json_decode(file_get_contents($this->manifest), true);
