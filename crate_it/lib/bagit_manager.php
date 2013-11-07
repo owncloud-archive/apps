@@ -522,14 +522,14 @@ class BagItManager{
 			die("error");
 		}
 	}
-	
-	public function getFetchData(){
+
+	public function getManifestData(){
 		//read from manifest
 		$fp = fopen($this->manifest, 'r');
 		$contents = file_get_contents($this->manifest);
 		$cont_array = json_decode($contents, true);
 		fclose($fp);
-		return array_values($cont_array["titles"]);
+		return $cont_array;
 	}
 	
 }

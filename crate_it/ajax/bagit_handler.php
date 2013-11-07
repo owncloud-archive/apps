@@ -50,7 +50,8 @@ switch ($action){
 		print $msg;
 		break;
 	case 'get_items':
-		$msg = $bagit_manager->getFetchData();
+		$manifestData = $bagit_manager->getManifestData();
+		$msg = array_values($manifestData['titles']);
 		echo json_encode($msg);
 		break;
 	case 'add':
