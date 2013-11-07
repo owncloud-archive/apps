@@ -154,8 +154,7 @@ class BagItManager{
 		$id = md5($full_path);
 		if(filesize($this->manifest) == 0) {
 			$fp = fopen($this->manifest, 'w');
-			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
-					'filename' => $full_path)));
+			$entry = array('titles' => array(), 'description' => '');
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}

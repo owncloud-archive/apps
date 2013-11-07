@@ -22,7 +22,7 @@ function makeActionButtonsClickable(){
 				data:{'action':'delete', 'file_id':id},
 				success:function(data){
 					$('#crateList tr#'+id).remove();
-					hideForCodes();
+					hideMetadata();
 				},
 				error:function(data){
 					
@@ -41,9 +41,9 @@ function removeFORCodes(){
 	$('#for_second_level').append(first);
 }
 
-function hideForCodes(){
+function hideMetadata(){
 	if($('#crateList tr').length == 0){
-		$('#anzsrc_for').hide();
+		$('#metadata').hide();
 	}
 }
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
         }
 	});
 	
-	hideForCodes();
+	hideMetadata();
 	
 	makeActionButtonsClickable();
 	
@@ -93,12 +93,11 @@ $(document).ready(function() {
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
 		$('#crateList').empty();
-		hideForCodes();
+		hideMetadata();
 	});
 
     $('#save_description').click(function() {
         var description = $('#description').val();
-        console.log('test');
         if (description) {
             $.ajax({
                 url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
@@ -106,7 +105,6 @@ $(document).ready(function() {
                 dataType: 'json',
                 data: {'action': 'describe', 'description': description},
                 success: function(data) {
-                    console.log(data);
                     OC.Notification.show('Description saved.');
                     setTimeout(OC.Notification.hide(), 3000);
                 },
@@ -225,18 +223,18 @@ $(document).ready(function() {
 					success: function(data){
 						$('#crateList').empty();
 						$('#crateName').text(id);
-						if(data != null && data.length > 0){
+						if(data != null && data.titles.length > 0){
 							var items = [];
-							$.each(data, function(key, value){
+							$.each(data.titles, function(key, value){
 								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
 										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
 										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
 							});
 							$('#crateList').append(items.join(''));
-							$('#anzsrc_for').show();
-						}
-						else {
-							hideForCodes();
+							$('#metadata').show();
+                            $('#description').val(data.description);
+						} else {
+							hideMetadata();
 						}
 						makeCrateListEditable();
 						makeActionButtonsClickable();

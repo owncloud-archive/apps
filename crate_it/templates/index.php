@@ -33,43 +33,50 @@
                 </tbody>
             </table>
         </div>
-
-        <div id="anzsrc_for" style="float:right;">
-            <div>
-                <select id="for_top_level" class="for_codes">
-                    <option id="select_top" value="for_top_choose">Choose a code</option>
-                    <?php foreach($_['top_for'] as $item): $vars=get_object_vars($item); //$prefLabel=$ vars[ 'skos:prefLabel']; ?>
-                    <option id="<?php echo $vars['rdf:about'];?>" value="<?php echo $vars['rdf:about'];?>">
-                        <?php echo $vars[ 'skos:prefLabel']?>
-                    </option>
-                    <?php endforeach;?>
-                </select>
-            </div>
-            <div>
-                <select id="for_second_level" class="for_codes">
-                    <option id="select_second" value="for_second_choose">Choose a code</option>
-                </select>
-            </div>
-            <div>
-                <select id="for_third_level" class="for_codes">
-                    <option id="select_third" value="for_third_choose">Choose a code</option>
-                </select>
-            </div>
-        </div>
     </div>
+
+    <div id="metadata" style="float:right;">
+
+		<div id="anzsrc_for">
+		    <div>
+		        <select id="for_top_level" class="for_codes">
+		            <option id="select_top" value="for_top_choose">Choose a code</option>
+		            <?php foreach($_['top_for'] as $item): $vars=get_object_vars($item); //$prefLabel=$ vars[ 'skos:prefLabel']; ?>
+		            <option id="<?php echo $vars['rdf:about'];?>" value="<?php echo $vars['rdf:about'];?>">
+		                <?php echo $vars[ 'skos:prefLabel']?>
+		            </option>
+		            <?php endforeach;?>
+		        </select>
+		    </div>
+		    <div>
+		        <select id="for_second_level" class="for_codes">
+		            <option id="select_second" value="for_second_choose">Choose a code</option>
+		        </select>
+		    </div>
+		    <div>
+		        <select id="for_third_level" class="for_codes">
+		            <option id="select_third" value="for_third_choose">Choose a code</option>
+		        </select>
+		    </div>
+		</div>
+
+		<div id="description_box">
+		    <div>
+		        <label for="description">Description</label>
+		    </div>
+		    <textarea id="description" rows="4" cols="80">
+		        <?php echo $_['description'] ?>
+		    </textarea>
+		    <div>
+		        <input id="save_description" type="button" value="save" style="float:right;" />
+		    </div>
+		</div>
+
+	</div>
 </div>
 
-<div style="float:right;">
-    <div>
-        <label for="description">Description</label>
-    </div>
-    <textarea id="description" rows="4" cols="80">
-        <?php echo $_['description'] ?>
-    </textarea>
-    <div>
-        <input id="save_description" type="button" value="save" style="float:right;" />
-    </div>
-</div>
+
+
 
 <div style="float:left; padding:20px;">
     <form id="crate_input" method="get">
