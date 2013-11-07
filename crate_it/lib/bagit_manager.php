@@ -247,6 +247,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
+		$this->bag->update();
 		return true;
 	}
 
@@ -331,7 +332,7 @@ class BagItManager{
 		$source_dir = $this->base_dir.'/files';
 		
 		$temp_dir = \OC_Helper::tmpFolder();
-		
+
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
@@ -378,6 +379,8 @@ class BagItManager{
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
 		$bag = new \BagIt($tmp_dir);
 		
+		$manifest_data = $this->getManifestData();
+
 		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><body><article>
 					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
 					<section resource="creative work" typeof="http://schema.org/CreativeWork">
@@ -390,7 +393,7 @@ class BagItManager{
 							  <h1>ID</h1>
 							  <span property="http://schema.org/name">'.$id.'</span>
 							  <h1>Description</h1>
-							  <span property="http://schema.org/description">some set of files related to a research</span>
+							  <span property="http://schema.org/description">'.$manifest_data['description'].'</span>
 							  <h1>Software Information</h1>
 							  <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
 							  	<table>
@@ -475,11 +478,9 @@ class BagItManager{
 			$bag->update();
 			$bag->package($tmp_dir.'/'.$this->selected_crate, 'zip');
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
-		}
-		else
-		{
-			$err = $bag->getBagErrors(true);
-			print $err;
+		} else {
+			$errors = $bag->getBagErrors(true);
+			print $errors;
 		}
 	}
 	
