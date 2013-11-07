@@ -51,7 +51,7 @@ class Thumbnail {
 			}
 			$this->path = $galleryDir . $image . '.' . $extension;
 			if (!file_exists($this->path)) {
-				self::create($imagePath, $square);
+				$this->create($imagePath, $square);
 			}
 		}
 	}
