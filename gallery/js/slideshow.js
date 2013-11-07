@@ -172,6 +172,7 @@ jQuery.fn.slideShow.previous = function () {
 
 jQuery.fn.slideShow.stop = function () {
 	if (jQuery.fn.slideShow.container) {
+		jQuery.fn.slideShow.clearTimeout();
 		jQuery.fn.slideShow.container.hide();
 		jQuery.fn.slideShow.container = null;
 		if (jQuery.fn.slideShow.onstop) {
