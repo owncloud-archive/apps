@@ -236,6 +236,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
+		$this->bag->update();
 		//TODO handle exceptions and return suitable value
 		return true;
 	}
@@ -247,7 +248,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
-		$this->bag->update();
+		
 		return true;
 	}
 
@@ -480,7 +481,7 @@ class BagItManager{
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
 		} else {
 			$errors = $bag->getBagErrors(true);
-			print $errors;
+			print var_dump($errors);
 		}
 	}
 	
