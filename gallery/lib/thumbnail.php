@@ -57,7 +57,7 @@ class Thumbnail {
 	}
 
 	public function create($imagePath, $square) {
-		$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 		$dir = dirname($imagePath);
 		if (!is_dir($galleryDir . $dir)) {
 			mkdir($galleryDir . $dir, 0755, true);
