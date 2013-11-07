@@ -17,7 +17,7 @@ and let user drag and drop -->
 		<td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>
 	<?php endif; ?>
 	<td><div><a data-action="delete" title="Delete">
-	   <img src="/owncloud/core/img/actions/delete.svg"></a></div></td>
+	   <img src="/core/img/actions/delete.svg"></a></div></td>
 	</tr>
 <?php endforeach;?>
 </tbody>
@@ -51,16 +51,13 @@ and let user drag and drop -->
 </div></div>
 
 <div style="float:right;">
-	<form method="post">
-		<div>
-			<label for="description" >Description</label>
-		</div>
-		<textarea id="description" rows="4" cols="80">
-		</textarea>
-		<div>
-			<input type="submit" value="save" style="float:right;" />
-		</div>
-	</form>
+	<div>
+		<label for="description" >Description</label>
+	</div>
+	<textarea id="description" rows="4" cols="80"></textarea>
+	<div>
+		<input id="save_description" type="button" value="save" style="float:right;" />
+	</div>
 </div>
 
 <div style="float:left; padding:20px;">

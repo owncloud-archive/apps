@@ -69,11 +69,11 @@ $(document).ready(function() {
 	$('#download').click('click', function(event) { 
 		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
-			setTimeout(function() {OC.Notification.hide();}, 3000);
+			setTimeout(OC.Notification.hide(), 3000);
 			return;
 		}
 		OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
-		setTimeout(function() {OC.Notification.hide();}, 3000);
+		setTimeout(OC.Notification.hide(), 3000);
 		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
 		
 	});
@@ -81,12 +81,12 @@ $(document).ready(function() {
 	$('#epub').click(function(event) {
 		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
-			setTimeout(function() {OC.Notification.hide();}, 3000);
+			setTimeout(OC.Notification.hide(), 3000);
 			return;
 		}
 		//get all the html previews available, concatenate 'em all
 		OC.Notification.show('Your download is being prepared. This might take some time');
-		setTimeout(function() {OC.Notification.hide();}, 3000);
+		setTimeout(OC.Notification.hide(), 3000);
 		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=epub';
 	});
 	
@@ -95,6 +95,29 @@ $(document).ready(function() {
 		$('#crateList').empty();
 		hideForCodes();
 	});
+
+    $('#save_description').click(function() {
+        var description = $('#description').val();
+        console.log('test');
+        if (description) {
+            $.ajax({
+                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+                type: 'post',
+                dataType: 'json',
+                data: {'action': 'describe', 'description': description},
+                success: function(data) {
+                    console.log(data);
+                    OC.Notification.show('Description saved.');
+                    setTimeout(OC.Notification.hide(), 3000);
+                },
+                error: function(data) {
+                    OC.Notification.show('There was an error:' + data.statusText);
+                    setTimeout(OC.Notification.hide(), 3000);
+                    $('#description').focus();
+                }
+            });
+        }
+    });
 	
 	/*$('#subbutton').attr('disabled', 'disabled');
 	$('#crate_input #create').keyup(function() {
@@ -113,7 +136,7 @@ $(document).ready(function() {
 	        	$('#crate_input #create').val('');
 	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
-				setTimeout(function() {OC.Notification.hide();}, 3000);
+				setTimeout(OC.Notification.hide(), 3000);
 	        	//$('#subbutton').attr('disabled', 'disabled');
 	        	/*$('#crates option').filter(function(){
 					return $(this).attr("id") == data;
@@ -121,7 +144,7 @@ $(document).ready(function() {
 			},
 			error: function(data){
 				OC.Notification.show(data.statusText);
-				setTimeout(function() {OC.Notification.hide();}, 3000);
+				setTimeout(OC.Notification.hide(), 3000);
 				$('#crate_input #create').focus();
 			}
 	    });
