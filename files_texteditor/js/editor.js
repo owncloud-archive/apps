@@ -209,6 +209,7 @@ function showFileEditor(dir, filename) {
 						// Initialise the editor
 						if (window.FileList){
 							FileList.setViewerMode(true);
+							enableEditorUnsavedWarning(true);
 						}
 						// Show the control bar
 						showControls(dir, filename, result.data.writeable);
@@ -266,8 +267,20 @@ function showFileEditor(dir, filename) {
 	}
 }
 
+function enableEditorUnsavedWarning(enable) {
+	$(window).unbind('beforeunload.texteditor');
+	if (enable) {
+		$(window).bind('beforeunload.texteditor', function () {
+			if ($('#editor').attr('data-edited') == 'true') {
+				return t('files_texteditor', 'There are unsaved changes in the text editor');
+			}
+		});
+	}
+}
+
 // Fades out the editor.
 function hideFileEditor() {
+	enableEditorUnsavedWarning(false);
 	if (window.FileList){
 		// reload the directory content with the updated file size + thumbnail
 		// and also the breadcrumb
@@ -298,6 +311,7 @@ function hideFileEditor() {
 // Reopens the last document
 function reopenEditor() {
 	FileList.setViewerMode(true);
+	enableEditorUnsavedWarning(true);
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
 	$('#editorcontrols').show();
