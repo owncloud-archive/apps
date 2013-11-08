@@ -46,6 +46,20 @@ button.share {
 	max-height: 200px;
 }
 
+#gallery > a.album,
+#gallery > a.image{
+	opacity: 1;
+	transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	-ms-transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+}
+#gallery > a.album.loading,
+#gallery > a.image.loading{
+	opacity: 0;
+}
+
 #controls > .right {
 	float: right;
 }
