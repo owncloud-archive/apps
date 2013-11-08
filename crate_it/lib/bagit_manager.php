@@ -124,10 +124,10 @@ class BagItManager{
 					fwrite($fp, $full_path);
 					fclose($fp);
 				}*/
-				if($file === '/Shared' || is_dir($full_path))
-				{
-					return "Adding directories not supported yet";
-				}
+				// if($file === '/Shared' || is_dir($full_path))
+				// {
+				// 	return "Adding directories not supported yet";
+				// }
 			}
 		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
 			header("HTTP/1.0 404 Not Found");
@@ -145,39 +145,54 @@ class BagItManager{
 		{
 			return "No preview available. File not added to crate.";
 		}*/
-		$title = $this->getTitle($preview_file);
-		if(empty($title)){
-			$title = $file;
-		}
+		// $title = $this->getTitle($preview_file);
+		// if(empty($title)){
+		// 	$title = $file;
+		// }
 		
-		//$id = hash('sha256', $full_path);
-		$id = md5($full_path);
+		// $id = md5($full_path);
 		if(filesize($this->manifest) == 0) {
 			$fp = fopen($this->manifest, 'w');
 			$entry = array('titles' => array(), 'description' => '');
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
-		else {
-			$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-			$elements = &$contents['titles'];
-			foreach ($elements as $item) {
-				if($item['id'] === $id) {
-					return "File is already in the crate ".$this->selected_crate;
-				}
-			}
-			array_push($elements, array('id' => $id, 'title' => $title,
-							'filename' => $full_path));
-			$fp = fopen($this->manifest, 'w');
-			fwrite($fp, json_encode($contents));
-			fclose($fp);
-		}
+		
+		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+		$elements = &$contents['titles'];
+		$this->addPath($elements, $file);
+		$fp = fopen($this->manifest, 'w');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
 		
 		// update the hashes
 		$this->bag->update();
 		return "File added to the crate ".$this->selected_crate;
 	}
-	
+
+	private function getFullPath($file) {
+		return \OC\Files\Filesystem::getLocalFile($file);
+	}
+
+	private function addPath(&$titles, $path) {
+		$full_path = $this->getFullPath($path);
+		$id = md5($full_path);
+		if (is_dir($full_path)) {
+			$entry = array('id' => $id, 'title' => $path, 'filename'  => $full_path, 'titles'  => array());
+			$new_titles = &$entry['titles'];
+			foreach (scandir($full_path) as $sub_path) {
+				if ($sub_path === '.' || $sub_path === '..') {
+					continue;
+				}
+				$this->addPath($new_titles, $sub_path);
+			}
+		} else {
+			$entry = array('id' => $id, 'title' => $path, 'filename' => $full_path);
+		}
+		array_push($titles, $entry);
+	}
+
+
 	private function getTitle($file) {
 		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
 				&& isset($matches[1] )) {
