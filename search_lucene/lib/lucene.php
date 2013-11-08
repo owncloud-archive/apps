@@ -47,12 +47,13 @@ class Lucene extends \OC_Search_Provider {
 			} else {
 				$index = \Zend_Search_Lucene::create($indexUrl);
 				//todo index all user files
-				
 			}
 		} catch ( Exception $e ) {
-            Util::writeLog('search_lucene',
-					$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
-                	Util::ERROR);
+			Util::writeLog(
+				'search_lucene',
+				$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
+				Util::ERROR
+			);
 			return null;
 		}
 		
@@ -70,15 +71,19 @@ class Lucene extends \OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function optimizeIndex(\Zend_Search_Lucene_Interface $index = null) {
+	static public function optimizeIndex(
+		\Zend_Search_Lucene_Interface $index = null
+	) {
 
 		if ($index === null) {
 			$index = self::openOrCreate();
 		}
 
-		Util::writeLog('search_lucene',
-					   'optimizing index ',
-						Util::DEBUG);
+		Util::writeLog(
+			'search_lucene',
+			'optimizing index ',
+			Util::DEBUG
+		);
 
 		$index->optimize();
 
@@ -98,10 +103,12 @@ class Lucene extends \OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function updateFile(\Zend_Search_Lucene_Document $doc,
-									  $path = '',
-									  $user = null,
-									  \Zend_Search_Lucene_Interface $index = null) {
+	static public function updateFile(
+		\Zend_Search_Lucene_Document $doc,
+		$path = '',
+		$user = null,
+		\Zend_Search_Lucene_Interface $index = null
+	) {
 
 		if ($index === null) {
 			$index = self::openOrCreate($user);
@@ -110,9 +117,11 @@ class Lucene extends \OC_Search_Provider {
 		// TODO profile perfomance for searching before adding to index
 		self::deleteFile($path, $user, $index);
 
-		Util::writeLog('search_lucene',
-					   'adding ' . $path ,
-					   Util::DEBUG);
+		Util::writeLog(
+			'search_lucene',
+			'adding ' . $path ,
+			Util::DEBUG
+		);
 		
 		// Add document to the index
 		$index->addDocument($doc);
@@ -131,7 +140,11 @@ class Lucene extends \OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function deleteFile($path, $user = null, \Zend_Search_Lucene_Interface $index = null) {
+	static public function deleteFile(
+		$path,
+		$user = null,
+		\Zend_Search_Lucene_Interface $index = null
+	) {
 
 		if ( $path === '' ) {
 			//ignore the empty path element
@@ -146,9 +159,11 @@ class Lucene extends \OC_Search_Provider {
 		}
 
 		if ( ! $view ) {
-			Util::writeLog('search_lucene',
+			Util::writeLog(
+				'search_lucene',
 				'could not resolve filesystem view',
-				Util::WARN);
+				Util::WARN
+			);
 			return false;
 		}
 
@@ -159,21 +174,27 @@ class Lucene extends \OC_Search_Provider {
 		$root= $view->getRoot();
 		$pk = md5($root.$path);
 
-		Util::writeLog('search_lucene',
-					  'searching hits for pk:' . $pk,
-					  Util::DEBUG);
+		Util::writeLog(
+			'search_lucene',
+			'searching hits for pk:' . $pk,
+			Util::DEBUG
+		);
 
 
 		$hits = $index->find( 'pk:' . $pk ); //id would be internal to lucene
 
-		Util::writeLog('search_lucene',
-					  'found ' . count($hits) . ' hits ',
-					  Util::DEBUG);
+		Util::writeLog(
+			'search_lucene',
+			'found ' . count($hits) . ' hits ',
+			Util::DEBUG
+		);
 
 		foreach ($hits as $hit) {
-			Util::writeLog('search_lucene',
-						'removing ' . $hit->id . ':' . $hit->path . ' from index',
-						Util::DEBUG);
+			Util::writeLog(
+				'search_lucene',
+				'removing ' . $hit->id . ':' . $hit->path . ' from index',
+				Util::DEBUG
+			);
 			$index->delete($hit);
 		}
 	}
@@ -214,9 +235,11 @@ class Lucene extends \OC_Search_Provider {
 				}
 
 			} catch ( Exception $e ) {
-				Util::writeLog('search_lucene',
-							$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
-							Util::ERROR);
+				Util::writeLog(
+					'search_lucene',
+					$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
+					Util::ERROR
+				);
 			}
 
 		}
@@ -267,12 +290,12 @@ class Lucene extends \OC_Search_Provider {
 		}
 		
 		return new \OC_Search_Result(
-				basename($hit->path),
-				dirname($hit->path)
-					. ', ' . \OC_Helper::humanFileSize($hit->size)
-					. ', Score: ' . number_format($hit->score, 2),
-				$url,
-				$type
+			basename($hit->path),
+			dirname($hit->path)
+				. ', ' . \OC_Helper::humanFileSize($hit->size)
+				. ', Score: ' . number_format($hit->score, 2),
+			$url,
+			$type
 		);
 	}
 

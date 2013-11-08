@@ -5,6 +5,8 @@ OCP\JSON::callCheck();
 OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
+//FIXME refactor this into the lib folder
+
 function index() {
 	$fileIds = OCA\Search_Lucene\Indexer::getUnindexed();
 
@@ -49,7 +51,7 @@ function index() {
 				OC_JSON::error(array('message' => 'Could not index file.'));
 				$eventSource->send('error', $path);
 			}
-		} catch (PDOException $e) { //sqlite might report database locked errors when stock filescan is in progress
+		} catch (Exception $e) { //sqlite might report database locked errors when stock filescan is in progress
 			//this also catches db locked exception that might come up when using sqlite
 			\OCP\Util::writeLog('search_lucene',
 				$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
