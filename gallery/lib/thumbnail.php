@@ -51,13 +51,13 @@ class Thumbnail {
 			}
 			$this->path = $galleryDir . $image . '.' . $extension;
 			if (!file_exists($this->path)) {
-				self::create($imagePath, $square);
+				$this->create($imagePath, $square);
 			}
 		}
 	}
 
-	public function create($imagePath, $square) {
-		$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
+	private function create($imagePath, $square) {
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 		$dir = dirname($imagePath);
 		if (!is_dir($galleryDir . $dir)) {
 			mkdir($galleryDir . $dir, 0755, true);
