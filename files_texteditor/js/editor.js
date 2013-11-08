@@ -273,7 +273,7 @@ function hideFileEditor() {
 		// and also the breadcrumb
 		window.FileList.reload();
 	}
-	if ($('#editor_container').attr('data-edited') == 'true') {
+	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols,#editor_container').hide();
 		// Fade out editor
@@ -297,7 +297,7 @@ function hideFileEditor() {
 
 // Reopens the last document
 function reopenEditor() {
-	FileList.setViewerMode(false);
+	FileList.setViewerMode(true);
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
 	$('#editorcontrols').show();
