@@ -210,6 +210,7 @@ function showFileEditor(dir, filename) {
 						if (window.FileList){
 							FileList.setViewerMode(true);
 							enableEditorUnsavedWarning(true);
+							$('#fileList').on('changeDirectory.texteditor', textEditorOnChangeDirectory);
 						}
 						// Show the control bar
 						showControls(dir, filename, result.data.writeable);
@@ -278,8 +279,15 @@ function enableEditorUnsavedWarning(enable) {
 	}
 }
 
+function textEditorOnChangeDirectory(ev){
+	// if the directory is changed, it is usually due to browser back
+	// navigation. In this case, simply close the editor
+	hideFileEditor();
+}
+
 // Fades out the editor.
 function hideFileEditor() {
+	$('#fileList').off('changeDirectory.texteditor');
 	enableEditorUnsavedWarning(false);
 	if (window.FileList){
 		// reload the directory content with the updated file size + thumbnail
@@ -312,6 +320,7 @@ function hideFileEditor() {
 function reopenEditor() {
 	FileList.setViewerMode(true);
 	enableEditorUnsavedWarning(true);
+	$('#fileList').on('changeDirectory.texteditor', textEditorOnChangeDirectory);
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
 	$('#editorcontrols').show();
