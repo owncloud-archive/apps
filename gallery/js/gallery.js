@@ -124,12 +124,13 @@ Gallery.view.addImage = function (image) {
 		thumb.queue();
 	} else {
 		link = $('<a/>');
-		link.addClass('image');
+		link.addClass('image loading');
 		link.attr('data-path', image);
 		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
 		thumb = Thumbnail.get(image);
 		thumb.queue().then(function (thumb) {
+			link.removeClass('loading');
 			link.append(thumb);
 		});
 
@@ -159,7 +160,7 @@ Gallery.view.addAlbum = function (path, name) {
 		link = $('<a/>');
 		label = $('<label/>');
 		link.attr('href', '#' + path);
-		link.addClass('album');
+		link.addClass('album loading');
 		link.click(function () {
 			Gallery.view.viewAlbum(path);
 		});
@@ -170,6 +171,7 @@ Gallery.view.addAlbum = function (path, name) {
 		link.append(label);
 		thumb = Thumbnail.get(thumbs[0], true);
 		thumb.queue().then(function (image) {
+			link.removeClass('loading');
 			link.append(image);
 		});
 
