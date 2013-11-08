@@ -18,7 +18,8 @@ jQuery.fn.slideShow = function (container, start, options) {
 	jQuery.fn.slideShow.settings = settings;
 	jQuery.fn.slideShow.current = start;
 	for (i = 0; i < this.length; i++) {
-		images.push(this[i].href);
+		var imageLink = this[i];
+		images.push(imageLink.imageUrl || imageLink.href);
 	}
 	container.children('img').remove();
 	container.show();
@@ -322,11 +323,18 @@ $(document).ready(function () {
 	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined') {
 		FileActions.register('image', 'View', OC.PERMISSION_READ, '', function (filename) {
 			var images = $('#fileList tr[data-mime^="image"] a.name');
+			var dir = FileList.getCurrentDirectory() + '/';
+			var user = OC.currentUser;
 			var start = 0;
 			$.each(images, function (i, e) {
-				if ($(e).closest('tr').data('file') == filename) {
+				var tr = $(e).closest('tr');
+				var imageFile = tr.data('file');
+				if (imageFile == filename) {
 					start = i;
 				}
+				// use gallery URL instead of download URL
+				e.imageUrl = OC.linkTo('gallery', 'ajax/image.php') +
+					'?file=' + encodeURIComponent(user + dir + imageFile);
 			});
 			images.slideShow($('#slideshow'), start);
 		});
