@@ -94,7 +94,7 @@ class Indexer {
 					$doc = Pdf::loadPdf($view->file_get_contents($path));
 
 				// commented the mimetype checks, as the zend classes only understand docx and not doc files.
-			    // FIXME distinguish doc and docx, xls and xlsx, ppt and pptx, in oc core mimetype helper ...
+				// FIXME distinguish doc and docx, xls and xlsx, ppt and pptx, in oc core mimetype helper ...
 				//} else if ('application/msword' === $mimeType) {
 				} else if (strtolower(substr($data['name'], -5)) === '.docx') {
 
@@ -142,9 +142,11 @@ class Indexer {
 			return true;
 
 		} else {
-			Util::writeLog('search_lucene',
+			Util::writeLog(
+				'search_lucene',
 				'need mimetype for content extraction',
-				Util::ERROR);
+				Util::ERROR
+			);
 			return false;
 		}
 	}
@@ -165,7 +167,12 @@ class Indexer {
 	 *
 	 * @return void
 	 */
-	private static function extractMetadata(\Zend_Search_Lucene_Document $doc, $path, \OC\Files\View $view, $mimetype) {
+	private static function extractMetadata(
+		\Zend_Search_Lucene_Document $doc,
+		$path,
+		\OC\Files\View $view,
+		$mimetype
+	) {
 
 		$file = $view->getLocalFile($path);
 		$getID3 = new \getID3();
@@ -224,9 +231,11 @@ class Indexer {
 		}
 
 		if (isset($data['error'])) {
-			Util::writeLog('search_lucene',
+			Util::writeLog(
+				'search_lucene',
 				'failed to extract meta information for ' . $view->getAbsolutePath($path) . ': ' . $data['error']['0'],
-				Util::WARN);
+				Util::WARN
+			);
 
 			return;
 		}
@@ -246,12 +255,14 @@ class Indexer {
 			$mounts[] = $mount;
 		}
 
-		$query = \OC_DB::prepare('SELECT `*PREFIX*filecache`.`fileid`'
-			. ' FROM `*PREFIX*filecache`'
-			. ' LEFT JOIN `*PREFIX*lucene_status`'
-			. ' ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`'
-			. ' WHERE `storage` = ?'
-			. ' AND `status` is null OR `status` = "N"');
+		$query = \OC_DB::prepare('
+			SELECT `*PREFIX*filecache`.`fileid`
+			FROM `*PREFIX*filecache`
+			LEFT JOIN `*PREFIX*lucene_status`
+			ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`
+			WHERE `storage` = ?
+			AND `status` is null OR `status` = \'N\'
+		');
 
 		foreach ($mounts as $mount) {
 			if (is_string($mount)) {
@@ -270,7 +281,12 @@ class Indexer {
 				$numericId = $cache->getNumericStorageId();
 
 				$result = $query->execute(array($numericId));
-				if (!$result) {
+				if (\OC_DB::isError($result)) {
+					Util::writeLog(
+						'search_lucene',
+						'failed to find unindexed files: '.\OC_DB::getErrorMessage($result),
+						Util::WARN
+					);
 					return false;
 				}
 				while ($row = $result->fetchRow()) {

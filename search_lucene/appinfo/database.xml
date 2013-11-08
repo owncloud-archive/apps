@@ -21,6 +21,13 @@
 				<length>1</length>
 			</field>
 			<index>
+				<name>status_fileid</name>
+				<primary>true</primary>
+				<field>
+					<name>fileid</name>
+				</field>
+			</index>
+			<index>
 				<name>status_index</name>
 				<field>
 					<name>status</name>
