@@ -56,7 +56,7 @@ class BagItManager{
 		//create manifest file if it doesn't exist
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
-			$contents = ['description' => ''];
+			$contents = array('description' => '');
 			fclose($fp, json_encode($contents));
 			$this->bag->update();
 		}
