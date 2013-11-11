@@ -320,7 +320,7 @@ $(document).ready(function () {
 		});
 
 
-	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined') {
+	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined' && $('#filesApp').val()) {
 		FileActions.register('image', 'View', OC.PERMISSION_READ, '', function (filename) {
 			var images = $('#fileList tr[data-mime^="image"] a.name');
 			var dir = FileList.getCurrentDirectory() + '/';
