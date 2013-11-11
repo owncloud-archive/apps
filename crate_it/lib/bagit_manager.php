@@ -111,6 +111,24 @@ class BagItManager{
 		return $cratelist;
 	}
 	
+	public function getBaggedFiles() {
+		$result = array();
+		function create_item($items, &$result) {
+			foreach ($items['titles'] as $item) {
+				$new_item = array('id' => $item['id'], 'title' => $item['title'], 'filename' => $item['filename']);
+				// var_dump($item);
+				array_push($result, $item);
+				if(array_key_exists('titles', $item)) {
+					create_item($item, $result);
+				}
+			}
+		};
+		$titles = $this->getManifestData();
+		create_item($titles, $result);
+		return $result;
+	}
+
+
 	public function addToBag($file) {
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
