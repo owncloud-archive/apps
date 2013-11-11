@@ -134,6 +134,24 @@ switch ($action){
 		header("Content-Disposition: attachment;filename=".$filename);
 		readfile($zip_file);
 		break;
+	case 'postzip':
+		$zip_file = $bagit_manager->createZip();
+		if(!isset($zip_file))
+		{
+			echo "No files in the bag to download";
+			break;
+		}
+		$path_parts = pathinfo($zip_file);
+		$filename = $path_parts['basename'];
+		//Download file
+		if (headers_sent()) throw new Exception('Headers sent.');
+		while (ob_get_level() && ob_end_clean());
+		if (ob_get_level()) throw new Exception('Buffering is still active.');
+		header("Content-type:application/zip");
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment;filename=".$filename);
+		readfile($zip_file);
+		break;
 	case 'get_for_codes':
 		//need to access the tmpl var
 		$results = $bagit_manager->lookUpMint("", 'top');
