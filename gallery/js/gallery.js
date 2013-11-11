@@ -106,6 +106,16 @@ Gallery.share = function (event) {
 	if (!OC.Share.droppedDown) {
 		event.preventDefault();
 		event.stopPropagation();
+
+		(function() {
+			var target = OC.Share.showLink;
+			OC.Share.showLink = function() {
+				var r = target.apply( this, arguments );
+				$('#linkText').val( $('#linkText').val().replace('service=files', 'service=gallery') );
+				return r;
+			};
+		})();
+
 		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
 			$('a.share').data('item', info.fileid).data('link', true)
 				.data('possible-permissions', info.permissions).
