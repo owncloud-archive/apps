@@ -97,6 +97,7 @@
     <input id="epub" type="button" value="EPUB" />
     <?php endif; ?>
     <input id="download" type="button" value="Download Crate as zip" />
+    <input id="post" type="button" value="Post Crate to SWORD" />
 </div>
 <div>
     <?php //print_r(get_loaded_extensions())?>
