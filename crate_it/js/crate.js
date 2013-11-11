@@ -78,6 +78,18 @@ $(document).ready(function() {
 		
 	});
 	
+	$('#post').click('click', function(event) { 
+		if($('#crateList tr').length == 0){
+			OC.Notification.show('No items in the crate to package');
+			setTimeout(OC.Notification.hide(), 3000);
+			return;
+		}
+		OC.Notification.show('Your package is being prepared. This might take some time if the files are big');
+		setTimeout(OC.Notification.hide(), 3000);
+		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=postzip';
+		
+	});
+
 	$('#epub').click(function(event) {
 		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
