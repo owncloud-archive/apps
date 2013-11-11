@@ -6,15 +6,32 @@
  * See the COPYING-README file.
  */
 
-OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
+
+if( !OC_User::isLoggedIn()) {
+	list($token, $img) = explode('/', $_GET['file'], 2);
+	$linkItem = \OCP\Share::getShareByToken($token);
+	if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
+		// seems to be a valid share
+		$type = $linkItem['item_type'];
+		$fileSource = $linkItem['file_source'];
+		$shareOwner = $linkItem['uid_owner'];
+		$path = null;
+		$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
+		$owner = $rootLinkItem['uid_owner'];
+	}
+} else {
+	OCP\JSON::checkLoggedIn();
+
+	list($owner, $img) = explode('/', $_GET['file'], 2);
+	if ($owner !== OCP\User::getUser()) {
+		list(, $img) = explode('/', $img, 2);
+	}
+}
+
 session_write_close();
 
-list($owner, $img) = explode('/', $_GET['file'], 2);
 $ownerView = new \OC\Files\View('/' . $owner . '/files');
-if ($owner !== OCP\User::getUser()) {
-	list(, $img) = explode('/', $img, 2);
-}
 
 $mime = $ownerView->getMimeType($img);
 list($mimePart,) = explode('/', $mime);

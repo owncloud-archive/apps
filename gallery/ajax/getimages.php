@@ -6,6 +6,45 @@
  * See the COPYING-README file.
  */
 
+OCP\JSON::checkAppEnabled('gallery');
+
+if (isset($_GET['token'])) {
+	$token = $_GET['token'];
+	$linkItem = \OCP\Share::getShareByToken($token);
+	if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
+		// seems to be a valid share
+		$type = $linkItem['item_type'];
+		$fileSource = $linkItem['file_source'];
+		$shareOwner = $linkItem['uid_owner'];
+		$path = null;
+		$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
+		$fileOwner = $rootLinkItem['uid_owner'];
+
+		// Setup FS with owner
+		OC_Util::tearDownFS();
+		OC_Util::setupFS($fileOwner);
+
+		// The token defines the target directory (security reasons)
+		$path = \OC\Files\Filesystem::getPath($linkItem['file_source']);
+
+		$images0 = \OCP\Files::searchByMime('image');
+		$images = \OC\Files\Filesystem::getDirectoryContent($path, 'image');
+
+		// remove that stupid prefix named 'files'
+		$prefix = 'files';
+		foreach($images as &$image) {
+			if (substr($image['path'], 0, strlen($prefix)) == $prefix) {
+				$image['path'] = $token . substr($image['path'], strlen($prefix));
+			}
+		}
+
+		OCP\JSON::setContentTypeHeader();
+		echo json_encode(array('images' => $images, 'users' => array(), 'displayNames' => array()));
+
+		exit;
+	}
+}
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 

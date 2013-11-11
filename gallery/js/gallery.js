@@ -13,7 +13,8 @@ Gallery.sortFunction = function (a, b) {
 // fill the albums from Gallery.images
 Gallery.fillAlbums = function () {
 	var def = new $.Deferred();
-	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php')).then(function (data) {
+	var token = $('#gallery').data('token');
+	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php'), {token: token}).then(function (data) {
 		var albumPath, i, imagePath, parent, path;
 		Gallery.users = data.users;
 		Gallery.displayNames = data.displayNames;
@@ -71,6 +72,9 @@ Gallery.fillAlbums.sortAlbums = function (albums) {
 };
 
 Gallery.getAlbumInfo = function (album) {
+	if (album === $('#gallery').data('token')) {
+		return [];
+	}
 	if (!Gallery.getAlbumInfo.cache[album]) {
 		var def = new $.Deferred();
 		Gallery.getAlbumInfo.cache[album] = def;
@@ -315,6 +319,9 @@ window.onhashchange = function () {
 	var album = location.hash.substr(1);
 	if (!album) {
 		album = OC.currentUser;
+	}
+	if (!album) {
+		album = $('#gallery').data('token');
 	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
