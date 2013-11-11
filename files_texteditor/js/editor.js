@@ -209,6 +209,8 @@ function showFileEditor(dir, filename) {
 						// Initialise the editor
 						if (window.FileList){
 							FileList.setViewerMode(true);
+							enableEditorUnsavedWarning(true);
+							$('#fileList').on('changeDirectory.texteditor', textEditorOnChangeDirectory);
 						}
 						// Show the control bar
 						showControls(dir, filename, result.data.writeable);
@@ -266,14 +268,33 @@ function showFileEditor(dir, filename) {
 	}
 }
 
+function enableEditorUnsavedWarning(enable) {
+	$(window).unbind('beforeunload.texteditor');
+	if (enable) {
+		$(window).bind('beforeunload.texteditor', function () {
+			if ($('#editor').attr('data-edited') == 'true') {
+				return t('files_texteditor', 'There are unsaved changes in the text editor');
+			}
+		});
+	}
+}
+
+function textEditorOnChangeDirectory(ev){
+	// if the directory is changed, it is usually due to browser back
+	// navigation. In this case, simply close the editor
+	hideFileEditor();
+}
+
 // Fades out the editor.
 function hideFileEditor() {
+	$('#fileList').off('changeDirectory.texteditor');
+	enableEditorUnsavedWarning(false);
 	if (window.FileList){
 		// reload the directory content with the updated file size + thumbnail
 		// and also the breadcrumb
 		window.FileList.reload();
 	}
-	if ($('#editor_container').attr('data-edited') == 'true') {
+	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols,#editor_container').hide();
 		// Fade out editor
@@ -297,7 +318,9 @@ function hideFileEditor() {
 
 // Reopens the last document
 function reopenEditor() {
-	FileList.setViewerMode(false);
+	FileList.setViewerMode(true);
+	enableEditorUnsavedWarning(true);
+	$('#fileList').on('changeDirectory.texteditor', textEditorOnChangeDirectory);
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor_container').show();
 	$('#editorcontrols').show();
