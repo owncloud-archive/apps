@@ -298,7 +298,7 @@ $(document).ready(function () {
 		if (location.hash != image) {
 			location.hash = image;
 			Thumbnail.paused = true;
-			Slideshow.start(images, i, {play: Slideshow.playPause.playing});
+			Slideshow.start(images, i);
 		}
 	});
 
