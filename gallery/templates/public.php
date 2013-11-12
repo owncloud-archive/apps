@@ -8,5 +8,5 @@
 
 </div></header>
 
-<div id='gallery' class="hascontrols" data-token="<?php isset($_[token]) ? p($_[token]) : p(false) ?>"></div>
+<div id='gallery' class="hascontrols" data-token="<?php isset($_['token']) ? p($_['token']) : p(false) ?>"></div>
 
