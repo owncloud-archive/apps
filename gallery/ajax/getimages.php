@@ -27,15 +27,13 @@ if (isset($_GET['token'])) {
 		// The token defines the target directory (security reasons)
 		$path = \OC\Files\Filesystem::getPath($linkItem['file_source']);
 
-		$images0 = \OCP\Files::searchByMime('image');
-		$images = \OC\Files\Filesystem::getDirectoryContent($path, 'image');
+		$view = new \OC\Files\View(\OC\Files\Filesystem::getView()->getAbsolutePath($path));
+		$images = $view->searchByMime('image');
 
 		// remove that stupid prefix named 'files'
 		$prefix = 'files';
-		foreach($images as &$image) {
-			if (substr($image['path'], 0, strlen($prefix)) == $prefix) {
-				$image['path'] = $token . substr($image['path'], strlen($prefix));
-			}
+		foreach ($images as &$image) {
+			$image['path'] = $token . '/' . $path . $image['path'];
 		}
 
 		OCP\JSON::setContentTypeHeader();
@@ -53,7 +51,7 @@ $user = \OCP\User::getUser();
 
 foreach ($images as &$image) {
 	$path = $user . $image['path'];
-	if(strpos($path, DIRECTORY_SEPARATOR.".")){
+	if (strpos($path, DIRECTORY_SEPARATOR . ".")) {
 		continue;
 	}
 	$image['path'] = $user . $image['path'];
@@ -86,8 +84,7 @@ foreach ($users as $user) {
 	$displayNames[$user] = \OCP\User::getDisplayName($user);
 }
 
-function startsWith($haystack, $needle)
-{
+function startsWith($haystack, $needle) {
 	return !strncmp($haystack, $needle, strlen($needle));
 }
 
