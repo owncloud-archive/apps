@@ -251,7 +251,7 @@ Slideshow.playPause = function () {
 		Slideshow.play();
 	}
 };
-Slideshow.playPause.playing = true;
+Slideshow.playPause.playing = false;
 Slideshow._getSlideshowTemplate = function () {
 	var defer = $.Deferred();
 	if (!this.$slideshowTemplate) {
