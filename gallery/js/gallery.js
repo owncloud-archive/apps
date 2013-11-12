@@ -282,15 +282,17 @@ Gallery.view.showUsers = function () {
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
 		subAlbums = Gallery.subAlbums[user];
-		if (subAlbums.length > 0) {
-			head = $('<h2/>');
-			head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
-			$('#gallery').append(head);
-			for (j = 0; j < subAlbums.length; j++) {
-				album = subAlbums[j];
-				album = Gallery.subAlbums[album][0];//first level sub albums is share source id
-				Gallery.view.addAlbum(album);
-				Gallery.view.element.append(' '); //add a space for justify
+		if (subAlbums) {
+			if (subAlbums.length > 0) {
+				head = $('<h2/>');
+				head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
+				$('#gallery').append(head);
+				for (j = 0; j < subAlbums.length; j++) {
+					album = subAlbums[j];
+					album = Gallery.subAlbums[album][0];//first level sub albums is share source id
+					Gallery.view.addAlbum(album);
+					Gallery.view.element.append(' '); //add a space for justify
+				}
 			}
 		}
 	}
