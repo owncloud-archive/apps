@@ -120,6 +120,9 @@ Gallery.share = function (event) {
 			$('a.share').data('item', info.fileid).data('link', true)
 				.data('possible-permissions', info.permissions).
 				click();
+			if (!$('#linkCheckbox').is(':checked')) {
+				$('#linkText').hide();
+			}
 		});
 	}
 };
