@@ -56,7 +56,7 @@ class BagItManager{
 		//create manifest file if it doesn't exist
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
-			$contents = ['description' => ''];
+			$contents = array('description' => '', 'vfs' => array());
 			fclose($fp, json_encode($contents));
 			$this->bag->update();
 		}
@@ -134,19 +134,19 @@ class BagItManager{
 		$filename = $path_parts['filename'];
 		
 		if (\OC\Files\Filesystem::isReadable($file)) {
-			list($storage) = \OC\Files\Filesystem::resolvePath($file);
-			if ($storage instanceof \OC\Files\Storage\Local) {
-				$full_path = \OC\Files\Filesystem::getLocalFile($file);
-				/*if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
-					$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
-					fwrite($fp, $full_path);
-					fclose($fp);
-				}*/
-				// if($file === '/Shared' || is_dir($full_path))
-				// {
-				// 	return "Adding directories not supported yet";
-				// }
-			}
+			// list($storage) = \OC\Files\Filesystem::resolvePath($file);
+			// if ($storage instanceof \OC\Files\Storage\Local) {
+			// 	$full_path = \OC\Files\Filesystem::getLocalFile($file);
+			// 	if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
+			// 		$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
+			// 		fwrite($fp, $full_path);
+			// 		fclose($fp);
+			// 	}
+			// 	if($file === '/Shared' || is_dir($full_path))
+			// 	{
+			// 		return "Adding directories not supported yet";
+			// 	}
+			// }
 		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
 			header("HTTP/1.0 404 Not Found");
 			$tmpl = new OC_Template('', '404', 'guest');
@@ -171,14 +171,15 @@ class BagItManager{
 		// $id = md5($full_path);
 		if(filesize($this->manifest) == 0) {
 			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '');
+			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('folder' => '', 'contents' => array()));
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$elements = &$contents['titles'];
-		$this->addPath($elements, $file);
+		$vfs = &$contents['vfs']['contents'];
+		$this->addPath($elements, $file, $vfs);
 		$fp = fopen($this->manifest, 'w');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
@@ -192,22 +193,42 @@ class BagItManager{
 		return \OC\Files\Filesystem::getLocalFile($file);
 	}
 
-	private function addPath(&$titles, $path) {
-		$full_path = $this->getFullPath($path);
-		$id = md5($full_path);
-		if (is_dir($full_path)) {
-			$entry = array('id' => $id, 'title' => $path, 'filename'  => $full_path, 'titles'  => array());
-			$new_titles = &$entry['titles'];
-			foreach (scandir($full_path) as $sub_path) {
-				if ($sub_path === '.' || $sub_path === '..') {
-					continue;
-				}
-				$this->addPath($new_titles, $sub_path);
+	// private function addPath(&$titles, $path) {
+	// 	$full_path = $this->getFullPath($path);
+	// 	$id = md5($full_path);
+	// 	if (is_dir($full_path)) {
+	// 		$entry = array('id' => $id, 'title' => $path, 'filename'  => $full_path, 'titles'  => array());
+	// 		$new_titles = &$entry['titles'];
+	// 		foreach (scandir($full_path) as $sub_path) {
+	// 			if ($sub_path === '.' || $sub_path === '..') {
+	// 				continue;
+	// 			}
+	// 			$this->addPath($new_titles, $sub_path);
+	// 		}
+	// 	} else {
+	// 		$entry = array('id' => $id, 'title' => $path, 'filename' => $full_path);
+	// 	}
+	// 	array_push($titles, $entry);
+	// }
+
+	private function addPath(&$titles, $path, &$vfs) {
+		if (\OC\Files\Filesystem::is_dir($path)) {
+			$vfs_entry = array('folder' => $path, 'contents' => array());
+			$vfs_contents = &$vfs_entry['contents'];
+			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
+			foreach ($paths as $sub_path) {
+				$rel_path = substr($sub_path['path'], strlen('files/'));
+				var_dump($rel_path);
+				$this->addPath($titles, $rel_path, $vfs_contents);
 			}
 		} else {
-			$entry = array('id' => $id, 'title' => $path, 'filename' => $full_path);
+			$full_path = $this->getFullPath($path);
+			$id = md5($full_path);
+			$file_entry = array('id' => $id, 'filename' => $full_path);
+			$vfs_entry = array('id' => $id, 'title' => $path);
+			array_push($titles, $file_entry);
 		}
-		array_push($titles, $entry);
+		array_push($vfs, $vfs_entry);
 	}
 
 
