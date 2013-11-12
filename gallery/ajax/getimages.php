@@ -30,8 +30,6 @@ if (isset($_GET['token'])) {
 		$view = new \OC\Files\View(\OC\Files\Filesystem::getView()->getAbsolutePath($path));
 		$images = $view->searchByMime('image');
 
-		// remove that stupid prefix named 'files'
-		$prefix = 'files';
 		foreach ($images as &$image) {
 			$image['path'] = $token . '/' . $path . $image['path'];
 		}
