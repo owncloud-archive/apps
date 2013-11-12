@@ -35,7 +35,8 @@ if (isset($_GET['t'])) {
 		$path = null;
 		$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
 		$fileOwner = $rootLinkItem['uid_owner'];
-		$albumName = $linkItem['file_target'];
+		$albumName = trim($linkItem['file_target'], '//');
+		$ownerDisplayName = \OC_User::getDisplayName($fileOwner);
 
 		// render template
 		$tmpl = new \OCP\Template('gallery', 'public', 'base');
@@ -43,7 +44,7 @@ if (isset($_GET['t'])) {
 		OCP\Util::addScript('gallery', 'thumbnail');
 		OCP\Util::addStyle('gallery', 'public');
 		$tmpl->assign('token', $token);
-		$tmpl->assign('displayName', $fileOwner);
+		$tmpl->assign('displayName', $ownerDisplayName);
 		$tmpl->assign('albumName', $albumName);
 
 		$tmpl->printPage();
