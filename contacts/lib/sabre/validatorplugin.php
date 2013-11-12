@@ -116,6 +116,7 @@ class OC_Connector_Sabre_CardDAV_ValidatorPlugin extends Sabre_DAV_ServerPlugin 
 			$uid = substr(md5(rand().time()), 0, 10);
 			\OCP\Util::writeLog('contacts', __METHOD__.', Adding UID: ' . $uid, \OCP\Util::DEBUG);
 			$vobj->add('UID', $uid);
+			$data = $vobj->serialize();
 		}
 
 	}
