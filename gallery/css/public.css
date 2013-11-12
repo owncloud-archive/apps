@@ -52,4 +52,5 @@ body {
 	background: url('%webroot%/core/img/noise.png'), -ms-linear-gradient(top, #35537a 0%,#1d2d44 100%); /* IE10+ */
 	background: url('%webroot%/core/img/noise.png'), linear-gradient(top, #35537a 0%,#1d2d44 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35537a', endColorstr='#1d2d44',GradientType=0 ); /* IE6-9 */
+	background-attachment: fixed;
 }
