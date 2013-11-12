@@ -175,6 +175,10 @@ class Indexer {
 	) {
 
 		$file = $view->getLocalFile($path);
+		if (is_dir($file)) {
+			// Don't lose time analizing a directory for file-specific metadata
+			return;
+		}
 		$getID3 = new \getID3();
 		$getID3->encoding = 'UTF-8';
 		$data = $getID3->analyze($file);

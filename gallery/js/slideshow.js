@@ -251,7 +251,7 @@ Slideshow.playPause = function () {
 		Slideshow.play();
 	}
 };
-Slideshow.playPause.playing = true;
+Slideshow.playPause.playing = false;
 Slideshow._getSlideshowTemplate = function () {
 	var defer = $.Deferred();
 	if (!this.$slideshowTemplate) {
@@ -320,7 +320,7 @@ $(document).ready(function () {
 		});
 
 
-	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined') {
+	if (typeof FileActions !== 'undefined' && typeof Slideshow !== 'undefined' && $('#filesApp').val()) {
 		FileActions.register('image', 'View', OC.PERMISSION_READ, '', function (filename) {
 			var images = $('#fileList tr[data-mime^="image"] a.name');
 			var dir = FileList.getCurrentDirectory() + '/';
