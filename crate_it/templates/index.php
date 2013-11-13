@@ -72,6 +72,26 @@
 		    </div>
 		</div>
 
+		<div id="creators_box">
+		    <div>
+		        <label for="creators">Creators</label>
+		    </div>
+		    <ul id="creators">
+		    	<li>Simone Thomas</li>
+		    	<li>Daniel Postell</li>
+		    </ul>
+		</div>
+
+		<div id="search_people_box">
+		    <input id="keyword" type="text" name="keyword" />
+		    <input id="search_people" type="button" value="Search People" />
+		</div>
+
+		<div id="search_people_result_box">
+		    <ul id="search_people_results">
+		    </ul>
+		</div>
+
 	</div>
 </div>
 
