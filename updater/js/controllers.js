@@ -13,7 +13,7 @@ function updateCtrl($scope, $routeParams) {
 		});
 		updateEventSource.listen('error', function(message) {
 			$('<span></span>').addClass('error').append(message).append('<br />').appendTo($('#upd-progress'));
-			message .= 'Please fix this and retry.';
+			message = message + 'Please fix this and retry.';
 			$('<span></span>').addClass('error').append(message).append('<br />').appendTo($('#upd-progress'));
 			updateEventSource.close();
 		});
