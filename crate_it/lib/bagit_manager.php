@@ -111,21 +111,25 @@ class BagItManager{
 		return $cratelist;
 	}
 	
+	// public function getBaggedFiles() {
+	// 	$result = array();
+	// 	function create_item($items, &$result) {
+	// 		foreach ($items['titles'] as $item) {
+	// 			$new_item = array('id' => $item['id'], 'title' => $item['title'], 'filename' => $item['filename']);
+	// 			// var_dump($item);
+	// 			array_push($result, $item);
+	// 			if(array_key_exists('titles', $item)) {
+	// 				create_item($item, $result);
+	// 			}
+	// 		}
+	// 	};
+	// 	$titles = $this->getManifestData();
+	// 	create_item($titles, $result);
+	// 	return $result;
+	// }
+
 	public function getBaggedFiles() {
-		$result = array();
-		function create_item($items, &$result) {
-			foreach ($items['titles'] as $item) {
-				$new_item = array('id' => $item['id'], 'title' => $item['title'], 'filename' => $item['filename']);
-				// var_dump($item);
-				array_push($result, $item);
-				if(array_key_exists('titles', $item)) {
-					create_item($item, $result);
-				}
-			}
-		};
-		$titles = $this->getManifestData();
-		create_item($titles, $result);
-		return $result;
+		return json_encode($this->getManifestData()['vfs']);
 	}
 
 
@@ -169,16 +173,16 @@ class BagItManager{
 		// }
 		
 		// $id = md5($full_path);
-		if(filesize($this->manifest) == 0) {
+		if(filesize($this->manifest) == 0) { // TODO: fix this to accomodate new structure
 			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('folder' => '', 'contents' => array()));
+			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('label' => '/', 'children' => array()));
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$elements = &$contents['titles'];
-		$vfs = &$contents['vfs']['contents'];
+		$vfs = &$contents['vfs']['children'];
 		$this->addPath($elements, $file, $vfs);
 		$fp = fopen($this->manifest, 'w');
 		fwrite($fp, json_encode($contents));
@@ -193,28 +197,10 @@ class BagItManager{
 		return \OC\Files\Filesystem::getLocalFile($file);
 	}
 
-	// private function addPath(&$titles, $path) {
-	// 	$full_path = $this->getFullPath($path);
-	// 	$id = md5($full_path);
-	// 	if (is_dir($full_path)) {
-	// 		$entry = array('id' => $id, 'title' => $path, 'filename'  => $full_path, 'titles'  => array());
-	// 		$new_titles = &$entry['titles'];
-	// 		foreach (scandir($full_path) as $sub_path) {
-	// 			if ($sub_path === '.' || $sub_path === '..') {
-	// 				continue;
-	// 			}
-	// 			$this->addPath($new_titles, $sub_path);
-	// 		}
-	// 	} else {
-	// 		$entry = array('id' => $id, 'title' => $path, 'filename' => $full_path);
-	// 	}
-	// 	array_push($titles, $entry);
-	// }
-
 	private function addPath(&$titles, $path, &$vfs) {
 		if (\OC\Files\Filesystem::is_dir($path)) {
-			$vfs_entry = array('folder' => $path, 'contents' => array());
-			$vfs_contents = &$vfs_entry['contents'];
+			$vfs_entry = array('label' => basename($path), 'children' => array());
+			$vfs_contents = &$vfs_entry['children'];
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
 				$rel_path = substr($sub_path['path'], strlen('files/'));
@@ -225,7 +211,8 @@ class BagItManager{
 			$full_path = $this->getFullPath($path);
 			$id = md5($full_path);
 			$file_entry = array('id' => $id, 'filename' => $full_path);
-			$vfs_entry = array('id' => $id, 'title' => $path);
+
+			$vfs_entry = array('id' => $id, 'label' => basename($path));
 			array_push($titles, $file_entry);
 		}
 		array_push($vfs, $vfs_entry);

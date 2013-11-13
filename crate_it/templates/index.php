@@ -1,4 +1,3 @@
-
 <div id="container">
     <div>
         <div style="padding-top:20px">
@@ -8,7 +7,7 @@
         <div style="float:left; padding-left:20px; padding-top:5px;">
             <!-- don't think about hierarchy now, just create a list and let user drag and drop -->
 
-            <table id="cratesTable">
+<!--             <table id="cratesTable">
                 <tbody id="crateList">
                     <?php foreach($_['bagged_files'] as $entry):?>
                     <tr id="<?php echo $entry['id'];?>">
@@ -31,7 +30,10 @@
                     </tr>
                     <?php endforeach;?>
                 </tbody>
-            </table>
+            </table> -->
+
+            <div id="files"></div>
+
         </div>
     </div>
 

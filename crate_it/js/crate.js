@@ -278,7 +278,29 @@ $(document).ready(function() {
 			}
 		});
 	});
-		
+
+    
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'get',
+        dataType: 'json',
+        data: {'action': 'get_items'},
+        success: function(data){
+            x = data.vfs;
+            $('#files').tree({
+                data: [data.vfs],
+                autoOpen: false,
+                dragAndDrop: true
+            });
+        },
+        error: function(data){
+            var e = data.statusText;
+            alert(e);
+        }
+    });
+
+
+
 	
 	
 });	
@@ -290,10 +312,7 @@ $(document).ready(function() {
 	
 	
 	
-	
-	
-	
-	
+
 	
 	
 	
