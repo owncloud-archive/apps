@@ -2,10 +2,6 @@
 
 // Check if we are a user
 OCP\User::checkLoggedIn();
-//OCP\App::setActiveNavigationEntry('cart');
-
-//OCP\Util::addscript('crate_it/3rdparty', 'jstree');
-//OCP\Util::addStyle('crate_it/3rdparty/js/themes/default', 'style');
 
 $user = OCP\User::getUser();
 

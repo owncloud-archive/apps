@@ -175,7 +175,7 @@ class BagItManager{
 		// $id = md5($full_path);
 		if(filesize($this->manifest) == 0) { // TODO: fix this to accomodate new structure
 			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('label' => '/', 'children' => array()));
+			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array()));
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
@@ -199,7 +199,7 @@ class BagItManager{
 
 	private function addPath(&$titles, $path, &$vfs) {
 		if (\OC\Files\Filesystem::is_dir($path)) {
-			$vfs_entry = array('label' => basename($path), 'children' => array());
+			$vfs_entry = array('label' => basename($path), 'id' => 'folder', 'children' => array());
 			$vfs_contents = &$vfs_entry['children'];
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
@@ -211,7 +211,6 @@ class BagItManager{
 			$full_path = $this->getFullPath($path);
 			$id = md5($full_path);
 			$file_entry = array('id' => $id, 'filename' => $full_path);
-
 			$vfs_entry = array('id' => $id, 'label' => basename($path));
 			array_push($titles, $file_entry);
 		}
