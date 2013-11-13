@@ -143,14 +143,36 @@ switch ($action){
 		}
 		$path_parts = pathinfo($zip_file);
 		$filename = $path_parts['basename'];
-		//Download file
-		if (headers_sent()) throw new Exception('Headers sent.');
-		while (ob_get_level() && ob_end_clean());
-		if (ob_get_level()) throw new Exception('Buffering is still active.');
-		header("Content-type:application/zip");
-		header("Content-Type: application/force-download");
-		header("Content-Disposition: attachment;filename=".$filename);
-		readfile($zip_file);
+
+		// Post zip file to SWORD server
+		// SWORD APP client instance
+		require("swordappv2-php-library/swordappclient.php");
+		$sac = new SWORDAPPClient();
+
+		// FIXME: make these configurable
+		$sd_uri = "http://115.146.93.246/sd-uri";
+		$sword_username = "uws_sword";
+		$sword_password = "swordAdmin";
+		$sword_obo = "obo";
+
+		// Get service document
+		$sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
+
+		if ($sd->sac_status == 200) {
+		   // Get collection URI
+		   $col_uri = (string)$sd->sac_workspaces[0]->sac_collections[0]->sac_href;
+		}
+		else {
+		   header("HTTP/1.1 ".$sd->sac_status." ".$sd->sac_statusmessage);
+		   break;
+		}
+
+		// Deposit
+		$content_type = "application/zip";
+		$packaging_format = "http://purl.org/net/sword/package/SimpleZip";
+		$dr = $sac->deposit($col_uri, $sword_username, $sword_password, $sword_obo, $zip_file, $packaging_format, $content_type, false);
+		OCP\Util::writeLog("crate_it", $dr->sac_status." ".$dr->sac_statusmessage, OCP\Util::WARN);
+		header("HTTP/1.1 ".$dr->sac_status." ".$dr->sac_statusmessage);
 		break;
 	case 'get_for_codes':
 		//need to access the tmpl var
