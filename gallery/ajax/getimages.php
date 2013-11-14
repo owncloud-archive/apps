@@ -31,7 +31,7 @@ if (isset($_GET['token'])) {
 		$images = $view->searchByMime('image');
 
 		foreach ($images as &$image) {
-			$image['path'] = $token . '/' . $path . $image['path'];
+			$image['path'] = $token . $path . $image['path'];
 		}
 
 		OCP\JSON::setContentTypeHeader();
