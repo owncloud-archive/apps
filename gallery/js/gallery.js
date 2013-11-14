@@ -337,6 +337,11 @@ window.onhashchange = function () {
 	}
 	if (!album) {
 		album = $('#gallery').data('token');
+		if (Gallery.subAlbums[album]) {
+			if (Gallery.subAlbums[album][0]) {
+				album = Gallery.subAlbums[album][0];
+			}
+		}
 	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
