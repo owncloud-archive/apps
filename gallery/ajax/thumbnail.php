@@ -8,18 +8,16 @@
 
 OCP\JSON::checkAppEnabled('gallery');
 
-if( !OC_User::isLoggedIn()) {
-	list($token, $img) = explode('/', $_GET['file'], 2);
-	$linkItem = \OCP\Share::getShareByToken($token);
-	if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
-		// seems to be a valid share
-		$type = $linkItem['item_type'];
-		$fileSource = $linkItem['file_source'];
-		$shareOwner = $linkItem['uid_owner'];
-		$path = null;
-		$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
-		$owner = $rootLinkItem['uid_owner'];
-	}
+list($token, $img) = explode('/', $_GET['file'], 2);
+$linkItem = \OCP\Share::getShareByToken($token);
+if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
+	// seems to be a valid share
+	$type = $linkItem['item_type'];
+	$fileSource = $linkItem['file_source'];
+	$shareOwner = $linkItem['uid_owner'];
+	$path = null;
+	$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
+	$owner = $rootLinkItem['uid_owner'];
 } else {
 	OCP\JSON::checkLoggedIn();
 
