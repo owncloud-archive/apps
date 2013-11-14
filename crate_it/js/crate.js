@@ -1,51 +1,81 @@
 function  buildFileTree(data) {
-    return $('#files').tree({
+    $tree = $('#files').tree({
         data: [data.vfs],
         autoOpen: false,
         dragAndDrop: true,
+        usecontextmenu: true,
         onCanMoveTo: function(moved_node, target_node, position) {
                 // Implementation of 'endsWith'
                 return target_node.id.indexOf('folder', target_node.id.length - 'folder'.length) !== -1;
         },
-    })
+    });
+
+    $tree.jqTreeContextMenu($('#fileMenu'), {
+        "edit": function (node) { alert('Edit node: ' + node.name); },
+        "delete": function (node) { alert('Delete node: ' + node.name); },
+        "add": function (node) { alert('Add node: ' + node.name); }
+    });
+    return $tree;
 }
+
+// function makeCrateListEditable(){
+//     $('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
+//         name : 'new_title',
+//         indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+//         tooltip : 'Double click to edit...',
+//         event : 'dblclick',
+//         style : 'inherit',
+//         submitdata : function(value, settings){
+//             return {'elementid':this.parentNode.parentNode.getAttribute('id')};
+//         }
+//     });
+// }
 
 function makeCrateListEditable(){
-	$('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
-		name : 'new_title',
-		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-		tooltip : 'Double click to edit...',
-		event : 'dblclick',
-		style : 'inherit',
-		submitdata : function(value, settings){
-			return {'elementid':this.parentNode.parentNode.getAttribute('id')};
-		}
-	});
+ //    $('span.jqtree-title').on('click', function() {
+ //        selectedNode = $filetree.tree('getSelectedNode');
+ //        console.log(selectedNode);
+ //    });
+ //    // $('span.jqtree-title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=update_vfs', {
+	// $('span.jqtree-title').editable('#', {
+	// 	name : 'new_title',
+	// 	indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+	// 	tooltip : 'Double click to edit...',
+	// 	event : 'dblclick',
+	// 	style : 'inherit',
+	// 	submitdata : function(value, settings){
+ //            var node = $filetree.tree('getSelectedNode');
+ //            console.log(value);
+ //            $filetree.tree('updateNode', selectedNode, 'pete');
+ //            var data = $filetree.tree('toJson');
+ //    		// return {'data': data};
+	// 	}
+	// });
 }
 
-function makeActionButtonsClickable(){
-	$('#crateList tr a').click('click', function(event){
-		var id = this.parentNode.parentNode.parentNode.getAttribute('id');
-		if($(this).data("action") === 'delete'){
-			$.ajax({
-				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-				type:'get',
-				dataType:'html',
-				data:{'action':'delete', 'file_id':id},
-				success:function(data){
-					$('#crateList tr#'+id).remove();
-					hideMetadata();
-				},
-				error:function(data){
+// function makeActionButtonsClickable(){
+// 	$('#crateList tr a').click('click', function(event){
+// 		var id = this.parentNode.parentNode.parentNode.getAttribute('id');
+// 		if($(this).data("action") === 'delete'){
+// 			$.ajax({
+// 				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+// 				type:'get',
+// 				dataType:'html',
+// 				data:{'action':'delete', 'file_id':id},
+// 				success:function(data){
+// 					$('#crateList tr#'+id).remove();
+// 					hideMetadata();
+// 				},
+// 				error:function(data){
 					
-				}
-			});
-		}
-		else{
-			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
-		}
-	});
-}
+// 				}
+// 			});
+// 		}
+// 		else{
+// 			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
+// 		}
+// 	});
+// }
 
 function removeFORCodes(){
 	var first = $('#for_second_level option:first').detach();
@@ -73,10 +103,10 @@ $(document).ready(function() {
 	
 	hideMetadata();
 	
-	makeActionButtonsClickable();
+	// makeActionButtonsClickable();
 	
 	$('#crateList').disableSelection();
-	makeCrateListEditable();
+	// makeCrateListEditable();
 	
 	$('#download').click('click', function(event) { 
 		if($('#crateList tr').length == 0){
@@ -129,12 +159,6 @@ $(document).ready(function() {
         }
     });
 	
-	/*$('#subbutton').attr('disabled', 'disabled');
-	$('#crate_input #create').keyup(function() {
-        if($(this).val() != '') {
-            $('#subbutton').removeAttr('disabled');
-        }
-     });*/
 	
 	$('#subbutton').click(function(event) {
 	    $.ajax({
@@ -147,10 +171,6 @@ $(document).ready(function() {
 	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
 				setTimeout(OC.Notification.hide(), 3000);
-	        	//$('#subbutton').attr('disabled', 'disabled');
-	        	/*$('#crates option').filter(function(){
-					return $(this).attr("id") == data;
-				}).prop('selected', true);*/
 			},
 			error: function(data){
 				OC.Notification.show(data.statusText);
@@ -160,45 +180,6 @@ $(document).ready(function() {
 	    });
 	    return false;
 	});
-	
-	/*$.ajax({
-		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=get_crate',
-		type: 'get',
-		dataType: 'html',
-		success: function(data){
-			$('#crates option').filter(function(){
-				return $(this).attr("id") == data;
-			}).prop('selected', true);
-		},
-		error: function(data){
-			var e = data.statusText;
-			alert(e);
-		}
-	});*/
-	
-	/*$('#crateName').bind('dblclick', function() {
-        $(this).prop('contentEditable', true);
-    }).blur(
-        function() {
-            $(this).prop('contentEditable', false);
-            
-            //change the name of the option
-            $('#crates').find(':selected').text($('#crateName').text());
-            $('#crates').find(':selected').prop("id", $('#crateName').text());
-            $('#crates').find(':selected').prop("value", $('#crateName').text());
-            $.ajax({
-    			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate&new_name='+$('#crateName').text(),
-    			type: 'get',
-    			dataType: 'html',
-    			success: function(data){
-    				//alert("success");
-    			},
-    			error: function(data){
-    				var e = data.statusText;
-    				alert(e);
-    			}
-    		});
-      });*/
 	
 	$('#crateName').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate', {
 		name : 'new_name',
@@ -248,8 +229,8 @@ $(document).ready(function() {
 						} else {
 							hideMetadata();
 						}
-						makeCrateListEditable();
-						makeActionButtonsClickable();
+						// makeCrateListEditable();
+						// makeActionButtonsClickable();
 					},
 					error: function(data){
 						var e = data.statusText;
@@ -298,15 +279,36 @@ $(document).ready(function() {
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
-            filetree = buildFileTree(data);
-            var rootnode = filetree.tree('getNodeById', 'rootfolder');
-            filetree.tree('openNode', rootnode);
+            $filetree = buildFileTree(data);
+            // NOTE: Could possible move this to vfs root node creation ('open' => true)
+            // NOTE: look into the tree.init event
+            // makeCrateListEditable();
+            var rootnode = $filetree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
+            $filetree.tree('openNode', rootnode);
         },
         error: function(data){
             var e = data.statusText;
             alert(e);
         }
     });
+
+
+
+
+    // $('#files').bind('tree.dblclick',
+    //     function(event) {
+    //         // e.node is the clicked node
+    //         console.log(event.node);
+    //     }
+    // );
+
+    // $('#files').bind('tree.move',
+    //     function(event) {
+    //         event.preventDefault();
+    //         event.move_info.do_move();
+    //         makeCrateListEditable(); // NOTE: reattach evens after nodes are recreated
+    //     }
+    // );
 
 	
 });	

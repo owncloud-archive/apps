@@ -5,7 +5,6 @@
         </div>
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
-            <!-- don't think about hierarchy now, just create a list and let user drag and drop -->
 
 <!--             <table id="cratesTable">
                 <tbody id="crateList">
@@ -100,4 +99,13 @@
 </div>
 <div>
     <?php //print_r(get_loaded_extensions())?>
+</div>
+
+<div>
+    <ul id="fileMenu" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li class="edit"><a href="#edit"><i class="icon-edit"></i> Edit</a></li>
+        <li class="delete"><a href="#delete"><i class="icon-remove"></i> Delete</a></li>
+        <li class="divider"></li>
+        <li class="add"><a href="#add"><i class="icon-plus"></i> Add</a></li>
+    </ul>
 </div>

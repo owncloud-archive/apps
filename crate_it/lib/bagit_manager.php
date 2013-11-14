@@ -110,26 +110,13 @@ class BagItManager{
 		}
 		return $cratelist;
 	}
-	
-	// public function getBaggedFiles() {
-	// 	$result = array();
-	// 	function create_item($items, &$result) {
-	// 		foreach ($items['titles'] as $item) {
-	// 			$new_item = array('id' => $item['id'], 'title' => $item['title'], 'filename' => $item['filename']);
-	// 			// var_dump($item);
-	// 			array_push($result, $item);
-	// 			if(array_key_exists('titles', $item)) {
-	// 				create_item($item, $result);
-	// 			}
-	// 		}
-	// 	};
-	// 	$titles = $this->getManifestData();
-	// 	create_item($titles, $result);
-	// 	return $result;
-	// }
 
 	public function getBaggedFiles() {
 		return json_encode($this->getManifestData()['vfs']);
+	}
+
+	public function setBaggedFiles() {
+
 	}
 
 
@@ -161,18 +148,7 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		//TODO we don't need to get the preview from the fascinator 
-		//$preview_file = $this->getPreviewPath($full_path);
-		/*if(empty($preview_file))
-		{
-			return "No preview available. File not added to crate.";
-		}*/
-		// $title = $this->getTitle($preview_file);
-		// if(empty($title)){
-		// 	$title = $file;
-		// }
-		
-		// $id = md5($full_path);
+
 		if(filesize($this->manifest) == 0) { // TODO: fix this to accomodate new structure
 			$fp = fopen($this->manifest, 'w');
 			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array()));
@@ -573,4 +549,10 @@ class BagItManager{
 		return $cont_array;
 	}
 	
+	public function setManifestData($data){
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($data));
+		fclose($fp);
+	}
+
 }
