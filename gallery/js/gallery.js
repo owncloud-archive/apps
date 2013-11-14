@@ -224,6 +224,9 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
+	if (!albumPath) {
+		albumPath = $('#gallery').data('token');
+	}
 	Thumbnail.queue = [];
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
