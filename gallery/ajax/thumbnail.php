@@ -12,12 +12,10 @@ list($token, $img) = explode('/', $_GET['file'], 2);
 $linkItem = \OCP\Share::getShareByToken($token);
 if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 	// seems to be a valid share
-	$type = $linkItem['item_type'];
-	$fileSource = $linkItem['file_source'];
-	$shareOwner = $linkItem['uid_owner'];
-	$path = null;
 	$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
 	$owner = $rootLinkItem['uid_owner'];
+	OC_Util::tearDownFS();
+	OC_Util::setupFS($owner);
 } else {
 	OCP\JSON::checkLoggedIn();
 
@@ -28,6 +26,13 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 }
 
 session_write_close();
+
+if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
+	// prepend path to share
+	$ownerView = new \OC\Files\View('/' . $owner . '/files');
+	$path = $ownerView->getPath($linkItem['file_source']);
+	$img = $path.'/'.$img;
+}
 
 $square = isset($_GET['square']) ? (bool)$_GET['square'] : false;
 
