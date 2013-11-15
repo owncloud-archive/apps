@@ -14,6 +14,7 @@ $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
 $description = isset($_POST['description']) ? $_POST['description'] : '';
+$keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -171,7 +172,7 @@ switch ($action){
 		$content_type = "application/zip";
 		$packaging_format = "http://purl.org/net/sword/package/SimpleZip";
 		$dr = $sac->deposit($col_uri, $sword_username, $sword_password, $sword_obo, $zip_file, $packaging_format, $content_type, false);
-		OCP\Util::writeLog("crate_it", $dr->sac_status." ".$dr->sac_statusmessage, OCP\Util::WARN);
+		OCP\Util::writeLog("crate_it", $dr->sac_status." ".$dr->sac_statusmessage, OCP\Util::DEBUG);
 		header("HTTP/1.1 ".$dr->sac_status." ".$dr->sac_statusmessage);
 		break;
 	case 'get_for_codes':
@@ -184,4 +185,9 @@ switch ($action){
 				echo json_encode(array_values($vars['skos:narrower']));
 			}
 		}
+		break;
+	case 'search_people':
+		$results = $bagit_manager->lookUpPeople($keyword);
+		echo json_encode($results);
+		break;
 }

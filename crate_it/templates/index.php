@@ -63,18 +63,17 @@
 		<div id="description_box">
 		    <div>
 		        <label for="description">Description</label>
+			<input id="save_description" type="button" value="Save" />
 		    </div>
 		    <textarea id="description" rows="4" cols="80">
 		        <?php echo $_['description'] ?>
 		    </textarea>
-		    <div>
-		        <input id="save_description" type="button" value="save" style="float:right;" />
-		    </div>
 		</div>
 
 		<div id="creators_box">
 		    <div>
 		        <label for="creators">Creators</label>
+			<input id="save_creators" type="button" value="Save" />
 		    </div>
 		    <ul id="creators">
 		    	<li>Simone Thomas</li>

@@ -309,6 +309,44 @@ $(document).ready(function() {
 		});
 	});
 		
+	$('#search_people').click('click', function(event) { 
+	    if($.trim($('#keyword').val()).length == 0){
+		return;
+	    }
+
+            $.ajax({
+                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+                type: 'post',
+                dataType: 'json',
+                data: {'action': 'search_people', 'keyword': $.trim($('#keyword').val())},
+                success: function(data) {
+		    // populate list of results
+		    for (var i = 0; i < data.length; i++) {
+			var all_data = data[i]['result-metadata']['all'];
+			var id = all_data['id'];
+			var honorific = all_data['Honorific'][0];
+			var given_name = all_data['Given_Name'][0];
+			var family_name = all_data['Family_Name'][0];
+			var email = all_data['Email'][0];
+			$('#search_people_results').append('<li id="search_people_result"><input id="'
+							   + id
+							   + '" type="button" value="Add to creators" />'
+							   + honorific + ' '
+							   + given_name + ' '
+							   + family_name
+							   + ' &lt;' + email + '&gt;</li>');
+		    }
+                },
+                error: function(data) {
+                    OC.Notification.show('There was an error:' + data.statusText);
+                    setTimeout(function() {
+			OC.Notification.hide();
+		    }, 3000);
+                }
+            });
+		
+	});
+
 	
 	
 });	

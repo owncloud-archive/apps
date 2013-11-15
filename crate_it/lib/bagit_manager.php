@@ -532,4 +532,32 @@ class BagItManager{
 		return $cont_array;
 	}
 	
+	public function lookUpPeople($keyword) {
+		try {
+			// FIXME: make mint url configurable
+			$url = 'http://basset.uws.edu.au:9001/mint/Parties_People/opensearch/lookup?searchTerms='.$keyword;
+			
+			// Now call the mint
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$content = curl_exec($ch);
+			$result = curl_getinfo($ch);
+			curl_close($ch);
+			
+			if(empty($content))
+			{
+				$content = "No match";
+			}
+			else {
+				$content_array = json_decode($content);
+				$results = $content_array->results;
+				return $results;
+			}
+		} 
+		catch (Exception $e) {
+			die("error");
+		}
+	}
+
 }
