@@ -42,7 +42,7 @@ function expandRoot() {
 
 // function makeCrateListEditable(){
  //    $('span.jqtree-title').on('click', function() {
- //        selectedNode = $filetree.tree('getSelectedNode');
+ //        selectedNode = $tree.tree('getSelectedNode');
  //        console.log(selectedNode);
  //    });
  //    // $('span.jqtree-title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=update_vfs', {
@@ -53,10 +53,10 @@ function expandRoot() {
 	// 	event : 'dblclick',
 	// 	style : 'inherit',
 	// 	submitdata : function(value, settings){
- //            var node = $filetree.tree('getSelectedNode');
+ //            var node = $tree.tree('getSelectedNode');
  //            console.log(value);
- //            $filetree.tree('updateNode', selectedNode, 'pete');
- //            var data = $filetree.tree('toJson');
+ //            $tree.tree('updateNode', selectedNode, 'pete');
+ //            var data = $tree.tree('toJson');
  //    		// return {'data': data};
 	// 	}
 	// });
@@ -225,10 +225,11 @@ $(document).ready(function() {
 					success: function(data){
 						$('#crateList').empty();
 						$('#crateName').text(id);
+                        console.log(data);
 						if(data != null){
                             //TODO: Change the datastructure so we don't have to wrap the 
                             // vfs in an array
-                            $filetree.tree('loadData', [data.vfs]);
+                            $tree.tree('loadData', [data.vfs]);
                             expandRoot();
 							$('#metadata').show();
                             $('#description').text(data.description);
@@ -293,13 +294,8 @@ $(document).ready(function() {
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
-            $filetree = buildFileTree(data);
+            $tree = buildFileTree(data);
             $('#description').text(data.description);
-            // NOTE: Could possible move this to vfs root node creation ('open' => true)
-            // NOTE: look into the tree.init event
-            // makeCrateListEditable();
-            // var rootnode = $filetree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
-            // $filetree.tree('openNode', rootnode);
         },
         error: function(data){
             var e = data.statusText;

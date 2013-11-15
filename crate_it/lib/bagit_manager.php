@@ -52,14 +52,7 @@ class BagItManager{
 		
 	    $data_dir = $this->bag->getDataDirectory();
 	    $this->manifest = $data_dir.'/manifest.json';
-		
-		//create manifest file if it doesn't exist
-		if(!file_exists($this->manifest)){
-			$fp = fopen($this->manifest, 'x');
-			$contents = array('description' => '', 'vfs' => array());
-			fclose($fp, json_encode($contents));
-			$this->bag->update();
-		}
+
 	}
 	
 	public static function getInstance(){
@@ -75,6 +68,12 @@ class BagItManager{
 			return false;
 		}
 		$this->initBag($name);
+		$fp = fopen($this->manifest, 'x');
+		$entry = array('titles' => array(), 'description' => 'Please enter a description...',
+			'vfs' => array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array()));
+		fwrite($fp, json_encode($entry));
+		fclose($fp);
+		$this->bag->update();
 		return $name;
 	}
 	
@@ -91,6 +90,8 @@ class BagItManager{
 	private function initBag($name){
 		$this->crate_dir = $this->crate_root.'/'.$name;
 		$this->bag = new \BagIt($this->crate_dir);
+	    $data_dir = $this->bag->getDataDirectory();
+	    $this->manifest = $data_dir.'/manifest.json';		
 	}
 	
 	public function getSelectedCrate(){
@@ -148,14 +149,6 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-
-		if(filesize($this->manifest) == 0) { // TODO: fix this to accomodate new structure
-			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '', 'vfs' => array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array()));
-			fwrite($fp, json_encode($entry));
-			fclose($fp);
-		}
-		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$elements = &$contents['titles'];
 		$vfs = &$contents['vfs']['children'];
@@ -180,7 +173,6 @@ class BagItManager{
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
 				$rel_path = substr($sub_path['path'], strlen('files/'));
-				var_dump($rel_path);
 				$this->addPath($titles, $rel_path, $vfs_contents);
 			}
 		} else {
