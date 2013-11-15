@@ -1,4 +1,4 @@
-function  buildFileTree(data) {
+function buildFileTree(data) {
     $tree = $('#files').tree({
         data: [data.vfs],
         autoOpen: false,
@@ -15,8 +15,17 @@ function  buildFileTree(data) {
         "delete": function (node) { alert('Delete node: ' + node.name); },
         "add": function (node) { alert('Add node: ' + node.name); }
     });
+
+    expandRoot();
+
     return $tree;
 }
+
+function expandRoot() {
+    var rootnode = $tree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
+    $tree.tree('openNode', rootnode);
+}
+
 
 // function makeCrateListEditable(){
 //     $('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
@@ -31,7 +40,7 @@ function  buildFileTree(data) {
 //     });
 // }
 
-function makeCrateListEditable(){
+// function makeCrateListEditable(){
  //    $('span.jqtree-title').on('click', function() {
  //        selectedNode = $filetree.tree('getSelectedNode');
  //        console.log(selectedNode);
@@ -51,7 +60,7 @@ function makeCrateListEditable(){
  //    		// return {'data': data};
 	// 	}
 	// });
-}
+// }
 
 // function makeActionButtonsClickable(){
 // 	$('#crateList tr a').click('click', function(event){
@@ -216,21 +225,16 @@ $(document).ready(function() {
 					success: function(data){
 						$('#crateList').empty();
 						$('#crateName').text(id);
-						if(data != null && data.titles.length > 0){
-							var items = [];
-							$.each(data.titles, function(key, value){
-								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
-										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
-										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
-							});
-							$('#crateList').append(items.join(''));
+						if(data != null){
+                            //TODO: Change the datastructure so we don't have to wrap the 
+                            // vfs in an array
+                            $filetree.tree('loadData', [data.vfs]);
+                            expandRoot();
 							$('#metadata').show();
                             $('#description').val(data.description);
 						} else {
 							hideMetadata();
 						}
-						// makeCrateListEditable();
-						// makeActionButtonsClickable();
 					},
 					error: function(data){
 						var e = data.statusText;
@@ -283,32 +287,14 @@ $(document).ready(function() {
             // NOTE: Could possible move this to vfs root node creation ('open' => true)
             // NOTE: look into the tree.init event
             // makeCrateListEditable();
-            var rootnode = $filetree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
-            $filetree.tree('openNode', rootnode);
+            // var rootnode = $filetree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
+            // $filetree.tree('openNode', rootnode);
         },
         error: function(data){
             var e = data.statusText;
             alert(e);
         }
     });
-
-
-
-
-    // $('#files').bind('tree.dblclick',
-    //     function(event) {
-    //         // e.node is the clicked node
-    //         console.log(event.node);
-    //     }
-    // );
-
-    // $('#files').bind('tree.move',
-    //     function(event) {
-    //         event.preventDefault();
-    //         event.move_info.do_move();
-    //         makeCrateListEditable(); // NOTE: reattach evens after nodes are recreated
-    //     }
-    // );
 
 	
 });	
