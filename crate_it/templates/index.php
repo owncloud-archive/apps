@@ -76,8 +76,6 @@
 			<input id="save_creators" type="button" value="Save" />
 		    </div>
 		    <ul id="creators">
-		    	<li>Simone Thomas</li>
-		    	<li>Daniel Postell</li>
 		    </ul>
 		</div>
 

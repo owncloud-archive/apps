@@ -328,14 +328,25 @@ $(document).ready(function() {
 			var given_name = all_data['Given_Name'][0];
 			var family_name = all_data['Family_Name'][0];
 			var email = all_data['Email'][0];
-			$('#search_people_results').append('<li id="search_people_result"><input id="'
-							   + id
+			$('#search_people_results').append('<li><input id="'
+							   + 'search_people_result_' + id
 							   + '" type="button" value="Add to creators" />'
 							   + honorific + ' '
 							   + given_name + ' '
 							   + family_name
 							   + ' &lt;' + email + '&gt;</li>');
 		    }
+		    $("input[id^='search_people_result_']").click('click', function(event) {
+			var old_id = $(this).attr("id");
+			var new_id = old_id.replace("search_people_result", "creator");
+			$(this).attr("id", new_id);
+			$(this).attr("value", "Remove");
+			$('#creators').append($(this).parent());
+
+			$("input[id^='creator_']").click('click', function(event) {
+			    $(this).parent().remove();
+			});
+		    });
                 },
                 error: function(data) {
                     OC.Notification.show('There was an error:' + data.statusText);
