@@ -325,6 +325,9 @@ $(document).ready(function () {
 			var images = $('#fileList tr[data-mime^="image"] a.name');
 			var dir = FileList.getCurrentDirectory() + '/';
 			var user = OC.currentUser;
+			if (!user) {
+				user = $('#sharingToken').val();
+			}
 			var start = 0;
 			$.each(images, function (i, e) {
 				var tr = $(e).closest('tr');
