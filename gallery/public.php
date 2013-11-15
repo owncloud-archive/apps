@@ -38,6 +38,60 @@ if (isset($_GET['t'])) {
 		$albumName = trim($linkItem['file_target'], '//');
 		$ownerDisplayName = \OC_User::getDisplayName($fileOwner);
 
+		// stupid copy and paste job
+		if (isset($linkItem['share_with'])) {
+			// Authenticate share_with
+			$url = OCP\Util::linkToPublic('gallery') . '&t=' . $token;
+			if (isset($_GET['file'])) {
+				$url .= '&file=' . urlencode($_GET['file']);
+			} else {
+				if (isset($_GET['dir'])) {
+					$url .= '&dir=' . urlencode($_GET['dir']);
+				}
+			}
+			if (isset($_POST['password'])) {
+				$password = $_POST['password'];
+				if ($linkItem['share_type'] == OCP\Share::SHARE_TYPE_LINK) {
+					// Check Password
+					$forcePortable = (CRYPT_BLOWFISH != 1);
+					$hasher = new PasswordHash(8, $forcePortable);
+					if (!($hasher->CheckPassword($password.OC_Config::getValue('passwordsalt', ''),
+						$linkItem['share_with']))) {
+						OCP\Util::addStyle('files_sharing', 'authenticate');
+						$tmpl = new OCP\Template('files_sharing', 'authenticate', 'guest');
+						$tmpl->assign('URL', $url);
+						$tmpl->assign('wrongpw', true);
+						$tmpl->printPage();
+						exit();
+					} else {
+						// Save item id in session for future requests
+						\OC::$session->set('public_link_authenticated', $linkItem['id']);
+					}
+				} else {
+					OCP\Util::writeLog('share', 'Unknown share type '.$linkItem['share_type']
+						.' for share id '.$linkItem['id'], \OCP\Util::ERROR);
+					header('HTTP/1.0 404 Not Found');
+					$tmpl = new OCP\Template('', '404', 'guest');
+					$tmpl->printPage();
+					exit();
+				}
+
+			} else {
+				// Check if item id is set in session
+				if ( ! \OC::$session->exists('public_link_authenticated')
+					|| \OC::$session->get('public_link_authenticated') !== $linkItem['id']
+				) {
+					// Prompt for password
+					OCP\Util::addStyle('files_sharing', 'authenticate');
+					$tmpl = new OCP\Template('files_sharing', 'authenticate', 'guest');
+					$tmpl->assign('URL', $url);
+					$tmpl->printPage();
+					exit();
+				}
+			}
+		}
+
+
 		// render template
 		$tmpl = new \OCP\Template('gallery', 'public', 'base');
 		OCP\Util::addScript('gallery', 'gallery');
