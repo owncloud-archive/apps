@@ -147,26 +147,26 @@ $(document).ready(function() {
 		hideMetadata();
 	});
 
-    $('#save_description').click(function() {
-        var description = $('#description').val();
-        if (description) {
-            $.ajax({
-                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-                type: 'post',
-                dataType: 'json',
-                data: {'action': 'describe', 'description': description},
-                success: function(data) {
-                    OC.Notification.show('Description saved.');
-                    setTimeout(OC.Notification.hide(), 3000);
-                },
-                error: function(data) {
-                    OC.Notification.show('There was an error:' + data.statusText);
-                    setTimeout(OC.Notification.hide(), 3000);
-                    $('#description').focus();
-                }
-            });
-        }
-    });
+    // $('#save_description').click(function() {
+    //     var description = $('#description').val();
+    //     if (description) {
+    //         $.ajax({
+    //             url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+    //             type: 'post',
+    //             dataType: 'json',
+    //             data: {'action': 'describe', 'description': description},
+    //             success: function(data) {
+    //                 OC.Notification.show('Description saved.');
+    //                 setTimeout(OC.Notification.hide(), 3000);
+    //             },
+    //             error: function(data) {
+    //                 OC.Notification.show('There was an error:' + data.statusText);
+    //                 setTimeout(OC.Notification.hide(), 3000);
+    //                 $('#description').focus();
+    //             }
+    //         });
+    //     }
+    // });
 	
 	
 	$('#subbutton').click(function(event) {
@@ -231,7 +231,7 @@ $(document).ready(function() {
                             $filetree.tree('loadData', [data.vfs]);
                             expandRoot();
 							$('#metadata').show();
-                            $('#description').val(data.description);
+                            $('#description').text(data.description);
 						} else {
 							hideMetadata();
 						}
@@ -276,6 +276,16 @@ $(document).ready(function() {
 		});
 	});
 
+    $('#description').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=describe', { 
+        name: 'description',
+        type      : 'textarea',
+        tooltip   : 'Please enter a description...',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+        rows: 6,
+        cols: 100, // This doesn't seem to work correctly
+     });
     
     $.ajax({
         url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
@@ -284,6 +294,7 @@ $(document).ready(function() {
         data: {'action': 'get_items'},
         success: function(data){
             $filetree = buildFileTree(data);
+            $('#description').text(data.description);
             // NOTE: Could possible move this to vfs root node creation ('open' => true)
             // NOTE: look into the tree.init event
             // makeCrateListEditable();

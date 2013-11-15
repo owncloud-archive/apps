@@ -2,37 +2,14 @@
     <div>
         <div style="padding-top:20px">
             <span id="crateName" style="font-weight:bold;font-size:large; padding-left:10px;"><?php echo $_['selected_crate'] ?></span>
+            <div id='#description_box'>
+                <label for="description">Description</label>
+                <div id="description"><?php echo $_['description'] ?></div>
+            </div>
         </div>
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
-
-<!--             <table id="cratesTable">
-                <tbody id="crateList">
-                    <?php foreach($_['bagged_files'] as $entry):?>
-                    <tr id="<?php echo $entry['id'];?>">
-                        <td><span class="title" style="padding-right: 150px;"><?php print_unescaped($entry['title']);?></span>
-                        </td>
-                        <?php if ($_['previews']==="on" ):?>
-                        <td>
-                            <div style="padding-right: 22px;">
-                            	<a data-action="view">View</a>
-                            </div>
-                        </td>
-                        <?php endif; ?>
-                        <td>
-                            <div>
-                                <a data-action="delete" title="Delete">
-                                    <img src="/core/img/actions/delete.svg">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table> -->
-
             <div id="files"></div>
-
         </div>
     </div>
 
@@ -61,15 +38,7 @@
 		    </div>
 		</div>
 
-		<div id="description_box">
-		    <div>
-		        <label for="description">Description</label>
-		    </div>
-		    <textarea id="description" rows="4" cols="80"><?php echo $_['description'] ?></textarea>
-		    <div>
-		        <input id="save_description" type="button" value="save" style="float:right;" />
-		    </div>
-		</div>
+
 
 	</div>
 </div>

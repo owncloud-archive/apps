@@ -264,7 +264,6 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
-		
 		return true;
 	}
 

@@ -37,7 +37,12 @@ switch ($action){
 		}
 		break;
 	case 'describe':
-		$bagit_manager->setDescription($description);
+		$ok = $bagit_manager->setDescription($description);
+		if($ok){
+			echo $description;
+		} else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
 		break;
 	case 'switch':
 		$ok = $bagit_manager->switchCrate($crate_id);
