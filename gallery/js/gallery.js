@@ -324,6 +324,10 @@ $(document).ready(function () {
 		}
 	});
 
+	$('#openAsFileListButton').click( function (event) {
+		window.location.href = window.location.href.replace('service=gallery', 'service=files');
+	});
+
 	jQuery.fn.slideShow.onstop = function () {
 		$('#content').show();
 		Thumbnail.paused = false;
