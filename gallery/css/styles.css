@@ -15,17 +15,21 @@ button.share {
 #gallery > a.album > img {
 	width: 200px;
 	height: 200px;
-	border-radius: 10px;
-	box-shadow: 0 1px 0 white, inset 0 1px 1px #bbb;
-	border: 1px solid #eee;
+	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 #gallery > a.album > label {
 	color: white;
+	text-shadow: 0 0 10px #000;
 	position: absolute;
-	bottom: 5px;
+	bottom: 0;
 	width: 100%;
 	text-align: center;
+	font-size: 18px;
+	padding-bottom: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #gallery > a {
@@ -40,6 +44,20 @@ button.share {
 
 #gallery > a.image >img {
 	max-height: 200px;
+}
+
+#gallery > a.album,
+#gallery > a.image{
+	opacity: 1;
+	transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	-ms-transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+}
+#gallery > a.album.loading,
+#gallery > a.image.loading{
+	opacity: 0;
 }
 
 #controls > .right {
@@ -65,105 +83,4 @@ button.share {
 	right: 0;
 	margin-right: 0;
 	border-bottom-right-radius: 0;
-}
-
-#slideshow {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1000;
-	display: none;
-	background-color: black;
-	background-repeat: no-repeat;
-	background-image: url("../img/progress.gif");
-	background-size: 16px 16px;
-	background-position: center center;
-}
-
-#slideshow>img {
-	position: relative;
-	vertical-align: middle;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#slideshow > input {
-	background: none;
-	border: 0 transparent;
-	outline: 0;
-	box-shadow: none;
-	width: 52px;
-	height: 52px;
-	position: absolute;
-	z-index: 1100;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity=30);
-	opacity: .3;
-	background-position: center center;
-	background-repeat: no-repeat;
-}
-
-#slideshow > * {
-	-webkit-transition: opacity 300ms;
-	-moz-transition: opacity 300ms;
-	-o-transition: opacity 300ms;
-	transition: opacity 300ms;
-}
-
-#slideshow > input:hover {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-	filter: alpha(opacity=60);
-	opacity: .6;
-}
-
-#slideshow > .next, #slideshow > .previous {
-	top: 50%;
-	margin-top: -21px;
-}
-
-#slideshow > .next {
-	right: 0;
-	background-image: url("%webroot%/core/img/actions/view-next.svg");
-}
-
-#slideshow > .previous {
-	left: 0;
-	background-image: url("%webroot%/core/img/actions/view-previous.svg");
-}
-
-#slideshow > .exit {
-	right: 0;
-	top: 0;
-	background-image: url("%webroot%/core/img/actions/view-close.svg");
-}
-
-#slideshow > .pause, #slideshow > .play {
-	bottom: 0;
-	right: 0;
-	margin-top: -21px;
-}
-
-#slideshow > .play {
-	display: none;
-	background-image: url("%webroot%/core/img/actions/view-play.svg");
-}
-
-#slideshow > .pause {
-	background-image: url("%webroot%/core/img/actions/view-pause.svg");
-}
-
-#slideshow > .progress {
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	background-position: 0 100%;
-	width: 32px;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	background-image: url("%webroot%/core/img/actions/view-pause.svg");
-	filter: alpha(opacity=30);
-	opacity: .3;
-	height: 0;
 }
