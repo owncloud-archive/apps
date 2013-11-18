@@ -311,6 +311,7 @@ $(document).ready(function() {
 		
 	$('#search_people').click('click', function(event) { 
 	    if($.trim($('#keyword').val()).length == 0){
+		$('#search_people_results').empty();
 		return;
 	    }
 
