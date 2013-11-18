@@ -321,20 +321,27 @@ $(document).ready(function() {
                 data: {'action': 'search_people', 'keyword': $.trim($('#keyword').val())},
                 success: function(data) {
 		    // populate list of results
+		    $('#search_people_results').empty();
 		    for (var i = 0; i < data.length; i++) {
 			var all_data = data[i]['result-metadata']['all'];
 			var id = all_data['id'];
-			var honorific = all_data['Honorific'][0];
-			var given_name = all_data['Given_Name'][0];
-			var family_name = all_data['Family_Name'][0];
-			var email = all_data['Email'][0];
+			var honorific = $.trim(all_data['Honorific'][0]);
+			var given_name = $.trim(all_data['Given_Name'][0]);
+			var family_name = $.trim(all_data['Family_Name'][0]);
+			var email = $.trim(all_data['Email'][0]);
+			var full_name = "";
+			if (honorific)
+			    full_name = full_name + honorific + ' ';
+			if (given_name)
+			    full_name = full_name + given_name + ' ';
+			if (family_name)
+			    full_name = full_name + family_name;
+			if (email)
+			    full_name = full_name + ' &lt;' + email + '&gt;';
 			$('#search_people_results').append('<li><input id="'
 							   + 'search_people_result_' + id
 							   + '" type="button" value="Add to creators" />'
-							   + honorific + ' '
-							   + given_name + ' '
-							   + family_name
-							   + ' &lt;' + email + '&gt;</li>');
+							   + full_name + '</li>');
 		    }
 		    $("input[id^='search_people_result_']").click('click', function(event) {
 			var old_id = $(this).attr("id");
