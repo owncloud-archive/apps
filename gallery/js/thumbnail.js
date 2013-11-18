@@ -10,7 +10,7 @@ Thumbnail.map = {};
 Thumbnail.squareMap = {};
 
 Thumbnail.get = function (path, square) {
-	var map = (square) ? Thumbnail.squareMap : Thumbnail.map
+	var map = (square) ? Thumbnail.squareMap : Thumbnail.map;
 	if (!map[path]) {
 		map[path] = new Thumbnail(path, square);
 	}
