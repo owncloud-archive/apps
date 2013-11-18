@@ -27,6 +27,23 @@ function expandRoot() {
 }
 
 
+function saveTree($tree) {
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'post',
+        dataType: 'html',
+        data: {'action':'update_vfs', 'vfs': $tree.tree('toJson')},
+        success: function(data){
+            OC.Notification.show('Crate updated');
+            setTimeout(OC.Notification.hide(), 3000);
+        },
+        error: function(data){
+            OC.Notification.show(data.statusText);
+            setTimeout(OC.Notification.hide(), 3000);
+        }
+    });
+}
+
 // function makeCrateListEditable(){
 //     $('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
 //         name : 'new_title',
@@ -100,18 +117,20 @@ function hideMetadata(){
 
 $(document).ready(function() {
 	
-	$('#crateList').sortable({
-		update: function (event, ui) {
-            var neworder = [];
-            ui.item.parent().children().each(function () {
-                neworder.push(this.id);
-            });
-            $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
-        }
-	});
+	// $('#crateList').sortable({
+	// 	update: function (event, ui) {
+ //            var neworder = [];
+ //            ui.item.parent().children().each(function () {
+ //                neworder.push(this.id);
+ //            });
+ //            $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
+ //        }
+	// });
 	
 	hideMetadata();
 	
+
+
 	// makeActionButtonsClickable();
 	
 	$('#crateList').disableSelection();
@@ -294,8 +313,11 @@ $(document).ready(function() {
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
-            $tree = buildFileTree(data);
             $('#description').text(data.description);
+            $tree = buildFileTree(data);
+            $tree.bind('tree.move', function(e) {
+                saveTree($tree);
+            });
         },
         error: function(data){
             var e = data.statusText;

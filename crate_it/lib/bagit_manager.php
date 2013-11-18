@@ -546,4 +546,16 @@ class BagItManager{
 		fclose($fp);
 	}
 
+	public function updateVFS($data) {
+		$new_vfs = json_decode($data);
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$fp = fopen($this->manifest, 'w+');
+		// $old_vfs = &$contents['vfs'];
+		// $old_vfs = $new_vfs;
+		$contents['vfs'] = $new_vfs;
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		return true;
+	}
+
 }

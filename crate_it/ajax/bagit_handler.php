@@ -14,6 +14,7 @@ $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
 $description = isset($_POST['description']) ? $_POST['description'] : '';
+$vfs = isset($_POST['vfs']) ? $_POST['vfs'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -71,9 +72,18 @@ switch ($action){
 			header('HTTP/1.1 500 Internal Server Error');
 		}
 		break;
-	case 'update':
-		$bagit_manager->updateOrder($neworder);
-		break;
+	// case 'update':
+	// 	$bagit_manager->updateOrder($neworder);
+	// 	break;
+	case 'update_vfs':
+        $ok = $bagit_manager->updateVFS($vfs);
+        if($ok){
+			echo $ok;
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+        break;
 	case 'edit_title':
 		$ok = $bagit_manager->editTitle($element_id, $new_title);
 		if($ok){
