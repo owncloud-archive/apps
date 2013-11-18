@@ -260,7 +260,7 @@ Gallery.view.viewAlbum = function (albumPath) {
 	});
 	crumbs = albumPath.split('/');
 	path = crumbs.splice(0, 1); //first entry is username
-	if (path != OC.currentUser) { //remove shareid
+	if (path !== OC.currentUser) { //remove shareid
 		path += '/' + crumbs.splice(0, 1);
 	}
 	for (i = 0; i < crumbs.length; i++) {
@@ -317,7 +317,7 @@ $(document).ready(function () {
 		var i = images.index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		if (location.hash != image) {
+		if (location.hash !== image) {
 			location.hash = image;
 			Thumbnail.paused = true;
 			Slideshow.start(images, i);
@@ -344,11 +344,6 @@ window.onhashchange = function () {
 	}
 	if (!album) {
 		album = $('#gallery').data('token');
-		if (Gallery.subAlbums[album]) {
-			if (Gallery.subAlbums[album][0]) {
-				album = Gallery.subAlbums[album][0];
-			}
-		}
 	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();

@@ -278,11 +278,11 @@ $(document).ready(function () {
 	$(document).keyup(function (e) {
 		if (e.keyCode === 27) { // esc
 			Slideshow.end();
-		} else if (e.keyCode == 37) { // left
+		} else if (e.keyCode === 37) { // left
 			Slideshow.previous();
-		} else if (e.keyCode == 39) { // right
+		} else if (e.keyCode === 39) { // right
 			Slideshow.next();
-		} else if (e.keyCode == 32) { // space
+		} else if (e.keyCode === 32) { // space
 			Slideshow.playPause();
 		}
 	});
@@ -305,7 +305,7 @@ $(document).ready(function () {
 		if ($.fn.mousewheel) {
 			slideshow.bind('mousewheel.fb', function (e, delta) {
 				e.preventDefault();
-				if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
+				if ($(e.target).get(0).clientHeight === 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
 					if (delta > 0) {
 						Slideshow.previous();
 					} else {
@@ -332,7 +332,7 @@ $(document).ready(function () {
 			$.each(images, function (i, e) {
 				var tr = $(e).closest('tr');
 				var imageFile = tr.data('file');
-				if (imageFile == filename) {
+				if (imageFile === filename) {
 					start = i;
 				}
 				// use gallery URL instead of download URL
