@@ -344,17 +344,12 @@ window.onhashchange = function () {
 	}
 	if (!album) {
 		album = $('#gallery').data('token');
-		if (Gallery.subAlbums[album]) {
-			if (Gallery.subAlbums[album][0]) {
-				album = Gallery.subAlbums[album][0];
-			}
-		}
 	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
 		Gallery.view.viewAlbum(decodeURIComponent(album));
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));
-		$('#gallery a.image[data-path="' + album + '"]').click();
+		$('#gallery').find('a.image[data-path="' + album + '"]').click();
 	}
 };
