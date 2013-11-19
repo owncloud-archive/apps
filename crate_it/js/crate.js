@@ -12,7 +12,20 @@ function buildFileTree(data) {
 
     $tree.jqTreeContextMenu($('#fileMenu'), {
         "add": function (node) {
-
+            $("#dialog-add").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Add',
+                click: function() {
+                    $tree.tree('addNodeAfter', {
+                        id: 'folder',
+                        label: $('#add-folder').val(),
+                    }, node);
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
             $("#dialog-add").dialog('open');
         },
         "rename": function (node) {
