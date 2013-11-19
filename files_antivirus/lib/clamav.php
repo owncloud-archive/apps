@@ -247,7 +247,7 @@ class OC_Files_Antivirus {
 				);
 				$description = (array_key_exists($result, $descriptions)) ? $descriptions[$result] : 'unknown error';
 
-				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$result, \OCP\Util::WARN);
+				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$description, \OCP\Util::WARN);
 				return CLAMAV_SCANRESULT_UNCHECKED;
 		}
 	}
