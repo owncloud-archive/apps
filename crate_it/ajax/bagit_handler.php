@@ -5,7 +5,6 @@ $user = OCP\User::getUser();
 
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
-$action = isset($_GET['action']) ? $_GET['action'] : '';
 $crate_id = isset($_GET['crate_id']) ? $_GET['crate_id'] : '';
 $crate_name = isset($_GET['crate_name']) ? $_GET['crate_name'] : '';
 $neworder = isset($_GET['neworder']) ? $_GET['neworder'] : array();
@@ -14,6 +13,15 @@ $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
+$description = isset($_POST['description']) ? $_POST['description'] : '';
+
+$action = '';
+if (isset($_GET['action'])) {
+	$action = $_GET['action'];
+} elseif (isset($_POST['action'])){
+	$action = $_POST['action'];
+}
+
 
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
@@ -28,6 +36,9 @@ switch ($action){
 			print $msg;
 		}
 		break;
+	case 'describe':
+		$bagit_manager->setDescription($description);
+		break;
 	case 'switch':
 		$ok = $bagit_manager->switchCrate($crate_id);
 		if(!$ok){
@@ -39,7 +50,7 @@ switch ($action){
 		print $msg;
 		break;
 	case 'get_items':
-		$msg = $bagit_manager->getFetchData();
+		$msg = $bagit_manager->getManifestData();
 		echo json_encode($msg);
 		break;
 	case 'add':

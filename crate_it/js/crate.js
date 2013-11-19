@@ -22,7 +22,7 @@ function makeActionButtonsClickable(){
 				data:{'action':'delete', 'file_id':id},
 				success:function(data){
 					$('#crateList tr#'+id).remove();
-					hideForCodes();
+					hideMetadata();
 				},
 				error:function(data){
 					
@@ -41,9 +41,9 @@ function removeFORCodes(){
 	$('#for_second_level').append(first);
 }
 
-function hideForCodes(){
+function hideMetadata(){
 	if($('#crateList tr').length == 0){
-		$('#anzsrc_for').hide();
+		$('#metadata').hide();
 	}
 }
 
@@ -59,7 +59,7 @@ $(document).ready(function() {
         }
 	});
 	
-	hideForCodes();
+	hideMetadata();
 	
 	makeActionButtonsClickable();
 	
@@ -69,11 +69,11 @@ $(document).ready(function() {
 	$('#download').click('click', function(event) { 
 		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
-			setTimeout(function() {OC.Notification.hide();}, 3000);
+			setTimeout(OC.Notification.hide(), 3000);
 			return;
 		}
 		OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
-		setTimeout(function() {OC.Notification.hide();}, 3000);
+		setTimeout(OC.Notification.hide(), 3000);
 		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
 		
 	});
@@ -81,20 +81,41 @@ $(document).ready(function() {
 	$('#epub').click(function(event) {
 		if($('#crateList tr').length == 0){
 			OC.Notification.show('No items in the crate to package');
-			setTimeout(function() {OC.Notification.hide();}, 3000);
+			setTimeout(OC.Notification.hide(), 3000);
 			return;
 		}
 		//get all the html previews available, concatenate 'em all
 		OC.Notification.show('Your download is being prepared. This might take some time');
-		setTimeout(function() {OC.Notification.hide();}, 3000);
+		setTimeout(OC.Notification.hide(), 3000);
 		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=epub';
 	});
 	
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
 		$('#crateList').empty();
-		hideForCodes();
+		hideMetadata();
 	});
+
+    $('#save_description').click(function() {
+        var description = $('#description').val();
+        if (description) {
+            $.ajax({
+                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+                type: 'post',
+                dataType: 'json',
+                data: {'action': 'describe', 'description': description},
+                success: function(data) {
+                    OC.Notification.show('Description saved.');
+                    setTimeout(OC.Notification.hide(), 3000);
+                },
+                error: function(data) {
+                    OC.Notification.show('There was an error:' + data.statusText);
+                    setTimeout(OC.Notification.hide(), 3000);
+                    $('#description').focus();
+                }
+            });
+        }
+    });
 	
 	/*$('#subbutton').attr('disabled', 'disabled');
 	$('#crate_input #create').keyup(function() {
@@ -113,7 +134,7 @@ $(document).ready(function() {
 	        	$('#crate_input #create').val('');
 	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
-				setTimeout(function() {OC.Notification.hide();}, 3000);
+				setTimeout(OC.Notification.hide(), 3000);
 	        	//$('#subbutton').attr('disabled', 'disabled');
 	        	/*$('#crates option').filter(function(){
 					return $(this).attr("id") == data;
@@ -121,7 +142,7 @@ $(document).ready(function() {
 			},
 			error: function(data){
 				OC.Notification.show(data.statusText);
-				setTimeout(function() {OC.Notification.hide();}, 3000);
+				setTimeout(OC.Notification.hide(), 3000);
 				$('#crate_input #create').focus();
 			}
 	    });
@@ -202,18 +223,18 @@ $(document).ready(function() {
 					success: function(data){
 						$('#crateList').empty();
 						$('#crateName').text(id);
-						if(data != null && data.length > 0){
+						if(data != null && data.titles.length > 0){
 							var items = [];
-							$.each(data, function(key, value){
+							$.each(data.titles, function(key, value){
 								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
 										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
 										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
 							});
 							$('#crateList').append(items.join(''));
-							$('#anzsrc_for').show();
-						}
-						else {
-							hideForCodes();
+							$('#metadata').show();
+                            $('#description').val(data.description);
+						} else {
+							hideMetadata();
 						}
 						makeCrateListEditable();
 						makeActionButtonsClickable();

@@ -10,7 +10,7 @@ OC::$CLASSPATH['Apache_Solr_Service'] = 'apps/file_previewer/3rdparty/SolrPhpCli
 OC::$CLASSPATH['OCA\file_previewer\lib\Solr'] = 'apps/file_previewer/lib/solr.php';
 
 //create the configuration file in data directory with default values
-$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+$config_file = \OC::$SERVERROOT.'/data/file_previewer_config.json';
 if(!file_exists($config_file)){
 	$fp = fopen($config_file, 'x');
 	$entry = array("fascinator" => array("downloadURL" => "http://localhost:9997/portal/default/download/",

@@ -4,7 +4,6 @@ namespace OCA\crate_it\lib;
 class BagItManager{
 	
 	var $base_dir; 
-	var $preview_dir;
 	var $crate_dir;
 	var $crate_root;
 	var $manifest;
@@ -36,7 +35,6 @@ class BagItManager{
 		}
 		
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
-	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files';
 	    $this->crate_root =$this->base_dir.'/crates'; 
 		
 		if(!file_exists($this->crate_root)){
@@ -58,13 +56,18 @@ class BagItManager{
 		//create manifest file if it doesn't exist
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
-			fclose($fp);
+			$contents = array('description' => '');
+			fclose($fp, json_encode($contents));
 			$this->bag->update();
 		}
 	}
 	
 	public static function getInstance(){
 			return new BagItManager();
+	}
+	
+	public function showPreviews(){
+		return $this->fascinator['status'];
 	}
 	
 	public function createCrate($name){
@@ -136,8 +139,8 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		//TODO we need to get preview from file_previewer app 
-		$preview_file = $this->getPreviewPath($full_path);
+		//TODO we don't need to get the preview from the fascinator 
+		//$preview_file = $this->getPreviewPath($full_path);
 		/*if(empty($preview_file))
 		{
 			return "No preview available. File not added to crate.";
@@ -151,8 +154,7 @@ class BagItManager{
 		$id = md5($full_path);
 		if(filesize($this->manifest) == 0) {
 			$fp = fopen($this->manifest, 'w');
-			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
-					'filename' => $full_path)));
+			$entry = array('titles' => array(), 'description' => '');
 			fwrite($fp, json_encode($entry));
 			fclose($fp);
 		}
@@ -238,6 +240,17 @@ class BagItManager{
 		return true;
 	}
 	
+
+	public function setDescription($description) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$contents['description'] = $description;
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+
 	//remove an item from manifest
 	public function removeItem($id){
 		$contents = json_decode(file_get_contents($this->manifest), true);
@@ -319,7 +332,7 @@ class BagItManager{
 		$source_dir = $this->base_dir.'/files';
 		
 		$temp_dir = \OC_Helper::tmpFolder();
-		
+
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
@@ -366,6 +379,8 @@ class BagItManager{
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
 		$bag = new \BagIt($tmp_dir);
 		
+		$manifest_data = $this->getManifestData();
+
 		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><body><article>
 					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
 					<section resource="creative work" typeof="http://schema.org/CreativeWork">
@@ -378,7 +393,7 @@ class BagItManager{
 							  <h1>ID</h1>
 							  <span property="http://schema.org/name">'.$id.'</span>
 							  <h1>Description</h1>
-							  <span property="http://schema.org/description">some set of files related to a research</span>
+							  <span property="http://schema.org/description">'.$manifest_data['description'].'</span>
 							  <h1>Software Information</h1>
 							  <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
 							  	<table>
@@ -463,11 +478,9 @@ class BagItManager{
 			$bag->update();
 			$bag->package($tmp_dir.'/'.$this->selected_crate, 'zip');
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
-		}
-		else
-		{
-			$err = $bag->getBagErrors(true);
-			print $err;
+		} else {
+			$errors = $bag->getBagErrors(true);
+			print $errors;
 		}
 	}
 	
@@ -509,14 +522,14 @@ class BagItManager{
 			die("error");
 		}
 	}
-	
-	public function getFetchData(){
+
+	public function getManifestData(){
 		//read from manifest
 		$fp = fopen($this->manifest, 'r');
 		$contents = file_get_contents($this->manifest);
 		$cont_array = json_decode($contents, true);
 		fclose($fp);
-		return array_values($cont_array["titles"]);
+		return $cont_array;
 	}
 	
 }
