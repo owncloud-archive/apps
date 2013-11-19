@@ -21,4 +21,5 @@ $tmpl->assign('description', $manifestData['description']);
 $tmpl->assign('crates', $bagit_manager->getCrateList());
 $tmpl->assign('top_for', $bagit_manager->lookUpMint("", 'top'));
 $tmpl->assign('selected_crate', $bagit_manager->getSelectedCrate());
+$tmpl->assign('creators', array_values($manifestData['creators']));
 $tmpl->printPage();

@@ -560,4 +560,40 @@ class BagItManager{
 		}
 	}
 
+	public function savePeople($creator_id, $full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if ($contents['creators']) {
+		   $creators = &$contents['creators'];
+		   array_push($creators, array('creator_id' => $creator_id, 'full_name' => $full_name));
+		}
+		else {
+		   $contents['creators'] = array(array('creator_id' => $creator_id, 'full_name' => $full_name));
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+
+		return true;
+	}
+	
+	public function removePeople($creator_id, $full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$creators = &$contents['creators'];
+
+		for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+				array_splice($creators, $i, 1);
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+
+		return true;
+	}
+	
 }

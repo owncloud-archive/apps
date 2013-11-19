@@ -47,6 +47,35 @@ function hideMetadata(){
 	}
 }
 
+function activateRemoveCreatorButton() {
+    $("input[id^='creator_']").click('click', function(event) {
+	// Remove people from backend
+	var input_element = $(this);
+	var id = input_element.attr("id");
+	creator_id = id.replace("creator_", "");
+	
+	$.ajax({
+	    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+	    type: 'post',
+	    dataType: 'json',
+	    data: {
+		'action': 'remove_people',
+		'creator_id': creator_id,
+		'full_name': input_element.parent().text()
+	    },
+	    success: function(data) {
+		input_element.parent().remove();
+	    },
+	    error: function(data) {
+		OC.Notification.show('There was an error:' + data.statusText);
+		setTimeout(function() {
+		    OC.Notification.hide();
+		}, 3000);
+	    }
+	});
+    });
+}
+
 $(document).ready(function() {
 	
 	$('#crateList').sortable({
@@ -345,14 +374,35 @@ $(document).ready(function() {
 							   + full_name + '</li>');
 		    }
 		    $("input[id^='search_people_result_']").click('click', function(event) {
-			var old_id = $(this).attr("id");
-			var new_id = old_id.replace("search_people_result", "creator");
-			$(this).attr("id", new_id);
-			$(this).attr("value", "Remove");
-			$('#creators').append($(this).parent());
-
-			$("input[id^='creator_']").click('click', function(event) {
-			    $(this).parent().remove();
+			// Add people to backend
+			var input_element = $(this);
+			var id = input_element.attr("id");
+			creator_id = id.replace("search_people_result_", "");
+			
+			$.ajax({
+			    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+			    type: 'post',
+			    dataType: 'json',
+			    data: {
+				'action': 'save_people',
+				'creator_id': creator_id,
+				'full_name': input_element.parent().text()
+			    },
+			    success: function(data) {
+				var old_id = input_element.attr("id");
+				var new_id = old_id.replace("search_people_result", "creator");
+				input_element.attr("id", new_id);
+				input_element.attr("value", "Remove");
+				$('#creators').append(input_element.parent());
+				
+				activateRemoveCreatorButton();
+			    },
+			    error: function(data) {
+				OC.Notification.show('There was an error:' + data.statusText);
+				setTimeout(function() {
+				    OC.Notification.hide();
+				}, 3000);
+			    }
 			});
 		    });
                 },
@@ -366,7 +416,7 @@ $(document).ready(function() {
 		
 	});
 
-	
+    activateRemoveCreatorButton();
 	
 });	
 

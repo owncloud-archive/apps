@@ -15,6 +15,8 @@ $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
 $description = isset($_POST['description']) ? $_POST['description'] : '';
 $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
+$creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
+$full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -189,5 +191,25 @@ switch ($action){
 	case 'search_people':
 		$results = $bagit_manager->lookUpPeople($keyword);
 		echo json_encode($results);
+		break;
+	case 'save_people':
+		$success = $bagit_manager->savePeople($creator_id, $full_name);
+
+		if($success){
+			echo json_encode($full_name);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'remove_people':
+		$success = $bagit_manager->removePeople($creator_id, $full_name);
+
+		if($success){
+			echo json_encode($full_name);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
 		break;
 }

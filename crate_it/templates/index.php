@@ -73,9 +73,11 @@
 		<div id="creators_box">
 		    <div>
 		        <label for="creators">Creators</label>
-			<input id="save_creators" type="button" value="Save" />
 		    </div>
 		    <ul id="creators">
+                    <?php foreach($_['creators'] as $creator):?>
+		    	  <li><input id="creator_<?php echo $creator['creator_id'] ?>" type="button" value="Remove" /><?php echo htmlspecialchars($creator['full_name']) ?></li>
+                    <?php endforeach;?>
 		    </ul>
 		</div>
 
