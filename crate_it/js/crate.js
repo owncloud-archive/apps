@@ -90,6 +90,10 @@ function saveTree($tree) {
     });
 }
 
+function treeHasNoFiles() {
+    var children = $tree.tree('getNodeById', 'rootfolder').children;
+    return children.length == 0;
+}
 
 function removeFORCodes(){
 	var first = $('#for_second_level option:first').detach();
@@ -98,19 +102,15 @@ function removeFORCodes(){
 }
 
 function hideMetadata(){
-	if($('#crateList tr').length == 0){
+	if(treeHasNoFiles()){
 		$('#metadata').hide();
 	}
 }
 
 $(document).ready(function() {
 	
-	hideMetadata();
-	
-	$('#crateList').disableSelection();
-	
 	$('#download').click('click', function(event) { 
-		if($('#crateList tr').length == 0){
+		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(OC.Notification.hide(), 3000);
 			return;
@@ -122,7 +122,7 @@ $(document).ready(function() {
 	});
 	
 	$('#epub').click(function(event) {
-		if($('#crateList tr').length == 0){
+		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(OC.Notification.hide(), 3000);
 			return;
@@ -135,7 +135,7 @@ $(document).ready(function() {
 	
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
-		$('#crateList').empty();
+        // TODO: Change this logic for new tree structure
 		hideMetadata();
 	});
 	
@@ -178,7 +178,6 @@ $(document).ready(function() {
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");
 		if(id === "choose"){
-			$('#crateList').empty();
 			$('#crateName').text("");
 			$('#anzsrc_for').hide();
 			return;
@@ -194,7 +193,6 @@ $(document).ready(function() {
 					dataType: 'json',
 					data: {'action': 'get_items'},
 					success: function(data){
-						$('#crateList').empty();
 						$('#crateName').text(id);
                         console.log(data);
 						if(data != null){
