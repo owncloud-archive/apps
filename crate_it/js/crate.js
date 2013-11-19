@@ -1,6 +1,6 @@
 function buildFileTree(data) {
     $tree = $('#files').tree({
-        data: [data.vfs],
+        data: data.vfs,
         autoOpen: false,
         dragAndDrop: true,
         usecontextmenu: true,
@@ -14,6 +14,10 @@ function buildFileTree(data) {
         "edit": function (node) { alert('Edit node: ' + node.name); },
         "delete": function (node) { alert('Delete node: ' + node.name); },
         "add": function (node) { alert('Add node: ' + node.name); }
+    });
+
+    $tree.bind('tree.move', function(e) {
+        saveTree($tree);
     });
 
     expandRoot();
@@ -246,10 +250,12 @@ $(document).ready(function() {
 						$('#crateName').text(id);
                         console.log(data);
 						if(data != null){
-                            //TODO: Change the datastructure so we don't have to wrap the 
-                            // vfs in an array
-                            $tree.tree('loadData', [data.vfs]);
-                            expandRoot();
+                            if($tree) {
+                                $tree.tree('loadData', data.vfs);
+                                expandRoot();
+                            } else {
+                                $tree = buildFileTree(data);
+                            }
 							$('#metadata').show();
                             $('#description').text(data.description);
 						} else {
@@ -315,9 +321,6 @@ $(document).ready(function() {
         success: function(data){
             $('#description').text(data.description);
             $tree = buildFileTree(data);
-            $tree.bind('tree.move', function(e) {
-                saveTree($tree);
-            });
         },
         error: function(data){
             var e = data.statusText;

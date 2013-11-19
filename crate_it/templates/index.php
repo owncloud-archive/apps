@@ -72,9 +72,9 @@
 
 <div>
     <ul id="fileMenu" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        <li class="edit"><a href="#edit"><i class="icon-edit"></i> Edit</a></li>
-        <li class="delete"><a href="#delete"><i class="icon-remove"></i> Delete</a></li>
+        <li class="add"><a href="#add"><i class=".glyphicon .glyphicon-plus"></i> Add</a></li>
+        <li class="edit"><a href="#edit"><i class=".glyphicon .glyphicon-edit"></i> Rename</a></li>
         <li class="divider"></li>
-        <li class="add"><a href="#add"><i class="icon-plus"></i> Add</a></li>
+        <li class="delete"><a href="#delete"><i class=".glyphicon .glyphicon-floppy-remove"></i> Delete</a></li>
     </ul>
 </div>

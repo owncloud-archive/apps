@@ -70,7 +70,7 @@ class BagItManager{
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
 		$entry = array('titles' => array(), 'description' => 'Please enter a description...',
-			'vfs' => array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array()));
+			'vfs' => array(array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);
 		$this->bag->update();
@@ -151,7 +151,7 @@ class BagItManager{
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$elements = &$contents['titles'];
-		$vfs = &$contents['vfs']['children'];
+		$vfs = &$contents['vfs'][0]['children'];
 		$this->addPath($elements, $file, $vfs);
 		$fp = fopen($this->manifest, 'w');
 		fwrite($fp, json_encode($contents));
@@ -550,8 +550,6 @@ class BagItManager{
 		$new_vfs = json_decode($data);
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$fp = fopen($this->manifest, 'w+');
-		// $old_vfs = &$contents['vfs'];
-		// $old_vfs = $new_vfs;
 		$contents['vfs'] = $new_vfs;
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
