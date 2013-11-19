@@ -15,7 +15,18 @@ function buildFileTree(data) {
 
             $("#dialog-add").dialog('open');
         },
-        "edit": function (node) {
+        "rename": function (node) {
+            $("#dialog-rename").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Rename',
+                click: function() {
+                    $tree.tree('updateNode', node, $('#rename-item').val());
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
             $("#dialog-rename").dialog('open');
         },
         "delete": function(node) {
@@ -25,7 +36,6 @@ function buildFileTree(data) {
                 },
                 {text: 'Delete',
                 click: function() {
-                    // deleteNode(node);
                     $tree.tree('removeNode', node);
                     saveTree($tree);
                     $(this).dialog('close');
