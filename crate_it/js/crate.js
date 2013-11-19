@@ -11,9 +11,28 @@ function buildFileTree(data) {
     });
 
     $tree.jqTreeContextMenu($('#fileMenu'), {
-        "edit": function (node) { alert('Edit node: ' + node.name); },
-        "delete": function (node) { alert('Delete node: ' + node.name); },
-        "add": function (node) { alert('Add node: ' + node.name); }
+        "add": function (node) {
+
+            $("#dialog-add").dialog('open');
+        },
+        "edit": function (node) {
+            $("#dialog-rename").dialog('open');
+        },
+        "delete": function(node) {
+            $("#dialog-delete").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Delete',
+                click: function() {
+                    // deleteNode(node);
+                    $tree.tree('removeNode', node);
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
+            $("#dialog-delete").dialog('open');
+        }, 
     });
 
     $tree.bind('tree.move', function(e) {
@@ -48,64 +67,6 @@ function saveTree($tree) {
     });
 }
 
-// function makeCrateListEditable(){
-//     $('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
-//         name : 'new_title',
-//         indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-//         tooltip : 'Double click to edit...',
-//         event : 'dblclick',
-//         style : 'inherit',
-//         submitdata : function(value, settings){
-//             return {'elementid':this.parentNode.parentNode.getAttribute('id')};
-//         }
-//     });
-// }
-
-// function makeCrateListEditable(){
- //    $('span.jqtree-title').on('click', function() {
- //        selectedNode = $tree.tree('getSelectedNode');
- //        console.log(selectedNode);
- //    });
- //    // $('span.jqtree-title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=update_vfs', {
-	// $('span.jqtree-title').editable('#', {
-	// 	name : 'new_title',
-	// 	indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-	// 	tooltip : 'Double click to edit...',
-	// 	event : 'dblclick',
-	// 	style : 'inherit',
-	// 	submitdata : function(value, settings){
- //            var node = $tree.tree('getSelectedNode');
- //            console.log(value);
- //            $tree.tree('updateNode', selectedNode, 'pete');
- //            var data = $tree.tree('toJson');
- //    		// return {'data': data};
-	// 	}
-	// });
-// }
-
-// function makeActionButtonsClickable(){
-// 	$('#crateList tr a').click('click', function(event){
-// 		var id = this.parentNode.parentNode.parentNode.getAttribute('id');
-// 		if($(this).data("action") === 'delete'){
-// 			$.ajax({
-// 				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-// 				type:'get',
-// 				dataType:'html',
-// 				data:{'action':'delete', 'file_id':id},
-// 				success:function(data){
-// 					$('#crateList tr#'+id).remove();
-// 					hideMetadata();
-// 				},
-// 				error:function(data){
-					
-// 				}
-// 			});
-// 		}
-// 		else{
-// 			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
-// 		}
-// 	});
-// }
 
 function removeFORCodes(){
 	var first = $('#for_second_level option:first').detach();
@@ -121,24 +82,9 @@ function hideMetadata(){
 
 $(document).ready(function() {
 	
-	// $('#crateList').sortable({
-	// 	update: function (event, ui) {
- //            var neworder = [];
- //            ui.item.parent().children().each(function () {
- //                neworder.push(this.id);
- //            });
- //            $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
- //        }
-	// });
-	
 	hideMetadata();
 	
-
-
-	// makeActionButtonsClickable();
-	
 	$('#crateList').disableSelection();
-	// makeCrateListEditable();
 	
 	$('#download').click('click', function(event) { 
 		if($('#crateList tr').length == 0){
@@ -169,27 +115,6 @@ $(document).ready(function() {
 		$('#crateList').empty();
 		hideMetadata();
 	});
-
-    // $('#save_description').click(function() {
-    //     var description = $('#description').val();
-    //     if (description) {
-    //         $.ajax({
-    //             url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-    //             type: 'post',
-    //             dataType: 'json',
-    //             data: {'action': 'describe', 'description': description},
-    //             success: function(data) {
-    //                 OC.Notification.show('Description saved.');
-    //                 setTimeout(OC.Notification.hide(), 3000);
-    //             },
-    //             error: function(data) {
-    //                 OC.Notification.show('There was an error:' + data.statusText);
-    //                 setTimeout(OC.Notification.hide(), 3000);
-    //                 $('#description').focus();
-    //             }
-    //         });
-    //     }
-    // });
 	
 	
 	$('#subbutton').click(function(event) {
@@ -328,5 +253,16 @@ $(document).ready(function() {
         }
     });
 
+    $("#dialog-add").dialog({
+        autoOpen: false,
+    });
+
+    $("#dialog-rename").dialog({
+        autoOpen: false,
+    });
+
+    $("#dialog-delete").dialog({
+        autoOpen: false,
+    });
 	
 });	

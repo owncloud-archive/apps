@@ -78,3 +78,16 @@
         <li class="delete"><a href="#delete"><i class=".glyphicon .glyphicon-floppy-remove"></i> Delete</a></li>
     </ul>
 </div>
+
+<div id="dialog-add" title="Add Folder">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>New folder name:</p>
+</div>
+<div id="dialog-rename" title="Rename Item">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>New name:</p>
+</div>
+<div id="dialog-delete" title="Remove Item">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
+</div>
+
+
+
