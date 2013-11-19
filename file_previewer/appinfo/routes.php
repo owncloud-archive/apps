@@ -1,8 +1,8 @@
 <?php
-$this->create('previewer', '{fname}')
+/*$this->create('previewer', '{fname}')
 	->requirements(array('fname' => '.*'))
-	->actionInclude('file_previewer/docViewer.php');
+	->actionInclude('file_previewer/docViewer.php');*/
 
-$this->create('package_downloader', '{fname}')
+$this->create('preview_handler', '{fname}')
 	->requirements(array('fname' => '.*'))
-	->actionInclude('file_previewer/download.php');
+	->actionInclude('file_previewer/preview_handler.php');

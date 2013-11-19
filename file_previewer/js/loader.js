@@ -10,7 +10,7 @@ showPreview.oldCode='';
 showPreview.lastTitle='';
 var oldcontent = '';
 
-function showPreview(dir,filename){
+function showPreview(dir,filename, type){
 	if(!showPreview.shown){
 		$("#editor").hide();
 		$('#content table').hide();
@@ -23,7 +23,7 @@ function showPreview(dir,filename){
 		}
 		
 		oldcontent = $("#content").html();
-		var viewer = getFilePath(dir, filename);
+		var viewer = getFilePath(dir, filename, type);
 		
 		//window.location.hash = "#preview";
 		$("#content").html(oldcontent+'<iframe style="padding-top:1cm;width:100%;height:100%;display:block;" src="'+viewer+'" />');
@@ -46,7 +46,7 @@ function showPreview(dir,filename){
     }
   });*/
 
-function getFilePath(dir, filename) {
+function getFilePath(dir, filename, prev_type) {
 	var baseUrl = '';
 	if(dir === '/'){
 		baseUrl = dir + filename;	
@@ -54,8 +54,9 @@ function getFilePath(dir, filename) {
 	else{
 		baseUrl = dir + '/' + filename;
 	}
-	var viewer = OC.Router.generate('previewer', { fname: baseUrl});
-	return viewer;
+	var viewer = OC.Router.generate('preview_handler', { fname: baseUrl});
+	//var viewer = OC.linkTo('file_previewer', 'docViewer.php')+'?fname='+baseUrl+'&type='+prev_type;
+	return viewer + '_html/index.html';
 }
 
 function getRequestURL(dir, filename, type) {
@@ -68,7 +69,7 @@ function getRequestURL(dir, filename, type) {
 	}
 	var idx = filename.lastIndexOf(".");
 	var url = baseUrl + filename.slice(0, idx) + type;
-	var viewer = OC.Router.generate('previewer', { link: url});
+	var viewer = OC.Router.generate('previewer', { fname: url});
 	return viewer;
 }
 
@@ -87,7 +88,10 @@ $(document).ready(function() {
 				for (var i = 0; i < supportedMimes.length; ++i){
 					var mime = supportedMimes[i];
 					FileActions.register(mime,'Prev',OC.PERMISSION_READ,'',function(filename){
-						showPreview($('#dir').val(),filename);
+						showPreview($('#dir').val(),filename, 'pdf');
+					});
+					FileActions.register(mime,'html',OC.PERMISSION_READ,'',function(filename){
+						showPreview($('#dir').val(),filename, 'html');
 					});
 					FileActions.setDefault(mime,'Prev');
 				}
