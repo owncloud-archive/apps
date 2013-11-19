@@ -1,3 +1,5 @@
+<div class="wrapper"><!-- for sticky footer -->
+
 <header>
 	<div id="header">
 		<a href="<?php print_unescaped(link_to('', 'index.php')); ?>" title="" id="owncloud">
@@ -16,6 +18,10 @@
 
 	<div id='gallery' class="hascontrols" data-token="<?php isset($_['token']) ? p($_['token']) : p(false) ?>"></div>
 </div>
+
+	<div class="push"></div><!-- for sticky footer -->
+</div>
+
 <footer>
 	<p class="info">
 		<?php print_unescaped($theme->getLongFooter()); ?>
