@@ -565,6 +565,14 @@ class BagItManager{
 
 		if ($contents['creators']) {
 		   $creators = &$contents['creators'];
+
+		   for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+			   // duplicate error
+			   return false;
+			}
+		   }
+
 		   array_push($creators, array('creator_id' => $creator_id, 'full_name' => $full_name));
 		}
 		else {

@@ -200,7 +200,7 @@ switch ($action){
 			echo json_encode($full_name);
 		}
 		else {
-			header('HTTP/1.1 500 Internal Server Error');
+			header('HTTP/1.1 400 people exists');
 		}
 		break;
 	case 'remove_people':
