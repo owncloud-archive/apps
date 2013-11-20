@@ -73,9 +73,12 @@ footer p.info a {
 
 /* Sticky footer */
 body .wrapper {
-	min-height: 89%;
-	margin: 0 auto -30px;
+	min-height: 86%;
+	margin: 0 auto -50px;
 }
 body footer, body .push {
-	height: 30px;
+	height: 70px;
+}
+footer p.info {
+	padding-top: 30px;
 }
