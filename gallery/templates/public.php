@@ -6,7 +6,7 @@
 			<img class="svg" src="<?php print_unescaped(image_path('', 'logo-wide.svg')); ?>" alt="<?php p($theme->getName()); ?>" /></a>
 		<div id="logo-claim" style="display:none;"><?php p($theme->getLogoClaim()); ?></div>
 		<div class="header-right">
-			<span id="details"><?php p($l->t('%s shared the album "%s" with you', array($_['displayName'], $_['albumName']))) ?></span>
+			<span id="details"><?php p($l->t('%s shared %s with you', array($_['displayName'], $_['albumName']))) ?></span>
 		</div>
 	</div>
 </header>
