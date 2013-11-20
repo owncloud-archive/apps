@@ -56,8 +56,9 @@ class BagItManager{
 		//create manifest file if it doesn't exist
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
-			$contents = array('description' => '');
-			fclose($fp, json_encode($contents));
+			$contents = array('titles' => array(), 'creators' => array(), 'description' => '');
+			fwrite($fp, json_encode($contents));
+			fclose($fp);
 			$this->bag->update();
 		}
 	}
@@ -140,12 +141,13 @@ class BagItManager{
 		}
 		
 		//TODO we don't need to get the preview from the fascinator 
-		//$preview_file = $this->getPreviewPath($full_path);
-		/*if(empty($preview_file))
+		/*$preview_file = $this->getPreviewPath($full_path);
+		if(empty($preview_file))
 		{
 			return "No preview available. File not added to crate.";
-		}*/
-		$title = $this->getTitle($preview_file);
+		}
+		$title = $this->getTitle($preview_file);*/
+
 		if(empty($title)){
 			$title = $file;
 		}
@@ -391,7 +393,7 @@ class BagItManager{
 							  <h1>Package File Name</h1>
 							  <span property="http://schema.org/name">'.$this->selected_crate.'.zip</span>
 							  <h1>ID</h1>
-							  <span property="http://schema.org/name">'.$id.'</span>
+							  <span property="http://schema.org/id">'.$this->selected_crate.'</span>
 							  <h1>Description</h1>
 							  <span property="http://schema.org/description">'.$manifest_data['description'].'</span>
 							  <h1>Software Information</h1>
