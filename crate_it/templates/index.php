@@ -76,7 +76,10 @@
 		    </div>
 		    <ul id="creators">
                     <?php foreach($_['creators'] as $creator):?>
-		    	  <li><input id="creator_<?php echo $creator['creator_id'] ?>" type="button" value="Remove" /><?php echo htmlspecialchars($creator['full_name']) ?></li>
+		    	  <li>
+			    <input id="creator_<?php echo $creator['creator_id'] ?>" type="button" value="Remove" />
+			    <span id="<?php echo $creator['creator_id'] ?>" class="full_name"><?php echo $creator['full_name'] ?></span>
+			  </li>
                     <?php endforeach;?>
 		    </ul>
 		</div>

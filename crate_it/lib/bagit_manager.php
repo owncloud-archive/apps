@@ -596,4 +596,22 @@ class BagItManager{
 		return true;
 	}
 	
+	public function editCreator($creator_id, $new_full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$creators = &$contents['creators'];
+
+		for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+				$creators[$i]['full_name'] = $new_full_name;
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+
+		return true;
+	}
+	
 }

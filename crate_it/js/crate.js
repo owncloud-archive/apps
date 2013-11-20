@@ -76,6 +76,17 @@ function activateRemoveCreatorButton() {
     });
 }
 
+function makeCreatorListEditable(){
+    $('#creators .full_name').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_creator', {
+	id : 'creator_id',
+	name : 'new_full_name',
+	indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+	tooltip : 'Double click to edit...',
+	event : 'dblclick',
+	style : 'inherit'
+    });
+}
+
 $(document).ready(function() {
 	
 	$('#crateList').sortable({
@@ -367,11 +378,12 @@ $(document).ready(function() {
 			if (family_name)
 			    full_name = full_name + family_name;
 			if (email)
-			    full_name = full_name + ' &lt;' + email + '&gt;';
+			    full_name = full_name + ' ' + email;
 			$('#search_people_results').append('<li><input id="'
 							   + 'search_people_result_' + id
 							   + '" type="button" value="Add to creators" />'
-							   + full_name + '</li>');
+							   + '<span id="' + id + '" class="full_name">'
+							   + full_name + '</span></li>');
 		    }
 		    $("input[id^='search_people_result_']").click('click', function(event) {
 			// Add people to backend
@@ -396,6 +408,7 @@ $(document).ready(function() {
 				$('#creators').append(input_element.parent());
 				
 				activateRemoveCreatorButton();
+				makeCreatorListEditable();
 			    },
 			    error: function(data) {
 				OC.Notification.show('There was an error:' + data.statusText);
@@ -417,6 +430,7 @@ $(document).ready(function() {
 	});
 
     activateRemoveCreatorButton();
+    makeCreatorListEditable();
 	
 });	
 

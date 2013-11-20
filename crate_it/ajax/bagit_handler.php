@@ -17,6 +17,7 @@ $description = isset($_POST['description']) ? $_POST['description'] : '';
 $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
 $creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
 $full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
+$new_full_name = isset($_POST['new_full_name']) ? $_POST['new_full_name'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -207,6 +208,16 @@ switch ($action){
 
 		if($success){
 			echo json_encode($full_name);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'edit_creator':
+		$success = $bagit_manager->editCreator($creator_id, $new_full_name);
+
+		if($success) {
+			echo json_encode($new_full_name);
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');
