@@ -68,6 +68,7 @@ class BagItManager{
 	}
 	
 	public function showPreviews(){
+		\OCP\Util::writeLog("crate_it", $this->fascinator['status'], \OCP\Util::DEBUG);
 		return $this->fascinator['status'];
 	}
 	
@@ -83,9 +84,11 @@ class BagItManager{
 		if(empty($name)){
 			return false;
 		}
-		$this->initBag($name);
-		$this->selected_crate = $name;
-		$_SESSION['crate_id'] = $name;
+
+	        $this->initBag($name);
+	        $this->selected_crate = $name;
+	        $_SESSION['crate_id'] = $name;
+
 		return true;
 	}
 	
@@ -382,6 +385,15 @@ class BagItManager{
 		$bag = new \BagIt($tmp_dir);
 		
 		$manifest_data = $this->getManifestData();
+		$creator_list = "";
+
+		if ($manifest_data['creators']) {
+		   foreach ($manifest_data['creators'] as $creator) {
+			$creator_list = $creator_list . $creator['full_name'] . '<br/>';
+		   }
+		}
+
+		\OCP\Util::writeLog("crate_it", $creator_list, \OCP\Util::DEBUG);
 
 		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><body><article>
 					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
@@ -396,6 +408,8 @@ class BagItManager{
 							  <span property="http://schema.org/id">'.$this->selected_crate.'</span>
 							  <h1>Description</h1>
 							  <span property="http://schema.org/description">'.$manifest_data['description'].'</span>
+							  <h1>Creators</h1>
+							  <span property="http://schema.org/creators">'.$creator_list.'</span>
 							  <h1>Software Information</h1>
 							  <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
 							  	<table>
@@ -584,7 +598,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
-
+		$this->bag->update();
 		return true;
 	}
 	
@@ -602,7 +616,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
-
+		$this->bag->update();
 		return true;
 	}
 	
@@ -620,7 +634,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
-
+		$this->bag->update();
 		return true;
 	}
 	

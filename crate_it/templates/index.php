@@ -107,7 +107,6 @@
         <input id="subbutton" type="submit" value="Submit">
     </form>
     <select id="crates">
-        <option id="choose" value="choose">Choose a crate</option>
         <?php foreach($_['crates'] as $crate):?>
         <option id="<?php echo $crate; ?>" value="<?php echo $crate; ?>" <?php if($_['selected_crate']==$crate){echo 'selected';}?>>
             <?php echo $crate;?>

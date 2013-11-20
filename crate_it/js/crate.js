@@ -274,17 +274,12 @@ $(document).ready(function() {
 	
 	$('#crates').change(function(){
 		var id = $(this).find(':selected').attr("id");
-		if(id === "choose"){
-			$('#crateList').empty();
-			$('#crateName').text("");
-			$('#anzsrc_for').hide();
-			return;
-		}
 		$.ajax({
 			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id,
 			type: 'get',
 			dataType: 'html',
-			success: function(data){
+		        success: function(data) { location.reload() },
+			/*success: function(data){
 				$.ajax({
 					url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
 					type: 'get',
@@ -294,12 +289,20 @@ $(document).ready(function() {
 						$('#crateList').empty();
 						$('#crateName').text(id);
 						if(data != null && data.titles.length > 0){
-							var items = [];
+						    var items = [];
+						    if (data.show_previews == 'on') {
 							$.each(data.titles, function(key, value){
 								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
 										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
-										'<td><div><a data-action="delete" title="Delete"><img src="/owncloud/core/img/actions/delete.svg"></a></div></td></tr>');
+										'<td><div><a data-action="delete" title="Delete"><img src="/core/img/actions/delete.svg"></a></div></td></tr>');
 							});
+						    }
+						    else {
+							$.each(data.titles, function(key, value){
+								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
+										value['title']+'</span></td><td><div><a data-action="delete" title="Delete"><img src="/core/img/actions/delete.svg"></a></div></td></tr>');
+							});
+						    }
 							$('#crateList').append(items.join(''));
 							$('#metadata').show();
                             $('#description').val(data.description);
@@ -314,7 +317,7 @@ $(document).ready(function() {
 						alert(e);
 					}
 				});
-			},
+			},*/
 			error: function(data){
 				var e = data.statusText;
 				alert(e);
