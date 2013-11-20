@@ -50,9 +50,9 @@ body {
 	background: #404040 url('%webroot%/core/img/noise.png') repeat;
 }
 
-#openAsFileListButton,
-#openAsPhotoAlbum {
+#openAsFileListButton {
 	font-weight: normal;
+	float: right;
 }
 
 /* transfer to core after body has the id #body-public / #body-public-dark */

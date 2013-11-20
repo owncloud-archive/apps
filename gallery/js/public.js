@@ -5,8 +5,8 @@ $(document).ready(function () {
 	if ($('#filesApp').val() && $('#isPublic').val()) {
 		images = $("#fileList").find("tr[data-mime^='image']").length;
 		if (images > 0) {
-			button = $('<div id="openAsPhotoAlbum" class="button" style="float: right;"></div>');
-			button.append(t('gallery', 'Open as photo album' ));
+			button = $('<div class="button" style="float:right; font-weight:normal;"></div>');
+			button.append(t('gallery', 'Picture view' ));
 			$('#controls').append(button);
 
 			button.click( function (event) {

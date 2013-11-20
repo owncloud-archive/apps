@@ -13,7 +13,7 @@
 <div id="content">
 	<div id="controls">
 		<div id='breadcrumbs'></div>
-		<div id='openAsFileListButton' class="button" style="float: right;"><?php p($l->t('Open as file list')) ?></div>
+		<div id='openAsFileListButton' class="button"><?php p($l->t('File list')) ?></div>
 	</div>
 
 	<div id='gallery' class="hascontrols" data-token="<?php isset($_['token']) ? p($_['token']) : p(false) ?>"></div>
