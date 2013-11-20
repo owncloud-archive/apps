@@ -151,7 +151,13 @@ class BagItManager{
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$elements = &$contents['titles'];
-		$vfs = &$contents['vfs'][0]['children'];
+		$vfs = &$contents['vfs'][0];
+		if(array_key_exists('children', vfs)) {
+			$vfs = &$vfs['children'];
+		} else {
+			$vfs['children'] = array();
+			$vfs = &$vfs['children'];
+		}
 		$this->addPath($elements, $file, $vfs);
 		$fp = fopen($this->manifest, 'w');
 		fwrite($fp, json_encode($contents));
@@ -186,6 +192,7 @@ class BagItManager{
 	}
 
 
+	// TODO: probably don't need this anymore
 	private function getTitle($file) {
 		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
 				&& isset($matches[1] )) {
@@ -196,6 +203,7 @@ class BagItManager{
 		}
 	}
 	
+	// TODO: Update this to fit with tree structure
 	public function clearBag(){
 		//clear the manifest 
 		$fp = fopen($this->manifest, 'w+');
@@ -207,30 +215,29 @@ class BagItManager{
 		}
 	}
 	
-	public function updateOrder($neworder){
-		$shuffledItems = array();
-		//Get id and loop
-		foreach ($neworder as $id) {
-			foreach ($this->getItemList() as $item) {
-				if($id === $item['id'])
-				{
-					array_push($shuffledItems, $item);
-				}
-			}
-		}
-		$newentry = array("titles" => $shuffledItems);
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($newentry));
-		fclose($fp);
-		$this->bag->update();
-	}
+	// public function updateOrder($neworder){
+	// 	$shuffledItems = array();
+	// 	//Get id and loop
+	// 	foreach ($neworder as $id) {
+	// 		foreach ($this->getItemList() as $item) {
+	// 			if($id === $item['id'])
+	// 			{
+	// 				array_push($shuffledItems, $item);
+	// 			}
+	// 		}
+	// 	}
+	// 	$newentry = array("titles" => $shuffledItems);
+	// 	$fp = fopen($this->manifest, 'w+');
+	// 	fwrite($fp, json_encode($newentry));
+	// 	fclose($fp);
+	// 	$this->bag->update();
+	// }
 	
 	public function renameCrate($new_name){
 		rename($this->crate_dir, $this->crate_root.'/'.$new_name);
 		$this->switchCrate($new_name);
 		return true;
 	}
-	
 	
 	public function setDescription($description) {
 		$contents = json_decode(file_get_contents($this->manifest), true);
@@ -522,11 +529,11 @@ class BagItManager{
 		return $cont_array;
 	}
 	
-	public function setManifestData($data){
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($data));
-		fclose($fp);
-	}
+	// public function setManifestData($data){
+	// 	$fp = fopen($this->manifest, 'w+');
+	// 	fwrite($fp, json_encode($data));
+	// 	fclose($fp);
+	// }
 
 	public function updateVFS($data) {
 		$new_vfs = json_decode($data);
@@ -535,6 +542,7 @@ class BagItManager{
 		$contents['vfs'] = $new_vfs;
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
+		$this->bag->update();
 		return true;
 	}
 
