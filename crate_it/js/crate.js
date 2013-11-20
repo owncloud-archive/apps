@@ -134,8 +134,11 @@ $(document).ready(function() {
 	});
 	
 	$('#clear').click(function(event) {
-		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
-        // TODO: Change this logic for new tree structure
+        var children = $tree.tree('getNodeById', 'rootfolder').children;
+        children.forEach(function(node) {
+            $tree.tree('removeNode', node);
+        });
+        saveTree($tree);
 		hideMetadata();
 	});
 	
@@ -265,6 +268,7 @@ $(document).ready(function() {
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
+            console.log(data);
             $('#description').text(data.description);
             $tree = buildFileTree(data);
         },

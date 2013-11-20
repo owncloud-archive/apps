@@ -231,25 +231,7 @@ class BagItManager{
 		return true;
 	}
 	
-	//TODO
-	public function editTitle($id, $newvalue){
-		//edit title here
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-		foreach ($items as &$item) {
-			if($item['id'] === $id) {
-				$item['title'] = $newvalue;
-			}
-		}
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
-		$this->bag->update();
-		//TODO handle exceptions and return suitable value
-		return true;
-	}
 	
-
 	public function setDescription($description) {
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$contents['description'] = $description;

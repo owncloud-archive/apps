@@ -63,18 +63,12 @@ switch ($action){
 		$msg = $bagit_manager->addToBag($file);
 		print $msg;
 		break;
-	case 'clear':
-		$bagit_manager->clearBag();
-		break;
 	case 'delete':
 		$ok = $bagit_manager->removeItem($file_id);
 		if(!$ok){
 			header('HTTP/1.1 500 Internal Server Error');
 		}
 		break;
-	// case 'update':
-	// 	$bagit_manager->updateOrder($neworder);
-	// 	break;
 	case 'update_vfs':
         $ok = $bagit_manager->updateVFS($vfs);
         if($ok){
@@ -84,15 +78,6 @@ switch ($action){
 			header('HTTP/1.1 500 Internal Server Error');
 		}
         break;
-	case 'edit_title':
-		$ok = $bagit_manager->editTitle($element_id, $new_title);
-		if($ok){
-			echo $new_title;
-		}
-		else {
-			header('HTTP/1.1 500 Internal Server Error');
-		}
-		break;
 	case 'rename_crate':
 		$ok = $bagit_manager->renameCrate($new_name);
 		if($ok){
