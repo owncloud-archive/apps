@@ -69,7 +69,7 @@ class BagItManager{
 		}
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
-		$entry = array('titles' => array(), 'description' => 'Please enter a description...',
+		$entry = array('description' => 'Please enter a description...',
 			'vfs' => array(array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);
@@ -150,7 +150,7 @@ class BagItManager{
 		}
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		$elements = &$contents['titles'];
+		// $elements = &$contents['titles'];
 		$vfs = &$contents['vfs'][0];
 		if(array_key_exists('children', vfs)) {
 			$vfs = &$vfs['children'];
@@ -158,7 +158,7 @@ class BagItManager{
 			$vfs['children'] = array();
 			$vfs = &$vfs['children'];
 		}
-		$this->addPath($elements, $file, $vfs);
+		$this->addPath($file, $vfs);
 		$fp = fopen($this->manifest, 'w');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
@@ -172,21 +172,21 @@ class BagItManager{
 		return \OC\Files\Filesystem::getLocalFile($file);
 	}
 
-	private function addPath(&$titles, $path, &$vfs) {
+	private function addPath($path, &$vfs) {
 		if (\OC\Files\Filesystem::is_dir($path)) {
 			$vfs_entry = array('label' => basename($path), 'id' => 'folder', 'children' => array());
 			$vfs_contents = &$vfs_entry['children'];
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
 				$rel_path = substr($sub_path['path'], strlen('files/'));
-				$this->addPath($titles, $rel_path, $vfs_contents);
+				$this->addPath($rel_path, $vfs_contents);
 			}
 		} else {
 			$full_path = $this->getFullPath($path);
 			$id = md5($full_path);
-			$file_entry = array('id' => $id, 'filename' => $full_path);
-			$vfs_entry = array('id' => $id, 'label' => basename($path));
-			array_push($titles, $file_entry);
+			// $file_entry = array('id' => $id, 'filename' => $full_path);
+			$vfs_entry = array('id' => $id, 'label' => basename($path), 'filename' => $full_path);
+			// array_push($titles, $file_entry);
 		}
 		array_push($vfs, $vfs_entry);
 	}
@@ -249,6 +249,7 @@ class BagItManager{
 	}
 
 	//remove an item from manifest
+	//TODO: probably don't need to use this anymore
 	public function removeItem($id){
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$items = &$contents['titles'];
@@ -271,14 +272,14 @@ class BagItManager{
 	 * @param string $file_id
 	 * @return string
 	 */
-	public function getPathFromFileId($file_id){
-        foreach ($this->getItemList() as $value) {
-	    	if($value['id'] === $file_id){
-	    		$dir = $this->getParentDirectory($value['filename']);
-                return $dir.'/'.$path_parts['basename'];
-		    }
-		}
-	}
+	// public function getPathFromFileId($file_id){
+ //        foreach ($this->getItemList() as $value) {
+	//     	if($value['id'] === $file_id){
+	//     		$dir = $this->getParentDirectory($value['filename']);
+ //                return $dir.'/'.$path_parts['basename'];
+	// 	    }
+	// 	}
+	// }
 	
 	/**
 	 * Get the directory where a file resides.
@@ -330,11 +331,11 @@ class BagItManager{
 		
 		$temp_dir = \OC_Helper::tmpFolder();
 
-		foreach ($this->getItemList() as $value) {
+		foreach ($this->flatList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
 			$prev_file = $path_parts['filename'].'.htm';
-			$prev_title = $value['title'];
+			$prev_title = $value['label'];
 				
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
@@ -366,11 +367,43 @@ class BagItManager{
 		return $temp_dir.'temp.epub';
 	}
 	
-	private function getItemList(){
-		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		return $contents['titles'];
-	}
+
+	// TODO: getItemList() is called in may places, so we have to replace is with a suitable function
+
+	// private function getItemList(){
+	// 	$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+	// 	return $contents['titles'];
+	// }
 	
+	// private function($item, $key, &$items) {
+
+	// }
+
+
+	// private function getItemList() {
+	// 	$items = array();
+	// }
+
+    public function flatList() {
+        $data = $this->getManifestData();
+        $vfs = &$data['vfs'][0]['children'];
+        $flat = array();
+        $ref = &$flat;
+        $this->flat_r($vfs, $ref);
+        return $flat;
+    }
+
+    private function flat_r(&$vfs, &$flat) {
+        foreach ($vfs as $entry) {
+            if (array_key_exists('filename', $entry)) {
+                $flat_entry = array('id' => $entry['id'], 'label' => $entry['label'], 'filename' => $entry['filename']);
+                array_push($flat, $flat_entry);
+            } elseif (array_key_exists('children', $entry)) {
+                $this->flat_r($entry['children'], $flat);
+            }
+        }
+    }
+
 	public function createZip(){
 		$tmp_dir = \OC_Helper::tmpFolder();
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
@@ -442,7 +475,7 @@ class BagItManager{
 							  		</thead>
 							  		<tbody>';
 		if(count($bag->getBagErrors(true)) == 0){
-			foreach ($this->getItemList() as $item){
+			foreach ($this->flatList() as $item){
 				$path_parts = pathinfo($item['filename']);
 				$dir = $this->getParentDirectory($item['filename']);
 				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
@@ -457,7 +490,7 @@ class BagItManager{
 				$size = $this->humanReadableFileSize(filesize($item['filename']));
 				$sec = '<tr>
 							<td>'.$name.'</td>
-							<td>'.$item['title'].'</td>
+							<td>'.$item['label'].'</td>
 							<td>'.$mime.'</td>
 							<td>'.$size.'</td>
 							<td></td>
