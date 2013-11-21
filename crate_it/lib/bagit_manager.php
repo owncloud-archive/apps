@@ -151,7 +151,7 @@ class BagItManager{
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 		$vfs = &$contents['vfs'][0];
-		if(array_key_exists('children', vfs)) {
+		if(array_key_exists('children', $vfs)) {
 			$vfs = &$vfs['children'];
 		} else {
 			$vfs['children'] = array();
@@ -171,6 +171,7 @@ class BagItManager{
 		return \OC\Files\Filesystem::getLocalFile($file);
 	}
 
+	// TODO: There's currently no check for duplicates
 	private function addPath($path, &$vfs) {
 		if (\OC\Files\Filesystem::is_dir($path)) {
 			$vfs_entry = array('label' => basename($path), 'id' => 'folder', 'children' => array());
