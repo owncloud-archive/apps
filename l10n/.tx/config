@@ -84,12 +84,6 @@ source_file = templates/ownpad_lite.pot
 source_lang = en
 type = PO
 
-[owncloud.mozilla_sync]
-file_filter = <lang>/mozilla_sync.po
-source_file = templates/mozilla_sync.pot
-source_lang = en
-type = PO
-
 [owncloud.files_antivirus]
 file_filter = <lang>/files_antivirus.po
 source_file = templates/files_antivirus.pot
