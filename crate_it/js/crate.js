@@ -99,8 +99,6 @@ $(document).ready(function() {
         }
 	});
 	
-	hideMetadata();
-	
 	makeActionButtonsClickable();
 	
 	$('#crateList').disableSelection();
@@ -163,7 +161,6 @@ $(document).ready(function() {
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
 		$('#crateList').empty();
-		hideMetadata();
 	});
 
     $('#save_description').click(function() {
@@ -279,45 +276,6 @@ $(document).ready(function() {
 			type: 'get',
 			dataType: 'html',
 		        success: function(data) { location.reload() },
-			/*success: function(data){
-				$.ajax({
-					url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-					type: 'get',
-					dataType: 'json',
-					data: {'action': 'get_items'},
-					success: function(data){
-						$('#crateList').empty();
-						$('#crateName').text(id);
-						if(data != null && data.titles.length > 0){
-						    var items = [];
-						    if (data.show_previews == 'on') {
-							$.each(data.titles, function(key, value){
-								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
-										value['title']+'</span></td><td><div style="padding-right: 22px;"><a data-action="view">View</a></div></td>'+
-										'<td><div><a data-action="delete" title="Delete"><img src="/core/img/actions/delete.svg"></a></div></td></tr>');
-							});
-						    }
-						    else {
-							$.each(data.titles, function(key, value){
-								items.push('<tr id="'+value['id']+'"><td><span class="title" style="padding-right: 150px;">'+
-										value['title']+'</span></td><td><div><a data-action="delete" title="Delete"><img src="/core/img/actions/delete.svg"></a></div></td></tr>');
-							});
-						    }
-							$('#crateList').append(items.join(''));
-							$('#metadata').show();
-                            $('#description').val(data.description);
-						} else {
-							hideMetadata();
-						}
-						makeCrateListEditable();
-						makeActionButtonsClickable();
-					},
-					error: function(data){
-						var e = data.statusText;
-						alert(e);
-					}
-				});
-			},*/
 			error: function(data){
 				var e = data.statusText;
 				alert(e);

@@ -194,11 +194,14 @@ class BagItManager{
 	}
 	
 	public function clearBag(){
-		//clear the manifest 
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$items = &$contents['titles'];
+		$items = array();
 		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
 		fclose($fp);
 		$this->bag->update();
-		
+
 		if(file_exists($this->crate_root.'/packages/crate.zip')){
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
