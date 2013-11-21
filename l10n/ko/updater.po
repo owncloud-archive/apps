@@ -7,14 +7,14 @@
 # 남자사람 <cessnagi@gmail.com>, 2012
 # Shinjo Park <kde@peremen.name>, 2013
 # Shinjo Park <kde@peremen.name>, 2013
-# smallsnail <bjh13579@gmail.com>, 2013
+# 책읽는달팽 <bjh13579@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-14 00:41+0000\n"
-"Last-Translator: smallsnail <bjh13579@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: 책읽는달팽 <bjh13579@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr "설치를 확인중입니다..."
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "업그레이드를 할수 없습니다. 웹서버가 다음과 같은 파일과 디렉터리에 쓸수 있도록 해주세요:"
 
 #: ajax/update.php:60
 msgid "Version not found"
@@ -40,13 +40,13 @@ msgstr "버전을 찾을수 "
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "업그레이드를 할수 없습니다. 웹서버가 다음과 같은 디렉터리를 삭제할 충분한 권한을 가지고 있지 않습니다:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "먼저 이 디렉터리이나 파일의 권한을 업데이트 하거나, 수동으로 삭제하세요"
 
 #: ajax/update.php:85
 msgid "Downloading package..."
@@ -54,7 +54,7 @@ msgstr "패키지 다운로드중..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "패키지를 가져올수 없습니다"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
@@ -74,7 +74,7 @@ msgstr "파일 이동중..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "모든게 다 되었습니다. 밑의 링크를 클릭하여 데이터베이스 업그레이드를 시작하세요."
 
 #: ajax/update.php:112
 msgid "Update failed"
@@ -85,7 +85,7 @@ msgid ""
 "The update was unsuccessful. Please report this issue to the <a "
 "href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
 "community</a>."
-msgstr ""
+msgstr "업데이트가 실패했습니다. <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>에 보고를 올려주세요."
 
 #: templates/admin.php:17
 msgid "Update Center"
@@ -105,11 +105,11 @@ msgstr "백업 "
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "백업"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "완료."
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"

@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Download" => "Загрузка"
+"Download" => "Загрузка",
+"Delete" => "Удалить"
 );

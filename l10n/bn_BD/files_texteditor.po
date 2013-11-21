@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:43+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,14 @@ msgstr "সংরক্ষণ করা হচ্ছে...."
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:258
+#: js/editor.js:260
 msgid "An error occurred!"
 msgstr "সমস্যা দেখা দিয়েছে !"
 
-#: js/editor.js:284
+#: js/editor.js:276
+msgid "There are unsaved changes in the text editor"
+msgstr ""
+
+#: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
 msgstr "পরিবর্তনসমূহ সংরক্ষণ করা হয় নি, ফিরে যেতে এখানে ক্লিক করুন"

@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"More" => "Подробнее"
+"More" => "Подробнее",
+"Delete" => "Удалить"
 );

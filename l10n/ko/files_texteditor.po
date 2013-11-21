@@ -12,9 +12,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:43+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -51,10 +51,14 @@ msgstr "저장하는 중..."
 msgid "Failed to save file"
 msgstr "파일 저장 실패"
 
-#: js/editor.js:258
+#: js/editor.js:260
 msgid "An error occurred!"
 msgstr "오류가 발생하였습니다!"
 
-#: js/editor.js:284
+#: js/editor.js:276
+msgid "There are unsaved changes in the text editor"
+msgstr ""
+
+#: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
 msgstr "저장되지 않은 변경 사항이 있습니다. 여기를 누르면 돌아갑니다"

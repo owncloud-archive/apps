@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# akong <akong@aspa.idv.tw>, 2013
 # sy6614 <sy6614@yahoo.com.hk>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-01 14:32-0400\n"
-"PO-Revision-Date: 2013-10-31 17:00+0000\n"
-"Last-Translator: sy6614 <sy6614@yahoo.com.hk>\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-04 07:40+0000\n"
+"Last-Translator: akong <akong@aspa.idv.tw>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,21 +25,21 @@ msgstr "活動"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "沒有更多活動要讀取。"
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "讀取舊的活動中"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "RSS 來源"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "沒有正在活動的。"
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "當您開始使用您的 %s 時候，您將會在這看到事件列表。"

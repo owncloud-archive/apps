@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
 # Rivo Zängov <eraser@eraser.ee>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:44+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-18 09:20+0000\n"
+"Last-Translator: pisike.sipelgas <pisike.sipelgas@gmail.com>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,10 +47,14 @@ msgstr "Salvestamine..."
 msgid "Failed to save file"
 msgstr "Faili salvestamine ebaõnnestus"
 
-#: js/editor.js:258
+#: js/editor.js:260
 msgid "An error occurred!"
 msgstr "Tekis tõrge!"
 
-#: js/editor.js:284
+#: js/editor.js:276
+msgid "There are unsaved changes in the text editor"
+msgstr "Tekstiredaktoris on salvestamata muudatusi"
+
+#: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
 msgstr "Mõned muudatused olid salvestamata, tagasi minemiseks kliki siia"

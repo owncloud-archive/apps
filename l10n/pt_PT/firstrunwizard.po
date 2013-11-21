@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-01 14:32-0400\n"
-"PO-Revision-Date: 2013-11-01 17:50+0000\n"
-"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-21 09:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,11 +51,12 @@ msgid "Access files via WebDAV"
 msgstr "Aceder aos ficheiros via WebDAV"
 
 #: templates/wizard.php:41
+#, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
-"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
-"and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
-msgstr "Há mais informações na <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentação</a> e no nosso  <a target=\"_blank\" href=\"http://owncloud.org\">site</a>."
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr ""
 
 #: templates/wizard.php:42
 msgid ""

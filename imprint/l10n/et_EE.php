@@ -9,9 +9,9 @@
 "Standalone app" => "Eraldi rakendus",
 "Header left" => "Vasak päis",
 "Header right" => "Parem päis",
-"Navigation top" => "Navigatsioon üles",
-"Navigation bottom" => "Navigatsioon alla",
+"Navigation top" => "Navigatsioon üleval",
+"Navigation bottom" => "Navigatsioon all",
 "During login" => "Sisselogimise ajal",
 "Content" => "Sisu",
-"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Saad kasutada HTML märgendeid (nt. <br>; for a reavahetuseks) ning sisestiili atribuute (nt. <a style=\"color:red;\">)."
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Saad kasutada HTML märgendeid (nt. <br> reavahetuseks) ning sisestiili atribuute (nt. <a style=\"color:red;\">)."
 );

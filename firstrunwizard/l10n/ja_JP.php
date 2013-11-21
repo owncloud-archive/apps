@@ -6,6 +6,5 @@
 "Connect your Calendar" => "あなたのカレンダーを接続する",
 "Connect your Contacts" => "あなたの連絡先を接続する",
 "Access files via WebDAV" => "WebDAV経由でファイルにアクセス",
-"There’s more information in the <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "<a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">ドキュメント</a> および <a target=\"_blank\" href=\"http://owncloud.org\">ウェブサイト</a> により詳しい情報が掲載されています。",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "ownCloud を気に入っていただけたら、<a href=\"mailto:?subject=ownCloud&body=ownCloud はファイルの同期や共有のための素晴らしいオープンソース・ソフトウェアです。http://owncloud.org から自由にダウンロードすることができます。\">ぜひ友達に紹介してください</a>！"
 );

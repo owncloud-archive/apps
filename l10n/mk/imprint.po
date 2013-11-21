@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# miroj <jmiroslav@softhome.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-07 04:33-0400\n"
-"PO-Revision-Date: 2013-09-07 08:34+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-08 20:00+0000\n"
+"Last-Translator: miroj <jmiroslav@softhome.net>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "Правна забелешка"
 
 #: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Тука сеуште нема ништо"
 
 #: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
@@ -33,7 +34,7 @@ msgstr ""
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "Ова нагодување е направено во секцијата за администрација."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
@@ -49,31 +50,31 @@ msgstr ""
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "Самостојна апликација"
 
 #: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
-msgstr ""
+msgstr "Заглавие лево"
 
 #: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
-msgstr ""
+msgstr "Заглавие десно"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "Навигацијата горе"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr ""
+msgstr "Навигацијата долу"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
-msgstr ""
+msgstr "Додека се најавувате"
 
 #: templates/tmpl_settings.php:61
 msgid "Content"
-msgstr ""
+msgstr "Содржина"
 
 #: templates/tmpl_settings.php:66
 msgid ""

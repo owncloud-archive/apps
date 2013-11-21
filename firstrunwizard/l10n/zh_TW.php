@@ -6,6 +6,5 @@
 "Connect your Calendar" => "連結您的日曆",
 "Connect your Contacts" => "連結您的聯絡人",
 "Access files via WebDAV" => "透過 WebDAV 存取檔案",
-"There’s more information in the <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "我們的<a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">說明文件</a>和<a target=\"_blank\" href=\"http://owncloud.org\">網站</a>上面有更多資訊。",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "如果您喜歡 ownCloud，<a href=\"mailto:?subject=ownCloud&body=ownCloud ownCloud 讓您輕鬆的同步和分享檔案， 請至http://owncloud.org 免費取得\">把它推薦給朋友</a>吧！"
 );

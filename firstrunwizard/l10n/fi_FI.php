@@ -6,6 +6,5 @@
 "Connect your Calendar" => "Yhdistä kalenteriisi",
 "Connect your Contacts" => "Yhdistä yhteystietoihisi",
 "Access files via WebDAV" => "Käytä tiedostoja WebDAVin välityksellä",
-"There’s more information in the <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "Lisätietoja on saatavilla <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">ohjeistuksen</a> ja <a target=\"_blank\" href=\"http://owncloud.org\">verkkosivustomme</a> kautta.",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Jos pidät ownCloudista, <a href=\"mailto:?subject=ownCloud&body=ownCloud on erinomainen avoin ohjelmisto tiedostojen synkronointiin ja jakamiseen. Tutustu siihen osoitteessa http://owncloud.org\">suosittele sitä ystävillesi</a>!"
 );

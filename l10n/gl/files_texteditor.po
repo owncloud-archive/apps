@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:43+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-18 16:20+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -48,10 +48,14 @@ msgstr "Gardando..."
 msgid "Failed to save file"
 msgstr "Non foi posíbel gardar o ficheiro"
 
-#: js/editor.js:258
+#: js/editor.js:260
 msgid "An error occurred!"
 msgstr "Produciuse un erro!"
 
-#: js/editor.js:284
+#: js/editor.js:276
+msgid "There are unsaved changes in the text editor"
+msgstr "Hai cambios sen gardar no editor de textos"
+
+#: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
 msgstr "Hai cambios sen gardar, prema aquí para ir cara atrás"

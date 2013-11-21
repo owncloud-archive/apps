@@ -6,6 +6,5 @@
 "Connect your Calendar" => "Connectez votre calendrier",
 "Connect your Contacts" => "Connectez vos contacts",
 "Access files via WebDAV" => "Accéder aux fichiers via WebDAV",
-"There’s more information in the <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "Des informations supplémentaires sont disponibles dans la <a target=\"_blank\" href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> et sur notre <a target=\"_blank\" href=\"http://owncloud.org\">site web</a>.",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Si vous aimez ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud est un excellent logiciel ouvert permettant de synchroniser et partager vos fichiers. Vous pouvez l'obtenir gratuitement à partir du site http://owncloud.org\">recommandez-le à vos amis</a>!"
 );

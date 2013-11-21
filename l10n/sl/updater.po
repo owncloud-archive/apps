@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-14 00:41+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,41 +23,41 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Preverjanje namestitve ..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "Posodobitev ni mogoča. Preverite, ali so nastavljena ustrezna dovoljenja za zapisovanje naslednjih datotek in map:"
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr ""
+msgstr "Različice ni mogoče najti"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "Posodobitev ni mogoča. Ni ustreznih dovoljenj za odstranitev naslednjih map:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "Posodobiti je treba dovoljenja te mape in njene vsebine ali pa jo ročno odstraniti."
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr ""
+msgstr "Prejemanje paketa ..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Ni mogoče pridobiti paketa"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr ""
+msgstr "Ustvarjanje varnostne kopije ..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -65,34 +65,34 @@ msgstr "Varnostna kopija:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Ustvarjanje varnostne kopije je spodletelo"
 
 #: ajax/update.php:103
 msgid "Moving files..."
-msgstr ""
+msgstr "Premikanje datotek ..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "Končano. Kliknite na spodnjo povezavo za začetek posodabljanja podatkovne zbirke."
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr ""
+msgstr "Posodobitev je spodletela"
 
 #: js/controllers.js:25
 msgid ""
 "The update was unsuccessful. Please report this issue to the <a "
 "href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
 "community</a>."
-msgstr ""
+msgstr "Posodobitev ni uspešno končana. Pošljite poročilo o napaki na <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud github</a>."
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr ""
+msgstr "Središče za posodobitve"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Upravljanje varnostnih kopij"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
@@ -100,15 +100,15 @@ msgstr "Posodobi"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Mapa za varnostne kopje"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Varnostna kopija"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Ustvarjena na"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"
@@ -120,4 +120,4 @@ msgstr "Izbriši"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Ni najdenih varnostnih kopij"

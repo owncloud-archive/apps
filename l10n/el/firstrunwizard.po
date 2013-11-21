@@ -5,12 +5,13 @@
 # Translators:
 # Dimitris M. <monopatis@gmail.com>, 2013
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2013
+# Marios Bekatoros <>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-16 01:32+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-21 09:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -50,10 +51,11 @@ msgid "Access files via WebDAV"
 msgstr "Πρόσβαση στα αρχεία μέσω WebDAV"
 
 #: templates/wizard.php:41
+#, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
-"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
-"and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
 msgstr ""
 
 #: templates/wizard.php:42

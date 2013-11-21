@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# sim0n <sim0n@trypill.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-14 00:41+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: sim0n <sim0n@trypill.org>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Deng Installatioun gëtt iwwerpréift..."
 
 #: ajax/update.php:37
 msgid ""
@@ -29,7 +30,7 @@ msgstr ""
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr ""
+msgstr "Versioun net fonnt"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
@@ -45,23 +46,23 @@ msgstr ""
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr ""
+msgstr "Package gëtt erofgelueden"
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Konnt de Package net eroflueden"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr ""
+msgstr "Leeën e Backup un..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Hei ass däi Backup:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Konnt de Backup net uleeën"
 
 #: ajax/update.php:103
 msgid "Moving files..."
@@ -73,7 +74,7 @@ msgstr ""
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr ""
+msgstr "Update ass feelgeschloen"
 
 #: js/controllers.js:25
 msgid ""
@@ -84,23 +85,23 @@ msgstr ""
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr ""
+msgstr "Update Center"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Backup Management"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Backup Dossier"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Backup"
 
 #: templates/update.php:28
 msgid "Done on"
@@ -116,4 +117,4 @@ msgstr "Läschen"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Keng Backups fonnt"

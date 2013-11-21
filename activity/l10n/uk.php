@@ -1,3 +1,5 @@
 <?php $TRANSLATIONS = array(
-"test" => "тест",
+"Activity" => "Активність",
+"RSS feed" => "Стрічка RSS",
+"No activities yet." => "Поки ніякої активності"
 );

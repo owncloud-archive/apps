@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# martins1 <mednismartins@inbox.lv>, 2013
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-16 01:32+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-21 09:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgstr "Laipni lūdzam ownCloud"
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr "Jūsu personīgie tīmekļa pakalpojumi. Visas jūsu datnes, kalendāru un citi dati vienuviet."
+msgstr "Jūsu personīgie tīmekļa pakalpojumi. Visas jūsu datnes, kalendārs un citi dati vienuviet."
 
 #: templates/wizard.php:15
 msgid "Get the apps to sync your files"
@@ -49,10 +50,11 @@ msgid "Access files via WebDAV"
 msgstr "Piekļūstiet datnēm caur WebDAV"
 
 #: templates/wizard.php:41
+#, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
-"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
-"and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
 msgstr ""
 
 #: templates/wizard.php:42
