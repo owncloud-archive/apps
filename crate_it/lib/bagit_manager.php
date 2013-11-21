@@ -150,7 +150,6 @@ class BagItManager{
 		}
 		
 		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		// $elements = &$contents['titles'];
 		$vfs = &$contents['vfs'][0];
 		if(array_key_exists('children', vfs)) {
 			$vfs = &$vfs['children'];
@@ -184,24 +183,11 @@ class BagItManager{
 		} else {
 			$full_path = $this->getFullPath($path);
 			$id = md5($full_path);
-			// $file_entry = array('id' => $id, 'filename' => $full_path);
 			$vfs_entry = array('id' => $id, 'label' => basename($path), 'filename' => $full_path);
-			// array_push($titles, $file_entry);
 		}
 		array_push($vfs, $vfs_entry);
 	}
 
-
-	// TODO: probably don't need this anymore
-	private function getTitle($file) {
-		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
-				&& isset($matches[1] )) {
-			return $matches[1];
-		}
-		else {
-			return "";
-		}
-	}
 	
 	// TODO: Update this to fit with tree structure
 	public function clearBag(){
@@ -214,24 +200,7 @@ class BagItManager{
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
 	}
-	
-	// public function updateOrder($neworder){
-	// 	$shuffledItems = array();
-	// 	//Get id and loop
-	// 	foreach ($neworder as $id) {
-	// 		foreach ($this->getItemList() as $item) {
-	// 			if($id === $item['id'])
-	// 			{
-	// 				array_push($shuffledItems, $item);
-	// 			}
-	// 		}
-	// 	}
-	// 	$newentry = array("titles" => $shuffledItems);
-	// 	$fp = fopen($this->manifest, 'w+');
-	// 	fwrite($fp, json_encode($newentry));
-	// 	fclose($fp);
-	// 	$this->bag->update();
-	// }
+
 	
 	public function renameCrate($new_name){
 		rename($this->crate_dir, $this->crate_root.'/'.$new_name);
@@ -247,24 +216,6 @@ class BagItManager{
 		fclose($fp);
 		return true;
 	}
-
-	//remove an item from manifest
-	//TODO: probably don't need to use this anymore
-	public function removeItem($id){
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-	    
-		for ($i = 0; $i < count($items); $i++) {
-			if($items[$i]['id'] ==  $id)
-			{
-				array_splice($items, $i, 1);
-			}
-		}
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
-		return true;
-	}
 	
 	/**
 	 * Get file path from file id
@@ -272,14 +223,14 @@ class BagItManager{
 	 * @param string $file_id
 	 * @return string
 	 */
-	// public function getPathFromFileId($file_id){
- //        foreach ($this->getItemList() as $value) {
-	//     	if($value['id'] === $file_id){
-	//     		$dir = $this->getParentDirectory($value['filename']);
- //                return $dir.'/'.$path_parts['basename'];
-	// 	    }
-	// 	}
-	// }
+	public function getPathFromFileId($file_id){
+        foreach ($this->flatList() as $value) {
+	    	if($value['id'] === $file_id){
+	    		$dir = $this->getParentDirectory($value['filename']);
+                return $dir.'/'.$path_parts['basename'];
+		    }
+		}
+	}
 	
 	/**
 	 * Get the directory where a file resides.
@@ -366,23 +317,7 @@ class BagItManager{
 		//send the epub to user
 		return $temp_dir.'temp.epub';
 	}
-	
 
-	// TODO: getItemList() is called in may places, so we have to replace is with a suitable function
-
-	// private function getItemList(){
-	// 	$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-	// 	return $contents['titles'];
-	// }
-	
-	// private function($item, $key, &$items) {
-
-	// }
-
-
-	// private function getItemList() {
-	// 	$items = array();
-	// }
 
     public function flatList() {
         $data = $this->getManifestData();
@@ -561,12 +496,7 @@ class BagItManager{
 		fclose($fp);
 		return $cont_array;
 	}
-	
-	// public function setManifestData($data){
-	// 	$fp = fopen($this->manifest, 'w+');
-	// 	fwrite($fp, json_encode($data));
-	// 	fclose($fp);
-	// }
+
 
 	public function updateVFS($data) {
 		$new_vfs = json_decode($data);

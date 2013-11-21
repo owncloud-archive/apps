@@ -63,12 +63,6 @@ switch ($action){
 		$msg = $bagit_manager->addToBag($file);
 		print $msg;
 		break;
-	case 'delete':
-		$ok = $bagit_manager->removeItem($file_id);
-		if(!$ok){
-			header('HTTP/1.1 500 Internal Server Error');
-		}
-		break;
 	case 'update_vfs':
         $ok = $bagit_manager->updateVFS($vfs);
         if($ok){
