@@ -641,4 +641,15 @@ class BagItManager{
 		return true;
 	}
 	
+	public function validateMetadata() {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if (count($contents['creators']) > 0 && $contents['description'] && trim($contents['description']) != '') {
+		     return true;
+		}
+		else {
+		     return false;
+	        }
+	}
+	
 }
