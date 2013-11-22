@@ -69,7 +69,7 @@ class BagItManager{
 		}
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
-		$entry = array('description' => 'Please enter a description...',
+		$entry = array('description' => 'Please enter a description...', 'creators' => array(),
 			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);
@@ -115,7 +115,8 @@ class BagItManager{
 	}
 
 	public function getBaggedFiles() {
-		return json_encode($this->getManifestData()['vfs']);
+		$contents = $this->getManifestData();
+		return json_encode($contents['vfs']);
 	}
 
 	public function setBaggedFiles() {
