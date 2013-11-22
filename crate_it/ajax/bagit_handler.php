@@ -217,4 +217,14 @@ switch ($action){
 			header('HTTP/1.1 500 Internal Server Error');
 		}
 		break;
+	case 'validate_metadata':
+		$success = $bagit_manager->validateMetadata();
+
+		if($success) {
+			echo json_encode("Success");
+		}
+		else {
+			header('HTTP/1.1 400 Metadata validation failed');
+		}
+		break;
 }

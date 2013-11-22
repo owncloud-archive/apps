@@ -67,6 +67,36 @@ function buildFileTree(data) {
     return $tree;
 }
 
+
+function togglePostCrateToSWORD() {
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'post',
+        dataType: 'json',
+        data: {'action': 'validate_metadata'},
+        success: function(data) {
+            $('#post').removeAttr("disabled");
+        },
+        error: function(data) {
+	    $('#post').attr("title", "You cannot post this crate until metadata(title, description, creator) are all set");
+            $('#post').attr("disabled", "disabled");
+        }
+    });
+}
+
+function makeCrateListEditable(){
+	$('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
+		name : 'new_title',
+		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+		tooltip : 'Double click to edit...',
+		event : 'dblclick',
+		style : 'inherit',
+		submitdata : function(value, settings){
+			return {'elementid':this.parentNode.parentNode.getAttribute('id')};
+		}
+	});
+}
+
 function expandRoot() {
     var rootnode = $tree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
     $tree.tree('openNode', rootnode);
@@ -107,7 +137,36 @@ function hideMetadata(){
 	}
 }
 
-function activateRemoveCreatorButton() {
+function activateRemoveCreatorButton(buttonObj) {
+    buttonObj.click('click', function(event) {
+	// Remove people from backend
+	var id = $(this).attr("id");
+	creator_id = id.replace("creator_", "");
+	
+	$.ajax({
+	    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+	    type: 'post',
+	    dataType: 'json',
+	    data: {
+		'action': 'remove_people',
+		'creator_id': creator_id,
+		'full_name': $(this).parent().text()
+	    },
+	    success: function(data) {
+		buttonObj.parent().remove();
+		togglePostCrateToSWORD();
+	    },
+	    error: function(data) {
+		OC.Notification.show('There was an error:' + data.statusText);
+		setTimeout(function() {
+		    OC.Notification.hide();
+		}, 3000);
+	    }
+	});
+    });
+}
+
+function activateRemoveCreatorButtons() {
     $("input[id^='creator_']").click('click', function(event) {
 	// Remove people from backend
 	var input_element = $(this);
@@ -125,6 +184,7 @@ function activateRemoveCreatorButton() {
 	    },
 	    success: function(data) {
 		input_element.parent().remove();
+		togglePostCrateToSWORD();
 	    },
 	    error: function(data) {
 		OC.Notification.show('There was an error:' + data.statusText);
@@ -136,7 +196,7 @@ function activateRemoveCreatorButton() {
     });
 }
 
-function makeCreatorListEditable(){
+function makeCreatorsEditable(){
     $('#creators .full_name').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_creator', {
 	id : 'creator_id',
 	name : 'new_full_name',
@@ -147,7 +207,20 @@ function makeCreatorListEditable(){
     });
 }
 
+function makeCreatorEditable(creatorObj) {
+    creatorObj.editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_creator', {
+	id : 'creator_id',
+	name : 'new_full_name',
+	indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+	tooltip : 'Double click to edit...',
+	event : 'dblclick',
+	style : 'inherit'
+    });
+}
+
 $(document).ready(function() {
+
+    togglePostCrateToSWORD();
 	
 	$('#download').click('click', function(event) { 
 		if(treeHasNoFiles()){
@@ -211,7 +284,6 @@ $(document).ready(function() {
         saveTree($tree);
 		hideMetadata();
 	});
-	
 	
 	$('#subbutton').click(function(event) {
 	    $.ajax({
@@ -341,14 +413,16 @@ $(document).ready(function() {
 				'full_name': input_element.parent().text()
 			    },
 			    success: function(data) {
-				var old_id = input_element.attr("id");
-				var new_id = old_id.replace("search_people_result", "creator");
-				input_element.attr("id", new_id);
-				input_element.attr("value", "Remove");
-				$('#creators').append(input_element.parent());
+				$('#creators').append('<li><input id="'
+						      + 'creator_' + creator_id
+						      + '" type="button" value="Remove" />'
+						      + '<span id="' + creator_id + '" class="full_name">'
+						      + input_element.parent().text() + '</span></li>');
+				input_element.parent().remove();
 				
-				activateRemoveCreatorButton();
-				makeCreatorListEditable();
+				activateRemoveCreatorButton($('#creator_' + creator_id));
+				makeCreatorEditable($('#' + creator_id));
+				togglePostCrateToSWORD();
 			    },
 			    error: function(data) {
 				OC.Notification.show('There was an error:' + data.statusText);
@@ -369,9 +443,6 @@ $(document).ready(function() {
 		
 	});
 
-
-
-
     $('#description').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=describe', { 
         name: 'description',
         type      : 'textarea',
@@ -389,7 +460,6 @@ $(document).ready(function() {
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
-            console.log(data);
             $('#description').text(data.description);
             $tree = buildFileTree(data);
         },
@@ -411,7 +481,7 @@ $(document).ready(function() {
         autoOpen: false,
     });
 	
-    activateRemoveCreatorButton();
-    makeCreatorListEditable();
+    activateRemoveCreatorButtons();
+    makeCreatorsEditable();
 
 });	
