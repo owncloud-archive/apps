@@ -70,7 +70,7 @@ class BagItManager{
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
 		$entry = array('description' => 'Please enter a description...',
-			'vfs' => array(array('id' => 'rootfolder', 'label' => '/', 'folder' => true, 'children' => array())));
+			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);
 		$this->bag->update();
@@ -174,7 +174,7 @@ class BagItManager{
 	// TODO: There's currently no check for duplicates
 	private function addPath($path, &$vfs) {
 		if (\OC\Files\Filesystem::is_dir($path)) {
-			$vfs_entry = array('label' => basename($path), 'id' => 'folder', 'children' => array());
+			$vfs_entry = array('name' => basename($path), 'id' => 'folder', 'children' => array());
 			$vfs_contents = &$vfs_entry['children'];
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
@@ -184,7 +184,7 @@ class BagItManager{
 		} else {
 			$full_path = $this->getFullPath($path);
 			$id = md5($full_path);
-			$vfs_entry = array('id' => $id, 'label' => basename($path), 'filename' => $full_path);
+			$vfs_entry = array('id' => $id, 'name' => basename($path), 'filename' => $full_path);
 		}
 		array_push($vfs, $vfs_entry);
 	}
@@ -287,7 +287,7 @@ class BagItManager{
 			$path_parts = pathinfo($value['filename']);
 			
 			$prev_file = $path_parts['filename'].'.htm';
-			$prev_title = $value['label'];
+			$prev_title = $value['name'];
 				
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
@@ -325,17 +325,17 @@ class BagItManager{
         $vfs = &$data['vfs'][0]['children'];
         $flat = array();
         $ref = &$flat;
-        $this->flat_r($vfs, $ref);
+        $this->flat_r($vfs, $ref, $vfs['name']);
         return $flat;
     }
 
-    private function flat_r(&$vfs, &$flat) {
+    private function flat_r(&$vfs, &$flat, $path) {
         foreach ($vfs as $entry) {
             if (array_key_exists('filename', $entry)) {
-                $flat_entry = array('id' => $entry['id'], 'label' => $entry['label'], 'filename' => $entry['filename']);
+                $flat_entry = array('id' => $entry['id'], 'path' => $path, 'name' => $entry['name'], 'filename' => $entry['filename']);
                 array_push($flat, $flat_entry);
             } elseif (array_key_exists('children', $entry)) {
-                $this->flat_r($entry['children'], $flat);
+                $this->flat_r($entry['children'], $flat, $path.$entry['name'].'/');
             }
         }
     }
@@ -401,6 +401,7 @@ class BagItManager{
 							  		<thead>
 							  			<tr>
 							  				<th>Name</th>
+							  				<th>Folder</th>
 							  				<th>Title</th>
 							  				<th>Type</th>
 							  				<th>Size</th>
@@ -426,7 +427,8 @@ class BagItManager{
 				$size = $this->humanReadableFileSize(filesize($item['filename']));
 				$sec = '<tr>
 							<td>'.$name.'</td>
-							<td>'.$item['label'].'</td>
+							<td>'.$item['path'].'</td>
+							<td>'.$item['name'].'</td>
 							<td>'.$mime.'</td>
 							<td>'.$size.'</td>
 							<td></td>
