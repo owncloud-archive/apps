@@ -1,37 +1,15 @@
-
 <div id="container">
     <div>
         <div style="padding-top:20px">
             <span id="crateName" style="font-weight:bold;font-size:large; padding-left:10px;"><?php echo $_['selected_crate'] ?></span>
+            <div id='#description_box'>
+                <label for="description">Description</label>
+                <div id="description"><?php echo $_['description'] ?></div>
+            </div>
         </div>
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
-            <!-- don't think about hierarchy now, just create a list and let user drag and drop -->
-
-            <table id="cratesTable">
-                <tbody id="crateList">
-                    <?php foreach($_['bagged_files'] as $entry):?>
-                    <tr id="<?php echo $entry['id'];?>">
-                        <td><span class="title" style="padding-right: 150px;"><?php print_unescaped($entry['title']);?></span>
-                        </td>
-                        <?php if ($_['previews']==="on" ):?>
-                        <td>
-                            <div style="padding-right: 22px;">
-                            	<a data-action="view">View</a>
-                            </div>
-                        </td>
-                        <?php endif; ?>
-                        <td>
-                            <div>
-                                <a data-action="delete" title="Delete">
-                                    <img src="/core/img/actions/delete.svg">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table>
+            <div id="files"></div>
         </div>
     </div>
 
@@ -60,16 +38,6 @@
 		    </div>
 		</div>
 
-		<div id="description_box">
-		    <div>
-		        <label for="description">Description</label>
-			<input id="save_description" type="button" value="Save" />
-		    </div>
-		    <textarea id="description" rows="4" cols="80">
-		        <?php echo $_['description'] ?>
-		    </textarea>
-		</div>
-
 		<div id="creators_box">
 		    <div>
 		        <label for="creators">Creators</label>
@@ -93,6 +61,7 @@
 		    <ul id="search_people_results">
 		    </ul>
 		</div>
+
 
 	</div>
 </div>
@@ -123,3 +92,27 @@
 <div>
     <?php //print_r(get_loaded_extensions())?>
 </div>
+
+<div>
+    <ul id="fileMenu" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li class="add"><a href="#add"><i class=".glyphicon .glyphicon-plus"></i> Add</a></li>
+        <li class="rename"><a href="#rename"><i class=".glyphicon .glyphicon-edit"></i> Rename</a></li>
+        <li class="divider"></li>
+        <li class="delete"><a href="#delete"><i class=".glyphicon .glyphicon-floppy-remove"></i> Delete</a></li>
+    </ul>
+</div>
+
+<div id="dialog-add" title="Add Folder">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>New folder name:</p>
+    <input id="add-folder" type="text"></input>
+</div>
+<div id="dialog-rename" title="Rename Item">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>New name:</p>
+    <input id="rename-item" type="text"></input>
+</div>
+<div id="dialog-delete" title="Remove Item">
+    <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
+</div>
+
+
+

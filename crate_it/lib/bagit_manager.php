@@ -52,15 +52,6 @@ class BagItManager{
 		
 	    $data_dir = $this->bag->getDataDirectory();
 	    $this->manifest = $data_dir.'/manifest.json';
-		
-		//create manifest file if it doesn't exist
-		if(!file_exists($this->manifest)){
-			$fp = fopen($this->manifest, 'x');
-			$contents = array('titles' => array(), 'creators' => array(), 'description' => '');
-			fwrite($fp, json_encode($contents));
-			fclose($fp);
-			$this->bag->update();
-		}
 	}
 	
 	public static function getInstance(){
@@ -77,6 +68,12 @@ class BagItManager{
 			return false;
 		}
 		$this->initBag($name);
+		$fp = fopen($this->manifest, 'x');
+		$entry = array('description' => 'Please enter a description...',
+			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
+		fwrite($fp, json_encode($entry));
+		fclose($fp);
+		$this->bag->update();
 		return $name;
 	}
 	
@@ -95,6 +92,8 @@ class BagItManager{
 	private function initBag($name){
 		$this->crate_dir = $this->crate_root.'/'.$name;
 		$this->bag = new \BagIt($this->crate_dir);
+	    $data_dir = $this->bag->getDataDirectory();
+	    $this->manifest = $data_dir.'/manifest.json';		
 	}
 	
 	public function getSelectedCrate(){
@@ -114,25 +113,34 @@ class BagItManager{
 		}
 		return $cratelist;
 	}
-	
+
+	public function getBaggedFiles() {
+		return json_encode($this->getManifestData()['vfs']);
+	}
+
+	public function setBaggedFiles() {
+
+	}
+
+
 	public function addToBag($file) {
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
 		if (\OC\Files\Filesystem::isReadable($file)) {
-			list($storage) = \OC\Files\Filesystem::resolvePath($file);
-			if ($storage instanceof \OC\Files\Storage\Local) {
-				$full_path = \OC\Files\Filesystem::getLocalFile($file);
-				/*if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
-					$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
-					fwrite($fp, $full_path);
-					fclose($fp);
-				}*/
-				if($file === '/Shared' || is_dir($full_path))
-				{
-					return "Adding directories not supported yet";
-				}
-			}
+			// list($storage) = \OC\Files\Filesystem::resolvePath($file);
+			// if ($storage instanceof \OC\Files\Storage\Local) {
+			// 	$full_path = \OC\Files\Filesystem::getLocalFile($file);
+			// 	if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
+			// 		$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
+			// 		fwrite($fp, $full_path);
+			// 		fclose($fp);
+			// 	}
+			// 	if($file === '/Shared' || is_dir($full_path))
+			// 	{
+			// 		return "Adding directories not supported yet";
+			// 	}
+			// }
 		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
 			header("HTTP/1.0 404 Not Found");
 			$tmpl = new OC_Template('', '404', 'guest');
@@ -143,56 +151,48 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		//TODO we don't need to get the preview from the fascinator 
-		/*$preview_file = $this->getPreviewPath($full_path);
-		if(empty($preview_file))
-		{
-			return "No preview available. File not added to crate.";
+		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+		$vfs = &$contents['vfs'][0];
+		if(array_key_exists('children', $vfs)) {
+			$vfs = &$vfs['children'];
+		} else {
+			$vfs['children'] = array();
+			$vfs = &$vfs['children'];
 		}
-		$title = $this->getTitle($preview_file);*/
-
-		if(empty($title)){
-			$title = $file;
-		}
-		
-		//$id = hash('sha256', $full_path);
-		$id = md5($full_path);
-		if(filesize($this->manifest) == 0) {
-			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '');
-			fwrite($fp, json_encode($entry));
-			fclose($fp);
-		}
-		else {
-			$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-			$elements = &$contents['titles'];
-			foreach ($elements as $item) {
-				if($item['id'] === $id) {
-					return "File is already in the crate ".$this->selected_crate;
-				}
-			}
-			array_push($elements, array('id' => $id, 'title' => $title,
-							'filename' => $full_path));
-			$fp = fopen($this->manifest, 'w');
-			fwrite($fp, json_encode($contents));
-			fclose($fp);
-		}
+		$this->addPath($file, $vfs);
+		$fp = fopen($this->manifest, 'w');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
 		
 		// update the hashes
 		$this->bag->update();
 		return "File added to the crate ".$this->selected_crate;
 	}
-	
-	private function getTitle($file) {
-		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
-				&& isset($matches[1] )) {
-			return $matches[1];
-		}
-		else {
-			return "";
-		}
+
+	private function getFullPath($file) {
+		return \OC\Files\Filesystem::getLocalFile($file);
 	}
+
+	// TODO: There's currently no check for duplicates
+	private function addPath($path, &$vfs) {
+		if (\OC\Files\Filesystem::is_dir($path)) {
+			$vfs_entry = array('name' => basename($path), 'id' => 'folder', 'children' => array());
+			$vfs_contents = &$vfs_entry['children'];
+			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
+			foreach ($paths as $sub_path) {
+				$rel_path = substr($sub_path['path'], strlen('files/'));
+				$this->addPath($rel_path, $vfs_contents);
+			}
+		} else {
+			$full_path = $this->getFullPath($path);
+			$id = md5($full_path);
+			$vfs_entry = array('id' => $id, 'name' => basename($path), 'filename' => $full_path);
+		}
+		array_push($vfs, $vfs_entry);
+	}
+
 	
+	// TODO: Update this to fit with tree structure
 	public function clearBag(){
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$items = &$contents['titles'];
@@ -206,24 +206,7 @@ class BagItManager{
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
 	}
-	
-	public function updateOrder($neworder){
-		$shuffledItems = array();
-		//Get id and loop
-		foreach ($neworder as $id) {
-			foreach ($this->getItemList() as $item) {
-				if($id === $item['id'])
-				{
-					array_push($shuffledItems, $item);
-				}
-			}
-		}
-		$newentry = array("titles" => $shuffledItems);
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($newentry));
-		fclose($fp);
-		$this->bag->update();
-	}
+
 	
 	public function renameCrate($new_name){
 		rename($this->crate_dir, $this->crate_root.'/'.$new_name);
@@ -231,45 +214,9 @@ class BagItManager{
 		return true;
 	}
 	
-	//TODO
-	public function editTitle($id, $newvalue){
-		//edit title here
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-		foreach ($items as &$item) {
-			if($item['id'] === $id) {
-				$item['title'] = $newvalue;
-			}
-		}
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
-		//TODO handle exceptions and return suitable value
-		return true;
-	}
-	
-
 	public function setDescription($description) {
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$contents['description'] = $description;
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
-		$this->bag->update();
-		return true;
-	}
-
-	//remove an item from manifest
-	public function removeItem($id){
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-	    
-		for ($i = 0; $i < count($items); $i++) {
-			if($items[$i]['id'] ==  $id)
-			{
-				array_splice($items, $i, 1);
-			}
-		}
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
@@ -283,7 +230,7 @@ class BagItManager{
 	 * @return string
 	 */
 	public function getPathFromFileId($file_id){
-        foreach ($this->getItemList() as $value) {
+        foreach ($this->flatList() as $value) {
 	    	if($value['id'] === $file_id){
 	    		$dir = $this->getParentDirectory($value['filename']);
                 return $dir.'/'.$path_parts['basename'];
@@ -341,11 +288,11 @@ class BagItManager{
 		
 		$temp_dir = \OC_Helper::tmpFolder();
 
-		foreach ($this->getItemList() as $value) {
+		foreach ($this->flatList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
 			$prev_file = $path_parts['filename'].'.htm';
-			$prev_title = $value['title'];
+			$prev_title = $value['name'];
 				
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
@@ -376,12 +323,28 @@ class BagItManager{
 		//send the epub to user
 		return $temp_dir.'temp.epub';
 	}
-	
-	private function getItemList(){
-		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		return $contents['titles'];
-	}
-	
+
+
+    public function flatList() {
+        $data = $this->getManifestData();
+        $vfs = &$data['vfs'][0]['children'];
+        $flat = array();
+        $ref = &$flat;
+        $this->flat_r($vfs, $ref, $vfs['name']);
+        return $flat;
+    }
+
+    private function flat_r(&$vfs, &$flat, $path) {
+        foreach ($vfs as $entry) {
+            if (array_key_exists('filename', $entry)) {
+                $flat_entry = array('id' => $entry['id'], 'path' => $path, 'name' => $entry['name'], 'filename' => $entry['filename']);
+                array_push($flat, $flat_entry);
+            } elseif (array_key_exists('children', $entry)) {
+                $this->flat_r($entry['children'], $flat, $path.$entry['name'].'/');
+            }
+        }
+    }
+
 	public function createZip(){
 		$tmp_dir = \OC_Helper::tmpFolder();
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
@@ -454,6 +417,7 @@ class BagItManager{
 							  		<thead>
 							  			<tr>
 							  				<th>Name</th>
+							  				<th>Folder</th>
 							  				<th>Title</th>
 							  				<th>Type</th>
 							  				<th>Size</th>
@@ -464,7 +428,7 @@ class BagItManager{
 							  		</thead>
 							  		<tbody>';
 		if(count($bag->getBagErrors(true)) == 0){
-			foreach ($this->getItemList() as $item){
+			foreach ($this->flatList() as $item){
 				$path_parts = pathinfo($item['filename']);
 				$dir = $this->getParentDirectory($item['filename']);
 				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
@@ -479,7 +443,8 @@ class BagItManager{
 				$size = $this->humanReadableFileSize(filesize($item['filename']));
 				$sec = '<tr>
 							<td>'.$name.'</td>
-							<td>'.$item['title'].'</td>
+							<td>'.$item['path'].'</td>
+							<td>'.$item['name'].'</td>
 							<td>'.$mime.'</td>
 							<td>'.$size.'</td>
 							<td></td>
@@ -499,7 +464,7 @@ class BagItManager{
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
 		} else {
 			$errors = $bag->getBagErrors(true);
-			print $errors;
+			print var_dump($errors);
 		}
 	}
 	
@@ -622,6 +587,7 @@ class BagItManager{
 		$this->bag->update();
 		return true;
 	}
+
 	
 	public function editCreator($creator_id, $new_full_name) {
 		$contents = json_decode(file_get_contents($this->manifest), true);
@@ -635,6 +601,17 @@ class BagItManager{
 		}
 
 		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+
+	public function updateVFS($data) {
+		$new_vfs = json_decode($data);
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$fp = fopen($this->manifest, 'w+');
+		$contents['vfs'] = $new_vfs;
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
 		$this->bag->update();

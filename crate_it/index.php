@@ -2,10 +2,6 @@
 
 // Check if we are a user
 OCP\User::checkLoggedIn();
-//OCP\App::setActiveNavigationEntry('cart');
-
-//OCP\Util::addscript('crate_it/3rdparty', 'jstree');
-//OCP\Util::addStyle('crate_it/3rdparty/js/themes/default', 'style');
 
 $user = OCP\User::getUser();
 
@@ -16,7 +12,7 @@ $manifestData = $bagit_manager->getManifestData();
 // create a new template to show the cart
 $tmpl = new OCP\Template('crate_it', 'index', 'user');
 $tmpl->assign('previews', $bagit_manager->showPreviews());
-$tmpl->assign('bagged_files', array_values($manifestData['titles']));
+$tmpl->assign('bagged_files', $bagit_manager->getBaggedFiles());
 $tmpl->assign('description', $manifestData['description']);
 $tmpl->assign('crates', $bagit_manager->getCrateList());
 $tmpl->assign('top_for', $bagit_manager->lookUpMint("", 'top'));

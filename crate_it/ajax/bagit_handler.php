@@ -18,6 +18,7 @@ $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
 $creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
 $full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
 $new_full_name = isset($_POST['new_full_name']) ? $_POST['new_full_name'] : '';
+$vfs = isset($_POST['vfs']) ? $_POST['vfs'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -41,7 +42,12 @@ switch ($action){
 		}
 		break;
 	case 'describe':
-		$bagit_manager->setDescription($description);
+		$ok = $bagit_manager->setDescription($description);
+		if($ok){
+			echo $description;
+		} else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
 		break;
 	case 'switch':
 		$ok = $bagit_manager->switchCrate($crate_id);
@@ -61,27 +67,15 @@ switch ($action){
 		$msg = $bagit_manager->addToBag($file);
 		print $msg;
 		break;
-	case 'clear':
-		$bagit_manager->clearBag();
-		break;
-	case 'delete':
-		$ok = $bagit_manager->removeItem($file_id);
-		if(!$ok){
-			header('HTTP/1.1 500 Internal Server Error');
-		}
-		break;
-	case 'update':
-		$bagit_manager->updateOrder($neworder);
-		break;
-	case 'edit_title':
-		$ok = $bagit_manager->editTitle($element_id, $new_title);
-		if($ok){
-			echo $new_title;
+	case 'update_vfs':
+        $ok = $bagit_manager->updateVFS($vfs);
+        if($ok){
+			echo $ok;
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');
 		}
-		break;
+        break;
 	case 'rename_crate':
 		$ok = $bagit_manager->renameCrate($new_name);
 		if($ok){

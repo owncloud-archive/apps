@@ -1,38 +1,98 @@
-function makeCrateListEditable(){
-	$('#crateList .title').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=edit_title', {
-		name : 'new_title',
-		indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-		tooltip : 'Double click to edit...',
-		event : 'dblclick',
-		style : 'inherit',
-		submitdata : function(value, settings){
-			return {'elementid':this.parentNode.parentNode.getAttribute('id')};
-		}
-	});
+function buildFileTree(data) {
+    $tree = $('#files').tree({
+        data: data.vfs,
+        autoOpen: false,
+        dragAndDrop: true,
+        usecontextmenu: true,
+        onCanMoveTo: function(moved_node, target_node, position) {
+                // Implementation of 'endsWith'
+                return target_node.id.indexOf('folder', target_node.id.length - 'folder'.length) !== -1;
+        },
+    });
+
+    $tree.jqTreeContextMenu($('#fileMenu'), {
+        "add": function (node) {
+            $("#dialog-add").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Add',
+                click: function() {
+                    $tree.tree('addNodeAfter', {
+                        id: 'folder',
+                        label: $('#add-folder').val(),
+                    }, node);
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
+            $("#dialog-add").dialog('open');
+        },
+        "rename": function (node) {
+            $("#dialog-rename").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Rename',
+                click: function() {
+                    $tree.tree('updateNode', node, $('#rename-item').val());
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
+            $("#dialog-rename").dialog('open');
+        },
+        "delete": function(node) {
+            $("#dialog-delete").dialog('option', 'buttons', [
+                {text: 'Cancel',
+                click: function() { $(this).dialog('close'); },
+                },
+                {text: 'Delete',
+                click: function() {
+                    $tree.tree('removeNode', node);
+                    saveTree($tree);
+                    $(this).dialog('close');
+                }
+            }]);
+            $("#dialog-delete").dialog('open');
+        }, 
+    });
+
+    $tree.bind('tree.move', function(e) {
+        saveTree($tree);
+    });
+
+    expandRoot();
+
+    return $tree;
 }
 
-function makeActionButtonsClickable(){
-	$('#crateList tr a').click('click', function(event){
-		var id = this.parentNode.parentNode.parentNode.getAttribute('id');
-		if($(this).data("action") === 'delete'){
-			$.ajax({
-				url:OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-				type:'get',
-				dataType:'html',
-				data:{'action':'delete', 'file_id':id},
-				success:function(data){
-					$('#crateList tr#'+id).remove();
-					hideMetadata();
-				},
-				error:function(data){
-					
-				}
-			});
-		}
-		else{
-			window.open(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=preview&file_id='+id, '_blank');
-		}
-	});
+function expandRoot() {
+    var rootnode = $tree.tree('getNodeById', 'rootfolder'); // NOTE: also see getTree
+    $tree.tree('openNode', rootnode);
+}
+
+
+function saveTree($tree) {
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'post',
+        dataType: 'html',
+        data: {'action':'update_vfs', 'vfs': $tree.tree('toJson')},
+        success: function(data){
+            OC.Notification.show('Crate updated');
+            setTimeout(OC.Notification.hide(), 3000);
+        },
+        error: function(data){
+            OC.Notification.show(data.statusText);
+            setTimeout(OC.Notification.hide(), 3000);
+        }
+    });
+}
+
+function treeHasNoFiles() {
+    var children = $tree.tree('getNodeById', 'rootfolder').children;
+    return children.length == 0;
 }
 
 function removeFORCodes(){
@@ -42,7 +102,7 @@ function removeFORCodes(){
 }
 
 function hideMetadata(){
-	if($('#crateList tr').length == 0){
+	if(treeHasNoFiles()){
 		$('#metadata').hide();
 	}
 }
@@ -89,23 +149,8 @@ function makeCreatorListEditable(){
 
 $(document).ready(function() {
 	
-	$('#crateList').sortable({
-		update: function (event, ui) {
-            var neworder = [];
-            ui.item.parent().children().each(function () {
-                neworder.push(this.id);
-            });
-            $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
-        }
-	});
-	
-	makeActionButtonsClickable();
-	
-	$('#crateList').disableSelection();
-	makeCrateListEditable();
-	
 	$('#download').click('click', function(event) { 
-		if($('#crateList tr').length == 0){
+		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(OC.Notification.hide(), 3000);
 			return;
@@ -147,7 +192,7 @@ $(document).ready(function() {
 	});
 
 	$('#epub').click(function(event) {
-		if($('#crateList tr').length == 0){
+		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
 			setTimeout(OC.Notification.hide(), 3000);
 			return;
@@ -159,37 +204,14 @@ $(document).ready(function() {
 	});
 	
 	$('#clear').click(function(event) {
-		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
-		$('#crateList').empty();
+        var children = $tree.tree('getNodeById', 'rootfolder').children;
+        children.forEach(function(node) {
+            $tree.tree('removeNode', node);
+        });
+        saveTree($tree);
+		hideMetadata();
 	});
-
-    $('#save_description').click(function() {
-        var description = $('#description').val();
-        if (description) {
-            $.ajax({
-                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-                type: 'post',
-                dataType: 'json',
-                data: {'action': 'describe', 'description': description},
-                success: function(data) {
-                    OC.Notification.show('Description saved.');
-                    setTimeout(OC.Notification.hide(), 3000);
-                },
-                error: function(data) {
-                    OC.Notification.show('There was an error:' + data.statusText);
-                    setTimeout(OC.Notification.hide(), 3000);
-                    $('#description').focus();
-                }
-            });
-        }
-    });
 	
-	/*$('#subbutton').attr('disabled', 'disabled');
-	$('#crate_input #create').keyup(function() {
-        if($(this).val() != '') {
-            $('#subbutton').removeAttr('disabled');
-        }
-     });*/
 	
 	$('#subbutton').click(function(event) {
 	    $.ajax({
@@ -202,10 +224,6 @@ $(document).ready(function() {
 	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
 				setTimeout(OC.Notification.hide(), 3000);
-	        	//$('#subbutton').attr('disabled', 'disabled');
-	        	/*$('#crates option').filter(function(){
-					return $(this).attr("id") == data;
-				}).prop('selected', true);*/
 			},
 			error: function(data){
 				OC.Notification.show(data.statusText);
@@ -215,45 +233,6 @@ $(document).ready(function() {
 	    });
 	    return false;
 	});
-	
-	/*$.ajax({
-		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=get_crate',
-		type: 'get',
-		dataType: 'html',
-		success: function(data){
-			$('#crates option').filter(function(){
-				return $(this).attr("id") == data;
-			}).prop('selected', true);
-		},
-		error: function(data){
-			var e = data.statusText;
-			alert(e);
-		}
-	});*/
-	
-	/*$('#crateName').bind('dblclick', function() {
-        $(this).prop('contentEditable', true);
-    }).blur(
-        function() {
-            $(this).prop('contentEditable', false);
-            
-            //change the name of the option
-            $('#crates').find(':selected').text($('#crateName').text());
-            $('#crates').find(':selected').prop("id", $('#crateName').text());
-            $('#crates').find(':selected').prop("value", $('#crateName').text());
-            $.ajax({
-    			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate&new_name='+$('#crateName').text(),
-    			type: 'get',
-    			dataType: 'html',
-    			success: function(data){
-    				//alert("success");
-    			},
-    			error: function(data){
-    				var e = data.statusText;
-    				alert(e);
-    			}
-    		});
-      });*/
 	
 	$('#crateName').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=rename_crate', {
 		name : 'new_name',
@@ -275,7 +254,7 @@ $(document).ready(function() {
 			url: OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=switch&crate_id='+id,
 			type: 'get',
 			dataType: 'html',
-		        success: function(data) { location.reload() },
+	        success: function(data) { location.reload() },
 			error: function(data){
 				var e = data.statusText;
 				alert(e);
@@ -390,142 +369,49 @@ $(document).ready(function() {
 		
 	});
 
+
+
+
+    $('#description').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=describe', { 
+        name: 'description',
+        type      : 'textarea',
+        tooltip   : 'Please enter a description...',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
+        rows: 6,
+        cols: 100, // This doesn't seem to work correctly
+     });
+    
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'get',
+        dataType: 'json',
+        data: {'action': 'get_items'},
+        success: function(data){
+            console.log(data);
+            $('#description').text(data.description);
+            $tree = buildFileTree(data);
+        },
+        error: function(data){
+            var e = data.statusText;
+            alert(e);
+        }
+    });
+
+    $("#dialog-add").dialog({
+        autoOpen: false,
+    });
+
+    $("#dialog-rename").dialog({
+        autoOpen: false,
+    });
+
+    $("#dialog-delete").dialog({
+        autoOpen: false,
+    });
+	
     activateRemoveCreatorButton();
     makeCreatorListEditable();
-	
+
 });	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	
-	$('#toc').jstree({
-		"json_data" : {
-			  "data" : [
-			      {
-			          "data" : "A node",
-			          "metadata" : { id : 23 },
-			          "children" : [ "Child 1", "A Child 2" ]
-			      },
-			      {
-			          "attr" : { "id" : "li.node.id1" },
-			          "data" : {
-			              "title" : "Long format demo",
-			              "attr" : { "href" : "#" }
-			          }
-			      }
-			  ]
-		},
-		"plugins" : [ "themes", "json_data", "ui" ]
-	}).bind("select_node.jstree", function (e, data) { alert(data.rslt.obj.data("id")); });*/
-	
-	/*$("#toc").tree({
-        ui: {
-            animation: 250,
-            dots: false,
-            theme_name: "classic"
-        },
-        plugins: {
-            checkbox: {}
-        },
-        callback: {
-            check_move : function(node, refNode, type, tree) {
-                var rel = $(refNode).prev(".mime-type").attr("rel");
-                return (rel != "application/x-fascinator-package");
-            },
-            onmove: function(node, refNode, type, tree, rollback) {
-                jQuery.ajax({
-                    type : "POST",
-                    url : "$portalPath/actions/manifest.ajax",
-                    success:
-                        function(data, status) {
-                            // We don't do anything on success
-                        },
-                    error:
-                        function (req, status, e) {
-                            var data = eval("(" + req.responseText + ")");
-                            if (data.message == "Only registered users can access this API") {
-                                alert("Please login first!");
-                            }
-                            alert("Error during move: " + data.message);
-                        },
-                    data: {
-                        func: "move",
-                        oid: "$oid",
-                        id: "$portalId",
-                        nodeId: $(node).attr("id"),
-                        refNodeId: $(refNode).attr("id"),
-                        parents: getParentIds(node),
-                        refParents: getParentIds(refNode),
-                        type: type
-                    }
-                });
-            },
-            onselect: function(node, tree) {
-                var node = $(node);
-                var id = node.attr("rel");
-                if (id == "blank") {
-                    $("#preview").hide();
-                } else {
-                    $("#content").load(
-                        "$portalPath/detail/" + escape(id) + "/?preview=true&inPackage=true",
-                        function(data, status, xhr) {
-                            function fixLinks(selector, attrName) {
-                                $(selector).each(function() {
-                                    var attr = $(this).attr(attrName);
-                                    if (attr != null) {
-                                        // fix for IE7 attr() returning resolved URLs - strip base URL
-                                        var href = window.location.href;
-                                        hrefBase = href.substring(0, href.lastIndexOf("/"));
-                                        attrBase = attr.substring(0, hrefBase.length);
-                                        if (hrefBase == attrBase) {
-                                            attr = attr.substring(hrefBase.length + 1);
-                                        }
-                                        if (attr.indexOf("#") != 0 && attr.indexOf("://") == -1 && attr.indexOf("/") != 0) {
-                                            var relUrl = "$portalPath/download/" + id + "/";
-                                            $(this).attr(attrName, relUrl + escape(attr));
-                                        }
-                                    }
-                                });
-                            }
-                            fixLinks("#content a", "href");
-                            fixLinks("#content img", "src");
-                            $("#preview:hidden").fadeIn();
-                        });
-                }
-                var item = node.children("a");
-                $("#item-title").val(item.text());
-                $("#item-hidden").attr("checked", item.hasClass("item-hidden"));
-                $("#item-props:hidden").fadeIn(function() {
-                    $("#item-title").focus();
-                });
-            }
-        }
-    });*/
-	
-
-
