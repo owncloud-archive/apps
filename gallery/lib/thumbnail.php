@@ -65,7 +65,7 @@ class Thumbnail {
 		if (!$this->view->file_exists($imagePath)) {
 			return;
 		}
-		$this->image = new \OCP\Image($this->view->getLocalFile($imagePath));
+		$this->image = new \OCP\Image($imagePath);
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
