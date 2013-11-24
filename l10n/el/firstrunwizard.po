@@ -6,13 +6,14 @@
 # Dimitris M. <monopatis@gmail.com>, 2013
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2013
 # Marios Bekatoros <>, 2013
+# vkehayas <vkehayas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-21 09:27+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-11-23 22:08-0500\n"
+"PO-Revision-Date: 2013-11-23 01:30+0000\n"
+"Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +57,7 @@ msgid ""
 "There’s more information in the <a target=\"_blank\" "
 "href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
 "href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Υπάρχουν περισσότερες πληροφορίες στην ιστοσελίδα  <a target=\"_blank\" href=\"%s\">τεκμηρίωσης</a> και στον <a target=\"_blank\" href=\"http://owncloud.org\">ιστότοπό μας</a>."
 
 #: templates/wizard.php:42
 msgid ""
