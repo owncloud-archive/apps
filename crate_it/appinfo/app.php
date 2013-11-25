@@ -20,8 +20,6 @@ OCP\Util::addscript('crate_it', 'loader');
 OCP\Util::addscript('crate_it', 'crate');
 
 
-
-
 // Bootstrap
 OCP\Util::addStyle('crate_it/3rdparty', 'bootstrap/bootstrap');
 OCP\Util::addStyle('crate_it', 'crate');
@@ -30,7 +28,7 @@ OCP\Util::addStyle('crate_it/3rdparty', 'jqtree/jqtree');
 $config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
 if(!file_exists($config_file)){
 	$fp = fopen($config_file, 'x');
-	$entry = array("fascinator" => array("status" => "off","downloadURL" => "http://localhost:9997/portal/default/download/",
+	$entry = array("description_length" => 4000, "fascinator" => array("status" => "off","downloadURL" => "http://localhost:9997/portal/default/download/",
 			"solr" => array("host" => "localhost", "port" => 9997, "path" => "/solr/fascinator/")));
 	fwrite($fp, json_encode($entry));
 	fclose($fp);

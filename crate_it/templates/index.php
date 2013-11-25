@@ -114,5 +114,5 @@
     <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
 </div>
 
-
+<div id="description_length" hidden="hidden"><?php echo $_['description_length']; ?></div>
 
