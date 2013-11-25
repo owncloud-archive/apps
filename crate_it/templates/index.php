@@ -12,6 +12,7 @@
         </option>
         <?php endforeach;?>
     </select>
+    <input id="delete" type="button" value="Delete Crate" />
     <input id="clear" type="button" value="Clear Crate" />
     <?php if ($_['previews']==="on" ):?>
     <input id="epub" type="button" value="EPUB" />

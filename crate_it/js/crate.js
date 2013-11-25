@@ -273,6 +273,31 @@ $(document).ready(function() {
 		
 	});
 
+	$('#delete').click('click', function(event) { 
+	    var decision = confirm("All data of this crate will lost, are you sure?");
+
+	    if (decision == 'true') {
+		$.ajax({
+                    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: {'action': 'delete_crate'},
+                    success: function(data) {
+			OC.Notification.show('Crate deleted');
+			setTimeout(function() {
+			    OC.Notification.hide();
+			}, 3000);
+                    },
+                    error: function(data) {
+			OC.Notification.show('There was an error:' + data.statusText);
+			setTimeout(function() {
+			    OC.Notification.hide();
+			}, 3000);
+                    }
+		});
+	    }
+	});
+
 	$('#epub').click(function(event) {
 		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
