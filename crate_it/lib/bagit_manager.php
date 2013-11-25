@@ -28,6 +28,7 @@ class BagItManager{
 		if(file_exists($config_file)) {
 			$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
 			$this->fascinator = $configs['fascinator'];
+			$this->mint = $configs['mint'];
 		}
 		else {
 			echo "No configuration file";
@@ -484,8 +485,7 @@ class BagItManager{
 		
 		try {
 			
-			//User needs to get the mint url from config
-			$url = 'http://basset.uws.edu.au:9001/mint/ANZSRC_FOR/opensearch/lookup?count=999&level='.$level;
+			$url = $this->mint['url'] . '/ANZSRC_FOR/opensearch/lookup?count=999&level=' . $level;
 			
 			//now call the mint
 			$ch = curl_init();
@@ -500,7 +500,7 @@ class BagItManager{
 			
 			if(empty($content))
 			{
-				$content = "No data available";
+				return array();
 			}
 			else {
 				$content_array = json_decode($content);
@@ -509,7 +509,7 @@ class BagItManager{
 			}
 		} 
 		catch (Exception $e) {
-			die("error");
+			header('HTTP/1.1 400 ' . $e->getMessage());
 		}
 	}
 
@@ -524,8 +524,7 @@ class BagItManager{
 	
 	public function lookUpPeople($keyword) {
 		try {
-			// FIXME: make mint url configurable
-			$url = 'http://basset.uws.edu.au:9001/mint/Parties_People/opensearch/lookup?searchTerms='.$keyword;
+			$url = $this->mint['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . $keyword;
 			
 			// Now call the mint
 			$ch = curl_init();
@@ -537,7 +536,7 @@ class BagItManager{
 			
 			if(empty($content))
 			{
-				$content = "No match";
+				return array();
 			}
 			else {
 				$content_array = json_decode($content);
@@ -546,7 +545,7 @@ class BagItManager{
 			}
 		} 
 		catch (Exception $e) {
-			die("error");
+			header('HTTP/1.1 400 ' . $e->getMessage());
 		}
 	}
 
@@ -642,6 +641,11 @@ class BagItManager{
             $config = json_decode(file_get_contents($config_file), true); // convert it to an array.
         }
         return $config;
+	}
+	
+	public function getMintStatus() {
+		\OCP\Util::writeLog("crate_it", $this->mint['status'], \OCP\Util::DEBUG);
+		return $this->mint['status'];
 	}
 	
 }

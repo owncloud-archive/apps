@@ -15,6 +15,7 @@
 
     <div id="metadata" style="float:right;">
 
+    	    <?php if ($_['mint_status'] === "enabled" ):?>
 		<div id="anzsrc_for">
 		    <div>
 		        <select id="for_top_level" class="for_codes">
@@ -61,7 +62,7 @@
 		    <ul id="search_people_results">
 		    </ul>
 		</div>
-
+	    <?php endif; ?>
 
 	</div>
 </div>

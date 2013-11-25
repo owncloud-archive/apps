@@ -75,12 +75,20 @@ function togglePostCrateToSWORD() {
         dataType: 'json',
         data: {'action': 'validate_metadata'},
         success: function(data) {
-            $('#post').removeAttr("title");
-            $('#post').removeAttr("disabled");
+	    if (data.status == "Success") {
+		$('#post').removeAttr("title");
+		$('#post').removeAttr("disabled");
+	    }
+	    else {
+		$('#post').attr("title", "You cannot post this crate until metadata(title, description, creator) are all set");
+		$('#post').attr("disabled", "disabled");
+	    }		
         },
         error: function(data) {
-	    $('#post').attr("title", "You cannot post this crate until metadata(title, description, creator) are all set");
-            $('#post').attr("disabled", "disabled");
+            OC.Notification.show(data.statusText);
+	    setTimeout(function() {
+		OC.Notification.hide();
+	    }, 3000);
         }
     });
 }

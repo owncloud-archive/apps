@@ -221,10 +221,10 @@ switch ($action){
 		$success = $bagit_manager->validateMetadata();
 
 		if($success) {
-			echo json_encode("Success");
+			echo json_encode(array("status" => "Success"));
 		}
 		else {
-			header('HTTP/1.1 400 Metadata validation failed');
+			echo json_encode(array("status" => "Failed"));
 		}
 		break;
 }
