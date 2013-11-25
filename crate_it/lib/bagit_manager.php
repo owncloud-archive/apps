@@ -644,8 +644,13 @@ class BagItManager{
 	}
 	
 	public function getMintStatus() {
+	   if ($this->mint) {
 		\OCP\Util::writeLog("crate_it", $this->mint['status'], \OCP\Util::DEBUG);
 		return $this->mint['status'];
+	   }
+	   else {
+	   	return false;
+	   }
 	}
 	
 }
