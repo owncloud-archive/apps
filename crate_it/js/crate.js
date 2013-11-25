@@ -75,6 +75,7 @@ function togglePostCrateToSWORD() {
         dataType: 'json',
         data: {'action': 'validate_metadata'},
         success: function(data) {
+            $('#post').removeAttr("title");
             $('#post').removeAttr("disabled");
         },
         error: function(data) {
@@ -452,6 +453,9 @@ $(document).ready(function() {
         indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
         rows: 6,
         cols: 100, // This doesn't seem to work correctly
+	callback: function(value, settings) {
+	    togglePostCrateToSWORD();
+	}
      });
     
     $.ajax({
