@@ -216,6 +216,11 @@ class BagItManager{
 	}
 	
 	public function setDescription($description) {
+		$config = $this->getConfig();
+		$max = $config['description_length'];
+		if(strlen($description) > $max) {
+			$description = substr($description, 0, $max);
+		}
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$contents['description'] = $description;
 		$fp = fopen($this->manifest, 'w+');
@@ -628,6 +633,15 @@ class BagItManager{
 		else {
 		     return false;
 	        }
+	}
+
+	public function getConfig() {
+		$config = Null;
+		$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+        if(file_exists($config_file)) {
+            $config = json_decode(file_get_contents($config_file), true); // convert it to an array.
+        }
+        return $config;
 	}
 	
 }

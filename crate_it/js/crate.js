@@ -443,6 +443,8 @@ $(document).ready(function() {
 		
 	});
 
+    var description_length = $('#description_length').text();
+
     $('#description').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=describe', { 
         name: 'description',
         type      : 'textarea',
@@ -452,7 +454,7 @@ $(document).ready(function() {
         indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
         rows: 6,
         cols: 100, // This doesn't seem to work correctly
-        maxlength: 4000,
+        maxlength: description_length,
      });
     
     $.ajax({
