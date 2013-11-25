@@ -244,7 +244,7 @@ $(document).ready(function() {
 	});
 	
 	$('#post').click('click', function(event) { 
-	    if($('#crateList tr').length == 0){
+	    if (treeHasNoFiles()) {
 		OC.Notification.show('No items in the crate to package');
 		setTimeout(function() {
 		    OC.Notification.hide();

@@ -88,7 +88,9 @@
     <input id="epub" type="button" value="EPUB" />
     <?php endif; ?>
     <input id="download" type="button" value="Download Crate as zip" />
+    <?php if ($_['sword_status'] === "enabled" ):?>
     <input id="post" type="button" value="Post Crate to SWORD" />
+    <?php endif; ?>
 </div>
 <div>
     <?php //print_r(get_loaded_extensions())?>

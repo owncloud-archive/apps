@@ -24,4 +24,5 @@ $tmpl->assign('top_for', $bagit_manager->lookUpMint("", 'top'));
 $tmpl->assign('selected_crate', $bagit_manager->getSelectedCrate());
 $tmpl->assign('creators', array_values($manifestData['creators']));
 $tmpl->assign('mint_status', $bagit_manager->getMintStatus());
+$tmpl->assign('sword_status', $bagit_manager->getSwordStatus());
 $tmpl->printPage();

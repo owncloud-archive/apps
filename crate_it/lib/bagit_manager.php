@@ -29,6 +29,7 @@ class BagItManager{
 			$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
 			$this->fascinator = $configs['fascinator'];
 			$this->mint = $configs['mint'];
+			$this->sword = $configs['sword'];
 		}
 		else {
 			echo "No configuration file";
@@ -647,6 +648,16 @@ class BagItManager{
 	   if ($this->mint) {
 		\OCP\Util::writeLog("crate_it", $this->mint['status'], \OCP\Util::DEBUG);
 		return $this->mint['status'];
+	   }
+	   else {
+	   	return false;
+	   }
+	}
+	
+	public function getSwordStatus() {
+	   if ($this->sword) {
+		\OCP\Util::writeLog("crate_it", $this->sword['status'], \OCP\Util::DEBUG);
+		return $this->sword['status'];
 	   }
 	   else {
 	   	return false;

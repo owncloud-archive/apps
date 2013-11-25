@@ -147,11 +147,12 @@ switch ($action){
 		require("swordappv2-php-library/swordappclient.php");
 		$sac = new SWORDAPPClient();
 
-		// FIXME: make these configurable
-		$sd_uri = "http://115.146.93.246/sd-uri";
-		$sword_username = "uws_sword";
-		$sword_password = "swordAdmin";
-		$sword_obo = "obo";
+		$config = $bagit_manager->getConfig();
+		$sword_config = $config['sword'];
+	   	$sd_uri = $sword_config['sd_uri'];
+		$sword_username = $sword_config['username'];
+		$sword_password = $sword_config['password'];
+		$sword_obo = $sword_config['obo'];
 
 		// Get service document
 		$sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
