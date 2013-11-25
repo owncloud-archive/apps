@@ -25,7 +25,7 @@ if ($owner !== OCP\User::getUser()) {
 			$gallery = $sharedGallery;
 		}
 	} else {
-		OCP\JSON::error('no such file');
+		OCP\JSON::error(array( 'message' => 'no such file'));
 	}
 }
 $meta = $ownerView->getFileInfo($gallery);

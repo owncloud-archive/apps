@@ -6,6 +6,41 @@
  * See the COPYING-README file.
  */
 
+OCP\JSON::checkAppEnabled('gallery');
+
+if (isset($_GET['token'])) {
+	$token = $_GET['token'];
+	$linkItem = \OCP\Share::getShareByToken($token);
+	if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
+		// seems to be a valid share
+		$type = $linkItem['item_type'];
+		$fileSource = $linkItem['file_source'];
+		$shareOwner = $linkItem['uid_owner'];
+		$path = null;
+		$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
+		$fileOwner = $rootLinkItem['uid_owner'];
+
+		// Setup FS with owner
+		OC_Util::tearDownFS();
+		OC_Util::setupFS($fileOwner);
+
+		// The token defines the target directory (security reasons)
+		$path = \OC\Files\Filesystem::getPath($linkItem['file_source']);
+
+		$view = new \OC\Files\View(\OC\Files\Filesystem::getView()->getAbsolutePath($path));
+		$images = $view->searchByMime('image');
+
+		foreach ($images as &$image) {
+			$image['path'] = $token . $image['path'];
+		}
+
+		OCP\JSON::setContentTypeHeader();
+		echo json_encode(array('images' => $images, 'users' => array(), 'displayNames' => array()));
+
+		exit;
+	}
+}
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 
@@ -14,7 +49,7 @@ $user = \OCP\User::getUser();
 
 foreach ($images as &$image) {
 	$path = $user . $image['path'];
-	if(strpos($path, DIRECTORY_SEPARATOR.".")){
+	if (strpos($path, DIRECTORY_SEPARATOR . ".")) {
 		continue;
 	}
 	$image['path'] = $user . $image['path'];
@@ -47,8 +82,7 @@ foreach ($users as $user) {
 	$displayNames[$user] = \OCP\User::getDisplayName($user);
 }
 
-function startsWith($haystack, $needle)
-{
+function startsWith($haystack, $needle) {
 	return !strncmp($haystack, $needle, strlen($needle));
 }
 

@@ -13,7 +13,8 @@ Gallery.sortFunction = function (a, b) {
 // fill the albums from Gallery.images
 Gallery.fillAlbums = function () {
 	var def = new $.Deferred();
-	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php')).then(function (data) {
+	var token = $('#gallery').data('token');
+	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php'), {token: token}).then(function (data) {
 		var albumPath, i, imagePath, parent, path;
 		Gallery.users = data.users;
 		Gallery.displayNames = data.displayNames;
@@ -71,6 +72,9 @@ Gallery.fillAlbums.sortAlbums = function (albums) {
 };
 
 Gallery.getAlbumInfo = function (album) {
+	if (album === $('#gallery').data('token')) {
+		return [];
+	}
 	if (!Gallery.getAlbumInfo.cache[album]) {
 		var def = new $.Deferred();
 		Gallery.getAlbumInfo.cache[album] = def;
@@ -102,10 +106,23 @@ Gallery.share = function (event) {
 	if (!OC.Share.droppedDown) {
 		event.preventDefault();
 		event.stopPropagation();
+
+		(function() {
+			var target = OC.Share.showLink;
+			OC.Share.showLink = function() {
+				var r = target.apply( this, arguments );
+				$('#linkText').val( $('#linkText').val().replace('service=files', 'service=gallery') );
+				return r;
+			};
+		})();
+
 		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
 			$('a.share').data('item', info.fileid).data('link', true)
 				.data('possible-permissions', info.permissions).
 				click();
+			if (!$('#linkCheckbox').is(':checked')) {
+				$('#linkText').hide();
+			}
 		});
 	}
 };
@@ -207,6 +224,9 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
+	if (!albumPath) {
+		albumPath = $('#gallery').data('token');
+	}
 	Thumbnail.queue = [];
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
@@ -239,8 +259,10 @@ Gallery.view.viewAlbum = function (albumPath) {
 		Gallery.view.viewAlbum(OC.currentUser);
 	});
 	crumbs = albumPath.split('/');
-	path = crumbs.splice(0, 1); //first entry is username
-	if (path != OC.currentUser) { //remove shareid
+	//first entry is username
+	path = crumbs.splice(0, 1);
+	//remove shareid
+	if (path[0] !== OC.currentUser && path[0] !== $('#gallery').data('token')) {
 		path += '/' + crumbs.splice(0, 1);
 	}
 	for (i = 0; i < crumbs.length; i++) {
@@ -268,15 +290,17 @@ Gallery.view.showUsers = function () {
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
 		subAlbums = Gallery.subAlbums[user];
-		if (subAlbums.length > 0) {
-			head = $('<h2/>');
-			head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
-			$('#gallery').append(head);
-			for (j = 0; j < subAlbums.length; j++) {
-				album = subAlbums[j];
-				album = Gallery.subAlbums[album][0];//first level sub albums is share source id
-				Gallery.view.addAlbum(album);
-				Gallery.view.element.append(' '); //add a space for justify
+		if (subAlbums) {
+			if (subAlbums.length > 0) {
+				head = $('<h2/>');
+				head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
+				$('#gallery').append(head);
+				for (j = 0; j < subAlbums.length; j++) {
+					album = subAlbums[j];
+					album = Gallery.subAlbums[album][0];//first level sub albums is share source id
+					Gallery.view.addAlbum(album);
+					Gallery.view.element.append(' '); //add a space for justify
+				}
 			}
 		}
 	}
@@ -295,11 +319,15 @@ $(document).ready(function () {
 		var i = images.index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		if (location.hash != image) {
+		if (location.hash !== image) {
 			location.hash = image;
 			Thumbnail.paused = true;
 			Slideshow.start(images, i);
 		}
+	});
+
+	$('#openAsFileListButton').click( function (event) {
+		window.location.href = window.location.href.replace('service=gallery', 'service=files');
 	});
 
 	jQuery.fn.slideShow.onstop = function () {
@@ -316,11 +344,14 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
+	if (!album) {
+		album = $('#gallery').data('token');
+	}
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
 		Gallery.view.viewAlbum(decodeURIComponent(album));
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));
-		$('#gallery a.image[data-path="' + album + '"]').click();
+		$('#gallery').find('a.image[data-path="' + album + '"]').click();
 	}
 };
