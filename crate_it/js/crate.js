@@ -452,6 +452,7 @@ $(document).ready(function() {
         indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
         rows: 6,
         cols: 100, // This doesn't seem to work correctly
+        maxlength: 4000,
      });
     
     $.ajax({
