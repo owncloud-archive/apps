@@ -643,5 +643,14 @@ class BagItManager{
         }
         return $config;
 	}
+
+	public function getCrateSize() {
+		$files = $this->flatList();
+		$total = 0;
+		foreach ($files as $file) {
+			$total += filesize($file['filename']);
+		}
+		return $total;
+	}
 	
 }

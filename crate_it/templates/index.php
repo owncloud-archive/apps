@@ -10,11 +10,11 @@
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
             <div id="files"></div>
+            <span id="crate_size">Create size: <?php echo $_['crate_size']; ?></span>
         </div>
     </div>
 
     <div id="metadata" style="float:right;">
-
 		<div id="anzsrc_for">
 		    <div>
 		        <select id="for_top_level" class="for_codes">
