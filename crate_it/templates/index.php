@@ -1,6 +1,28 @@
 <div id="container">
+<div style="padding-top:20px; padding-left:5px;">
+    <form id="crate_input" method="get">
+        Create new crate:
+        <input type="text" id="create">
+        <input id="subbutton" type="submit" value="Submit">
+    </form>
+    <select id="crates">
+        <?php foreach($_['crates'] as $crate):?>
+        <option id="<?php echo $crate; ?>" value="<?php echo $crate; ?>" <?php if($_['selected_crate']==$crate){echo 'selected';}?>>
+            <?php echo $crate;?>
+        </option>
+        <?php endforeach;?>
+    </select>
+    <input id="clear" type="button" value="Clear Crate" />
+    <?php if ($_['previews']==="on" ):?>
+    <input id="epub" type="button" value="EPUB" />
+    <?php endif; ?>
+    <input id="download" type="button" value="Download Crate as zip" />
+    <?php if ($_['sword_status'] === "enabled" ):?>
+    <input id="post" type="button" value="Post Crate to SWORD" />
+    <?php endif; ?>
+</div>
     <div>
-        <div style="padding-top:20px">
+        <div style="padding-top:20px; padding-left:5px;">
             <span id="crateName" style="font-weight:bold;font-size:large; padding-left:10px;"><?php echo $_['selected_crate'] ?></span>
             <div id='#description_box'>
                 <label for="description">Description</label>
@@ -65,35 +87,6 @@
 	    <?php endif; ?>
 
 	</div>
-</div>
-
-
-
-
-<div style="float:left; padding:20px;">
-    <form id="crate_input" method="get">
-        Create new crate:
-        <input type="text" id="create">
-        <input id="subbutton" type="submit" value="Submit">
-    </form>
-    <select id="crates">
-        <?php foreach($_['crates'] as $crate):?>
-        <option id="<?php echo $crate; ?>" value="<?php echo $crate; ?>" <?php if($_['selected_crate']==$crate){echo 'selected';}?>>
-            <?php echo $crate;?>
-        </option>
-        <?php endforeach;?>
-    </select>
-    <input id="clear" type="button" value="Clear Crate" />
-    <?php if ($_['previews']==="on" ):?>
-    <input id="epub" type="button" value="EPUB" />
-    <?php endif; ?>
-    <input id="download" type="button" value="Download Crate as zip" />
-    <?php if ($_['sword_status'] === "enabled" ):?>
-    <input id="post" type="button" value="Post Crate to SWORD" />
-    <?php endif; ?>
-</div>
-<div>
-    <?php //print_r(get_loaded_extensions())?>
 </div>
 
 <div>
