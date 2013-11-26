@@ -232,15 +232,20 @@ $(document).ready(function() {
     togglePostCrateToSWORD();
 	
 	$('#download').click('click', function(event) { 
-		if(treeHasNoFiles()){
-			OC.Notification.show('No items in the crate to package');
-			setTimeout(OC.Notification.hide(), 3000);
-			return;
-		}
-		OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
-		setTimeout(OC.Notification.hide(), 3000);
-		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
+	    if(treeHasNoFiles()){
+		OC.Notification.show('No items in the crate to package');
+		setTimeout(function() {
+		    OC.Notification.hide();
+		}, 3000);
 		
+		return;
+	    }
+	    OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
+	    setTimeout(function() {
+		OC.Notification.hide();
+	    }, 3000);
+	    window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
+	    
 	});
 	
 	$('#post').click('click', function(event) { 
@@ -276,23 +281,26 @@ $(document).ready(function() {
 	$('#delete').click('click', function(event) { 
 	    var decision = confirm("All data of this crate will lost, are you sure?");
 
-	    if (decision == 'true') {
+	    if (decision == true) {
 		$.ajax({
                     url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
                     type: 'post',
                     dataType: 'json',
                     data: {'action': 'delete_crate'},
                     success: function(data) {
-			OC.Notification.show('Crate deleted');
-			setTimeout(function() {
-			    OC.Notification.hide();
-			}, 3000);
-                    },
-                    error: function(data) {
-			OC.Notification.show('There was an error:' + data.statusText);
-			setTimeout(function() {
-			    OC.Notification.hide();
-			}, 3000);
+			if (data.status == "Success") {
+			    OC.Notification.show('Crate deleted');
+			    setTimeout(function() {
+				OC.Notification.hide();
+			    }, 3000);
+			    location.reload();
+			}
+			else {
+			    OC.Notification.show('There was an error:' + data.msg);
+			    setTimeout(function() {
+				OC.Notification.hide();
+			    }, 3000);
+			}		
                     }
 		});
 	    }

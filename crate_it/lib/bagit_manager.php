@@ -18,6 +18,7 @@ class BagItManager{
 	 * $fascinator - fascinator url
 	 * $base_dir - oc user's data directory
 	 * $crate_root - crates directory ( $base_dir/crates )
+	 * $crate_trash - crates trash directory ( $crate_root/.Trash )
 	 * $selected_crate - currently selected crate
 	 * $manifest - manifest which holds files info - id,title and absolute path
 	 */
@@ -37,10 +38,14 @@ class BagItManager{
 		}
 		
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
-	    $this->crate_root =$this->base_dir.'/crates'; 
+	    $this->crate_root =$this->base_dir.'/crates';
+	    $this->crate_trash = $this->crate_root . '/.Trash';
 		
 		if(!file_exists($this->crate_root)){
 			mkdir($this->crate_root);
+		}
+		if(!file_exists($this->crate_trash)){
+			mkdir($this->crate_trash);
 		}
 		if(empty($_SESSION['crate_id'])){
 			$this->createCrate('default_crate');
@@ -105,7 +110,7 @@ class BagItManager{
 	public function getCrateList(){
 		$cratelist = array();
 		if ($handle = opendir($this->crate_root)) {
-			$filteredlist = array('.', '..', 'packages');
+			$filteredlist = array('.', '..', 'packages', '.Trash');
 			while (false !== ($file = readdir($handle))) {
 				if (!in_array($file, $filteredlist)) {
 					array_push($cratelist, $file);
@@ -664,4 +669,22 @@ class BagItManager{
 	   }
 	}
 	
+	public function deleteCrate() {
+	        // Implement a simple trash bin
+		$crate_name = basename($this->crate_dir);
+	        $trash_dir = $this->crate_trash . "/" . $crate_name . "_" . date(DATE_ISO8601);
+		\OCP\Util::writeLog("crate_it", $trash_dir, \OCP\Util::DEBUG);
+
+		try {
+		    rename($this->crate_dir, $trash_dir);
+		    $this->switchCrate("default_crate");
+		    
+		    return array("status" => "Success");
+		}
+		catch (Exception $e) {
+		    return array("status" => "Failed", "msg" => $e->getMessage());
+		}
+
+	}
+
 }

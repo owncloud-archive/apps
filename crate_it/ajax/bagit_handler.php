@@ -228,4 +228,8 @@ switch ($action){
 			echo json_encode(array("status" => "Failed"));
 		}
 		break;
+	case 'delete_crate':
+		$result = $bagit_manager->deleteCrate();
+		echo json_encode($result);
+		break;
 }
