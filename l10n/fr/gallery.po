@@ -15,10 +15,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:42+0000\n"
-"Last-Translator: nferrari <nferrari@alwaysdata.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,11 +30,15 @@ msgstr ""
 msgid "Pictures"
 msgstr "Images"
 
-#: js/gallery.js:271
+#: js/gallery.js:296
 msgid "Shared by"
 msgstr "Partagé par"
 
-#: js/slideshow.js:309
+#: js/public.js:9
+msgid "Picture view"
+msgstr ""
+
+#: js/slideshow.js:323
 msgid "Error loading slideshow template"
 msgstr "Erreur lors du téléchargement du gabarit de diaporama "
 
@@ -47,3 +51,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "L'application \"Visualiseur d'Image\" nécessite également d'être activée pour utiliser cette application."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

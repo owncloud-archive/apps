@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-23 22:08-0500\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,8 +21,12 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:273
+#: js/gallery.js:296
 msgid "Shared by"
+msgstr ""
+
+#: js/public.js:9
+msgid "Picture view"
 msgstr ""
 
 #: js/slideshow.js:323
@@ -37,4 +41,13 @@ msgstr ""
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
+msgstr ""
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
 msgstr ""

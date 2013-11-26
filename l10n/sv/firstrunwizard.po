@@ -5,15 +5,16 @@
 # Translators:
 # danielholm <admin@danielholm.se>, 2013
 # Gustav Smedberg <shadow.elf@hotmail.com>, 2013
+# kallemooo <karl.h.thoren@gmail.com>, 2013
 # medialabs, 2013
 # lunitic <lunitic@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-21 09:27+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-24 19:20+0000\n"
+"Last-Translator: kallemooo <karl.h.thoren@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +58,7 @@ msgid ""
 "There’s more information in the <a target=\"_blank\" "
 "href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
 "href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Det finns mer information i <a target=\"_blank\" href=\"%s\">dokumentationen</a> och på vår <a target=\"_bland\" href=\"http://owncloud.org\">hemsida</a>"
 
 #: templates/wizard.php:42
 msgid ""

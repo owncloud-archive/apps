@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-08-07 06:59-0400\n"
-"PO-Revision-Date: 2013-08-07 09:02+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Austria) (http://www.transifex.com/projects/p/owncloud/language/de_AT/)\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +21,19 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:269
+#: js/gallery.js:296
 msgid "Shared by"
 msgstr ""
 
-#: js/slideshow.js:306
+#: js/public.js:9
+msgid "Picture view"
+msgstr ""
+
+#: js/slideshow.js:323
 msgid "Error loading slideshow template"
 msgstr ""
 
-#: templates/index.php:5 templates/index.php:6
+#: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr ""
 
@@ -37,4 +41,13 @@ msgstr ""
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
+msgstr ""
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
 msgstr ""
