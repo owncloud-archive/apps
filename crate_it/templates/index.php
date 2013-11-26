@@ -73,7 +73,7 @@
 
 		<div id="creators_box">
 		    <div>
-		        <label for="creators">Creators</label>
+		        <label for="creators">Add Data Creator/s</label>
 		    </div>
 		    <ul id="creators">
                     <?php foreach($_['creators'] as $creator):?>
