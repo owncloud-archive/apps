@@ -1,3 +1,9 @@
+function hideNotification(delayTime) {
+    setTimeout(function() {
+	OC.Notification.hide();
+    }, delayTime);
+}
+
 function buildFileTree(data) {
     $tree = $('#files').tree({
         data: data.vfs,
@@ -86,9 +92,7 @@ function togglePostCrateToSWORD() {
         },
         error: function(data) {
             OC.Notification.show(data.statusText);
-	    setTimeout(function() {
-		OC.Notification.hide();
-	    }, 3000);
+	    hideNotification(3000);
         }
     });
 }
@@ -120,11 +124,11 @@ function saveTree($tree) {
         data: {'action':'update_vfs', 'vfs': $tree.tree('toJson')},
         success: function(data){
             OC.Notification.show('Crate updated');
-            setTimeout(OC.Notification.hide(), 3000);
+            hideNotification(3000);
         },
         error: function(data){
             OC.Notification.show(data.statusText);
-            setTimeout(OC.Notification.hide(), 3000);
+            hideNotification(3000);
         }
     });
 }
@@ -167,9 +171,7 @@ function activateRemoveCreatorButton(buttonObj) {
 	    },
 	    error: function(data) {
 		OC.Notification.show('There was an error:' + data.statusText);
-		setTimeout(function() {
-		    OC.Notification.hide();
-		}, 3000);
+		hideNotification(3000);
 	    }
 	});
     });
@@ -197,9 +199,7 @@ function activateRemoveCreatorButtons() {
 	    },
 	    error: function(data) {
 		OC.Notification.show('There was an error:' + data.statusText);
-		setTimeout(function() {
-		    OC.Notification.hide();
-		}, 3000);
+		hideNotification(3000);
 	    }
 	});
     });
@@ -234,16 +234,12 @@ $(document).ready(function() {
 	$('#download').click('click', function(event) { 
 	    if(treeHasNoFiles()){
 		OC.Notification.show('No items in the crate to package');
-		setTimeout(function() {
-		    OC.Notification.hide();
-		}, 3000);
+		hideNotification(3000);
 		
 		return;
 	    }
 	    OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
-	    setTimeout(function() {
-		OC.Notification.hide();
-	    }, 3000);
+	    hideNotification(3000);
 	    window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
 	    
 	});
@@ -252,7 +248,7 @@ $(document).ready(function() {
         
 	    if(treeHasNoFiles()){
     		OC.Notification.show('No items in the crate to package');
-    		setTimeout(OC.Notification.hide(), 3000);
+    		hideNotification(3000);
 		    return;
 	    }
 
@@ -266,15 +262,11 @@ $(document).ready(function() {
                     'sword_collection': sword_collection},
             success: function(data) {
                 OC.Notification.show('Crate posted successfully');
-                setTimeout(function() {
-        		  OC.Notification.hide();
-        	    }, 3000);
+                hideNotification(3000);
             },
             error: function(data) {
                 OC.Notification.show('There was an error:' + data.statusText);
-                setTimeout(function() {
-        		  OC.Notification.hide();
-        	    }, 3000);
+                hideNotification(3000);
             }
         });
 		
@@ -292,16 +284,12 @@ $(document).ready(function() {
                     success: function(data) {
 			if (data.status == "Success") {
 			    OC.Notification.show('Crate deleted');
-			    setTimeout(function() {
-				OC.Notification.hide();
-			    }, 3000);
+			    hideNotification(3000);
 			    location.reload();
 			}
 			else {
 			    OC.Notification.show('There was an error:' + data.msg);
-			    setTimeout(function() {
-				OC.Notification.hide();
-			    }, 3000);
+			    hideNotification(3000);
 			}		
                     }
 		});
@@ -311,12 +299,12 @@ $(document).ready(function() {
 	$('#epub').click(function(event) {
 		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
-			setTimeout(OC.Notification.hide(), 3000);
+			hideNotification(3000);
 			return;
 		}
 		//get all the html previews available, concatenate 'em all
 		OC.Notification.show('Your download is being prepared. This might take some time');
-		setTimeout(OC.Notification.hide(), 3000);
+		hideNotification(3000);
 		window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=epub';
 	});
 	
@@ -339,11 +327,11 @@ $(document).ready(function() {
 	        	$('#crate_input #create').val('');
 	        	$("#crates").append('<option id="'+data+'" value="'+data+'" >'+data+'</option>');
 	        	OC.Notification.show('Crate '+data+' successfully created');
-				setTimeout(OC.Notification.hide(), 3000);
+				hideNotification(3000);
 			},
 			error: function(data){
 				OC.Notification.show(data.statusText);
-				setTimeout(OC.Notification.hide(), 3000);
+				hideNotification(3000);
 				$('#crate_input #create').focus();
 			}
 	    });
@@ -470,18 +458,14 @@ $(document).ready(function() {
 			    },
 			    error: function(data) {
 				OC.Notification.show('There was an error:' + data.statusText);
-				setTimeout(function() {
-				    OC.Notification.hide();
-				}, 3000);
+				hideNotification(3000);
 			    }
 			});
 		    });
                 },
                 error: function(data) {
                     OC.Notification.show('There was an error:' + data.statusText);
-                    setTimeout(function() {
-			OC.Notification.hide();
-		    }, 3000);
+                    hideNotification(3000);
                 }
             });
 		
