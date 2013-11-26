@@ -233,6 +233,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
+		$this->bag->update();
 		return true;
 	}
 	
@@ -640,8 +641,38 @@ class BagItManager{
 	        }
 	}
 
+    function getCollectionsList() {
+        require("swordappv2-php-library/swordappclient.php");
+        $sac = new \SWORDAPPClient();
+
+        // FIXME: make these configurable
+        $sd_uri = "http://115.146.93.246/sd-uri";
+        $sword_username = "uws_sword";
+        $sword_password = "swordAdmin";
+        $sword_obo = "obo";
+
+        // Get service document
+        $sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
+        $collections = array();
+
+        if ($sd->sac_status == 200) {
+            foreach ($sd->sac_workspaces as $workspace) {
+                foreach ($workspace->sac_collections as $collection) {
+                    $collections["$workspace->sac_workspacetitle - $collection->sac_colltitle"] = $collection->sac_href;
+
+                }
+            }
+        } else {
+           header("HTTP/1.1 ".$sd->sac_status." ".$sd->sac_statusmessage);
+           break;
+        }
+
+        return $collections;
+    }
+
+
 	public function getConfig() {
-		$config = Null;
+		$config = null;
 		$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
         if(file_exists($config_file)) {
             $config = json_decode(file_get_contents($config_file), true); // convert it to an array.

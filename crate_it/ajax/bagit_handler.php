@@ -19,6 +19,7 @@ $creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
 $full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
 $new_full_name = isset($_POST['new_full_name']) ? $_POST['new_full_name'] : '';
 $vfs = isset($_POST['vfs']) ? $_POST['vfs'] : '';
+$sword_collection = isset($_POST['sword_collection']) ? $_POST['sword_collection'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -154,22 +155,10 @@ switch ($action){
 		$sword_password = $sword_config['password'];
 		$sword_obo = $sword_config['obo'];
 
-		// Get service document
-		$sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
-
-		if ($sd->sac_status == 200) {
-		   // Get collection URI
-		   $col_uri = (string)$sd->sac_workspaces[0]->sac_collections[0]->sac_href;
-		}
-		else {
-		   header("HTTP/1.1 ".$sd->sac_status." ".$sd->sac_statusmessage);
-		   break;
-		}
-
 		// Deposit
 		$content_type = "application/zip";
 		$packaging_format = "http://purl.org/net/sword/package/SimpleZip";
-		$dr = $sac->deposit($col_uri, $sword_username, $sword_password, $sword_obo, $zip_file, $packaging_format, $content_type, false);
+		$dr = $sac->deposit($sword_collection, $sword_username, $sword_password, $sword_obo, $zip_file, $packaging_format, $content_type, false);
 		OCP\Util::writeLog("crate_it", $dr->sac_status." ".$dr->sac_statusmessage, OCP\Util::DEBUG);
 		header("HTTP/1.1 ".$dr->sac_status." ".$dr->sac_statusmessage);
 		break;

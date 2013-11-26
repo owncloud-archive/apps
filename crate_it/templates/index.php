@@ -19,7 +19,16 @@
     <?php endif; ?>
     <input id="download" type="button" value="Download Crate as zip" />
     <?php if ($_['sword_status'] === "enabled" ):?>
-    <input id="post" type="button" value="Post Crate to SWORD" />
+        <div>
+            <select id="sword_collection">
+                <?php foreach ($_['sword_collections'] as $collection => $href): ?>
+                    <option value="<?php echo $href?>">
+                        <?php echo $collection; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <input id="post" type="button" value="Post Crate to SWORD" />
+        </div>
     <?php endif; ?>
 </div>
     <div>
@@ -89,6 +98,8 @@
 
 	</div>
 </div>
+
+
 
 <div>
     <ul id="fileMenu" class="dropdown-menu" role="menu" aria-labelledby="dLabel">

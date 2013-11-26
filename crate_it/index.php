@@ -22,6 +22,7 @@ $tmpl->assign('description_length', $description_length);
 $tmpl->assign('crates', $bagit_manager->getCrateList());
 $tmpl->assign('top_for', $bagit_manager->lookUpMint("", 'top'));
 $tmpl->assign('selected_crate', $bagit_manager->getSelectedCrate());
+
 if ($manifestData['creators']) {
    $tmpl->assign('creators', array_values($manifestData['creators']));
 }
@@ -30,4 +31,5 @@ else {
 }
 $tmpl->assign('mint_status', $bagit_manager->getMintStatus());
 $tmpl->assign('sword_status', $bagit_manager->getSwordStatus());
+$tmpl->assign('sword_collections', $bagit_manager->getCollectionsList());
 $tmpl->printPage();
