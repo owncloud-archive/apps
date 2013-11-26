@@ -236,32 +236,33 @@ $(document).ready(function() {
 	});
 	
 	$('#post').click('click', function(event) { 
-	    if($('#crateList tr').length == 0){
-		OC.Notification.show('No items in the crate to package');
-		setTimeout(function() {
-		    OC.Notification.hide();
-		}, 3000);
-		return;
+	    if(treeHasNoFiles()){
+    		OC.Notification.show('No items in the crate to package');
+    		setTimeout(OC.Notification.hide(), 3000);
+		    return;
 	    }
 
-            $.ajax({
-                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
-                type: 'post',
-                dataType: 'json',
-                data: {'action': 'postzip'},
-                success: function(data) {
-                    OC.Notification.show('Crate posted successfully');
-                    setTimeout(function() {
-			OC.Notification.hide();
-		    }, 3000);
-                },
-                error: function(data) {
-                    OC.Notification.show('There was an error:' + data.statusText);
-                    setTimeout(function() {
-			OC.Notification.hide();
-		    }, 3000);
-                }
-            });
+        var sword_collection = $('#sword_collection').val();
+
+        $.ajax({
+            url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+            type: 'post',
+            dataType: 'json',
+            data: {'action': 'postzip',
+                    'sword_collection': sword_collection},
+            success: function(data) {
+                OC.Notification.show('Crate posted successfully');
+                setTimeout(function() {
+        		  OC.Notification.hide();
+        	    }, 3000);
+            },
+            error: function(data) {
+                OC.Notification.show('There was an error:' + data.statusText);
+                setTimeout(function() {
+        		  OC.Notification.hide();
+        	    }, 3000);
+            }
+        });
 		
 	});
 
