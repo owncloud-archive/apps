@@ -31,19 +31,6 @@
         </div>
     <?php endif; ?>
 </div>
-    <div>
-        <div style="padding-top:20px; padding-left:5px;">
-            <span id="crateName" style="font-weight:bold;font-size:large; padding-left:10px;"><?php echo $_['selected_crate'] ?></span>
-            <div id='#description_box'>
-                <label for="description">Description</label>
-                <div id="description"><?php echo $_['description'] ?></div>
-            </div>
-        </div>
-
-        <div style="float:left; padding-left:20px; padding-top:5px;">
-            <div id="files"></div>
-        </div>
-    </div>
 
     <div id="metadata" style="float:right;">
 
@@ -97,6 +84,22 @@
 	    <?php endif; ?>
 
 	</div>
+
+    <div>
+        <div style="padding-top:20px; padding-left:5px;">
+            <span id="crateName" style="font-weight:bold;font-size:large; padding-left:10px;"><?php echo $_['selected_crate'] ?></span>
+            <div id='#description_box'>
+                <label for="description">Description</label>
+		<input id="edit_description" type="button" value="Edit" />
+                <div id="description"><?php echo htmlentities($_['description']) ?></div>
+            </div>
+        </div>
+
+        <div style="float:left; padding-left:20px; padding-top:5px;">
+            <div id="files"></div>
+        </div>
+    </div>
+
 </div>
 
 

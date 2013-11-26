@@ -13,7 +13,7 @@ $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
-$description = isset($_POST['description']) ? $_POST['description'] : '';
+$description = isset($_POST['crate_description']) ? $_POST['crate_description'] : '';
 $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
 $creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
 $full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
@@ -45,7 +45,7 @@ switch ($action){
 	case 'describe':
 		$ok = $bagit_manager->setDescription($description);
 		if($ok){
-			echo $description;
+			echo json_encode(array("description" => $description));
 		} else {
 			header('HTTP/1.1 500 Internal Server Error');
 		}

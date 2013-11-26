@@ -76,7 +76,7 @@ class BagItManager{
 		}
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
-		$entry = array('description' => 'Please enter a description...', 'creators' => array(),
+		$entry = array('description' => '', 'creators' => array(),
 			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);

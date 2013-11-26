@@ -309,12 +309,12 @@ $(document).ready(function() {
 	});
 	
 	$('#clear').click(function(event) {
-        var children = $tree.tree('getNodeById', 'rootfolder').children;
-        children.forEach(function(node) {
-            $tree.tree('removeNode', node);
-        });
-        saveTree($tree);
-		hideMetadata();
+            var children = $tree.tree('getNodeById', 'rootfolder').children;
+            children.forEach(function(node) {
+		$tree.tree('removeNode', node);
+            });
+            saveTree($tree);
+	    hideMetadata();
 	});
 	
 	$('#subbutton').click(function(event) {
@@ -473,28 +473,42 @@ $(document).ready(function() {
 
     var description_length = $('#description_length').text();
 
-    $('#description').editable(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=describe', { 
-        name: 'description',
-        type      : 'textarea',
-        tooltip   : 'Please enter a description...',
-        cancel    : 'Cancel',
-        submit    : 'OK',
-        indicator : '<img src='+OC.imagePath('crate_it', 'indicator.gif')+'>',
-        rows: 6,
-        cols: 100, // This doesn't seem to work correctly
-        maxlength: description_length,
-        callback: function(value, settings) {
-	       togglePostCrateToSWORD();
-       }
-     });
-    
+    $('#edit_description').click(function(event) {
+	var old_description = $('#description').text();
+	$('#description').text('');
+	$('#description').html('<textarea id="crate_description" style="width: 40%;" placeholder="Enter a description of the research data package for this Crate">' + old_description + '</textarea><br/><input id="save_description" type="button" value="Save" /><input id="cancel_description" type="button" value="Cancel" />');
+	$('#save_description').click(function(event) {
+	    $.ajax({
+		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+		type: 'post',
+		dataType: 'json',
+		data: {
+		    'action': 'describe',
+		    'crate_description': $('#crate_description').val()
+		},
+		success: function(data) {
+		    $('#description').html('');
+		    $('#description').text(data.description);
+		    togglePostCrateToSWORD();
+		},
+		error: function(data) {
+		    OC.Notification.show('There was an error:' + data.statusText);
+		    hideNotification(3000);
+		}
+	    });
+	});
+	$('#cancel_description').click(function(event) {
+	    $('#description').html('');
+	    $('#description').text(old_description);
+	});
+    });
+
     $.ajax({
         url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
         type: 'get',
         dataType: 'json',
         data: {'action': 'get_items'},
         success: function(data){
-            $('#description').text(data.description);
             $tree = buildFileTree(data);
         },
         error: function(data){
