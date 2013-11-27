@@ -10,7 +10,7 @@
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
             <div id="files"></div>
-            <span id="crate_size">Create size: <?php echo $_['crate_size']; ?></span>
+            <span>Crate size: </span><span id="crate_size_human">/span>
         </div>
     </div>
 
@@ -114,5 +114,11 @@
     <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
 </div>
 
-<div id="description_length" hidden="hidden"><?php echo $_['description_length']; ?></div>
+<!-- workaround to make var avalaide to javascript -->
+<div id="hidden_vars" hidden="hidden">
+    <span id="description_length"><?php echo $_['description_length']; ?></span>
+    <span id="max_sword_mb"><?php echo $_['max_sword_mb'] ?></span>
+    <span id="max_zip_mb"><?php echo $_['max_zip_mb'] ?></span>
+</div>
+
 

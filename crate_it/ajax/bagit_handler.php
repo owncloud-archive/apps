@@ -217,6 +217,11 @@ switch ($action){
 			header('HTTP/1.1 500 Internal Server Error');
 		}
 		break;
+	case 'crate_size':
+		$size = $bagit_manager->getCrateSize();
+		$data = array('size' => $size, 'human' => OCP\Util::humanFileSize($size));
+		echo json_encode($data);
+		break;
 	case 'validate_metadata':
 		$success = $bagit_manager->validateMetadata();
 
