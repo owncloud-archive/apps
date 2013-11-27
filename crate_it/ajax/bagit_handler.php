@@ -36,6 +36,8 @@ if (isset($_GET['action'])) {
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 
+$config = $bagit_manager->getConfig();
+
 switch ($action){
 	case 'create':
 		$msg = $bagit_manager->createCrate($crate_name);
@@ -122,7 +124,7 @@ switch ($action){
 	case 'zip':
 		$crate_size = $bagit_manager->getCrateSize();
 		$crate_size = $crate_size / (1024 * 1024);
-		$max_zip_mb = $bagit_manager->getConfig()['max_zip_mb'];
+		$max_zip_mb = $config['max_zip_mb'];
 		if ($crate_size > $max_zip_mb) {
 			echo 'WARNING: Crate size exceeds zip file limit: '.$max_zip_mb;
 			break;
@@ -146,7 +148,7 @@ switch ($action){
 	case 'postzip':
 		$crate_size = $bagit_manager->getCrateSize();
 		$crate_size = $crate_size / (1024 * 1024);
-		$max_sword_mb = $bagit_manager->getConfig()['max_sword_mb'];
+		$max_sword_mb = $config['max_sword_mb'];
 		if ($crate_size > $max_sword_mb) {
 			echo 'WARNING: Crate size exceeds SWORD limit: '.$max_sword_mb;
 			break;
@@ -164,7 +166,6 @@ switch ($action){
 		require("swordappv2-php-library/swordappclient.php");
 		$sac = new SWORDAPPClient();
 
-		$config = $bagit_manager->getConfig();
 		$sword_config = $config['sword'];
 	   	$sd_uri = $sword_config['sd_uri'];
 		$sword_username = $sword_config['username'];
