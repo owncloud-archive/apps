@@ -76,22 +76,27 @@ function updateCrateSize() {
         dataType: 'json',
         data: {'action': 'crate_size'},
         success: function(data) {
-            console.log(data);
             $('#crate_size_human').text(data['human']);
             crate_size_mb = data['size'] / (1024 * 1024);
             var msg = null;
             if (max_zip_mb > 0 && crate_size_mb > max_zip_mb) {
                 msg = 'WARNING: Crate size exceeds zip file limit: ' + max_zip_mb + ' MB';
+                $('#download').attr("disabled", "disabled");
                 if (max_sword_mb > 0 && crate_size_mb > max_sword_mb) {
                     msg += ', and SWORD limit: ' + max_sword_mb + 'MB';
+                    $('#post').attr("disabled", "disabled");
                 }
                 msg += '.';
             } else if (max_sword_mb > 0 && crate_size_mb > max_sword_mb) {
                 msg = 'WARNING: Crate size exceeds SWORD limit: ' + max_sword_mb + 'MB.';
+                $('#post').attr("disabled", "disabled");
             }
             if (msg) {
                 OC.Notification.show(msg);
                 setTimeout(function() { OC.Notification.hide(); }, 6000);
+            } else {
+                $('#post').removeAttr("disabled");
+                $('#download').removeAttr("disabled");
             }
         },
         error: function(data) {}
