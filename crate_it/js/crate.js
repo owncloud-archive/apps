@@ -58,6 +58,7 @@ function buildFileTree(data) {
                     $tree.tree('removeNode', node);
                     saveTree($tree);
                     $(this).dialog('close');
+                    // updateCrateSize();
                 }
             }]);
             $("#dialog-delete").dialog('open');
@@ -73,6 +74,40 @@ function buildFileTree(data) {
     return $tree;
 }
 
+
+function updateCrateSize() {
+    $.ajax({
+        url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+        type: 'post',
+        dataType: 'json',
+        data: {'action': 'crate_size'},
+        success: function(data) {
+            $('#crate_size_human').text(data['human']);
+            crate_size_mb = data['size'] / (1024 * 1024);
+            var msg = null;
+            if (max_zip_mb > 0 && crate_size_mb > max_zip_mb) {
+                msg = 'WARNING: Crate size exceeds zip file limit: ' + max_zip_mb + ' MB';
+                $('#download').attr("disabled", "disabled");
+                if (max_sword_mb > 0 && crate_size_mb > max_sword_mb) {
+                    msg += ', and SWORD limit: ' + max_sword_mb + 'MB';
+                    $('#post').attr("disabled", "disabled");
+                }
+                msg += '.';
+            } else if (max_sword_mb > 0 && crate_size_mb > max_sword_mb) {
+                msg = 'WARNING: Crate size exceeds SWORD limit: ' + max_sword_mb + 'MB.';
+                $('#post').attr("disabled", "disabled");
+            }
+            if (msg) {
+                OC.Notification.show(msg);
+                setTimeout(function() { OC.Notification.hide(); }, 6000);
+            } else {
+                $('#post').removeAttr("disabled");
+                $('#download').removeAttr("disabled");
+            }
+        },
+        error: function(data) {}
+    });    
+}
 
 function togglePostCrateToSWORD() {
     $.ajax({
@@ -124,6 +159,7 @@ function saveTree($tree) {
         data: {'action':'update_vfs', 'vfs': $tree.tree('toJson')},
         success: function(data){
             OC.Notification.show('Crate updated');
+            updateCrateSize();
             hideNotification(3000);
         },
         error: function(data){
@@ -233,10 +269,9 @@ $(document).ready(function() {
 	
 	$('#download').click('click', function(event) { 
 	    if(treeHasNoFiles()){
-		OC.Notification.show('No items in the crate to package');
-		hideNotification(3000);
-		
-		return;
+    		OC.Notification.show('No items in the crate to package');
+    		hideNotification(3000);
+    		return;
 	    }
 	    OC.Notification.show('Your download is being prepared. This might take some time if the files are big');
 	    hideNotification(3000);
@@ -300,7 +335,6 @@ $(document).ready(function() {
 		if(treeHasNoFiles()){
 			OC.Notification.show('No items in the crate to package');
 			hideNotification(3000);
-			return;
 		}
 		//get all the html previews available, concatenate 'em all
 		OC.Notification.show('Your download is being prepared. This might take some time');
@@ -517,6 +551,12 @@ $(document).ready(function() {
         }
     });
 
+    max_sword_mb = parseInt($('#max_sword_mb').text());
+    max_zip_mb = parseInt($('#max_zip_mb').text());
+    crate_size_mb = 0;
+
+    updateCrateSize();    
+
     $("#dialog-add").dialog({
         autoOpen: false,
     });
@@ -529,6 +569,7 @@ $(document).ready(function() {
         autoOpen: false,
     });
 	
+
     activateRemoveCreatorButtons();
     makeCreatorsEditable();
 

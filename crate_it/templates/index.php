@@ -1,4 +1,5 @@
 <div id="container">
+
 <div style="padding-top:20px; padding-left:5px;">
     <form id="crate_input" method="get">
         Create new crate:
@@ -28,62 +29,63 @@
                 <?php endforeach; ?>
             </select>
             <input id="post" type="button" value="Post Crate to SWORD" />
-        </div>
+
     <?php endif; ?>
 </div>
 
     <div id="metadata" style="float:right;">
+        <?php if ($_['mint_status'] === "enabled" ):?>
 
-    	    <?php if ($_['mint_status'] === "enabled" ):?>
-		<div id="anzsrc_for">
-		    <div>
-		        <select id="for_top_level" class="for_codes">
-		            <option id="select_top" value="for_top_choose">Choose a code</option>
-		            <?php foreach($_['top_for'] as $item): $vars=get_object_vars($item); //$prefLabel=$ vars[ 'skos:prefLabel']; ?>
-		            <option id="<?php echo $vars['rdf:about'];?>" value="<?php echo $vars['rdf:about'];?>">
-		                <?php echo $vars[ 'skos:prefLabel']?>
-		            </option>
-		            <?php endforeach;?>
-		        </select>
-		    </div>
-		    <div>
-		        <select id="for_second_level" class="for_codes">
-		            <option id="select_second" value="for_second_choose">Choose a code</option>
-		        </select>
-		    </div>
-		    <div>
-		        <select id="for_third_level" class="for_codes">
-		            <option id="select_third" value="for_third_choose">Choose a code</option>
-		        </select>
-		    </div>
-		</div>
+    		<div id="anzsrc_for">
+    		    <div>
+    		        <select id="for_top_level" class="for_codes">
+    		            <option id="select_top" value="for_top_choose">Choose a code</option>
+    		            <?php foreach($_['top_for'] as $item): $vars=get_object_vars($item); //$prefLabel=$ vars[ 'skos:prefLabel']; ?>
+    		            <option id="<?php echo $vars['rdf:about'];?>" value="<?php echo $vars['rdf:about'];?>">
+    		                <?php echo $vars[ 'skos:prefLabel']?>
+    		            </option>
+    		            <?php endforeach;?>
+    		        </select>
+    		    </div>
+    		    <div>
+    		        <select id="for_second_level" class="for_codes">
+    		            <option id="select_second" value="for_second_choose">Choose a code</option>
+    		        </select>
+    		    </div>
+    		    <div>
+    		        <select id="for_third_level" class="for_codes">
+    		            <option id="select_third" value="for_third_choose">Choose a code</option>
+    		        </select>
+    		    </div>
+    		</div>
 
-		<div id="creators_box">
-		    <div>
-		        <label for="creators">Add Data Creator/s</label>
-		    </div>
-		    <ul id="creators">
-                    <?php foreach($_['creators'] as $creator):?>
-		    	  <li>
-			    <input id="creator_<?php echo $creator['creator_id'] ?>" type="button" value="Remove" />
-			    <span id="<?php echo $creator['creator_id'] ?>" class="full_name"><?php echo $creator['full_name'] ?></span>
-			  </li>
-                    <?php endforeach;?>
-		    </ul>
-		</div>
+    		<div id="creators_box">
+    		    <div>
+    		        <label for="creators">Add Data Creator/s</label>
+    		    </div>
+    		    <ul id="creators">
+                        <?php foreach($_['creators'] as $creator):?>
+    		    	  <li>
+    			    <input id="creator_<?php echo $creator['creator_id'] ?>" type="button" value="Remove" />
+    			    <span id="<?php echo $creator['creator_id'] ?>" class="full_name"><?php echo $creator['full_name'] ?></span>
+    			  </li>
+                        <?php endforeach;?>
+    		    </ul>
+    		</div>
 
-		<div id="search_people_box">
-		    <input id="keyword" type="text" name="keyword" />
-		    <input id="search_people" type="button" value="Search People" />
-		</div>
+    		<div id="search_people_box">
+    		    <input id="keyword" type="text" name="keyword" />
+    		    <input id="search_people" type="button" value="Search People" />
+    		</div>
 
-		<div id="search_people_result_box">
-		    <ul id="search_people_results">
-		    </ul>
-		</div>
-	    <?php endif; ?>
+    		<div id="search_people_result_box">
+    		    <ul id="search_people_results">
+    		    </ul>
+    		</div>
 
-	</div>
+        <?php endif; ?>
+
+</div>
 
     <div>
         <div style="padding-top:20px; padding-left:5px;">
@@ -97,6 +99,7 @@
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
             <div id="files"></div>
+            <span>Crate size: </span><span id="crate_size_human">/span>
         </div>
     </div>
 
@@ -125,5 +128,11 @@
     <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
 </div>
 
-<div id="description_length" hidden="hidden"><?php echo $_['description_length']; ?></div>
+<!-- workaround to make var avalaide to javascript -->
+<div id="hidden_vars" hidden="hidden">
+    <span id="description_length"><?php echo $_['description_length']; ?></span>
+    <span id="max_sword_mb"><?php echo $_['max_sword_mb'] ?></span>
+    <span id="max_zip_mb"><?php echo $_['max_zip_mb'] ?></span>
+</div>
+
 

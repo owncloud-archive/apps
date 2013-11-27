@@ -11,7 +11,8 @@ $manifestData = $bagit_manager->getManifestData();
 $config = $bagit_manager->getConfig();
 
 $description_length = empty($config['description_length']) ? 4000 : $config['description_length'];
-
+$max_sword_mb = empty($config['max_sword_mb']) ? 0 : $config['max_sword_mb'];
+$max_zip_mb = empty($config['max_zip_mb']) ? 0 : $config['max_zip_mb'];
 
 // create a new template to show the cart
 $tmpl = new OCP\Template('crate_it', 'index', 'user');
@@ -32,4 +33,6 @@ else {
 $tmpl->assign('mint_status', $bagit_manager->getMintStatus());
 $tmpl->assign('sword_status', $bagit_manager->getSwordStatus());
 $tmpl->assign('sword_collections', $bagit_manager->getCollectionsList());
+$tmpl->assign('max_sword_mb', $max_sword_mb);
+$tmpl->assign('max_zip_mb', $max_zip_mb);
 $tmpl->printPage();
