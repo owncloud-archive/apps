@@ -5,6 +5,7 @@
 # Translators:
 # Honza K. <honza889@gmail.com>, 2013
 # Jan Krejci <krejca85@gmail.com>, 2012
+# liska_, 2013
 # Martin <fireball@atlas.cz>, 2012
 # Michal Hrušecký <Michal@hrusecky.net>, 2012
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-26 01:20-0500\n"
-"PO-Revision-Date: 2013-11-26 06:20+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-11-27 09:17-0500\n"
+"PO-Revision-Date: 2013-11-26 14:18+0000\n"
+"Last-Translator: liska_\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "Sdílí"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Zobrazení obrázku"
 
 #: js/slideshow.js:323
 msgid "Error loading slideshow template"
@@ -51,8 +52,8 @@ msgstr "Aplikace \"Prohlížeč obrázků\" musí být také povolena pro použi
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s sdílel <strong>%s</strong> s vámi"
 
 #: templates/public.php:16
 msgid "File list"
-msgstr ""
+msgstr "Seznam souborů"
