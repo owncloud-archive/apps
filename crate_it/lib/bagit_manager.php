@@ -76,7 +76,7 @@ class BagItManager{
 		}
 		$this->initBag($name);
 		$fp = fopen($this->manifest, 'x');
-		$entry = array('description' => '', 'creators' => array(),
+		$entry = array('description' => '', 'creators' => array(), 'activities' => array(),
 			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
 		fwrite($fp, json_encode($entry));
 		fclose($fp);
@@ -531,8 +531,9 @@ class BagItManager{
 	
 	public function lookUpPeople($keyword) {
 		try {
-			$url = $this->mint['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . $keyword;
-			
+			$url = $this->mint['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			\OCP\Util::writeLog("crate_it::lookUpPeople", $url, \OCP\Util::DEBUG);
+
 			// Now call the mint
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
@@ -725,6 +726,77 @@ class BagItManager{
 		    return array("status" => "Failed", "msg" => $e->getMessage());
 		}
 
+	}
+
+	public function lookUpActivity($keyword) {
+		try {
+			$url = $this->mint['url'] . '/Activities/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			
+			// Now call the mint
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$content = curl_exec($ch);
+			$result = curl_getinfo($ch);
+			curl_close($ch);
+			
+			if(empty($content))
+			{
+				return array();
+			}
+			else {
+				$content_array = json_decode($content);
+				$results = $content_array->results;
+				return $results;
+			}
+		} 
+		catch (Exception $e) {
+			header('HTTP/1.1 400 ' . $e->getMessage());
+		}
+	}
+
+	public function saveActivity($activity_id, $grant_number, $dc_title) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if ($contents['activities']) {
+		   $activities = &$contents['activities'];
+
+		   for ($i = 0; $i < count($activities); $i++) {
+			if ( $activities[$i]['activity_id'] == $activity_id ) {
+			   // duplicate error
+			   return false;
+			}
+		   }
+
+		   array_push($activities, array('activity_id' => $activity_id, 'grant_number' => $grant_number, 'dc_title' => $dc_title));
+		}
+		else {
+		   $contents['activities'] = array(array('activity_id' => $activity_id, 'grant_number' => $grant_number, 'dc_title' => $dc_title));
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+	
+	public function removeActivity($activity_id) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$activities = &$contents['activities'];
+
+		for ($i = 0; $i < count($activities); $i++) {
+			if ( $activities[$i]['activity_id'] == $activity_id ) {
+				array_splice($activities, $i, 1);
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
 	}
 
 }

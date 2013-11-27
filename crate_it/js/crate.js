@@ -263,6 +263,57 @@ function makeCreatorEditable(creatorObj) {
     });
 }
 
+function activateRemoveActivityButton(buttonObj) {
+    buttonObj.click('click', function(event) {
+	// Remove activity from backend
+	var id = $(this).attr("id");
+	activity_id = id.replace("activity_", "");
+	
+	$.ajax({
+	    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+	    type: 'post',
+	    dataType: 'json',
+	    data: {
+		'action': 'remove_activity',
+		'activity_id': activity_id,
+	    },
+	    success: function(data) {
+		buttonObj.parent().remove();
+	    },
+	    error: function(data) {
+		OC.Notification.show('There was an error:' + data.statusText);
+		hideNotification(3000);
+	    }
+	});
+    });
+}
+
+function activateRemoveActivityButtons() {
+    $("input[id^='activity_']").click('click', function(event) {
+	// Remove activity from backend
+	var input_element = $(this);
+	var id = input_element.attr("id");
+	activity_id = id.replace("activity_", "");
+	
+	$.ajax({
+	    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+	    type: 'post',
+	    dataType: 'json',
+	    data: {
+		'action': 'remove_activity',
+		'activity_id': activity_id,
+	    },
+	    success: function(data) {
+		input_element.parent().remove();
+	    },
+	    error: function(data) {
+		OC.Notification.show('There was an error:' + data.statusText);
+		hideNotification(3000);
+	    }
+	});
+    });
+}
+
 $(document).ready(function() {
 
     togglePostCrateToSWORD();
@@ -505,6 +556,74 @@ $(document).ready(function() {
 		
 	});
 
+	$('#search_activity').click('click', function(event) { 
+	    if($.trim($('#keyword_activity').val()).length == 0){
+		$('#search_activity_results').empty();
+		return;
+	    }
+
+            $.ajax({
+                url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+                type: 'post',
+                dataType: 'json',
+                data: {'action': 'search_activity', 'keyword_activity': $.trim($('#keyword_activity').val())},
+                success: function(data) {
+		    // populate list of results
+		    $('#search_activity_results').empty();
+		    for (var i = 0; i < data.length; i++) {
+			var all_data = data[i]['result-metadata']['all'];
+			var id = all_data['id'];
+			var dc_title = $.trim(data[i]['dc:title']);
+			var grant_number = $.trim(data[i]['grant_number']);
+			var full_grant_code = grant_number + ": " + dc_title;
+			$('#search_activity_results').append('<li><input id="'
+							   + 'search_activity_result_' + id
+							   + '" type="button" value="Add" />'
+							   + '<span id="' + id + '"title="' + dc_title + '">'
+							   + grant_number + '</span></li>');
+		    }
+		    $("input[id^='search_activity_result_']").click('click', function(event) {
+			// Add grant code to backend
+			var input_element = $(this);
+			var id = input_element.attr("id");
+			var activity_id = id.replace("search_activity_result_", "");
+			var grant_number = input_element.parent().text();
+			var dc_title = $("span[id=" + activity_id + "]").attr('title');
+			
+			$.ajax({
+			    url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
+			    type: 'post',
+			    dataType: 'json',
+			    data: {
+				'action': 'save_activity',
+				'activity_id': activity_id,
+				'grant_number': grant_number,
+				'dc_title': dc_title
+			    },
+			    success: function(data) {
+				$('#activities').append('<li><input id="'
+							+ 'activity_' + activity_id
+							+ '" type="button" value="Remove" />'
+							+ '<span id="' + activity_id + '"title="' + dc_title + '">'
+							+ grant_number + '</span></li>');
+				input_element.parent().remove();
+				activateRemoveActivityButton($('#activity_' + activity_id));
+			    },
+			    error: function(data) {
+				OC.Notification.show('There was an error:' + data.statusText);
+				hideNotification(3000);
+			    }
+			});
+		    });
+                },
+                error: function(data) {
+                    OC.Notification.show('There was an error:' + data.statusText);
+                    hideNotification(3000);
+                }
+            });
+		
+	});
+
     var description_length = $('#description_length').text();
 
     $('#edit_description').click(function(event) {
@@ -572,5 +691,7 @@ $(document).ready(function() {
 
     activateRemoveCreatorButtons();
     makeCreatorsEditable();
+
+    activateRemoveActivityButtons();
 
 });	

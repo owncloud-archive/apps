@@ -35,7 +35,6 @@
 
     <div id="metadata" style="float:right;">
         <?php if ($_['mint_status'] === "enabled" ):?>
-
     		<div id="anzsrc_for">
     		    <div>
     		        <select id="for_top_level" class="for_codes">
@@ -83,9 +82,33 @@
     		    </ul>
     		</div>
 
-        <?php endif; ?>
+		<div id="avtivities_box">
+		    <div>
+		        <label for="activities">Add Grant Number/s</label>
+		    </div>
+		    <ul id="activities">
+                    <?php foreach($_['activities'] as $activity):?>
+		    	  <li>
+			    <input id="activity_<?php echo $activity['activity_id'] ?>" type="button" value="Remove" />
+			    <span id="<?php echo $activity['activity_id'] ?>" class="grant_number"><?php echo $activity['grant_number'] ?></span>
+			  </li>
+                    <?php endforeach;?>
+		    </ul>
+		</div>
 
-</div>
+		<div id="search_activity_box">
+		    <input id="keyword_activity" type="text" name="keyword_activity" />
+		    <input id="search_activity" type="button" value="Search Grant Number" />
+		</div>
+
+		<div id="search_activity_result_box">
+		    <ul id="search_activity_results">
+		    </ul>
+		</div>
+
+	    <?php endif; ?>
+
+	</div>
 
     <div>
         <div style="padding-top:20px; padding-left:5px;">
@@ -99,7 +122,7 @@
 
         <div style="float:left; padding-left:20px; padding-top:5px;">
             <div id="files"></div>
-            <span>Crate size: </span><span id="crate_size_human">/span>
+            <span>Crate size: </span><span id="crate_size_human"></span>
         </div>
     </div>
 

@@ -20,6 +20,10 @@ $full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
 $new_full_name = isset($_POST['new_full_name']) ? $_POST['new_full_name'] : '';
 $vfs = isset($_POST['vfs']) ? $_POST['vfs'] : '';
 $sword_collection = isset($_POST['sword_collection']) ? $_POST['sword_collection'] : '';
+$activity_id = isset($_POST['activity_id']) ? $_POST['activity_id'] : '';
+$grant_number = isset($_POST['grant_number']) ? $_POST['grant_number'] : '';
+$dc_title = isset($_POST['dc_title']) ? $_POST['dc_title'] : '';
+$keyword_activity = isset($_POST['keyword_activity']) ? $_POST['keyword_activity'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -237,5 +241,29 @@ switch ($action){
 	case 'delete_crate':
 		$result = $bagit_manager->deleteCrate();
 		echo json_encode($result);
+		break;
+	case 'search_activity':
+		$results = $bagit_manager->lookUpActivity($keyword_activity);
+		echo json_encode($results);
+		break;
+	case 'save_activity':
+		$success = $bagit_manager->saveActivity($activity_id, $grant_number, $dc_title);
+
+		if($success){
+			echo json_encode($activity_id);
+		}
+		else {
+			header('HTTP/1.1 400 grant number exists');
+		}
+		break;
+	case 'remove_activity':
+		$success = $bagit_manager->removeActivity($activity_id);
+
+		if($success){
+			echo json_encode($activity_id);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
 		break;
 }

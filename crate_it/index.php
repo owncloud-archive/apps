@@ -30,6 +30,14 @@ if ($manifestData['creators']) {
 else {
    $tmpl->assign('creators', array());
 }
+
+if ($manifestData['activities']) {
+   $tmpl->assign('activities', array_values($manifestData['activities']));
+}
+else {
+   $tmpl->assign('activities', array());
+}
+
 $tmpl->assign('mint_status', $bagit_manager->getMintStatus());
 $tmpl->assign('sword_status', $bagit_manager->getSwordStatus());
 $tmpl->assign('sword_collections', $bagit_manager->getCollectionsList());
