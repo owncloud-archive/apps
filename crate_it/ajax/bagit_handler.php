@@ -115,9 +115,15 @@ switch ($action){
 		readfile($epub);
 		break;
 	case 'zip':
-		$zip_file = $bagit_manager->createZip();
-		if(!isset($zip_file))
-		{
+		$crate_size = $bagit_manager->getCrateSize();
+		$crate_size = $crate_size / (1024 * 1024);
+		$max_zip_mb = $bagit_manager->getConfig()['max_zip_mb'];
+		if ($crate_size > $max_zip_mb) {
+			echo 'WARNING: Crate size exceeds zip file limit: '.$max_zip_mb;
+			break;
+		}
+		$zip_file = $bagit_manager->createZip();	
+		if(!isset($zip_file)) {
 			echo "No files in the bag to download";
 			break;
 		}
@@ -133,9 +139,15 @@ switch ($action){
 		readfile($zip_file);
 		break;
 	case 'postzip':
+		$crate_size = $bagit_manager->getCrateSize();
+		$crate_size = $crate_size / (1024 * 1024);
+		$max_sword_mb = $bagit_manager->getConfig()['max_sword_mb'];
+		if ($crate_size > $max_sword_mb) {
+			echo 'WARNING: Crate size exceeds SWORD limit: '.$max_sword_mb;
+			break;
+		}
 		$zip_file = $bagit_manager->createZip();
-		if(!isset($zip_file))
-		{
+		if(!isset($zip_file)) {
 			echo "No files in the bag to download";
 			break;
 		}
