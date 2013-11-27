@@ -16,6 +16,7 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 	$owner = $rootLinkItem['uid_owner'];
 	OC_Util::tearDownFS();
 	OC_Util::setupFS($owner);
+	\OC_User::setIncognitoMode(true);
 } else {
 	OCP\JSON::checkLoggedIn();
 
