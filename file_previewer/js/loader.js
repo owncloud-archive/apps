@@ -56,7 +56,7 @@ function getFilePath(dir, filename, prev_type) {
 	}
 	var viewer = OC.Router.generate('preview_handler', { fname: baseUrl});
 	//var viewer = OC.linkTo('file_previewer', 'docViewer.php')+'?fname='+baseUrl+'&type='+prev_type;
-	return viewer + '_html/index.html';
+	return viewer;
 }
 
 function getRequestURL(dir, filename, type) {
