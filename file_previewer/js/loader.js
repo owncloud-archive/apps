@@ -49,10 +49,10 @@ function showPreview(dir,filename, type){
 function getFilePath(dir, filename, prev_type) {
 	var baseUrl = '';
 	if(dir === '/'){
-		baseUrl = dir + filename;	
+		baseUrl = dir + '_html/' + filename + '/index.html';	
 	}
 	else{
-		baseUrl = dir + '/' + filename;
+		baseUrl = dir + '/_html/' + filename + '/index.html';
 	}
 	var viewer = OC.Router.generate('preview_handler', { fname: baseUrl});
 	//var viewer = OC.linkTo('file_previewer', 'docViewer.php')+'?fname='+baseUrl+'&type='+prev_type;
