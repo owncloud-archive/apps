@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ádám Radovits <adamradovits12@hotmail.com>, 2013
 # Adam Toth <adazlord@gmail.com>, 2012
 # gyeben <gyonkibendeguz@gmail.com>, 2013
 # Laszlo Tornoci <torlasz@gmail.com>, 2013
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-26 01:20-0500\n"
-"PO-Revision-Date: 2013-11-26 06:20+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-11-29 12:06-0500\n"
+"PO-Revision-Date: 2013-11-27 20:50+0000\n"
+"Last-Translator: Ádám Radovits <adamradovits12@hotmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr "Megosztotta Önnel"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Képnézet"
 
 #: js/slideshow.js:323
 msgid "Error loading slideshow template"
@@ -49,8 +50,8 @@ msgstr "A képnézegető alkalmazásnak is engedélyezve kell lennie az alkalmaz
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s megosztotta veled ezt: <strong>%s</strong>"
 
 #: templates/public.php:16
 msgid "File list"
-msgstr ""
+msgstr "Fájllista"

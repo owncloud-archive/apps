@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ádám Radovits <adamradovits12@hotmail.com>, 2013
 # ebela <bela@dandre.hu>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-15 21:31-0400\n"
-"PO-Revision-Date: 2013-10-15 15:40+0000\n"
-"Last-Translator: ebela <bela@dandre.hu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-29 12:06-0500\n"
+"PO-Revision-Date: 2013-11-27 15:00+0000\n"
+"Last-Translator: Ádám Radovits <adamradovits12@hotmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:40
+#: appinfo/app.php:31
 msgid "Activity"
 msgstr "Tevékenységek"
 
@@ -28,7 +29,7 @@ msgstr ""
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "Korábbi aktivitások betöltése"
 
 #: templates/list.php:28
 msgid "RSS feed"

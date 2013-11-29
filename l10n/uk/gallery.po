@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-26 01:20-0500\n"
-"PO-Revision-Date: 2013-11-26 06:20+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-11-29 12:06-0500\n"
+"PO-Revision-Date: 2013-11-28 14:10+0000\n"
+"Last-Translator: volodya327 <volodya327@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,11 +30,11 @@ msgstr "Опубліковано"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Перегляд Зображення"
 
 #: js/slideshow.js:323
 msgid "Error loading slideshow template"
-msgstr ""
+msgstr "Помилка завантаження шаблона слайд-шоу"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -49,8 +49,8 @@ msgstr "Для використання цього додатку, додато�
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s розподілено <strong>%s</strong> з вами"
 
 #: templates/public.php:16
 msgid "File list"
-msgstr ""
+msgstr "Список файлів"
