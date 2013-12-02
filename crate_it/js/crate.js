@@ -569,6 +569,17 @@ $(document).ready(function() {
         autoOpen: false,
     });
 	
+    $("#dialog-help").dialog({
+        autoOpen: false,
+        minWidth: 600,
+        position: { my: "right top",
+                    at: "right top",
+                    of: '#help_button' },
+    });
+
+    $('#help_button').on('click', function() {
+        $("#dialog-help").dialog('open');
+    });
 
     activateRemoveCreatorButtons();
     makeCreatorsEditable();

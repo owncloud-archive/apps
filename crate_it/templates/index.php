@@ -1,5 +1,7 @@
 <div id="container">
 
+<button id="help_button" style="float:right;"> ? </button>
+
 <div style="padding-top:20px; padding-left:5px;">
     <form id="crate_input" method="get">
         Create new crate:
@@ -127,6 +129,47 @@
 <div id="dialog-delete" title="Remove Item">
     <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Remove item from crate?</p>
 </div>
+
+<div id="dialog-help" title="Cr8it Help">
+    <p>
+        <b>Create New Data Crate</b>
+        <ul>
+            <li>Enter the name of your crate and click <b><i>Submit</i></b></li>
+            <li>Select your crate name from the <b><i>default_crate</i></b> dropdown menu</li>
+        </ul>
+    </p>
+    
+    <p>
+        <b>Describe Your Crate</b>
+        <ul>
+            <li>Click <b><i>Edit</i></b> to enter a description of the data in your crate. Include information about the research dataset and its characteristics and features</li>
+            <li>Click <b><i>Save</i></b></li>
+            <li>Search/add the grant ID/number associated with your data if relevant</li>
+            <li>Search/add names of Data Creator/s</li>
+        </ul>
+    </p>
+
+    <p>
+        <b>Add Files to Data Crate</b>
+        <ul>
+            <li>Select <b><i>Files</i></b></li>
+            <li>Navigate to the file or folder you wish to add</li>
+            <li>Hover your mouse over the file/folder and select <b><i>Add to Crate</i></b></li>
+            <li>Add all desired files to crate</li>
+            <li>Select <b><i>Cr8it</i></b> to view your crate</li>
+        </ul>
+    </p>
+
+    <p>
+        <b>Delete a Crate</b>
+        <ul>
+            <li>Select <b><i>Cr8it</i></b></li>
+            <li>Select crate from the <b><i>default_crate</i></b> dropdown menu</li>
+            <li>Select <b><i>Delete Crate</i></b></li>
+        </ul>
+    </p>
+</div>
+
 
 <!-- workaround to make var avalaide to javascript -->
 <div id="hidden_vars" hidden="hidden">
