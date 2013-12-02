@@ -37,6 +37,8 @@
 
     <div id="metadata" style="float:right;">
         <?php if ($_['mint_status'] === "enabled" ):?>
+
+<!--         
     		<div id="anzsrc_for">
     		    <div>
     		        <select id="for_top_level" class="for_codes">
@@ -59,7 +61,8 @@
     		        </select>
     		    </div>
     		</div>
-
+ -->
+ 
     		<div id="creators_box">
     		    <div>
     		        <label for="creators">Add Data Creator/s</label>
