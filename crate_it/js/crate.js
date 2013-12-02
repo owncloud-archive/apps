@@ -629,7 +629,7 @@ $(document).ready(function() {
     $('#edit_description').click(function(event) {
 	var old_description = $('#description').text();
 	$('#description').text('');
-	$('#description').html('<textarea id="crate_description" style="width: 40%;" placeholder="Enter a description of the research data package for this Crate">' + old_description + '</textarea><br/><input id="save_description" type="button" value="Save" /><input id="cancel_description" type="button" value="Cancel" />');
+	$('#description').html('<textarea id="crate_description" maxlength="' + description_length + '" style="width: 40%;" placeholder="Enter a description of the research data package for this Crate">' + old_description + '</textarea><br/><input id="save_description" type="button" value="Save" /><input id="cancel_description" type="button" value="Cancel" />');
 	$('#save_description').click(function(event) {
 	    $.ajax({
 		url: OC.linkTo('crate_it', 'ajax/bagit_handler.php'),
