@@ -13,7 +13,17 @@ $new_title = isset($_POST['new_title']) ? $_POST['new_title'] : '';
 $new_name = isset($_POST['new_name']) ? $_POST['new_name'] : '';
 $file_id = isset($_GET['file_id']) ? $_GET['file_id'] : '';
 $level = isset($_GET['level']) ? $_GET['level'] : '';
-$description = isset($_POST['description']) ? $_POST['description'] : '';
+$description = isset($_POST['crate_description']) ? $_POST['crate_description'] : '';
+$keyword = isset($_POST['keyword']) ? $_POST['keyword'] : '';
+$creator_id = isset($_POST['creator_id']) ? $_POST['creator_id'] : '';
+$full_name = isset($_POST['full_name']) ? $_POST['full_name'] : '';
+$new_full_name = isset($_POST['new_full_name']) ? $_POST['new_full_name'] : '';
+$vfs = isset($_POST['vfs']) ? $_POST['vfs'] : '';
+$sword_collection = isset($_POST['sword_collection']) ? $_POST['sword_collection'] : '';
+$activity_id = isset($_POST['activity_id']) ? $_POST['activity_id'] : '';
+$grant_number = isset($_POST['grant_number']) ? $_POST['grant_number'] : '';
+$dc_title = isset($_POST['dc_title']) ? $_POST['dc_title'] : '';
+$keyword_activity = isset($_POST['keyword_activity']) ? $_POST['keyword_activity'] : '';
 
 $action = '';
 if (isset($_GET['action'])) {
@@ -26,6 +36,8 @@ if (isset($_GET['action'])) {
 //Get an instance of BagItManager
 $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 
+$config = $bagit_manager->getConfig();
+
 switch ($action){
 	case 'create':
 		$msg = $bagit_manager->createCrate($crate_name);
@@ -37,7 +49,12 @@ switch ($action){
 		}
 		break;
 	case 'describe':
-		$bagit_manager->setDescription($description);
+		$ok = $bagit_manager->setDescription($description);
+		if($ok){
+			echo json_encode(array("description" => $description));
+		} else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
 		break;
 	case 'switch':
 		$ok = $bagit_manager->switchCrate($crate_id);
@@ -57,27 +74,15 @@ switch ($action){
 		$msg = $bagit_manager->addToBag($file);
 		print $msg;
 		break;
-	case 'clear':
-		$bagit_manager->clearBag();
-		break;
-	case 'delete':
-		$ok = $bagit_manager->removeItem($file_id);
-		if(!$ok){
-			header('HTTP/1.1 500 Internal Server Error');
-		}
-		break;
-	case 'update':
-		$bagit_manager->updateOrder($neworder);
-		break;
-	case 'edit_title':
-		$ok = $bagit_manager->editTitle($element_id, $new_title);
-		if($ok){
-			echo $new_title;
+	case 'update_vfs':
+        $ok = $bagit_manager->updateVFS($vfs);
+        if($ok){
+			echo $ok;
 		}
 		else {
 			header('HTTP/1.1 500 Internal Server Error');
 		}
-		break;
+        break;
 	case 'rename_crate':
 		$ok = $bagit_manager->renameCrate($new_name);
 		if($ok){
@@ -117,9 +122,15 @@ switch ($action){
 		readfile($epub);
 		break;
 	case 'zip':
-		$zip_file = $bagit_manager->createZip();
-		if(!isset($zip_file))
-		{
+		$crate_size = $bagit_manager->getCrateSize();
+		$crate_size = $crate_size / (1024 * 1024);
+		$max_zip_mb = $config['max_zip_mb'];
+		if ($crate_size > $max_zip_mb) {
+			echo 'WARNING: Crate size exceeds zip file limit: '.$max_zip_mb;
+			break;
+		}
+		$zip_file = $bagit_manager->createZip();	
+		if(!isset($zip_file)) {
 			echo "No files in the bag to download";
 			break;
 		}
@@ -134,6 +145,40 @@ switch ($action){
 		header("Content-Disposition: attachment;filename=".$filename);
 		readfile($zip_file);
 		break;
+	case 'postzip':
+		$crate_size = $bagit_manager->getCrateSize();
+		$crate_size = $crate_size / (1024 * 1024);
+		$max_sword_mb = $config['max_sword_mb'];
+		if ($crate_size > $max_sword_mb) {
+			echo 'WARNING: Crate size exceeds SWORD limit: '.$max_sword_mb;
+			break;
+		}
+		$zip_file = $bagit_manager->createZip();
+		if(!isset($zip_file)) {
+			echo "No files in the bag to download";
+			break;
+		}
+		$path_parts = pathinfo($zip_file);
+		$filename = $path_parts['basename'];
+
+		// Post zip file to SWORD server
+		// SWORD APP client instance
+		require("swordappv2-php-library/swordappclient.php");
+		$sac = new SWORDAPPClient();
+
+		$sword_config = $config['sword'];
+	   	$sd_uri = $sword_config['sd_uri'];
+		$sword_username = $sword_config['username'];
+		$sword_password = $sword_config['password'];
+		$sword_obo = $sword_config['obo'];
+
+		// Deposit
+		$content_type = "application/zip";
+		$packaging_format = "http://purl.org/net/sword/package/SimpleZip";
+		$dr = $sac->deposit($sword_collection, $sword_username, $sword_password, $sword_obo, $zip_file, $packaging_format, $content_type, false);
+		OCP\Util::writeLog("crate_it", $dr->sac_status." ".$dr->sac_statusmessage, OCP\Util::DEBUG);
+		header("HTTP/1.1 ".$dr->sac_status." ".$dr->sac_statusmessage);
+		break;
 	case 'get_for_codes':
 		//need to access the tmpl var
 		$results = $bagit_manager->lookUpMint("", 'top');
@@ -144,4 +189,82 @@ switch ($action){
 				echo json_encode(array_values($vars['skos:narrower']));
 			}
 		}
+		break;
+	case 'search_people':
+		$results = $bagit_manager->lookUpPeople($keyword);
+		echo json_encode($results);
+		break;
+	case 'save_people':
+		$success = $bagit_manager->savePeople($creator_id, $full_name);
+
+		if($success){
+			echo json_encode($full_name);
+		}
+		else {
+			header('HTTP/1.1 400 people exists');
+		}
+		break;
+	case 'remove_people':
+		$success = $bagit_manager->removePeople($creator_id, $full_name);
+
+		if($success){
+			echo json_encode($full_name);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'edit_creator':
+		$success = $bagit_manager->editCreator($creator_id, $new_full_name);
+
+		if($success) {
+			echo json_encode($new_full_name);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
+	case 'crate_size':
+		$size = $bagit_manager->getCrateSize();
+		$data = array('size' => $size, 'human' => OCP\Util::humanFileSize($size));
+		echo json_encode($data);
+		break;
+	case 'validate_metadata':
+		$success = $bagit_manager->validateMetadata();
+
+		if($success) {
+			echo json_encode(array("status" => "Success"));
+		}
+		else {
+			echo json_encode(array("status" => "Failed"));
+		}
+		break;
+	case 'delete_crate':
+		$result = $bagit_manager->deleteCrate();
+		echo json_encode($result);
+		break;
+	case 'search_activity':
+		$results = $bagit_manager->lookUpActivity($keyword_activity);
+		echo json_encode($results);
+		break;
+	case 'save_activity':
+		$success = $bagit_manager->saveActivity($activity_id, $grant_number, $dc_title);
+
+		if($success){
+			echo json_encode($activity_id);
+		}
+		else {
+			header('HTTP/1.1 400 grant number exists');
+		}
+		break;
+	case 'remove_activity':
+		$success = $bagit_manager->removeActivity($activity_id);
+
+		if($success){
+			echo json_encode($activity_id);
+		}
+		else {
+			header('HTTP/1.1 500 Internal Server Error');
+		}
+		break;
 }

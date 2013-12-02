@@ -18,6 +18,7 @@ class BagItManager{
 	 * $fascinator - fascinator url
 	 * $base_dir - oc user's data directory
 	 * $crate_root - crates directory ( $base_dir/crates )
+	 * $crate_trash - crates trash directory ( $crate_root/.Trash )
 	 * $selected_crate - currently selected crate
 	 * $manifest - manifest which holds files info - id,title and absolute path
 	 */
@@ -28,6 +29,8 @@ class BagItManager{
 		if(file_exists($config_file)) {
 			$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
 			$this->fascinator = $configs['fascinator'];
+			$this->mint = $configs['mint'];
+			$this->sword = $configs['sword'];
 		}
 		else {
 			echo "No configuration file";
@@ -35,10 +38,14 @@ class BagItManager{
 		}
 		
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
-	    $this->crate_root =$this->base_dir.'/crates'; 
+	    $this->crate_root =$this->base_dir.'/crates';
+	    $this->crate_trash = $this->crate_root . '/.Trash';
 		
 		if(!file_exists($this->crate_root)){
 			mkdir($this->crate_root);
+		}
+		if(!file_exists($this->crate_trash)){
+			mkdir($this->crate_trash);
 		}
 		if(empty($_SESSION['crate_id'])){
 			$this->createCrate('default_crate');
@@ -52,14 +59,6 @@ class BagItManager{
 		
 	    $data_dir = $this->bag->getDataDirectory();
 	    $this->manifest = $data_dir.'/manifest.json';
-		
-		//create manifest file if it doesn't exist
-		if(!file_exists($this->manifest)){
-			$fp = fopen($this->manifest, 'x');
-			$contents = array('description' => '');
-			fclose($fp, json_encode($contents));
-			$this->bag->update();
-		}
 	}
 	
 	public static function getInstance(){
@@ -67,6 +66,7 @@ class BagItManager{
 	}
 	
 	public function showPreviews(){
+		\OCP\Util::writeLog("crate_it", $this->fascinator['status'], \OCP\Util::DEBUG);
 		return $this->fascinator['status'];
 	}
 	
@@ -75,6 +75,12 @@ class BagItManager{
 			return false;
 		}
 		$this->initBag($name);
+		$fp = fopen($this->manifest, 'x');
+		$entry = array('description' => '', 'creators' => array(), 'activities' => array(),
+			'vfs' => array(array('id' => 'rootfolder', 'name' => '/', 'folder' => true, 'children' => array())));
+		fwrite($fp, json_encode($entry));
+		fclose($fp);
+		$this->bag->update();
 		return $name;
 	}
 	
@@ -82,15 +88,19 @@ class BagItManager{
 		if(empty($name)){
 			return false;
 		}
-		$this->initBag($name);
-		$this->selected_crate = $name;
-		$_SESSION['crate_id'] = $name;
+
+	        $this->initBag($name);
+	        $this->selected_crate = $name;
+	        $_SESSION['crate_id'] = $name;
+
 		return true;
 	}
 	
 	private function initBag($name){
 		$this->crate_dir = $this->crate_root.'/'.$name;
 		$this->bag = new \BagIt($this->crate_dir);
+	    $data_dir = $this->bag->getDataDirectory();
+	    $this->manifest = $data_dir.'/manifest.json';		
 	}
 	
 	public function getSelectedCrate(){
@@ -100,7 +110,7 @@ class BagItManager{
 	public function getCrateList(){
 		$cratelist = array();
 		if ($handle = opendir($this->crate_root)) {
-			$filteredlist = array('.', '..', 'packages');
+			$filteredlist = array('.', '..', 'packages', '.Trash');
 			while (false !== ($file = readdir($handle))) {
 				if (!in_array($file, $filteredlist)) {
 					array_push($cratelist, $file);
@@ -110,25 +120,35 @@ class BagItManager{
 		}
 		return $cratelist;
 	}
-	
+
+	public function getBaggedFiles() {
+		$contents = $this->getManifestData();
+		return json_encode($contents['vfs']);
+	}
+
+	public function setBaggedFiles() {
+
+	}
+
+
 	public function addToBag($file) {
 		$path_parts = pathinfo($file);
 		$filename = $path_parts['filename'];
 		
 		if (\OC\Files\Filesystem::isReadable($file)) {
-			list($storage) = \OC\Files\Filesystem::resolvePath($file);
-			if ($storage instanceof \OC\Files\Storage\Local) {
-				$full_path = \OC\Files\Filesystem::getLocalFile($file);
-				/*if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
-					$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
-					fwrite($fp, $full_path);
-					fclose($fp);
-				}*/
-				if($file === '/Shared' || is_dir($full_path))
-				{
-					return "Adding directories not supported yet";
-				}
-			}
+			// list($storage) = \OC\Files\Filesystem::resolvePath($file);
+			// if ($storage instanceof \OC\Files\Storage\Local) {
+			// 	$full_path = \OC\Files\Filesystem::getLocalFile($file);
+			// 	if(!file_exists(\OC::$SERVERROOT.'/data/fullpath.txt')){
+			// 		$fp = fopen(\OC::$SERVERROOT.'/data/fullpath.txt', 'w');
+			// 		fwrite($fp, $full_path);
+			// 		fclose($fp);
+			// 	}
+			// 	if($file === '/Shared' || is_dir($full_path))
+			// 	{
+			// 		return "Adding directories not supported yet";
+			// 	}
+			// }
 		} elseif (!\OC\Files\Filesystem::file_exists($file)) {
 			header("HTTP/1.0 404 Not Found");
 			$tmpl = new OC_Template('', '404', 'guest');
@@ -139,83 +159,62 @@ class BagItManager{
 			die('403 Forbidden');
 		}
 		
-		//TODO we don't need to get the preview from the fascinator 
-		//$preview_file = $this->getPreviewPath($full_path);
-		/*if(empty($preview_file))
-		{
-			return "No preview available. File not added to crate.";
-		}*/
-		$title = $this->getTitle($preview_file);
-		if(empty($title)){
-			$title = $file;
+		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+		$vfs = &$contents['vfs'][0];
+		if(array_key_exists('children', $vfs)) {
+			$vfs = &$vfs['children'];
+		} else {
+			$vfs['children'] = array();
+			$vfs = &$vfs['children'];
 		}
-		
-		//$id = hash('sha256', $full_path);
-		$id = md5($full_path);
-		if(filesize($this->manifest) == 0) {
-			$fp = fopen($this->manifest, 'w');
-			$entry = array('titles' => array(), 'description' => '');
-			fwrite($fp, json_encode($entry));
-			fclose($fp);
-		}
-		else {
-			$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-			$elements = &$contents['titles'];
-			foreach ($elements as $item) {
-				if($item['id'] === $id) {
-					return "File is already in the crate ".$this->selected_crate;
-				}
-			}
-			array_push($elements, array('id' => $id, 'title' => $title,
-							'filename' => $full_path));
-			$fp = fopen($this->manifest, 'w');
-			fwrite($fp, json_encode($contents));
-			fclose($fp);
-		}
+		$this->addPath($file, $vfs);
+		$fp = fopen($this->manifest, 'w');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
 		
 		// update the hashes
 		$this->bag->update();
 		return "File added to the crate ".$this->selected_crate;
 	}
-	
-	private function getTitle($file) {
-		if (preg_match('/<title>([^<]+)<\/title>/', file_get_contents($file), $matches)
-				&& isset($matches[1] )) {
-			return $matches[1];
-		}
-		else {
-			return "";
-		}
+
+	private function getFullPath($file) {
+		return \OC\Files\Filesystem::getLocalFile($file);
 	}
+
+	// TODO: There's currently no check for duplicates
+	private function addPath($path, &$vfs) {
+		if (\OC\Files\Filesystem::is_dir($path)) {
+			$vfs_entry = array('name' => basename($path), 'id' => 'folder', 'children' => array());
+			$vfs_contents = &$vfs_entry['children'];
+			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
+			foreach ($paths as $sub_path) {
+				$rel_path = substr($sub_path['path'], strlen('files/'));
+				$this->addPath($rel_path, $vfs_contents);
+			}
+		} else {
+			$full_path = $this->getFullPath($path);
+			$id = md5($full_path);
+			$vfs_entry = array('id' => $id, 'name' => basename($path), 'filename' => $full_path);
+		}
+		array_push($vfs, $vfs_entry);
+	}
+
 	
+	// TODO: Update this to fit with tree structure
 	public function clearBag(){
-		//clear the manifest 
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$items = &$contents['titles'];
+		$items = array();
 		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
 		fclose($fp);
 		$this->bag->update();
-		
+
 		if(file_exists($this->crate_root.'/packages/crate.zip')){
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
 	}
-	
-	public function updateOrder($neworder){
-		$shuffledItems = array();
-		//Get id and loop
-		foreach ($neworder as $id) {
-			foreach ($this->getItemList() as $item) {
-				if($id === $item['id'])
-				{
-					array_push($shuffledItems, $item);
-				}
-			}
-		}
-		$newentry = array("titles" => $shuffledItems);
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($newentry));
-		fclose($fp);
-		$this->bag->update();
-	}
+
 	
 	public function renameCrate($new_name){
 		rename($this->crate_dir, $this->crate_root.'/'.$new_name);
@@ -223,48 +222,18 @@ class BagItManager{
 		return true;
 	}
 	
-	//TODO
-	public function editTitle($id, $newvalue){
-		//edit title here
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-		foreach ($items as &$item) {
-			if($item['id'] === $id) {
-				$item['title'] = $newvalue;
-			}
-		}
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
-		//TODO handle exceptions and return suitable value
-		return true;
-	}
-	
-
 	public function setDescription($description) {
+		$config = $this->getConfig();
+		$max = $config['description_length'];
+		if(strlen($description) > $max) {
+			$description = substr($description, 0, $max);
+		}
 		$contents = json_decode(file_get_contents($this->manifest), true);
 		$contents['description'] = $description;
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($contents));
 		fclose($fp);
 		$this->bag->update();
-		return true;
-	}
-
-	//remove an item from manifest
-	public function removeItem($id){
-		$contents = json_decode(file_get_contents($this->manifest), true);
-		$items = &$contents['titles'];
-	    
-		for ($i = 0; $i < count($items); $i++) {
-			if($items[$i]['id'] ==  $id)
-			{
-				array_splice($items, $i, 1);
-			}
-		}
-		$fp = fopen($this->manifest, 'w+');
-		fwrite($fp, json_encode($contents));
-		fclose($fp);
 		return true;
 	}
 	
@@ -275,7 +244,7 @@ class BagItManager{
 	 * @return string
 	 */
 	public function getPathFromFileId($file_id){
-        foreach ($this->getItemList() as $value) {
+        foreach ($this->flatList() as $value) {
 	    	if($value['id'] === $file_id){
 	    		$dir = $this->getParentDirectory($value['filename']);
                 return $dir.'/'.$path_parts['basename'];
@@ -333,11 +302,11 @@ class BagItManager{
 		
 		$temp_dir = \OC_Helper::tmpFolder();
 
-		foreach ($this->getItemList() as $value) {
+		foreach ($this->flatList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
 			$prev_file = $path_parts['filename'].'.htm';
-			$prev_title = $value['title'];
+			$prev_title = $value['name'];
 				
 			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
 			
@@ -368,18 +337,43 @@ class BagItManager{
 		//send the epub to user
 		return $temp_dir.'temp.epub';
 	}
-	
-	private function getItemList(){
-		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		return $contents['titles'];
-	}
-	
+
+
+    public function flatList() {
+        $data = $this->getManifestData();
+        $vfs = &$data['vfs'][0]['children'];
+        $flat = array();
+        $ref = &$flat;
+        $this->flat_r($vfs, $ref, $vfs['name']);
+        return $flat;
+    }
+
+    private function flat_r(&$vfs, &$flat, $path) {
+        foreach ($vfs as $entry) {
+            if (array_key_exists('filename', $entry)) {
+                $flat_entry = array('id' => $entry['id'], 'path' => $path, 'name' => $entry['name'], 'filename' => $entry['filename']);
+                array_push($flat, $flat_entry);
+            } elseif (array_key_exists('children', $entry)) {
+                $this->flat_r($entry['children'], $flat, $path.$entry['name'].'/');
+            }
+        }
+    }
+
 	public function createZip(){
 		$tmp_dir = \OC_Helper::tmpFolder();
 		\OC_Helper::copyr($this->crate_dir, $tmp_dir);
 		$bag = new \BagIt($tmp_dir);
 		
 		$manifest_data = $this->getManifestData();
+		$creator_list = "";
+
+		if ($manifest_data['creators']) {
+		   foreach ($manifest_data['creators'] as $creator) {
+			$creator_list = $creator_list . $creator['full_name'] . '<br/>';
+		   }
+		}
+
+		\OCP\Util::writeLog("crate_it", $creator_list, \OCP\Util::DEBUG);
 
 		$metadata = '<html><head><title>'.$this->selected_crate.'</title></head><body><article>
 					<h1><u>"'.$this->selected_crate.'" Data Package README file</u></h1>
@@ -391,9 +385,11 @@ class BagItManager{
 							  <h1>Package File Name</h1>
 							  <span property="http://schema.org/name">'.$this->selected_crate.'.zip</span>
 							  <h1>ID</h1>
-							  <span property="http://schema.org/name">'.$id.'</span>
+							  <span property="http://schema.org/id">'.$this->selected_crate.'</span>
 							  <h1>Description</h1>
 							  <span property="http://schema.org/description">'.$manifest_data['description'].'</span>
+							  <h1>Creators</h1>
+							  <span property="http://schema.org/creators">'.$creator_list.'</span>
 							  <h1>Software Information</h1>
 							  <section property="http://purl.org/dc/terms/creator" typeof="http://schema.org/softwareApplication" resource="">
 							  	<table>
@@ -435,6 +431,7 @@ class BagItManager{
 							  		<thead>
 							  			<tr>
 							  				<th>Name</th>
+							  				<th>Folder</th>
 							  				<th>Title</th>
 							  				<th>Type</th>
 							  				<th>Size</th>
@@ -445,7 +442,7 @@ class BagItManager{
 							  		</thead>
 							  		<tbody>';
 		if(count($bag->getBagErrors(true)) == 0){
-			foreach ($this->getItemList() as $item){
+			foreach ($this->flatList() as $item){
 				$path_parts = pathinfo($item['filename']);
 				$dir = $this->getParentDirectory($item['filename']);
 				$bag->addFile($item['filename'], $dir.'/'.$path_parts['basename']);
@@ -460,7 +457,8 @@ class BagItManager{
 				$size = $this->humanReadableFileSize(filesize($item['filename']));
 				$sec = '<tr>
 							<td>'.$name.'</td>
-							<td>'.$item['title'].'</td>
+							<td>'.$item['path'].'</td>
+							<td>'.$item['name'].'</td>
 							<td>'.$mime.'</td>
 							<td>'.$size.'</td>
 							<td></td>
@@ -480,7 +478,7 @@ class BagItManager{
 			return $tmp_dir.'/'.$this->selected_crate.'.zip';
 		} else {
 			$errors = $bag->getBagErrors(true);
-			print $errors;
+			print var_dump($errors);
 		}
 	}
 	
@@ -494,8 +492,7 @@ class BagItManager{
 		
 		try {
 			
-			//User needs to get the mint url from config
-			$url = 'http://basset.uws.edu.au:9001/mint/ANZSRC_FOR/opensearch/lookup?count=999&level='.$level;
+			$url = $this->mint['url'] . '/ANZSRC_FOR/opensearch/lookup?count=999&level=' . $level;
 			
 			//now call the mint
 			$ch = curl_init();
@@ -510,7 +507,7 @@ class BagItManager{
 			
 			if(empty($content))
 			{
-				$content = "No data available";
+				return array();
 			}
 			else {
 				$content_array = json_decode($content);
@@ -519,7 +516,7 @@ class BagItManager{
 			}
 		} 
 		catch (Exception $e) {
-			die("error");
+			header('HTTP/1.1 400 ' . $e->getMessage());
 		}
 	}
 
@@ -532,4 +529,274 @@ class BagItManager{
 		return $cont_array;
 	}
 	
+	public function lookUpPeople($keyword) {
+		try {
+			$url = $this->mint['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			\OCP\Util::writeLog("crate_it::lookUpPeople", $url, \OCP\Util::DEBUG);
+
+			// Now call the mint
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$content = curl_exec($ch);
+			$result = curl_getinfo($ch);
+			curl_close($ch);
+			
+			if(empty($content))
+			{
+				return array();
+			}
+			else {
+				$content_array = json_decode($content);
+				$results = $content_array->results;
+				return $results;
+			}
+		} 
+		catch (Exception $e) {
+			header('HTTP/1.1 400 ' . $e->getMessage());
+		}
+	}
+
+	public function savePeople($creator_id, $full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if ($contents['creators']) {
+		   $creators = &$contents['creators'];
+
+		   for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+			   // duplicate error
+			   return false;
+			}
+		   }
+
+		   array_push($creators, array('creator_id' => $creator_id, 'full_name' => $full_name));
+		}
+		else {
+		   $contents['creators'] = array(array('creator_id' => $creator_id, 'full_name' => $full_name));
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+	
+	public function removePeople($creator_id, $full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$creators = &$contents['creators'];
+
+		for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+				array_splice($creators, $i, 1);
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+
+	
+	public function editCreator($creator_id, $new_full_name) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$creators = &$contents['creators'];
+
+		for ($i = 0; $i < count($creators); $i++) {
+			if ( $creators[$i]['creator_id'] == $creator_id ) {
+				$creators[$i]['full_name'] = $new_full_name;
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+
+	public function updateVFS($data) {
+		$new_vfs = json_decode($data);
+		$contents = json_decode(file_get_contents($this->manifest), true);
+		$fp = fopen($this->manifest, 'w+');
+		$contents['vfs'] = $new_vfs;
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+	
+	public function validateMetadata() {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if (count($contents['creators']) > 0 && $contents['description'] && trim($contents['description']) != '') {
+		     return true;
+		}
+		else {
+		     return false;
+	        }
+	}
+
+    function getCollectionsList() {
+        require("swordappv2-php-library/swordappclient.php");
+        $sac = new \SWORDAPPClient();
+
+        // FIXME: make these configurable
+        $sd_uri = "http://115.146.93.246/sd-uri";
+        $sword_username = "uws_sword";
+        $sword_password = "swordAdmin";
+        $sword_obo = "obo";
+
+        // Get service document
+        $sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
+        $collections = array();
+
+        if ($sd->sac_status == 200) {
+            foreach ($sd->sac_workspaces as $workspace) {
+                foreach ($workspace->sac_collections as $collection) {
+                    $collections["$workspace->sac_workspacetitle - $collection->sac_colltitle"] = $collection->sac_href;
+
+                }
+            }
+        } else {
+           header("HTTP/1.1 ".$sd->sac_status." ".$sd->sac_statusmessage);
+           break;
+        }
+
+        return $collections;
+    }
+
+
+	public function getConfig() {
+		$config = null;
+		$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
+        if(file_exists($config_file)) {
+            $config = json_decode(file_get_contents($config_file), true); // convert it to an array.
+        }
+        return $config;
+	}
+
+	public function getCrateSize() {
+		$files = $this->flatList();
+		$total = 0;
+		foreach ($files as $file) {
+			$total += filesize($file['filename']);
+		}
+		return $total;
+	}
+	
+	public function getMintStatus() {
+	   if ($this->mint) {
+		\OCP\Util::writeLog("crate_it", $this->mint['status'], \OCP\Util::DEBUG);
+		return $this->mint['status'];
+	   }
+	   else {
+	   	return false;
+	   }
+	}
+	
+	public function getSwordStatus() {
+	   if ($this->sword) {
+		\OCP\Util::writeLog("crate_it", $this->sword['status'], \OCP\Util::DEBUG);
+		return $this->sword['status'];
+	   }
+	   else {
+	   	return false;
+	   }
+	}
+	
+	public function deleteCrate() {
+	        // Implement a simple trash bin
+		$crate_name = basename($this->crate_dir);
+	        $trash_dir = $this->crate_trash . "/" . $crate_name . "_" . date(DATE_ISO8601);
+		\OCP\Util::writeLog("crate_it", $trash_dir, \OCP\Util::DEBUG);
+
+		try {
+		    rename($this->crate_dir, $trash_dir);
+		    $this->switchCrate("default_crate");
+		    
+		    return array("status" => "Success");
+		}
+		catch (Exception $e) {
+		    return array("status" => "Failed", "msg" => $e->getMessage());
+		}
+
+	}
+
+	public function lookUpActivity($keyword) {
+		try {
+			$url = $this->mint['url'] . '/Activities/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			
+			// Now call the mint
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$content = curl_exec($ch);
+			$result = curl_getinfo($ch);
+			curl_close($ch);
+			
+			if(empty($content))
+			{
+				return array();
+			}
+			else {
+				$content_array = json_decode($content);
+				$results = $content_array->results;
+				return $results;
+			}
+		} 
+		catch (Exception $e) {
+			header('HTTP/1.1 400 ' . $e->getMessage());
+		}
+	}
+
+	public function saveActivity($activity_id, $grant_number, $dc_title) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		if ($contents['activities']) {
+		   $activities = &$contents['activities'];
+
+		   for ($i = 0; $i < count($activities); $i++) {
+			if ( $activities[$i]['activity_id'] == $activity_id ) {
+			   // duplicate error
+			   return false;
+			}
+		   }
+
+		   array_push($activities, array('activity_id' => $activity_id, 'grant_number' => $grant_number, 'dc_title' => $dc_title));
+		}
+		else {
+		   $contents['activities'] = array(array('activity_id' => $activity_id, 'grant_number' => $grant_number, 'dc_title' => $dc_title));
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+	
+	public function removeActivity($activity_id) {
+		$contents = json_decode(file_get_contents($this->manifest), true);
+
+		$activities = &$contents['activities'];
+
+		for ($i = 0; $i < count($activities); $i++) {
+			if ( $activities[$i]['activity_id'] == $activity_id ) {
+				array_splice($activities, $i, 1);
+			}
+		}
+
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($contents));
+		fclose($fp);
+		$this->bag->update();
+		return true;
+	}
+
 }
