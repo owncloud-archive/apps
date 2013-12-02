@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-26 01:20-0500\n"
-"PO-Revision-Date: 2013-11-26 06:20+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-29 20:00+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "Jagas"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Pildi vaade"
 
 #: js/slideshow.js:323
 msgid "Error loading slideshow template"
@@ -47,8 +47,8 @@ msgstr "\"Pildivaataja\" rakendus tuleb sisse lülitada, et seda rakendust kasut
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s jagas sinuga <strong>%s</strong>"
 
 #: templates/public.php:16
 msgid "File list"
-msgstr ""
+msgstr "Failide nimekiri"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-12-01 02:20+0000\n"
 "Last-Translator: 책읽는달팽 <bjh13579@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "업데이트가 실패했습니다. <a href=\"https://github.com/ownclou
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr "업데이트 센"
+msgstr "업데이트 센터"
 
 #: templates/update.php:18
 msgid "Backup Management"

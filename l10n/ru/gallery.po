@@ -10,14 +10,15 @@
 # unixoid <victor.ashirov@gmail.com>, 2013
 # Victor Bravo <>, 2012
 # VicDeo <victor.dubiniuk@gmail.com>, 2012
+# vsapronov <vladimir.sapronov@gmail.com>, 2013
 # Langaru <langaru@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-27 09:17-0500\n"
-"PO-Revision-Date: 2013-11-26 14:18+0000\n"
-"Last-Translator: unixoid <victor.ashirov@gmail.com>\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-12-01 10:50+0000\n"
+"Last-Translator: vsapronov <vladimir.sapronov@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr "Опубликовано"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Просмотр картинки"
 
 #: js/slideshow.js:323
 msgid "Error loading slideshow template"
@@ -54,7 +55,7 @@ msgstr "Для работы этого приложения необходимо
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s открыл вам доступ к <strong>%s</strong>"
 
 #: templates/public.php:16
 msgid "File list"

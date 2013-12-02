@@ -13,7 +13,7 @@
 "All done. Click to the link below to start database upgrade." => "모든게 다 되었습니다. 밑의 링크를 클릭하여 데이터베이스 업그레이드를 시작하세요.",
 "Update failed" => "업데이트 실패함",
 "The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "업데이트가 실패했습니다. <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>에 보고를 올려주세요.",
-"Update Center" => "업데이트 센",
+"Update Center" => "업데이트 센터",
 "Backup Management" => "백업 ",
 "Update" => "업데이트",
 "Backup directory" => "백업 ",

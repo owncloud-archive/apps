@@ -7,14 +7,14 @@
 # a.tangemann <a.tangemann@web.de>, 2013
 # Marcel Kühlhorn <susefan93@gmx.de>, 2013
 # Mario Siegmann <mario_siegmann@web.de>, 2013
-# quick_wango <quick_wango@code-infection.de>, 2013
+# Phillip Schichtel, 2013
 # traductor <transifex-2.7.mensaje@spamgourmet.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-30 23:09+0000\n"
 "Last-Translator: traductor <transifex-2.7.mensaje@spamgourmet.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
