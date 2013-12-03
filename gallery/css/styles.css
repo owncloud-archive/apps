@@ -60,6 +60,10 @@ button.share {
 	opacity: 0;
 }
 
+#controls {
+    left: 0;
+}
+
 #controls > .right {
 	float: right;
 }
