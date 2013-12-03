@@ -5,7 +5,7 @@ OCP\JSON::callCheck();
 OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
-//FIXME refactor this into the lib folder
+//FIXME refactor db queries and logic into the lib folder
 
 function index() {
 	if ( isset($_GET['fileid']) ){
@@ -19,35 +19,30 @@ function index() {
 
 	$skippedDirs = explode(';', OCP\Config::getUserValue(OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
 
-	$query = OC_DB::prepare('INSERT INTO `*PREFIX*lucene_status` VALUES (?,?)');
-
 	foreach ($fileIds as $id) {
 		$skipped = false;
+		
+		$fileStatus = OCA\Search_Lucene\Status::fromFileId($id);
 
 		try{
 			//before we start mark the file as error so we know there was a problem when the php execution dies
-			$result = $query->execute(array($id, 'E'));
+			$fileStatus->markError();
 
 			$path = OC\Files\Filesystem::getPath($id);
 			$eventSource->send('indexing', $path);
-
-			//clean jobs for indexed file
-			$param=json_encode(array('path'=>$path,'user'=>OCP\User::getUser()));
-			$cleanjobquery = OC_DB::prepare('DELETE FROM `*PREFIX*queuedtasks` WHERE `app`=? AND `parameters`=?');
-			$cleanjobquery->execute(array('search_lucene',$param));
 
 			foreach ($skippedDirs as $skippedDir) {
 				if (strpos($path, '/' . $skippedDir . '/') !== false //contains dir
 					|| strrpos($path, '/' . $skippedDir) === strlen($path) - (strlen($skippedDir) + 1) // ends with dir
 				) {
-					$result = $query->execute(array($id, 'S'));
+					$result = $fileStatus->markSkipped();
 					$skipped = true;
 					break;
 				}
 			}
 			if (!$skipped) {
 				if (OCA\Search_Lucene\Indexer::indexFile($path, OCP\User::getUser())) {
-					$result = $query->execute(array($id, 'I'));
+					$result = $fileStatus->markIndexed();
 				}
 			}
 
@@ -63,7 +58,7 @@ function index() {
 			OC_JSON::error(array('message' => 'Could not index file.'));
 			$eventSource->send('error', $e->getMessage());
 			//try to mark the file as new to let it reindex
-			$query->execute(array($id, 'N')); // Add UI to trigger rescan of files with status 'E'rror?
+			$fileStatus->markNew();  // Add UI to trigger rescan of files with status 'E'rror?
 		}
 	}
 

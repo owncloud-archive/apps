@@ -9,3 +9,17 @@ if (version_compare($currentVersion, '0.5.0', '<')) {
 	$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*queuedtasks` WHERE `app`=?');
 	$stmt->execute(array('search_lucene'));
 }
+
+if (version_compare($currentVersion, '0.5.2', '<')) {
+	//delete duplicate entries and rescan them
+	$stmt = OCP\DB::prepare('
+		DELETE FROM `*PREFIX*lucene_status`
+		WHERE `fileid` IN (
+			SELECT `fileid`
+			FROM `*PREFIX*lucene_status`
+			GROUP BY `fileid`
+			HAVING count(`status`) > 1
+		)
+	');
+	$stmt->execute();
+}
