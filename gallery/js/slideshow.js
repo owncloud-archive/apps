@@ -28,8 +28,14 @@ jQuery.fn.slideShow = function (container, start, options) {
 	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
 
-	// hide arrows when only one pic
-	$('#slideshow .next, #slideshow .previous').toggle(jQuery.fn.slideShow.images.length > 1);
+	// hide arrows and play/pause when only one pic
+	$('#slideshow').find('.next, .previous').toggle(images.length > 1);
+	if (images.length === 1) {
+		// note: only handling hide case here as we don't want to
+		// re-show the buttons that might have been hidden by
+		// the settings.play condition above
+		$('#slideshow').find('.play, .pause').hide();
+	}
 
 	jQuery(window).resize(function () {
 		jQuery.fn.slideShow.loadImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]).then(function (image) {
