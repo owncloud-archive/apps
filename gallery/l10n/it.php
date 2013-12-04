@@ -6,5 +6,5 @@
 "Share" => "Condividi",
 "The \"Image Viewer\" application also need to be enabled to use this application." => "Per utilizzare questa applicazione deve essere abilitato anche il \"Visualizzatore immagini\".",
 "%s shared <strong>%s</strong> with you" => "%s ha condiviso <strong>%s</strong> con te",
-"File list" => "Lista file"
+"File list" => "Elenco dei file"
 );
