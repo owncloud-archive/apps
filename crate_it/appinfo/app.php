@@ -28,8 +28,7 @@ OCP\Util::addStyle('crate_it/3rdparty', 'jqtree/jqtree');
 $config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
 if(!file_exists($config_file)){
 	$fp = fopen($config_file, 'x');
-	$entry = array('max_zip_mb' => 2000, 'max_sword_mb' => 2000, "description_length" => 4000, "fascinator" => array("status" => "off","downloadURL" => "http://localhost:9997/portal/default/download/",
-			"solr" => array("host" => "localhost", "port" => 9997, "path" => "/solr/fascinator/")));
+	$entry = array('max_zip_mb' => 2000, 'max_sword_mb' => 2000, "description_length" => 4000, "previews" => "on");
 	fwrite($fp, json_encode($entry));
 	fclose($fp);
 }

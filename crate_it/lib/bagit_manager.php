@@ -26,13 +26,7 @@ class BagItManager{
 		$this->user = \OCP\User::getUser();
 		
 		$config_file = \OC::$SERVERROOT.'/data/cr8it_config.json';
-		if(file_exists($config_file)) {
-			$configs = json_decode(file_get_contents($config_file), true); // convert it to an array.
-			$this->fascinator = $configs['fascinator'];
-			$this->mint = $configs['mint'];
-			$this->sword = $configs['sword'];
-		}
-		else {
+		if(!file_exists($config_file)) {
 			echo "No configuration file";
 			return;
 		}
@@ -66,8 +60,9 @@ class BagItManager{
 	}
 	
 	public function showPreviews(){
-		\OCP\Util::writeLog("crate_it", $this->fascinator['status'], \OCP\Util::DEBUG);
-		return $this->fascinator['status'];
+		$config = $this->getConfig();
+		\OCP\Util::writeLog("crate_it", $config['previews'], \OCP\Util::DEBUG);
+		return $config['previews'];
 	}
 	
 	public function createCrate($name){
@@ -492,7 +487,8 @@ class BagItManager{
 		
 		try {
 			
-			$url = $this->mint['url'] . '/ANZSRC_FOR/opensearch/lookup?count=999&level=' . $level;
+			$config = $this->getConfig();
+			$url = $config['mint']['url'] . '/ANZSRC_FOR/opensearch/lookup?count=999&level=' . $level;
 			
 			//now call the mint
 			$ch = curl_init();
@@ -531,7 +527,8 @@ class BagItManager{
 	
 	public function lookUpPeople($keyword) {
 		try {
-			$url = $this->mint['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			$config = $this->getConfig();
+			$url = $config['mint']['url'] . '/Parties_People/opensearch/lookup?searchTerms=' . urlencode($keyword);
 			\OCP\Util::writeLog("crate_it::lookUpPeople", $url, \OCP\Util::DEBUG);
 
 			// Now call the mint
@@ -646,11 +643,20 @@ class BagItManager{
         require("swordappv2-php-library/swordappclient.php");
         $sac = new \SWORDAPPClient();
 
+        $config = $this->getConfig();
+        
         // FIXME: make these configurable
-        $sd_uri = "http://115.146.93.246/sd-uri";
+        /*$sd_uri = "http://115.146.93.246/sd-uri";
         $sword_username = "uws_sword";
         $sword_password = "swordAdmin";
-        $sword_obo = "obo";
+        $sword_obo = "obo";*/
+        
+        $sd_uri = $config["sword"]["sd_uri"];
+        $sword_username = $config["sword"]["username"];
+        $sword_password = $config["sword"]["password"];
+        $sword_obo = $config["sword"]["obo"];
+        
+        
 
         // Get service document
         $sd = $sac->servicedocument($sd_uri, $sword_username, $sword_password, $sword_obo);
@@ -691,9 +697,10 @@ class BagItManager{
 	}
 	
 	public function getMintStatus() {
-	   if ($this->mint) {
-		\OCP\Util::writeLog("crate_it", $this->mint['status'], \OCP\Util::DEBUG);
-		return $this->mint['status'];
+		$config = $this->getConfig();
+		if ($config['mint']) {
+		\OCP\Util::writeLog("crate_it", $config['mint']['status'], \OCP\Util::DEBUG);
+		return $config['mint']['status'];
 	   }
 	   else {
 	   	return false;
@@ -701,9 +708,10 @@ class BagItManager{
 	}
 	
 	public function getSwordStatus() {
-	   if ($this->sword) {
-		\OCP\Util::writeLog("crate_it", $this->sword['status'], \OCP\Util::DEBUG);
-		return $this->sword['status'];
+		$config = $this->getConfig();
+		if ($config['sword']) {
+		\OCP\Util::writeLog("crate_it", $config['sword']['status'], \OCP\Util::DEBUG);
+		return $config['sword']['status'];
 	   }
 	   else {
 	   	return false;
@@ -730,7 +738,8 @@ class BagItManager{
 
 	public function lookUpActivity($keyword) {
 		try {
-			$url = $this->mint['url'] . '/Activities/opensearch/lookup?searchTerms=' . urlencode($keyword);
+			$config = $this->getConfig();
+			$url = $config['mint']['url'] . '/Activities/opensearch/lookup?searchTerms=' . urlencode($keyword);
 			
 			// Now call the mint
 			$ch = curl_init();
