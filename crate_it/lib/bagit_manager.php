@@ -300,25 +300,16 @@ class BagItManager{
 		foreach ($this->flatList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			
-			$prev_file = $path_parts['filename'].'.htm';
-			$prev_title = $value['name'];
-				
-			$storage_id = \OCA\file_previewer\lib\Solr::getStorageId('full_path:"'.md5($value['filename']).'"');
+			$preview_file = $path_parts['dirname'].'/_html/'.$path_parts['basename'].'/index.html';
 			
-			$url = $this->fascinator['downloadURL'].$storage_id.'/'.$prev_file;
-			$url = str_replace(' ', '%20', $url);
-			
-			//Download file
-			$comm = "wget -p --convert-links -nH -P ".$temp_dir."previews ".$url;
-			system($comm, $retval);
-			
-			if($retval === 0) {
-				$prev_path = $temp_dir.'previews/portal/default/download/'.$storage_id;
-				//make links to those htmls in temp dir
-				$pre_content .= "<a href='".$prev_path."/".$prev_file."'>".$prev_title."</a><br>";
+			//skip files which don't have previews
+			if(!file_exists($preview_file)) {
+				continue;
 			}
 			
+			$pre_content .= "<a href='file://".$preview_file."'>".$value['name']."</a><br>";
 		}
+		
 		$epub_title = $temp_dir.$this->selected_crate.'.html';
 		$manifest_html = $pre_content."</p></body></html>";
     	if (is_dir($temp_dir)) {
