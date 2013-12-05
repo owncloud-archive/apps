@@ -11,14 +11,17 @@ if (version_compare($currentVersion, '0.5.0', '<')) {
 }
 
 if (version_compare($currentVersion, '0.5.2', '<')) {
-	//delete duplicate entries and rescan them
+	//delete duplicate id entries
 	$stmt = OCP\DB::prepare('
 		DELETE FROM `*PREFIX*lucene_status`
 		WHERE `fileid` IN (
 			SELECT `fileid`
-			FROM `*PREFIX*lucene_status`
-			GROUP BY `fileid`
-			HAVING count(`status`) > 1
+			FROM (
+				SELECT `fileid`
+				FROM `*PREFIX*lucene_status`
+				GROUP BY `fileid`
+				HAVING count(`status`) > 1
+			) AS `mysqlerr1093hack`
 		)
 	');
 	$stmt->execute();
