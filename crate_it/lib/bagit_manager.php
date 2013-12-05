@@ -718,7 +718,7 @@ class BagItManager{
 
 		try {
 		    rename($this->crate_dir, $trash_dir);
-		    $this->switchCrate("default_crate");
+		    $_SESSION['crate_id'] = '';
 		    
 		    return array("status" => "Success");
 		}
