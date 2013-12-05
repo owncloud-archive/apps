@@ -184,6 +184,10 @@ class BagItManager{
 			$paths = \OC\Files\Filesystem::getDirectoryContent($path);
 			foreach ($paths as $sub_path) {
 				$rel_path = substr($sub_path['path'], strlen('files/'));
+				if(!strncmp($path, "Shared", 6))
+				{
+					$rel_path = 'Shared/'.$rel_path;
+				}
 				$this->addPath($rel_path, $vfs_contents);
 			}
 		} else {
