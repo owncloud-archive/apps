@@ -317,7 +317,8 @@ class BagItManager{
 			fwrite($fp, $manifest_html);
 			fclose($fp);
 			//feed it to calibre
-			$command = 'ebook-convert '.$epub_title.' '.$temp_dir.'temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
+			$escaped_title = str_replace(' ', '\ ', $epub_title);
+			$command = 'ebook-convert '.$escaped_title.' '.$temp_dir.'temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
 			system($command, $retval);
     	}
 		//send the epub to user
