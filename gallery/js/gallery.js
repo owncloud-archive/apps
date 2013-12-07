@@ -255,7 +255,7 @@ Gallery.view.viewAlbum = function (albumPath) {
 	}
 
 	OC.Breadcrumb.clear();
-	OC.Breadcrumb.push('Pictures', '#').click(function () {
+	OC.Breadcrumb.push(t('gallery', 'Pictures'), '#').click(function () {
 		Gallery.view.viewAlbum(OC.currentUser);
 	});
 	crumbs = albumPath.split('/');
