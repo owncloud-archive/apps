@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-26 01:20-0500\n"
-"PO-Revision-Date: 2013-11-26 06:20+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-12-07 20:24-0500\n"
+"PO-Revision-Date: 2013-12-07 14:20+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,9 +30,9 @@ msgstr "Honek elkarbanatuta"
 
 #: js/public.js:9
 msgid "Picture view"
-msgstr ""
+msgstr "Irudi bistaratzea"
 
-#: js/slideshow.js:323
+#: js/slideshow.js:329
 msgid "Error loading slideshow template"
 msgstr "Errorea aurkezpen txantiloia kargatzean"
 
@@ -49,8 +49,8 @@ msgstr "Aplikazio hau erabiltzeko \"Image Viewer\" aplikazioak ere gaituta egon 
 #: templates/public.php:9
 #, php-format
 msgid "%s shared <strong>%s</strong> with you"
-msgstr ""
+msgstr "%s-k zurekin <strong>%s</strong> elkarbanatu du"
 
 #: templates/public.php:16
 msgid "File list"
-msgstr ""
+msgstr "Fitxategi zerrenda"
