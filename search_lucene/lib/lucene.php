@@ -295,7 +295,8 @@ class Lucene extends \OC_Search_Provider {
 				. ', ' . \OC_Helper::humanFileSize($hit->size)
 				. ', Score: ' . number_format($hit->score, 2),
 			$url,
-			$type
+			$type,
+			dirname($hit->path)
 		);
 	}
 
