@@ -44,7 +44,7 @@
    <field>
     <name>moment</name>
     <type>timestamp</type>
-    <default>0000-00-00 00:00:00</default>
+    <default>1970-01-01 00:00:00</default>
     <notnull>true</notnull>
    </field>
 
