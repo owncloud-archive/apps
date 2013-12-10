@@ -1,12 +1,9 @@
 <form id="export" action="#" method="post">
     <fieldset class="personalblock">
-        <h2><?php p($l->t('Export data'));?></h2>
+        <h2><?php p($l->t('Admin Export'));?></h2>
         <p>
-        <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" id="requesttoken">
-        <input type="radio" id="export_instance" name="export_type" value="instance" checked /><label for="export_instance"><?php p($l->t('All system files and user data'));?></label><br />
-        <input type="radio" id="export_system" name="export_type" value="system" /><label for="export_system"><?php p($l->t('Only system files'));?></label><br />
-        <input type="radio" id="export_value" name="export_type" value="userfiles" /><label for="export_value"><?php p($l->t('Only user data'));?></label><br />
-        <input type="submit" name="admin_export" value="<?php p($l->t('Export')); ?>" />
+           <input type="submit" name="admin_export" value="<?php p($l->t('Export config file')); ?>" />
+        </p>
     </fieldset>
 </form>
 <?php
