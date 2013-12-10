@@ -6,7 +6,7 @@ print '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 	<?php foreach ($_['albums'] as $album): ?>
 		<album id='<?php p($album['id'])?>'>
 			<name><?php print_unescaped($album['name'])?></name>
-			<artist id='<?php p($album['artist'])?>'><?php p($album['artist_name'])?></artist>
+			<artist id='<?php p($album['artist'])?>'><?php print_unescaped($album['artist_name'])?></artist>
 			<tracks><?php p($album['songs'])?></tracks>
 			<rating>0</rating>
 			<year>0</year>
