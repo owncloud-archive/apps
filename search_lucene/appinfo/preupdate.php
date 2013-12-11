@@ -1,5 +1,7 @@
 <?php
 
+$currentVersion=OC_Appconfig::getValue('search_lucene', 'installed_version');
+
 if (version_compare($currentVersion, '0.5.2', '<')) {
 	//delete duplicate id entries
 	$stmt = OCP\DB::prepare('
