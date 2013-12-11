@@ -5,14 +5,16 @@
 # Translators:
 # Muhammad Fauzan <yosanpro@gmail.com>, 2012
 # rodin <romihardiyanto@gmail.com>, 2013
+# rodin <romihardiyanto@gmail.com>, 2013
+# w41l <walecha99@gmail.com>, 2013
 # w41l <walecha99@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-12-11 10:37-0500\n"
+"PO-Revision-Date: 2013-12-10 14:50+0000\n"
+"Last-Translator: arifpedia <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,41 +24,41 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Sedang memeriksa instalasi..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "Pembaruan tidak dimungkinkan. Pastikan bahwa webserver Anda memiliki akses tulis ke berkas dan direktori berikut:"
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr ""
+msgstr "Versi tidak ditemukan"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "Pembaruan tidak dimungkinkan. Webserver Anda tidak memiliki izin yang cukup untuk menghapus direktori berikut:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "Izin update pada direktori ini beserta isinya atau hapus secara manual terlebih dahulu."
 
 #: ajax/update.php:85
 msgid "Downloading package..."
-msgstr ""
+msgstr "Sedang mengunduh paket..."
 
 #: ajax/update.php:89
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Tidak dapat mengambil paket"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr ""
+msgstr "Membuat cadangan..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
@@ -64,34 +66,34 @@ msgstr "Ini cadangan Anda:"
 
 #: ajax/update.php:99
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Gagal membuat cadangan"
 
 #: ajax/update.php:103
 msgid "Moving files..."
-msgstr ""
+msgstr "Memindahkan berkas..."
 
 #: ajax/update.php:109
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "Selesai. Klik pada tautan berikut untuk memulai pembaruan database."
 
 #: ajax/update.php:112
 msgid "Update failed"
-msgstr ""
+msgstr "Pembaruan gagal"
 
 #: js/controllers.js:25
 msgid ""
 "The update was unsuccessful. Please report this issue to the <a "
 "href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
 "community</a>."
-msgstr ""
+msgstr "Pembaruan tidak berhasil. Silakan laporkan masalah ini ke <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>."
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr ""
+msgstr "Pusat Pembaruan"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Pengatur Cadangan"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
@@ -99,15 +101,15 @@ msgstr "Pembaruan"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Direktori Cadangan"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Cadangan"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Selesai"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"
@@ -119,4 +121,4 @@ msgstr "Hapus"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Tidak ada cadangan ditemukan"
