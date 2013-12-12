@@ -26,3 +26,10 @@ if (version_compare($currentVersion, '0.5.2', '<')) {
 	');
 	$stmt->execute();
 }
+
+if (version_compare($currentVersion, '0.5.3', '<')) {
+	//force reindexing of files
+	$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*lucene_status` WHERE 1=1');
+    $stmt->execute();
+}
+	
