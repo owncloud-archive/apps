@@ -31,7 +31,7 @@ $(function(){
 			loading: {
 				finishedMsg: t('activity', 'No more activities to load.'),
 				msgText: t('activity', 'Loading older activities'),
-				img: 'http://i.imgur.com/6RMhx.gif'
+				img: OC.filePath('activity', 'img', 'load-circle.png') 
 			}
 		},
 		// trigger Masonry as a callback
