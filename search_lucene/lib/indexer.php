@@ -265,7 +265,7 @@ class Indexer {
 			LEFT JOIN `*PREFIX*lucene_status`
 			ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`
 			WHERE `storage` = ?
-			AND `status` is null OR `status` = \'N\'
+			AND `status` IS NULL OR `status` = ?
 		');
 
 		foreach ($mounts as $mount) {
@@ -284,7 +284,7 @@ class Indexer {
 				$cache = $storage->getCache();
 				$numericId = $cache->getNumericStorageId();
 
-				$result = $query->execute(array($numericId));
+				$result = $query->execute(array($numericId, 'N'));
 				if (\OC_DB::isError($result)) {
 					Util::writeLog(
 						'search_lucene',
