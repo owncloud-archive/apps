@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-29 18:30+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-12-13 12:42-0500\n"
+"PO-Revision-Date: 2013-12-11 18:00+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +24,11 @@ msgstr "Toimet"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "Ei enempää toimia."
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "Ladataan vanhempia toimia"
 
 #: templates/list.php:28
 msgid "RSS feed"
@@ -36,9 +36,9 @@ msgstr "RSS-syöte"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "Ei toimia vielä."
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "Näet tapahtumaluettelon täällä, kun aloitat %sin käytön."

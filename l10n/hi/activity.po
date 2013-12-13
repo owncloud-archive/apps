@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Meghraj Suthar <meghrajsuthar03@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-05 09:09-0400\n"
-"PO-Revision-Date: 2013-10-05 13:09+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-13 12:42-0500\n"
+"PO-Revision-Date: 2013-12-13 15:00+0000\n"
+"Last-Translator: Meghraj Suthar <meghrajsuthar03@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,27 +18,27 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:39
+#: appinfo/app.php:31
 msgid "Activity"
-msgstr ""
+msgstr "गतिविधि"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "लोड करने के लिए कोई और अधिक गतिविधियों."
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "पुराने गतिविधियों लोड हो रहा है"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "आरएसएस फ़ीड"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "कोई गतिविधियों अभी तक."
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "आप अपने %s को प्रयोग करने के लिए शुरू जब आप यहाँ घटनाओं की एक सूची देखेंगे."
