@@ -11,8 +11,15 @@ function buildFileTree(data) {
         dragAndDrop: true,
         usecontextmenu: true,
         onCanMoveTo: function(moved_node, target_node, position) {
-                // Implementation of 'endsWith'
-                return target_node.id.indexOf('folder', target_node.id.length - 'folder'.length) !== -1;
+            // Can move before or after any node.
+	    // Can only move INSIDE of a node whose id ends with 'folder' 
+	    console.log(target_node.id);
+	    if (target_node.id.indexOf('folder', target_node.id.length - 'folder'.length) == -1) {
+		return (position != 'inside');
+	    }
+	    else {
+		return true;
+	    }
         },
     });
 
@@ -65,7 +72,10 @@ function buildFileTree(data) {
         }, 
     });
 
-    $tree.bind('tree.move', function(e) {
+    $tree.bind('tree.move', function(event) {
+	event.preventDefault();
+        // do the move first, and _then_ POST back.
+        event.move_info.do_move();
         saveTree($tree);
     });
 

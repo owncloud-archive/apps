@@ -335,7 +335,7 @@ class BagItManager{
         $vfs = &$data['vfs'][0]['children'];
         $flat = array();
         $ref = &$flat;
-        $this->flat_r($vfs, $ref, $vfs['name']);
+        $this->flat_r($vfs, $ref, $data['vfs'][0]['name']);
         return $flat;
     }
 
