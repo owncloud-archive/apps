@@ -34,6 +34,10 @@ Thumbnail.prototype.load = function () {
 			that.loadingDeferred.resolve(that.image);
 			Thumbnail.processQueue();
 		};
+		this.image.onerror = function () {
+			Thumbnail.loadingCount--;
+			Thumbnail.processQueue();
+		};
 		Thumbnail.loadingCount++;
 		this.image.src = this.url;
 	}
