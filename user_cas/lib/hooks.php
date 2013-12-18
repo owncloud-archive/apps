@@ -39,7 +39,7 @@ class OC_USER_CAS_Hooks {
 				}
 
 				if (array_key_exists($casBackend->groupMapping, $attributes)) {
-					$cas_groups = $attributes[$casBackend->groupMapping];
+					$cas_groups = explode( ',', $attributes[$casBackend->groupMapping] );
 				}
 				else if (!empty($casBackend->defaultGroup)) {
 					$cas_groups = array($casBackend->defaultGroup);
