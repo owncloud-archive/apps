@@ -5,14 +5,15 @@
 # Translators:
 # Sappe, 2013
 # Daraiko, 2012
+# lodahl <leiflodahl@gmail.com>, 2013
 # osos <osos@openeyes.dk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-21 00:49-0500\n"
-"PO-Revision-Date: 2013-12-20 06:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-12-22 00:49-0500\n"
+"PO-Revision-Date: 2013-12-21 16:20+0000\n"
+"Last-Translator: lodahl <leiflodahl@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +55,7 @@ msgstr "Der opstod en fejl!"
 
 #: js/editor.js:276
 msgid "There are unsaved changes in the text editor"
-msgstr ""
+msgstr "Der er ugemte ændringer i tekstbehandleren"
 
 #: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
