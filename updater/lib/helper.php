@@ -24,7 +24,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function move($src, $dest) {
-		if (!@rename($src, $dest)) {
+		if (!rename($src, $dest)) {
 			throw new \Exception("Unable to move $src to $dest");
 		}
 	}
@@ -53,7 +53,7 @@ class Helper {
 				}
 			}
 		}elseif(file_exists($src)) {
-			if (!@copy($src, $dest) && $stopOnError) {
+			if (!copy($src, $dest) && $stopOnError) {
 				throw new \Exception("Unable copy $src to $dest");
 			}
 		}
@@ -66,7 +66,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function mkdir($path, $isRecoursive = false) {
-		if (!@mkdir($path, 0755, $isRecoursive)) {
+		if (!mkdir($path, 0755, $isRecoursive)) {
 			throw new \Exception("Unable to create $path");
 		}
 	}
@@ -78,7 +78,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function scandir($path) {
-		$content = @scandir($path);
+		$content = scandir($path);
 		if (!is_array($content)) {
 			throw new \Exception("Unable to list $path content");
 		}
@@ -104,7 +104,7 @@ class Helper {
 	
 	protected static function rmdirr($dir) {
 		if(is_dir($dir)) {
-			$files = @scandir($dir);
+			$files = scandir($dir);
 			foreach($files as $file) {
 				if ($file != "." && $file != "..") {
 					self::rmdirr("$dir/$file");

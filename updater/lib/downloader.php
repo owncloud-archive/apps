@@ -59,9 +59,9 @@ class Downloader {
 		//  to have '3rdparty', 'apps' and 'core' subdirectories
 		$sources = Helper::getSources($version);
 		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
-		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
-		@rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
-		@rename($baseDir, $sources[Helper::CORE_DIRNAME]);
+		rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
+		rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
+		rename($baseDir, $sources[Helper::CORE_DIRNAME]);
 	}
 	
 	/* To be replaced with OC_Util::getUrlContent for 5.x */
