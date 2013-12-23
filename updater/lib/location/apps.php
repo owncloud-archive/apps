@@ -46,15 +46,19 @@ class Location_Apps extends Location {
 			foreach ($this->appsToUpdate as $appId) {
 				$path = \OC_App::getAppPath($appId);
 				if ($path) {
-					Helper::move($path, $tmpDir . '/' . $appId);
+					if (!@file_exists($this->newBase . '/' . $appId)){
+						$this->appsToDisable[$appId] = $appId;
+					} else {
+						Helper::move($path, $tmpDir . '/' . $appId);
 					
-					// ! reverted intentionally
-					$this->done [] = array(
-						'dst' => $path,
-						'src' => $tmpDir . '/' . $appId
-					);
+						// ! reverted intentionally
+						$this->done [] = array(
+							'dst' => $path,
+							'src' => $tmpDir . '/' . $appId
+						);
 					
-					Helper::move($this->newBase . '/' . $appId, $path);
+						Helper::move($this->newBase . '/' . $appId, $path);
+					}
 				}
 			}
 			$this->finalize();
