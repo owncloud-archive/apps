@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-29 18:30+0000\n"
+"POT-Creation-Date: 2013-12-25 00:48-0500\n"
+"PO-Revision-Date: 2013-12-24 21:00+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: appinfo/app.php:31
 msgid "Activity"
-msgstr "Dejavnost"
+msgstr "Dejavnosti"
 
 #: js/script.js:32
 msgid "No more activities to load."
@@ -36,7 +36,7 @@ msgstr "Vir RSS"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr "Ni nobenih dejavnosti."
+msgstr "Ni še zabeleženih nobenih dejavnosti."
 
 #: templates/list.php:33
 #, php-format
