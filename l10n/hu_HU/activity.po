@@ -5,13 +5,14 @@
 # Translators:
 # Ádám Radovits <adamradovits12@hotmail.com>, 2013
 # ebela <bela@dandre.hu>, 2013
+# Laszlo Tornoci <torlasz@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-09 06:38-0500\n"
-"PO-Revision-Date: 2013-12-08 21:30+0000\n"
-"Last-Translator: ebela <bela@dandre.hu>\n"
+"POT-Creation-Date: 2013-12-27 00:48-0500\n"
+"PO-Revision-Date: 2013-12-26 12:10+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 
 #: appinfo/app.php:31
 msgid "Activity"
-msgstr "Tevékenységek"
+msgstr "Aktivitás"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr "Nincs több betöltendő tevékenység."
+msgstr "Nincs több betöltendő aktivitás."
 
 #: js/script.js:33
 msgid "Loading older activities"
@@ -37,9 +38,9 @@ msgstr "RSS hírcsatorna"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr "Nem volt még aktívitás."
+msgstr "Nincs megjeleníthető aktivitás."
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr "Az események itt lesznek láthatóak miután elinditottad a %s szolgáltatásodat "
+msgstr "Az események itt lesznek láthatóak, miután elkezdte használni a %s szolgáltatást."
