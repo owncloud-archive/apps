@@ -307,7 +307,9 @@ OC.FluXX={
 			gallery:         'gallery',
 			gallery_index:   'gallery',
 			shorty:          'shorty',
-			shorty_index:    'shorty'
+			shorty_index:    'shorty',
+			tasks:           'tasks',
+			tasks_index:     'tasks'
 		};
 		var index=$('body nav #navigation #apps').find('li .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
