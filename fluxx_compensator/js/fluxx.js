@@ -292,14 +292,24 @@ OC.FluXX={
 		// mark mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
+			bookmarks:       'bookmarks',
 			bookmarks_index: 'bookmarks',
+			files:           'files',
 			files_index:     'files',
+			notes:           'notes',
 			notes_index:     'notes',
+			media:           'media',
 			media_index:     'media',
+			calendar:        'calendar',
 			calendar_index:  'calendar',
+			contacts:        'contacts',
 			contacts_index:  'contacts',
+			gallery:         'gallery',
 			gallery_index:   'gallery',
-			shorty_index:    'shorty'
+			shorty:          'shorty',
+			shorty_index:    'shorty',
+			tasks:           'tasks',
+			tasks_index:     'tasks'
 		};
 		var index=$('body nav #navigation #apps').find('li .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element

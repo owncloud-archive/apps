@@ -70,7 +70,8 @@ html.fluxx-state-H-hidden #header {
 /* move stuff up to top when header is hidden */
 html.fluxx-state-H-hidden #navigation,
 html.fluxx-state-H-hidden #content-wrapper {
-	padding-top: 0;
+	top: -45px !important;
+/*	padding-top: 0; */
 }
 
 /* below some specific app dependent settings to compensate for exotic in-app styles */
@@ -84,12 +85,11 @@ html.fluxx-mode-bookmarks.fluxx-state-N-hidden #firstrun { left: 280px; }
 
 /* 'calendar' app */
 html.fluxx-mode-calendar { }
+html.fluxx-mode-calendar.fluxx-state-N-hidden #controls { padding-left: 0px; }
 
 /* 'contacts' app */
 html.fluxx-mode-contacts { }
-html.fluxx-mode-contacts.fluxx-state-N-hidden #contactsheader { left: 280px; }
-html.fluxx-mode-contacts.fluxx-state-H-hidden #groupsheader,
-html.fluxx-mode-contacts.fluxx-state-H-hidden #contactsheader { top: 0px; }
+html.fluxx-mode-contacts.fluxx-state-H-hidden #contactsHeader { top: 0px; }
 
 /* 'files' app */
 html.fluxx-mode-files { }
@@ -108,3 +108,9 @@ html.fluxx-mode-notes { }
 
 /* 'shorty' app */
 html.fluxx-mode-shorty { }
+
+/* 'tasks' app */
+html.fluxx-mode-tasks { }
+html.fluxx-mode-tasks.fluxx-state-N-hidden #tasks_list.rightcontent { width: 1664px !important; }
+html.fluxx-mode-tasks.fluxx-state-N-hidden #tasks_list.rightcontent { left: 256px; }
+html.fluxx-mode-tasks.fluxx-state-H-hidden #tasks_list.rightcontent { top: 44px; }

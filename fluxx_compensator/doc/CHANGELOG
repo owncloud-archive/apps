@@ -23,6 +23,10 @@
 
 Changelog:
 
+* Sun Dec 29 2013 Christian Reiner: version 0.2.6
+Some compatibility fixes for the final owncloud version 6:
+Layout control fixes for some app modes required by changed element layouts.
+Additional mode for the 'tasks' app. 
 * Mon Oct 28 2013 Christian Reiner: version 0.2.5
 Compatibility with owncloud version 6
 * Wed Sep 11 2013 Christian Reiner: version 0.2.4
