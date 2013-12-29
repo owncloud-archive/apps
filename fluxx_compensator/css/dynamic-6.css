@@ -71,7 +71,7 @@ html.fluxx-state-H-hidden #header {
 html.fluxx-state-H-hidden #navigation,
 html.fluxx-state-H-hidden #content-wrapper {
 	top: -45px !important;
-	padding-top: 0;
+/*	padding-top: 0; */
 }
 
 /* below some specific app dependent settings to compensate for exotic in-app styles */
