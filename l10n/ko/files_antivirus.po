@@ -5,14 +5,15 @@
 # Translators:
 # 책읽는달팽 <bjh13579@gmail.com>, 2013
 # Shinjo Park <kde@peremen.name>, 2013
+# Park Shinjo <peremen@gmail.com>, 2013
 # Shinjo Park <kde@peremen.name>, 2013
 # 책읽는달팽 <bjh13579@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-24 00:48-0500\n"
-"PO-Revision-Date: 2013-12-22 14:23+0000\n"
+"POT-Creation-Date: 2013-12-29 00:49-0500\n"
+"PO-Revision-Date: 2013-12-28 13:54+0000\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +58,7 @@ msgstr "대몬"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
-msgstr "데몬 (소켓)"
+msgstr "대몬 (소켓)"
 
 #: templates/settings.php:7
 msgid "Socket"
@@ -65,7 +66,7 @@ msgstr "소켓"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr "클램 안티바이러스 소켓."
+msgstr "ClamAV 소켓."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
