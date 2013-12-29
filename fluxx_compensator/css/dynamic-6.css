@@ -70,6 +70,7 @@ html.fluxx-state-H-hidden #header {
 /* move stuff up to top when header is hidden */
 html.fluxx-state-H-hidden #navigation,
 html.fluxx-state-H-hidden #content-wrapper {
+	top: -45px !important;
 	padding-top: 0;
 }
 
