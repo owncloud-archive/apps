@@ -111,5 +111,6 @@ html.fluxx-mode-shorty { }
 
 /* 'tasks' app */
 html.fluxx-mode-tasks { }
+html.fluxx-mode-tasks.fluxx-state-N-hidden #tasks_list.rightcontent { width: 1664px !important; }
 html.fluxx-mode-tasks.fluxx-state-N-hidden #tasks_list.rightcontent { left: 256px; }
 html.fluxx-mode-tasks.fluxx-state-H-hidden #tasks_list.rightcontent { top: 44px; }
