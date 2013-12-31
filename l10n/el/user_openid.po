@@ -6,13 +6,14 @@
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2012
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012
+# vkehayas <vkehayas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-29 04:34-0400\n"
-"PO-Revision-Date: 2013-10-28 10:43+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-31 00:49-0500\n"
+"PO-Revision-Date: 2013-12-30 15:51+0000\n"
+"Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +31,7 @@ msgstr "Μη έγκυρο αίτημα"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "Αυτό είναι τελικό σημείο διακομιστή OpenID. Για περισσότερες πληροφορίες, δείτε "
+msgstr "Αυτό είναι ένα τελικό σημείο διακομιστή OpenID. Για περισσότερες πληροφορίες, δείτε "
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -50,7 +51,7 @@ msgstr "Σύνδεση"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr "Σφάλμα: <b> Δεν έχει επιλεχθεί κάποιος χρήστης"
+msgstr "Σφάλμα: <b> Δεν έχει επιλεχθεί χρήστης"
 
 #: templates/settings.php:3
 msgid "OpenID"
