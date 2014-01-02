@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 01:07+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-01-02 00:49-0500\n"
+"PO-Revision-Date: 2014-01-02 00:40+0000\n"
+"Last-Translator: byoship\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/owncloud/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,40 +19,40 @@ msgstr ""
 
 #: js/editor.js:68 js/editor.js:153 js/editor.js:161
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: js/editor.js:70
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: js/editor.js:73
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: js/editor.js:127
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: js/editor.js:128
 msgid "Clear"
-msgstr ""
+msgstr "Borrar"
 
 #: js/editor.js:146
 msgid "Saving..."
-msgstr ""
+msgstr "Guardando..."
 
 #: js/editor.js:154
 msgid "Failed to save file"
-msgstr ""
+msgstr "Falló al guardar archivo"
 
 #: js/editor.js:260
 msgid "An error occurred!"
-msgstr ""
+msgstr "¡Ocurrió un error!"
 
 #: js/editor.js:276
 msgid "There are unsaved changes in the text editor"
-msgstr ""
+msgstr "Hay cambios sin guardar en el editor de textos"
 
 #: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
-msgstr ""
+msgstr "Hay cambios sin guardar, haga clic aquí para volver"
