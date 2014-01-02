@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <cdewqazxsqwe@gmail.com>, 2012.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-09 02:03+0200\n"
-"PO-Revision-Date: 2012-10-08 13:20+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:50+0000\n"
+"Last-Translator: masensio <masensio@solidgear.es>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,9 +20,21 @@ msgstr ""
 
 #: templates/presentations.php:5
 msgid "Documentation"
-msgstr "Документация"
+msgstr ""
 
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr "Не найдено Impress-файлов в ownCloud. Пожалуйста, загрузите .impress файл."
+msgstr ""
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr ""
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Размер"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr ""

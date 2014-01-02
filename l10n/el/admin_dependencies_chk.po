@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2012
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
+# vkehayas <vkehayas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-30 02:02+0200\n"
-"PO-Revision-Date: 2012-09-29 19:13+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-31 00:49-0500\n"
+"PO-Revision-Date: 2013-12-30 15:41+0000\n"
+"Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,51 +24,51 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "Το άρθρωμα php-json απαιτείται από πολλές εφαρμογές για εσωτερική επικοινωνία"
+msgstr "Η μονάδα php-json απαιτείται από πολλές εφαρμογές για εσωτερική επικοινωνία"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr "Το άρθρωμα php-curl απαιτείται για την ανάκτηση του τίτλου της σελίδας κατά την προσθήκη σελιδοδείκτη"
+msgstr "Η μονάδα php-curl απαιτείται για την ανάκτηση του τίτλου της σελίδας κατά την προσθήκη σελιδοδείκτη"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr "Το άρθρωμα php-gd απαιτείται για δημιουργία εικόνων επισκόπησης των φωτογραφιών σας"
+msgstr "Η μονάδα php-gd απαιτείται για τη δημιουργία μικρογραφιών των εικόνων σας"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "Το άρθρωμα php-ldap απαιτείται για σύνδεση με τον ldap εξυπηρετητή σας"
+msgstr "Η μονάδα php-ldap απαιτείται για σύνδεση με το διακομιστή ldap σας"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr "Το άρθρωμα php-zip απαιτείται για λήψη πολλών αρχείων με την μία"
+msgstr "Η μονάδα php-zip απαιτείται για λήψη πολλών αρχείων αμέσως"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr "Το άρθρωμα php-mb_multibyte απαιτείται για τη σωστή διαχείρηση της κωδικοποίησης."
+msgstr "Η μονάδα php-mb_multibyte απαιτείται για τη σωστή διαχείρηση της κωδικοποίησης."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr "Το άρθρωμα php-ctype απαιτείται για επαλήθευση δεδομένων."
+msgstr "Η μονάδα php-ctype απαιτείται για επικύρωση δεδομένων."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr "Το άρθρωμα php-xml απαιτείται για διαμοιρασμό των αρχείων με το webdav."
+msgstr "Η μονάδα php-xml απαιτείται για διαμοιρασμό των αρχείων μέσω webdav."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "Η οδηγία για την επιλογή allow_url_fopen στο αρχείο php.ini πρέπει να οριστεί στο 1 για ανάκτηση βάσης δεδομένων γνώσεων από τους εξυπηρετητές OCS"
+msgstr "Η οδηγία allow_url_fopen στο αρχείο php.ini πρέπει να οριστεί στο 1 για ανάκτηση βάσης γνώσεων από τους διακομιστές OCS"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr "Το άρθρωμα php-pdo απαιτείται για αποθήκευση των δεδομένων owncloud στην βάση δεδομένων."
+msgstr "Η μονάδα php-pdo απαιτείται για αποθήκευση των δεδομένων owncloud στην βάση δεδομένων."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr "Το άρθρωμα iconv απαιτείται για μετατροπή δεδομένων σε σωστή κωδικοποίηση χαρακτήρων."
+msgstr "Η μονάδα iconv απαιτείται για μετατροπή δεδομένων στη σωστή κωδικοποίηση χαρακτήρων."
 
 #: templates/settings.php:2
 msgid "Dependencies status"

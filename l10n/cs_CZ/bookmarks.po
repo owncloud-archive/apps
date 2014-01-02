@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Martin  <fireball@atlas.cz>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr "Nezadán žádný soubor k importu"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -27,7 +31,7 @@ msgstr "Nepodporovaný typ souboru pro import"
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Značky"
 
@@ -39,19 +43,23 @@ msgstr "Filtrovat podle značky"
 msgid "Edit bookmark"
 msgstr "Upravit záložku"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Opravdu jste si jisti, že si přejete odstranit tuto značku z každého záznamu?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Varování"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr "Chyba při importu"
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Import dokončen úspěšně."
 
-#: js/settings.js:56
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Odesílám..."
 
@@ -59,39 +67,39 @@ msgstr "Odesílám..."
 msgid "Bookm."
 msgstr "Zál."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Přidat záložku"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Zavřít"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Název stránky"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Adresa stránky"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Popis stránky"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Uložit"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Smazat"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Upravit"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -117,15 +125,15 @@ msgstr "Přidat"
 msgid "Related Tags"
 msgstr "Podobné značky"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Nastavení"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Nemáte žádné záložky"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Můžete také zkusit importovat soubor záložek"
 

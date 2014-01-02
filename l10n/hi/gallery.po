@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# pratik kumar <kpratik217@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +20,35 @@ msgstr ""
 
 #: appinfo/app.php:36
 msgid "Pictures"
+msgstr "तस्वीरें"
+
+#: js/gallery.js:296
+msgid "Shared by"
+msgstr "द्वारा साझा"
+
+#: js/public.js:9
+msgid "Picture view"
 msgstr ""
 
-#: js/gallery.js:237
-msgid "Shared by"
-msgstr ""
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "स्लाइड शो टेम्पलेट लोड करने में त्रुटि है"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr ""
+msgstr "साझा करें"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
+msgstr "\"छवि दर्शक\" आवेदन भी इस अनुप्रयोग का उपयोग करने में सक्षम होने की जरूरत है."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
 msgstr ""

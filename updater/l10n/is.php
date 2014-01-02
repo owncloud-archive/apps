@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Villa",
-"Update" => "Uppfæra"
+"Update" => "Uppfæra",
+"Download" => "Niðurhal",
+"Delete" => "Eyða"
 );

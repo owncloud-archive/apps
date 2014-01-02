@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <dw4dev@gmail.com>, 2012.
+# dw4dev <dw4dev@gmail.com>, 2012
+# pellaeon <nfsmwlin@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-28 00:09+0100\n"
-"PO-Revision-Date: 2012-11-27 14:38+0000\n"
-"Last-Translator: dw4dev <dw4dev@gmail.com>\n"
+"POT-Creation-Date: 2013-09-08 19:35-0400\n"
+"PO-Revision-Date: 2013-09-07 10:00+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +23,12 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "許多應用程式依賴 php-json 模組來互相通訊"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "需要 php-curl 模組才能在加入書籤時抓取網頁標題"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -58,15 +59,15 @@ msgstr "透過 webdav 分享檔案需要使用到  php-xml 模組."
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "php.ini 當中的 allow_url_fopen 必須設為1，才能從 OCS 伺服器取回知識庫"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "ownCloud 依賴 php-pdo 模組來存取資料庫"
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "需要 iconv 模組來將資料轉換至正確的編碼"
 
 #: templates/settings.php:2
 msgid "Dependencies status"
@@ -74,4 +75,4 @@ msgstr "依存狀態"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "用於："

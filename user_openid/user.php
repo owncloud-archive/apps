@@ -48,4 +48,4 @@ if (!isset($_SESSION['openid_auth'])) {
 $_SESSION['openid_auth'] = false;
 $_SESSION['openid_user'] = false;
 }
-require_once 'openid/phpmyid.php';
+require_once __DIR__.'/3rdparty/phpmyid.php';

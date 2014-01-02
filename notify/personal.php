@@ -5,7 +5,7 @@ $tmpl = new OCP\Template('notify', 'personalSettings');
 $notificationClasses = OC_Notify::getClasses();
 $classes = array();
 foreach($notificationClasses as $c) {
-	//$l = OC_L10N::get($c['appid'], null); //TODO: put this into notify.php
+	//$l = OCP\Util::getL10N($c['appid'], null); //TODO: put this into notify.php
 	$appInfo = OCP\App::getAppInfo($c['appid']);
 	$classes[$c['id']] = array(
 		'blocked' => $c['blocked'],

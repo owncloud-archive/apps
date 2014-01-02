@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <cdewqazxsqwe@gmail.com>, 2012.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-22 00:19+0100\n"
-"PO-Revision-Date: 2012-12-21 08:50+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2013-10-19 08:16-0400\n"
+"PO-Revision-Date: 2013-10-18 09:15+0000\n"
+"Last-Translator: masensio <masensio@solidgear.es>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,20 +20,16 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr "Экспортировать"
+msgstr ""
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr "Что-то пошло не так во время генерирования экспортируемого файла"
+msgstr ""
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr "Произошла ошибка"
+msgstr ""
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Перенос пользовательского аккаунта"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Экспорт и импорт пользовательских аккаунтов ownCloud."
+msgid "Account Export/Import"
+msgstr ""

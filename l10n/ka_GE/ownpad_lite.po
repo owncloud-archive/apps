@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <romeo@energo-pro.ge>, 2012.
+# drlinux64 <romeo@energo-pro.ge>, 2012
+# drlinux64 <romeo@energo-pro.ge>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:05+0200\n"
-"PO-Revision-Date: 2012-10-22 10:26+0000\n"
-"Last-Translator: drlinux64 <romeo@energo-pro.ge>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,30 +19,47 @@ msgstr ""
 "Language: ka_GE\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "დოკუმენტი გაზიარდა"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "მომხმარებელმა %s გაგიზიარათ ფაილი %s"
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "ჩემი ფედი"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "პარამეტრები"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "ფედის სახელი"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "გახსნა"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "გააზიარე შემდეგით:"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "გაზიარება"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Etherpad URL სერვისი"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "მომხმარებლის სახელი"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "შენახვა"

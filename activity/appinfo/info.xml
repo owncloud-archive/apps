@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+		<id>activity</id>
+		<name>Activity</name>
+		<description>This app provides an activity feed that shows you all the changes in you files and all the interesting things that are going on in your ownCloud</description>
+		<licence>AGPL</licence>
+		<author>Frank Karlitschek</author>
+		<shipped>true</shipped>
+		<default_enable/>
+		<require>4.9</require>
+		<types>
+				<filesystem/>
+		</types>
+</info>

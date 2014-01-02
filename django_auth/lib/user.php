@@ -49,7 +49,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* itself, not in its subclasses.
 	*/
 	public function createUser($uid, $password) {
-		OC_Log::write('OC_User_Django', 'Use the django webinterface to create users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to create users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -61,7 +61,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Deletes a user
 	*/
 	public function deleteUser( $uid ) {
-		OC_Log::write('OC_User_Django', 'Use the django webinterface to delete users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to delete users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -74,7 +74,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Change the password of a user
 	*/
 	public function setPassword($uid, $password) {
-		OC_Log::write('OC_User_Django', 'Use the django webinterface to change passwords',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to change passwords',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 

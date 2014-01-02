@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"POT-Creation-Date: 2013-05-25 00:49+0200\n"
 "PO-Revision-Date: 2012-09-03 13:15+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Armenian (http://www.transifex.com/projects/p/owncloud/language/hy/)\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hy\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/noemail.php:2 templates/settings.php:2
 msgid "Mozilla Sync Service"
@@ -25,14 +25,14 @@ msgstr ""
 msgid "Please set your email address in account settings"
 msgstr ""
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
 msgstr ""
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr ""
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr ""

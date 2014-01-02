@@ -4,7 +4,7 @@ var videoViewer = {
 		'<source type="%type%" src="%src%" />' + 
 		'</video>',
 		show : function () {
-			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+videoViewer.file+'</h3></div></div>').appendTo('body');
+			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+escapeHTML(videoViewer.file)+'</h3></div></div>').appendTo('body');
 			
 			$('#videoviewer_overlay').fadeIn('fast',function(){
 				$('#videoviewer_popup').fadeIn('fast');
@@ -34,12 +34,13 @@ var videoViewer = {
 				size = {width: 320, height: 240};
 			}
 			return size;
-		},
+		}
 	},
 	mime : null,
 	file : null,
 	location : null,
 	player : null,
+	dir: null,
 	mimeTypes : [
 		'video/mp4',
 		'video/webm',
@@ -53,6 +54,7 @@ var videoViewer = {
 	],
 	onView : function(file) {
 		videoViewer.file = file;
+		videoViewer.dir = $('#dir').val();
 		videoViewer.location = videoViewer.getMediaUrl(file);
 		videoViewer.mime = FileActions.getCurrentMimeType();
 		
@@ -87,8 +89,7 @@ var videoViewer = {
 		videoViewer.UI.hide();
 	},
 	getMediaUrl : function(file) {
-		var dir = $('#dir').val();
-		return fileDownloadPath(dir, file);
+		return fileDownloadPath(videoViewer.dir, file);
 	},
 	onKeyDown : function(e) {
 		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {

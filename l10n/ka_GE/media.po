@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <romeo@energo-pro.ge>, 2012.
+# drlinux64 <romeo@energo-pro.ge>, 2012
+# drlinux64 <romeo@energo-pro.ge>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Language: ka_GE\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "მუსიკა"
 
@@ -32,56 +33,56 @@ msgstr "ალბომები"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr ""
+msgstr "ალბომის პლეილისტში დამატება"
 
 #: js/music.js:18
 msgid "Add album to playlist"
 msgstr "ალბომის პლეილისტში დამატება"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "წინა"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "დაკვრა"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "პაუზა"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "წინა"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "შემდეგი"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "გაჩუმება"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "გაძუმების მოხსნა"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "კოლექციის რესკანირება"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "პარამეტრები"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "მისამართი"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "არტისტი"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "ალბომი"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "სათაური"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

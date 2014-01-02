@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Saglabāt",
-"Search:" => "Meklēt:",
+"Search" => "Meklēt",
 "Close" => "Aizvērt",
 "Next" => "Nākamā",
 "Clear" => "Attīrīt",

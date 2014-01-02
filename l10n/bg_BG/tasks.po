@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Ilivanov <ilivanov@gmail.com>, 2013.
+# Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-10 00:06+0100\n"
-"PO-Revision-Date: 2013-02-09 10:20+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
 "Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +26,19 @@ msgstr "Невалидни дата/час"
 msgid "Tasks"
 msgstr "Задачи"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr ""
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "Списък"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "Място"
 
-#: js/tasks.js:420
+#: js/tasks.js:457
 msgid "No category"
 msgstr "Няма категория"
 
@@ -68,7 +68,7 @@ msgstr ""
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Невалиден приоритет"
 
 #: templates/no-calendar-app.php:9
 msgid ""
@@ -77,7 +77,7 @@ msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "Нова задача"
 
 #: templates/tasks.php:4
 msgid "Order Due"
@@ -105,7 +105,7 @@ msgstr ""
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "Зарежда задачите..."
 
 #: templates/tasks.php:20
 msgid "Important"

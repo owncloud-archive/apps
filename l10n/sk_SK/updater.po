@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <intense.feel@gmail.com>, 2012.
-# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+# intense <intense.feel@gmail.com>, 2012
+# mhh <marian.hvolka@stuba.sk>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +19,103 @@ msgstr ""
 "Language: sk_SK\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "Proces beží..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Overujem vašu inštaláciu..."
 
-#: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr "Hotovo. Pokračujte obnovením stránky."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Aktualizáciu nie je možné vykonať. Skontrolujte, či má váš webserver právo na zápis do nasledovných súborov a priečinkov:"
 
-#: js/updater.js:19 js/updater.js:25
-msgid "Error"
-msgstr "Chyba"
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Verzia nenájdená"
 
-#: templates/admin.php:24
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Aktualizáciu nie je možné vykonať. Váš webserver nemá oprávnenie na zmazanie nasledovného priečinka:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Aktualizovať oprávnenia tohto priečinka a jeho obsahu alebo odstrániť najskôr ručne."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Sťahujem balíček..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Nepodarilo sa stiahnuť balíček"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Vytváram zálohu..."
+
+#: ajax/update.php:96
+msgid "Here is your backup: "
+msgstr "Tu je vaša záloha:"
+
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Vytvoriť zálohu sa nepodarilo"
+
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Presúvam súbory..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Hotovo. Kliknite na nasledovný odkaz pre začatie aktualizácie databázy."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Aktualizácia sa nepodarila."
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "Aktualizácia nebola úspešná. Nahláste prosím tento problém <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud komunite</a>."
+
+#: templates/admin.php:17
+msgid "Update Center"
+msgstr "Centrum aktualizácií"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Správa zálohovania"
+
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Aktualizovať"
+
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Zálohovací priečinok"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Záloha"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Dokončené"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Sťahovanie"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Zmazať"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Zálohy nenájdené"

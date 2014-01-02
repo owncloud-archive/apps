@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chamara Disanayake <chamara@nic.lk>, 2012.
+# Chamara Disanayake <chamara@nic.lk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:03+0200\n"
-"PO-Revision-Date: 2012-10-19 06:57+0000\n"
-"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,3 +26,15 @@ msgstr "ප්‍රලේඛනය"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "ඔබගේ ownCloud හි Impress ගොනු හමු නොවිනි. කරුණාකර .impress ගොනුවක් උඩුගත කරන්න"
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "නම"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "ප්‍රමාණය"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "දිනය"

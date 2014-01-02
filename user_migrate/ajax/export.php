@@ -42,15 +42,16 @@ if( $_GET['operation']=='create' ) {
 		die();
 	} else {
 		// Save path in session
-		$_SESSION['ocuserexportpath'] = $response->data;
+		OC::$session->set('ocuserexportpath', $response->data);
 	}
 	OCP\JSON::success();
 	die();
 } else if( $_GET['operation']=='download' ) {
 	// Download the export
-	$path = isset( $_SESSION['ocuserexportpath'] ) ? $_SESSION['ocuserexportpath'] : false;
+	$path = OC::$session->exists('ocuserexportpath') ? OC::$session->get('ocuserexportpath') : false;
 	if( !$path ) {
 		OCP\JSON::error();
+		exit;
 	}
 	header("Content-Type: application/zip");
 	header("Content-Disposition: attachment; filename=" . basename($path));
@@ -58,5 +59,5 @@ if( $_GET['operation']=='create' ) {
 	@ob_end_clean();
 	readfile($path);
 	unlink( $path );
-	$_SESSION['ocuserexportpath'] = '';
+	OC::$session->remove('ocuserexportpath');
 }

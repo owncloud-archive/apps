@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Claudiu  <claudiu@tanaselia.ro>, 2011.
-# Dumitru Ursu <>, 2013.
-# Eugen Mihalache <eugemjj@gmail.com>, 2012.
-#   <g.ciprian@osn.ro>, 2012.
-#   <iuranemo@gmail.com>, 2012.
-#   <laur.cristescu@gmail.com>, 2012.
+# Claudiu <claudiu@tanaselia.ro>, 2011
+# Dimon Pockemon <>, 2013
+# Eugen Mihalache <eugemjj@gmail.com>, 2012
+# g.ciprian <g.ciprian@osn.ro>, 2012
+# iuranemo <iuranemo@gmail.com>, 2012
+# laurentiucristescu <laur.cristescu@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:06+0000\n"
-"Last-Translator: Dimon Pockemon <>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Muzică"
 
@@ -43,50 +43,50 @@ msgstr "Adauga la lista de redare"
 msgid "Add album to playlist"
 msgstr "Adaugă albumul la lista de redare"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Precedent"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Redă"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Pauză"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Precedent"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Următor"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Fără sonor"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Cu sonor"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Rescanează colecția"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Setări"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "Adresa Ampache"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Artist"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Album"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Titlu"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr "Media"
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr "Adresa Ampache"

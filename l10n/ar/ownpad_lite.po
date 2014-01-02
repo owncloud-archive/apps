@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <hussein-atef@hotmail.com>, 2012.
-#   <shiningmoon25@gmail.com>, 2012.
+# Matalqah <houfa2005@yahoo.com>, 2013
+# TYMAH <hussein-atef@hotmail.com>, 2012
+# wolvesking <saad.hadd2@gmail.com>, 2013
+# aboodilankaboot, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-23 00:02+0100\n"
-"PO-Revision-Date: 2012-12-22 19:09+0000\n"
-"Last-Translator: aboodilankaboot <shiningmoon25@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: wolvesking <saad.hadd2@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +21,47 @@ msgstr ""
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "تم مشاركة الملف"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "المستخدم %s قام بمشاركتك الملف %s "
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "دفتري"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "إعدادات"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "عنوان الدفتر"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
-msgstr "إفتح"
+msgstr "افتح"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "شارك مع"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "شارك"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "وصلة خدمة تنسيق الدفتر"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "إسم المستخدم"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "حفظ"

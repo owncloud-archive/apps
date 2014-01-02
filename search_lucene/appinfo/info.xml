@@ -7,7 +7,7 @@
 	<types>
 		<filesystem/>
 	</types>
-	<require>4.91</require>
+	<require>4.93</require>
 	<shipped>true</shipped>
 	<default_enable/>
 	<description>Activate this app when you want to be

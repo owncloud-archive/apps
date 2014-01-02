@@ -26,14 +26,12 @@
 $RUNTIME_APPTYPES=array('filesystem','authentication');
 OC_App::loadApps($RUNTIME_APPTYPES);
 
-$tokenInfoEndpoint = \OC_Config::getValue( "tokenInfoEndpoint", "https://www.googleapis.com/oauth2/v1/tokeninfo" );
-$useResourceOwnerId = TRUE;     // FIXME: take this from configuration instead
-$userIdAttributeName = "uid";   // FIXME: take this from configuration instead
+$introspectionEndpoint = \OCP\Config::getSystemValue( "introspectionEndpoint", "https://frko.surfnetlabs.nl/workshop/php-oauth/introspect.php" );
 
-require_once "oauth.php";
+require_once '3rdparty/autoload.php';
 
 // Backends
-$authBackend = new OC_Connector_Sabre_OAuth($tokenInfoEndpoint, $useResourceOwnerId, $userIdAttributeName);
+$authBackend = new OC_Connector_Sabre_OAuth($introspectionEndpoint);
 $lockBackend = new OC_Connector_Sabre_Locks();
 $requestBackend = new OC_Connector_Sabre_Request();
 

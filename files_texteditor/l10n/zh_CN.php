@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "保存",
-"Search:" => "搜索：",
+"Search" => "搜索",
 "Close" => "关闭",
 "Next" => "下一个",
 "Clear" => "清除",

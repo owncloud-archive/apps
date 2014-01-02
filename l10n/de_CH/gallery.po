@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Bartek <bart.p.pl@gmail.com>, 2012
+# FlorianScholz <work@bgstyle.de>, 2013
+# goeck <admin@s-goecker.de>, 2012
+# I Robot <owncloud-bot@tmit.eu>, 2012
+# JamFX <niko@nik-o-mat.de>, 2012
+# Mirodin <blobbyjj@ymail.com>, 2012
+# quick_wango <quick_wango@code-infection.de>, 2013
+# traductor <transifex-2.7.mensaje@spamgourmet.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: German (Switzerland) (http://www.transifex.com/projects/p/owncloud/language/de_CH/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_CH\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:36
+msgid "Pictures"
+msgstr "Bilder"
+
+#: js/gallery.js:296
+msgid "Shared by"
+msgstr "Geteilt von"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Fehler beim Laden der Slideshow-Vorlage"
+
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Teilen"
+
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "Die Anwendung «Image Viewer» muss aktiviert sein, damit Sie diese Anwendung benutzen können."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

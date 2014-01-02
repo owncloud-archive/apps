@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "config": {
+        "vendor-dir": "3rdparty"
+    },
+    "require": {
+        "fkooman/php-oauth-lib-rs": "0.1.*"
+    }
+}

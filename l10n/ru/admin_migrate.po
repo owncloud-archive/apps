@@ -3,16 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Denis  <reg.transifex.net@demitel.ru>, 2012.
-#   <skoptev@ukr.net>, 2012.
-#   <victor.dubiniuk@gmail.com>, 2012.
+# Alexander Shashkevych <alex@stunpix.com>, 2013
+# Denis <reg.transifex.net@demitel.ru>, 2012
+# skoptev <skoptev@ukr.net>, 2012
+# VicDeo <victor.dubiniuk@gmail.com>, 2012
+# Langaru <langaru@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 12:22+0000\n"
-"Last-Translator: skoptev <skoptev@ukr.net>\n"
+"POT-Creation-Date: 2013-07-30 00:49-0400\n"
+"PO-Revision-Date: 2013-07-29 12:20+0000\n"
+"Last-Translator: Alexander Shashkevych <alex@stunpix.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +23,21 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Экспортировать этот экземпляр ownCloud"
+msgid "Export data"
+msgstr "Экспортировать данные"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Будет создан архив содержащий все данные этого экземпляра ownCloud."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr "Все системные файлы и данные пользователя"
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Выберите тип экспорта:"
+msgid "Only system files"
+msgstr "Только системные файлы"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr "ownCloud экземпляр (пользовательские данные и база данных"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr "Только данные пользователя"
 
-#: templates/settings.php:11
-msgid "ownCloud system files"
-msgstr "Системные файлы ownCloud"
-
-#: templates/settings.php:12
-msgid "Just user files"
-msgstr "Только пользовательские файлы"
-
-#: templates/settings.php:13
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Экспорт"

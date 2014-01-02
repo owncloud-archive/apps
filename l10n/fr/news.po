@@ -11,16 +11,17 @@
 #   <gp4004@arghh.org>, 2012.
 # Guillaume Paumier <guillom.pom@gmail.com>, 2012.
 #   <mathieu.payrol@gmail.com>, 2012.
+# Nahir Mohamed <nahirmoha@gmail.com>, 2013.
 # Paul McFly <roipoussiere@gmail.com>, 2012.
 # Robert Di Rosa <>, 2012.
-# Romain DEP. <rom1dep@gmail.com>, 2012.
+# Romain DEP. <rom1dep@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 14:30+0000\n"
-"Last-Translator: Flywall <sid50.martin@gmail.com>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,163 +29,123 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "année"
-
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Abonnements"
 
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "sans titre"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Nouveau"
 
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "sans nom"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "sans contenu"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "Flux d'actualités dans ownCloud - Abonnements"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Une erreur est survenue"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Vous avez souscrit à"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Vous avez déjà souscrit à ce flux !"
-
-#: templates/main.php:15
-msgid "New articles"
-msgstr "Nouveaux articles"
-
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "Tout marquer comme lu"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "Favoris"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "Partager"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "Garder non lu"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "Supprimer le flux"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "Replier"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "Supprimer le répertoire"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "Renommer le répertoire"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "S'abonner à"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "Dossier au sein duquel le flux est enregistré"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- choisir le dossier --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "L'adresse ne doit pas être vide !"
 
-#: templates/part.settings.php:21
-msgid "Feed exists already!"
-msgstr "Le flux existe déjà !"
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.settings.php:22
-msgid "Could not add feed!"
-msgstr "Impossible d'ajouter le flux !"
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
+msgstr "Le dossier existe déjà"
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "Adresse"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "Ajouter"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "Ajouter le dossier"
+#: templates/part.addnew.php:30
+msgid "New folder"
+msgstr "Nouveau dossier"
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "Le nom du dossier ne doit pas être vide !"
+#: templates/part.addnew.php:31
+msgid "Folder"
+msgstr "Dossier"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "Le dossier existe déjà !"
+#: templates/part.addnew.php:36
+msgid "No folder"
+msgstr "Aucun dossier"
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "Nom du dossier"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "Favoris"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "Tout montrer"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr "Articles non lus"
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "Montrer uniquement les articles non-lus"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr "Tous les articles"
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "Paramètres"
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "Tout marquer comme lu"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "Ajouter un flux ou dossier"
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "Ajouter un flux/dossier"
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "Import / Export"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
+msgstr "Impossible de jouer ce format audio"
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "Importer depuis un fichier OPML"
+#: templates/part.items.php:52
+msgid "Keep unread"
+msgstr "Garder non lu"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "Exporter vers un fichier OPML "
+#: templates/part.listfeed.php:20
+msgid "Delete feed"
+msgstr "Supprimer le flux"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Replier"
+
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr "Supprimer le répertoire"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Renommer le répertoire"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr "Import / Export OPML"
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importer"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "Exporter"
+
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subscribelet"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr "Tout afficher"
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Montrer uniquement les articles non-lus"
 
 #: templates/part.subscribelet.php:3
 msgid ""
@@ -195,3 +156,19 @@ msgstr "Déposez ceci dans les marque-pages de votre navigateur et cliquez dessu
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "S'abonner"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Une erreur est survenue"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Vous avez souscrit à"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Vous avez déjà souscrit à ce flux !"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "Flux d'actualités dans ownCloud - Abonnements"

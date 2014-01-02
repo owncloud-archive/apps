@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <asieriko@gmail.com>, 2013.
+# asieriko <asieriko@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 00:24+0100\n"
-"PO-Revision-Date: 2013-01-30 22:50+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-07 20:24-0500\n"
+"PO-Revision-Date: 2013-12-07 14:20+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +18,47 @@ msgstr ""
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "Lehenengo Aldiko Morroia"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Ongi etorria ownCloud-era"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "Erakutsi berriz Lehenengo Aldiko Morroia"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Zure web zerbitzu pertsonala. Zure fitxategi, kontaktu, egutegi guztiak eta gehiago leku bakar batean."
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "Lortu aplikazioak zure fitxategiak sinkronizatzeko"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Konektatu zure mahaigaineko aplikazioak ownCloud-era"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "Konektatu zure Egutegia"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "Konektatu zure Kontaktuak"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "Eskuratu fitxategiak WebDAV bidez"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr "Informazio gehiago dago <a  target=\"_blank\" href=\"%s\"\">dokumentazioan</a> eta gure <a  target=\"_blank\" href=\"http://owncloud.org\">web gunean</a>."
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "ownCloud gustuko baduzu, <a href=\"mailto:?subject=ownCloud&body=ownCloud zure fitxategiak sinkronizatu eta elkarbanatzeko software aske bat da. http://owncloud.org webgunean eskura dezakezu\">gomendatu zure lagunei</a>!"

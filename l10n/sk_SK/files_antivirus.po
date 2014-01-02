@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+# mhh <marian.hvolka@stuba.sk>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 00:19+0100\n"
-"PO-Revision-Date: 2013-01-29 15:59+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Vitajte {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "Prepáčte, v nahrávanom súbore bol nájdený malware a musel byť vymazaný."
+msgstr "Prepáčte, v nahrávanom súbore bol nájdený malware a musel byť zmazaný."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
@@ -46,64 +46,77 @@ msgstr "Režim"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "Spustiteľný"
+msgstr "Ako program"
 
 #: templates/settings.php:5
 msgid "Daemon"
 msgstr "Démon"
 
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "Démon (Soket)"
+
 #: templates/settings.php:7
+msgid "Socket"
+msgstr "Soket"
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr "Clamav Soket."
+
+#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
+msgid "Not required in Executable Mode."
+msgstr "V režime ako program nie je vyžadované."
+
+#: templates/settings.php:8
 msgid "Host"
 msgstr "Hostiteľ"
 
-#: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Adresa počítača s antivírovým programom."
-
-#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
-msgid "Not required in Executable Mode."
-msgstr "V spustiteľnom režime nie je vyžadované."
-
 #: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Adresa hostiteľa s antivírovým programom."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Port"
 
-#: templates/settings.php:8
-msgid "Port number of Antivirus Host."
-msgstr "Číslo portu počítača s antivírovým programom."
-
 #: templates/settings.php:9
+msgid "Port number of Antivirus Host."
+msgstr "Číslo portu hostiteľa s antivírovým programom."
+
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Dĺžka prúdu"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "Hodnota ClamAV StreamMaxLength v bitoch."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
-msgstr "Cesta k clamscan"
+msgstr "Cesta ku clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "Cesta k programu clamscan."
 
-#: templates/settings.php:10
-msgid "Not required in Daemon Mode."
-msgstr "V režime démona nie je vyžadované"
-
 #: templates/settings.php:11
+msgid "Not required in Daemon Mode."
+msgstr "V režime démona nie je vyžadované."
+
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "Opatrenia pre infikované súbory nájdené pri skenovaní"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
-msgstr "Len log"
+msgstr "Len logovať"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Zmazať súbor"
 
-#: templates/settings.php:14
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Uložiť"

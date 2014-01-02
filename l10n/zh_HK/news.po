@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -17,162 +17,122 @@ msgstr ""
 "Language: zh_HK\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr ""
-
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr ""
 
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
+#: templates/part.addnew.php:7
+msgid "New"
 msgstr ""
 
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr ""
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr ""
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr ""
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr ""
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr ""
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr ""
-
-#: templates/main.php:15
-msgid "New articles"
-msgstr ""
-
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr ""
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr ""
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr ""
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr ""
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr ""
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr ""
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr ""
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr ""
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr ""
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr ""
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr ""
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr ""
 
-#: templates/part.settings.php:21
-msgid "Feed exists already!"
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
 msgstr ""
 
-#: templates/part.settings.php:22
-msgid "Could not add feed!"
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
 msgstr ""
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:23
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
+msgstr "加入"
+
+#: templates/part.addnew.php:30
+msgid "New folder"
 msgstr ""
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
+#: templates/part.addnew.php:31
+msgid "Folder"
 msgstr ""
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
+#: templates/part.addnew.php:36
+msgid "No folder"
 msgstr ""
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
 msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
 msgstr ""
 
-#: templates/part.settings.php:60
-msgid "Show everything"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
 msgstr ""
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
 msgstr ""
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
+#: templates/part.items.php:27
+msgid "from"
 msgstr ""
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
+#: templates/part.items.php:32
+msgid "by"
 msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
 msgstr ""
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
+#: templates/part.items.php:52
+msgid "Keep unread"
 msgstr ""
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
+#: templates/part.listfeed.php:20
+msgid "Delete feed"
 msgstr ""
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
+#: templates/part.listfolder.php:12
+msgid "Collapse"
 msgstr ""
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr ""
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr ""
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "導入"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr ""
+
+#: templates/part.settings.php:13
 msgid "Subscribelet"
+msgstr ""
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
 msgstr ""
 
 #: templates/part.subscribelet.php:3
@@ -183,4 +143,20 @@ msgstr ""
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
+msgstr ""
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr ""
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr ""
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr ""
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
 msgstr ""

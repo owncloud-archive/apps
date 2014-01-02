@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Please choose the export type:" => "يرجى اختيار نوع التصدير:",
-"ownCloud system files" => "ملفات نظام ownCloud",
-"Just user files" => "ملفات المستخدم فقط",
+"Export data" => "تصدير البيانات",
+"All system files and user data" => "كل ملفات النظام و بيانات المستخدم",
+"Only system files" => "ملفات النظام فقط",
+"Only user data" => "بيانات المستخدم فقط",
 "Export" => "تصدير المعلومات"
 );

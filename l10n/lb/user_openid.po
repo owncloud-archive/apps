@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# sim0n <sim0n@trypill.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 13:36+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-28 00:49-0500\n"
+"PO-Revision-Date: 2013-12-27 13:20+0000\n"
+"Last-Translator: sim0n <sim0n@trypill.org>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr ""
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "Identitéit: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
@@ -39,7 +40,7 @@ msgstr ""
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr ""
+msgstr "Benotzer: <b>"
 
 #: templates/nomode.php:17
 msgid "Login"
@@ -51,7 +52,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

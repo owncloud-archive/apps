@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Greška"
+"Download" => "Preuzimanje",
+"Delete" => "Obriši"
 );

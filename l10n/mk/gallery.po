@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Georgi Stanojevski <glisha@gmail.com>, 2012.
-# Miroslav Jovanovic <j.miroslav@gmail.com>, 2012.
-# Miroslav Jovanovic <jmiroslav@softhome.net>, 2012.
+# Georgi Stanojevski <glisha@gmail.com>, 2012
+# Miroslav Jovanovic <j.miroslav@gmail.com>, 2012
+# miroj <jmiroslav@softhome.net>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +24,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "Слики"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
+msgstr "Споделено од"
+
+#: js/public.js:9
+msgid "Picture view"
 msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Грешка при вчитувањето на шаблонот за прикажување на слајдови"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -37,3 +45,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "И „Image viewer“ апликацијата треба да биде овозможена за да ја користите оваа апликација."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

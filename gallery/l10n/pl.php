@@ -1,5 +1,10 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Zdjęcia",
+"Shared by" => "Udostępniane przez",
+"Picture view" => "Widok zdjęć",
+"Error loading slideshow template" => "Błąd podczas ładowania szablonu pokazu slajdów",
 "Share" => "Udostępnij",
-"The \"Image Viewer\" application also need to be enabled to use this application." => "Aplikację \"Image Viewer\" również jest wymagana aby mieć możliwość korzystania z tej aplikacji."
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Aby korzystać z tej aplikacji, musisz włączyć również aplikację „Image Viewer”.",
+"%s shared <strong>%s</strong> with you" => "%s udostępnił Tobie <strong>%s</strong>",
+"File list" => "Lista plików"
 );

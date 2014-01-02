@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <skoptev@ukr.net>, 2012.
-#   <victor.dubiniuk@gmail.com>, 2012.
-#   <volodya327@gmail.com>, 2012.
+# skoptev <skoptev@ukr.net>, 2012
+# VicDeo <victor.dubiniuk@gmail.com>, 2012
+# volodya327 <volodya327@gmail.com>, 2012
+# volodya327 <volodya327@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-19 00:01+0100\n"
-"PO-Revision-Date: 2012-12-18 12:59+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-29 12:06-0500\n"
+"PO-Revision-Date: 2013-11-28 14:00+0000\n"
 "Last-Translator: volodya327 <volodya327@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -33,9 +34,5 @@ msgid "An error has occurred"
 msgstr "Виникла помилка"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Перенос клієнтського запису"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Експорт та імпорт клієнтських записів ownCloud"
+msgid "Account Export/Import"
+msgstr "Експорт/Імпорт облікового запису"

@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Lưu",
-"Search:" => "Tìm:",
+"Search" => "Tìm kiếm",
 "Close" => "Đóng",
 "Next" => "Kế tiếp",
 "Clear" => "Xóa",

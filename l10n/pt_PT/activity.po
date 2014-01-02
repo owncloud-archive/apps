@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Helder Meneses <helder.meneses@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-29 18:30+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:31
+msgid "Activity"
+msgstr "Atividade"
+
+#: js/script.js:32
+msgid "No more activities to load."
+msgstr "Mais nenhuma actividade para carregar."
+
+#: js/script.js:33
+msgid "Loading older activities"
+msgstr "A carregar actividades antigas"
+
+#: templates/list.php:28
+msgid "RSS feed"
+msgstr "RSS feed"
+
+#: templates/list.php:32
+msgid "No activities yet."
+msgstr "Nenhuma actividade para já."
+
+#: templates/list.php:33
+#, php-format
+msgid "You will see a list of events here when you start to use your %s."
+msgstr "Vai poder ver a lista de eventos aqui, quando começar a usar a sua %s"

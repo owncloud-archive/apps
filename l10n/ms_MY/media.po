@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <hadri.hilmi@gmail.com>, 2011.
-# Hadri Hilmi <hadri.hilmi@gmail.com>, 2012.
+# Hadri Hilmi <hadri.hilmi@gmail.com>, 2011
+# Hadri Hilmi <hadri.hilmi@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Malay (Malaysia) (http://www.transifex.com/projects/p/owncloud/language/ms_MY/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: ms_MY\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Muzik"
 
@@ -39,50 +39,50 @@ msgstr ""
 msgid "Add album to playlist"
 msgstr "tambah album dalam senarai main"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Sebelum"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Main"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Jeda"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Sebelum"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Seterus"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Bisu"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Nyahbisu"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Imbas semula koleksi"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Tetapan"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr ""
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Artis"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Album"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Judul"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

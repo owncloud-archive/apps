@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 00:24+0100\n"
-"PO-Revision-Date: 2013-01-30 15:30+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 18:16-0500\n"
+"PO-Revision-Date: 2013-11-21 09:50+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +18,47 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "Ensimmäisen käyttökerran avustaja"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Tervetuloa ownCloudin käyttäjäksi"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "Näytä ensimmäisen käyttökerran avustaja uudelleen"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Henkilökohtaiset verkkopalvelusi. Tiedostosi, yhteystietosi, kalenterisi ja paljon muuta, kaikki samassa paikassa."
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "Aseta sovellukset synkronoimaan tiedostosi"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Yhdistä työpöytäsovelluksesi ownCloudiin"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "Yhdistä kalenteriisi"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "Yhdistä yhteystietoihisi"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "Käytä tiedostoja WebDAVin välityksellä"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr "Lisätietoja on saatavilla <a target=\"_blank\" href=\"%s\">dokumentaation muodossa</a> ja <a target=\"_blank\" href=\"http://owncloud.org\">verkkosivustollamme</a>."
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "Jos pidät ownCloudista, <a href=\"mailto:?subject=ownCloud&body=ownCloud on erinomainen avoin ohjelmisto tiedostojen synkronointiin ja jakamiseen. Tutustu siihen osoitteessa http://owncloud.org\">suosittele sitä ystävillesi</a>!"

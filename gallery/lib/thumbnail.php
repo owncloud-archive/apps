@@ -24,6 +24,9 @@ class Thumbnail {
 	protected $view;
 
 	public function __construct($imagePath, $user = null, $square = false) {
+		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
+			return;
+		}
 		if (is_null($user)) {
 			$this->view = \OC\Files\Filesystem::getView();
 			$this->user = \OCP\USER::getUser();
@@ -48,13 +51,13 @@ class Thumbnail {
 			}
 			$this->path = $galleryDir . $image . '.' . $extension;
 			if (!file_exists($this->path)) {
-				self::create($imagePath, $square);
+				$this->create($imagePath, $square);
 			}
 		}
 	}
 
-	public function create($imagePath, $square) {
-		$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
+	private function create($imagePath, $square) {
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 		$dir = dirname($imagePath);
 		if (!is_dir($galleryDir . $dir)) {
 			mkdir($galleryDir . $dir, 0755, true);
@@ -62,7 +65,9 @@ class Thumbnail {
 		if (!$this->view->file_exists($imagePath)) {
 			return;
 		}
-		$this->image = new \OC_Image($this->view->getLocalFile($imagePath));
+		$handle = $this->view->fopen($imagePath, 'r');
+		$this->image = new \OCP\Image($handle);
+		fclose($handle);
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
@@ -76,7 +81,7 @@ class Thumbnail {
 
 	public function get() {
 		if (is_null($this->image)) {
-			$this->image = new \OC_Image($this->path);
+			$this->image = new \OCP\Image($this->path);
 		}
 		return $this->image;
 	}
@@ -94,8 +99,8 @@ class Thumbnail {
 			$mime = \OC_Helper::getMimetype($this->path);
 		}
 		if ($fp) {
-			\OC_Response::enableCaching();
-			\OC_Response::setLastModifiedHeader($mtime);
+			\OCP\Response::enableCaching();
+			\OCP\Response::setLastModifiedHeader($mtime);
 			header('Content-Length: ' . $size);
 			header('Content-Type: ' . $mime);
 
@@ -133,7 +138,7 @@ class Thumbnail {
 		}
 
 		$parent = dirname($path);
-		if ($parent !== '/' and $parent !== '') {
+		if ($parent !== DIRECTORY_SEPARATOR and $parent !== '' and $parent !== $path) {
 			self::removeHook(array('path' => $parent));
 		}
 	}
@@ -155,6 +160,9 @@ class Thumbnail {
 class AlbumThumbnail extends Thumbnail {
 
 	public function __construct($imagePath, $user = null, $square = false) {
+		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
+			return;
+		}
 		if (is_null($user)) {
 			$this->view = \OC\Files\Filesystem::getView();
 			$this->user = \OCP\USER::getUser();

@@ -3,14 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
+# Hydriz <admin@alphacorp.tk>, 2013
+# Hydriz <admin@alphacorp.tk>, 2013
+# pellaeon <nfsmwlin@gmail.com>, 2013
+# ronnietse <tseronnie@ymail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 06:40+0000\n"
-"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-21 09:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +21,47 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "首次使用精靈"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "歡迎來到 ownCloud"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "再次顯示首次使用精靈"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "您的個人線上服務，所有檔案、文件、聯絡人、日曆都在這。"
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "下載應用程式來同步您的檔案"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "連結您的應用程式"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "連結您的日曆"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "連結您的聯絡人"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "透過 WebDAV 存取檔案"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr ""
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "如果您喜歡 ownCloud，<a href=\"mailto:?subject=ownCloud&body=ownCloud ownCloud 讓您輕鬆的同步和分享檔案， 請至http://owncloud.org 免費取得\">把它推薦給朋友</a>吧！"

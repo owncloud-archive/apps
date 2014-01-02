@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# André Koot <meneer@tken.net>, 2013.
+# André Koot <meneer@tken.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 08:20+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-30 18:50+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +18,47 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "Eerste start Wizard"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Welkom bij ownCloud"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "Toon de Eerste start Wizard opnieuw"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Uw persoonlijke webservice. Al uw bestanden, contactgegevens, agenda's en meer, op één plek."
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "Download de apps om bestanden te synchen"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Verbindt uw desktop apps met ownCloud"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "Verbindt uw agenda"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "Verbindt uw contactpersonen"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "Benader bestanden via WebDAV"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr "Er is meer informatie in de <a target=\"_blank\" href=\"%s\">documentatie</a> en op onze  <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "Als u ownCloud leuk vindt, <a href=\"mailto:?subject=ownCloud&body=ownCloud is prettige open software om uw bestanden te sync'en en te delen. U krijgt het vrijelijk van http://owncloud.org\">beveel het aan bij uw relaties</a>!"

@@ -1,4 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "هه‌ڵه",
-"Update" => "نوێکردنه‌وه"
+"Update" => "نوێکردنه‌وه",
+"Download" => "داگرتن"
 );

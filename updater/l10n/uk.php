@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Помилка",
-"Update" => "Оновити"
+"Here is your backup: " => "Ось ваша резервна копія:",
+"Update" => "Оновити",
+"Download" => "Завантажити",
+"Delete" => "Видалити"
 );

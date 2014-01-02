@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <gyonkibendeguz@gmail.com>, 2013.
+# gyeben <gyonkibendeguz@gmail.com>, 2013
+# Laszlo Tornoci <torlasz@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-08 00:26+0100\n"
-"PO-Revision-Date: 2013-01-07 20:56+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-08-11 06:05-0400\n"
+"PO-Revision-Date: 2013-08-09 11:40+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,9 +32,5 @@ msgid "An error has occurred"
 msgstr "Hiba történt"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Felhasználói fiók átköltöztetése"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "ownCloud felhasználói fiókok exportálása és importálása."
+msgid "Account Export/Import"
+msgstr "Felhasználók exportálása/importálása"

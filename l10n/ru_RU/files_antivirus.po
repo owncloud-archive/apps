@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <cdewqazxsqwe@gmail.com>, 2013.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2013
+# Langaru <langaru@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 00:19+0100\n"
-"PO-Revision-Date: 2013-01-29 11:34+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: masensio <masensio@solidgear.es>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,90 +21,103 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr "Приветствую {пользователь},"
+msgstr ""
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "К сожалению, в файле, который Вы пытались загрузить, была обнаружена вредоносная программа, и он должен был быть удален."
+msgstr ""
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Это письмо является извещением от {хост}. Пожалуйста, не отвечайте."
+msgstr ""
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr "Файл загружен: {файл}"
+msgstr ""
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Конфигурация антивируса"
+msgstr ""
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr "Режим"
+msgstr ""
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "Рабочий"
+msgstr ""
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr "Демон"
+msgstr ""
+
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Host"
-msgstr "Хост"
+msgid "Socket"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Адрес хоста антивируса."
+msgid "Clamav Socket."
+msgstr ""
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
-msgstr "Не требуется в рабочем режиме."
+msgstr ""
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr ""
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr ""
+
+#: templates/settings.php:9
 msgid "Port"
-msgstr "Порт"
+msgstr ""
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
-msgstr "Номер порта хоста антивируса."
-
-#: templates/settings.php:9
-msgid "Stream Length"
-msgstr "Длина потока"
-
-#: templates/settings.php:9
-msgid "ClamAV StreamMaxLength value in bytes."
-msgstr "ClamAV StreamMaxLength значение в байтах."
+msgstr ""
 
 #: templates/settings.php:10
+msgid "Stream Length"
+msgstr ""
+
+#: templates/settings.php:10
+msgid "ClamAV StreamMaxLength value in bytes."
+msgstr ""
+
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr ""
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr ""
 
-#: templates/settings.php:10
-msgid "Not required in Daemon Mode."
-msgstr "Не требуется в режиме демона."
-
 #: templates/settings.php:11
-msgid "Action for infected files found while scanning"
-msgstr "Действие для зараженных файлов, найденных при сканировании"
-
-#: templates/settings.php:12
-msgid "Only log"
+msgid "Not required in Daemon Mode."
 msgstr ""
 
 #: templates/settings.php:12
-msgid "Delete file"
-msgstr "Удалить файл"
+msgid "Action for infected files found while scanning"
+msgstr ""
 
-#: templates/settings.php:14
+#: templates/settings.php:13
+msgid "Only log"
+msgstr ""
+
+#: templates/settings.php:13
+msgid "Delete file"
+msgstr ""
+
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Сохранить"

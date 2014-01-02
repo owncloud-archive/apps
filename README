@@ -1,4 +1,4 @@
-In case you want to use the full apps repo within your ownCloud installation (most probably for devevlopment)
+In case you want to use the full apps repo within your ownCloud installation (most probably for development)
 you can follow these steps:
 
 1. clone this repo into your ownCloud installation into a new folder (maybe called apps2):

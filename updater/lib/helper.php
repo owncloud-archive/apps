@@ -4,7 +4,7 @@
  * ownCloud - Updater plugin
  *
  * @author Victor Dubiniuk
- * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
+ * @copyright 2012-2013 Victor Dubiniuk victor.dubiniuk@gmail.com
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
@@ -24,7 +24,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function move($src, $dest) {
-		if (!@rename($src, $dest)) {
+		if (!rename($src, $dest)) {
 			throw new \Exception("Unable to move $src to $dest");
 		}
 	}
@@ -53,7 +53,7 @@ class Helper {
 				}
 			}
 		}elseif(file_exists($src)) {
-			if (!@copy($src, $dest) && $stopOnError) {
+			if (!copy($src, $dest) && $stopOnError) {
 				throw new \Exception("Unable copy $src to $dest");
 			}
 		}
@@ -66,7 +66,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function mkdir($path, $isRecoursive = false) {
-		if (!@mkdir($path, 0755, $isRecoursive)) {
+		if (!mkdir($path, 0755, $isRecoursive)) {
 			throw new \Exception("Unable to create $path");
 		}
 	}
@@ -78,7 +78,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function scandir($path) {
-		$content = @scandir($path);
+		$content = scandir($path);
 		if (!is_array($content)) {
 			throw new \Exception("Unable to list $path content");
 		}
@@ -96,9 +96,28 @@ class Helper {
 		}
 
 		if (is_dir($path)) {
-			\OC_Helper::rmdirr($path);
+			self::rmdirr($path);
 		} else {
 			@unlink($path);
+		}
+	}
+	
+	protected static function rmdirr($dir) {
+		if(is_dir($dir)) {
+			$files = scandir($dir);
+			foreach($files as $file) {
+				if ($file != "." && $file != "..") {
+					self::rmdirr("$dir/$file");
+				}
+			}
+			@rmdir($dir);
+		}elseif(file_exists($dir)) {
+			@unlink($dir);
+		}
+		if(file_exists($dir)) {
+			return false;
+		}else{
+			return true;
 		}
 	}
 
@@ -134,7 +153,8 @@ class Helper {
 	public static function filterLocations($locations, $basePath) {
 		$fullPath = array_values(self::getDirectories());
 		$fullPath[] = rtrim(App::getBackupBase(), '/');
-		$fullPath[] = \OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" );
+		$fullPath[] = \OCP\Config::getSystemValue( "datadirectory", \OC::$SERVERROOT."/data" );
+		$fullPath[] = \OC::$SERVERROOT."/themes";
 		
 		$exclusions = array(
 			'full' => $fullPath,

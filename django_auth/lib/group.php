@@ -36,8 +36,8 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	private $db;
 
 	public function __construct() {
-		self::$staff_is_admin     = OC_Appconfig::getValue('django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN);
-		self::$superuser_is_admin = OC_Appconfig::getValue('django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN);
+		self::$staff_is_admin     = OCP\Config::getAppValue('django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN);
+		self::$superuser_is_admin = OCP\Config::getAppValue('django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN);
 		$this->db = Djangodatabase::getDatabase();
 	}
 
@@ -50,7 +50,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* be returned.
 	*/
 	public static function createGroup( $gid ) {
-		OC_Log::write('OC_Group_Django', 'Use the django webinterface to create groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to create groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -62,7 +62,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* Deletes a group and removes it from the group_user-table
 	*/
 	public function deleteGroup( $gid ) {
-		OC_Log::write('OC_Group_Django', 'Use the django webinterface to delete groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to delete groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -128,7 +128,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* Adds a user to a group.
 	*/
 	public function addToGroup( $uid, $gid ) {
-		OC_Log::write('OC_Group_Django', 'Use the django webinterface to add users to groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to add users to groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -141,7 +141,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* removes the user from a group.
 	*/
 	public function removeFromGroup( $uid, $gid ) {
-		OC_Log::write('OC_Group_Django', 'Use the django webinterface to remove users from groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to remove users from groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 

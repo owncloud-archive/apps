@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <ajarmund@gmail.com>, 2012.
-# Christer Eriksson <post@hc3web.com>, 2012.
-# Daniel  <i18n@daniel.priv.no>, 2012.
-#   <espenbye@me.com>, 2012.
-#   <runesudden@gmail.com>, 2012.
+# anjar <ajarmund@gmail.com>, 2012
+# Christer Eriksson <post@hceriksson.com>, 2012
+# Daniel <i18n@daniel.priv.no>, 2012
+# espenbye <espenbye@me.com>, 2012
+# troll <oyvind.hojem@gmail.com>, 2013
+# runesudden <runesudden@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -26,8 +27,16 @@ msgstr ""
 msgid "Pictures"
 msgstr "Bilder"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
+msgstr "Delt av"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
 msgstr ""
 
 #: templates/index.php:4 templates/index.php:5
@@ -39,3 +48,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "\"Image Viewer\"-applikasjonen må være aktivert for å bruke denne applikasjonen."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

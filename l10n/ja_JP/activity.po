@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013
+# tt yn <tetuyano+transi@gmail.com>, 2013
+# skay <skayford87@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-29 18:30+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: appinfo/app.php:31
+msgid "Activity"
+msgstr "アクティビティ"
+
+#: js/script.js:32
+msgid "No more activities to load."
+msgstr "これ以上読み込むアクティビティはありません。"
+
+#: js/script.js:33
+msgid "Loading older activities"
+msgstr "古いアクティビティを読み込み中"
+
+#: templates/list.php:28
+msgid "RSS feed"
+msgstr "RSSフィード"
+
+#: templates/list.php:32
+msgid "No activities yet."
+msgstr "アクティビティはまだありません。"
+
+#: templates/list.php:33
+#, php-format
+msgid "You will see a list of events here when you start to use your %s."
+msgstr "%s の使用を開始すると、ここでイベントリストを見ることができます。"

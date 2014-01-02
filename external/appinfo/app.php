@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ownCloud - External plugin
+ * ownCloud - External app
  *
  * @author Frank Karlitschek
  * @copyright 2012 Frank Karlitschek frank@owncloud.org
@@ -21,7 +21,7 @@
  *
  */
 
-OC::$CLASSPATH['OC_External'] = 'apps/external/lib/external.php';
+OC::$CLASSPATH['OC_External'] = 'external/lib/external.php';
 OCP\Util::addStyle( 'external', 'style');
 
 OCP\App::registerAdmin('external', 'settings');

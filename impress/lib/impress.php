@@ -31,23 +31,23 @@ Todo:
 namespace OCA_Impress;
 
 class Storage {
-
+    
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC\Files\Filesystem::searchByMime('text/impress');
+		$list=\OCP\Files::searchByMime('text/impress');
 		foreach($list as $l) {
-			$info=pathinfo($l);
-			$size=\OC\Files\Filesystem::filesize($l);
-			$mtime=\OC\Files\Filesystem::filemtime($l);
-
-			$entry=array('url'=>$l,'name'=>$info['filename'],'size'=>$size,'mtime'=>$mtime);
-			$presentations[]=$entry;
+			$size=\OC\Files\Filesystem::filesize($l["path"]);
+			if ($size > 0) {
+				$info=pathinfo($l["path"]);
+				$mtime=\OC\Files\Filesystem::filemtime($l["path"]);
+				$entry=array('url'=>$l["path"],'name'=>$info['filename'],'size'=>$size,'mtime'=>$mtime);
+				$presentations[]=$entry;
+			}
 		}
 
 	
 		return $presentations;
 	}
-	
 
 	public static function showHeader($title) {
 		

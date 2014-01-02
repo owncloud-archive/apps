@@ -3,20 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <a.tangemann@web.de>, 2012.
-#   <blobbyjj@ymail.com>, 2012.
-# I Robot <thomas.mueller@tmit.eu>, 2012.
-#   <niko@nik-o-mat.de>, 2012.
-#   <thomas.mueller@tmit.eu>, 2012.
-#   <transifex.3.mensaje@spamgourmet.com>, 2012.
+# a.tangemann <a.tangemann@web.de>, 2012
+# Mirodin <blobbyjj@ymail.com>, 2012
+# I Robot <owncloud-bot@tmit.eu>, 2013
+# I Robot <owncloud-bot@tmit.eu>, 2012
+# Mario Siegmann <mario_siegmann@web.de>, 2013
+# JamFX <niko@nik-o-mat.de>, 2012
+# I Robot <owncloud-bot@tmit.eu>, 2012
+# traductor <transifex-2.7.mensaje@spamgourmet.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-14 00:01+0100\n"
-"PO-Revision-Date: 2012-11-13 18:00+0000\n"
-"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 21:34+0000\n"
+"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
+"Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,31 +26,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "Diese ownCloud-Instanz exportieren."
+msgid "Export data"
+msgstr "Daten exportieren"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "Eine komprimierte Datei wird erstellt, welche die Daten dieser ownCloud-Instanz enthält."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr "Alle Systemdateien und Benutzerdaten"
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "Bitte wählen Sie die Art des Exports:"
+msgid "Only system files"
+msgstr "Nur Systemdateien"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr "ownCloud-Instanz (Benutzerdaten und Datenbank)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr "Nur Benutzerdaten"
 
-#: templates/settings.php:11
-msgid "ownCloud system files"
-msgstr "ownCloud-Systemdateien"
-
-#: templates/settings.php:12
-msgid "Just user files"
-msgstr "Nur Benutzerdateien"
-
-#: templates/settings.php:13
+#: templates/settings.php:9
 msgid "Export"
 msgstr "Exportieren"

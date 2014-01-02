@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"POT-Creation-Date: 2013-05-26 00:49+0200\n"
+"PO-Revision-Date: 2013-05-25 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/owncloud/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,12 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:237
+#: js/gallery.js:269
 msgid "Shared by"
+msgstr ""
+
+#: js/slideshow.js:267
+msgid "Error loading slideshow template"
 msgstr ""
 
 #: templates/index.php:4 templates/index.php:5

@@ -5,19 +5,19 @@ class OC_User_xmpp_Hooks {
 		$xmpplogin=new OC_xmpp_login($params['uid'],OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$params['password'],OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
 		$xmpplogin->doLogin();
                 
-		$stmt = OCP\DB::prepare('SELECT ocUser FROM *PREFIX*xmpp WHERE ocUser = "'.$params['uid'].'"');
-                $result = $stmt->execute();
+		$stmt = OCP\DB::prepare('SELECT `ocUser` FROM `*PREFIX*xmpp` WHERE `ocUser` = ?');
+                $result = $stmt->execute(array($params['uid']));
                 if($result->numRows()!=0){
 			OC_User_xmpp_Hooks::deleteXmppSession();
                 }
-                $stmt = OCP\DB::prepare('INSERT INTO *PREFIX*xmpp (ocUser,jid,rid,sid) VALUES ("'.$params['uid'].'","'.$xmpplogin->jid.'","'.$xmpplogin->rid.'","'.$xmpplogin->sid.'")');
-                $result=$stmt->execute();
+                $stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*xmpp` (`ocUser`,`jid`,`rid`,`sid`) VALUES (?,?,?,?)');
+                $result=$stmt->execute(array($params['uid'], $xmpplogin->jid, $xmpplogin->rid, $xmpplogin->sid));
 
 	}
 
 	static public function deleteXmppSession(){
-		$stmt = OCP\DB::prepare('DELETE FROM *PREFIX*xmpp WHERE ocUser = "'.OCP\User::getUser().'"');
-		$stmt->execute();
+		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*xmpp` WHERE `ocUser` = ?');
+		$stmt->execute(array(OCP\User::getUser()));
 	}
 
 	static public function createXmppUser($info){
@@ -31,7 +31,7 @@ class OC_User_xmpp_Hooks {
 	}
 
 	static public function post_updateVCard($id){
-		if(OC_Preferences::getValue(OC_USER::getUser(),'xmpp','autoroster')!=true){ return false; }
+		if(OCP\Config::getUserValue(OCP\User::getUser(),'xmpp','autoroster')!=true){ return false; }
 		$email='';
 		$vcardq=OC_Contacts_Vcard::find($id);
 		if($vcardq==false)return false;
@@ -45,7 +45,7 @@ class OC_User_xmpp_Hooks {
 		}
 		if($email!=''){
 			$xmpplogin=new OC_xmpp_login(OCP\Config::getAppValue('xmpp', 'xmppAdminUser',''),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),OCP\Config::getAppValue('xmpp', 'xmppAdminPasswd',''),OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));	
-			$xuser=$xmpplogin->doLogin(OC_USER::getUser().'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''));
+			$xuser=$xmpplogin->doLogin(OCP\User::getUser().'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''));
 
 			$xuser->addRoster($email,$name);
 			$xmpplogin->logout();

@@ -31,8 +31,9 @@ class OC_USER_CAS_Hooks {
 
 		if (phpCAS::isAuthenticated()) {
 			$attributes = phpCAS::getAttributes();
+			$cas_uid = phpCAS::getUser();
 
-			if (array_key_exists($casBackend->usernameMapping, $attributes) && $attributes[$casBackend->usernameMapping][0] == $uid) {
+			if ($cas_uid == $uid) {
 				if (array_key_exists($casBackend->mailMapping, $attributes)) {
 					$cas_email = $attributes[$casBackend->mailMapping][0];
 				}
@@ -51,7 +52,7 @@ class OC_USER_CAS_Hooks {
 						return false;
 					}
 					else {
-						$random_password = random_password();
+						$random_password = OC_Util::generate_random_bytes(20);
 						OC_Log::write('cas','Creating new user: '.$uid, OC_Log::DEBUG);
 						OC_User::createUser($uid, $random_password);
 
@@ -131,19 +132,4 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 			}
 		}
 	}
-}
-
-
-function random_password()
-{
-	$valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	$length = 20;
-	$num_valid_chars = strlen($valid_chars);
-
-	for ($i = 0; $i < $length; $i++) {
-		$random_pick = mt_rand(1, $num_valid_chars);
-		$random_char = $valid_chars[$random_pick-1];
-		$random_string .= $random_char;
-	}
-	return $random_string;
 }

@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013
+# Petros Kyladitis <petros.kyladitis@gmail.com>, 2013
+# Wasilis <inactive+Wasilis@transifex.com>, 2013
+# Wasilis <inactive+Wasilis@transifex.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-25 00:01+0100\n"
-"PO-Revision-Date: 2013-01-24 08:34+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -20,25 +24,25 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Καλωσόρισες {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Συγνώμη, αλλά στο αρχείο που προσπαθήσατε να ανεβάσετε βρέθηκε επιβλαβές λογισμικό και διαγράφηκε."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Αυτό το μήνυμα είναι ειδοποίηση από τον {host}. Παρακαλώ, μην το απαντήσετε."
+msgstr "Αυτό το μήνυμα είναι μια ειδοποίηση από το {host}. Παρακαλώ, μην το απαντήσετε."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Το αρχείο ανέβηκε: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Ρύθμιση Antivirus"
+msgstr "Ρύθμιση Αντιικού"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -52,58 +56,71 @@ msgstr "Εκτελέσιμο"
 msgid "Daemon"
 msgstr "Υπηρεσία"
 
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "Υπηρεσία (Socket)"
+
 #: templates/settings.php:7
+msgid "Socket"
+msgstr "Socket"
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr "Clamav Socket."
+
+#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
+msgid "Not required in Executable Mode."
+msgstr "Δεν απαιτείται κατά την λειτουργία ως Εκτελέσιμο."
+
+#: templates/settings.php:8
 msgid "Host"
 msgstr "Διακομιστής"
 
-#: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr ""
-
-#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
-msgid "Not required in Executable Mode."
-msgstr ""
-
 #: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Διεύθυνση του διακομιστή Αντιικού."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Θύρα"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Αριθμός θύρας του διακομιστή Αντιικού"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
-msgstr ""
+msgstr "Μήκος της ροής δεδομένων"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Path to clamscan"
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Path to clamscan executable."
-msgstr ""
-
-#: templates/settings.php:10
-msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "ClamAV αξία StreamMaxLength σε bytes."
 
 #: templates/settings.php:11
+msgid "Path to clamscan"
+msgstr "Διαδρομή για το clamscan"
+
+#: templates/settings.php:11
+msgid "Path to clamscan executable."
+msgstr "Διαδρομή για το εκτελέσιμο clamscan."
+
+#: templates/settings.php:11
+msgid "Not required in Daemon Mode."
+msgstr "Δεν απαιτείται κατά την λειτουργία ως Υπηρεσίας."
+
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "Ενέργεια για τα μολυσμένα αρχεία κατά την σάρωση"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
-msgstr ""
+msgstr "Καταγραφή μόνο"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Διαγραφή αρχείου"
 
-#: templates/settings.php:14
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Αποθήκευση"

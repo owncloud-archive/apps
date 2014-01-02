@@ -1,0 +1,12 @@
+{
+    "active": true, 
+    "client_id": "testclient", 
+    "exp": 1766377846, 
+    "iat": 1366376612, 
+    "scope": "foo bar", 
+    "sub": "fkooman", 
+    "x-entitlement": [
+        "urn:x-foo:service:access", 
+        "urn:x-bar:privilege:admin"
+    ]
+}

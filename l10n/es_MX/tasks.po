@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-01-02 00:49-0500\n"
+"PO-Revision-Date: 2013-12-31 20:50+0000\n"
+"Last-Translator: byoship\n"
+"Language-Team: Spanish (Mexico) (http://www.transifex.com/projects/p/owncloud/language/es_MX/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_MX\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
+msgid "Invalid date/time"
+msgstr "Fecha/hora no válida"
+
+#: appinfo/app.php:10
+msgid "Tasks"
+msgstr "Tareas"
+
+#: js/tasks.js:86
+msgid "Due"
+msgstr "Vencimiento"
+
+#: js/tasks.js:115
+msgid "List"
+msgstr "Lista"
+
+#: js/tasks.js:136
+msgid "Location"
+msgstr "Ubicación"
+
+#: js/tasks.js:457
+msgid "No category"
+msgstr "Sin categoría"
+
+#: lib/app.php:33
+msgid "Unspecified"
+msgstr "Sin especificar"
+
+#: lib/app.php:34
+msgid "1=highest"
+msgstr "1=mayor"
+
+#: lib/app.php:38
+msgid "5=medium"
+msgstr "5=media"
+
+#: lib/app.php:42
+msgid "9=lowest"
+msgstr "9=menor"
+
+#: lib/app.php:81
+msgid "Empty Summary"
+msgstr "Vaciar resumen"
+
+#: lib/app.php:93
+msgid "Invalid percent complete"
+msgstr "Porcentaje completado no válido"
+
+#: lib/app.php:107
+msgid "Invalid priority"
+msgstr "Prioridad no válida"
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr "La aplicación de calendario también tiene que ser activada para usar esta aplicación."
+
+#: templates/tasks.php:3
+msgid "Add Task"
+msgstr "Agregar tarea"
+
+#: templates/tasks.php:4
+msgid "Order Due"
+msgstr "Ordenar por vencimiento"
+
+#: templates/tasks.php:5
+msgid "Order List"
+msgstr "Ordenar por lista"
+
+#: templates/tasks.php:6
+msgid "Order Complete"
+msgstr "Ordenar por completadas"
+
+#: templates/tasks.php:7
+msgid "Order Location"
+msgstr "Ordenar por ubicación"
+
+#: templates/tasks.php:8
+msgid "Order Priority"
+msgstr "Ordenar por prioridad"
+
+#: templates/tasks.php:9
+msgid "Order Label"
+msgstr "Ordenar por etiqueta"
+
+#: templates/tasks.php:16
+msgid "Loading tasks..."
+msgstr "Cargando tareas..."
+
+#: templates/tasks.php:20
+msgid "Important"
+msgstr "Importante"
+
+#: templates/tasks.php:23
+msgid "More"
+msgstr "Más"
+
+#: templates/tasks.php:26
+msgid "Less"
+msgstr "Menos"
+
+#: templates/tasks.php:29
+msgid "Delete"
+msgstr "Eliminar"

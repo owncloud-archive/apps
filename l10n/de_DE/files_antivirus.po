@@ -3,17 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <admin@kaio.ws>, 2013.
-# Andreas Tangemann <a.tangemann@web.de>, 2013.
-# Marcel Kühlhorn <susefan93@gmx.de>, 2013.
-# Phillip Schichtel <quick_wango@code-infection.de>, 2013.
+# Naga <admin@kaio.ws>, 2013
+# a.tangemann <a.tangemann@web.de>, 2013
+# Marcel Kühlhorn <susefan93@gmx.de>, 2013
+# Mario Siegmann <mario_siegmann@web.de>, 2013
+# Phillip Schichtel, 2013
+# traductor <transifex-3.7.mensaje@spamgourmet.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-01 00:16+0100\n"
-"PO-Revision-Date: 2013-01-31 19:30+0000\n"
-"Last-Translator: quick_wango <quick_wango@code-infection.de>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: traductor <transifex-3.7.mensaje@spamgourmet.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +31,7 @@ msgstr "Herzlich Willkommen {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "Entschuldigung, es wurde Malware in einer Datei gefunden die Sie hochladen wollten und sie musste gelöscht werden."
+msgstr "Entschuldigung, in einer Datei, die Sie hochladen wollten, wurde Malware gefunden und sie musste daher gelöscht werden."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
@@ -37,11 +39,11 @@ msgstr "Diese E-Mail ist eine Benachrichtigung von {host}. Bitte antworten Sie n
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr "Datei {file} hochgeladen"
+msgstr "Datei wurde hochgeladen: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Antivirus Konfiguration"
+msgstr "Antivirus-Konfiguration"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -53,60 +55,73 @@ msgstr "Ausführbar"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr "Dienst"
+msgstr "Dienst (Daemon)"
+
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "Daemon (Socket)"
 
 #: templates/settings.php:7
-msgid "Host"
-msgstr "Host"
+msgid "Socket"
+msgstr "Socket"
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Die Adresse des Antivirus Hosts."
+msgid "Clamav Socket."
+msgstr "Clamav Socket."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "Nicht erforderlich im ausführbaren Modus."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "Host"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Die Adresse des Antivirus-Hosts."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Port"
 
-#: templates/settings.php:8
-msgid "Port number of Antivirus Host."
-msgstr "Die Portnummer des Antivirus Hosts."
-
 #: templates/settings.php:9
+msgid "Port number of Antivirus Host."
+msgstr "Die Portnummer des Antivirus-Hosts."
+
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Übertragungslänge"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength-Wert in Bytes."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "Pfad zu clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "Pfad zum clamscan-Programm"
 
-#: templates/settings.php:10
-msgid "Not required in Daemon Mode."
-msgstr "Nicht erforderlich im Dienstmodus"
-
 #: templates/settings.php:11
-msgid "Action for infected files found while scanning"
-msgstr "Aktion für infizierte Dateien die beim Scannen gefunden wurden"
+msgid "Not required in Daemon Mode."
+msgstr "Nicht erforderlich im Dienstmodus (Daemon)"
 
 #: templates/settings.php:12
+msgid "Action for infected files found while scanning"
+msgstr "Aktion für infizierte Dateien, welche beim Scannen gefunden wurden"
+
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "Nur loggen"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Datei löschen"
 
-#: templates/settings.php:14
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Speichern"

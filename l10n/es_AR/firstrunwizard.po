@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# CJTess <claudio.tessone@gmail.com>, 2013.
+# cjtess <claudio.tessone@gmail.com>, 2013
+# Javier Victor Mariano Bruno <koryyyy@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 00:24+0100\n"
-"PO-Revision-Date: 2013-01-30 16:00+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-11 10:37-0500\n"
+"PO-Revision-Date: 2013-12-11 15:30+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +19,47 @@ msgstr ""
 "Language: es_AR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "Asistente de primera ejecución"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Bienvenido a ownCloud"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "Mostrar de nuevo el asistente de primera ejecución"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Tus servicios web personales. Todos tus archivos, contactos calendarios y más, en un solo lugar."
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "Obtené Apps para sincronizar tus archivos"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Conectá tus aplicaciones de escritorio a ownCloud"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "Contectá tu Calendario"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "Conectá tus Contactos"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "Acceso a archivos vía WebDAV"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr "Mas información en la  <a target=\"_blank\" href=\"%s\">documentación</a> y en nuestra <a target=\"_blank\" href=\"http://owncloud.org\">página web</a>."
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "Si te gusta ownCloud: <a href=\"mailto:?subject=ownCloud&body=ownCloud es un gran proyecto de código abierto para sincronizar y compartir tus archivos. Podés obtenerlo gratis en http://owncloud.org\">¡recomendáselo a tus amigos!</a>!"

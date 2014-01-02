@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mr.pige_ina@yahoo.co.id>, 2012.
-# Muhammad Fauzan <yosanpro@gmail.com>, 2012.
-# Muhammad Panji <sumodirjo@gmail.com>, 2012.
+# minion, 2013
+# elmakong <mr.pige_ina@yahoo.co.id>, 2012
+# Muhammad Fauzan <yosanpro@gmail.com>, 2012
+# Muhammad Panji <sumodirjo@gmail.com>, 2012
+# rodin <romihardiyanto@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +26,33 @@ msgstr ""
 msgid "Pictures"
 msgstr "Gambar"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
+msgstr "Dibagikan oleh"
+
+#: js/public.js:9
+msgid "Picture view"
 msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Kesalahan saat memuat templat slideshow"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr "berbagi"
+msgstr "Bagikan"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "aplikasi \"penampil gambar\" butuh di aktifkan untuk menggunakan aplikasi ini"
+msgstr "Aplikasi \"Penampil Gambar\" juga harus diaktifkan untuk untuk menggunakan aplikasi ini."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

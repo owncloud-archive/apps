@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013.
-#   <tbsoares@gmail.com>, 2012.
+# dudanogueira <dudanogueira@gmail.com>, 2013
+# Flávio Veras <flaviove@gmail.com>, 2013
+# Rodrigo Tavares <rodrigost23@gmail.com>, 2013
+# tbsoares <tbsoares@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
-"Last-Translator: rodrigost23 <rodrigo.st23@hotmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,18 +21,103 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "Atualizando..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Verificando sua instalaçao..."
 
-#: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr "Pronto. Atualize a página para continuar."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Não é possível atualizar. Certifique-se que no seu servidor web existe acesso de gravação para os seguintes arquivos e diretórios:"
 
-#: js/updater.js:19 js/updater.js:25
-msgid "Error"
-msgstr "Erro"
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Versão não encontrada"
 
-#: templates/admin.php:24
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Não é possível atualizar. No seu servidor não existem permissões suficientes para remover o seguinte diretório:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Atualizar permissões neste diretório e seu conteúdo ou removê-lo manualmente em primeiro lugar."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Baixando pacotes..."
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Não foi possível obter pacote"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Criando cópia de segurança..."
+
+#: ajax/update.php:96
+msgid "Here is your backup: "
+msgstr "Aqui está o seu backup:"
+
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Falha ao criar cópia de segurança"
+
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Movendo arquivos..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Tudo concluido. Clique no link abaixo para iniciar a atualização do banco de dados."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "A atualização falhou"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "A atualização falhou. Por favor, relate este problema para a <a href=\"https://github.com/owncloud/core/issues\" target=\"_blank\">comunidade ownCloud</a>."
+
+#: templates/admin.php:17
+msgid "Update Center"
+msgstr "Central de Atalização"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Gerenciamento de Cópias de Segurança"
+
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Atualizar"
+
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Diretório de Cópias de Segurança"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Cópia de Segurança"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Pronto."
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Baixar"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Excluir"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Nenhuma Cópia de Segurança encontrada"

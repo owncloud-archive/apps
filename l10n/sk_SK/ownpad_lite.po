@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <martin.babik@gmail.com>, 2012.
-# Roman Priesol <roman@priesol.net>, 2012.
+# mhh <marian.hvolka@stuba.sk>, 2013
+# martinb <martin.babik@gmail.com>, 2012
+# Roman Priesol <roman@priesol.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-26 02:02+0200\n"
-"PO-Revision-Date: 2012-10-25 13:03+0000\n"
-"Last-Translator: Roman Priesol <roman@priesol.net>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +20,47 @@ msgstr ""
 "Language: sk_SK\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "Dokument bol zdieľaný"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "Používateľ %s s vami zdieľa dokument %s."
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "Môj blok"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Názov bloku"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Otvoriť"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Zdieľať s"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Zdieľať"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "URL služby Etherpad"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
-msgstr "Prihlasovacie meno"
+msgstr "Používateľské meno"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Uložiť"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
+# Rivo Zängov <eraser@eraser.ee>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-08 13:29+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -18,30 +19,47 @@ msgstr ""
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "Dokument jagati"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "Kasutaja %s jagas sinuga kiirdokumendi %s. "
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "Minu märkmik"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Seaded"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Märkmiku pealkiri"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Ava"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Jaga"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Jaga"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Etherpad teenuse URL"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Kasutajanimi"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Salvesta"

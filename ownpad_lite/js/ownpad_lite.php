@@ -44,10 +44,47 @@ var ownPad = {
 	},
 	setHost : function(host) {
 		ownPad.host = host;
+	},
+	onSearch : function(request, response){
+		if (request && request.term){
+			$.post(
+				OC.filePath('ownpad_lite', 'ajax', 'search.php'),
+				{<?php echo OCA\ownpad_lite\UrlParam::SHARE_SEARCH ?>:request.term},
+				function(data){
+					if (data.status == 'success' && data.data){
+						response( data.data );
+					}
+				}
+			);
+		}
+	},
+	onShare : function(){
+		var source = ownPad.getHost() + ownPad.getTitle();
+		var shareWith = $('#ownpad-share').val();
+		if (shareWith.length<3) {
+			return;
+		}
+			$.post(
+				OC.filePath('ownpad_lite', 'ajax', 'share.php'),
+				{
+					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WHAT ?> : source,
+					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WITH ?> : shareWith
+				},
+				ownPad.onShareComplete
+			);
+	},
+	onShareComplete : function(data){
+		var successMessage = t('<?php echo OCA\ownpad_lite\App::APP_ID ?>', 'Shared successfully');
+		var errorMessage = t('<?php echo OCA\ownpad_lite\App::APP_ID ?>', 'Failed to send notification');
+		var message = data && data.status && data.status=='success' ? successMessage : errorMessage ;
+		OC.Notification.show(message);
+		setTimeout(OC.Notification.hide, 6000);
 	}
 };
 
 $('#ownpad-open').click(ownPad.showPad);
+$('#ownpad-share').autocomplete({ minLength: 3, source: ownPad.onSearch});
+$('#ownpad-share-button').click(ownPad.onShare);
 $('#settingsbtn').on('click keydown', function() {
 	try {
 		OC.appSettings({appid:'ownpad_lite', loadJS:true, cache:false});

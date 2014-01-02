@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <g.ciprian@osn.ro>, 2012.
+# g.ciprian <g.ciprian@osn.ro>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 11:38+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2013-07-24 00:49-0400\n"
+"PO-Revision-Date: 2013-07-23 05:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,14 +26,14 @@ msgstr "Serviciul Mozilla Sync"
 msgid "Please set your email address in account settings"
 msgstr "Te rugăm să specifici adresa ta de email în setările contului"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
 msgstr "Email"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr "Parola și confirmarea ei"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr "Adresa server-ului"

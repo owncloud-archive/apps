@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <asieriko@gmail.com>, 2012.
+# asieriko <asieriko@gmail.com>, 2013
+# asieriko <asieriko@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-28 00:18+0100\n"
-"PO-Revision-Date: 2012-12-27 20:54+0000\n"
+"POT-Creation-Date: 2013-07-28 00:49-0400\n"
+"PO-Revision-Date: 2013-07-27 07:30+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +32,5 @@ msgid "An error has occurred"
 msgstr "Errore bat gertatu da"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Erabiltzaile kontuaren migrazioa"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Exportatu eta inportatu ownCloud erabiltzailearen kontuak."
+msgid "Account Export/Import"
+msgstr "Kontua Esportatu/Inportatu"

@@ -23,11 +23,14 @@
 
 OC_Util::checkAdminUser();
 
-$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_username_mapping', 'cas_email_mapping', 'cas_group_mapping');
+$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_email_mapping', 'cas_group_mapping');
 
 OCP\Util::addscript('user_cas', 'settings');
 
 if ($_POST) {
+	// CSRF check
+	OCP\JSON::callCheck();
+
 	foreach($params as $param) {
 		if (isset($_POST[$param])) {
 			OCP\Config::setAppValue('user_cas', $param, $_POST[$param]);
@@ -60,7 +63,6 @@ $tmpl->assign( 'cas_autocreate', OCP\Config::getAppValue('user_cas', 'cas_autocr
 $tmpl->assign( 'cas_update_user_data', OCP\Config::getAppValue('user_cas', 'cas_update_user_data', 0));
 $tmpl->assign( 'cas_protected_groups', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', ''));
 $tmpl->assign( 'cas_default_group', OCP\Config::getAppValue('user_cas', 'cas_default_group', ''));
-$tmpl->assign( 'cas_username_mapping', OCP\Config::getAppValue('user_cas', 'cas_username_mapping', 'uid'));
 $tmpl->assign( 'cas_email_mapping', OCP\Config::getAppValue('user_cas', 'cas_email_mapping', 'mail'));
 $tmpl->assign( 'cas_group_mapping', OCP\Config::getAppValue('user_cas', 'cas_group_mapping', ''));
 

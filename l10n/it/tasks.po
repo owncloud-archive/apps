@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Vincenzo Reale <vinx.reale@gmail.com>, 2012.
+# Vincenzo Reale <vinx.reale@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 11:58+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +26,19 @@ msgstr "Ora/Data non valida"
 msgid "Tasks"
 msgstr "Attività"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "Scadenza"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "Elenco"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "Posizione"
 
-#: js/tasks.js:415
+#: js/tasks.js:457
 msgid "No category"
 msgstr "Nessuna categoria"
 
@@ -113,7 +113,7 @@ msgstr "Importante"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "Più"
+msgstr "Altro"
 
 #: templates/tasks.php:26
 msgid "Less"

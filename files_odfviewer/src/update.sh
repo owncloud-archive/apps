@@ -1,5 +1,5 @@
 rm -rf webodf
-git clone https://git.gitorious.org/odfkit/webodf.git
+git clone https://git.gitorious.org/webodf/webodf.git
 rm -Rf build
 mkdir build
 cd build

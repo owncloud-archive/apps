@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Gilad Naaman <gilad.doom@gmail.com>, 2012.
+# Gilad Naaman <gilad.doom@gmail.com>, 2012
+# oriez, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 17:19+0000\n"
-"Last-Translator: Gilad Naaman <gilad.doom@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-02 14:20+0000\n"
+"Last-Translator: oriez\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,31 +20,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "ייצא מופע זה של ownCloud"
+msgid "Export data"
+msgstr "ייצא מידע"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "פעולה זאת תיצור ארכיון דחוס שמכיל את כל המידע של המופע הזה של ownCloud."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "אנא בחר את סוג הקובץ לייצוא:"
+msgid "Only system files"
+msgstr "רק קבצי מערכת"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr "מופע של ownCloud (מידע משתמש ומסד נתונים)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr ""
 
-#: templates/settings.php:11
-msgid "ownCloud system files"
-msgstr "קבצי מערכת של ownCloud"
-
-#: templates/settings.php:12
-msgid "Just user files"
-msgstr "רק קבצי משתמש"
-
-#: templates/settings.php:13
+#: templates/settings.php:9
 msgid "Export"
 msgstr "יצוא"

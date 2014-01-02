@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-29 20:00+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,9 +22,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "Pildid"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
-msgstr ""
+msgstr "Jagas"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr "Pildi vaade"
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Viga slaidiseansi kujunduse valimisel"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -35,3 +43,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "\"Pildivaataja\" rakendus tuleb sisse lülitada, et seda rakendust kasutada."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr "%s jagas sinuga <strong>%s</strong>"
+
+#: templates/public.php:16
+msgid "File list"
+msgstr "Failide nimekiri"

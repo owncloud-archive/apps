@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
-"Error" => "خطأ",
-"Update" => "حدث"
+"Here is your backup: " => "ستجد هنا نسختك الاحتياطيه:",
+"Update" => "حدث",
+"Download" => "تحميل",
+"Delete" => "إلغاء"
 );

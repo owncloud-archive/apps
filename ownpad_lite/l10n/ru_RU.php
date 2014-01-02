@@ -1,9 +1,7 @@
 <?php $TRANSLATIONS = array(
-"My pad" => "Моя панель",
 "Settings" => "Настройки",
-"Pad Title" => "Название панели",
 "Open" => "Открыть",
-"Etherpad service URL" => "Etherpad сервис URL",
+"Share" => "Сделать общим",
 "Username" => "Имя пользователя",
 "Save" => "Сохранить"
 );

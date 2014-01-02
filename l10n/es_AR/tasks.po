@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <claudio.tessone@gmail.com>, 2012.
+# cjtess <claudio.tessone@gmail.com>, 2013
+# cjtess <claudio.tessone@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-29 02:04+0200\n"
-"PO-Revision-Date: 2012-09-28 09:26+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +27,19 @@ msgstr "Fecha/hora no válida"
 msgid "Tasks"
 msgstr "Tareas"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "Fecha de entrega:"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "Lista"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "Ubicación"
 
-#: js/tasks.js:415
+#: js/tasks.js:457
 msgid "No category"
 msgstr "Sin categoría"
 
@@ -73,7 +74,7 @@ msgstr "Prioridad no válida"
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "La aplicación de calendario también tiene que ser activada para usar esta aplicación."
+msgstr "La aplicación de calendario también tiene que estar activada para usar esta aplicación."
 
 #: templates/tasks.php:3
 msgid "Add Task"

@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013
+# yllar <yllar.pajus@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,18 +20,103 @@ msgstr ""
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr ""
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Paigalduse kontrollimine…"
 
-#: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr ""
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Uuendamine pole võimalik. Palun luba oma veebiserveril kirjutamine järgmistesse failidesse ja kataloogidesse:"
 
-#: js/updater.js:19 js/updater.js:25
-msgid "Error"
-msgstr "Viga"
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Versiooni ei leitud"
 
-#: templates/admin.php:24
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Uuendamine pole võimalik. Veebiserveril pole õigusi kustutada järgmisi katalooge:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Uuenda selle kataloogi ja sisu õigusi või eemalda see käsitsi."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Paki allalaadimine…"
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Paki hankimine nurjus"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Varukoopia loomine…"
+
+#: ajax/update.php:96
+msgid "Here is your backup: "
+msgstr "Siin on su varukoopia:"
+
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Varukoopia loomine nurjus"
+
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Failide liigutamine…"
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Kõik valmis. Klõpsa andmebaasi uuenduse alustamiseks allolevat linki."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Uuendamine nurjus"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "Uuendamine nurjus. Palun teata sellest <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloudi kogukonnale</a>."
+
+#: templates/admin.php:17
+msgid "Update Center"
+msgstr "Uuendamiskeskus"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Varukoopiate haldamine"
+
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Uuenda"
+
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Varukoopiate kataloog"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Varukoopia"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Tehtud"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Lae alla"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Kustuta"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Varukoopiaid ei leitud"

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <martin.babik@gmail.com>, 2012.
-# Roman Priesol <roman@priesol.net>, 2012.
+# mhh <marian.hvolka@stuba.sk>, 2013
+# martinb <martin.babik@gmail.com>, 2012
+# Roman Priesol <roman@priesol.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-26 02:02+0200\n"
-"PO-Revision-Date: 2012-10-25 12:22+0000\n"
-"Last-Translator: Roman Priesol <roman@priesol.net>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:42+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,27 +22,27 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Nepsrávny dátum/čas"
+msgstr "Nesprávny dátum/čas"
 
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Úlohy"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
-msgstr "Do"
+msgstr "Do termínu"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "Zoznam"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "Umiestnenie"
 
-#: js/tasks.js:415
+#: js/tasks.js:457
 msgid "No category"
-msgstr "Žiadna kategória"
+msgstr "Bez kategórie"
 
 #: lib/app.php:33
 msgid "Unspecified"
@@ -65,7 +66,7 @@ msgstr "Prázdny sumár"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "Neplatné percento dokončení"
+msgstr "Neplatné percento dokončenia"
 
 #: lib/app.php:107
 msgid "Invalid priority"
@@ -74,7 +75,7 @@ msgstr "Nesprávna priorita"
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "Táto aplikácia si vyžaduje aj aplikáciu kalendár."
+msgstr "Táto aplikácia si vyžaduje aj aplikáciu Kalendár."
 
 #: templates/tasks.php:3
 msgid "Add Task"
@@ -82,31 +83,31 @@ msgstr "Pridať úlohu"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "A/Z Termín"
+msgstr "Zoradiť podľa termínu"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "A/Z Zoznam"
+msgstr "Zoradiť podľa zoznamu"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "A/Z Komplet"
+msgstr "Zoradiť podľa dokončenia"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "A/Z Umiestnenie"
+msgstr "Zoradiť podľa umiestnenia"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "A/Z Priorita"
+msgstr "Zoradiť podľa dôležitosti"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "A/Z Štítok"
+msgstr "Zoradiť podľa štítka"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Nahrávam úlohy"
+msgstr "Nahrávam úlohy..."
 
 #: templates/tasks.php:20
 msgid "Important"

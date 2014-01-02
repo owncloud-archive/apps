@@ -5,6 +5,6 @@
  * later.
  * See the COPYING-README file.
  */
-echo '<ul><li class="error">';
-echo $l->t('The "Image Viewer" application also need to be enabled to use this application.');
-echo '</li></ul>';
+print_unescaped('<ul><li class="error">');
+p($l->t('The "Image Viewer" application also need to be enabled to use this application.'));
+print_unescaped('</li></ul>');

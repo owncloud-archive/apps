@@ -7,6 +7,7 @@
 "User: <b>" => "Käyttäjä: <b>",
 "Login" => "Kirjaudu",
 "Error: <b>No user Selected" => "Virhe: <b>Käyttäjää ei valittu",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "voit valtuuttaa muille sivustoille tällä osoitteella",
 "Authorized OpenID provider" => "Valtuutettu OpenID-tarjoaja",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Osoitteesi Wordpress, Identi.ca,"

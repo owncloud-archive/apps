@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Armenian (http://www.transifex.com/projects/p/owncloud/language/hy/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,22 +17,42 @@ msgstr ""
 "Language: hy\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:156 js/editor.js:163
+#: js/editor.js:68 js/editor.js:153 js/editor.js:161
 msgid "Save"
+msgstr "Պահպանել"
+
+#: js/editor.js:70
+msgid "Search"
 msgstr ""
 
-#: js/editor.js:74
+#: js/editor.js:73
 msgid "Close"
+msgstr "Փակել"
+
+#: js/editor.js:127
+msgid "Next"
 msgstr ""
 
-#: js/editor.js:149
+#: js/editor.js:128
+msgid "Clear"
+msgstr ""
+
+#: js/editor.js:146
 msgid "Saving..."
 msgstr ""
 
-#: js/editor.js:239
+#: js/editor.js:154
+msgid "Failed to save file"
+msgstr ""
+
+#: js/editor.js:260
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:266
+#: js/editor.js:276
+msgid "There are unsaved changes in the text editor"
+msgstr ""
+
+#: js/editor.js:305
 msgid "There were unsaved changes, click here to go back"
 msgstr ""

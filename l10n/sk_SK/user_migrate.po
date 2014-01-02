@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <intense.feel@gmail.com>, 2012.
-# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+# intense <intense.feel@gmail.com>, 2012
+# mhh <marian.hvolka@stuba.sk>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 00:19+0100\n"
-"PO-Revision-Date: 2013-01-29 15:50+0000\n"
+"POT-Creation-Date: 2013-08-21 06:08-0400\n"
+"PO-Revision-Date: 2013-08-20 19:50+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -21,20 +21,16 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr "Exportovať"
+msgstr "Export"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr "Počas generovania súboru pre export došlo k chybe"
+msgstr "Počas generovania súboru na export nastala chyba"
 
 #: js/export.js:19
 msgid "An error has occurred"
 msgstr "Vyskytla sa chyba"
 
 #: templates/settings.php:2
-msgid "User Account Migration"
-msgstr "Prenos používateľských účtov"
-
-#: templates/settings.php:3
-msgid "Export and import ownCloud user accounts."
-msgstr "Exportovať a importovať používateľské účty ownCloud."
+msgid "Account Export/Import"
+msgstr "Export/Import používateľského účtu"

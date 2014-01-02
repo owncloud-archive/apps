@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 남자사람  <cessnagi@gmail.com>, 2012.
-# Shinjo Park <kde@peremen.name>, 2012.
+# 남자사람 <cessnagi@gmail.com>, 2012
+# 남자사람 <cessnagi@gmail.com>, 2012
+# Park Shinjo <peremen@gmail.com>, 2013
+# Shinjo Park <kde@peremen.name>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-10 00:02+0100\n"
-"PO-Revision-Date: 2012-12-09 06:07+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-24 00:48-0500\n"
+"PO-Revision-Date: 2013-12-22 14:21+0000\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -20,31 +22,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/settings.php:3
-msgid "Export this ownCloud instance"
-msgstr "이 ownCloud 인스턴스 내보내기"
+msgid "Export data"
+msgstr "데이터 내보내기"
 
-#: templates/settings.php:5
-msgid ""
-"This will create a compressed file that contains the data of this owncloud "
-"instance."
-msgstr "ownCloud 인스턴스가 포함된 압축 파일을 생성합니다."
+#: templates/settings.php:6
+msgid "All system files and user data"
+msgstr "모든 시스템 파일과 사용자 데이터"
 
 #: templates/settings.php:7
-msgid "Please choose the export type:"
-msgstr "내보낼 형식을 선택하십시오:"
+msgid "Only system files"
+msgstr "시스템 파일만"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr "ownCloud 인스턴스 (사용자 데이터와 데이터베이스)"
+#: templates/settings.php:8
+msgid "Only user data"
+msgstr "사용자 데이터만"
 
-#: templates/settings.php:11
-msgid "ownCloud system files"
-msgstr "ownCloud 시스템 파일"
-
-#: templates/settings.php:12
-msgid "Just user files"
-msgstr "사용자 파일만"
-
-#: templates/settings.php:13
+#: templates/settings.php:9
 msgid "Export"
 msgstr "내보내기"

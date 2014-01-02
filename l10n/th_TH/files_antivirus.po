@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2013.
+# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:01+0100\n"
-"PO-Revision-Date: 2013-01-22 01:18+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,58 +52,71 @@ msgstr "สามารถประมวลคำสั่งได้"
 msgid "Daemon"
 msgstr "Daemon"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "โฮสต์"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr ""
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "ที่อยู่โฮสต์ของโปรแกรมป้องกันไวรัส"
+msgid "Socket"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr ""
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "ไม่จำเป็นต้องใช้สำหรับโหมด สามารถประมวลคำสั่งได้"
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "โฮสต์"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "ที่อยู่โฮสต์ของโปรแกรมป้องกันไวรัส"
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "พอร์ต"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "หมายเลขพอร์ตของโฮสต์โปรแกรมป้องกันไวรัส"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Stream Length"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ค่า StreamMaxLength ของ ClamAV ในหน่วยไบต์"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "ตำแหน่งพาธของ clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "ตำแหน่งพาธของ clamscan ที่สามารถประมวลคำสั่งได้"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "ไม่จำเป็นต้องใช้สำหรับโหมด Daemon"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "ตรวจพบไฟล์ที่ติดเชื้อในระหว่างการสแกนข้อมูล"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "เฉพาะบันทึกการเปลี่ยนแปลงเท่านั้น"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "ลบไฟล์"
 
-#: templates/settings.php:14
+#: templates/settings.php:16
 msgid "Save"
 msgstr "บันทึก"

@@ -3,32 +3,44 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <ahmet_kaplan@hotmail.com>, 2012.
-# Aranel Surion <aranel@aranelsurion.org>, 2012.
-# Emre  <emresaracoglu@live.com>, 2012.
-#   <info@beyboo.de>, 2012.
-# Necdet Yücel <necdetyucel@gmail.com>, 2012.
+# akaplan <ahmet_kaplan@hotmail.com>, 2012
+# Aranel Surion <aranel@aranelsurion.org>, 2012
+# Caner BAŞARAN <basaran.caner@gmail.com>, 2013
+# Emre Saraçoğlu <emresaracoglu@live.com>, 2012
+# alpere <info@beyboo.de>, 2012
+# ismail yenigül <ismail.yenigul@surgate.com>, 2013
+# Necdet Yücel <necdetyucel@gmail.com>, 2012
+# tgezginis <tgezginis@gmail.com>, 2013
+# volkangezer <volkangezer@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-02 15:24-0500\n"
+"PO-Revision-Date: 2013-11-30 01:40+0000\n"
+"Last-Translator: volkangezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Resimler"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
-msgstr ""
+msgstr "Paylaşan"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr "Resim görünümü"
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Slayt gösteri şablonu yüklenirken hata"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -39,3 +51,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "\"Resim Görüntüleyici\" uygulamasını kullanmak için bu uygulamada etkin olması gerekir."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr "%s, sizinle <strong>%s</strong> paylaşımı yaptı"
+
+#: templates/public.php:16
+msgid "File list"
+msgstr "Dosya listesi"

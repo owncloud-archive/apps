@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <dw4dev@gmail.com>, 2012.
+# Hydriz <admin@alphacorp.tk>, 2013
+# dw4dev <dw4dev@gmail.com>, 2012
+# Hydriz <admin@alphacorp.tk>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-15 00:01+0100\n"
-"PO-Revision-Date: 2013-01-14 17:58+0000\n"
+"POT-Creation-Date: 2013-10-29 04:34-0400\n"
+"PO-Revision-Date: 2013-10-28 10:43+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -28,19 +30,19 @@ msgstr "無效請求"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "這是個OpenID服務器端點。若要了解更多，請查閱"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "身份：<b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "境界：<b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr "使用者: <b>"
+msgstr "用戶：<b>"
 
 #: templates/nomode.php:17
 msgid "Login"
@@ -52,11 +54,11 @@ msgstr "錯誤: <b>沒有挑選使用者"
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "您可以利用此網址認證進其他網站"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
@@ -64,4 +66,4 @@ msgstr "驗證 OpenID 提供者"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "您在 Wordpress、Identi.ca、&hellip; 的網址"

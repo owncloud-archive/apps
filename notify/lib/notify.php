@@ -91,8 +91,8 @@
  *  - deleteById(1337)
  */
 
-//\OC_Hook::connect('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
-//\OC_Hook::connect('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
+//\OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
+//\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
 
 class OC_Notify {
 	// reusable prepared statements:
@@ -109,7 +109,7 @@ class OC_Notify {
 		if($class == null) {
 			// get all classes of $app
 			if(!isset(self::$classIdsStmt)) {
-				self::$classIdsStmt = OCP\DB::prepare("SELECT id FROM *PREFIX*notification_classes WHERE appid = ?");
+				self::$classIdsStmt = OCP\DB::prepare("SELECT `id` FROM `*PREFIX*notification_classes` WHERE `appid` = ?");
 			}
 			$result = self::$classIdsStmt->execute(array($app));
 			while(($row = $result->fetchOne()) !== false) {
@@ -117,7 +117,7 @@ class OC_Notify {
 			}
 		} else {
 			if(!isset(self::$classIdStmt)) {
-				self::$classIdStmt = OCP\DB::prepare("SELECT id FROM *PREFIX*notification_classes WHERE appid = ? AND name = ?");
+				self::$classIdStmt = OCP\DB::prepare("SELECT `id` FROM `*PREFIX*notification_classes` WHERE `appid` = ? AND `name` = ?");
 			}
 			$result = self::$classIdStmt->execute(array($app, $class));
 			if(($row = $result->fetchOne()) !== false) {
@@ -138,7 +138,7 @@ class OC_Notify {
 	 */
 	public static function parseAppNotifications($app, $class = null) {
 		if(!isset(self::$classInsertStmt)) {
-			self::$classInsertStmt = OCP\DB::prepare("INSERT INTO *PREFIX*notification_classes (appid, name, summary, content) VALUES (?, ?, ?, ?)");
+			self::$classInsertStmt = OCP\DB::prepare("INSERT INTO `*PREFIX*notification_classes` (`appid`, `name`, `summary`, `content`) VALUES (?, ?, ?, ?)");
 		}
 		$appInfo = @file_get_contents(OC_App::getAppPath($app) . '/appinfo/info.xml');
 		if($appInfo) {
@@ -192,7 +192,7 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$unreadNumStmt)) {
-			self::$unreadNumStmt = OCP\DB::prepare("SELECT COUNT(*) FROM *PREFIX*notifications WHERE read = 0 AND uid = ?");
+			self::$unreadNumStmt = OCP\DB::prepare("SELECT COUNT(*) FROM `*PREFIX*notifications` WHERE `read` = 0 AND `uid` = ?");
 		}
         return self::$unreadNumStmt->execute(array($uid))->fetchOne();
     }
@@ -216,9 +216,9 @@ class OC_Notify {
 			}
             OCP\DB::beginTransaction();
             if(!isset(self::$notifyStmt)) {
-				self::$notifyStmt = OCP\DB::prepare("INSERT INTO *PREFIX*notifications (class, uid, moment) VALUES (?, ?, NOW())");
+				self::$notifyStmt = OCP\DB::prepare("INSERT INTO `*PREFIX*notifications` (`class`, `uid`, `moment`) VALUES (?, ?, NOW())");
 			}
-			OC_Hook::emit("notify", "pre_sendUserNotification", array(
+			OCP\Util::emitHook("notify", "pre_sendUserNotification", array(
 				"classId" => $classId,
 				"uid" => $uid,
 				"params" => $params
@@ -227,7 +227,7 @@ class OC_Notify {
             $id = OCP\DB::insertid("*PREFIX*notifications");
             if(count($params)) {
 				if(!isset(self::$paramStmt)) {
-					self::$paramStmt = OCP\DB::prepare("INSERT INTO *PREFIX*notification_params (nid, key, value) VALUES ($id, ?, ?)");
+					self::$paramStmt = OCP\DB::prepare("INSERT INTO `*PREFIX*notification_params` (`nid`, `key`, `value`) VALUES ($id, ?, ?)");
 				}
                 foreach($params as $key => $value) {
                     self::$paramStmt->execute(array($key, $value));
@@ -235,7 +235,7 @@ class OC_Notify {
                 }
             }
 			OCP\DB::commit();
-			OC_Hook::emit("notify", "post_sendUserNotification", array(
+			OCP\Util::emitHook("notify", "post_sendUserNotification", array(
 				"id" => $id,
 				"classId" => $classId,
 				"uid" => $uid,
@@ -267,16 +267,16 @@ class OC_Notify {
 			}
 		}
         if(!$count) {
-			$notifyStmt = OCP\DB::prepare("SELECT n.id, n.uid, n.read, n.moment, c.appid AS app, c.name AS class, c.summary, c.content FROM *PREFIX*notifications AS n INNER JOIN *PREFIX*notification_classes AS c ON n.class = c.id WHERE n.uid = ? ORDER BY n.read ASC, n.moment DESC");
+			$notifyStmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`uid` = ? ORDER BY `n`.`read` ASC, `n`.`moment` DESC");
 			$result = $notifyStmt->execute(array($uid));
 		} else {
-			$notifyStmt = OCP\DB::prepare("SELECT n.id, n.uid, n.read, n.moment, c.appid AS app, c.name AS class, c.summary, c.content FROM *PREFIX*notifications AS n INNER JOIN *PREFIX*notification_classes AS c ON n.class = c.id WHERE n.uid = ? ORDER BY n.read ASC, n.moment DESC LIMIT ?");
+			$notifyStmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`uid` = ? ORDER BY `n`.`read` ASC, `n`.`moment` DESC LIMIT ?");
 			$result = $notifyStmt->execute(array($uid, $count));
 		}
         $notifications = $result->fetchAll();
-        $paramStmt = OCP\DB::prepare("SELECT key, value FROM *PREFIX*notification_params WHERE nid = ?");
+        $paramStmt = OCP\DB::prepare("SELECT `key`, `value` FROM `*PREFIX*notification_params` WHERE `nid` = ?");
         foreach($notifications as $i => $n) {
-            $l = OC_L10N::get($n["app"], $lang);
+            $l = OCP\Util::getL10N($n["app"], $lang);
             $notifications[$i]["summary"] = $l->t($n["summary"]);
             $notifications[$i]["content"] = $l->t($n["content"]);
             $result = $paramStmt->execute(array($n["id"]));
@@ -307,10 +307,10 @@ class OC_Notify {
      * @return notification as an associative array
      */
     public static function getNotificationById($id) {
-		$stmt = OCP\DB::prepare("SELECT n.id, n.uid, n.read, n.moment, c.appid AS app, c.name AS class, c.summary, c.content FROM *PREFIX*notifications AS n INNER JOIN *PREFIX*notification_classes AS c ON n.class = c.id WHERE n.id = ?");
+		$stmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`id` = ?");
 		$result = $stmt->execute(array((int) $id));
 		$notification = $result->fetchRow();
-        $paramStmt = OCP\DB::prepare("SELECT key, value FROM *PREFIX*notification_params WHERE nid = ?");
+        $paramStmt = OCP\DB::prepare("SELECT `key`, `value` FROM `*PREFIX*notification_params` WHERE `nid` = ?");
 		$result = $paramStmt->execute(array((int) $id));
 		while($param = $result->fetchRow()) {
 			if(in_array($param["key"], array('href', 'img'))) {
@@ -342,7 +342,7 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$readByUserStmt)) {
-			self::$readByUserStmt = OCP\DB::prepare("UPDATE *PREFIX*notifications SET read = ? WHERE uid = ?");
+			self::$readByUserStmt = OCP\DB::prepare("UPDATE `*PREFIX*notifications` SET `read` = ? WHERE `uid` = ?");
 		}
 		self::$readByUserStmt->execute(array((int) $read, $uid));
 		return self::$readByUserStmt->numRows();
@@ -363,7 +363,7 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$readByClassIdStmt)) {
-			self::$readByClassIdStmt = OCP\DB::prepare("UPDATE *PREFIX*notifications SET read = ? WHERE class = ? AND uid = ?");
+			self::$readByClassIdStmt = OCP\DB::prepare("UPDATE `*PREFIX*notifications` SET `read` = ? WHERE `class` = ? AND `uid` = ?");
 		}
 		if(!is_array($class)) {
 			if($class === false) {
@@ -406,7 +406,7 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$readByIdStmt)) {
-			self::$readByIdStmt = OCP\DB::prepare("UPDATE *PREFIX*notifications SET read = ? WHERE id = ? AND uid = ?");
+			self::$readByIdStmt = OCP\DB::prepare("UPDATE `*PREFIX*notifications` SET `read` = ? WHERE `id` = ? AND `uid` = ?");
 		}
 		self::$readByIdStmt->execute(array((int) $read, $id, $uid));
 		return self::$readByIdStmt->numRows();
@@ -426,10 +426,10 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$deleteParamsByUserStmt)) {
-			self::$deleteParamsByUserStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_params WHERE nid IN (SELECT id FROM *PREFIX*notifications WHERE uid = ?)");
+			self::$deleteParamsByUserStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_params` WHERE `nid` IN (SELECT `id` FROM `*PREFIX*notifications` WHERE `uid` = ?)");
 		}
 		if(!isset(self::$deleteByUserStmt)) {
-			self::$deleteByUserStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notifications WHERE uid = ?");
+			self::$deleteByUserStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notifications` WHERE `uid` = ?");
 		}
 		self::$deleteParamsByUserStmt->execute(array($uid));
 		self::$deleteByUserStmt->execute(array($uid));
@@ -450,10 +450,10 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$deleteParamsByClassIdStmt)) {
-			self::$deleteParamsByClassIdStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_params WHERE nid IN (SELECT id FROM *PREFIX*notifications WHERE class = ? AND uid = ?)");
+			self::$deleteParamsByClassIdStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_params` WHERE `nid` IN (SELECT `id` FROM `*PREFIX*notifications` WHERE `class` = ? AND `uid` = ?)");
 		}
 		if(!isset(self::$deleteByClassIdStmt)) {
-			self::$deleteByClassIdStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notifications WHERE class = ? AND uid = ?");
+			self::$deleteByClassIdStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notifications` WHERE `class` = ? AND `uid` = ?");
 		}
 		if(!is_array($class)) {
 			if($class === false) {
@@ -495,10 +495,10 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$deleteParamsByIdStmt)) {
-			self::$deleteParamsByIdStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_params WHERE nid IN (SELECT id FROM *PREFIX*notifications WHERE id = ? AND uid = ?)");
+			self::$deleteParamsByIdStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_params` WHERE `nid` IN (SELECT `id` FROM `*PREFIX*notifications` WHERE `id` = ? AND `uid` = ?)");
 		}
 		if(!isset(self::$deleteByIdStmt)) {
-			self::$deleteByIdStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notifications WHERE id = ? AND uid = ?");
+			self::$deleteByIdStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notifications` WHERE `id` = ? AND `uid` = ?");
 		}
 		self::$deleteParamsByIdStmt->execute(array($id, $uid));
 		self::$deleteByIdStmt->execute(array($id, $uid));
@@ -520,10 +520,10 @@ class OC_Notify {
 			}
 		}
 		if(!isset(self::$deleteParamsByReadStmt)) {
-			self::$deleteParamsByReadStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_params WHERE nid IN (SELECT id FROM *PREFIX*notifications WHERE uid = ? AND read = ?)");
+			self::$deleteParamsByReadStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_params` WHERE `nid` IN (SELECT `id` FROM `*PREFIX*notifications` WHERE `uid` = ? AND `read` = ?)");
 		}
 		if(!isset(self::$deleteByReadStmt)) {
-			self::$deleteByReadStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notifications WHERE uid = ? AND read = ?");
+			self::$deleteByReadStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notifications` WHERE `uid` = ? AND `read` = ?");
 		}
 		self::$deleteParamsByReadStmt->execute(array($uid, $read));
 		self::$deleteByReadStmt->execute(array($uid, $read));
@@ -546,7 +546,7 @@ class OC_Notify {
 		if(!isset(self::$classesStmt)) {
 			// b.class + 1 just to be sure that there are no issues if class id is zero
 			// additionally, I tried COUNT(b.class) instead of COALESCE(...) but it didn't give me the expected results
-			self::$classesStmt = OCP\DB::prepare("SELECT c.id, c.appid, c.name, c.summary, COALESCE(MIN(1, b.class + 1), 0) AS blocked FROM *PREFIX*notification_classes AS c LEFT JOIN *PREFIX*notification_blacklist AS b ON c.id = b.class AND b.uid = ? ORDER BY c.appid ASC, c.name ASC");
+			self::$classesStmt = OCP\DB::prepare("SELECT `c`.`id`, `c`.`appid`, `c`.`name`, `c`.`summary`, COALESCE(MIN(1, `b.class` + 1), 0) AS `blocked` FROM `*PREFIX*notification_classes` AS `c` LEFT JOIN `*PREFIX*notification_blacklist` AS `b` ON `c`.`id` = `b`.`class` AND `b`.`uid` = ? ORDER BY `c`.`appid` ASC, `c`.`name` ASC");
 		}
 		$result = self::$classesStmt->execute(array($uid));
 		return $result->fetchAll();
@@ -569,12 +569,12 @@ class OC_Notify {
 		$stmt = null;
 		if($block) {
 			if(!isset(self::$addToBlacklistStmt)) {
-				self::$addToBlacklistStmt = OCP\DB::prepare("INSERT INTO *PREFIX*notification_blacklist (uid, class) VALUES (?, ?)");
+				self::$addToBlacklistStmt = OCP\DB::prepare("INSERT INTO `*PREFIX*notification_blacklist` (`uid`, `class`) VALUES (?, ?)");
 			}
 			$stmt = self::$addToBlacklistStmt;
 		} else {
 			if(!isset(self::$removeFromBlacklistStmt)) {
-				self::$removeFromBlacklistStmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_blacklist WHERE uid = ? AND class = ?");
+				self::$removeFromBlacklistStmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_blacklist` WHERE `uid` = ? AND `class` = ?");
 			}
 			$stmt = self::$removeFromBlacklistStmt;
 		}
@@ -589,7 +589,7 @@ class OC_Notify {
 	 */
 	private static function isBlacklisted($uid, $class) {
 		if(!isset(self::$isBlockedStmt)) {
-			self::$isBlockedStmt = OCP\DB::prepare("SELECT COUNT(*) FROM *PREFIX*notification_blacklist WHERE uid = ? AND class = ?");
+			self::$isBlockedStmt = OCP\DB::prepare("SELECT COUNT(*) FROM `*PREFIX*notification_blacklist` WHERE `uid` = ? AND `class` = ?");
 		}
 		return (bool)self::$isBlockedStmt->execute(array($uid, $class))->fetchOne();
     }
@@ -599,7 +599,7 @@ class OC_Notify {
 	 */
 	public static function post_deleteUser($args) {
 		$uid = $args["uid"];
-		$stmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_blacklist WHERE uid = ?");
+		$stmt = OCP\DB::prepare("DELETE FROM `*PREFIX*notification_blacklist` WHERE `uid` = ?");
 		$stmt->execute(array($uid));
 		self::deleteByUser($uid);
 	}
@@ -634,7 +634,7 @@ class OC_Notify {
 				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . rtrim(dirname($args["fileTarget"]), "/"))),
 			);
 			// get the mime type icon:
-			$fileMimeStmt = OCP\DB::prepare("SELECT mimetype FROM *PREFIX*fscache WHERE id = ?");
+			$fileMimeStmt = OCP\DB::prepare("SELECT `mimetype` FROM `*PREFIX*fscache` WHERE `id` = ?");
 			$result = $fileMimeStmt->execute(array($args["fileSource"]));
 			if($result) {
 				$mime = $result->fetchColumn();

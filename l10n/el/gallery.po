@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Dimitris M. <monopatis@gmail.com>, 2012-2013.
-# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
-# Marios Bekatoros <>, 2012.
+# Dimitris M. <monopatis@gmail.com>, 2012-2013
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2012
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012-2013
+# Marios Bekatoros <>, 2012
+# vkehayas <vkehayas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-31 00:49-0500\n"
+"PO-Revision-Date: 2013-12-30 15:10+0000\n"
+"Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +22,21 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 js/gallery.js:258
 msgid "Pictures"
 msgstr "Εικόνες"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
 msgstr "Διαμοιράστηκε από"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr "Προβολή εικονιδίων"
+
+#: js/slideshow.js:329
+msgid "Error loading slideshow template"
+msgstr "Σφάλμα φόρτωσης προτύπου προβολής διαφανειών"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -37,4 +46,13 @@ msgstr "Διαμοιρασμός"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "Η εφαρμογή \"Προβολής Εικόνων\" πρέπει να είναι ενεργοποιημένη για την χρήση αυτής της εφαρμογής."
+msgstr "Η εφαρμογή \"Προβολής Εικόνων\" πρέπει να είναι επίσης ενεργοποιημένη για την χρήση αυτής της εφαρμογής."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr "Ο %s μοιράστηκε <strong>%s</strong> με εσάς"
+
+#: templates/public.php:16
+msgid "File list"
+msgstr "Λίστα αρχείων"

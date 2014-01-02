@@ -3,13 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Park Shinjo <kde@peremen.name>, 2013.
+# 책읽는달팽 <bjh13579@gmail.com>, 2013
+# Shinjo Park <kde@peremen.name>, 2013
+# Shinjo Park <kde@peremen.name>, 2013
+# ujuc Gang <potopro@gmail.com>, 2013
+# ujuc Gang <potopro@gmail.com>, 2013
+# ujuc Gang <potopro@gmail.com>, 2013
+# 책읽는달팽 <bjh13579@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 08:10+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-29 00:49-0500\n"
+"PO-Revision-Date: 2013-12-28 12:37+0000\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +24,47 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "첫 실행 마법사"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "ownCloud에 오신 것을 환영합니다"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "첫 실행 마법사 다시 보이기"
+#: templates/wizard.php:9
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "내 개인 웹 서비스입니다. 모든 파일, 연락처, 일정 등을 한 자리에 모을 수 있습니다."
+
+#: templates/wizard.php:15
+msgid "Get the apps to sync your files"
+msgstr "파일 동기화 앱 가져오기"
+
+#: templates/wizard.php:26
+msgid "Connect your desktop apps to ownCloud"
+msgstr "데스크톱 앱을 ownCloud에 연결하기"
+
+#: templates/wizard.php:29
+msgid "Connect your Calendar"
+msgstr "내 달력 연결하기"
+
+#: templates/wizard.php:32
+msgid "Connect your Contacts"
+msgstr "내 연락처 연결하기"
+
+#: templates/wizard.php:36
+msgid "Access files via WebDAV"
+msgstr "WebDAV로 파일에 접근하기"
+
+#: templates/wizard.php:41
+#, php-format
+msgid ""
+"There’s more information in the <a target=\"_blank\" "
+"href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
+"href=\"http://owncloud.org\">website</a>."
+msgstr "더 자세한 정보는 <a target=\"_blank\" href=\"%s\">문서</a>와 <a target=\"_blank\" href=\"http://owncloud.org\">웹사이트</a>에 있습니다."
+
+#: templates/wizard.php:42
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "ownCloud를 좋아하신다면 <a href=\"mailto:?subject=ownCloud&body=ownCloud는 내 파일을 공유하고 동기화할 수 있는 공개 소프트웨어입니다. http://owncloud.org 사이트에서 무료로 사용할 수 있습니다.\">친구들에게 알려 주세요</a>!"

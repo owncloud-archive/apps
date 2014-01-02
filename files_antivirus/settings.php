@@ -25,6 +25,7 @@ OCP\User::checkAdminUser();
 
 $params = array(
 	'av_mode' => 'executable',
+	'av_socket' => '/var/run/clamav/clamd.ctl',
 	'av_host' => '',
 	'av_port' => '',
 	'av_chunk_size' => '1024',
@@ -42,7 +43,7 @@ if($_POST){
 }
 
 // fill template
-$tmpl = new OC_Template( 'files_antivirus', 'settings');
+$tmpl = new OCP\Template( 'files_antivirus', 'settings');
 $tmpl->assign('requesttoken', OCP\Util::callRegister());
 OCP\Util::addScript('files_antivirus', 'settings');
 foreach($params as $param => $default){

@@ -21,10 +21,6 @@
  * 
  */
 
-OCP\Util::addStyle( 'impress', 'style');
-
-OCP\App::register(array('order' => 70, 'id' => 'impress', 'name' => 'Impress'));
-
 OCP\App::addNavigationEntry(array(
 	'id' => 'impress_index', 
 	'order' => 80, 

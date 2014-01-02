@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Donahue Chuang <soshinwu@gmail.com>, 2012.
-# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
-# ywang  <ywang1007@gmail.com>, 2012.
+# chenanyeh <chnjsn1221@gmail.com>, 2013
+# Donahue Chuang, 2012
+# pellaeon <nfsmwlin@gmail.com>, 2013
+# ywang <ywang1007@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -24,9 +25,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "圖片"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
 msgstr "由...分享"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "載入投影片檢視樣板時發生錯誤"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -37,3 +46,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "必須啓用 \"Image Viewer\" （圖片檢視器）應用程式才能使用本應用程式。"
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

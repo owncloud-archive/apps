@@ -20,7 +20,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-$l=OC_L10N::get('admin_dependencies_chk');
+$l=OCP\Util::getL10N('admin_dependencies_chk');
 $tmpl = new OCP\Template( 'admin_dependencies_chk', 'settings');
 
 $modules = array();

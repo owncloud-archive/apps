@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013
+# stendec <stendec@inbox.lv>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 12:51+0000\n"
-"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-21 00:49-0500\n"
+"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"Last-Translator: stendec <stendec@inbox.lv>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,58 +53,71 @@ msgstr "Izpildāmais"
 msgid "Daemon"
 msgstr "Dēmons"
 
-#: templates/settings.php:7
-msgid "Host"
-msgstr "Resursdators"
+#: templates/settings.php:5
+msgid "Daemon (Socket)"
+msgstr "Dēmons (Ligzda)"
 
 #: templates/settings.php:7
-msgid "Address of Antivirus Host."
-msgstr "Antivīrusa servera adrese."
+msgid "Socket"
+msgstr "Ligzda (Socket)"
+
+#: templates/settings.php:7
+msgid "Clamav Socket."
+msgstr "Clamav Ligzda"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+#: templates/settings.php:10
 msgid "Not required in Executable Mode."
 msgstr "Nav nepieciešams izpildāmā režīmā."
 
 #: templates/settings.php:8
+msgid "Host"
+msgstr "Resursdators"
+
+#: templates/settings.php:8
+msgid "Address of Antivirus Host."
+msgstr "Antivīrusa servera adrese."
+
+#: templates/settings.php:9
 msgid "Port"
 msgstr "Ports"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Port number of Antivirus Host."
 msgstr "Antivīrusa servera porta numurs."
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Stream Length"
 msgstr "Straumes garums"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength vērtība baitos."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan"
 msgstr "Ceļš uz clamscan"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Path to clamscan executable."
 msgstr "Ceļš uz clamscan izpildāmo datni."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Daemon Mode."
 msgstr "Nav vajadzīgs dēmona režīmā."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Action for infected files found while scanning"
 msgstr "Darbība, ko veikt ar skenēšanas laikā atrastajām inficētajām datnēm"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Only log"
 msgstr "Tikai reģistrēt"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Delete file"
 msgstr "Dzēst datni"
 
-#: templates/settings.php:14
+#: templates/settings.php:16
 msgid "Save"
 msgstr "Saglabāt"

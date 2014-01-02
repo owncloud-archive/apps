@@ -1,9 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Export this ownCloud instance" => "Az ownCloud példány exportálása",
-"This will create a compressed file that contains the data of this owncloud instance." => "Ez egy tömörített fájlt fog létrehozni, ami tartalmazza ennek az ownCloud példánynak az adatait.",
-"Please choose the export type:" => "Válassza ki az exportálás típusát:",
-"ownCloud instance (user data and database" => "ownCloud példány (felhasználói adatok és adatbázis)",
-"ownCloud system files" => "ownCloud rendszerfájlok",
-"Just user files" => "Csak felhasználói fájlok",
+"Export data" => "Adat exportálása",
+"All system files and user data" => "Összes rendszerfájl és felhasználói adat",
+"Only system files" => "Csak a rendszerfájlok",
+"Only user data" => "Csak felhasználói adatok",
 "Export" => "Exportálás"
 );

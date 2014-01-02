@@ -3,17 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 남자사람  <cessnagi@gmail.com>, 2012.
-#   <limonade83@gmail.com>, 2012.
-# Park Shinjo <kde@peremen.name>, 2013.
-# Shinjo Park <kde@peremen.name>, 2012.
+# 남자사람 <cessnagi@gmail.com>, 2012
+# 남자사람 <cessnagi@gmail.com>, 2012
+# yunhye <limonade83@gmail.com>, 2012
+# Shinjo Park <kde@peremen.name>, 2013
+# Park Shinjo <peremen@gmail.com>, 2013
+# Shinjo Park <kde@peremen.name>, 2012-2013
+# yunhye <limonade83@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-12-24 00:49-0500\n"
+"PO-Revision-Date: 2013-12-22 14:24+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +24,21 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 js/gallery.js:258
 msgid "Pictures"
 msgstr "사진"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
 msgstr "공유한 사용자:"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr "사진 보기"
+
+#: js/slideshow.js:329
+msgid "Error loading slideshow template"
+msgstr "슬라이드 쇼 템플릿을 불러오는 중 오류 발생"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -38,3 +49,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "이 앱을 사용하려면 \"그림 뷰어\" 앱을 활성화해야 합니다."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr "%s 님이 <strong>%s</strong>을(를) 공유하였습니다"
+
+#: templates/public.php:16
+msgid "File list"
+msgstr "파일 목록"

@@ -3,19 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cédric MARTIN <sid50.martin@gmail.com>, 2013.
-# Geoffrey Guerrier <geoffrey.guerrier@gmail.com>, 2012.
-# Nahir Mohamed <nahirmoha@gmail.com>, 2012.
-#   <rom1dep@gmail.com>, 2012.
-# Romain DEP. <rom1dep@gmail.com>, 2012.
-# Soul Kim <warlock.rf@gmail.com>, 2012.
+# Flywall <sid50.martin@gmail.com>, 2013
+# Christophe Lherieau <skimpax@gmail.com>, 2013
+# Geoffrey Guerrier <geoffrey.guerrier@gmail.com>, 2012
+# lyly95, 2013
+# Nahir Mohamed <nahirmoha@gmail.com>, 2012
+# nferrari <nferrari@alwaysdata.com>, 2013
+# Romain DEP. <rom1dep@gmail.com>, 2012
+# Romain DEP. <rom1dep@gmail.com>, 2012
+# Soul Kim <warlock.rf@gmail.com>, 2012
+# RyDroid <rydroid_trans@yahoo.fr>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-29 12:06-0500\n"
+"PO-Revision-Date: 2013-11-27 21:50+0000\n"
+"Last-Translator: RyDroid <rydroid_trans@yahoo.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,9 +31,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "Images"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
-msgstr "Partager par"
+msgstr "Partagé par"
+
+#: js/public.js:9
+msgid "Picture view"
+msgstr "Visualisation de l'image"
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "Erreur lors du téléchargement du gabarit de diaporama "
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -39,4 +51,13 @@ msgstr "Partager"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "L'application \"Visualiseur d'Image\" nécessite d'être autorisée à utiliser cette application."
+msgstr "L'application \"Visualiseur d'Image\" nécessite également d'être activée pour utiliser cette application."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr "%s partagé <strong>%s</strong> avec vous"
+
+#: templates/public.php:16
+msgid "File list"
+msgstr "Liste des fichiers"

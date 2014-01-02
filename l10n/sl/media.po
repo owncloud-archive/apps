@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <>, 2012.
-#   <peter.perosa@gmail.com>, 2012.
-# Peter Peroša <peter.perosa@gmail.com>, 2012.
-#   <urossolar@hotmail.com>, 2011.
+# mateju <>, 2012
+# mateju <>, 2013
+# Peter Peroša <peter.perosa@gmail.com>, 2012
+# Peter Peroša <peter.perosa@gmail.com>, 2012
+# urossolar <urossolar@hotmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Glasba"
 
@@ -41,50 +42,50 @@ msgstr "Dodaj na seznam predvajanja"
 msgid "Add album to playlist"
 msgstr "Dodaj album na seznam predvajanja"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Predhodna"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Predvajaj"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Premor"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Predhodna"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Naslednja"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Utišaj"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Povrni glasnost"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Ponovno preišči zbirko"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "Naslov Ampache:"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Izvajalec"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Album"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Naslov"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr ""

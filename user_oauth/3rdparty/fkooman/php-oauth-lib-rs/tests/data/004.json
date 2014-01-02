@@ -1,0 +1,19 @@
+{
+    "active": true, 
+    "client_id": "html-manage-authorizations", 
+    "exp": 1766844432, 
+    "iat": 1366815632, 
+    "scope": "authorizations", 
+    "sub": "48a5788a56b3dc9035e981aa9c8924360c1906e4", 
+    "x-entitlement": [
+        "urn:x-oauth:entitlement:applications"
+    ], 
+    "x-ext": {
+        "schacHomeOrganization": [
+            "localhost"
+        ], 
+        "uid": [
+            "admin"
+        ]
+    }
+}

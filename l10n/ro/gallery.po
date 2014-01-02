@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Claudiu  <claudiu@tanaselia.ro>, 2012.
-# Dimon Pockemon <>, 2012.
-# Eugen Mihalache <eugemjj@gmail.com>, 2012.
-#   <g.ciprian@osn.ro>, 2012.
+# Claudiu, 2012
+# Dimon Pockemon <>, 2012
+# Eugen Mihalache <eugemjj@gmail.com>, 2012
+# g.ciprian <g.ciprian@osn.ro>, 2012
+# inaina <ina.c.ina@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-26 01:20-0500\n"
+"PO-Revision-Date: 2013-11-26 06:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -25,9 +26,17 @@ msgstr ""
 msgid "Pictures"
 msgstr "Imagini"
 
-#: js/gallery.js:237
+#: js/gallery.js:296
 msgid "Shared by"
+msgstr "impartite in "
+
+#: js/public.js:9
+msgid "Picture view"
 msgstr ""
+
+#: js/slideshow.js:323
+msgid "Error loading slideshow template"
+msgstr "eroare la incarcarea modelului "
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -38,3 +47,12 @@ msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
 msgstr "Și aplicația \"Vizualizator imagini\" trebuie, de asemenea, să fie activată pentru a putea folosi această aplicație."
+
+#: templates/public.php:9
+#, php-format
+msgid "%s shared <strong>%s</strong> with you"
+msgstr ""
+
+#: templates/public.php:16
+msgid "File list"
+msgstr ""

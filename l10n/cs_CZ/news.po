@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:42+0000\n"
-"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,163 +19,123 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "rok"
-
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Novinky"
 
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "bez názvu"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Nový"
 
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "bez názvu"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "bez těla"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "odběry v ownCloud - Novinky"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Nastala chyba"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Dobře. Jste přihlášen k "
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Tento kanál již odebíráte."
-
-#: templates/main.php:15
-msgid "New articles"
-msgstr "Nové články"
-
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "Označit vše jako přečtené"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "S hvězdičkou"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "Sdílet"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "Ponechat nepřečteno"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "Smazat kanál"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "Svinout"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "Smazat složku"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "Přejmenovat složku"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "Přidat odběr"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "Složka do které se uloží kanál"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- zvolte složku --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "Adresa nesmí být prázdná."
 
-#: templates/part.settings.php:21
-msgid "Feed exists already!"
-msgstr "Kanál již existuje."
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.settings.php:22
-msgid "Could not add feed!"
-msgstr "Nelze přidat kanál."
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
+msgstr "Složka již existuje"
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "Adresa"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "Přidat"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "Přidat složku"
+#: templates/part.addnew.php:30
+msgid "New folder"
+msgstr "Nová složka"
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "Název složky nesmí být prázdný."
+#: templates/part.addnew.php:31
+msgid "Folder"
+msgstr "Složka"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "Složka již existuje"
+#: templates/part.addnew.php:36
+msgid "No folder"
+msgstr "Žádná složka"
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "Název složky"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "S hvězdičkou"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "Zobrazit vše"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr "Nepřečtené články"
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "Zobrazit pouze nepřečtené"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr "Všechny články"
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "Nastavení"
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "Označit vše jako přečtené"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "Přidat kanál, či složku"
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "Přidat Kanál/složku"
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "Import / Export"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
+msgstr "Nelze přehrát formát zvuku"
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "Importovat OPML"
+#: templates/part.items.php:52
+msgid "Keep unread"
+msgstr "Ponechat nepřečteno"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "Exportovat OPML"
+#: templates/part.listfeed.php:20
+msgid "Delete feed"
+msgstr "Smazat kanál"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Svinout"
+
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr "Smazat složku"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Přejmenovat složku"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr "Importovat / Exportovat OPML"
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importovat"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "Exportovat"
+
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subscribelet"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr "Zobrazit vše"
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Zobrazit pouze nepřečtené"
 
 #: templates/part.subscribelet.php:3
 msgid ""
@@ -186,3 +146,19 @@ msgstr "Přetáhněte do Vašeho prohlížeče a klikněte, pokud si přejete ry
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Odebírat"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Nastala chyba"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Dobře. Jste přihlášen k "
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Tento kanál již odebíráte."
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "odběry v ownCloud - Novinky"

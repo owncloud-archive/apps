@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# CJTess <claudio.tessone@gmail.com>, 2013.
-#   <claudio.tessone@gmail.com>, 2012.
+# cjtess <claudio.tessone@gmail.com>, 2013
+# cjtess <claudio.tessone@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +19,103 @@ msgstr ""
 "Language: es_AR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr "En progreso..."
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Verificando tu instalación..."
 
-#: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr "Listo. Recargá la página para continuar."
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "No es posible actualizar. Asegurate que tu servidor web tiene permisos de escritura en los siguientes archivos y directorios:"
 
-#: js/updater.js:19 js/updater.js:25
-msgid "Error"
-msgstr "Error"
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Versión no encontrada"
 
-#: templates/admin.php:24
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "No es posible actualizar. Tu servidor web no tiene permisos suficientes para borrar el siguiente directorio:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Actualizar permisos en este directorio y sus contenidos, o primero borralo manualmente"
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Descargando paquete"
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "No es posible obtener el paquete"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Creando copia de seguridad..."
+
+#: ajax/update.php:96
+msgid "Here is your backup: "
+msgstr "Acá está tu copia de seguridad:"
+
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "No fue posible crear una copia de seguridad"
+
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Moviendo archivos..."
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Listo. Hacé click en el enlace más abajo para comenzar la actualización de la base de datos."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Error al actualizar"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "La actualización no fue exitosa. Reportá este problema a la comunidad e <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud</a>."
+
+#: templates/admin.php:17
+msgid "Update Center"
+msgstr "Centro de actualización"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Administración de copias de seguridad"
+
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Actualizar"
+
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Directorio de copias de seguridad"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Copia de seguridad"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "hecha el"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Descargar"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Borrar"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "No se encontraron copias de seguridad"

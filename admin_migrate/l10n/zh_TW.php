@@ -1,9 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Export this ownCloud instance" => "匯出這個 ownCloud 實體",
-"This will create a compressed file that contains the data of this owncloud instance." => "這個將會建立此 ownCloud 實體的壓縮檔.",
-"Please choose the export type:" => "請選擇匯出的類型:",
-"ownCloud instance (user data and database" => "ownCloud 實體 (使用者資料與資料庫",
-"ownCloud system files" => "ownCloud 系統檔案",
-"Just user files" => "只有 使用者 檔案",
+"Export data" => "匯出資料",
+"All system files and user data" => "全部的系統檔案與使用者資料",
+"Only system files" => "僅限系統檔案",
+"Only user data" => "僅限使用者資料",
 "Export" => "匯出"
 );

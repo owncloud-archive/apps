@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 08:10+0000\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,163 +20,123 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "년"
-
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "뉴스"
 
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "제목 없음"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "새로 만들기"
 
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "이름 없음"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "본문 없음"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "ownCloud 뉴스 구독"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "오류가 발생하였습니다."
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "좋습니다! 다음 피드를 구독합니다:"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "이 피드를 이미 구독하고 있습니다!"
-
-#: templates/main.php:15
-msgid "New articles"
-msgstr "새 글"
-
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "모두 읽은 글로 표시"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "별표"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "공유"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "읽지 않은 글로 두기"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "피드 삭제"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "접기"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "폴더 삭제"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "폴더 이름 바꾸기"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "구독 추가"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "피드를 저장할 폴더"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- 폴더 선택 --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "주소를 입력해야 합니다!"
 
-#: templates/part.settings.php:21
-msgid "Feed exists already!"
-msgstr "피드가 이미 존재합니다!"
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.settings.php:22
-msgid "Could not add feed!"
-msgstr "피드를 추가할 수 없습니다!"
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
+msgstr ""
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "주소"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "추가"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "폴더 추가"
+#: templates/part.addnew.php:30
+msgid "New folder"
+msgstr ""
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "폴더 이름을 입력해야 합니다!"
+#: templates/part.addnew.php:31
+msgid "Folder"
+msgstr "폴더"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "폴더가 이미 존재합니다!"
+#: templates/part.addnew.php:36
+msgid "No folder"
+msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "폴더 이름"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "별표"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "모두 보기"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr ""
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "읽지 않은 글만 보기"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr ""
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "설정"
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "모두 읽은 글로 표시"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "피드 또는 폴더 추가"
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "피드/폴더 추가"
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "가져오기/내보내기"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
+msgstr ""
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "OPML 가져오기"
+#: templates/part.items.php:52
+msgid "Keep unread"
+msgstr "읽지 않은 글로 두기"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "OPML 내보내기"
+#: templates/part.listfeed.php:20
+msgid "Delete feed"
+msgstr "피드 삭제"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "접기"
+
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr "폴더 삭제"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "폴더 이름 바꾸기"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "가져오기"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "내보내기"
+
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "구독물"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "읽지 않은 글만 보기"
 
 #: templates/part.subscribelet.php:3
 msgid ""
@@ -187,3 +147,19 @@ msgstr "웹 브라우저 책갈피 항목에 다음 링크를 끌어다 놓으�
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "구독"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "오류가 발생하였습니다."
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "좋습니다! 다음 피드를 구독합니다:"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "이 피드를 이미 구독하고 있습니다!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "ownCloud 뉴스 구독"

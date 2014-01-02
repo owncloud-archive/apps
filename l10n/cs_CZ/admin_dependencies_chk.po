@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Martin  <fireball@atlas.cz>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Twiguard <nightwitcher@seznam.cz>, 2013
+# Martin <fireball@atlas.cz>, 2012
+# pstast <petr@stastny.eu>, 2013
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-21 02:02+0200\n"
-"PO-Revision-Date: 2012-09-20 09:11+0000\n"
-"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
+"POT-Creation-Date: 2013-08-01 00:49-0400\n"
+"PO-Revision-Date: 2013-07-31 15:50+0000\n"
+"Last-Translator: pstast <petr@stastny.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +30,7 @@ msgstr "Modul php-json je potřeba pro vzájemnou komunikaci mnoha aplikací"
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr "Modul php-curl je potřeba pro stažení názvu stránky při přidávání záložky"
+msgstr "Modul php-curl je potřeba pro získání názvu stránky při vytváření záložky"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -40,7 +42,7 @@ msgstr "Modul php-ldap je potřeba pro připojení k Vašemu ldap serveru"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr "Modul php-zip je potřeba pro souběžné stahování více souborů"
+msgstr "Modul php-zip je potřeba pro stažení více souborů zároveň"
 
 #: settings.php:63
 msgid ""
@@ -59,7 +61,7 @@ msgstr "Modul php-xml je potřeba ke sdílení souborů prostřednictvím WebDAV
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "Příkaz allow_url_fopen ve Vašem souboru php.ini by měl být nastaven na 1 pro získávání informací ze serverů OCS"
+msgstr "Příkaz allow_url_fopen ve Vašem souboru php.ini by měl být nastaven na 1 pro získávání znalostní báze ze serverů OCS"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."

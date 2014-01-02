@@ -1,0 +1,176 @@
+.activitysubject {
+	font-size:1.0em;
+	color: #333;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+}
+.activitymessage {
+	font-size:0.8em;
+	color:#666;
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+}
+
+.noactivities{
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.noactivities .head{
+	font-size: 1.5em;
+	color: #333;
+	font-weight: bold;
+	text-shadow: #fff 0 1px 0;
+}
+.noactivities .body{
+	color: #666;
+	margin-top: 10px;
+	font-size: 1em;
+}
+
+.rssbutton {
+	font-size: 0.8em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px 5px;
+}
+
+#container {
+  background: #FFF;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+		  border-radius: 5px;
+}
+
+.group{
+	clear: both;
+	padding-bottom: 10px;
+}
+
+.groupheader{
+	font-weight: bold;
+	font-size:2.2em;
+	color: #666;
+	border-top: 1px solid #DDD;
+	padding: 20px 20px 10px 20px;
+	clear: both;
+	display: block;
+}
+
+.group:first-child .groupheader{
+	border-top: none;
+}
+
+.box {
+	width: 240px;
+	float: left;
+	padding: 15px;
+	margin: 10px;
+	background: #EEE;
+	font-weight: 300;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 5px;
+	 -moz-border-radius: 5px;
+		  border-radius: 5px;
+}
+
+.box.loaded{
+	transition: opacity 1s ease;
+	-ms-transition: opacity 1s ease;
+	-moz-transition: opacity 1s ease;
+	-o-transition: opacity 1s ease;
+	-webkit-transition: opacity 1s ease;
+	opacity: 1;
+}
+
+.box.loading{
+	opacity: 0;
+}
+
+.box .avatar{
+	float: left;
+	margin-right: 20px;
+}
+
+.box .header{
+	height: 32px;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+}
+
+.box .messagecontainer{
+	width: 100%;
+	display: block;
+}
+
+.box .preview{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 150px;
+	height: 150px;
+}
+
+.box .user{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	display: inline-block;
+	width: 180px;
+}
+
+.box .user{
+	font-weight: bold;
+}
+
+.box .activitytime {
+	float: left;
+	color:#666;
+	font-size: 0.8em;
+}
+
+.box .appname {
+	float: right;
+	color: #333;
+	font-size: 0.8em;
+}
+
+.box .grouped{
+	list-style: none;
+}
+
+.box .grouped .more{
+	cursor: default;
+	color: #666;
+	text-align: right;
+}
+
+/* Infinite Scroll loader */
+#infscr-loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  left: 45%;
+  bottom: 40px;
+  width: 200px;
+  padding: 10px;
+  background: #000;
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+	 -moz-border-radius: 10px;
+		  border-radius: 10px;
+}
+

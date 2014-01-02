@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
-"In progress..." => "Notiek...",
-"Done. Reload the page to proceed." => "Pabeigts. Pārlādējiet lapu, lai turpinātu.",
-"Error" => "Kļūda",
-"Update" => "Atjaunināt"
+"Here is your backup: " => "Šeit ir jūsu dublējums:",
+"Update" => "Atjaunināt",
+"Download" => "Lejupielādēt",
+"Delete" => "Dzēst"
 );

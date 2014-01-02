@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <skoptev@ukr.net>, 2012.
+# skoptev <skoptev@ukr.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 11:12+0000\n"
-"Last-Translator: skoptev <skoptev@ukr.net>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,3 +26,15 @@ msgstr "Документація"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "Не знайдено Impress-файлів у Вашому ownCloud. Будь ласка, завантажте .impress файл."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Ім'я"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Розмір"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Дата"

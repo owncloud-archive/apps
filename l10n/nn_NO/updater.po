@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unhammer <unhammer+dill@mm.st>, 2013
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:40+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-11-21 04:26-0500\n"
+"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,18 +19,103 @@ msgstr ""
 "Language: nn_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/updater.js:5
-msgid "In progress..."
-msgstr ""
+#: ajax/update.php:25
+msgid "Checking your installation..."
+msgstr "Kontrollerer installasjonen din …"
 
-#: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr ""
+#: ajax/update.php:37
+msgid ""
+"Upgrade is not possible. Make sure that your webserver has write access to "
+"the following files and directories:"
+msgstr "Kan ikkje oppgradera. Kontroller at vevtenaren din har skrivetilgang til dei følgjande filene og mappene:"
 
-#: js/updater.js:19 js/updater.js:25
-msgid "Error"
-msgstr "Feil"
+#: ajax/update.php:60
+msgid "Version not found"
+msgstr "Fann ikkje utgåva"
 
-#: templates/admin.php:24
+#: ajax/update.php:67 ajax/update.php:76
+msgid ""
+"Upgrade is not possible. Your webserver has not enough permissions to remove"
+" the following directory:"
+msgstr "Kan ikkje oppgradera. Vevtenaren din har ikkje tilgang til å fjerna følgjande mappe:"
+
+#: ajax/update.php:69 ajax/update.php:78
+msgid ""
+"Update permissions on this directory and its content or remove it manually "
+"first."
+msgstr "Oppdater filtilgangen på denne mappa og innhaldet, eller fjern mappa for hand først."
+
+#: ajax/update.php:85
+msgid "Downloading package..."
+msgstr "Lastar ned pakka …"
+
+#: ajax/update.php:89
+msgid "Unable to fetch package"
+msgstr "Klarte ikkje å henta pakka"
+
+#: ajax/update.php:94
+msgid "Creating backup..."
+msgstr "Lagar tryggleikskopi …"
+
+#: ajax/update.php:96
+msgid "Here is your backup: "
+msgstr "Her er tryggleikskopien din:"
+
+#: ajax/update.php:99
+msgid "Failed to create backup"
+msgstr "Klarte ikkje å laga tryggleikskopi"
+
+#: ajax/update.php:103
+msgid "Moving files..."
+msgstr "Flyttar filer …"
+
+#: ajax/update.php:109
+msgid "All done. Click to the link below to start database upgrade."
+msgstr "Ferdig. Klikk lenkja nedanfor for å starta databaseoppgraderinga."
+
+#: ajax/update.php:112
+msgid "Update failed"
+msgstr "Feil ved oppdatering"
+
+#: js/controllers.js:25
+msgid ""
+"The update was unsuccessful. Please report this issue to the <a "
+"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
+"community</a>."
+msgstr "Feil ved oppdatering. Ver venleg og rapporter denne hendinga til <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud-fellesskapet</a>."
+
+#: templates/admin.php:17
+msgid "Update Center"
+msgstr "Oppdateringssenter"
+
+#: templates/update.php:18
+msgid "Backup Management"
+msgstr "Handtering av tryggleikskopiar"
+
+#: templates/update.php:19 templates/update.php:44
 msgid "Update"
 msgstr "Oppdater"
+
+#: templates/update.php:22
+msgid "Backup directory"
+msgstr "Mappe for tryggleikskopiar"
+
+#: templates/update.php:27
+msgid "Backup"
+msgstr "Tryggleikskopi"
+
+#: templates/update.php:28
+msgid "Done on"
+msgstr "Utført på"
+
+#: templates/update.php:34 templates/update.php:35
+msgid "Download"
+msgstr "Last ned"
+
+#: templates/update.php:36
+msgid "Delete"
+msgstr "Slett"
+
+#: templates/update.php:38
+msgid "No backups found"
+msgstr "Fann ingen tryggleikskopiar"

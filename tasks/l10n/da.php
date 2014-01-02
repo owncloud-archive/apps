@@ -1,8 +1,8 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Ugyldig dato/tid",
 "Tasks" => "Opgaver",
-"Due" => "På grund af",
-"List" => "Liste",
+"Due" => "Forfald",
+"List" => "Type",
 "Location" => "Placering",
 "No category" => "Ingen kategori",
 "Unspecified" => "Uspecificeret",
