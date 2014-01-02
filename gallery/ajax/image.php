@@ -22,7 +22,12 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 
 	list($owner, $img) = explode('/', $_GET['file'], 2);
 	if ($owner !== OCP\User::getUser()) {
-		list(, $img) = explode('/', $img, 2);
+		OC_Util::setupFS($owner);
+		$view = new \OC\Files\View('/' . $owner . '/files');
+		// second part is the (duplicated) share name
+		list($folderId, , $img) = explode('/', $img, 3);
+		$sharedFolder = $view->getPath($folderId);
+		$img = $sharedFolder . '/' . $img;
 	}
 }
 
