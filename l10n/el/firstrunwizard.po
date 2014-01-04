@@ -6,13 +6,13 @@
 # Dimitris M. <monopatis@gmail.com>, 2013
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2013
 # Marios Bekatoros <>, 2013
-# vkehayas <vkehayas@gmail.com>, 2013
+# vkehayas <vkehayas@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-23 22:08-0500\n"
-"PO-Revision-Date: 2013-11-23 01:30+0000\n"
+"POT-Creation-Date: 2014-01-04 00:49-0500\n"
+"PO-Revision-Date: 2014-01-02 18:20+0000\n"
 "Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -29,23 +29,23 @@ msgstr "Καλώς ήλθατε στο ownCloud"
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr "Οι προσωπικές υπηρεσίες ιστού. Όλα τα αρχεία, οι επαφές, το ημερλόγιό σας και πολλά άλλα, σε μια τοποθεσία."
+msgstr "Οι προσωπικές υπηρεσίες ιστού. Όλα τα αρχεία, οι επαφές, το ημερολόγιό σας και πολλά άλλα, σε μια τοποθεσία."
 
 #: templates/wizard.php:15
 msgid "Get the apps to sync your files"
-msgstr "Λήψη της εφαρμογής για συγχρονισμό των αρχείων σας"
+msgstr "Λήψη των εφαρμογών για συγχρονισμό των αρχείων σας"
 
 #: templates/wizard.php:26
 msgid "Connect your desktop apps to ownCloud"
-msgstr "Συνδέστε την εφαρμογή του υπολογιστή σας με το ownCloud"
+msgstr "Συνδέστε τις εφαρμογές των υπολογιστών σας με το ownCloud"
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
-msgstr "Συνδεθείτε στο Ημερολόγιό σας"
+msgstr "Συνδέστε το Ημερολόγιό σας"
 
 #: templates/wizard.php:32
 msgid "Connect your Contacts"
-msgstr "Συνδεθείτε στις Επαφές σας"
+msgstr "Συνδέστε τις Επαφές σας"
 
 #: templates/wizard.php:36
 msgid "Access files via WebDAV"
@@ -64,4 +64,4 @@ msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr "Εάν σας άρεσε το ownCloud, <a href=\"mailto:?subject=ownCloud&body=Το ownCloud είναι καταπληκτικό λογισμικό για συγχρονισμό και διαμοιρασμό των αρχείων σας. Μπορείτε να το κατεβάσετε δωρεάν από την ιστοσελίδα http://owncloud.org\">συστήστε το και στους φίλους σας</a>!"
+msgstr "Εάν σας άρεσε το ownCloud, <a href=\"mailto:?subject=ownCloud&body=Το ownCloud είναι καταπληκτικό ανοιχτό λογισμικό για το συγχρονισμό και διαμοιρασμό των αρχείων σας. Μπορείτε να το λάβετε δωρεάν από την ιστοσελίδα http://owncloud.org\">συστήστε το και στους φίλους σας</a>!"

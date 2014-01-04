@@ -6,14 +6,14 @@
 # axil Pι <axilleas@archlinux.gr>, 2013
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2013
 # Marios Bekatoros <>, 2012
-# vkehayas <vkehayas@gmail.com>, 2013
+# vkehayas <vkehayas@gmail.com>, 2013-2014
 # Γιάννης Ανθυμίδης <yannanth@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-23 22:08-0500\n"
-"PO-Revision-Date: 2013-11-23 01:20+0000\n"
+"POT-Creation-Date: 2014-01-04 00:49-0500\n"
+"PO-Revision-Date: 2014-01-02 17:30+0000\n"
 "Last-Translator: vkehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -30,23 +30,23 @@ msgstr "Έλεγχος της εγκατάστασής σας..."
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr "Δεν ήταν δυνατή η αναβάθμιση. Σιγουρευτείτε ότι ο διακομιστής σας έχει δικαιώματα εγγραφής στα ακόλουθα αρχεία και καταλόγους:"
+msgstr "Δεν ήταν δυνατή η αναβάθμιση. Σιγουρευτείτε ότι ο διακομιστής ιστοσελίδων σας έχει άδεια εγγραφής στα ακόλουθα αρχεία και καταλόγους:"
 
 #: ajax/update.php:60
 msgid "Version not found"
-msgstr "Δεν βρέθηκε έκδοση"
+msgstr "Δεν βρέθηκε η έκδοση"
 
 #: ajax/update.php:67 ajax/update.php:76
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr "Δεν ήταν δυνατή η αναβάθμιση. Ο διακομιστής σας δεν έχει επαρκή δικαιώματα να αφαιρέσει τον παρακάτω κατάλογο:"
+msgstr "Δεν ήταν δυνατή η αναβάθμιση. Ο διακομιστής ιστοσελίδων σας δεν έχει επαρκή δικαιώματα να αφαιρέσει τον παρακάτω κατάλογο:"
 
 #: ajax/update.php:69 ajax/update.php:78
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr "Ενημερώστε τα δικαιώματα σε αυτόν τον κατάλογο και τα περιεχόμενά του ή αφαιρέστε τα πρώτα χειροκίνητα."
+msgstr "Ενημερώστε τις άδειες σε αυτόν τον κατάλογο και τα περιεχόμενά του ή αφαιρέστε τον πρώτα χειροκίνητα."
 
 #: ajax/update.php:85
 msgid "Downloading package..."
@@ -58,7 +58,7 @@ msgstr "Αδυναμία λήψης πακέτου"
 
 #: ajax/update.php:94
 msgid "Creating backup..."
-msgstr "Δημιουργία αντιγράφων ασφαλείας..."
+msgstr "Δημιουργία αντιγράφου ασφαλείας..."
 
 #: ajax/update.php:96
 msgid "Here is your backup: "
