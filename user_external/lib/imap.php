@@ -6,10 +6,11 @@
  * See the COPYING-README file.
  */
 
-class OC_User_IMAP extends OC_User_Backend{
+class OC_User_IMAP extends OC_User_External_Base {
 	private $mailbox;
 
 	public function __construct($mailbox) {
+		parent::__construct($mailbox);
 		$this->mailbox=$mailbox;
 	}
 
@@ -31,13 +32,10 @@ class OC_User_IMAP extends OC_User_Backend{
 		imap_alerts();
 		if($mbox) {
 			imap_close($mbox);
+			$this->storeUser($uid);
 			return $uid;
 		}else{
 			return false;
 		}
-	}
-
-	public function userExists($uid) {
-		return true;
 	}
 }

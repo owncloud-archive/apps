@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class OC_User_FTP extends OC_User_Backend{
+class OC_User_FTP extends OC_User_External_Base{
 	private $host;
 	private $secure;
 	private $protocol;
@@ -18,6 +18,7 @@ class OC_User_FTP extends OC_User_Backend{
 		if($this->secure) {
 			$this->protocol.='s';
 		}
+		parent::__construct($this->protocol . '://' . $this->host);
 	}
 
 	/**
@@ -36,13 +37,10 @@ class OC_User_FTP extends OC_User_Backend{
 		$url = sprintf('%s://%s:%s@%s/', $this->protocol, $uid, $password, $this->host);
 		$result=@opendir($url);
 		if(is_resource($result)) {
+			$this->storeUser($uid);
 			return $uid;
 		}else{
 			return false;
 		}
-	}
-
-	public function userExists($uid) {
-		return true;
 	}
 }

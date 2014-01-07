@@ -13,6 +13,7 @@ class OC_User_SMB extends OC_User_Backend{
 	const loginError='NT_STATUS_LOGON_FAILURE';
 
 	public function __construct($host) {
+		parent::__construct($host);
 		$this->host=$host;
 	}
 
@@ -41,11 +42,8 @@ class OC_User_SMB extends OC_User_Backend{
 			OCP\Util::writeLog('user_external', 'ERROR: smbclient error: ' . trim($lastline), OCP\Util::ERROR);
 			return false;
 		} else {
+			$this->storeUser($uid);
 			return $uid;
 		}
-	}
-
-	public function userExists($uid) {
-		return true;
 	}
 }
