@@ -199,6 +199,10 @@ function showFileEditor(dir, filename) {
 			$('#editor').remove();
 			// Loads the file editor and display it.
 			$('#content').append('<div id="editor_container"><div id="editor"></div></div>');
+
+			// bigger text for better readability
+			document.getElementById('editor').style.fontSize = '16px';
+
 			var data = $.getJSON(
 				OC.filePath('files_texteditor', 'ajax', 'loadfile.php'),
 				{file: filename, dir: dir},
