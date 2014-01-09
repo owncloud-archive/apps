@@ -10,7 +10,7 @@
 		</div>
 	</div>
 </header>
-<div id="content">
+<div id="content" data-albumname="<?php p($_['albumName'])?>">
 	<div id="controls">
 		<div id='breadcrumbs'></div>
 		<div id='openAsFileListButton' class="button"><?php p($l->t('File list')) ?></div>
