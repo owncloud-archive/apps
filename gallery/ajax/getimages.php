@@ -71,7 +71,8 @@ foreach ($sharedSources as $sharedSource) {
 		$shareView = new \OC\Files\View('/' . $owner . '/files' . $path);
 		$sharedImages = $shareView->searchByMime('image');
 		foreach ($sharedImages as $sharedImage) {
-			$sharedImage['path'] = $owner . $sharedSource['file_target'] . '/' . $shareName . $sharedImage['path'];
+			// set the file_source in the path so we can get the original shared folder later
+			$sharedImage['path'] = $owner . '/' . $sharedSource['file_source'] . '/' . $shareName . $sharedImage['path'];
 			$images[] = $sharedImage;
 		}
 	}
