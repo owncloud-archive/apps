@@ -17,15 +17,15 @@
     <name>backend</name>
     <type>text</type>
     <default></default>
-    <notnull>true</notnull>
-    <length>255</length>
+    <notnull>false</notnull>
+    <length>128</length>
    </field>
 
    <field>
     <name>uid</name>
     <type>text</type>
     <default></default>
-    <notnull>true</notnull>
+    <notnull>false</notnull>
     <length>64</length>
    </field>
 

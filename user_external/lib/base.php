@@ -1,10 +1,12 @@
 <?php
+namespace OCA\user_external;
 /**
- * Copyright (c) 2013 Christian Weiske <cweiske@cweiske.de>
+ * Copyright (c) 2014 Christian Weiske <cweiske@cweiske.de>
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
  */
+use \OC_DB;
 
 /**
  * Base class for external auth implementations that stores users
@@ -12,7 +14,7 @@
  * This is required for making many of the user-related owncloud functions
  * work, including sharing files with them.
  */
-abstract class OC_User_External_Base extends OC_User_Backend{
+abstract class Base extends \OC_User_Backend{
 	protected $backend = '';
 
 	public function __construct($backend) {

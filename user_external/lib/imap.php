@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class OC_User_IMAP extends OC_User_External_Base {
+class OC_User_IMAP extends \OCA\user_external\Base {
 	private $mailbox;
 
 	public function __construct($mailbox) {

@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class OC_User_FTP extends OC_User_External_Base{
+class OC_User_FTP extends \OCA\user_external\Base{
 	private $host;
 	private $secure;
 	private $protocol;

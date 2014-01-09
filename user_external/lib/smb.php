@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class OC_User_SMB extends OC_User_Backend{
+class OC_User_SMB extends \OCA\user_external\Base{
 	private $host;
 
 	const smbclient='smbclient';
