@@ -9,6 +9,7 @@
 namespace OCA\Gallery;
 
 use OC\Files\Filesystem;
+use OC\Files\View;
 
 class Thumbnail {
 	static private $writeHookCount;
@@ -24,14 +25,14 @@ class Thumbnail {
 	protected $view;
 
 	public function __construct($imagePath, $user = null, $square = false) {
-		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
+		if (!Filesystem::isValidPath($imagePath)) {
 			return;
 		}
 		if (is_null($user)) {
-			$this->view = \OC\Files\Filesystem::getView();
-			$this->user = \OCP\USER::getUser();
+			$this->view = Filesystem::getView();
+			$this->user = \OCP\User::getUser();
 		} else {
-			$this->view = new \OC\Files\View('/' . $user . '/files');
+			$this->view = new View('/' . $user . '/files');
 			$this->user = $user;
 		}
 		$this->useOriginal = (substr($imagePath, -4) === '.svg' or substr($imagePath, -5) === '.svgz');
@@ -65,9 +66,8 @@ class Thumbnail {
 		if (!$this->view->file_exists($imagePath)) {
 			return;
 		}
-		$handle = $this->view->fopen($imagePath, 'r');
-		$this->image = new \OCP\Image($handle);
-		fclose($handle);
+		$absolutePath = $this->view->getAbsolutePath($imagePath);
+		$this->image = new \OCP\Image('oc://' . $absolutePath);
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
