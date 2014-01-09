@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Activity" => "نشاط.",
+"Activity" => "نشاط",
 "No more activities to load." => "لا يوجد أي أنشطة لتحميلها.",
 "Loading older activities" => "تحميل الأنشطة السابقة.",
 "RSS feed" => "تغذية RSS",
