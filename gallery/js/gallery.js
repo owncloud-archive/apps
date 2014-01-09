@@ -107,11 +107,11 @@ Gallery.share = function (event) {
 		event.preventDefault();
 		event.stopPropagation();
 
-		(function() {
+		(function () {
 			var target = OC.Share.showLink;
-			OC.Share.showLink = function() {
-				var r = target.apply( this, arguments );
-				$('#linkText').val( $('#linkText').val().replace('service=files', 'service=gallery') );
+			OC.Share.showLink = function () {
+				var r = target.apply(this, arguments);
+				$('#linkText').val($('#linkText').val().replace('service=files', 'service=gallery'));
 				return r;
 			};
 		})();
@@ -255,7 +255,11 @@ Gallery.view.viewAlbum = function (albumPath) {
 	}
 
 	OC.Breadcrumb.clear();
-	OC.Breadcrumb.push('Pictures', '#').click(function () {
+	var albumName = $('#content').data('albumname');
+	if (!albumName) {
+		albumName = t('gallery', 'Pictures');
+	}
+	OC.Breadcrumb.push(albumName, '#').click(function () {
 		Gallery.view.viewAlbum(OC.currentUser);
 	});
 	crumbs = albumPath.split('/');
@@ -326,7 +330,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#openAsFileListButton').click( function (event) {
+	$('#openAsFileListButton').click(function (event) {
 		window.location.href = window.location.href.replace('service=gallery', 'service=files');
 	});
 
