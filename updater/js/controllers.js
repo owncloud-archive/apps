@@ -26,7 +26,12 @@ function updateCtrl($scope, $routeParams) {
 					.appendTo($('#upd-progress'));
 		});
 		updateEventSource.listen('done', function(message) {
-			$('<span></span>').addClass('bold').append('<br />').append('<a href="' + OC.webroot + '">' + OC.webroot + '</a>').appendTo($('#upd-progress'));
+			var href = '/',
+			title = t('Updater', 'Proceed');
+			if (OC.webroot!=''){
+				href = OC.webroot;
+			}
+			$('<span></span>').addClass('bold').append('<br />').append('<a href="' + href + '">' + title + '</a>').appendTo($('#upd-progress'));
 		});
 	};
 }
