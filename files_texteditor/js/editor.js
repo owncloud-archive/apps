@@ -160,13 +160,6 @@ function doFileSave() {
 					$('#editor').attr('data-mtime', jsondata.data.mtime);
 					$('#editor_save').text(t('files_texteditor', 'Save'));
 					$("#editor_save").live('click', doFileSave);
-					// Update size
-					if ($('#dir').val() === $('#editor').attr('data-dir')) {
-						var tr = $('tr[data-file="'+$('#editor').attr('data-filename')+'"]');
-						tr.attr('data-size', jsondata.data.size);
-						tr.find('.filesize').text(humanFileSize(jsondata.data.size));
-						// TODO change opacity according to filesize
-					}
 					// Update titles
 					$('#editor').attr('data-edited', 'false');
 					$('.crumb.last a').text($('#editor').attr('data-filename'));
