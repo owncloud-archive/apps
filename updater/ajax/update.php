@@ -30,15 +30,13 @@ $coreUpdater = new Location_Core($installed[Helper::CORE_DIRNAME], '');
 $appsUpdater = new Location_Apps('', '');
 
 $errors = array_merge(
-		$thirdPartyUpdater->check(), $coreUpdater->check(), $appsUpdater->check()
+	$thirdPartyUpdater->check(), $coreUpdater->check(), $appsUpdater->check()
 );
 
 if (count($errors)) {
 	$message = App::$l10n->t('Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:');
 	$message .= '<br /><br />' . implode('<br />', $errors);
-	$watcher->error($message);
-	$watcher->done();
-	die();
+	$watcher->failure($message);
 }
 
 // Download package
@@ -67,8 +65,7 @@ if (!Downloader::isClean($packageVersion)){
 	$message = App::$l10n->t('Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:');
 	$message .= '<br />' . Downloader::getPackageDir($packageVersion);
 	$message .= '<br />' . App::$l10n->t('Update permissions on this directory and its content or remove it manually first.');
-	$watcher->error($message);
-	$watcher->done();
+	$watcher->failure($message);
 }
 
 Updater::cleanUp();
@@ -76,8 +73,7 @@ if (!Updater::isClean()){
 	$message = App::$l10n->t('Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:');
 	$message .= '<br />' . Updater::getTempDir();
 	$message .= '<br />' . App::$l10n->t('Update permissions on this directory and its content or remove it manually first.');
-	$watcher->error($message);
-	$watcher->done();
+	$watcher->failure($message);
 }
 
 // Downloading new version
@@ -107,12 +103,11 @@ try {
 	Downloader::cleanUp($packageVersion);
 	Updater::cleanUp();
 	$watcher->success((string) App::$l10n->t('All done. Click to the link below to start database upgrade.'));
+	$watcher->done();
 } catch (\Exception $e){
 	App::log($e->getMessage());
 	$watcher->failure((string) App::$l10n->t('Update failed'));
 }
-
-$watcher->done();
 
 class UpdateWatcher {
 
