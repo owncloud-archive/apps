@@ -17,7 +17,7 @@
     <name>backend</name>
     <type>text</type>
     <default></default>
-    <notnull>false</notnull>
+    <notnull>true</notnull>
     <length>128</length>
    </field>
 
@@ -25,7 +25,7 @@
     <name>uid</name>
     <type>text</type>
     <default></default>
-    <notnull>false</notnull>
+    <notnull>true</notnull>
     <length>64</length>
    </field>
 
@@ -33,6 +33,7 @@
     <name>displayname</name>
     <type>text</type>
     <default></default>
+    <notnull>false</notnull>
     <length>64</length>
    </field>
 
