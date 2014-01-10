@@ -24,6 +24,8 @@ if (@file_exists(App::getLegacyBackupBase())) {
 	try {
 		Helper::move(App::getLegacyBackupBase(), App::getBackupBase());
 	} catch (Exception $e){}
+} else if (!@file_exists(App::getBackupBase())){
+	Helper::mkdir(App::getBackupBase());
 }
 
 $tmpl = new \OCP\Template(App::APP_ID, 'update', 'guest');

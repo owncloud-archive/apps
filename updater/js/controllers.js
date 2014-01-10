@@ -15,15 +15,15 @@ function updateCtrl($scope, $routeParams) {
 			$('<span></span>').addClass('error').append(message).append('<br />').appendTo($('#upd-progress'));
 			message = 'Please fix this and retry.';
 			$('<span></span>').addClass('error').append(message).append('<br />').appendTo($('#upd-progress'));
-			updateEventSource.close();
 		});
 		updateEventSource.listen('failure', function(message) {
 			$('<span></span>').addClass('error').append(message).append('<br />').appendTo($('#upd-progress'));
 			$('<span></span>')
 					.addClass('error bold')
 					.append('<br />')
-					.append(t('updater', 'The update was unsuccessful. Please report this issue to the <a href="https://github.com/owncloud/apps/issues" target="_blank">ownCloud community</a>.'))
+					.append(t('updater', 'The update was unsuccessful. Please check logs at admin page and report this issue to the <a href="https://github.com/owncloud/apps/issues" target="_blank">ownCloud community</a>.'))
 					.appendTo($('#upd-progress'));
+			updateEventSource.close();
 		});
 		updateEventSource.listen('done', function(message) {
 			var href = '/',
