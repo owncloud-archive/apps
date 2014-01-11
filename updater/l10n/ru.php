@@ -12,7 +12,6 @@
 "Moving files..." => "Перемещение файлов...",
 "All done. Click to the link below to start database upgrade." => "Всё закончено. Нажмите ссылку ниже для начала обновления базы данных.",
 "Update failed" => "Обновление не удалось",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "При обновлении произошла ошибка. Пожалуйста сообщите об этой ошибке <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud сообществу</a>.",
 "Update Center" => "Центр обновлений",
 "Backup Management" => "Управление резервным копированием",
 "Update" => "Обновить",

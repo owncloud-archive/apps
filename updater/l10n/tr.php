@@ -12,7 +12,6 @@
 "Moving files..." => "Dosyalar taşınıyor...",
 "All done. Click to the link below to start database upgrade." => "Tamamlandı. Veritabanı güncellemesi için aşağıdaki bağlantıya tıklayın.",
 "Update failed" => "Güncelleme başarısız",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Güncelleme başarılı olmadı. Lütfen bu hatayı <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud topluluğuna</a> bildirin.",
 "Update Center" => "Güncelleme Merkezi",
 "Backup Management" => "Yedekleme Yönetimi",
 "Update" => "Güncelleme",

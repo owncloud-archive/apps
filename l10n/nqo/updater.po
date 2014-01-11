@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-07 04:33-0400\n"
-"PO-Revision-Date: 2013-09-07 07:28+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-01-11 00:49-0500\n"
+"PO-Revision-Date: 2014-01-11 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: N'ko (http://www.transifex.com/projects/p/owncloud/language/nqo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,62 +27,66 @@ msgid ""
 "the following files and directories:"
 msgstr ""
 
-#: ajax/update.php:60
+#: ajax/update.php:58
 msgid "Version not found"
 msgstr ""
 
-#: ajax/update.php:67 ajax/update.php:76
+#: ajax/update.php:65 ajax/update.php:73
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
 msgstr ""
 
-#: ajax/update.php:69 ajax/update.php:78
+#: ajax/update.php:67 ajax/update.php:75
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
 msgstr ""
 
-#: ajax/update.php:85
+#: ajax/update.php:81
 msgid "Downloading package..."
 msgstr ""
 
-#: ajax/update.php:89
+#: ajax/update.php:85
 msgid "Unable to fetch package"
 msgstr ""
 
-#: ajax/update.php:94
+#: ajax/update.php:90
 msgid "Creating backup..."
 msgstr ""
 
-#: ajax/update.php:96
+#: ajax/update.php:92
 msgid "Here is your backup: "
 msgstr ""
 
-#: ajax/update.php:99
+#: ajax/update.php:95
 msgid "Failed to create backup"
 msgstr ""
 
-#: ajax/update.php:103
+#: ajax/update.php:99
 msgid "Moving files..."
 msgstr ""
 
-#: ajax/update.php:109
+#: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
 msgstr ""
 
-#: ajax/update.php:112
+#: ajax/update.php:109
 msgid "Update failed"
 msgstr ""
 
-#: js/controllers.js:25
+#: js/controllers.js:24
 msgid ""
-"The update was unsuccessful. Please report this issue to the <a "
-"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
-"community</a>."
+"The update was unsuccessful. Please check logs at admin page and report this"
+" issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
+"target=\"_blank\">ownCloud community</a>."
 msgstr ""
 
-#: templates/admin.php:18
+#: js/controllers.js:30
+msgid "Proceed"
+msgstr ""
+
+#: templates/admin.php:17
 msgid "Update Center"
 msgstr ""
 

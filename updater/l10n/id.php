@@ -12,7 +12,6 @@
 "Moving files..." => "Memindahkan berkas...",
 "All done. Click to the link below to start database upgrade." => "Selesai. Klik pada tautan berikut untuk memulai pembaruan database.",
 "Update failed" => "Pembaruan gagal",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Pembaruan tidak berhasil. Silakan laporkan masalah ini ke <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>.",
 "Update Center" => "Pusat Pembaruan",
 "Backup Management" => "Pengatur Cadangan",
 "Update" => "Pembaruan",

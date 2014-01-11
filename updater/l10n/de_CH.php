@@ -12,7 +12,6 @@
 "Moving files..." => "Verschiebe Dateien...",
 "All done. Click to the link below to start database upgrade." => "Alles erledigt. Klicken Sie auf den unteren Link um die Datenbank-Aufwertung zu starten.",
 "Update failed" => "Update fehlgeschlagen",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Das Update ist fehlgeschlagen. Bitte melden Sie dieses Problem an die <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud Gemeinschaft</a>.",
 "Update Center" => "Update-Center",
 "Backup Management" => "Backup-Verwaltung",
 "Update" => "Update durchführen",

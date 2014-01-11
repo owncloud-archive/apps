@@ -12,7 +12,6 @@
 "Moving files..." => "Siirretään tiedostoja...",
 "All done. Click to the link below to start database upgrade." => "Kaikki valmista. Napsauta alla olevaa linkkiä aloittaaksesi tietokannan päivityksen.",
 "Update failed" => "Päivitys epäonnistui",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Päivitys epäonnistui. Ilmoita ongelmasta <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud-yhteisölle</a>.",
 "Update Center" => "Päivityskeskus",
 "Backup Management" => "Varmuuskopioiden hallinta",
 "Update" => "Päivitä",

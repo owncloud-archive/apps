@@ -4,19 +4,19 @@
 # 
 # Translators:
 # iLennart21 <a12s34d56f78@live.com>, 2013
-# I Robot <owncloud-bot@tmit.eu>, 2012
+# I Robot, 2012
 # Marcel Kühlhorn <susefan93@gmx.de>, 2013
 # Mario Siegmann <mario_siegmann@web.de>, 2013
 # stefanniedermann <stefan.niedermann@googlemail.com>, 2013
-# traductor <transifex-2.7.mensaje@spamgourmet.com>, 2012
+# traductor <transifex-3.7.mensaje@spamgourmet.com>, 2012
 # Mirodin <blobbyjj@ymail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
-"Last-Translator: Mario Siegmann <mario_siegmann@web.de>\n"
+"POT-Creation-Date: 2014-01-11 00:49-0500\n"
+"PO-Revision-Date: 2014-01-11 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,60 +34,64 @@ msgid ""
 "the following files and directories:"
 msgstr "Hochrüstung nicht möglich. Stellen Sie sicher, dass dein Webserver Schreibrechte auf die folgenden Dateien und Verzeichnisse hat:"
 
-#: ajax/update.php:60
+#: ajax/update.php:58
 msgid "Version not found"
 msgstr "Version nicht gefunden"
 
-#: ajax/update.php:67 ajax/update.php:76
+#: ajax/update.php:65 ajax/update.php:73
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
 msgstr "Hochrüstung nicht möglich. Dein Webserver hat keine ausreichende Berechtigung zum Löschen des folgenden Verzeichnisses:"
 
-#: ajax/update.php:69 ajax/update.php:78
+#: ajax/update.php:67 ajax/update.php:75
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
 msgstr "Aktualisiere die Berechtigungen für dieses Verzeichnis und den Inhalt oder lösche es vorher manuell."
 
-#: ajax/update.php:85
+#: ajax/update.php:81
 msgid "Downloading package..."
 msgstr "Lade Paket herunter..."
 
-#: ajax/update.php:89
+#: ajax/update.php:85
 msgid "Unable to fetch package"
 msgstr "Empfangen des Paketes fehlgeschlagen"
 
-#: ajax/update.php:94
+#: ajax/update.php:90
 msgid "Creating backup..."
 msgstr "Erstelle Backup..."
 
-#: ajax/update.php:96
+#: ajax/update.php:92
 msgid "Here is your backup: "
 msgstr "Hier ist Dein Backup:"
 
-#: ajax/update.php:99
+#: ajax/update.php:95
 msgid "Failed to create backup"
 msgstr "Erstellung des Backups fehlgeschlagen"
 
-#: ajax/update.php:103
+#: ajax/update.php:99
 msgid "Moving files..."
 msgstr "Verschiebe Dateien..."
 
-#: ajax/update.php:109
+#: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
 msgstr "Alles erledigt. Klicke auf den unteren Link um die Datenbank-Hochrüstung zu starten."
 
-#: ajax/update.php:112
+#: ajax/update.php:109
 msgid "Update failed"
 msgstr "Update fehlgeschlagen"
 
-#: js/controllers.js:25
+#: js/controllers.js:24
 msgid ""
-"The update was unsuccessful. Please report this issue to the <a "
-"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
-"community</a>."
-msgstr "Das Update ist fehlgeschlagen. Bitte melde dieses Problem an die <a href=\"https://github.com/owncloud/core/issues\" target=\"_blank\">ownCloud Gemeinschaft</a>."
+"The update was unsuccessful. Please check logs at admin page and report this"
+" issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
+"target=\"_blank\">ownCloud community</a>."
+msgstr ""
+
+#: js/controllers.js:30
+msgid "Proceed"
+msgstr ""
 
 #: templates/admin.php:17
 msgid "Update Center"

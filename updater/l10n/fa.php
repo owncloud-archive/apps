@@ -12,7 +12,6 @@
 "Moving files..." => "انتقال فایل ها ...",
 "All done. Click to the link below to start database upgrade." => "همه انجام شده. لینک زیر را برای شروع ارتقاء پایگاه داده کلیک کنید.",
 "Update failed" => "بروز رسانی ناموفق بود.",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "به روز رسانی ناموفق بود. لطفا این مسئله را به انجمن ownCloud اطلاع رسانی<a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">کنید</a>.",
 "Update Center" => "مرکز به روز رسانی ",
 "Backup Management" => "مدیریت پشتیبان گیری",
 "Update" => "به روز رسانی",

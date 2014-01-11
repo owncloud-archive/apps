@@ -12,7 +12,6 @@
 "Moving files..." => "移動檔案...",
 "All done. Click to the link below to start database upgrade." => "完成了，點下面的連結來開始資料庫更新。",
 "Update failed" => "升級失敗",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "升級失敗，請將問題回報給 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud 社群</a>。",
 "Update Center" => "升級中心",
 "Backup Management" => "備份管理",
 "Update" => "更新",

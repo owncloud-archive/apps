@@ -12,7 +12,6 @@
 "Moving files..." => "Moviendo archivos...",
 "All done. Click to the link below to start database upgrade." => "Listo. Hacé click en el enlace más abajo para comenzar la actualización de la base de datos.",
 "Update failed" => "Error al actualizar",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "La actualización no fue exitosa. Reportá este problema a la comunidad e <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud</a>.",
 "Update Center" => "Centro de actualización",
 "Backup Management" => "Administración de copias de seguridad",
 "Update" => "Actualizar",

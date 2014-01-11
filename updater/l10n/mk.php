@@ -12,7 +12,6 @@
 "Moving files..." => "Префрлам датотеки...",
 "All done. Click to the link below to start database upgrade." => "Се е завршено. Кликни на линкот подолу за да започне надградба на базата на податоци.",
 "Update failed" => "Надградбата е неуспешна",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Надградбата не беше успешна. Ве молиме пријавете го овој проблем на <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>.",
 "Update Center" => "Центар за надградба",
 "Backup Management" => "Управување со бекап",
 "Update" => "Ажурирај",

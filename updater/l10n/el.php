@@ -12,7 +12,6 @@
 "Moving files..." => "Μετακίνηση αρχείων...",
 "All done. Click to the link below to start database upgrade." => "Όλα έτοιμα. Κάντε κλικ στον παρακάτω σύνδεσμο για να εκκινήσετε την αναβάθμιση της βάσης δεδομένων.",
 "Update failed" => "Η ενημέρωση απέτυχε",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Η ενημέρωση απέτυχε. Παρακαλώ αφήστε αναφορά στην <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">κοινότητα ownCloud</a>.",
 "Update Center" => "Κέντρο Ενημερώσεων",
 "Backup Management" => "Διαχείριση αντιγράφων ασφαλείας",
 "Update" => "Ενημέρωση",

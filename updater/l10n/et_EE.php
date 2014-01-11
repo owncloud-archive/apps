@@ -12,7 +12,6 @@
 "Moving files..." => "Failide liigutamine…",
 "All done. Click to the link below to start database upgrade." => "Kõik valmis. Klõpsa andmebaasi uuenduse alustamiseks allolevat linki.",
 "Update failed" => "Uuendamine nurjus",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Uuendamine nurjus. Palun teata sellest <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloudi kogukonnale</a>.",
 "Update Center" => "Uuendamiskeskus",
 "Backup Management" => "Varukoopiate haldamine",
 "Update" => "Uuenda",

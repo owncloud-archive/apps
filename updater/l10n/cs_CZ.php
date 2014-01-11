@@ -12,7 +12,6 @@
 "Moving files..." => "Přesouvám soubory...",
 "All done. Click to the link below to start database upgrade." => "Hotovo. Klikněte na následující odkaz pro zahájení aktualizace databáze.",
 "Update failed" => "Aktualizace se nezdařila",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Aktualizace nebyla úspěšná. Nahlaste prosím tento problém <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud komunitě</a>.",
 "Update Center" => "Centrum aktualizací",
 "Backup Management" => "Správa zálohování",
 "Update" => "Aktualizovat",

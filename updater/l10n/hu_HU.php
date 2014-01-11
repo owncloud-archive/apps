@@ -12,7 +12,6 @@
 "Moving files..." => "Fileok mozgatása...",
 "All done. Click to the link below to start database upgrade." => "Minden kész. Kattints ide az adatbázis frissítés megkezdéséhez.",
 "Update failed" => "A frissítés sikertelen",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "A frissítés sikertelen. Kérlek jelezd az esetet a <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud közösségnek</a>.",
 "Update Center" => "Frissítés Központ",
 "Backup Management" => "Biztonsági mentések kezelése",
 "Update" => "Frissítés",

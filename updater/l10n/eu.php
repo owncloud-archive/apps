@@ -12,7 +12,6 @@
 "Moving files..." => "Fitxategiak mugitzen...",
 "All done. Click to the link below to start database upgrade." => "Dena egina. Sakatu beheko lotura datau basearen eguneraketa egiteko.",
 "Update failed" => "Eguneraketak huts egin du",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Eguneraketak ez du arrakastarik izan. Mesedez eman abisua <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud komunitateari</a>.",
 "Update Center" => "Eguneraketa zentroa",
 "Backup Management" => "Segurtasun kopien kudeaketa",
 "Update" => "Eguneratu",

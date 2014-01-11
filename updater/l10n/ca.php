@@ -12,7 +12,6 @@
 "Moving files..." => "Movent fitxers...",
 "All done. Click to the link below to start database upgrade." => "S'ha acabat. Féu clic a l'enllaç inferior per començar l'actualització de la base de dades.",
 "Update failed" => "L'actualització ha fallat",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "L'actualització ha fallat. Informeu d'aquest problema a la  <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunitat ownCloud</a>.",
 "Update Center" => "Centre d'actualitzacions",
 "Backup Management" => "Gestió de còpies de seguretat",
 "Update" => "Actualitza",

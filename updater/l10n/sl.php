@@ -12,7 +12,6 @@
 "Moving files..." => "Premikanje datotek ...",
 "All done. Click to the link below to start database upgrade." => "Končano. Kliknite na spodnjo povezavo za začetek posodabljanja podatkovne zbirke.",
 "Update failed" => "Posodobitev je spodletela",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Posodobitev ni uspešno končana. Pošljite poročilo o napaki na <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud github</a>.",
 "Update Center" => "Središče za posodobitve",
 "Backup Management" => "Upravljanje varnostnih kopij",
 "Update" => "Posodobi",

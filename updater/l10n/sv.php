@@ -12,7 +12,6 @@
 "Moving files..." => "Flyttar filer...",
 "All done. Click to the link below to start database upgrade." => "Allt klart. Klicka vidare till länken nedan för att starta databasuppgradering.",
 "Update failed" => "Uppdatering misslyckades",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Uppdateringen misslyckades. Vänligen rapportera detta fel till <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>.",
 "Update Center" => "Uppdateringscenter",
 "Backup Management" => "Hantering av säkerhetskopiering",
 "Update" => "Uppdatera",

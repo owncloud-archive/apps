@@ -12,7 +12,6 @@
 "Moving files..." => "Flytter filer..",
 "All done. Click to the link below to start database upgrade." => "Færdig. Klik på linket herunder for at starte database opgradering",
 "Update failed" => "Opdatering fejlede",
-"The update was unsuccessful. Please report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Opdateringen fejlede. Rapporter venligst dette problem til  <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud fælleskabet</a>. ",
 "Update Center" => "Update Center",
 "Backup Management" => "Backup Administration",
 "Update" => "Opdater",
