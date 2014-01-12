@@ -12,6 +12,8 @@
 "Moving files..." => "Verplaatsen bestanden...",
 "All done. Click to the link below to start database upgrade." => "Alles gedaan. Klik op onderstaande link om de database bij te werken.",
 "Update failed" => "Update mislukt",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "De update is mislukt. Controleer de logs op de beheerpagina en meld het probleem aan de <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>.",
+"Proceed" => "Ga verder",
 "Update Center" => "Update Center",
 "Backup Management" => "Backup Management",
 "Update" => "Bijwerken",

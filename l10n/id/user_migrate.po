@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# arifpedia <arifpedia@gmail.com>, 2014
 # elmakong <mr.pige_ina@yahoo.co.id>, 2012
 # w41l <walecha99@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-13 12:42-0500\n"
-"PO-Revision-Date: 2013-12-12 02:50+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-01-12 00:49-0500\n"
+"PO-Revision-Date: 2014-01-12 03:34+0000\n"
+"Last-Translator: arifpedia <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,16 +22,16 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr "ekspor"
+msgstr "Ekspor"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr "sesuatu tidak berjalan semestinya pada saat file ekspor sedang dibuat"
+msgstr "Ada yang salah saat berkas ekspor sedang dibuat"
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr "telah terjadi kesalahan"
+msgstr "Terjadi kesalahan"
 
 #: templates/settings.php:2
 msgid "Account Export/Import"
-msgstr ""
+msgstr "Akun Ekspor/Impor"
