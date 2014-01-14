@@ -12,6 +12,8 @@
 "Moving files..." => "Déplacement des fichiers...",
 "All done. Click to the link below to start database upgrade." => "Terminé. Cliquez sur le lien ci-dessous pour démarrer la mise à niveau de la base de données.",
 "Update failed" => "La mise à jour a échoué.",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "La mise à jour a échoué. Veuillez consulter les logs depuis la page d'administration et les soumettre à la <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">communauté ownCloud</a>.",
+"Proceed" => "Exécuter",
 "Update Center" => "Centre de mise à jour",
 "Backup Management" => "Gestion des copies de sauvegarde.",
 "Update" => "Mettre à jour",
