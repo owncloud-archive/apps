@@ -1,0 +1,14 @@
+@media only screen and (max-width: 600px) {
+
+
+/* smaller images for smaller screens, fit 2 to width */
+#gallery > a > img,
+#gallery > a,
+#gallery > a.album,
+#gallery > a.image > img {
+	max-height: 130px;
+	max-width: 130px;
+}
+
+
+}
