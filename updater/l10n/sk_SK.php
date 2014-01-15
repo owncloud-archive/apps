@@ -12,6 +12,8 @@
 "Moving files..." => "Presúvam súbory...",
 "All done. Click to the link below to start database upgrade." => "Hotovo. Kliknite na nasledovný odkaz pre začatie aktualizácie databázy.",
 "Update failed" => "Aktualizácia sa nepodarila.",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Aktualizácia nebola úspešná. Skontrolujte logy v administračnom rozhraní a oznámte túto udalosť <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud komunite</a>.",
+"Proceed" => "Vykonať",
 "Update Center" => "Centrum aktualizácií",
 "Backup Management" => "Správa zálohovania",
 "Update" => "Aktualizovať",

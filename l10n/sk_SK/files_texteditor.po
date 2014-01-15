@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# mhh <marian.hvolka@stuba.sk>, 2013
+# mhh <marian.hvolka@stuba.sk>, 2013-2014
 # martinb <martin.babik@gmail.com>, 2012
 # martin, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-21 00:49-0500\n"
-"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"POT-Creation-Date: 2014-01-15 01:03-0500\n"
+"PO-Revision-Date: 2014-01-14 21:40+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Uložiť"
 
 #: js/editor.js:70
 msgid "Search"
-msgstr "Hľadaj"
+msgstr "Hľadať"
 
 #: js/editor.js:73
 msgid "Close"
@@ -48,14 +48,14 @@ msgstr "Ukladám..."
 msgid "Failed to save file"
 msgstr "Súbor sa nepodarilo uložiť"
 
-#: js/editor.js:260
+#: js/editor.js:257
 msgid "An error occurred!"
 msgstr "Vyskytla sa chyba!"
 
-#: js/editor.js:276
+#: js/editor.js:273
 msgid "There are unsaved changes in the text editor"
 msgstr "V editore sú neuložené zmeny"
 
-#: js/editor.js:305
+#: js/editor.js:302
 msgid "There were unsaved changes, click here to go back"
 msgstr "Zostali neuložené zmeny. Kliknite sem pre návrat"
