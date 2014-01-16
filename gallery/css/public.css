@@ -18,9 +18,17 @@
 	margin-top: 45px;
 }
 
+.header-right {
+	padding: 0;
+	height: 32px;
+}
+
 #details {
 	color:#fff;
-	float: left;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: .5;
+	padding-right: 5px;
 }
 
 #public_upload,
@@ -31,15 +39,6 @@
 	height: 32px;
 	float: left;
 
-}
-
-.header-right #details {
-	margin-right: 28px;
-}
-
-.header-right {
-	padding: 0;
-	height: 32px;
 }
 
 body {
