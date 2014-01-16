@@ -12,6 +12,8 @@
 "Moving files..." => "Failide liigutamine…",
 "All done. Click to the link below to start database upgrade." => "Kõik valmis. Klõpsa andmebaasi uuenduse alustamiseks allolevat linki.",
 "Update failed" => "Uuendamine nurjus",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Uuendus ebaõnnestus. Palun vaata admin lehelt logisid ning teavita probleemidest  <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud kogukonda</a>.",
+"Proceed" => "Jätka",
 "Update Center" => "Uuendamiskeskus",
 "Backup Management" => "Varukoopiate haldamine",
 "Update" => "Uuenda",

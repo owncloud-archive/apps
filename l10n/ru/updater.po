@@ -5,15 +5,16 @@
 # Translators:
 # Alexander Shashkevych <alex@stunpix.com>, 2013
 # Fenuks <fenuksuh@ya.ru>, 2013
+# sam002 <semen@sam002.net>, 2014
 # vadimka <vg@citros.ru>, 2012
 # Langaru <langaru@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-11 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-01-16 00:57-0500\n"
+"PO-Revision-Date: 2014-01-15 07:50+0000\n"
+"Last-Translator: sam002 <semen@sam002.net>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,11 +85,11 @@ msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "Обновление не удалось. Пожалуйста, проверьте журналы на странице администратора и сообщите об этой проблеме <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">сообществу ownCloud</a>."
 
 #: js/controllers.js:30
 msgid "Proceed"
-msgstr ""
+msgstr "продолжить"
 
 #: templates/admin.php:17
 msgid "Update Center"
