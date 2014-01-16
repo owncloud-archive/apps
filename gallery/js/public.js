@@ -5,7 +5,9 @@ $(document).ready(function () {
 	if ($('#filesApp').val() && $('#isPublic').val()) {
 		images = $("#fileList").find("tr[data-mime^='image']").length;
 		if (images > 0) {
-			button = $('<div class="button" style="float:right; font-weight:normal;"></div>');
+			button = $('<div class="button"'
+				+'style="position: absolute; right: 0; top: 0; font-weight: normal;">'
+				+'</div>');
 			button.append(t('gallery', 'Picture view' ));
 			$('#controls').append(button);
 
