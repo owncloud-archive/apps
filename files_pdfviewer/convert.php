@@ -23,6 +23,6 @@ $pdf = $absPath . ".pdf" ;
 ob_clean();
 flush();
 readfile($pdf);
-unlink($file);
-unlink($filename);
+unlink($pdf);
+unlink($absPath);
 exit;
