@@ -3062,8 +3062,11 @@ document.addEventListener('DOMContentLoaded', function webViewerLoad(evt) {
       PDFView.rotatePages(90);
     });
 
-
-  PDFView.open(OC.linkTo('files', 'ajax/download.php')+"?files="+encodeURIComponent(window.file)+"&dir="+encodeURIComponent(window.dir), 1.0);
+  if (!window.url) {
+      PDFView.open(OC.linkTo('files', 'ajax/download.php')+"?files="+encodeURIComponent(window.file)+"&dir="+encodeURIComponent(window.dir), 1.0);
+  } else {
+      PDFView.open(window.url+"?file="+encodeURIComponent(window.file)+"&dir="+encodeURIComponent(window.dir), 1.0);
+  }
 }, true);
 
 function updateViewarea() {

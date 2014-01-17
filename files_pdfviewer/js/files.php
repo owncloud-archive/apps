@@ -16,10 +16,21 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 
+function endsWith($haystack, $needle)
+{
+    return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
+}
+
+if (!endsWith($file,'.pdf')) {
+    $url=OCP\Util::linkTo('files_pdfviewer', 'convert.php');
+}
+
+
 $array = array(
 	"PDFJS.workerSrc" => OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js'),
 	"window.dir" => $dir,
 	"window.file" => $file,
+	"window.url" => $url,
 	);
 
 // Echo it
