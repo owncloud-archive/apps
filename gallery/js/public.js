@@ -9,7 +9,7 @@ $(document).ready(function () {
 			// TODO find a way to not need to use inline CSS
 			button = $('<div class="button"'
 				+'style="position: absolute; right: 0; top: 0; font-weight: normal;">'
-					+'<img class="svg" src="' + OC.filePath('core', 'img/actions', 'toggle-pictures') + '"'
+					+'<img class="svg" src="' + OC.filePath('core', 'img/actions', 'toggle-pictures.svg') + '"'
 					+'alt="' + t('gallery', 'Picture view') + '"'
 					+'style="vertical-align: text-top; '
 					+'-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); '
