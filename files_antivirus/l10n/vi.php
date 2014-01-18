@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Greetings {user}," => "Chào mừng {user},",
+"Greetings {user}," => "Chào {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Xin lỗi ,tập tin bạn đang thử tải lên có chứa virus và nó đã bị xóa.",
 "This email is a notification from {host}. Please, do not reply." => "Đây là email thông báo từ {host} .Vui lòng không trả lời lại.",
 "File uploaded: {file}" => "File đã upload: {file}",
@@ -7,6 +7,9 @@
 "Mode" => "Chế độ",
 "Executable" => "Có thể thực thi",
 "Daemon" => "Daemon",
+"Daemon (Socket)" => "Daemon (Socket)",
+"Socket" => "Socket",
+"Clamav Socket." => "Clamav Socket.",
 "Not required in Executable Mode." => "Không bắt buộc trong chế độ Có thể thực thi",
 "Host" => "Máy chủ",
 "Address of Antivirus Host." => "Địa chỉ host chống virus",

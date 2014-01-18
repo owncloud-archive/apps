@@ -4,13 +4,14 @@
 # 
 # Translators:
 # saosangm <saosangmo@yahoo.com>, 2013
+# Sơn Nguyễn <sonnghit@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-21 09:27+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-01-18 00:49-0500\n"
+"PO-Revision-Date: 2014-01-18 04:10+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +55,7 @@ msgid ""
 "There’s more information in the <a target=\"_blank\" "
 "href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
 "href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Để có nhiều thông tin hơn vui lòng xem trong  <a target=\"_blank\" href=\"%s\">tài liệu</a> và trên <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
 
 #: templates/wizard.php:42
 msgid ""

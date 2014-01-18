@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Sơn Nguyễn <sonnghit@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-10-05 09:09-0400\n"
-"PO-Revision-Date: 2013-10-05 13:09+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-01-18 00:48-0500\n"
+"PO-Revision-Date: 2014-01-18 04:00+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,27 +18,27 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:39
+#: appinfo/app.php:31
 msgid "Activity"
-msgstr ""
+msgstr "Hoạt động"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "Không có nhiều hoạt động để tải."
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "Tải các hoạt động cũ"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "RSS feed"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "Chưa có hoạt động nào."
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "Bạn sẽ thấy danh sách các sự kiện ở đây khi bạn bắt đầu sử dụng %s ."
