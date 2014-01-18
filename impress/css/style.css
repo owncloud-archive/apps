@@ -14,7 +14,7 @@
 .impresslist tr:hover {background:#f8f8f8;}
 .impresslist tr td {  padding:5px; border-bottom:2px solid #ddd; }
 .impresslist .tablefilesize { color:#bbb; }
-.docu { position: absolute; right: 5.5em; top: 0em; }
+.docu { position: absolute; right: 0; top: 0em; }
 #documentation { margin: 20px; }
 #documentation h1 { font-size:1.8em; font-weight:bold; color:#888; }
 #documentation h2 { font-size:1.5em; font-weight:bold; color:#888; }
