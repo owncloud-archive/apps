@@ -123,7 +123,7 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 		if (url === jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]) {
 			container.children('img').remove();
 			container.append(image);
-			history.pushState('', '', '#' + jQuery.fn.slideShow.dataPaths[jQuery.fn.slideShow.current]);
+			history.replaceState('', '', '#' + jQuery.fn.slideShow.dataPaths[jQuery.fn.slideShow.current]);
 			jQuery.fn.slideShow.fitImage(container, image);
 			if (jQuery.fn.slideShow.settings.play) {
 				jQuery.fn.slideShow.setTimeout();
