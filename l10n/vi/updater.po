@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# mattheu_9x <mattheu.9x@gmail.com>, 2014
 # saosangm <saosangmo@yahoo.com>, 2013
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-11 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-01-19 00:48-0500\n"
+"PO-Revision-Date: 2014-01-18 15:40+0000\n"
+"Last-Translator: mattheu_9x <mattheu.9x@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +22,23 @@ msgstr ""
 
 #: ajax/update.php:25
 msgid "Checking your installation..."
-msgstr ""
+msgstr "Đang kiểm tra quá trình cài đặt ..."
 
 #: ajax/update.php:37
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "Không thể nâng cấp. Hãy chắc chắn rằng máy chủ Webserver cho phép ghi vào các tập tin và thư mục sau đây:"
 
 #: ajax/update.php:58
 msgid "Version not found"
-msgstr ""
+msgstr "Không tìm thấy phiên bản"
 
 #: ajax/update.php:65 ajax/update.php:73
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "Không thể nâng cấp. Máy chủ webserver không đủ quyền để xóa các thư mục sau:"
 
 #: ajax/update.php:67 ajax/update.php:75
 msgid ""
@@ -47,54 +48,54 @@ msgstr ""
 
 #: ajax/update.php:81
 msgid "Downloading package..."
-msgstr ""
+msgstr "Đang tải gói..."
 
 #: ajax/update.php:85
 msgid "Unable to fetch package"
-msgstr ""
+msgstr "Không thể nạp gói"
 
 #: ajax/update.php:90
 msgid "Creating backup..."
-msgstr ""
+msgstr "Đang sao lưu ..."
 
 #: ajax/update.php:92
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Đây là bản sao lưu của bạn:"
 
 #: ajax/update.php:95
 msgid "Failed to create backup"
-msgstr ""
+msgstr "Tạo sao lưu thất bại"
 
 #: ajax/update.php:99
 msgid "Moving files..."
-msgstr ""
+msgstr "Đang di chuyển tập tin..."
 
 #: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "Đã hoàn thành. Nhấp chuột vào liên kết bên dưới để bắt đầu nâng cấp cơ sở dữ liệu"
 
 #: ajax/update.php:109
 msgid "Update failed"
-msgstr ""
+msgstr "Cập nhật thất bại"
 
 #: js/controllers.js:24
 msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "Cập nhật không thành công . Vui lòng kiểm tra nhật kí ở trang quản trị và thông báo vấn đề này đến <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">Cộng đồng ownCloud</a>."
 
 #: js/controllers.js:30
 msgid "Proceed"
-msgstr ""
+msgstr "Tiến hành"
 
 #: templates/admin.php:17
 msgid "Update Center"
-msgstr ""
+msgstr "Cập nhật"
 
 #: templates/update.php:18
 msgid "Backup Management"
-msgstr ""
+msgstr "Quản lý sao lưu"
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
@@ -102,11 +103,11 @@ msgstr "Cập nhật"
 
 #: templates/update.php:22
 msgid "Backup directory"
-msgstr ""
+msgstr "Sao lưu thư mục"
 
 #: templates/update.php:27
 msgid "Backup"
-msgstr ""
+msgstr "Sao lưu"
 
 #: templates/update.php:28
 msgid "Done on"
@@ -122,4 +123,4 @@ msgstr "Xóa"
 
 #: templates/update.php:38
 msgid "No backups found"
-msgstr ""
+msgstr "Không tìm thấy sao lưu"
