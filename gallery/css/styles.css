@@ -23,6 +23,8 @@ button.share {
 #gallery > a.album > .stack0 {
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 	-webkit-transform: rotate(0.5deg);
+	-moz-transform: rotate(0.5deg);
+	transform: rotate(0.5deg);
 	z-index: 10;
 }
 
@@ -31,6 +33,8 @@ button.share {
 	left: -5px;
 	top: 4px;
 	-webkit-transform: rotate(-2.5deg);
+	-moz-transform: rotate(-2.5deg);
+	transform: rotate(-2.5deg);
 }
 
 #gallery > a.album > .stack2 {
@@ -38,6 +42,8 @@ button.share {
 	right: -3px;
 	top: -2px;
 	-webkit-transform: rotate(2.1deg);
+	-moz-transform: rotate(2.1deg);
+	transform: rotate(2.1deg);
 }
 
 #gallery > a.album > .stack3 {
@@ -45,6 +51,8 @@ button.share {
 	right: 3px;
 	top: 1px;
 	-webkit-transform: rotate(-1.5deg);
+	-moz-transform: rotate(-1.5deg);
+	transform: rotate(-1.5deg);
 }
 
 #gallery > a.album > img {
