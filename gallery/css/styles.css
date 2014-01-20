@@ -10,6 +10,41 @@ button.share {
 
 #gallery > a.album {
 	width: 200px;
+	position: relative;
+}
+
+#gallery > a.album > .stack {
+	height: 98%;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+
+#gallery > a.album > .stack0 {
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	-webkit-transform: rotate(0.5deg);
+	z-index: 10;
+}
+
+#gallery > a.album > .stack1 {
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	left: -5px;
+	top: 4px;
+	-webkit-transform: rotate(-2.5deg);
+}
+
+#gallery > a.album > .stack2 {
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	right: -3px;
+	top: -2px;
+	-webkit-transform: rotate(2.1deg);
+}
+
+#gallery > a.album > .stack3 {
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+	right: 3px;
+	top: 1px;
+	-webkit-transform: rotate(-1.5deg);
 }
 
 #gallery > a.album > img {
@@ -30,6 +65,7 @@ button.share {
 	padding-bottom: 5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	z-index: 11;
 }
 
 #gallery > a {
