@@ -14,15 +14,16 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 	// seems to be a valid share
 	$rootLinkItem = \OCP\Share::resolveReShare($linkItem);
 	$owner = $rootLinkItem['uid_owner'];
+	OCP\JSON::checkUserExists($owner);
 	OC_Util::tearDownFS();
 	OC_Util::setupFS($owner);
 } else {
 	OCP\JSON::checkLoggedIn();
 
 	list($owner, $img) = explode('/', $_GET['file'], 2);
-	$user = OCP\User::getUser();
-	if ($owner !== $user) {
+	if ($owner !== OCP\User::getUser()) {
 		OC_Util::tearDownFS();
+		OCP\JSON::checkUserExists($owner);
 		OC_Util::setupFS($owner);
 		$view = new \OC\Files\View('/' . $owner . '/files');
 		// second part is the (duplicated) share name

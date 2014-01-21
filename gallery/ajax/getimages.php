@@ -21,6 +21,7 @@ if (isset($_GET['token'])) {
 		$fileOwner = $rootLinkItem['uid_owner'];
 
 		// Setup FS with owner
+		OCP\JSON::checkUserExists($fileOwner);
 		OC_Util::tearDownFS();
 		OC_Util::setupFS($fileOwner);
 
