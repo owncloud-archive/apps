@@ -30,11 +30,16 @@ Gallery.fillAlbums = function () {
 	return def;
 };
 Gallery.fillAlbums.fill = function (albums, images) {
-	var imagePath, albumPath, parent;
+	var i, imagePath, albumPath, parent, albumPathParts;
 	images.sort();
 	for (i = 0; i < images.length; i++) {
 		imagePath = images[i];
 		albumPath = OC.dirname(imagePath);
+		albumPathParts = albumPath.split('/');
+		//group single share images in a single album
+		if (OC.currentUser && albumPathParts.length === 2 && albumPathParts[0] !== OC.currentUser) {
+			albumPath = albumPathParts[0];
+		}
 		if (!albums[albumPath]) {
 			albums[albumPath] = [];
 		}
@@ -314,8 +319,9 @@ Gallery.view.pushBreadCrumb = function (text, path) {
 };
 
 Gallery.view.showUsers = function () {
-	var i, j, user, head, subAlbums, album;
+	var i, j, k, user, head, subAlbums, album, singleImages;
 	for (i = 0; i < Gallery.users.length; i++) {
+		singleImages = [];
 		user = Gallery.users[i];
 		subAlbums = Gallery.subAlbums[user];
 		if (subAlbums) {
@@ -331,6 +337,9 @@ Gallery.view.showUsers = function () {
 				}
 			}
 		}
+		for (j = 0; j < Gallery.albums[user].length; j++) {
+			Gallery.view.addImage(Gallery.albums[user][j]);
+		}
 	}
 };
 
@@ -343,9 +352,14 @@ $(document).ready(function () {
 	});
 
 	$('#gallery').on('click', 'a.image', function (event) {
-		var images = $('#gallery').children('a.image');
+		var $this = $(this);
+		var user = $this.data('path').split('/').shift();
+		var images = $(this).parent().children('a.image').filter(function(i){
+			// only show images from the same user in the slideshow
+			return $(this).data('path').split('/').shift() === user;
+		});
 		var i = images.index(this),
-			image = $(this).data('path');
+			image = $this.data('path');
 		event.preventDefault();
 		if (location.hash !== image) {
 			location.hash = image;
@@ -362,6 +376,11 @@ $(document).ready(function () {
 		$('#content').show();
 		Thumbnail.paused = false;
 		$(window).scrollTop(Gallery.scrollLocation);
+		var albumParts = Gallery.currentAlbum.split('/');
+		//not an album bit a single shared image, go back to the root
+		if (OC.currentUser && albumParts.length === 2 && albumParts[0] !== OC.currentUser) {
+			Gallery.currentAlbum = OC.currentUser;
+		}
 		location.hash = Gallery.currentAlbum;
 		Thumbnail.concurrent = 3;
 	};
