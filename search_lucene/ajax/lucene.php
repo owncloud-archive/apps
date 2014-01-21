@@ -11,7 +11,7 @@ function index() {
 	if ( isset($_GET['fileid']) ){
 		$fileIds = array($_GET['fileid']);
 	} else {
-		$fileIds = OCA\Search_Lucene\Indexer::getUnindexed();
+		$fileIds = OCA\Search_Lucene\Status::getUnindexed();
 	}
 
 	$eventSource = new OC_EventSource();
