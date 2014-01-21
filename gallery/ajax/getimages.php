@@ -70,12 +70,19 @@ foreach ($sharedSources as $sharedSource) {
 	if ($path) {
 		$shareName = basename($path);
 		$shareView = new \OC\Files\View('/' . $owner . '/files' . $path);
-		$sharedImages = $shareView->searchByMime('image');
-		foreach ($sharedImages as $sharedImage) {
-			// set the file_source in the path so we can get the original shared folder later
-			$sharedImage['path'] = $owner . '/' . $sharedSource['file_source'] . '/' . $shareName . $sharedImage['path'];
+		if ($shareView->is_dir('')) {
+			$sharedImages = $shareView->searchByMime('image');
+			foreach ($sharedImages as $sharedImage) {
+				// set the file_source in the path so we can get the original shared folder later
+				$sharedImage['path'] = $owner . '/' . $sharedSource['file_source'] . '/' . $shareName . $sharedImage['path'];
+				$images[] = $sharedImage;
+			}
+		} else {
+			$sharedImage = $shareView->getFileInfo('');
+			$sharedImage['path'] = $owner . '/' . $sharedSource['file_source'] . '/' . $shareName;
 			$images[] = $sharedImage;
 		}
+
 	}
 }
 

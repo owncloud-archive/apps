@@ -26,13 +26,20 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 		OCP\JSON::checkUserExists($owner);
 		OC_Util::setupFS($owner);
 		$view = new \OC\Files\View('/' . $owner . '/files');
-		// second part is the (duplicated) share name
-		list($folderId, , $img) = explode('/', $img, 3);
+		//images have 1 slashes, albums at least 2
+		if (substr_count($img, '/') === 1) {
+			list($folderId, $img) = explode('/', $img, 2);
+		} else {
+			// second part is the (duplicated) share name
+			list($folderId, , $img) = explode('/', $img, 3);
+		}
 		$shareInfo = \OCP\Share::getItemSharedWithBySource('file', $folderId);
 		if ($shareInfo) {
 			$sharedFolder = $view->getPath($folderId);
-			if ($sharedFolder) {
+			if ($sharedFolder and $view->is_dir($sharedFolder)) {
 				$img = $sharedFolder . '/' . $img;
+			} elseif ($sharedFolder) {
+				$img = $sharedFolder;
 			} else {
 				\OC_Response::setStatus(404);
 				exit;
