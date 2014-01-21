@@ -259,7 +259,7 @@ class Indexer {
 			$mounts[] = $mount;
 		}
 
-		$query = \OC_DB::prepare('
+		$query = \OCP\DB::prepare('
 			SELECT `*PREFIX*filecache`.`fileid`
 			FROM `*PREFIX*filecache`
 			LEFT JOIN `*PREFIX*lucene_status`
@@ -285,10 +285,10 @@ class Indexer {
 				$numericId = $cache->getNumericStorageId();
 
 				$result = $query->execute(array($numericId, 'N'));
-				if (\OC_DB::isError($result)) {
+				if (\OCP\DB::isError($result)) {
 					Util::writeLog(
 						'search_lucene',
-						'failed to find unindexed files: '.\OC_DB::getErrorMessage($result),
+						'failed to find unindexed files: '.\OCP\DB::getErrorMessage($result),
 						Util::WARN
 					);
 					return false;
