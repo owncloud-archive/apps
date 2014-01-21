@@ -190,6 +190,18 @@ Gallery.view.addAlbum = function (path, name) {
 		thumb.queue().then(function (image) {
 			link.removeClass('loading');
 			link.append(image);
+			image.className = 'stack stack0';
+			//delay adding additional images until the front ones are loaded
+			for (var i = 1; i <= 3; i++) {
+				if (thumbs[i]) {
+					thumb = Thumbnail.get(thumbs[i], true);
+					thumb.queue().then(function (i, image) {
+						link.removeClass('loading');
+						link.append(image);
+						image.className = 'stack stack' + i;
+					}.bind(null, i));
+				}
+			}
 		});
 
 		link.mousemove(function (event) {
@@ -217,6 +229,18 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 			link.data('loading', false);
 			$('img', link).remove();
 			link.append(image);
+			image.className = 'stack stack0';
+			for (var i = 1; i <= 3; i++) {
+				var y = (((i + offset) % thumbs.length) + thumbs.length) % thumbs.length;
+				if (thumbs[y]) {
+					thumb = Thumbnail.get(thumbs[y], true);
+					thumb.queue().then(function (i, image) {
+						link.removeClass('loading');
+						link.append(image);
+						image.className = 'stack stack' + i;
+					}.bind(null, i));
+				}
+			}
 		});
 		$(this).data('offset', offset);
 	}
