@@ -191,7 +191,7 @@ Gallery.view.addAlbum = function (path, name) {
 			link.removeClass('loading');
 			link.append(image);
 			image.className = 'stack stack0';
-			//delay adding editional images untill the front ones are loaded
+			//delay adding additional images until the front ones are loaded
 			for (var i = 1; i <= 3; i++) {
 				if (thumbs[i]) {
 					thumb = Thumbnail.get(thumbs[i], true);
