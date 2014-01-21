@@ -17,12 +17,14 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 	OCP\JSON::checkUserExists($owner);
 	OC_Util::tearDownFS();
 	OC_Util::setupFS($owner);
+	\OC_User::setIncognitoMode(true);
 } else {
 	OCP\JSON::checkLoggedIn();
 
 	list($owner, $img) = explode('/', $_GET['file'], 2);
 	if ($owner !== OCP\User::getUser()) {
 		OCP\JSON::checkUserExists($owner);
+		OC_Util::tearDownFS();
 		OC_Util::setupFS($owner);
 		$view = new \OC\Files\View('/' . $owner . '/files');
 		// second part is the (duplicated) share name
