@@ -60,11 +60,11 @@ class Thumbnail {
 	private function create($imagePath, $square) {
 		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 		$dir = dirname($imagePath);
-		if (!is_dir($galleryDir . $dir)) {
-			mkdir($galleryDir . $dir, 0755, true);
-		}
 		if (!$this->view->file_exists($imagePath)) {
 			return;
+		}
+		if (!is_dir($galleryDir . $dir)) {
+			mkdir($galleryDir . $dir, 0755, true);
 		}
 		$absolutePath = $this->view->getAbsolutePath($imagePath);
 		$this->image = new \OCP\Image('oc://' . $absolutePath);
