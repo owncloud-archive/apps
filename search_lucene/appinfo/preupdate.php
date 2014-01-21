@@ -1,12 +1,12 @@
 <?php
 
-$currentVersion=OC_Appconfig::getValue('search_lucene', 'installed_version');
+$currentVersion=OCP\Config::getAppValue('search_lucene', 'installed_version');
 
 if (version_compare($currentVersion, '0.5.2', '<')) {
 	
 	//delete duplicate id entries
 	
-	$dbtype = \OCP\Config::getSystemValue('dbtype', 'sqlite3');
+	$dbtype = OCP\Config::getSystemValue('dbtype', 'sqlite3');
 	
 	if ($dbtype === 'mysql') {
 		// fix MySQL ERROR 1093 (HY000), see http://stackoverflow.com/a/12969601
