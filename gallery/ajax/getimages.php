@@ -49,6 +49,10 @@ $images = \OCP\Files::searchByMime('image');
 $user = \OCP\User::getUser();
 
 foreach ($images as &$image) {
+	// we show shared images another way
+	if (substr($image['path'], 0, 8) === '/Shared/') {
+		continue;
+	}
 	$path = $user . $image['path'];
 	if (strpos($path, DIRECTORY_SEPARATOR . ".")) {
 		continue;
