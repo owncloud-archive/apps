@@ -26,9 +26,20 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 		OC_Util::setupFS($owner);
 		$view = new \OC\Files\View('/' . $owner . '/files');
 		// second part is the (duplicated) share name
-		list($folderId,, $img) = explode('/', $img, 3);
-		$sharedFolder = $view->getPath($folderId);
-		$img = $sharedFolder . '/' . $img;
+		list($folderId, , $img) = explode('/', $img, 3);
+		$shareInfo = \OCP\Share::getItemSharedWithBySource('file', $folderId);
+		if ($shareInfo) {
+			$sharedFolder = $view->getPath($folderId);
+			if ($sharedFolder) {
+				$img = $sharedFolder . '/' . $img;
+			} else {
+				\OC_Response::setStatus(404);
+				exit;
+			}
+		} else {
+			\OC_Response::setStatus(403);
+			exit;
+		}
 	}
 }
 
