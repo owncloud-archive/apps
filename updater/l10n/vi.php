@@ -1,8 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Checking your installation..." => "Đang kiểm tra quá trình cài đặt ...",
-"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Không thể nâng cấp. Hãy chắc chắn rằng máy chủ Webserver cho phép ghi vào các tập tin và thư mục sau đây:",
+"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Không thể nâng cấp. Hãy chắc chắn rằng Webserver cho phép ghi vào các tập tin và thư mục sau đây:",
 "Version not found" => "Không tìm thấy phiên bản",
 "Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Không thể nâng cấp. Máy chủ webserver không đủ quyền để xóa các thư mục sau:",
+"Update permissions on this directory and its content or remove it manually first." => "Được phép cập nhật trên thư mục và nội dung của nó hoặc xóa bằng tay .",
 "Downloading package..." => "Đang tải gói...",
 "Unable to fetch package" => "Không thể nạp gói",
 "Creating backup..." => "Đang sao lưu ...",
@@ -18,6 +19,7 @@
 "Update" => "Cập nhật",
 "Backup directory" => "Sao lưu thư mục",
 "Backup" => "Sao lưu",
+"Done on" => "Thực hiện tr",
 "Download" => "Tải về",
 "Delete" => "Xóa",
 "No backups found" => "Không tìm thấy sao lưu"

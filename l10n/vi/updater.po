@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# mattheu_9x <mattheu.9x@gmail.com>, 2014
+# Nguyễn Tài <mattheu.9x@gmail.com>, 2014
 # saosangm <saosangmo@yahoo.com>, 2013
-# Sơn Nguyễn <sonnghit@gmail.com>, 2012
+# Sơn Nguyễn <sonnghit@gmail.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-19 00:48-0500\n"
-"PO-Revision-Date: 2014-01-18 15:40+0000\n"
-"Last-Translator: mattheu_9x <mattheu.9x@gmail.com>\n"
+"POT-Creation-Date: 2014-01-22 00:49-0500\n"
+"PO-Revision-Date: 2014-01-21 07:40+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "Đang kiểm tra quá trình cài đặt ..."
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr "Không thể nâng cấp. Hãy chắc chắn rằng máy chủ Webserver cho phép ghi vào các tập tin và thư mục sau đây:"
+msgstr "Không thể nâng cấp. Hãy chắc chắn rằng Webserver cho phép ghi vào các tập tin và thư mục sau đây:"
 
 #: ajax/update.php:58
 msgid "Version not found"
@@ -44,7 +44,7 @@ msgstr "Không thể nâng cấp. Máy chủ webserver không đủ quyền đ�
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
-msgstr ""
+msgstr "Được phép cập nhật trên thư mục và nội dung của nó hoặc xóa bằng tay ."
 
 #: ajax/update.php:81
 msgid "Downloading package..."
@@ -111,7 +111,7 @@ msgstr "Sao lưu"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Thực hiện tr"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"

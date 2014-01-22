@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Sappe, 2013
+# lodahl <leiflodahl@gmail.com>, 2014
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012-2013
 # cronner <cronner@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-11 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-01-22 00:49-0500\n"
+"PO-Revision-Date: 2014-01-21 21:10+0000\n"
+"Last-Translator: lodahl <leiflodahl@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,11 +84,11 @@ msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "Opdateringen lykkedes ikke. Kontroller venligst loggen på administratorsiden og rapporter dette problem til <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud fællesskabet</a>."
 
 #: js/controllers.js:30
 msgid "Proceed"
-msgstr ""
+msgstr "Fortsæt"
 
 #: templates/admin.php:17
 msgid "Update Center"
