@@ -48,35 +48,9 @@ class Hooks {
 	 * @param $param array from postWriteFile-Hook
 	 */
 	public static function indexFile(array $param) {
-		if (isset($param['path'])) {
-			$param['user'] = \OCP\User::getUser();
+			$arguments = array('user' => \OCP\User::getUser());
 			//Add Background Job:
-			BackgroundJob::addQueuedTask(
-					'search_lucene',
-					'OCA\Search_Lucene\Hooks',
-					'doIndexFile',
-					json_encode($param) );
-		} else {
-			Util::writeLog('search_lucene',
-				'missing path parameter',
-				Util::WARN);
-		}
-	}
-	static public function doIndexFile($param) {
-		$data = json_decode($param);
-		if ( ! isset($data->path) ) {
-			Util::writeLog('search_lucene',
-				'missing path parameter',
-				Util::WARN);
-			return false;
-		}
-		if ( ! isset($data->user) ) {
-			Util::writeLog('search_lucene',
-				'missing user parameter',
-				Util::WARN);
-			return false;
-		}
-		Indexer::indexFile($data->path, $data->user);
+			BackgroundJob::registerJob( '\OCA\Search_Lucene\IndexJob', $arguments );
 	}
 
 	/**
@@ -87,11 +61,17 @@ class Hooks {
 	 * @param $param array from postRenameFile-Hook
 	 */
 	public static function renameFile(array $param) {
-		if (isset($param['newpath'])) {
-			self::indexFile(array('path'=>$param['newpath']));
-		}
+			$user = \OCP\User::getUser();
 		if (isset($param['oldpath'])) {
-			self::deleteFile(array('path'=>$param['oldpath']));
+			//delete from lucene index
+			$lucene = new Lucene($user);
+			$lucene->deleteFile($param['oldpath']);
+		}
+		if (isset($param['newpath'])) {
+			$view = new \OC\Files\View('/' . $user . '/files');
+			$info = $view->getFileInfo($param['newpath']);
+			Status::fromFileId($info['fileid'])->markNew();
+			self::indexFile(array('path'=>$param['newpath']));
 		}
 	}
 
@@ -102,41 +82,38 @@ class Hooks {
 	 *
 	 * @author Jörn Dreyer <jfd@butonic.de>
 	 *
-	 * @param $param array from postDeleteFile-Hook
+	 * @param $param array from deleteFile-Hook
 	 */
 	static public function deleteFile(array $param) {
+		Util::writeLog(
+			'search_lucene',
+			'deleting status for ' . json_encode($param),
+			Util::DEBUG
+		);
 		// we cannot use post_delete as $param would not contain the id
 		// of the deleted file and we could not fetch it with getId
 		if (isset($param['path'])) {
-			$param['user'] = \OCP\User::getUser();
-			//Add Background Job:
-			BackgroundJob::addQueuedTask(
+			$user = \OCP\User::getUser();
+			//delete status
+			$deletedIds = Status::getDeleted();
+			foreach ($deletedIds as $fileid) {
+				Util::writeLog(
 					'search_lucene',
-					'OCA\Search_Lucene\Hooks',
-					'doDeleteFile',
-					json_encode($param) );
+					'deleting status for ('.$fileid.') ',
+					Util::DEBUG
+				);
+				\OCA\Search_Lucene\Status::delete($fileid);
+			}
+			//delete from lucene
+			$lucene = new Lucene($user);
+			$lucene->deleteFile($param['path']);
 		} else {
-			Util::writeLog('search_lucene',
-					'missing path parameter',
-					Util::WARN);
-		}
-
-	}
-	static public function doDeleteFile($param) {
-		$data = json_decode($param);
-		if ( ! isset($data->path) ) {
-			Util::writeLog('search_lucene',
+			Util::writeLog(
+				'search_lucene',
 				'missing path parameter',
-				Util::WARN);
-			return false;
+				Util::ERROR
+			);
 		}
-		if ( ! isset($data->user) ) {
-			Util::writeLog('search_lucene',
-				'missing user parameter',
-				Util::WARN);
-			return false;
-		}
-		Lucene::deleteFile($data->path, $data->user);
-	}
 
+	}
 }

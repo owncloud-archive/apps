@@ -5,8 +5,6 @@ OCP\JSON::callCheck();
 OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
-//FIXME refactor db queries and logic into the lib folder
-
 function index() {
 	if ( isset($_GET['fileid']) ){
 		$fileIds = array($_GET['fileid']);
@@ -17,50 +15,16 @@ function index() {
 	$eventSource = new OC_EventSource();
 	$eventSource->send('count', count($fileIds));
 
-	$skippedDirs = explode(';', OCP\Config::getUserValue(OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
-
-	foreach ($fileIds as $id) {
-		$skipped = false;
-		
-		$fileStatus = OCA\Search_Lucene\Status::fromFileId($id);
-
-		try{
-			//before we start mark the file as error so we know there was a problem when the php execution dies
-			$fileStatus->markError();
-
-			$path = OC\Files\Filesystem::getPath($id);
-			$eventSource->send('indexing', $path);
-
-			foreach ($skippedDirs as $skippedDir) {
-				if (strpos($path, '/' . $skippedDir . '/') !== false //contains dir
-					|| strrpos($path, '/' . $skippedDir) === strlen($path) - (strlen($skippedDir) + 1) // ends with dir
-				) {
-					$result = $fileStatus->markSkipped();
-					$skipped = true;
-					break;
-				}
-			}
-			if (!$skipped) {
-				if (OCA\Search_Lucene\Indexer::indexFile($path, OCP\User::getUser())) {
-					$result = $fileStatus->markIndexed();
-				}
-			}
-
-			if (!$result) {
-				OCP\JSON::error(array('message' => 'Could not index file.'));
-				$eventSource->send('error', $path);
-			}
-		} catch (Exception $e) { //sqlite might report database locked errors when stock filescan is in progress
-			//this also catches db locked exception that might come up when using sqlite
-			\OCP\Util::writeLog('search_lucene',
-				$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
-				\OCP\Util::ERROR);
-			OCP\JSON::error(array('message' => 'Could not index file.'));
-			$eventSource->send('error', $e->getMessage());
-			//try to mark the file as new to let it reindex
-			$fileStatus->markNew();  // Add UI to trigger rescan of files with status 'E'rror?
-		}
-	}
+	$user = OCP\User::getUser();
+	
+	OC_Util::tearDownFS();
+	OC_Util::setupFS($user);
+	
+	$view = new OC\Files\View('/' . $user . '/files');
+	$lucene = new OCA\Search_Lucene\Lucene($user);
+	
+	$indexer = new OCA\Search_Lucene\Indexer($view, $lucene);
+	$indexer->indexFiles($fileIds, $eventSource);
 
 	$eventSource->send('done', '');
 	$eventSource->close();

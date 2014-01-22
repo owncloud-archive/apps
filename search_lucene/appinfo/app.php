@@ -27,11 +27,11 @@
 //add 3rdparty folder to include path
 $dir = dirname(dirname(__FILE__)).'/3rdparty';
 set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
-
+/*
 OC::$CLASSPATH['OCA\Search_Lucene\Lucene'] = 'search_lucene/lib/lucene.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Indexer'] = 'search_lucene/lib/indexer.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Hooks'] = 'search_lucene/lib/hooks.php';
-
+*/
 OC::$CLASSPATH['OCA\Search_Lucene\Document\Pdf'] = 'search_lucene/document/Pdf.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Document\OpenDocument'] = 'search_lucene/document/OpenDocument.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Document\Odt'] = 'search_lucene/document/Odt.php';
@@ -63,7 +63,7 @@ OCP\Util::addStyle('search_lucene', 'lucene');
 
 //remove other providers
 OC_Search::removeProvider('OC_Search_Provider_File');
-OC_Search::registerProvider('OCA\Search_Lucene\Lucene');
+OC_Search::registerProvider('OCA\Search_Lucene\SearchProvider');
 
 // --- add hooks -----------------------------------------------
 
@@ -86,6 +86,6 @@ OCP\Util::connectHook(
 //listen for file deletions to clean the database
 OCP\Util::connectHook(
 		OC\Files\Filesystem::CLASSNAME,
-		OC\Files\Filesystem::signal_delete,
+		'post_delete', //FIXME add referenceable constant in core
 		'OCA\Search_Lucene\Hooks',
 		OCA\Search_Lucene\Hooks::handle_delete);

@@ -3,6 +3,8 @@
 
 namespace OCA\Search_Lucene;
 
+use \OC\Files\Filesystem;
+
 /**
  * @author Jörn Dreyer <jfd@butonic.de>
  */
@@ -52,6 +54,12 @@ class Status {
 		} else {
 			return self::insert($this->fileId, $this->status);
 		}
+	}
+	public static function delete($fileId) {
+		$query = \OC_DB::prepare('
+			DELETE FROM `*PREFIX*lucene_status` WHERE `fileid` = ?
+		');
+		return $query->execute(array($fileId));
 	}
 	
 	private static function get($fileId) {
@@ -139,4 +147,23 @@ class Status {
 		return $files;
 	}
 
+	static public function getDeleted() {
+		$files = array();
+		
+		$query = \OCP\DB::prepare('
+			SELECT `*PREFIX*lucene_status`.`fileid`
+			FROM `*PREFIX*lucene_status`
+			LEFT JOIN `*PREFIX*filecache`
+				ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`
+			WHERE `*PREFIX*filecache`.`fileid` IS NULL
+		');
+		
+		$result = $query->execute();
+		
+		while ($row = $result->fetchRow()) {
+			$files[] = $row['fileid'];
+		}
+		
+		return $files;
+	}
 }

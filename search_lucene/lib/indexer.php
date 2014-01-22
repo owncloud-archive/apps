@@ -18,6 +18,68 @@ class Indexer {
 	 * used as signalclass in OC_Hooks::emit()
 	 */
 	const CLASSNAME = 'Indexer';
+	
+	private $view;
+	private $lucene;
+
+	public function __construct(\OC\Files\View $view, Lucene $lucene) {
+			$this->view = $view;
+			$this->lucene = $lucene;
+	}
+	
+	public function indexFiles (array $fileIds, \OC_EventSource $eventSource = null) {
+		
+		$skippedDirs = explode(';', \OCP\Config::getUserValue(\OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
+		
+		foreach ($fileIds as $id) {
+			$skipped = false;
+
+			$fileStatus = \OCA\Search_Lucene\Status::fromFileId($id);
+
+			try{
+				//before we start mark the file as error so we know there was a problem when the php execution dies
+				$fileStatus->markError();
+
+				$path = \OC\Files\Filesystem::getPath($id);
+				if ($eventSource) {
+					$eventSource->send('indexing', $path);
+				}
+
+				foreach ($skippedDirs as $skippedDir) {
+					if (strpos($path, '/' . $skippedDir . '/') !== false //contains dir
+						|| strrpos($path, '/' . $skippedDir) === strlen($path) - (strlen($skippedDir) + 1) // ends with dir
+					) {
+						$result = $fileStatus->markSkipped();
+						$skipped = true;
+						break;
+					}
+				}
+				if (!$skipped) {
+					if ($this->indexFile($path)) {
+						$result = $fileStatus->markIndexed();
+					}
+				}
+
+				if (!$result) {
+					\OCP\JSON::error(array('message' => 'Could not index file.'));
+					if ($eventSource) {
+						$eventSource->send('error', $path);
+					}
+				}
+			} catch (Exception $e) { //sqlite might report database locked errors when stock filescan is in progress
+				//this also catches db locked exception that might come up when using sqlite
+				\OCP\Util::writeLog('search_lucene',
+					$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
+					\OCP\Util::ERROR);
+				\OCP\JSON::error(array('message' => 'Could not index file.'));
+					if ($eventSource) {
+						$eventSource->send('error', $e->getMessage());
+					}
+				//try to mark the file as new to let it reindex
+				$fileStatus->markNew();  // Add UI to trigger rescan of files with status 'E'rror?
+			}
+		}
+	}
 
 	/**
 	 * index a file
@@ -28,42 +90,28 @@ class Indexer {
 	 *
 	 * @return bool
 	 */
-	static public function indexFile($path = '', $user = null) {
+	public function indexFile($path = '') {
 
 		if (!Filesystem::isValidPath($path)) {
 			return;
 		}
-		if ($path === '') {
+		if (empty($path)) {
 			//ignore the empty path element
 			return false;
 		}
-
-		if (is_null($user)) {
-			$view = Filesystem::getView();
-			$user = \OCP\User::getUser();
-		} else {
-			$view = new \OC\Files\View('/' . $user . '/files');
-		}
-
-		if ( ! $view ) {
-			Util::writeLog('search_lucene',
-				'could not resolve filesystem view',
-				Util::WARN);
-			return false;
-		}
 		
-		if(!$view->file_exists($path)) {
+		if(!$this->view->file_exists($path)) {
 			Util::writeLog('search_lucene',
 				'file vanished, ignoring',
 				Util::DEBUG);
 			return true;
 		}
 
-		$root = $view->getRoot();
+		$root = $this->view->getRoot();
 		$pk = md5($root . $path);
 
 		// the cache already knows mime and other basic stuff
-		$data = $view->getFileInfo($path);
+		$data = $this->view->getFileInfo($path);
 		if (isset($data['mimetype'])) {
 			$mimeType = $data['mimetype'];
 
@@ -71,27 +119,29 @@ class Indexer {
 			$doc = new \Zend_Search_Lucene_Document();
 
 			// index content for local files only
-			$localFile = $view->getLocalFile($path);
+			$localFile = $this->view->getLocalFile($path);
 
 			if ( $localFile ) {
 				//try to use special lucene document types
 
 				if ('text/plain' === $mimeType) {
 
-					$body = $view->file_get_contents($path);
+					$body = $this->view->file_get_contents($path);
 
 					if ($body != '') {
 						$doc->addField(\Zend_Search_Lucene_Field::UnStored('body', $body));
 					}
 
+				// FIXME uther text files? c, php, java ...
+
 				} else if ('text/html' === $mimeType) {
 
 					//TODO could be indexed, even if not local
-					$doc = \Zend_Search_Lucene_Document_Html::loadHTML($view->file_get_contents($path));
+					$doc = \Zend_Search_Lucene_Document_Html::loadHTML($this->view->file_get_contents($path));
 
 				} else if ('application/pdf' === $mimeType) {
 
-					$doc = Pdf::loadPdf($view->file_get_contents($path));
+					$doc = Pdf::loadPdf($this->view->file_get_contents($path));
 
 				// commented the mimetype checks, as the zend classes only understand docx and not doc files.
 				// FIXME distinguish doc and docx, xls and xlsx, ppt and pptx, in oc core mimetype helper ...
@@ -135,9 +185,8 @@ class Indexer {
 
 			$doc->addField(\Zend_Search_Lucene_Field::unIndexed('mimetype', $mimeType));
 
-			//self::extractMetadata($doc, $path, $view, $mimeType);
 
-			Lucene::updateFile($doc, $path, $user);
+			$this->lucene->updateFile($doc, $path);
 
 			return true;
 
@@ -151,97 +200,4 @@ class Indexer {
 		}
 	}
 
-
-	/**
-	 * extract the metadata from a file
-	 *
-	 * uses getid3 to extract metadata.
-	 * if possible also adds content (currently only for plain text files)
-	 * hint: use OC\Files\Filesystem::getFileInfo($path) to get metadata for the last param
-	 *
-	 * @author Jörn Dreyer <jfd@butonic.de>
-	 *
-	 * @param Zend_Search_Lucene_Document $doc      to add the metadata to
-	 * @param string                      $path     path of the file to extract metadata from
-	 * @param string                      $mimetype depending on the mimetype different extractions are performed
-	 *
-	 * @return void
-	 */
-	private static function extractMetadata(
-		\Zend_Search_Lucene_Document $doc,
-		$path,
-		\OC\Files\View $view,
-		$mimetype
-	) {
-
-		$file = $view->getLocalFile($path);
-		if (is_dir($file)) {
-			// Don't lose time analizing a directory for file-specific metadata
-			return;
-		}
-		$getID3 = new \getID3();
-		$getID3->encoding = 'UTF-8';
-		$data = $getID3->analyze($file);
-
-		// TODO index meta information from media files?
-
-		//show me what you got
-		/*foreach ($data as $key => $value) {
-			Util::writeLog('search_lucene',
-						'getid3 extracted '.$key.': '.$value,
-						Util::DEBUG);
-			if (is_array($value)) {
-				foreach ($value as $k => $v) {
-					Util::writeLog('search_lucene',
-							'  ' . $value .'-' .$k.': '.$v,
-							Util::DEBUG);
-				}
-			}
-		}*/
-
-		if ('application/pdf' === $mimetype) {
-			try {
-				$zendpdf = \Zend_Pdf::parse($view->file_get_contents($path));
-
-				//we currently only display the filename, so we only index metadata here
-				if (isset($zendpdf->properties['Title'])) {
-					$doc->addField(\Zend_Search_Lucene_Field::UnStored('title', $zendpdf->properties['Title']));
-				}
-				if (isset($zendpdf->properties['Author'])) {
-					$doc->addField(\Zend_Search_Lucene_Field::UnStored('author', $zendpdf->properties['Author']));
-				}
-				if (isset($zendpdf->properties['Subject'])) {
-					$doc->addField(\Zend_Search_Lucene_Field::UnStored('subject', $zendpdf->properties['Subject']));
-				}
-				if (isset($zendpdf->properties['Keywords'])) {
-					$doc->addField(\Zend_Search_Lucene_Field::UnStored('keywords', $zendpdf->properties['Keywords']));
-				}
-				//TODO handle PDF 1.6 metadata Zend_Pdf::getMetadata()
-
-				//do the content extraction
-				$pdfParse = new \App_Search_Helper_PdfParser();
-				$body = $pdfParse->pdf2txt($zendpdf->render());
-
-			} catch (Exception $e) {
-				Util::writeLog('search_lucene',
-					$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
-					Util::ERROR);
-			}
-
-		}
-
-		if ($body != '') {
-			$doc->addField(\Zend_Search_Lucene_Field::UnStored('body', $body));
-		}
-
-		if (isset($data['error'])) {
-			Util::writeLog(
-				'search_lucene',
-				'failed to extract meta information for ' . $view->getAbsolutePath($path) . ': ' . $data['error']['0'],
-				Util::WARN
-			);
-
-			return;
-		}
-	}
 }
