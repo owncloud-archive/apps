@@ -24,7 +24,7 @@ class Downloader {
 			throw new \Exception('Unable to create a temporary file');
 		}
 		try {
-			if (file_put_contents(self::$package, self::fetch($url))===false) {
+			if (file_put_contents(self::$package, fopen($url, 'r'))===false) {
 				throw new \Exception("Error storing package content");
 			}
 			if (preg_match('/\.zip$/i', $url)) {
