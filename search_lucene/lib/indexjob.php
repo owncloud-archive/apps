@@ -6,6 +6,8 @@ class IndexJob extends \OC\BackgroundJob\Job {
 	public function run($arguments){
 		if (isset($arguments['user'])) {
 			$user = $arguments['user'];
+			\OC_Util::tearDownFS();
+			\OC_Util::setupFS($user);
 			$fileIds = Status::getUnindexed();
 			\OCP\Util::writeLog(
 				'search_lucene',
@@ -13,11 +15,10 @@ class IndexJob extends \OC\BackgroundJob\Job {
 				\OCP\Util::DEBUG
 			);
 
-			\OC_Util::tearDownFS();
-			\OC_Util::setupFS($user);
 			$view = new \OC\Files\View('/' . $user . '/files');
+			$lucene = new \OCA\Search_Lucene\Lucene($user);
 			
-			$indexer = new Indexer($view);
+			$indexer = new Indexer($view, $lucene);
 			$indexer->indexFiles($fileIds);
 		} else {
 			\OCP\Util::writeLog(

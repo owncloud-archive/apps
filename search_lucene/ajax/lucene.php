@@ -6,6 +6,11 @@ OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
 function index() {
+	$user = OCP\User::getUser();
+	
+	OC_Util::tearDownFS();
+	OC_Util::setupFS($user);
+	
 	if ( isset($_GET['fileid']) ){
 		$fileIds = array($_GET['fileid']);
 	} else {
@@ -15,10 +20,6 @@ function index() {
 	$eventSource = new OC_EventSource();
 	$eventSource->send('count', count($fileIds));
 
-	$user = OCP\User::getUser();
-	
-	OC_Util::tearDownFS();
-	OC_Util::setupFS($user);
 	
 	$view = new OC\Files\View('/' . $user . '/files');
 	$lucene = new OCA\Search_Lucene\Lucene($user);
