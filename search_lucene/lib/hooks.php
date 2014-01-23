@@ -116,4 +116,16 @@ class Hooks {
 		}
 
 	}
+	
+	/**
+	 * was used by backgroundjobs to index individual files
+	 * 
+	 * @deprecated since version 0.6.0
+	 * 
+	 * @author Jörn Dreyer <jfd@butonic.de>
+	 *
+	 * @param $param array from deleteFile-Hook
+	 */
+	static public function doIndexFile(array $param) {/* ignore */}
+	
 }
