@@ -37,31 +37,42 @@ class Indexer {
 			$fileStatus = \OCA\Search_Lucene\Status::fromFileId($id);
 
 			try{
-				//before we start mark the file as error so we know there was a problem when the php execution dies
+				// before we start mark the file as error so we know there
+				// was a problem in case the php execution dies and we don't try
+				// the file again
 				$fileStatus->markError();
 
 				$path = \OC\Files\Filesystem::getPath($id);
+				
+				if (empty($path)) {
+					$skip = true;
+				} else {
+					foreach ($skippedDirs as $skippedDir) {
+						if (strpos($path, '/' . $skippedDir . '/') !== false //contains dir
+							|| strrpos($path, '/' . $skippedDir) === strlen($path) - (strlen($skippedDir) + 1) // ends with dir
+						) {
+							$skip = true;
+							break;
+						}
+					}
+					$skip = false;
+				}
+				
+				if ($skip) {
+					$fileStatus->markSkipped();
+					\OCP\Util::writeLog('search_lucene',
+						'skipping file '.$id.':'.$path,
+						\OCP\Util::ERROR);
+					continue;
+				}
 				if ($eventSource) {
 					$eventSource->send('indexing', $path);
 				}
-
-				foreach ($skippedDirs as $skippedDir) {
-					if (strpos($path, '/' . $skippedDir . '/') !== false //contains dir
-						|| strrpos($path, '/' . $skippedDir) === strlen($path) - (strlen($skippedDir) + 1) // ends with dir
-					) {
-						$result = $fileStatus->markSkipped();
-						$skipped = true;
-						break;
-					}
-				}
-				if (!$skipped) {
-					if ($this->indexFile($path)) {
-						$result = $fileStatus->markIndexed();
-					}
-				}
-
-				if (!$result) {
-					\OCP\JSON::error(array('message' => 'Could not index file.'));
+				
+				if ($this->indexFile($path)) {
+					$fileStatus->markIndexed();
+				} else {
+					\OCP\JSON::error(array('message' => 'Could not index file '.$id.':'.$path));
 					if ($eventSource) {
 						$eventSource->send('error', $path);
 					}
@@ -102,13 +113,10 @@ class Indexer {
 		
 		if(!$this->view->file_exists($path)) {
 			Util::writeLog('search_lucene',
-				'file vanished, ignoring',
+				'file '.$path.' vanished, ignoring',
 				Util::DEBUG);
 			return true;
 		}
-
-		$root = $this->view->getRoot();
-		$pk = md5($root . $path);
 
 		// the cache already knows mime and other basic stuff
 		$data = $this->view->getFileInfo($path);
@@ -132,7 +140,7 @@ class Indexer {
 						$doc->addField(\Zend_Search_Lucene_Field::UnStored('body', $body));
 					}
 
-				// FIXME uther text files? c, php, java ...
+				// FIXME other text files? c, php, java ...
 
 				} else if ('text/html' === $mimeType) {
 
@@ -173,7 +181,7 @@ class Indexer {
 
 
 			// Store filecache id as unique id to lookup by when deleting
-			$doc->addField(\Zend_Search_Lucene_Field::Keyword('pk', $pk));
+			$doc->addField(\Zend_Search_Lucene_Field::Keyword('fileid', $data['fileid']));
 
 			// Store filename
 			$doc->addField(\Zend_Search_Lucene_Field::Text('filename', $data['name'], 'UTF-8'));
@@ -186,7 +194,7 @@ class Indexer {
 			$doc->addField(\Zend_Search_Lucene_Field::unIndexed('mimetype', $mimeType));
 
 
-			$this->lucene->updateFile($doc, $path);
+			$this->lucene->updateFile($doc, $data['fileid']);
 
 			return true;
 

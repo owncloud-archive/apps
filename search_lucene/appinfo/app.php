@@ -65,6 +65,12 @@ OCP\Util::addStyle('search_lucene', 'lucene');
 OC_Search::removeProvider('OC_Search_Provider_File');
 OC_Search::registerProvider('OCA\Search_Lucene\SearchProvider');
 
+// add background job for index optimization:
+
+$arguments = array('user' => \OCP\User::getUser());
+//Add Background Job:
+\OCP\BackgroundJob::registerJob( '\OCA\Search_Lucene\OptimizeJob', $arguments );
+
 // --- add hooks -----------------------------------------------
 
 //post_create is ignored, as write will be triggered afterwards anyway

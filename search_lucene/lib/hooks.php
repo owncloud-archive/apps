@@ -48,9 +48,18 @@ class Hooks {
 	 * @param $param array from postWriteFile-Hook
 	 */
 	public static function indexFile(array $param) {
-			$arguments = array('user' => \OCP\User::getUser());
+		$user = \OCP\User::getUser();
+		if (!empty($user)) {
+			$arguments = array('user' => $user);
 			//Add Background Job:
 			BackgroundJob::registerJob( '\OCA\Search_Lucene\IndexJob', $arguments );
+		} else {
+			\OCP\Util::writeLog(
+				'search_lucene',
+				'Hook indexFile could not determine user when called with param '.json_encode($param),
+				\OCP\Util::DEBUG
+			);
+		}
 	}
 
 	/**
@@ -62,12 +71,12 @@ class Hooks {
 	 */
 	public static function renameFile(array $param) {
 			$user = \OCP\User::getUser();
-		if (isset($param['oldpath'])) {
+		if (!empty($param['oldpath'])) {
 			//delete from lucene index
 			$lucene = new Lucene($user);
 			$lucene->deleteFile($param['oldpath']);
 		}
-		if (isset($param['newpath'])) {
+		if (!empty($param['newpath'])) {
 			$view = new \OC\Files\View('/' . $user . '/files');
 			$info = $view->getFileInfo($param['newpath']);
 			Status::fromFileId($info['fileid'])->markNew();
@@ -76,43 +85,30 @@ class Hooks {
 	}
 
 	/**
-	 * remove a file from the lucene index when deleting a file
-	 *
-	 * file deletion from the index is queued as a background job
+	 * deleteFile triggers the removal of any deleted files from the index
 	 *
 	 * @author Jörn Dreyer <jfd@butonic.de>
 	 *
 	 * @param $param array from deleteFile-Hook
 	 */
 	static public function deleteFile(array $param) {
-		Util::writeLog(
-			'search_lucene',
-			'deleting status for ' . json_encode($param),
-			Util::DEBUG
-		);
 		// we cannot use post_delete as $param would not contain the id
 		// of the deleted file and we could not fetch it with getId
-		if (isset($param['path'])) {
-			$user = \OCP\User::getUser();
-			//delete status
-			$deletedIds = Status::getDeleted();
-			foreach ($deletedIds as $fileid) {
-				Util::writeLog(
-					'search_lucene',
-					'deleting status for ('.$fileid.') ',
-					Util::DEBUG
-				);
-				\OCA\Search_Lucene\Status::delete($fileid);
-			}
-			//delete from lucene
-			$lucene = new Lucene($user);
-			$lucene->deleteFile($param['path']);
-		} else {
+		$user = \OCP\User::getUser();
+		$lucene = new Lucene($user);
+		$deletedIds = Status::getDeleted();
+		$count = 0;
+		foreach ($deletedIds as $fileid) {
 			Util::writeLog(
 				'search_lucene',
-				'missing path parameter',
-				Util::ERROR
+				'deleting status for ('.$fileid.') ',
+				Util::DEBUG
 			);
+			//delete status
+			\OCA\Search_Lucene\Status::delete($fileid);
+			//delete from lucene
+			$count += $lucene->deleteFile($fileid);
+			
 		}
 
 	}

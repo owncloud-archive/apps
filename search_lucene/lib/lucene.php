@@ -25,6 +25,12 @@ class Lucene {
 		$this->index = self::openOrCreate();
 	}
 	
+	private function getIndexURL () {
+		// TODO profile: encrypt the index on logout, decrypt on login
+		//return OCP\Files::getStorage('search_lucene');
+		return \OC_User::getHome($this->user) . '/lucene_index';
+	}
+	
 	/**
 	 * opens or creates the users lucene index
 	 * 
@@ -44,10 +50,8 @@ class Lucene {
 			);
 			
 			// Create index
-			// TODO profile: encrypt the index on logout, decrypt on login
-			//$ocFilesystemView = OCP\Files::getStorage('search_lucene');
 
-			$indexUrl = \OC_User::getHome($this->user) . '/lucene_index';
+			$indexUrl = $this->getIndexURL();
 			if (file_exists($indexUrl)) {
 				$index = \Zend_Search_Lucene::open($indexUrl);
 			} else {
@@ -79,7 +83,7 @@ class Lucene {
 
 		Util::writeLog(
 			'search_lucene',
-			'optimizing index ',
+			'optimizing index',
 			Util::DEBUG
 		);
 
@@ -97,22 +101,21 @@ class Lucene {
 	 * @author Jörn Dreyer <jfd@butonic.de>
 	 * 
 	 * @param Zend_Search_Lucene_Document $doc  the document to store for the path
-	 * @param string                      $path path to the document to update
+	 * @param int $fileid fileid to update
 	 * 
 	 * @return void
 	 */
 	public function updateFile(
 		\Zend_Search_Lucene_Document $doc,
-		$path = ''
+		$fileid
 	) {
 
-		
 		// TODO profile perfomance for searching before adding to index
-		$this->deleteFile($path);
+		$this->deleteFile($fileid);
 
 		Util::writeLog(
 			'search_lucene',
-			'adding ' . $path ,
+			'adding ' . $fileid .' '.json_encode($doc),
 			Util::DEBUG
 		);
 		
@@ -128,47 +131,17 @@ class Lucene {
 	 * 
 	 * @author Jörn Dreyer <jfd@butonic.de>
 	 * 
-	 * @param string                       $path  path to the document to remove from the index
+	 * @param int $fileid fileid to remove from the index
 	 * 
-	 * @return void
+	 * @return int count of deleted documents in the index
 	 */
-	public function deleteFile($path) {
-		Util::writeLog(
-			'search_lucene',
-			'Lucene::deleteFile('.$path.')',
-			Util::DEBUG
-		);
-		if ( $path === '' ) {
-			//ignore the empty path element
-			return;
-		}
-		
-		//TODO remember view as instance member?
-		$view = new \OC\Files\View('/' . $this->user . '/files');
+	public function deleteFile($fileid) {
 
-		if ( ! $view ) {
-			Util::writeLog(
-				'search_lucene',
-				'could not resolve filesystem view',
-				Util::WARN
-			);
-			return false;
-		}
-
-		$root= $view->getRoot();
-		$pk = md5($root.$path);
+		$hits = $this->index->find( 'fileid:' . $fileid );
 
 		Util::writeLog(
 			'search_lucene',
-			'searching hits for pk:' . $pk,
-			Util::DEBUG
-		);
-
-		$hits = $this->index->find( 'pk:' . $pk ); //id would be internal to lucene
-
-		Util::writeLog(
-			'search_lucene',
-			'found ' . count($hits) . ' hits ',
+			'found ' . count($hits) . ' hits for fileid ' . $fileid,
 			Util::DEBUG
 		);
 
@@ -180,9 +153,12 @@ class Lucene {
 			);
 			$this->index->delete($hit);
 		}
+		
+		return count($hits);
 	}
 
 	public function find ($query) {
 		return $this->index->find($query);
 	}
+
 }

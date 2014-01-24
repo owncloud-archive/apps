@@ -4,7 +4,7 @@ namespace OCA\Search_Lucene;
 
 class IndexJob extends \OC\BackgroundJob\Job {
 	public function run($arguments){
-		if (isset($arguments['user'])) {
+		if (!empty($arguments['user'])) {
 			$user = $arguments['user'];
 			\OC_Util::tearDownFS();
 			\OC_Util::setupFS($user);
@@ -23,7 +23,7 @@ class IndexJob extends \OC\BackgroundJob\Job {
 		} else {
 			\OCP\Util::writeLog(
 				'search_lucene',
-				'indexer job did not receive user in arguments',
+				'indexer job did not receive user in arguments: '.json_encode($arguments),
 				\OCP\Util::DEBUG
 			);
 		}
