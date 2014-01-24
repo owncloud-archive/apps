@@ -12,7 +12,7 @@
 "Moving files..." => "Spostamento file in corso...",
 "All done. Click to the link below to start database upgrade." => "Tutte le operazioni completate. Fai clic sul collegamento seguente per iniziare l'aggiornamento del database.",
 "Update failed" => "Aggiornamento non riuscito",
-"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "L'aggiornamento non è riuscito. Si prega di controllare i log nella pagina di amministrazione e segnalare il problema alla comunità <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud</ a>.",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "L'aggiornamento non è riuscito. Controlla i log nella pagina di amministrazione e segnala il problema alla <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunità di ownCloud</ a>.",
 "Proceed" => "Procedi",
 "Update Center" => "Centro aggiornamenti",
 "Backup Management" => "Gestione backup",
