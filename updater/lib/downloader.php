@@ -24,7 +24,8 @@ class Downloader {
 			throw new \Exception('Unable to create a temporary file');
 		}
 		try {
-			if (file_put_contents(self::$package, self::fetch($url))===false) {
+			
+			if (self::fetch($url)===false) {
 				throw new \Exception("Error storing package content");
 			}
 			if (preg_match('/\.zip$/i', $url)) {
@@ -66,7 +67,13 @@ class Downloader {
 	
 	/* To be replaced with OC_Util::getUrlContent for 5.x */
 	public static function fetch($url){
-		if  (function_exists('curl_init')) {
+		
+		$urlFopen = ini_get('allow_url_fopen');
+		$allowed = array('on', 'yes', 'true', 1);
+		
+		if (\in_array($urlFopen, $allowed)){
+			$result = @file_put_contents(self::$package, fopen($url, 'r'));
+		} elseif  (function_exists('curl_init')) {
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_HEADER, 0);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -74,7 +81,9 @@ class Downloader {
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($curl, CURLOPT_URL, $url);
 			curl_setopt($curl, CURLOPT_USERAGENT, "ownCloud Server Crawler");
-			$data = curl_exec($curl);
+			
+			$result = @file_put_contents(self::$package, curl_exec($curl));
+			
 			curl_close($curl);
 		} else {
 			$ctx = stream_context_create(
@@ -82,9 +91,10 @@ class Downloader {
 					'http' => array('timeout' => 32000)
 				     )
 				);
-			$data = @file_get_contents($url, 0, $ctx);
+			
+			$result = @file_put_contents(self::$package, @file_get_contents($url, 0, $ctx));
 		}
-		return $data;
+		return $result;
 	}
 
 	public static function cleanUp($version){
