@@ -78,7 +78,7 @@ class SearchProvider extends \OC_Search_Provider {
 	 * @param Zend_Search_Lucene_Search_QueryHit $hit The Lucene Search Result
 	 * @return OC_Search_Result an OC_Search_Result
 	 */
-	private static function asOCSearchResult(\Zend_Search_Lucene_Search_QueryHit $hit) {
+	public static function asOCSearchResult(\Zend_Search_Lucene_Search_QueryHit $hit) {
 
 		$mimeBase = self::baseTypeOf($hit->mimetype);
 

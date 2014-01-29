@@ -30,6 +30,12 @@ class Status {
 			return new Status($fileId, null);
 		}
 	}
+	public function getFileId() {
+		return $this->fileId;
+	}
+	public function getStatus() {
+		return $this->status;
+	}
 	// always write status to db immediately
 	public function markNew() {
 		$this->status = self::STATUS_NEW;
