@@ -18,7 +18,6 @@ class OC_User_FTP extends OC_User_Backend{
 		if($this->secure) {
 			$this->protocol.='s';
 		}
-		$this->protocol.='://';
 	}
 
 	/**
@@ -30,7 +29,11 @@ class OC_User_FTP extends OC_User_Backend{
 	 * Check if the password is correct without logging in the user
 	 */
 	public function checkPassword($uid, $password) {
-		$url=$this->protocol.$uid.':'.$password.'@'.$this->host.'/';
+		if (false === array_search($this->protocol, stream_get_wrappers())) {
+			OCP\Util::writeLog('user_external', 'ERROR: Stream wrapper not available: ' . $this->protocol, OCP\Util::ERROR);
+			return false;
+		}
+		$url = sprintf('%s://%s:%s@%s/', $this->protocol, $uid, $password, $this->host);
 		$result=@opendir($url);
 		if(is_resource($result)) {
 			return $uid;

@@ -22,6 +22,10 @@ class OC_User_IMAP extends OC_User_Backend{
 	 * Check if the password is correct without logging in the user
 	 */
 	public function checkPassword($uid, $password) {
+		if (!function_exists('imap_open')) {
+			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
+			return false;
+		}
 		$mbox = @imap_open($this->mailbox, $uid, $password);
 		imap_errors();
 		imap_alerts();

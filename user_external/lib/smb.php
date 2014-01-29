@@ -29,10 +29,18 @@ class OC_User_SMB extends OC_User_Backend{
 		$password=escapeshellarg($password);
 		$result=array();
 		$command=self::smbclient.' //'.$this->host.'/dummy -U'.$uidEscaped.'%'.$password;
-		$result=exec($command,$result);
-		if(substr($result,-strlen(self::loginError))==self::loginError) {
+		$lastline = exec($command, $output, $retval);
+		if ($retval === 127) {
+			OCP\Util::writeLog('user_external', 'ERROR: smbclient executable missing', OCP\Util::ERROR);
 			return false;
-		}else{
+		} else if (strpos($lastline, self::loginError) !== false) {
+			//normal login error
+			return false;
+		} else if ($retval != 0) {
+			//some other error
+			OCP\Util::writeLog('user_external', 'ERROR: smbclient error: ' . trim($lastline), OCP\Util::ERROR);
+			return false;
+		} else {
 			return $uid;
 		}
 	}
