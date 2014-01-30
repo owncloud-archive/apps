@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-24 00:49-0500\n"
-"PO-Revision-Date: 2013-12-22 14:24+0000\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
+"PO-Revision-Date: 2014-01-30 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,15 +24,15 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:36 js/gallery.js:258
+#: appinfo/app.php:36 js/gallery.js:284
 msgid "Pictures"
 msgstr "사진"
 
-#: js/gallery.js:296
+#: js/gallery.js:324
 msgid "Shared by"
 msgstr "공유한 사용자:"
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr "사진 보기"
 
@@ -52,9 +52,9 @@ msgstr "이 앱을 사용하려면 \"그림 뷰어\" 앱을 활성화해야 합�
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
-msgstr "%s 님이 <strong>%s</strong>을(를) 공유하였습니다"
+msgid "shared by %s"
+msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr "파일 목록"

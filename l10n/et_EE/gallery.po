@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-29 20:00+0000\n"
-"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
+"PO-Revision-Date: 2014-01-30 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 js/gallery.js:284
 msgid "Pictures"
 msgstr "Pildid"
 
-#: js/gallery.js:296
+#: js/gallery.js:324
 msgid "Shared by"
 msgstr "Jagas"
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr "Pildi vaade"
 
-#: js/slideshow.js:323
+#: js/slideshow.js:329
 msgid "Error loading slideshow template"
 msgstr "Viga slaidiseansi kujunduse valimisel"
 
@@ -46,9 +46,9 @@ msgstr "\"Pildivaataja\" rakendus tuleb sisse lülitada, et seda rakendust kasut
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
-msgstr "%s jagas sinuga <strong>%s</strong>"
+msgid "shared by %s"
+msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr "Failide nimekiri"

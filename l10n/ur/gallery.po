@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-07 00:49-0500\n"
-"PO-Revision-Date: 2014-01-06 23:45+0000\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
+"PO-Revision-Date: 2014-01-30 05:49+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Urdu (http://www.transifex.com/projects/p/owncloud/language/ur/)\n"
 "MIME-Version: 1.0\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:36 js/gallery.js:258
+#: appinfo/app.php:36 js/gallery.js:284
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:296
+#: js/gallery.js:324
 msgid "Shared by"
 msgstr ""
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr ""
 
@@ -45,9 +45,9 @@ msgstr ""
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
+msgid "shared by %s"
 msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-29 00:49-0500\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Shared by"
 msgstr ""
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr ""
 
@@ -45,9 +45,9 @@ msgstr ""
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
+msgid "shared by %s"
 msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr ""

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-23 00:49-0500\n"
-"PO-Revision-Date: 2014-01-22 07:50+0000\n"
-"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
+"PO-Revision-Date: 2014-01-30 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "Bildoj"
 msgid "Shared by"
 msgstr "Kunhavigita de"
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr "Bilda vido"
 
@@ -49,9 +49,9 @@ msgstr "Ankaŭ la aplikaĵo “Bildorigardilo” devas esti kapabligita por uzi 
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
-msgstr "%s kunhavigis <strong>%s</strong> kun vi"
+msgid "shared by %s"
+msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr "Listo de dosieroj"

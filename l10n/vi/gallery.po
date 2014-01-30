@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-22 00:49-0500\n"
-"PO-Revision-Date: 2014-01-21 08:00+0000\n"
-"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
+"POT-Creation-Date: 2014-01-30 00:49-0500\n"
+"PO-Revision-Date: 2014-01-30 05:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,7 @@ msgstr "Hình ảnh"
 msgid "Shared by"
 msgstr "Chia sẻ bởi"
 
-#: js/public.js:9
+#: js/public.js:13
 msgid "Picture view"
 msgstr "Xem h"
 
@@ -50,9 +50,9 @@ msgstr "Kích hoạt ứng dụng \"Image Viewer\" để dùng ứng dụng này
 
 #: templates/public.php:9
 #, php-format
-msgid "%s shared <strong>%s</strong> with you"
-msgstr "%s chia sẻ <strong>%s</strong> với b"
+msgid "shared by %s"
+msgstr ""
 
-#: templates/public.php:16
+#: templates/public.php:20
 msgid "File list"
 msgstr "Danh sách tập t"
