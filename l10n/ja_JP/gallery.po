@@ -5,14 +5,14 @@
 # Translators:
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2012
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013
-# tt yn <tetuyano+transi@gmail.com>, 2013
+# tt yn <tetuyano+transi@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-30 00:49-0500\n"
-"PO-Revision-Date: 2014-01-30 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-02-02 00:49-0500\n"
+"PO-Revision-Date: 2014-02-01 15:00+0000\n"
+"Last-Translator: tt yn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:36 js/gallery.js:284
+#: appinfo/app.php:36 js/gallery.js:289
 msgid "Pictures"
 msgstr "ピクチャ"
 
-#: js/gallery.js:324
+#: js/gallery.js:330
 msgid "Shared by"
 msgstr "共有者："
 
@@ -49,7 +49,7 @@ msgstr "このアプリケーションを利用するためには、\"画像ビ�
 #: templates/public.php:9
 #, php-format
 msgid "shared by %s"
-msgstr ""
+msgstr "%s で共有中"
 
 #: templates/public.php:20
 msgid "File list"

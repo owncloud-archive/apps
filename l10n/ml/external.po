@@ -3,38 +3,36 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cedric31 <cvalmary@yahoo.fr>, 2014
-# tartafione <d.chateau@laposte.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
 "POT-Creation-Date: 2014-02-02 00:49-0500\n"
-"PO-Revision-Date: 2014-01-30 09:00+0000\n"
-"Last-Translator: Cedric31 <cvalmary@yahoo.fr>\n"
-"Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/owncloud/language/oc/)\n"
+"PO-Revision-Date: 2014-01-31 07:18+0000\n"
+"Last-Translator: I Robot\n"
+"Language-Team: Malayalam (http://www.transifex.com/projects/p/owncloud/language/ml/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: oc\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: ml\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr "Sites extèrnes"
+msgstr ""
 
 #: templates/settings.php:9
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "Remove site"
-msgstr "Suprimir lo site"
+msgstr ""
 
 #: templates/settings.php:18
 msgid "Add"
-msgstr "Apondre"
+msgstr ""
