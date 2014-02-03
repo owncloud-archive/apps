@@ -5,15 +5,16 @@
 # Translators:
 # formalist <formalist@email.it>, 2012
 # ufic <marco@carnazzo.it>, 2012
+# Michele <michele.mastropietro@gmail.com>, 2014
 # polxmod <paolo.velati@gmail.com>, 2013
 # Vincenzo Reale <vinx.reale@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-30 00:49-0500\n"
-"PO-Revision-Date: 2014-01-30 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-02-03 01:16-0500\n"
+"PO-Revision-Date: 2014-02-02 22:50+0000\n"
+"Last-Translator: Michele <michele.mastropietro@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:36 js/gallery.js:284
+#: appinfo/app.php:36 js/gallery.js:289
 msgid "Pictures"
 msgstr "Immagini"
 
-#: js/gallery.js:324
+#: js/gallery.js:330
 msgid "Shared by"
 msgstr "Condiviso da"
 
@@ -50,7 +51,7 @@ msgstr "Per utilizzare questa applicazione deve essere abilitato anche il \"Visu
 #: templates/public.php:9
 #, php-format
 msgid "shared by %s"
-msgstr ""
+msgstr "Condiviso da %s"
 
 #: templates/public.php:20
 msgid "File list"
