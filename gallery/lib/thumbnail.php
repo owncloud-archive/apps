@@ -12,8 +12,6 @@ use OC\Files\Filesystem;
 use OC\Files\View;
 
 class Thumbnail {
-	static private $writeHookCount;
-
 	protected $image;
 	protected $path;
 	protected $user;
@@ -112,7 +110,7 @@ class Thumbnail {
 
 	static public function removeHook($params) {
 		$path = $params['path'];
-		$user = \OCP\USER::getUser();
+		$user = \OCP\User::getUser();
 		$galleryDir = \OC_User::getHome($user) . '/gallery/';
 		$thumbPath = $galleryDir . $path;
 		if (is_dir($thumbPath)) {
@@ -145,54 +143,7 @@ class Thumbnail {
 
 	static public function writeHook($params) {
 		self::removeHook($params);
-		//only create 5 thumbnails max in one request to prevent locking up the request
-		if (self::$writeHookCount < 5) {
-			$path = $params['path'];
-			$mime = \OC\Files\Filesystem::getMimetype($path);
-			if (substr($mime, 0, 6) === 'image/') {
-				self::$writeHookCount++;
-				new Thumbnail($path);
-			}
-		}
 	}
 }
 
-class AlbumThumbnail extends Thumbnail {
 
-	public function __construct($imagePath, $user = null, $square = false) {
-		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
-			return;
-		}
-		if (is_null($user)) {
-			$this->view = \OC\Files\Filesystem::getView();
-			$this->user = \OCP\USER::getUser();
-		} else {
-			$this->view = new \OC\Files\View('/' . $user . '/files');
-			$this->user = $user;
-		}
-		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
-		$this->path = $galleryDir . $imagePath . '.png';
-		if (!file_exists($this->path)) {
-			self::create($imagePath, $square);
-		}
-	}
-
-	public function create($albumPath, $square = false) {
-		$albumView = new \OC\Files\View($this->view->getRoot() . $albumPath);
-		$images = $albumView->searchByMime('image', 10);
-
-		$count = min(count($images), 10);
-		$thumbnail = imagecreatetruecolor($count * 200, 200);
-		for ($i = 0; $i < $count; $i++) {
-			$thumb = new Thumbnail($albumPath . $images[$i]['path'], $this->user, true);
-			$image = $thumb->get();
-			if ($image && $image->valid()) {
-				imagecopy($thumbnail, $image->resource(), $i * 200, 0, 0, 0, 200, 200);
-				$image->destroy();
-			}
-		}
-
-		imagepng($thumbnail, $this->path);
-		imagedestroy($thumbnail);
-	}
-}
