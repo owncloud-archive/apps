@@ -5,6 +5,7 @@
 "Creating backup..." => "Oppretter sikkerhetskopi...",
 "Here is your backup: " => "Her er din sikkerhetskopi:",
 "Moving files..." => "Flytter filer...",
+"Update failed" => "Oppdatering feilet",
 "Update" => "Oppdater",
 "Download" => "Last ned",
 "Delete" => "Slett"
