@@ -18,9 +18,17 @@
 	margin-top: 45px;
 }
 
+.header-right {
+	padding: 0;
+	height: 32px;
+}
+
 #details {
 	color:#fff;
-	float: left;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: .5;
+	padding-right: 5px;
 }
 
 #public_upload,
@@ -33,15 +41,6 @@
 
 }
 
-.header-right #details {
-	margin-right: 28px;
-}
-
-.header-right {
-	padding: 0;
-	height: 32px;
-}
-
 body {
 	position: absolute;
 	height: 100%;
@@ -50,10 +49,20 @@ body {
 	background: #404040 url('%webroot%/core/img/noise.png') repeat;
 }
 
+/* toggle for opening shared picture view as file list */
 #openAsFileListButton {
+	position: absolute;
+	right: 0;
+	top: 0;
 	font-weight: normal;
-	float: right;
 }
+#openAsFileListButton img {
+	vertical-align: text-top;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: .5;
+}
+
 
 /* transfer to core after body has the id #body-public / #body-public-dark */
 

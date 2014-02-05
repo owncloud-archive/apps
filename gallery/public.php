@@ -23,6 +23,7 @@
 \OCP\JSON::checkAppEnabled('gallery');
 
 OCP\Util::addStyle('gallery', 'styles');
+OCP\Util::addStyle('gallery', 'mobile');
 
 if (isset($_GET['t'])) {
 	$token = $_GET['t'];
