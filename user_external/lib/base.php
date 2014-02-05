@@ -1,11 +1,11 @@
 <?php
-namespace OCA\user_external;
 /**
  * Copyright (c) 2014 Christian Weiske <cweiske@cweiske.de>
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
  */
+namespace OCA\user_external;
 use \OC_DB;
 
 /**
@@ -13,20 +13,31 @@ use \OC_DB;
  * on their first login in a local table.
  * This is required for making many of the user-related owncloud functions
  * work, including sharing files with them.
+ *
+ * @category Apps
+ * @package  UserExternal
+ * @author   Christian Weiske <cweiske@cweiske.de>
+ * @license  http://www.gnu.org/licenses/agpl AGPL
+ * @link     http://github.com/owncloud/apps
  */
 abstract class Base extends \OC_User_Backend{
 	protected $backend = '';
 
+	/**
+	 * Create new instance, set backend name
+	 *
+	 * @param string $backend Identifier of the backend
+	 */
 	public function __construct($backend) {
 		$this->backend = $backend;
 	}
 
 	/**
-	 * @brief delete a user
-	 * @param string $uid The username of the user to delete
-	 * @return bool
+	 * Delete a user
 	 *
-	 * Deletes a user
+	 * @param string $uid The username of the user to delete
+	 *
+	 * @return bool
 	 */
 	public function deleteUser($uid) {
 		$query = OC_DB::prepare('DELETE FROM `*PREFIX*users_external` WHERE `uid` = ? AND `backend` = ?');
@@ -35,8 +46,10 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	 * @brief get display name of the user
-	 * @param $uid user ID of the user
+	 * Get display name of the user
+	 *
+	 * @param string $uid user ID of the user
+	 *
 	 * @return string display name
 	 */
 	public function getDisplayName($uid) {
@@ -51,16 +64,18 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	 * @brief Get a list of all display names
-	 * @returns array with  all displayNames (value) and the correspondig uids (key)
-	 *
 	 * Get a list of all display names and user ids.
+	 *
+	 * @return array with all displayNames (value) and the correspondig uids (key)
 	 */
 	public function getDisplayNames($search = '', $limit = null, $offset = null) {
 		$displayNames = array();
-		$query = OC_DB::prepare('SELECT `uid`, `displayname` FROM `*PREFIX*users_external`'
+		$query = OC_DB::prepare(
+			'SELECT `uid`, `displayname` FROM `*PREFIX*users_external`'
 			. ' WHERE (LOWER(`displayname`) LIKE LOWER(?) OR '
-			. 'LOWER(`uid`) LIKE LOWER(?)) AND `backend` = ?', $limit, $offset);
+			. 'LOWER(`uid`) LIKE LOWER(?)) AND `backend` = ?',
+			$limit, $offset
+		);
 		$result = $query->execute(array($search . '%', $search . '%', $this->backend));
 		$users = array();
 		while ($row = $result->fetchRow()) {
@@ -71,13 +86,15 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	* @brief Get a list of all users
-	* @returns array with all uids
+	* Get a list of all users
 	*
-	* Get a list of all users.
+	* @return array with all uids
 	*/
 	public function getUsers($search = '', $limit = null, $offset = null) {
-		$query = OC_DB::prepare('SELECT `uid` FROM `*PREFIX*users_external` WHERE LOWER(`uid`) LIKE LOWER(?) AND `backend` = ?', $limit, $offset);
+		$query = OC_DB::prepare(
+			'SELECT `uid` FROM `*PREFIX*users_external` WHERE LOWER(`uid`) LIKE LOWER(?) AND `backend` = ?',
+			$limit, $offset
+		);
 		$result = $query->execute(array($search . '%', $this->backend));
 		$users = array();
 		while ($row = $result->fetchRow()) {
@@ -87,6 +104,8 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
+	 * Determines if the backend can enlist users
+	 *
 	 * @return bool
 	 */
 	public function hasUserListings() {
@@ -94,16 +113,18 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	 * @brief Set display name
-	 * @param $uid The username
-	 * @param $displayName The new display name
-	 * @returns true/false
-	 *
 	 * Change the display name of a user
+	 *
+	 * @param string $uid		 The username
+	 * @param string $displayName The new display name
+	 *
+	 * @return true/false
 	 */
 	public function setDisplayName($uid, $displayName) {
 		if ($this->userExists($uid)) {
-			$query = OC_DB::prepare('UPDATE `*PREFIX*users_external` SET `displayname` = ? WHERE LOWER(`uid`) = ? AND `backend` = ?');
+			$query = OC_DB::prepare(
+				'UPDATE `*PREFIX*users_external` SET `displayname` = ? WHERE LOWER(`uid`) = ? AND `backend` = ?'
+			);
 			$query->execute(array($displayName, $uid, $this->backend));
 			return true;
 		} else {
@@ -112,9 +133,11 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	 * @brief Create user record in database
-	 * @param $uid The username
-	 * @returns void
+	 * Create user record in database
+	 *
+	 * @param string $uid The username
+	 *
+	 * @return void
 	 */
 	protected function storeUser($uid)
 	{
@@ -125,12 +148,16 @@ abstract class Base extends \OC_User_Backend{
 	}
 
 	/**
-	 * @brief check if a user exists
+	 * Check if a user exists
+	 *
 	 * @param string $uid the username
+	 *
 	 * @return boolean
 	 */
 	public function userExists($uid) {
-		$query = OC_DB::prepare('SELECT COUNT(*) FROM `*PREFIX*users_external` WHERE LOWER(`uid`) = LOWER(?) AND `backend` = ?');
+		$query = OC_DB::prepare(
+			'SELECT COUNT(*) FROM `*PREFIX*users_external` WHERE LOWER(`uid`) = LOWER(?) AND `backend` = ?'
+		);
 		$result = $query->execute(array($uid, $this->backend));
 		if (OC_DB::isError($result)) {
 			OC_Log::write('user_external', OC_DB::getErrorMessage($result), OC_Log::ERROR);
@@ -139,4 +166,3 @@ abstract class Base extends \OC_User_Backend{
 		return $result->fetchOne() > 0;
 	}
 }
-?>
