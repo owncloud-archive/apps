@@ -7,7 +7,7 @@
 "Downloading package..." => "パッケージをダウンロード中...",
 "Unable to fetch package" => "パッケージを取得できません",
 "Creating backup..." => "バックアップを作成中...",
-"Here is your backup: " => "こちらはあなたのバックアップです:",
+"Here is your backup: " => "あなたのバックアップ:",
 "Failed to create backup" => "バックアップの作成に失敗",
 "Moving files..." => "ファイルを移動中...",
 "All done. Click to the link below to start database upgrade." => "すべて完了。データベースのアップグレードを開始するには、以下のリンクをクリックしてください。",
