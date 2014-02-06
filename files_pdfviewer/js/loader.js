@@ -15,7 +15,7 @@ function showPDFviewer(dir,filename){
 		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-		var viewer = OC.linkTo('files_pdfviewer', 'viewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename.replace('&', '%26'));
+		var viewer = OC.linkTo('files_pdfviewer', 'viewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename);
 		$iframe = $('<iframe id="pdframe" style="width:100%;height:100%;display:block;" src="'+viewer+'" /><div id="pdfbar"><a id="close" title="Close">X</a></div>');
 		if ($('#isPublic').val()){
 			// force the preview to adjust its height
