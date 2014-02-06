@@ -31,6 +31,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
 OC::$CLASSPATH['OCA\Search_Lucene\Lucene'] = 'search_lucene/lib/lucene.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Indexer'] = 'search_lucene/lib/indexer.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Hooks'] = 'search_lucene/lib/hooks.php';
+OC::$CLASSPATH['OCA\Search_Lucene\IndexJob'] = 'search_lucene/lib/jobs.php';
+OC::$CLASSPATH['OCA\Search_Lucene\DeleteJob'] = 'search_lucene/lib/jobs.php';
 
 OC::$CLASSPATH['OCA\Search_Lucene\Document\Pdf'] = 'search_lucene/document/Pdf.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Document\OpenDocument'] = 'search_lucene/document/OpenDocument.php';

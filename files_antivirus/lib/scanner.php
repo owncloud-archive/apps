@@ -6,7 +6,11 @@
  * See the COPYING-README file.
  */
 
-class OC_Files_Antivirus_BackgroundScanner {
+class OC_Files_Antivirus_BackgroundScanner extends \OC\BackgroundJob\Job {
+	public function run($argument){
+		OC_Files_Antivirus_BackgroundScanner::check();
+	}
+
 	public static function check() {
 		// get mimetype code for directory
 		$query = \OCP\DB::prepare('SELECT `id` FROM `*PREFIX*mimetypes` WHERE `mimetype` = ?');
