@@ -1,16 +1,16 @@
 <?php
 
-$l=OC_L10N::get('settings');
+$l=OCP\Util::getL10N('settings');
 
-OC_JSON::checkLoggedIn();
+OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
-OC_JSON::checkAppEnabled('user_openid');
+OCP\JSON::checkAppEnabled('user_openid');
 
 // Get data
 if( isset( $_POST['identity'] ) ) {
 	$identity=$_POST['identity'];
-	OC_Preferences::setValue(OC_User::getUser(), 'user_openid', 'identity', $identity);
-	OC_JSON::success(array("data" => array( "message" => $l->t("OpenID Changed") )));
+	OCP\Config::setUserValue(OCP\User::getUser(), 'user_openid', 'identity', $identity);
+	OCP\JSON::success(array("data" => array( "message" => $l->t("OpenID Changed") )));
 }else{
-	OC_JSON::error(array("data" => array( "message" => $l->t("Invalid request") )));
+	OCP\JSON::error(array("data" => array( "message" => $l->t("Invalid request") )));
 }
