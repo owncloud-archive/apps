@@ -35,7 +35,7 @@ class Lucene extends \OC_Search_Provider {
 		try {
 			
 			\Zend_Search_Lucene_Analysis_Analyzer::setDefault(
-				new \Zend_Search_Lucene_Analysis_Analyzer_Common_TextNum_CaseInsensitive()
+				new \Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num_CaseInsensitive()
 			); //let lucene search for numbers as well as words
 			
 			// Create index
