@@ -28,35 +28,6 @@
  * @author Christian Reiner
  */
 
-$(document).ready(function(){
-  // set a few default style rules to make transitions work in firefox
-  OC.FluXX.defaults();
-	// setup a prefetch relation to prepare toggling the transition styles without having to load them later
-	OC.FluXX.transitions=$('<link/>',{
-// 		'id':'fluxx-transitions',
-		'rel':'prefetch',
-		'type':'text/css',
-		'href':OC.filePath('fluxx_compensator','css','transitions.css')
-	});
-	OC.FluXX.transitions.appendTo('head');
-	// setup handle objects
-	if ($('body#body-user, body#body-settings').length){
-		if ($('body header > #header').length)
-			OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL, 'body header > #header', 0, 0);
-		if ($('body nav > #navigation').length)
-			OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 'body nav > #navigation', 0, 0);
-	}
-	// initialize handles
-	OC.FluXX.init();
-	// initialize logic
-	OC.FluXX.mode();
-	// reposition the handles upon resize of the window
-	$(window).on('resize',function(){
-		$.each(OC.FluXX.Handle, function(){
-			OC.FluXX.maximize(this);
-		});
-	});
-})
 
 /**
  * @class OC.FluXX
@@ -510,3 +481,34 @@ OC.FluXX={
 		$('head #fluxx-transitions').one('load',function(){clearTimeout(timer);OC.FluXX.time(handle);});
 	} // OC.FluXX.toggle
 } // OC.FluXX
+
+
+$(document).ready(function(){
+  // set a few default style rules to make transitions work in firefox
+  OC.FluXX.defaults();
+	// setup a prefetch relation to prepare toggling the transition styles without having to load them later
+	OC.FluXX.transitions=$('<link/>',{
+// 		'id':'fluxx-transitions',
+		'rel':'prefetch',
+		'type':'text/css',
+		'href':OC.filePath('fluxx_compensator','css','transitions.css')
+	});
+	OC.FluXX.transitions.appendTo('head');
+	// setup handle objects
+	if ($('body#body-user, body#body-settings').length){
+		if ($('body header > #header').length)
+			OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL, 'body header > #header', 0, 0);
+		if ($('body nav > #navigation').length)
+			OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 'body nav > #navigation', 0, 0);
+	}
+	// initialize handles
+	OC.FluXX.init();
+	// initialize logic
+	OC.FluXX.mode();
+	// reposition the handles upon resize of the window
+	$(window).on('resize',function(){
+		$.each(OC.FluXX.Handle, function(){
+			OC.FluXX.maximize(this);
+		});
+	});
+})
