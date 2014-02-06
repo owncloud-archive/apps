@@ -1,5 +1,5 @@
 jQuery.fn.slideShow = function (container, start, options) {
-	var i, images = [], settings;
+	var i, images = [], dataPaths = [], settings;
 	start = start || 0;
 	settings = jQuery.extend({
 		'interval': 5000,
@@ -17,13 +17,21 @@ jQuery.fn.slideShow = function (container, start, options) {
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
 	jQuery.fn.slideShow.current = start;
+	var $children = $('#gallery').children();
 	for (i = 0; i < this.length; i++) {
 		var imageLink = this[i];
 		images.push(imageLink.imageUrl || imageLink.href);
+		for (var j = 0; j < $children.length; j++) {
+			var $child = $($children[j]);
+			if (images[i].indexOf($child.attr('href')) != -1) {
+				dataPaths.push($child.attr('data-path'));
+			}
+		}
 	}
 	container.children('img').remove();
 	container.show();
 	jQuery.fn.slideShow.images = images;
+	jQuery.fn.slideShow.dataPaths = dataPaths;
 	jQuery.fn.slideShow.cache = [];
 	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
@@ -115,6 +123,7 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 		if (url === jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]) {
 			container.children('img').remove();
 			container.append(image);
+			history.replaceState('', '', '#' + jQuery.fn.slideShow.dataPaths[jQuery.fn.slideShow.current]);
 			jQuery.fn.slideShow.fitImage(container, image);
 			if (jQuery.fn.slideShow.settings.play) {
 				jQuery.fn.slideShow.setTimeout();
