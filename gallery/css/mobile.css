@@ -1,0 +1,19 @@
+@media only screen and (max-width: 600px) {
+
+/* make header and controls bar scroll up for more view of content on small screens */
+#header,
+#controls {
+	position: absolute !important;
+}
+
+/* smaller images for smaller screens, fit 2 to width */
+#gallery > a > img,
+#gallery > a,
+#gallery > a.album,
+#gallery > a.image > img {
+	max-height: 130px;
+	max-width: 130px;
+}
+
+
+}
