@@ -3,6 +3,8 @@
 
 namespace OCA\Search_Lucene;
 
+use \OC\Files\Filesystem;
+
 /**
  * @author Jörn Dreyer <jfd@butonic.de>
  */
@@ -28,6 +30,12 @@ class Status {
 			return new Status($fileId, null);
 		}
 	}
+	public function getFileId() {
+		return $this->fileId;
+	}
+	public function getStatus() {
+		return $this->status;
+	}
 	// always write status to db immediately
 	public function markNew() {
 		$this->status = self::STATUS_NEW;
@@ -52,6 +60,12 @@ class Status {
 		} else {
 			return self::insert($this->fileId, $this->status);
 		}
+	}
+	public static function delete($fileId) {
+		$query = \OC_DB::prepare('
+			DELETE FROM `*PREFIX*lucene_status` WHERE `fileid` = ?
+		');
+		return $query->execute(array($fileId));
 	}
 	
 	private static function get($fileId) {
@@ -81,5 +95,81 @@ class Status {
 			WHERE `fileid` = ?
 		');
 		return $query->execute(array($status, $fileId));
+	}
+	
+	/**
+	 * get the list of all unindexed files for the user
+	 *
+	 * @return array
+	 */
+	static public function getUnindexed() {
+		$files = array();
+		$absoluteRoot = Filesystem::getView()->getAbsolutePath('/');
+		$mounts = Filesystem::getMountPoints($absoluteRoot);
+		$mount = Filesystem::getMountPoint($absoluteRoot);
+		if (!in_array($mount, $mounts)) {
+			$mounts[] = $mount;
+		}
+
+		$query = \OCP\DB::prepare('
+			SELECT `*PREFIX*filecache`.`fileid`
+			FROM `*PREFIX*filecache`
+			LEFT JOIN `*PREFIX*lucene_status`
+			ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`
+			WHERE `storage` = ?
+			AND `status` IS NULL OR `status` = ?
+		');
+
+		foreach ($mounts as $mount) {
+			if (is_string($mount)) {
+				$storage = Filesystem::getStorage($mount);
+			} else if ($mount instanceof \OC\Files\Mount\Mount) {
+				$storage = $mount->getStorage();
+			} else {
+				$storage = null;
+				Util::writeLog('search_lucene',
+					'expected string or instance of \OC\Files\Mount\Mount got ' . json_encode($mount),
+					Util::DEBUG);
+			}
+			//only index local files for now
+			if ($storage instanceof \OC\Files\Storage\Local) {
+				$cache = $storage->getCache();
+				$numericId = $cache->getNumericStorageId();
+
+				$result = $query->execute(array($numericId, self::STATUS_NEW));
+				if (\OCP\DB::isError($result)) {
+					Util::writeLog(
+						'search_lucene',
+						'failed to find unindexed files: '.\OCP\DB::getErrorMessage($result),
+						Util::WARN
+					);
+					return false;
+				}
+				while ($row = $result->fetchRow()) {
+					$files[] = $row['fileid'];
+				}
+			}
+		}
+		return $files;
+	}
+
+	static public function getDeleted() {
+		$files = array();
+		
+		$query = \OCP\DB::prepare('
+			SELECT `*PREFIX*lucene_status`.`fileid`
+			FROM `*PREFIX*lucene_status`
+			LEFT JOIN `*PREFIX*filecache`
+				ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`
+			WHERE `*PREFIX*filecache`.`fileid` IS NULL
+		');
+		
+		$result = $query->execute();
+		
+		while ($row = $result->fetchRow()) {
+			$files[] = $row['fileid'];
+		}
+		
+		return $files;
 	}
 }
