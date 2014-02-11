@@ -23,14 +23,15 @@ class OC_User_FTP extends OC_User_Backend{
 
 	/**
 	 * @brief Check if the password is correct
-	 * @param $uid The username
-	 * @param $password The password
-	 * @returns true/false
+	 * @param string $uid The username
+	 * @param string $password The password
+	 * @return bool
 	 *
 	 * Check if the password is correct without logging in the user
 	 */
 	public function checkPassword($uid, $password) {
-		$url=$this->protocol.$uid.':'.$password.'@'.$this->host.'/';
+		// opendir handles the as %-encoded string, but this is not true for usernames and passwords, encode them before passing them
+		$url = sprintf('%s://%s:%s@%s/', $this->protocol, urlencode($uid), urlencode($password), $this->host);
 		$result=@opendir($url);
 		if(is_resource($result)) {
 			return $uid;
