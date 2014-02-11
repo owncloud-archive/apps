@@ -40,8 +40,10 @@ abstract class Base extends \OC_User_Backend{
 	 * @return bool
 	 */
 	public function deleteUser($uid) {
-		$query = OC_DB::prepare('DELETE FROM `*PREFIX*users_external` WHERE `uid` = ? AND `backend` = ?');
-		$query->execute(array($uid, $this->backend));
+		OC_DB::executeAudited(
+			'DELETE FROM `*PREFIX*users_external` WHERE `uid` = ? AND `backend` = ?',
+			array($uid, $this->backend)
+		);
 		return true;
 	}
 
@@ -53,9 +55,12 @@ abstract class Base extends \OC_User_Backend{
 	 * @return string display name
 	 */
 	public function getDisplayName($uid) {
-		$query = OC_DB::prepare('SELECT `displayname` FROM `*PREFIX*users_external` WHERE `uid` = ? AND `backend` = ?');
-		$result = $query->execute(array($uid, $this->backend))->fetchAll();
-		$displayName = trim($result[0]['displayname'], ' ');
+		$user = OC_DB::executeAudited(
+			'SELECT `displayname` FROM `*PREFIX*users_external`'
+			. ' WHERE `uid` = ? AND `backend` = ?',
+			array($uid, $this->backend)
+		)->fetchRow();
+		$displayName = trim($user['displayname'], ' ');
 		if (!empty($displayName)) {
 			return $displayName;
 		} else {
@@ -69,15 +74,18 @@ abstract class Base extends \OC_User_Backend{
 	 * @return array with all displayNames (value) and the corresponding uids (key)
 	 */
 	public function getDisplayNames($search = '', $limit = null, $offset = null) {
-		$displayNames = array();
-		$query = OC_DB::prepare(
-			'SELECT `uid`, `displayname` FROM `*PREFIX*users_external`'
-			. ' WHERE (LOWER(`displayname`) LIKE LOWER(?) OR '
-			. 'LOWER(`uid`) LIKE LOWER(?)) AND `backend` = ?',
-			$limit, $offset
+		$result = OC_DB::executeAudited(
+			array(
+				'sql' => 'SELECT `uid`, `displayname` FROM `*PREFIX*users_external`'
+					. ' WHERE (LOWER(`displayname`) LIKE LOWER(?) '
+					. ' OR LOWER(`uid`) LIKE LOWER(?)) AND `backend` = ?',
+				'limit'  => $limit,
+				'offset' => $offset
+			),
+			array($search . '%', $search . '%', $this->backend)
 		);
-		$result = $query->execute(array($search . '%', $search . '%', $this->backend));
-		$users = array();
+
+		$displayNames = array();
 		while ($row = $result->fetchRow()) {
 			$displayNames[$row['uid']] = $row['displayname'];
 		}
@@ -91,11 +99,15 @@ abstract class Base extends \OC_User_Backend{
 	* @return array with all uids
 	*/
 	public function getUsers($search = '', $limit = null, $offset = null) {
-		$query = OC_DB::prepare(
-			'SELECT `uid` FROM `*PREFIX*users_external` WHERE LOWER(`uid`) LIKE LOWER(?) AND `backend` = ?',
-			$limit, $offset
+		$result = OC_DB::executeAudited(
+			array(
+				'sql' => 'SELECT `uid` FROM `*PREFIX*users_external`'
+					. ' WHERE LOWER(`uid`) LIKE LOWER(?) AND `backend` = ?',
+				'limit' => $limit,
+				'offset' => $offset
+			),
+			array($search . '%', $this->backend)
 		);
-		$result = $query->execute(array($search . '%', $this->backend));
 		$users = array();
 		while ($row = $result->fetchRow()) {
 			$users[] = $row['uid'];
@@ -115,21 +127,21 @@ abstract class Base extends \OC_User_Backend{
 	/**
 	 * Change the display name of a user
 	 *
-	 * @param string $uid		 The username
+	 * @param string $uid         The username
 	 * @param string $displayName The new display name
 	 *
 	 * @return true/false
 	 */
 	public function setDisplayName($uid, $displayName) {
-		if ($this->userExists($uid)) {
-			$query = OC_DB::prepare(
-				'UPDATE `*PREFIX*users_external` SET `displayname` = ? WHERE LOWER(`uid`) = ? AND `backend` = ?'
-			);
-			$query->execute(array($displayName, $uid, $this->backend));
-			return true;
-		} else {
+		if (!$this->userExists($uid)) {
 			return false;
 		}
+		OC_DB::executeAudited(
+			'UPDATE `*PREFIX*users_external` SET `displayname` = ?'
+			. ' WHERE LOWER(`uid`) = ? AND `backend` = ?',
+			array($displayName, $uid, $this->backend)
+		);
+		return true;
 	}
 
 	/**
@@ -142,8 +154,11 @@ abstract class Base extends \OC_User_Backend{
 	protected function storeUser($uid)
 	{
 		if (!$this->userExists($uid)) {
-			$query = OC_DB::prepare('INSERT INTO `*PREFIX*users_external` ( `uid`, `backend` ) VALUES( ?, ? )');
-			$result = $query->execute(array($uid, $this->backend));
+			OC_DB::executeAudited(
+				'INSERT INTO `*PREFIX*users_external` ( `uid`, `backend` )'
+				. ' VALUES( ?, ? )',
+				array($uid, $this->backend)
+			);
 		}
 	}
 
@@ -155,14 +170,11 @@ abstract class Base extends \OC_User_Backend{
 	 * @return boolean
 	 */
 	public function userExists($uid) {
-		$query = OC_DB::prepare(
-			'SELECT COUNT(*) FROM `*PREFIX*users_external` WHERE LOWER(`uid`) = LOWER(?) AND `backend` = ?'
+		$result = OC_DB::executeAudited(
+			'SELECT COUNT(*) FROM `*PREFIX*users_external`'
+			. ' WHERE LOWER(`uid`) = LOWER(?) AND `backend` = ?',
+			array($uid, $this->backend)
 		);
-		$result = $query->execute(array($uid, $this->backend));
-		if (OC_DB::isError($result)) {
-			OC_Log::write('user_external', OC_DB::getErrorMessage($result), OC_Log::ERROR);
-			return false;
-		}
 		return $result->fetchOne() > 0;
 	}
 }
