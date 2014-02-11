@@ -16,7 +16,7 @@ If something does not work, check the log file at `owncloud/data/owncloud.log`.
 
 FTP
 ---
-Authenticate owncloud users against a FTP server.
+Authenticate ownCloud users against a FTP server.
 
 
 ### Configuration
@@ -55,8 +55,8 @@ needs to be activated.
 
 IMAP
 ----
-Authenticate owncloud users against an IMAP server.
-IMAP user and password need to be given for the owncloud login
+Authenticate ownCloud users against an IMAP server.
+IMAP user and password need to be given for the ownCloud login
 
 
 ### Configuration

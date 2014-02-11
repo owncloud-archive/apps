@@ -11,7 +11,7 @@ use \OC_DB;
 /**
  * Base class for external auth implementations that stores users
  * on their first login in a local table.
- * This is required for making many of the user-related owncloud functions
+ * This is required for making many of the user-related ownCloud functions
  * work, including sharing files with them.
  *
  * @category Apps
@@ -66,7 +66,7 @@ abstract class Base extends \OC_User_Backend{
 	/**
 	 * Get a list of all display names and user ids.
 	 *
-	 * @return array with all displayNames (value) and the correspondig uids (key)
+	 * @return array with all displayNames (value) and the corresponding uids (key)
 	 */
 	public function getDisplayNames($search = '', $limit = null, $offset = null) {
 		$displayNames = array();
