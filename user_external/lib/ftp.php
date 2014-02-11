@@ -33,7 +33,8 @@ class OC_User_FTP extends OC_User_Backend{
 			OCP\Util::writeLog('user_external', 'ERROR: Stream wrapper not available: ' . $this->protocol, OCP\Util::ERROR);
 			return false;
 		}
-		$url = sprintf('%s://%s:%s@%s/', $this->protocol, $uid, $password, $this->host);
+		// opendir handles the as %-encoded string, but this is not true for usernames and passwords, encode them before passing them
+		$url = sprintf('%s://%s:%s@%s/', $this->protocol, urlencode($uid), urlencode($password), $this->host);
 		$result=@opendir($url);
 		if(is_resource($result)) {
 			return $uid;
