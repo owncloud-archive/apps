@@ -17,9 +17,10 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 	}
 }
 
-if (sizeof($sites) == 0)
-	OC_Appconfig::deleteKey('external', 'sites');
-else
+if (sizeof($sites) == 0) {
+	$appConfig = \OC::$server->getAppConfig();
+	$appConfig->deleteKey('external', 'sites');
+} else {
 	OCP\Config::setAppValue('external', 'sites', json_encode($sites));
-
+}
 echo 'true';

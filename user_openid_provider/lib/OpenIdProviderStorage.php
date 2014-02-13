@@ -60,7 +60,8 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	public function delAssociation($handle)
 	{
 		$name = 'assoc_' . md5($handle);
-		OC_Appconfig::deleteKey('user_openid_provider', $name);
+		$appConfig = \OC::$server->getAppConfig();
+		$appConfig->deleteKey('user_openid_provider', $name);
 
 		return true;
 	}
