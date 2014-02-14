@@ -19,7 +19,7 @@ Gallery.fillAlbums = function () {
 		Gallery.users = data.users;
 		Gallery.displayNames = data.displayNames;
 		for (i = 0; i < data.images.length; i++) {
-			Gallery.images.push(data.images[i].path);
+			Gallery.images.push(data.images[i]);
 		}
 		Gallery.fillAlbums.fill(Gallery.albums, Gallery.images);
 		Gallery.fillAlbums.fillSubAlbums(Gallery.subAlbums, Gallery.albums);

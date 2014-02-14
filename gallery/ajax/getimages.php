@@ -99,5 +99,10 @@ function startsWith($haystack, $needle) {
 	return !strncmp($haystack, $needle, strlen($needle));
 }
 
+$result = array();
+foreach ($images as $image) {
+	$result[] = $image['path'];
+}
+
 OCP\JSON::setContentTypeHeader();
-echo json_encode(array('images' => $images, 'users' => $users, 'displayNames' => $displayNames));
+echo json_encode(array('images' => $result, 'users' => $users, 'displayNames' => $displayNames));
