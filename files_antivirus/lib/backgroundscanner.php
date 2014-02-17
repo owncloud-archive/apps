@@ -57,12 +57,15 @@ class BackgroundScanner {
 	}
 
 	public static function scan($id, $path, $storage) {
-		$result = Scanner::clamav_scan($storage, $path);
+		$fileStatus = Scanner::scanFile($storage, $path);
+		$result = $fileStatus->getNumericStatus();
+		
+		//TODO: Fix undefined $user here
 		switch($result) {
-			case Scanner::SCANRESULT_UNCHECKED:
+			case Status::SCANRESULT_UNCHECKED:
 				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
 				break;
-			case Scanner::SCANRESULT_INFECTED:
+			case Status::SCANRESULT_INFECTED:
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
@@ -72,7 +75,7 @@ class BackgroundScanner {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
 				}
 				break;
-			case Scanner::SCANRESULT_CLEAN:
+			case Status::SCANRESULT_CLEAN:
 				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
 					$result = $stmt->execute(array($id, time()));

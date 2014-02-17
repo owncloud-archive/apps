@@ -23,5 +23,8 @@
 
 OCP\App::registerAdmin('files_antivirus', 'settings');
 
-OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Files_Antivirus\Scanner', 'av_scan');
+OC::$CLASSPATH['OCA\Files_Antivirus\Scanner_Local'] = 'files_antivirus/lib/scanner/local.php';
+OC::$CLASSPATH['OCA\Files_Antivirus\Scanner_External'] = 'files_antivirus/lib/scanner/external.php';
+
+OCP\Util::connectHook('OC_Filesystem', 'post_write', '\OCA\Files_Antivirus\Scanner', 'av_scan');
 OCP\BackgroundJob::AddRegularTask('OCA\Files_Antivirus\BackgroundScanner', 'check');
