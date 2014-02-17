@@ -2,7 +2,7 @@
 <info>
 	<id>files_antivirus</id>
 	<name>Antivirus App for files</name>
-	<version>0.4-1</version>
+	<version>0.5</version>
 	<description>Verify files for virus using ClamAV</description>
 	<licence>AGPL</licence>
 	<author>Manuel Delgado, Bart Visscher, thinksilicon.de</author>

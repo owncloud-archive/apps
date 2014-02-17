@@ -35,4 +35,77 @@
 
  </table>
 
+
+	<table>
+
+		<name>*dbprefix*files_antivirus_status</name>
+
+		<declaration>
+
+			<field>
+				<name>id</name>
+				<type>integer</type>
+				<default>0</default>
+				<notnull>true</notnull>
+				<unsigned>true</unsigned>
+				<autoincrement>1</autoincrement>
+				<length>4</length>
+			</field>
+
+			<field>
+				<name>group_id</name>
+				<type>integer</type>
+				<default></default>
+				<notnull>true</notnull>
+				<unsigned>true</unsigned>
+				<length>4</length>
+			</field>
+
+			<field>
+				<name>status_type</name>
+				<type>integer</type>
+				<default></default>
+				<notnull>true</notnull>
+				<unsigned>true</unsigned>
+				<length>4</length>
+			</field>
+   
+			<field>
+				<name>result</name>
+				<type>integer</type>
+				<default></default>
+				<notnull>true</notnull>
+				<unsigned>false</unsigned>
+				<length>4</length>
+			</field>
+
+			<field>
+				<name>match</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>64</length>
+			</field>
+
+			<field>
+				<name>description</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>64</length>
+			</field>
+	
+			<field>
+				<name>status</name>
+				<type>integer</type>
+				<default></default>
+				<notnull>true</notnull>
+				<unsigned>false</unsigned>
+				<length>4</length>
+			</field>
+
+		</declaration>
+
+	</table>
+
 </database>
