@@ -26,7 +26,7 @@ namespace OCA\Files_Antivirus;
 class Scanner {
 	
 	// The file was not checked (e.g. because the AV daemon wasn't running).
-	const SCANRESULT_UNCHECKED = 1;
+	const SCANRESULT_UNCHECKED = -1;
 	// The file was checked and found to be clean.
 	const SCANRESULT_CLEAN = 0;
 	// The file was checked and found to be infected.
