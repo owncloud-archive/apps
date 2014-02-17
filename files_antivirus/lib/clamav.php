@@ -21,14 +21,14 @@
 *
 */
 
-// The file was not checked (e.g. because the AV daemon wasn't running).
-define('CLAMAV_SCANRESULT_UNCHECKED', -1);
-// The file was checked and found to be clean.
-define('CLAMAV_SCANRESULT_CLEAN', 0);
-// The file was checked and found to be infected.
-define('CLAMAV_SCANRESULT_INFECTED', 1);
-
 class OC_Files_Antivirus {
+	
+	// The file was not checked (e.g. because the AV daemon wasn't running).
+	const SCANRESULT_UNCHECKED = 1;
+	// The file was checked and found to be clean.
+	const SCANRESULT_CLEAN = 0;
+	// The file was checked and found to be infected.
+	const SCANRESULT_INFECTED = 1;
 
 	public static function av_scan($path) {
 		$path=$path[\OC\Files\Filesystem::signal_param_path];
@@ -37,10 +37,10 @@ class OC_Files_Antivirus {
 			if ($files_view->file_exists($path)) {
 				$result = self::clamav_scan($files_view, $path);
 				switch($result) {
-					case CLAMAV_SCANRESULT_UNCHECKED:
+					case self::SCANRESULT_UNCHECKED:
 						//TODO: Show warning to the user: The file can not be checked
 						break;
-					case CLAMAV_SCANRESULT_INFECTED:
+					case self::SCANRESULT_INFECTED:
 						//remove file
 						$files_view->unlink($path);
 						OCP\JSON::error(array("data" => array( "message" => "Virus detected! Can't upload the file." )));
@@ -58,7 +58,7 @@ class OC_Files_Antivirus {
 						exit();
 						break;
 
-					case CLAMAV_SCANRESULT_CLEAN:
+					case self::SCANRESULT_CLEAN:
 						//do nothing
 						break;
 				}
@@ -139,19 +139,19 @@ class OC_Files_Antivirus {
 		// filename: <error string> ERROR
 
 		if (preg_match('/.*: OK$/', $response)) {
-			return CLAMAV_SCANRESULT_CLEAN;
+			return self::SCANRESULT_CLEAN;
 		}
 		elseif (preg_match('/.*: (.*) FOUND$/', $response, $matches)) {
 			$virus_name = $matches[1];
 			\OCP\Util::writeLog('files_antivirus', 'Virus detected in file. Clamav reported the virus: '.$virus_name, \OCP\Util::WARN);
-			return CLAMAV_SCANRESULT_INFECTED;
+			return self::SCANRESULT_INFECTED;
 		}
 		else {
 			// try to extract the error message from the response.
 			preg_match('/.*: (.*) ERROR$/', $response, $matches);
 			$error_string = $matches[1]; // the error message given by the daemon
 			\OCP\Util::writeLog('files_antivirus', 'File could not be scanned. Clamscan reported: '.$error_string, \OCP\Util::WARN);
-			return CLAMAV_SCANRESULT_UNCHECKED;
+			return self::SCANRESULT_UNCHECKED;
 		}
 	}
 
@@ -164,13 +164,13 @@ class OC_Files_Antivirus {
 		// check that the executable is available
 		if (!file_exists($av_path)) {
 			\OCP\Util::writeLog('files_antivirus', 'The clamscan executable could not be found at '.$av_path, \OCP\Util::ERROR);
-			return CLAMAV_SCANRESULT_UNCHECKED;
+			return self::SCANRESULT_UNCHECKED;
 		}
 
 		$fhandler = $fileView->fopen($filepath, "r");
 		if(!$fhandler) {
 			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
-			return CLAMAV_SCANRESULT_UNCHECKED;
+			return self::SCANRESULT_UNCHECKED;
 		}
 
 		// using 2>&1 to grab the full command-line output.
@@ -183,7 +183,7 @@ class OC_Files_Antivirus {
 		if (!is_resource($process)) {
 			\OCP\Util::writeLog('files_antivirus', 'Error starting clamscan process', \OCP\Util::ERROR);
 			fclose($fhandler);
-			return CLAMAV_SCANRESULT_UNCHECKED;
+			return self::SCANRESULT_UNCHECKED;
 		}
 
 		// write to stdin
@@ -213,7 +213,7 @@ class OC_Files_Antivirus {
 		switch($result) {
 			case 0:
 				\OCP\Util::writeLog('files_antivirus', 'Result CLEAN!', \OCP\Util::DEBUG);
-				return CLAMAV_SCANRESULT_CLEAN;
+				return self::SCANRESULT_CLEAN;
 
 			case 1:
 				$line = 0;
@@ -226,7 +226,7 @@ class OC_Files_Antivirus {
 					$line++;
 				}
 				\OCP\Util::writeLog('files_antivirus', 'Virus detected in file.  Clamscan reported: '.implode(', ', $report), \OCP\Util::WARN);
-				return CLAMAV_SCANRESULT_INFECTED;
+				return self::SCANRESULT_INFECTED;
 
 			default:
 				$descriptions = array(
@@ -248,7 +248,7 @@ class OC_Files_Antivirus {
 				$description = (array_key_exists($result, $descriptions)) ? $descriptions[$result] : 'unknown error';
 
 				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$description, \OCP\Util::WARN);
-				return CLAMAV_SCANRESULT_UNCHECKED;
+				return self::SCANRESULT_UNCHECKED;
 		}
 	}
 }

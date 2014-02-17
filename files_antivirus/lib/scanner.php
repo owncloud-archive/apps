@@ -57,10 +57,10 @@ class OC_Files_Antivirus_BackgroundScanner {
 	public static function scan($id, $path, $storage) {
 		$result = OC_Files_Antivirus::clamav_scan($storage, $path);
 		switch($result) {
-			case CLAMAV_SCANRESULT_UNCHECKED:
+			case OC_Files_Antivirus::SCANRESULT_UNCHECKED:
 				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
 				break;
-			case CLAMAV_SCANRESULT_INFECTED:
+			case OC_Files_Antivirus::SCANRESULT_INFECTED:
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
@@ -70,7 +70,7 @@ class OC_Files_Antivirus_BackgroundScanner {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
 				}
 				break;
-			case CLAMAV_SCANRESULT_CLEAN:
+			case OC_Files_Antivirus::SCANRESULT_CLEAN:
 				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
 					$result = $stmt->execute(array($id, time()));
