@@ -9,6 +9,13 @@
 namespace OCA\Files_Antivirus;
 
 class Status {
+	// The file was not checked (e.g. because the AV daemon wasn't running).
+	const SCANRESULT_UNCHECKED = -1;
+	// The file was checked and found to be clean.
+	const SCANRESULT_CLEAN = 0;
+	// The file was checked and found to be infected.
+	const SCANRESULT_INFECTED = 1;
+	
 	protected $descriptions = array();
 	
 	public function __construct(){
@@ -30,12 +37,21 @@ class Status {
 		);
 	}
 	
+	
+	
+	public function getScanResult($status, $output){
+		
+	}
+
 	public function getErrorDescription($code){
-		if (array_key_exists($code, $this->$descriptions)){
-			return $this->$descriptions[$code];
+		if (array_key_exists($code, $this->descriptions)){
+			return $this->descriptions[$code];
 		} else {
 			return 'unknown error';
 		}
 	}
 	
+	
+	public static function processScan($result, $output){
+	}
 }

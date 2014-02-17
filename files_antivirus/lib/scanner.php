@@ -24,6 +24,13 @@
 namespace OCA\Files_Antivirus;
 
 class Scanner {
+	// null if not initialized
+	// false if an error occurred
+	// Scanner subclass if initialized
+	protected static $instance = null;
+	
+	// Chunk size
+	protected $chunkSize;
 	
 	// The file was not checked (e.g. because the AV daemon wasn't running).
 	const SCANRESULT_UNCHECKED = -1;
@@ -31,6 +38,78 @@ class Scanner {
 	const SCANRESULT_CLEAN = 0;
 	// The file was checked and found to be infected.
 	const SCANRESULT_INFECTED = 1;
+
+	
+	public function __construct($notUsed=false){
+		$this->chunkSize = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
+	}
+	
+	protected function getFileHandle($fileView, $filepath) {
+		$fhandler = $fileView->fopen($filepath, "r");
+		if(!$fhandler) {
+			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
+			throw new \RuntimeException();
+		}
+		return $fhandler;
+	}
+	
+	protected function getStatusByResponse($rawResponse, $status = null){
+		if (is_null($status)){
+			// clamd returns a string response in the format:
+			// filename: OK
+			// filename: <name of virus> FOUND
+			// filename: <error string> ERROR
+
+			if (preg_match('/.*: OK$/', $rawResponse)) {
+				return self::SCANRESULT_CLEAN;
+			} elseif (preg_match('/.*: (.*) FOUND$/', $rawResponse, $matches)) {
+				$virus_name = $matches[1];
+				\OCP\Util::writeLog('files_antivirus', 'Virus detected in file. Clamav reported the virus: '.$virus_name, \OCP\Util::WARN);
+				return self::SCANRESULT_INFECTED;
+			} else {
+				// try to extract the error message from the response.
+				preg_match('/.*: (.*) ERROR$/', $rawResponse, $matches);
+				$error_string = $matches[1]; // the error message given by the daemon
+				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned. Clamscan reported: '.$error_string, \OCP\Util::WARN);
+				return self::SCANRESULT_UNCHECKED;
+			}
+		} else {
+			/**
+			 * clamscan return values (documented from man clamscan)
+			 *  0 : No virus found.
+			 *  1 : Virus(es) found.
+			 *  X : Error.
+			 * TODO: add errors?
+			*/
+			switch($status) {
+				case 0:
+					\OCP\Util::writeLog('files_antivirus', 'Result CLEAN!', \OCP\Util::DEBUG);
+					return self::SCANRESULT_CLEAN;
+
+				case 1:
+					$line = 0;
+					$report = array();
+					$rawResponse = explode("\n", $rawResponse);
+					while ( strpos($rawResponse[$line], "--- SCAN SUMMARY ---") === FALSE ) {
+						if (preg_match('/.*: (.*) FOUND$/', $rawResponse[$line], $matches)) {
+							$report[] = $matches[1];
+						}
+						$line++;
+					}
+					\OCP\Util::writeLog('files_antivirus', 'Virus detected in file.  Clamscan reported: '.implode(', ', $report), \OCP\Util::WARN);
+					return self::SCANRESULT_INFECTED;
+
+				default:
+					$statusObj = new Status();
+					$description = $statusObj->getErrorDescription($status);
+					\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$description, \OCP\Util::WARN);
+					return self::SCANRESULT_UNCHECKED;
+			}
+		}
+	}
+
+
+
 
 	public static function av_scan($path) {
 		$path=$path[\OC\Files\Filesystem::signal_param_path];
@@ -69,172 +148,39 @@ class Scanner {
 	}
 
 	public static function clamav_scan($fileView, $filepath) {
+		if (is_null(self::$instance)){
+			try {
+				self::getInstance();
+			} catch (\Exception $e){
+				self::$instance = false;
+			}
+		}
+		
+		$scanResult = self::SCANRESULT_UNCHECKED;
+		if (self::$instance instanceof Scanner){
+			try {
+				$scanResult = self::$instance->scan($fileView, $filepath);
+			} catch (\Exception $e){
+				$scanResult = self::SCANRESULT_UNCHECKED;
+			}
+		}
+			
+		return $scanResult;
+	}
+
+	private static function getInstance(){
 		$av_mode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
-		$result = 0;
-		\OCP\Util::writeLog('files_antivirus', 'Scanning file : '.$filepath, \OCP\Util::DEBUG);
 		switch($av_mode) {
 			case 'daemon':
-				return self::_clamav_scan_via_daemon($fileView, $filepath, false);
+				self::$instance = new Scanner_External(false);
+				break;
 			case 'socket':
-				return self::_clamav_scan_via_daemon($fileView, $filepath, true);
+				self::$instance = new Scanner_External(true);
+				break;
 			case 'executable':
-				return self::_clamav_scan_via_exec($fileView, $filepath);
+				self::$instance = new Scanner_Local();
+				break;
 		}
 	}
 
-	private static function _clamav_scan_get_socket_connection() {
-		$av_socket = \OCP\Config::getAppValue( 'files_antivirus', 'av_socket', '' );
-        $shandler = stream_socket_client('unix://' . $av_socket, $errno, $errstr, 5);
-		if (!$shandler) {
-			\OCP\Util::writeLog('files_antivirus', 'Cannot connect to "' . $av_socket . '": ' . $errstr . ' (code ' . $errno . ')', \OCP\Util::ERROR);
-			return false;
-		}
-		return $shandler;
-	}
-
-	private static function _clamav_scan_get_daemon_connection() {
-		$av_host = \OCP\Config::getAppValue('files_antivirus', 'av_host', '');
-		$av_port = \OCP\Config::getAppValue('files_antivirus', 'av_port', '');
-		$shandler = ($av_host && $av_port) ? @fsockopen($av_host, $av_port) : false;
-		if (!$shandler) {
-			\OCP\Util::writeLog('files_antivirus', 'The clamav module is not configured for daemon mode.', \OCP\Util::ERROR);
-			return false;
-		}
-		return $shandler;
-	}
-
-	private static function _clamav_scan_via_daemon($fileView, $filepath, $useSocket = false) {
-		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
-		if ($useSocket){
-			$shandler = self::_clamav_scan_get_socket_connection();
-		}
-		else{
-			$shandler = self::_clamav_scan_get_daemon_connection();
-		}
-
-		if(!$shandler) {
-			return false;
-		}
-
-		$fhandler = $fileView->fopen($filepath, "r");
-		if(!$fhandler) {
-			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
-			return false;
-		}
-
-		// request scan from the daemon
-		fwrite($shandler, "nINSTREAM\n");
-		while (!feof($fhandler)) {
-			$chunk = fread($fhandler, $av_chunk_size);
-			$chunk_len = pack('N', strlen($chunk));
-			fwrite($shandler, $chunk_len.$chunk);
-		}
-		fwrite($shandler, pack('N', 0));
-		$response = fgets($shandler);
-		\OCP\Util::writeLog('files_antivirus', 'Response :: '.$response, \OCP\Util::DEBUG);
-		fclose($shandler);
-		fclose($fhandler);
-
-		// clamd returns a string response in the format:
-		// filename: OK
-		// filename: <name of virus> FOUND
-		// filename: <error string> ERROR
-
-		if (preg_match('/.*: OK$/', $response)) {
-			return self::SCANRESULT_CLEAN;
-		}
-		elseif (preg_match('/.*: (.*) FOUND$/', $response, $matches)) {
-			$virus_name = $matches[1];
-			\OCP\Util::writeLog('files_antivirus', 'Virus detected in file. Clamav reported the virus: '.$virus_name, \OCP\Util::WARN);
-			return self::SCANRESULT_INFECTED;
-		}
-		else {
-			// try to extract the error message from the response.
-			preg_match('/.*: (.*) ERROR$/', $response, $matches);
-			$error_string = $matches[1]; // the error message given by the daemon
-			\OCP\Util::writeLog('files_antivirus', 'File could not be scanned. Clamscan reported: '.$error_string, \OCP\Util::WARN);
-			return self::SCANRESULT_UNCHECKED;
-		}
-	}
-
-	private static function _clamav_scan_via_exec($fileView, $filepath) {
-		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
-		\OCP\Util::writeLog('files_antivirus', 'Exec scan: '.$filepath, \OCP\Util::DEBUG);
-		// get the path to the executable
-		$av_path = \OCP\Config::getAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
-
-		// check that the executable is available
-		if (!file_exists($av_path)) {
-			\OCP\Util::writeLog('files_antivirus', 'The clamscan executable could not be found at '.$av_path, \OCP\Util::ERROR);
-			return self::SCANRESULT_UNCHECKED;
-		}
-
-		$fhandler = $fileView->fopen($filepath, "r");
-		if(!$fhandler) {
-			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
-			return self::SCANRESULT_UNCHECKED;
-		}
-
-		// using 2>&1 to grab the full command-line output.
-		$cmd = escapeshellcmd($av_path) ." - 2>&1";
-		$descriptorSpec = array(
-			0 => array("pipe","r"), // STDIN
-			1 => array("pipe","w")  // STDOUT
-		);
-		$process = proc_open($cmd, $descriptorSpec, $pipes);
-		if (!is_resource($process)) {
-			\OCP\Util::writeLog('files_antivirus', 'Error starting clamscan process', \OCP\Util::ERROR);
-			fclose($fhandler);
-			return self::SCANRESULT_UNCHECKED;
-		}
-
-		// write to stdin
-		$shandler = $pipes[0];
-
-		while (!feof($fhandler)) {
-			$chunk = fread($fhandler, $av_chunk_size);
-			fwrite($shandler, $chunk);
-		}
-
-		fclose($shandler);
-		fclose($fhandler);
-
-		$output = stream_get_contents($pipes[1]);
-
-		fclose($pipes[1]);
-
-		$result = proc_close($process);
-
-		/**
-		 * clamscan return values (documented from man clamscan)
-		 *  0 : No virus found.
-		 *  1 : Virus(es) found.
-		 *  X : Error.
-		 * TODO: add errors?
-		 */
-		switch($result) {
-			case 0:
-				\OCP\Util::writeLog('files_antivirus', 'Result CLEAN!', \OCP\Util::DEBUG);
-				return self::SCANRESULT_CLEAN;
-
-			case 1:
-				$line = 0;
-				$report = array();
-				$output = explode("\n", $output);
-				while ( strpos($output[$line], "--- SCAN SUMMARY ---") === FALSE ) {
-					if (preg_match('/.*: (.*) FOUND$/', $output[$line], $matches)) {
-						$report[] = $matches[1];
-					}
-					$line++;
-				}
-				\OCP\Util::writeLog('files_antivirus', 'Virus detected in file.  Clamscan reported: '.implode(', ', $report), \OCP\Util::WARN);
-				return self::SCANRESULT_INFECTED;
-
-			default:
-				$status = new Status();
-				$description = $status->getErrorDescription($result);
-				\OCP\Util::writeLog('files_antivirus', 'File could not be scanned.  Clamscan reported: '.$description, \OCP\Util::WARN);
-				return self::SCANRESULT_UNCHECKED;
-		}
-	}
 }
