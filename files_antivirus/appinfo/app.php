@@ -21,10 +21,7 @@
 *
 */
 
-OC::$CLASSPATH['OC_Files_Antivirus'] = OC_App::getAppPath('files_antivirus').'/lib/clamav.php';
-OC::$CLASSPATH['OC_Files_Antivirus_BackgroundScanner'] = OC_App::getAppPath('files_antivirus').'/lib/scanner.php';
-
 OCP\App::registerAdmin('files_antivirus', 'settings');
-OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OC_Files_Antivirus', 'av_scan');
 
-OCP\BackgroundJob::AddRegularTask('OC_Files_Antivirus_BackgroundScanner', 'check');
+OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Files_Antivirus\Scanner', 'av_scan');
+OCP\BackgroundJob::AddRegularTask('OCA\Files_Antivirus\BackgroundScanner', 'check');
