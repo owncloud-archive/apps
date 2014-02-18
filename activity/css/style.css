@@ -159,18 +159,13 @@
 
 /* Infinite Scroll loader */
 #infscr-loading {
-  text-align: center;
-  z-index: 100;
-  position: fixed;
-  left: 45%;
-  bottom: 40px;
-  width: 200px;
-  padding: 10px;
-  background: #000;
-  opacity: 0.8;
-  color: #FFF;
-  -webkit-border-radius: 10px;
-	 -moz-border-radius: 10px;
-		  border-radius: 10px;
+	text-align: center;
+	z-index: 100;
+	position: fixed;
+	left: 45%;
+	bottom: 20px;
+	width: 200px;
+	padding: 10px;
+	color: #555;
 }
 
