@@ -6,7 +6,6 @@
 	<licence>AGPL</licence>
 	<author>Florian Jacob</author>
 	<require>4</require>
-	<shipped>true</shipped>
 	<types>
 		<prelogin/>
 		<authentication/>
