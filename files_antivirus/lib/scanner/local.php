@@ -29,6 +29,8 @@ class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
 	} 
 
 	protected function scan($fileView, $filepath) {
+		$this->status = new Status();
+		
 		$fhandler = $this->getFileHandle($fileView, $filepath);
 		\OCP\Util::writeLog('files_antivirus', 'Exec scan: '.$filepath, \OCP\Util::DEBUG);
 
@@ -64,7 +66,9 @@ class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
 
 		$result = proc_close($process);
 
-		return $this->getStatusByResponse($output, $result);
+		$this->status = parseResponse($output, $result);
+		
+		return $this->status->getNumericStatus();
 	}
 	
 }

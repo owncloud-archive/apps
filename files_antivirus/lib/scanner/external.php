@@ -22,6 +22,8 @@ class Scanner_External extends \OCA\Files_Antivirus\Scanner {
 	
 
 	protected function scan($fileView, $filepath) {
+		$this->status = new Status();
+		
 		if ($this->useSocket){
 			$av_socket = \OCP\Config::getAppValue( 'files_antivirus', 'av_socket', '' );
 			$shandler = stream_socket_client('unix://' . $av_socket, $errno, $errstr, 5);
@@ -55,7 +57,9 @@ class Scanner_External extends \OCA\Files_Antivirus\Scanner {
 		fclose($shandler);
 		fclose($fhandler);
 		
-		return $this->getStatusByResponse($response);
+		$this->status->parseResponse($response);
+		
+		return $this->status->getNumericStatus();
 	}
 	
 }

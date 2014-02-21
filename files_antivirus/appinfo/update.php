@@ -5,3 +5,10 @@
  * later.
  * See the COPYING-README file.
  */
+
+
+$installedVersion = \OCP\Config::getAppValue('files_antivirus', 'installed_version');
+
+if (version_compare($installedVersion, '0.5', '<')) {
+	\OCA\Files_Antivirus\Status::init();
+}
