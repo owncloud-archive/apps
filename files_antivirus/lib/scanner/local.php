@@ -21,7 +21,7 @@ class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
 
 		// check that the executable is available
 		if (!file_exists($avPath)) {
-			\OCP\Util::writeLog('files_antivirus', 'The clamscan executable could not be found at '.$avPath, \OCP\Util::ERROR);
+			\OCP\Util::writeLog('files_antivirus', 'The antivirus executable could not be found at '.$avPath, \OCP\Util::ERROR);
 			//throw new \RuntimeException();
 		}
 		
@@ -44,7 +44,7 @@ class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
 		$pipes = array();
 		$process = proc_open($cmd, $descriptorSpec, $pipes);
 		if (!is_resource($process)) {
-			\OCP\Util::writeLog('files_antivirus', 'Error starting clamscan process', \OCP\Util::ERROR);
+			\OCP\Util::writeLog('files_antivirus', 'Error starting process', \OCP\Util::ERROR);
 			fclose($fhandler);
 			throw new \RuntimeException();
 		}
@@ -66,7 +66,7 @@ class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
 
 		$result = proc_close($process);
 
-		$this->status = parseResponse($output, $result);
+		$this->status->parseResponse($output, $result);
 		
 		return $this->status->getNumericStatus();
 	}
