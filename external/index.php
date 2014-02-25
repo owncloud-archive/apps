@@ -25,7 +25,7 @@ require_once 'lib/external.php';
 
 OCP\User::checkLoggedIn();
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
 $sites = OC_External::getSites();
 if (sizeof($sites) >= $id) {
