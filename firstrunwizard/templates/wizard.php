@@ -36,10 +36,10 @@
 </a>
 <?php else: ?>
 <br><br><br>
-<a target="_blank" class="button" href="https://doc.owncloud.com/server/6.0EE/user_manual/">
+<a target="_blank" class="button" href="<?php p(link_to_docs('user-manual')); ?>">
 	<img class="appsmall svg" src="<?php print_unescaped(OCP\Util::imagePath('settings', 'help.svg')); ?>" /> <?php p($l->t('Documentation'));?>
 </a>
-<a target="_blank" class="button" href="https://doc.owncloud.com/server/6.0EE/user_manual/files/files.html">
+<a target="_blank" class="button" href="<?php p(link_to_docs('user-webdav')); ?>">
 	<img class="appsmall svg" src="<?php print_unescaped(OCP\Util::imagePath('core', 'places/folder.svg')); ?>" /> <?php p($l->t('Access files via WebDAV'));?>
 </a>
 <?php endif; ?>
