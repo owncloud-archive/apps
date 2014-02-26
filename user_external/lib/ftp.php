@@ -52,7 +52,8 @@ class OC_User_FTP extends \OCA\user_external\Base{
 			);
 			return false;
 		}
-		$url = sprintf('%s://%s:%s@%s/', $this->protocol, $uid, $password, $this->host);
+		// opendir handles the as %-encoded string, but this is not true for usernames and passwords, encode them before passing them
+		$url = sprintf('%s://%s:%s@%s/', $this->protocol, urlencode($uid), urlencode($password), $this->host);
 		$result=@opendir($url);
 		if(is_resource($result)) {
 			$this->storeUser($uid);
