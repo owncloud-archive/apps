@@ -69,6 +69,7 @@ class Backup {
 		if (self::$path) {
 			Helper::removeIfExists(self::$path);
 		}
+		Helper::removeIfExists(App::getTempBase());
 	}
 
 }

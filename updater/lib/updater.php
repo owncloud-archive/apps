@@ -82,6 +82,7 @@ class Updater {
 
 	public static function cleanUp(){
 		Helper::removeIfExists(self::getTempDir());
+		Helper::removeIfExists(App::getTempBase());
 	}
 	
 	public static function isClean(){
@@ -89,7 +90,7 @@ class Updater {
 	}
 
 	public static function getTempDir(){
-		return App::getBackupBase() . 'tmp';
+		return App::getTempBase() . 'tmp';
 	}
 
 }
