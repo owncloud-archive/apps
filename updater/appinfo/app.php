@@ -45,6 +45,10 @@ class App {
 		return \OC::$SERVERROOT . '/backup/';
 	}
 	
+	public static function getTempBase(){
+		return \OC::$SERVERROOT . "/_oc-upgrade/";
+	}
+	
 	public static function log($message, $level= \OC_Log::ERROR) {
 		\OCP\Util::writeLog(self::APP_ID, $message, $level);
 	}

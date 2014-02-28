@@ -36,6 +36,7 @@ class Location_Core extends Location {
 		$skip = array_values(Helper::getDirectories());
 		$skip[] = rtrim(App::getBackupBase(), '/');
 		$skip[] = \OCP\Config::getSystemValue("datadirectory", \OC::$SERVERROOT . "/data");
+		$skip[] = rtrim(App::getTempBase(), '/');
 
 		// Skip 3rdparty | apps | backup | datadir | config | themes
 		foreach ($pathArray as $key => $path) {

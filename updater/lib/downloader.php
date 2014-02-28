@@ -102,6 +102,7 @@ class Downloader {
 			Helper::removeIfExists(self::$package);
 		}
 		Helper::removeIfExists(self::getPackageDir($version));
+		Helper::removeIfExists(App::getTempBase());
 	}
 	
 	public static function isClean($version){
@@ -109,6 +110,6 @@ class Downloader {
 	}
 	
 	public static function getPackageDir($version) {
-		return App::getBackupBase() . $version;
+		return App::getTempBase() . $version;
 	}
 }
