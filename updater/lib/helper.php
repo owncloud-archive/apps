@@ -153,6 +153,7 @@ class Helper {
 	public static function filterLocations($locations, $basePath) {
 		$fullPath = array_values(self::getDirectories());
 		$fullPath[] = rtrim(App::getBackupBase(), '/');
+		$fullPath[] = rtrim(App::getTempBase(), '/');
 		$fullPath[] = \OCP\Config::getSystemValue( "datadirectory", \OC::$SERVERROOT."/data" );
 		$fullPath[] = \OC::$SERVERROOT."/themes";
 		
