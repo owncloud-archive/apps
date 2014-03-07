@@ -106,7 +106,7 @@ try {
 	$watcher->done();
 } catch (\Exception $e){
 	App::log($e->getMessage());
-	$watcher->failure((string) App::$l10n->t('Update failed'));
+	$watcher->failure((string) App::$l10n->t('Update failed') . '<br /><br />' . $e->getMessage());
 }
 
 class UpdateWatcher {
