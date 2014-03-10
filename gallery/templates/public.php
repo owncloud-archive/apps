@@ -6,7 +6,7 @@
 			<img class="svg" src="<?php print_unescaped(image_path('', 'logo-wide.svg')); ?>" alt="<?php p($theme->getName()); ?>" /></a>
 		<div id="logo-claim" style="display:none;"><?php p($theme->getLogoClaim()); ?></div>
 		<div class="header-right">
-			<span id="details"><?php print_unescaped($l->t('shared by %s', $_['displayName'])) ?></span>
+			<span id="details"><?php p($l->t('shared by %s', $_['displayName'])) ?></span>
 		</div>
 	</div>
 </header>
