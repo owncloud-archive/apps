@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-18 00:49-0500\n"
-"PO-Revision-Date: 2014-01-18 04:10+0000\n"
-"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/wizard.php:7
-msgid "Welcome to ownCloud"
-msgstr "Chào mừng đến với ownCloud"
+msgid "Welcome to"
+msgstr ""
 
 #: templates/wizard.php:9
 msgid ""
@@ -33,9 +33,9 @@ msgstr "Dịch vụ web cá nhân của bạn. Mọi file, liên hệ, lịch c�
 msgid "Get the apps to sync your files"
 msgstr "Nhận ứng dụng để đồng bộ file của bạn"
 
-#: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
-msgstr "Kết nối ứng dụng để bàn tới ownCloud"
+#: templates/wizard.php:27
+msgid "Connect your desktop apps to"
+msgstr ""
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -45,11 +45,15 @@ msgstr "Kết nối tới lịch của bạn"
 msgid "Connect your Contacts"
 msgstr "Kết nối tới liên lạc của bạn"
 
-#: templates/wizard.php:36
+#: templates/wizard.php:35 templates/wizard.php:43
 msgid "Access files via WebDAV"
 msgstr "Truy cập file qua WebDAV"
 
-#: templates/wizard.php:41
+#: templates/wizard.php:40
+msgid "Documentation"
+msgstr ""
+
+#: templates/wizard.php:49
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
@@ -57,7 +61,7 @@ msgid ""
 "href=\"http://owncloud.org\">website</a>."
 msgstr "Để có nhiều thông tin hơn vui lòng xem trong  <a target=\"_blank\" href=\"%s\">tài liệu</a> và trên <a target=\"_blank\" href=\"http://owncloud.org\">website</a>."
 
-#: templates/wizard.php:42
+#: templates/wizard.php:50
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

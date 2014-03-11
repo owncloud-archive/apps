@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-21 09:27+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/wizard.php:7
-msgid "Welcome to ownCloud"
-msgstr "欢迎来到 ownCloud"
+msgid "Welcome to"
+msgstr ""
 
 #: templates/wizard.php:9
 msgid ""
@@ -32,9 +32,9 @@ msgstr "你的个人专属网络服务。你的文件，联系人，日历及其
 msgid "Get the apps to sync your files"
 msgstr "安装应用进行文件同步"
 
-#: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
-msgstr "连接桌面应用程序到ownCloud服务器"
+#: templates/wizard.php:27
+msgid "Connect your desktop apps to"
+msgstr ""
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -44,11 +44,15 @@ msgstr "连接你的日历"
 msgid "Connect your Contacts"
 msgstr "连接你的通讯录"
 
-#: templates/wizard.php:36
+#: templates/wizard.php:35 templates/wizard.php:43
 msgid "Access files via WebDAV"
 msgstr "通过 WebDAV 访问你的文件"
 
-#: templates/wizard.php:41
+#: templates/wizard.php:40
+msgid "Documentation"
+msgstr ""
+
+#: templates/wizard.php:49
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
@@ -56,7 +60,7 @@ msgid ""
 "href=\"http://owncloud.org\">website</a>."
 msgstr ""
 
-#: templates/wizard.php:42
+#: templates/wizard.php:50
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

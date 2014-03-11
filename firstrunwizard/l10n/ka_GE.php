@@ -1,8 +1,6 @@
 <?php $TRANSLATIONS = array(
-"Welcome to ownCloud" => "კეთილი იყოს თქვენი მობრძანება ownCloud–ში",
 "Your personal web services. All your files, contacts, calendar and more, in one place." => "თქვენი პერსონალური web სერვისები. ყველა თქვენი ფაილი, კონტაქტი, კალენდარი და სხვა ერთად.",
 "Get the apps to sync your files" => "აპლიკაცია ფაილების სინქრონიზაციისთვის",
-"Connect your desktop apps to ownCloud" => "დაუკავშირეთ თქვენი desktop აპლიკაცია ownCloud–ს",
 "Connect your Calendar" => "დაუკავშირდით თქვენ კალენდარს",
 "Connect your Contacts" => "დაუკავშირდით თქვენ კონტაქტებს",
 "Access files via WebDAV" => "დაუკავშირდით ფაილებს WebDAV–ით",

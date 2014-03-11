@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# I Robot <owncloud-bot@tmit.eu>, 2013
-# Marcel Kühlhorn <susefan93@gmx.de>, 2013
+# I Robot, 2013
+# Marcel Kühlhorn <tux93@opensuse.org>, 2013
 # Mario Siegmann <mario_siegmann@web.de>, 2013
 # Wachhund <wachhund@wachhund.to>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-21 00:49-0500\n"
-"PO-Revision-Date: 2013-12-20 06:22+0000\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 06:11+0000\n"
 "Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"

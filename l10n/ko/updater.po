@@ -9,14 +9,14 @@
 # Shinjo Park <kde@peremen.name>, 2013
 # Park Shinjo <peremen@gmail.com>, 2013
 # Shinjo Park <kde@peremen.name>, 2013
-# 책읽는달팽 <bjh13579@gmail.com>, 2013
+# 책읽는달팽 <bjh13579@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-11 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-08 03:40+0000\n"
+"Last-Translator: 책읽는달팽 <bjh13579@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,11 +87,11 @@ msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "업데이트가 안되었습니다. 관리자 페이지에서 로그를 확인하신 후에 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>로 문제를 보고해주십시오.오"
 
 #: js/controllers.js:30
 msgid "Proceed"
-msgstr ""
+msgstr "진행"
 
 #: templates/admin.php:17
 msgid "Update Center"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-17 03:50-0500\n"
-"PO-Revision-Date: 2013-12-14 22:10+0000\n"
-"Last-Translator: ebela <bela@dandre.hu>\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/wizard.php:7
-msgid "Welcome to ownCloud"
-msgstr "Üdvözöljük az ownCloud szolgáltatásban"
+msgid "Welcome to"
+msgstr ""
 
 #: templates/wizard.php:9
 msgid ""
@@ -33,9 +33,9 @@ msgstr "Személyre szóló webszolgáltatások. Az Ön állományai, címjegyzé
 msgid "Get the apps to sync your files"
 msgstr "Töltse le az állományok szinkronizációjához szükséges programokat"
 
-#: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
-msgstr "Kapcsolja össze a számítógépes programjait az ownClouddal"
+#: templates/wizard.php:27
+msgid "Connect your desktop apps to"
+msgstr ""
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -45,11 +45,15 @@ msgstr "Kapcsolódás a naptárhoz"
 msgid "Connect your Contacts"
 msgstr "Kapcsolódás a címjegyzékekhez"
 
-#: templates/wizard.php:36
+#: templates/wizard.php:35 templates/wizard.php:43
 msgid "Access files via WebDAV"
 msgstr "Az állományok elérése WebDAV-protokoll segítségével"
 
-#: templates/wizard.php:41
+#: templates/wizard.php:40
+msgid "Documentation"
+msgstr ""
+
+#: templates/wizard.php:49
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
@@ -57,7 +61,7 @@ msgid ""
 "href=\"http://owncloud.org\">website</a>."
 msgstr "További információ található <a target=\"_blank\" href=\"%s\">a dokumentációban</a> és a program <a target=\"_blank\" href=\"http://owncloud.org\">honlapján</a>."
 
-#: templates/wizard.php:42
+#: templates/wizard.php:50
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

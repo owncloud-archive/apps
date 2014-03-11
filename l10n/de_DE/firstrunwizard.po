@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# I Robot <owncloud-bot@tmit.eu>, 2013
+# I Robot, 2013
 # Lukas Reschke <lukas@statuscode.ch>, 2013
-# Marcel Kühlhorn <susefan93@gmx.de>, 2013
+# Marcel Kühlhorn <tux93@opensuse.org>, 2013
 # Mario Siegmann <mario_siegmann@web.de>, 2013
-# quick_wango <quick_wango@code-infection.de>, 2013
+# Phillip Schichtel, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-21 09:30+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,8 +23,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/wizard.php:7
-msgid "Welcome to ownCloud"
-msgstr "Willkommen zu ownCloud"
+msgid "Welcome to"
+msgstr ""
 
 #: templates/wizard.php:9
 msgid ""
@@ -36,9 +36,9 @@ msgstr "Ihre persönlichen Web-Services. Alle Ihre Dateien, Kontakte, Kalender u
 msgid "Get the apps to sync your files"
 msgstr "Laden Sie die Apps zur Synchronisierung Ihrer Daten herunter"
 
-#: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
-msgstr "Verbinden Sie Ihre Desktop-Anwendungen mit ownCloud"
+#: templates/wizard.php:27
+msgid "Connect your desktop apps to"
+msgstr ""
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -48,11 +48,15 @@ msgstr "Verbinden Sie Ihre Kalender "
 msgid "Connect your Contacts"
 msgstr "Verbinden Sie Ihre Kontakte"
 
-#: templates/wizard.php:36
+#: templates/wizard.php:35 templates/wizard.php:43
 msgid "Access files via WebDAV"
 msgstr "Greifen Sie auf Dateien über WebDAV zu"
 
-#: templates/wizard.php:41
+#: templates/wizard.php:40
+msgid "Documentation"
+msgstr ""
+
+#: templates/wizard.php:49
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
@@ -60,7 +64,7 @@ msgid ""
 "href=\"http://owncloud.org\">website</a>."
 msgstr "Weitere Informationen finden Sie in der <a target=\"_blank\" href=\"%s\">Dokumentation</a> und auf unserer <a target=\"_blank\" href=\"http://owncloud.org\">Webseite</a>."
 
-#: templates/wizard.php:42
+#: templates/wizard.php:50
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

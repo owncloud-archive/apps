@@ -12,6 +12,8 @@
 "Moving files..." => "Perkeliami failai...",
 "All done. Click to the link below to start database upgrade." => "Viskas atlikta. Spauskite nuorodą žemiau, kad pradėti versijos pakėlimą.",
 "Update failed" => "Atnaujinimas nepavyko",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "Atnaujinimas buvo nesėkmingas. Prašome patikrinti registro puslapį ir pranešti apie problemą <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud bendruomenei</a>.",
+"Proceed" => "Vykdyti",
 "Update Center" => "Atnaujinimo centras",
 "Backup Management" => "Atsarginės kopijos tvarkymas",
 "Update" => "Atnaujinti",

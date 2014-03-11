@@ -12,6 +12,8 @@
 "Moving files..." => "파일 이동 중...",
 "All done. Click to the link below to start database upgrade." => "준비되었습니다. 아래 링크를 눌러서 데이터베이스 업그레이드를 시작하십시오.",
 "Update failed" => "업데이트 실패",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "업데이트가 안되었습니다. 관리자 페이지에서 로그를 확인하신 후에 <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>로 문제를 보고해주십시오.오",
+"Proceed" => "진행",
 "Update Center" => "업데이트 센터",
 "Backup Management" => "백업 관리",
 "Update" => "업데이트",

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-02-05 01:02-0500\n"
-"PO-Revision-Date: 2014-02-04 07:14+0000\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-03-11 10:30+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Mongolian (http://www.transifex.com/projects/p/owncloud/language/mn/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/wizard.php:7
-msgid "Welcome to ownCloud"
+msgid "Welcome to"
 msgstr ""
 
 #: templates/wizard.php:9
@@ -31,8 +31,8 @@ msgstr ""
 msgid "Get the apps to sync your files"
 msgstr ""
 
-#: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
+#: templates/wizard.php:27
+msgid "Connect your desktop apps to"
 msgstr ""
 
 #: templates/wizard.php:29
@@ -43,11 +43,15 @@ msgstr ""
 msgid "Connect your Contacts"
 msgstr ""
 
-#: templates/wizard.php:36
+#: templates/wizard.php:35 templates/wizard.php:43
 msgid "Access files via WebDAV"
 msgstr ""
 
-#: templates/wizard.php:41
+#: templates/wizard.php:40
+msgid "Documentation"
+msgstr ""
+
+#: templates/wizard.php:49
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
@@ -55,7 +59,7 @@ msgid ""
 "href=\"http://owncloud.org\">website</a>."
 msgstr ""
 
-#: templates/wizard.php:42
+#: templates/wizard.php:50
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
