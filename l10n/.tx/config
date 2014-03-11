@@ -30,12 +30,6 @@ source_file = templates/user_migrate.pot
 source_lang = en
 type = PO
 
-[owncloud.user_openid]
-file_filter = <lang>/user_openid.po
-source_file = templates/user_openid.pot
-source_lang = en
-type = PO
-
 [owncloud.user_openid_provider]
 file_filter = <lang>/user_openid_provider.po
 source_file = templates/user_openid_provider.pot
