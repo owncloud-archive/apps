@@ -4,5 +4,6 @@
 "Connect your Calendar" => "Повежите календар",
 "Connect your Contacts" => "Повежите контакте",
 "Access files via WebDAV" => "Приступите датотекама преко WebDAV-а",
+"Documentation" => "Документација",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Ако вам се свиђа ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud је одличан програм отвореног кода за синхронизовање и дељење датотека. Можете га бесплатно преузети са http://owncloud.org\">препоручите га пријатељима</a>!"
 );

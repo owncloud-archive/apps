@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"POT-Creation-Date: 2014-03-12 00:48-0400\n"
+"PO-Revision-Date: 2014-03-11 10:50+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "Bruk filene dine over WebDAV"
 
 #: templates/wizard.php:40
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentasjon"
 
 #: templates/wizard.php:49
 #, php-format

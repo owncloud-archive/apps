@@ -4,5 +4,6 @@
 "Connect your Calendar" => "חבר את לוח השנה שלך",
 "Connect your Contacts" => "חבר את אנשי הקשר שלך",
 "Access files via WebDAV" => "גש לקבצים דרך WebDAV",
+"Documentation" => "תיעוד",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "אם אתה אוהב את ownCloud,   <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">המלץ עליו לחבריך</a>."
 );

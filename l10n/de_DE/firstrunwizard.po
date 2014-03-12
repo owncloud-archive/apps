@@ -8,12 +8,13 @@
 # Marcel Kühlhorn <tux93@opensuse.org>, 2013
 # Mario Siegmann <mario_siegmann@web.de>, 2013
 # Phillip Schichtel, 2013
+# stefanniedermann <stefan.niedermann@googlemail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-03-11 10:30+0000\n"
+"POT-Creation-Date: 2014-03-12 00:48-0400\n"
+"PO-Revision-Date: 2014-03-11 21:53+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to"
-msgstr ""
+msgstr "Willkommen bei"
 
 #: templates/wizard.php:9
 msgid ""
@@ -38,7 +39,7 @@ msgstr "Laden Sie die Apps zur Synchronisierung Ihrer Daten herunter"
 
 #: templates/wizard.php:27
 msgid "Connect your desktop apps to"
-msgstr ""
+msgstr "Verbinden Sie Ihre Desktop-Anwendungen mit"
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -54,7 +55,7 @@ msgstr "Greifen Sie auf Dateien über WebDAV zu"
 
 #: templates/wizard.php:40
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: templates/wizard.php:49
 #, php-format

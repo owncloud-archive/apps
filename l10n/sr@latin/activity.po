@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-10 22:11+0000\n"
+"POT-Creation-Date: 2014-03-12 00:48-0400\n"
+"PO-Revision-Date: 2014-03-11 23:00+0000\n"
 "Last-Translator: greatbalsa <balsa.l@live.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/owncloud/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Učitavam još aktivnosti."
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "RSS"
 
 #: templates/list.php:32
 msgid "No activities yet."
@@ -41,4 +41,4 @@ msgstr "Još uvek nema aktivnosti."
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "Ovdje će vam se prikazati lista aktivnosti kada počnete da koristite %s."

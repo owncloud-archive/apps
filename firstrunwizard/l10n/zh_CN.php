@@ -4,5 +4,6 @@
 "Connect your Calendar" => "连接你的日历",
 "Connect your Contacts" => "连接你的通讯录",
 "Access files via WebDAV" => "通过 WebDAV 访问你的文件",
+"Documentation" => "文档",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "如果您喜欢ownCloud，<a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">推荐给您的朋友们</a>！"
 );

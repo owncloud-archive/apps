@@ -4,5 +4,6 @@
 "Connect your Calendar" => "Verbinden Sie Ihre Kalender ",
 "Connect your Contacts" => "Verbinden Sie Ihre Kontakte",
 "Access files via WebDAV" => "Greifen Sie auf Dateien über WebDAV zu",
+"Documentation" => "Dokumentation",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Wenn ownCloud Ihnen gefällt, <a href=\"mailto:?subject=ownCloud&body=\"ownCloud ist grossartige freie Software zum synchronisieren und teilen Ihrer Dateien, Sie können es frei von http://owncloud.org herunterladen\">empfehlen Sie es weiter</a>!"
 );

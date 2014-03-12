@@ -4,6 +4,7 @@
 "Connect your Calendar" => "Takviminize bağlanın",
 "Connect your Contacts" => "Kişilerinize bağlanın",
 "Access files via WebDAV" => "WebDAV ile dosyalarınıza erişin",
+"Documentation" => "Belgelendirme",
 "There’s more information in the <a target=\"_blank\" href=\"%s\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "<a target=\"_blank\" href=\"%s\">Belgelendirmede</a> ve <a target=\"_blank\" href=\"http://owncloud.org\">website</a>mizde daha fazla bilgi mevcuttur.",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Eğer ownCloud'u beğendiyseniz <a href=\"mailto:?subject=ownCloud&body=ownCloud dosyalarını eşitlemek ve paylaşmak için mükemmel açık kaynaklı bir yazılım. Buradan ücretsiz indirebilirsin: http://owncloud.org\">arkadaşlarınıza önerin</a>!"
 );

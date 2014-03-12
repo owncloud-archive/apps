@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-03-11 10:30+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-03-12 00:48-0400\n"
+"PO-Revision-Date: 2014-03-11 13:00+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to"
-msgstr ""
+msgstr "Tervetuloa -"
 
 #: templates/wizard.php:9
 msgid ""
@@ -34,7 +34,7 @@ msgstr "Aseta sovellukset synkronoimaan tiedostosi"
 
 #: templates/wizard.php:27
 msgid "Connect your desktop apps to"
-msgstr ""
+msgstr "Yhdistä työpöytäsovelluksesi -"
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
@@ -50,7 +50,7 @@ msgstr "Käytä tiedostoja WebDAVin välityksellä"
 
 #: templates/wizard.php:40
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentaatio"
 
 #: templates/wizard.php:49
 #, php-format

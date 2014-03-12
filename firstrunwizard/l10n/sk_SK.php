@@ -4,6 +4,7 @@
 "Connect your Calendar" => "Pripojte svoj ​​kalendár",
 "Connect your Contacts" => "Pripojte svoje kontakty",
 "Access files via WebDAV" => "Pristupovať k súborom cez WebDAV",
+"Documentation" => "Dokumentácia",
 "There’s more information in the <a target=\"_blank\" href=\"%s\">documentation</a> and on our <a target=\"_blank\" href=\"http://owncloud.org\">website</a>." => "Viac informácií nájdete v <a target=\"_blank\" href=\"%s\">dokumentácii</a> a na našom <a target=\"_blank\" href=\"http://owncloud.org\">webe</a>.",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Ak sa vám ownCloud páči, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">odporučte ho svojim priateľom</a>!"
 );
