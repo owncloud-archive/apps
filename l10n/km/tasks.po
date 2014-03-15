@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-02-26 12:10+0000\n"
+"POT-Creation-Date: 2014-03-15 01:12-0400\n"
+"PO-Revision-Date: 2014-03-14 12:01+0000\n"
 "Last-Translator: សុវិចិត្រ Sovichet ទេព Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Khmer (http://www.transifex.com/projects/p/owncloud/language/km/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "ភារកិច្ច"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "ពេល​បញ្ចប់"
 
 #: js/tasks.js:115
 msgid "List"
@@ -81,27 +81,27 @@ msgstr "បន្ថែម​ភារកិច្ច"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "លំដាប់​ពេល​បញ្ចប់"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "លំដាប់​បញ្ជី"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "លំដាប់​ការ​បញ្ចប់"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "លំដាប់​ទីតាំង"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "លំដាប់​អាទិភាព"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "លំដាប់​ស្លាក"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
