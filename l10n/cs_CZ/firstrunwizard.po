@@ -5,15 +5,16 @@
 # Translators:
 # Twiguard, 2013
 # liska_, 2013
+# m23 <black23@gmail.com>, 2014
 # pstast <petr@stastny.eu>, 2013
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-12 00:48-0400\n"
-"PO-Revision-Date: 2014-03-11 10:50+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-03-19 00:49-0400\n"
+"PO-Revision-Date: 2014-03-18 11:42+0000\n"
+"Last-Translator: m23 <black23@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to"
-msgstr ""
+msgstr "Vítejte v"
 
 #: templates/wizard.php:9
 msgid ""
@@ -37,7 +38,7 @@ msgstr "Získat aplikace pro synchronizaci vašich souborů"
 
 #: templates/wizard.php:27
 msgid "Connect your desktop apps to"
-msgstr ""
+msgstr "Propojte svoji desktopovou aplikaci s"
 
 #: templates/wizard.php:29
 msgid "Connect your Calendar"
