@@ -32,6 +32,7 @@ OCP\App::addNavigationEntry(array(
 
 // register the hooks for filesystem operations. All other events from other apps has to be send via the public api
 OCA\Activity\Hooks::register();
+OCP\App::registerPersonal('activity', 'personal');
 
 OC_Search::registerProvider('\OCA\Activity\Search');
 

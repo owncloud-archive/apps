@@ -36,6 +36,135 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
+	const TYPE_SHARED = 4;
+	const TYPE_SHARED_BY = 5;
+	const TYPE_SHARE_EXPIRED = 9;
+	const TYPE_SHARE_UNSHARED = 16;
+
+	const TYPE_SHARE_CREATED = 3;
+	const TYPE_SHARE_CREATED_BY = 8;
+	const TYPE_SHARE_CHANGED = 1;
+	const TYPE_SHARE_CHANGED_BY = 6;
+	const TYPE_SHARE_DELETED = 2;
+	const TYPE_SHARE_DELETED_BY = 7;
+	const TYPE_SHARE_RESHARED = 10;
+	const TYPE_SHARE_RESHARED_BY = 11;
+
+	const TYPE_SHARE_DOWNLOADED = 12;
+	const TYPE_SHARE_UPLOADED = 13;
+
+	const TYPE_STORAGE_QUOTA_90 = 14;
+	const TYPE_STORAGE_FAILURE = 15;
+
+	public static function getNotificationTypes($l)
+	{
+		return array(
+			'shared' => array(
+				'desc'		=> $l->t('New shared file/folder'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARED,
+					\OCA\Activity\Data::TYPE_SHARED_BY,
+				),
+			),
+//			'shared_unshared' => array(
+//				'desc'		=> $l->t('Previously shared file/folder was unshared'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_UNSHARED,
+//				),
+//			),
+//			'shared_expired' => array(
+//				'desc'		=> $l->t('Expiration date of shared file/folder expired'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_EXPIRED,
+//				),
+//			),
+			'share_created' => array(
+				'desc'		=> $l->t('New file/folder added to a share'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_CREATED,
+					\OCA\Activity\Data::TYPE_SHARE_CREATED_BY,
+				),
+			),
+			'share_changed' => array(
+				'desc'		=> $l->t('Changed file/folder in a share'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_CHANGED,
+					\OCA\Activity\Data::TYPE_SHARE_CHANGED_BY,
+				),
+			),
+			'share_deleted' => array(
+				'desc'		=> $l->t('Deleted file/folder from a share'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_DELETED,
+					\OCA\Activity\Data::TYPE_SHARE_DELETED_BY,
+				),
+			),
+//			'share_reshared' => array(
+//				'desc'		=> $l->t('Reshare of a shared file/folder'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_RESHARED,
+//					\OCA\Activity\Data::TYPE_SHARE_RESHARED_BY,
+//				),
+//			),
+//			'share_downloaded' => array(
+//				'desc'		=> $l->t('A file/folder shared via link was downloaded'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED,
+//				),
+//			),
+//			'share_uploaded' => array(
+//				'desc'		=> $l->t('A file was uploaded into a folder shared by link'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_UPLOADED,
+//				),
+//			),
+//			'storage_quota_90' => array(
+//				'desc'		=> $l->t('Storage usage is at 90%%'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90,
+//				),
+//			),
+//			'storage_failure' => array(
+//				'desc'		=> $l->t('An external storage has an error'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_STORAGE_FAILURE,
+//				),
+//			),
+		);
+	}
+
+	public static function getUserDefaultSetting($method)
+	{
+		$settings = array();
+		switch ($method)
+		{
+			case 'stream':
+				$settings[] = Data::TYPE_SHARE_CREATED;
+				$settings[] = Data::TYPE_SHARE_CREATED_BY;
+				$settings[] = Data::TYPE_SHARE_CHANGED;
+				$settings[] = Data::TYPE_SHARE_CHANGED_BY;
+				$settings[] = Data::TYPE_SHARE_DELETED;
+				$settings[] = Data::TYPE_SHARE_DELETED_BY;
+//				$settings[] = Data::TYPE_SHARE_RESHARED;
+//				$settings[] = Data::TYPE_SHARE_RESHARED_BY;
+//
+//				$settings[] = Data::TYPE_SHARE_DOWNLOADED;
+
+			case 'email':
+				$settings[] = Data::TYPE_SHARED;
+				$settings[] = Data::TYPE_SHARED_BY;
+//				$settings[] = Data::TYPE_SHARE_EXPIRED;
+//				$settings[] = Data::TYPE_SHARE_UNSHARED;
+//
+//				$settings[] = Data::TYPE_SHARE_UPLOADED;
+//
+//				$settings[] = Data::TYPE_STORAGE_QUOTA_90;
+//				$settings[] = Data::TYPE_STORAGE_FAILURE;
+		}
+
+		return $settings;
+	}
+
 	/**
 	 * @brief Send an event into the activity stream
 	 * @param string $app The app where this event is associated with
@@ -98,9 +227,17 @@ class Data
 	{
 		// get current user
 		$user = \OCP\User::getUser();
+		$stream_activities = unserialize(\OCP\Config::getUserValue(
+			$user, 'activity', 'notify_stream', serialize(self::getUserDefaultSetting('stream'))
+		));
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY `timestamp` desc', $count, $start);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. ' WHERE `affecteduser` = ? AND `type` IN (' . implode(',', $stream_activities) . ')'
+			. ' ORDER BY `timestamp` desc',
+			$count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -281,6 +418,4 @@ class Data
 		unset($writer);
 		return ($entry);
 	}
-
-
 }
