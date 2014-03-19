@@ -231,11 +231,25 @@ class Data
 			$user, 'activity', 'notify_stream', serialize(self::getUserDefaultSetting('stream'))
 		));
 
+		// If the user selected to display no activities at all,
+		// we assume this was a mistake, so we display the default types.
+		if (empty($stream_activities))
+		{
+			$stream_activities = self::getUserDefaultSetting('stream');
+			if (empty($stream_activities))
+			{
+				// Default selection list is empty aswell.
+				// We don't want to display any activities then.
+				return array();
+			}
+		}
+		$limit_activities_type = 'AND `type` IN (' . implode(',', $stream_activities) . ')';
+
 		// fetch from DB
 		$query = \OCP\DB::prepare(
 			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
 			. ' FROM `*PREFIX*activity` '
-			. ' WHERE `affecteduser` = ? AND `type` IN (' . implode(',', $stream_activities) . ')'
+			. ' WHERE `affecteduser` = ? ' . $limit_activities_type
 			. ' ORDER BY `timestamp` desc',
 			$count, $start);
 		$result = $query->execute(array($user));
@@ -258,12 +272,33 @@ class Data
 	 */
 	public static function search($txt, $count)
 	{
-
 		// get current user
 		$user = \OCP\User::getUser();
+		$stream_activities = unserialize(\OCP\Config::getUserValue(
+			$user, 'activity', 'notify_stream', serialize(self::getUserDefaultSetting('stream'))
+		));
+
+		// If the user selected to display no activities at all,
+		// we assume this was a mistake, so we display the default types.
+		if (empty($stream_activities))
+		{
+			$stream_activities = self::getUserDefaultSetting('stream');
+			if (empty($stream_activities))
+			{
+				// Default selection list is empty aswell.
+				// We don't want to display any activities then.
+				return array();
+			}
+		}
+		$limit_activities_type = 'AND `type` IN (' . implode(',', $stream_activities) . ')';
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY `timestamp` desc', $count);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. 'WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ' . $limit_activities_type
+			. 'ORDER BY `timestamp` desc'
+			, $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
