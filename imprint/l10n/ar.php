@@ -12,5 +12,5 @@
 "Navigation top" => "تصفح أعلى",
 "Navigation bottom" => "تصفح أسقل",
 "During login" => "خلال تسجيل الدخول",
-"Content" => "محتوى"
+"Content" => "المحتوى"
 );
