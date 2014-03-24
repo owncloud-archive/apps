@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-21 00:49-0400\n"
-"PO-Revision-Date: 2014-03-20 11:40+0000\n"
+"POT-Creation-Date: 2014-03-24 00:49-0400\n"
+"PO-Revision-Date: 2014-03-23 14:30+0000\n"
 "Last-Translator: Abderraouf Mehdi Bouhali <armbouhali@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "المسار إلى برنامج clamscan"
 
 #: templates/settings.php:11
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "غير ضروري في الوضع الخفي"
 
 #: templates/settings.php:12
 msgid "Action for infected files found while scanning"
@@ -112,11 +112,11 @@ msgstr ""
 
 #: templates/settings.php:13
 msgid "Only log"
-msgstr ""
+msgstr "الإدراج في السجل فقط"
 
 #: templates/settings.php:13
 msgid "Delete file"
-msgstr ""
+msgstr "حذف الملف"
 
 #: templates/settings.php:16
 msgid "Save"

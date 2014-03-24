@@ -14,5 +14,8 @@
 "Port number of Antivirus Host." => "رقم منفذ مضيف مضاد الفيروسات",
 "Path to clamscan" => "المسار إلى clamscan",
 "Path to clamscan executable." => "المسار إلى برنامج clamscan",
+"Not required in Daemon Mode." => "غير ضروري في الوضع الخفي",
+"Only log" => "الإدراج في السجل فقط",
+"Delete file" => "حذف الملف",
 "Save" => "حفظ"
 );

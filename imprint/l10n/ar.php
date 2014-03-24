@@ -12,5 +12,6 @@
 "Navigation top" => "تصفح أعلى",
 "Navigation bottom" => "تصفح أسقل",
 "During login" => "خلال تسجيل الدخول",
-"Content" => "المحتوى"
+"Content" => "المحتوى",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "يمكنك استخدام رموز html (مثلا <br> لبداية سطر جديد) وخصية style (مثال <a style=\"color:red;\">)."
 );

@@ -2,7 +2,7 @@
 "Welcome to" => "Vítejte v",
 "Your personal web services. All your files, contacts, calendar and more, in one place." => "Váš osobní poskytovatel webových služeb. Všechny vaše soubory, kontakty, kalendáře a další, na jednom místě.",
 "Get the apps to sync your files" => "Získat aplikace pro synchronizaci vašich souborů",
-"Connect your desktop apps to" => "Propojte svoji desktopovou aplikaci s",
+"Connect your desktop apps to" => "Propojte své desktopové aplikace s",
 "Connect your Calendar" => "Připojit kalendář",
 "Connect your Contacts" => "Připojit kontakty",
 "Access files via WebDAV" => "Přistupovat k souborům skrze WebDAV",
