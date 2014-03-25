@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
-	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
-]>
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="9px" width="16px" version="1.1" y="0px" x="0px" overflow="visible" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 9" enable-background="new 0 0 16 9">
-<path d="m7.999 0c-3.109 0-5.926 1.719-7.999 4.5 2.073 2.781 4.89 4.5 7.999 4.5 3.111 0 5.928-1.719 8.001-4.5-2.073-2.781-4.892-4.5-8.001-4.5zm0.001 7.5c-1.657 0-3-1.343-3-3s1.343-3 3-3c1.657 0 3 1.343 3 3s-1.343 3-3 3z" fill="#575756"/>
-<circle cy="4.501" cx="8" r="1.5" fill="#575756"/>
-</svg>

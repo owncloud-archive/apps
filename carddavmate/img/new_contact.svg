@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' [
-	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
-]>
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="33px" width="33px" version="1.1" y="0px" x="0px" overflow="visible" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.25 0 33 33" enable-background="new -0.25 0 33 33">
-<polygon points="26.5 21 26.5 15 20.5 15 20.5 21 14.5 21 14.5 27 20.5 27 20.5 33 26.5 33 26.5 27 32.5 27 32.5 21" fill="#fff"/>
-<polygon points="3 10.5 10.5 10.5 10.5 3 22 3 22 12 25 12 25 3 25 0 22 0 10.5 0 8.845 0 0 8.845 0 10.5 0 10.5 0 30 0 33 0 33 17.5 33 17.5 30 3 30" fill="#fff"/>
-</svg>
