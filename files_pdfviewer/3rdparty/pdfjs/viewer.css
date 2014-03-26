@@ -501,7 +501,7 @@ html[dir='ltr'] #toolbarViewerRight,
 html[dir='rtl'] #toolbarViewerLeft {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 25px;
 }
 html[dir='ltr'] #toolbarViewerLeft > *,
 html[dir='ltr'] #toolbarViewerMiddle > *,
