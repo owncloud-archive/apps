@@ -14,13 +14,17 @@
 				<tr>
 					<!-- Email is not available yet
 					<td class="small">
-						<input type="checkbox" name="<?php p($activity) ?>_email" value="1"
-							<?php if ($data['email']): ?> checked="checked"<?php endif; ?> />
+						<label for="<?php p($activity) ?>_stream">
+							<input type="checkbox" id="<?php p($activity) ?>_email" name="<?php p($activity) ?>_email"
+								value="1" <?php if ($data['email']): ?> checked="checked"<?php endif; ?> />
+						</label>
 					</td>
 					-->
 					<td class="small">
-						<input type="checkbox" name="<?php p($activity) ?>_stream" value="1"
-							<?php if ($data['stream']): ?> checked="checked"<?php endif; ?> />
+						<label for="<?php p($activity) ?>_stream">
+							<input type="checkbox" id="<?php p($activity) ?>_stream" name="<?php p($activity) ?>_stream"
+								value="1" <?php if ($data['stream']): ?> checked="checked"<?php endif; ?> />
+						</label>
 					</td>
 					<td><?php p($data['desc']); ?></td>
 				</tr>
