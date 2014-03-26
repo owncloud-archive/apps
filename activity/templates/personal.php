@@ -26,7 +26,7 @@
 								value="1" <?php if ($data['stream']): ?> checked="checked"<?php endif; ?> />
 						</label>
 					</td>
-					<td><?php p($data['desc']); ?></td>
+					<td><?php echo $data['desc']; ?></td>
 				</tr>
 			<?php endforeach; ?>
 			</tbody>

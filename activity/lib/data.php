@@ -60,72 +60,72 @@ class Data
 	{
 		return array(
 			'shared' => array(
-				'desc'		=> $l->t('New shared file/folder'),
+				'desc'		=> $l->t('A file or folder has been <strong>shared</strong>'),
 				'types'		=> array(
 					\OCA\Activity\Data::TYPE_SHARED,
 					\OCA\Activity\Data::TYPE_SHARED_BY,
 				),
 			),
 //			'shared_unshared' => array(
-//				'desc'		=> $l->t('Previously shared file/folder was unshared'),
+//				'desc'		=> $l->t('Previously shared file or folder has been <strong>unshared</strong>'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_SHARE_UNSHARED,
 //				),
 //			),
 //			'shared_expired' => array(
-//				'desc'		=> $l->t('Expiration date of shared file/folder expired'),
+//				'desc'		=> $l->t('Expiration date of shared file or folder <strong>expired</strong>'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_SHARE_EXPIRED,
 //				),
 //			),
 			'share_created' => array(
-				'desc'		=> $l->t('New file/folder added to a share'),
+				'desc'		=> $l->t('A new file or folder has been <strong>created</strong> in a shared folder'),
 				'types'		=> array(
 					\OCA\Activity\Data::TYPE_SHARE_CREATED,
 					\OCA\Activity\Data::TYPE_SHARE_CREATED_BY,
 				),
 			),
 			'share_changed' => array(
-				'desc'		=> $l->t('Changed file/folder in a share'),
+				'desc'		=> $l->t('A file or folder has been <strong>changed</strong> in a shared folder'),
 				'types'		=> array(
 					\OCA\Activity\Data::TYPE_SHARE_CHANGED,
 					\OCA\Activity\Data::TYPE_SHARE_CHANGED_BY,
 				),
 			),
 			'share_deleted' => array(
-				'desc'		=> $l->t('Deleted file/folder from a share'),
+				'desc'		=> $l->t('A file or folder has been <strong>deleted</strong> from a shared folder'),
 				'types'		=> array(
 					\OCA\Activity\Data::TYPE_SHARE_DELETED,
 					\OCA\Activity\Data::TYPE_SHARE_DELETED_BY,
 				),
 			),
 //			'share_reshared' => array(
-//				'desc'		=> $l->t('Reshare of a shared file/folder'),
+//				'desc'		=> $l->t('A file or folder has been <strong>reshared</strong>'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_SHARE_RESHARED,
 //					\OCA\Activity\Data::TYPE_SHARE_RESHARED_BY,
 //				),
 //			),
 //			'share_downloaded' => array(
-//				'desc'		=> $l->t('A file/folder shared via link was downloaded'),
+//				'desc'		=> $l->t('A file or folder shared via link has been <strong>downloaded</strong>'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED,
 //				),
 //			),
 //			'share_uploaded' => array(
-//				'desc'		=> $l->t('A file was uploaded into a folder shared by link'),
+//				'desc'		=> $l->t('A file has been <strong>uploaded</strong> into a folder shared via link'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_SHARE_UPLOADED,
 //				),
 //			),
 //			'storage_quota_90' => array(
-//				'desc'		=> $l->t('Storage usage is at 90%%'),
+//				'desc'		=> $l->t('<strong>Storage usage</strong> is at 90%%'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90,
 //				),
 //			),
 //			'storage_failure' => array(
-//				'desc'		=> $l->t('An external storage has an error'),
+//				'desc'		=> $l->t('An <strong>external storage</strong> has an error'),
 //				'types'		=> array(
 //					\OCA\Activity\Data::TYPE_STORAGE_FAILURE,
 //				),
