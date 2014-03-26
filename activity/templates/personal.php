@@ -6,7 +6,7 @@
 				<tr>
 					<!-- <th><?php p($l->t('Mail')); ?></th> -->
 					<th class="small"><?php p($l->t('Stream')); ?></th>
-					<th>&nbsp;</th>
+					<th><span id="activity_notifications_msg" class="msg"></span></th>
 				</tr>
 			</thead>
 			<tbody>
