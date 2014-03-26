@@ -26,7 +26,10 @@ limitations under the License.
 
     <!-- oC changes-->
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToRoute('js_config'));?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-showpassword.js')); ?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-tipsy.js')); ?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery.infieldlabel.js')); ?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToRoute('js_config'));?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/js.js')); ?>"></script>
     <!-- oC changes -->
@@ -36,14 +39,14 @@ limitations under the License.
 
 
     <!-- This snippet is used in production, see Makefile -->
-    <link rel="resource" type="application/l10n" href=<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/locale/locale.properties')); ?>/>
+    <link rel="resource" type="application/l10n" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/locale/locale.properties')); ?>" />
     <script type="text/javascript" src=<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/l10n.js')); ?>></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js')); ?>"></script>
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'js/files.php')); ?>?file=<?php print_unescaped(urlencode($_['file'])); ?>&amp;dir=<?php print_unescaped(urlencode($_['dir'])); ?>"></script>
 
 
 
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', 'js/files.php')); ?>?file=<?php print_unescaped(urlencode($_['file'])); ?>&amp;dir=<?php print_unescaped(urlencode($_['dir'])); ?>"></script>
 
   </head>
 
