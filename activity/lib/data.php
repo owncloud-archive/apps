@@ -218,6 +218,32 @@ class Data
 	}
 
 	/**
+	 * @param string	$user	Name of the user
+	 * @param string	$method	Should be one of 'stream', 'email'
+	 * @return string	Part of the SQL query limiting the activities
+	 */
+	public static function getUserNotificationTypesQuery($user, $method)
+	{
+		$user_activities = unserialize(\OCP\Config::getUserValue(
+			$user, 'activity', 'notify_' . $method, serialize(self::getUserDefaultSetting($method))
+		));
+
+		// If the user selected to display no activities at all,
+		// we assume this was a mistake, so we display the default types.
+		if (empty($user_activities))
+		{
+			$user_activities = self::getUserDefaultSetting($method);
+			if (empty($user_activities))
+			{
+				// Default selection list is empty aswell.
+				// We don't want to display any activities then.
+				return '1 = 0';
+			}
+		}
+		return '`type` IN (' . implode(',', $user_activities) . ')';
+	}
+
+	/**
 	 * @brief Read a list of events from the activity stream
 	 * @param int $start The start entry
 	 * @param int $count The number of statements to read
@@ -227,23 +253,7 @@ class Data
 	{
 		// get current user
 		$user = \OCP\User::getUser();
-		$stream_activities = unserialize(\OCP\Config::getUserValue(
-			$user, 'activity', 'notify_stream', serialize(self::getUserDefaultSetting('stream'))
-		));
-
-		// If the user selected to display no activities at all,
-		// we assume this was a mistake, so we display the default types.
-		if (empty($stream_activities))
-		{
-			$stream_activities = self::getUserDefaultSetting('stream');
-			if (empty($stream_activities))
-			{
-				// Default selection list is empty aswell.
-				// We don't want to display any activities then.
-				return array();
-			}
-		}
-		$limit_activities_type = 'AND `type` IN (' . implode(',', $stream_activities) . ')';
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// fetch from DB
 		$query = \OCP\DB::prepare(
@@ -274,23 +284,7 @@ class Data
 	{
 		// get current user
 		$user = \OCP\User::getUser();
-		$stream_activities = unserialize(\OCP\Config::getUserValue(
-			$user, 'activity', 'notify_stream', serialize(self::getUserDefaultSetting('stream'))
-		));
-
-		// If the user selected to display no activities at all,
-		// we assume this was a mistake, so we display the default types.
-		if (empty($stream_activities))
-		{
-			$stream_activities = self::getUserDefaultSetting('stream');
-			if (empty($stream_activities))
-			{
-				// Default selection list is empty aswell.
-				// We don't want to display any activities then.
-				return array();
-			}
-		}
-		$limit_activities_type = 'AND `type` IN (' . implode(',', $stream_activities) . ')';
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// search in DB
 		$query = \OCP\DB::prepare(
