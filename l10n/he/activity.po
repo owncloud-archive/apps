@@ -4,13 +4,14 @@
 # 
 # Translators:
 # oriez, 2013
+# pinzerbib <pinzerbib@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-29 18:30+0000\n"
-"Last-Translator: oriez\n"
+"POT-Creation-Date: 2014-03-26 05:41-0400\n"
+"PO-Revision-Date: 2014-03-26 05:41+0000\n"
+"Last-Translator: pinzerbib <pinzerbib@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,13 +33,13 @@ msgstr "טוען פעילויות ישנות"
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "עדכוני RSS"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "אין עדיין פעילויות"
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "תיראו פה רשימת אירועים כשתתחילו להשתמתש ב %s"
