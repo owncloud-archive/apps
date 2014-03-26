@@ -5146,7 +5146,8 @@ function webViewerLoad(evt) {
 
 
   if (file) {
-    PDFView.open(file, 0);
+	// owncould customization to load file from files app
+	PDFView.open(OC.linkTo('files', 'ajax/download.php')+"?files="+encodeURIComponent(window.file)+"&dir="+encodeURIComponent(window.dir), 1.0);
   }
 
 }
