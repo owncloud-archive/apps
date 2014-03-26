@@ -23,6 +23,7 @@
 OCP\Util::addScript('files_external', 'settings');
 OCP\Util::addStyle('files_external', 'settings');
 OCP\Util::addScript('activity', 'settings');
+OCP\Util::addStyle('activity', 'settings');
 
 $l=OC_L10N::get('activity');
 $notify_email = unserialize(OCP\Config::getUserValue(OCP\User::getUser(), 'activity', 'notify_email', serialize(\OCA\Activity\Data::getUserDefaultSetting('email'))));

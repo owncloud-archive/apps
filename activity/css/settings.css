@@ -1,0 +1,16 @@
+table.activitysettings {
+	max-width: 550px;
+}
+
+table.activitysettings th.small {
+	width: 5em;
+}
+
+table.activitysettings tbody tr {
+	height: 2.5em;
+}
+
+table.activitysettings th.small,
+table.activitysettings td.small {
+	text-align: center;
+}
