@@ -25,7 +25,8 @@ limitations under the License.
     <link rel="stylesheet" href="<?php print_unescaped(OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
 
     <!-- oC changes-->
-    <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
+	<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-migrate-1.2.1.min.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-showpassword.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-tipsy.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery.infieldlabel.js')); ?>"></script>
@@ -96,10 +97,6 @@ limitations under the License.
           <div id="secondaryToolbarButtonContainer">
             <button id="secondaryPresentationMode" class="secondaryToolbarButton presentationMode visibleLargeView" title="Switch to Presentation Mode" tabindex="18" data-l10n-id="presentation_mode">
               <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
-            </button>
-
-            <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView" title="Open File" tabindex="19" data-l10n-id="open_file">
-              <span data-l10n-id="open_file_label">Open</span>
             </button>
 
             <button id="secondaryPrint" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="20" data-l10n-id="print">
@@ -173,10 +170,6 @@ limitations under the License.
               <div id="toolbarViewerRight">
                 <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView" title="Switch to Presentation Mode" tabindex="12" data-l10n-id="presentation_mode">
                   <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
-                </button>
-
-                <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="13" data-l10n-id="open_file">
-                  <span data-l10n-id="open_file_label">Open</span>
                 </button>
 
                 <button id="print" class="toolbarButton print hiddenMediumView" title="Print" tabindex="14" data-l10n-id="print">
