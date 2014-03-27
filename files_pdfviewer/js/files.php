@@ -17,7 +17,7 @@ $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 
 $array = array(
-	"PDFJS.workerSrc" => OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js'),
+	"PDFJS.workerSrc" => OCP\Util::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.worker.js'),
 	"window.dir" => $dir,
 	"window.file" => $file,
 	);
