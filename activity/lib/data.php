@@ -36,6 +36,132 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
+	const TYPE_SHARED = 4;
+	const TYPE_SHARED_BY = 5;
+	const TYPE_SHARE_EXPIRED = 9;
+	const TYPE_SHARE_UNSHARED = 16;
+
+	const TYPE_SHARE_CREATED = 3;
+	const TYPE_SHARE_CREATED_BY = 8;
+	const TYPE_SHARE_CHANGED = 1;
+	const TYPE_SHARE_CHANGED_BY = 6;
+	const TYPE_SHARE_DELETED = 2;
+	const TYPE_SHARE_DELETED_BY = 7;
+	const TYPE_SHARE_RESHARED = 10;
+	const TYPE_SHARE_RESHARED_BY = 11;
+
+	const TYPE_SHARE_DOWNLOADED = 12;
+	const TYPE_SHARE_UPLOADED = 13;
+
+	const TYPE_STORAGE_QUOTA_90 = 14;
+	const TYPE_STORAGE_FAILURE = 15;
+
+	public static function getNotificationTypes($l) {
+		return array(
+			'shared' => array(
+				'desc'		=> $l->t('A file or folder has been <strong>shared</strong>'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARED,
+					\OCA\Activity\Data::TYPE_SHARED_BY,
+				),
+			),
+//			'shared_unshared' => array(
+//				'desc'		=> $l->t('Previously shared file or folder has been <strong>unshared</strong>'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_UNSHARED,
+//				),
+//			),
+//			'shared_expired' => array(
+//				'desc'		=> $l->t('Expiration date of shared file or folder <strong>expired</strong>'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_EXPIRED,
+//				),
+//			),
+			'share_created' => array(
+				'desc'		=> $l->t('A new file or folder has been <strong>created</strong> in a shared folder'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_CREATED,
+					\OCA\Activity\Data::TYPE_SHARE_CREATED_BY,
+				),
+			),
+			'share_changed' => array(
+				'desc'		=> $l->t('A file or folder has been <strong>changed</strong> in a shared folder'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_CHANGED,
+					\OCA\Activity\Data::TYPE_SHARE_CHANGED_BY,
+				),
+			),
+			'share_deleted' => array(
+				'desc'		=> $l->t('A file or folder has been <strong>deleted</strong> from a shared folder'),
+				'types'		=> array(
+					\OCA\Activity\Data::TYPE_SHARE_DELETED,
+					\OCA\Activity\Data::TYPE_SHARE_DELETED_BY,
+				),
+			),
+//			'share_reshared' => array(
+//				'desc'		=> $l->t('A file or folder has been <strong>reshared</strong>'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_RESHARED,
+//					\OCA\Activity\Data::TYPE_SHARE_RESHARED_BY,
+//				),
+//			),
+//			'share_downloaded' => array(
+//				'desc'		=> $l->t('A file or folder shared via link has been <strong>downloaded</strong>'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED,
+//				),
+//			),
+//			'share_uploaded' => array(
+//				'desc'		=> $l->t('A file has been <strong>uploaded</strong> into a folder shared via link'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_SHARE_UPLOADED,
+//				),
+//			),
+//			'storage_quota_90' => array(
+//				'desc'		=> $l->t('<strong>Storage usage</strong> is at 90%%'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90,
+//				),
+//			),
+//			'storage_failure' => array(
+//				'desc'		=> $l->t('An <strong>external storage</strong> has an error'),
+//				'types'		=> array(
+//					\OCA\Activity\Data::TYPE_STORAGE_FAILURE,
+//				),
+//			),
+		);
+	}
+
+	public static function getUserDefaultSetting($method) {
+		$settings = array();
+		switch ($method) {
+			case 'stream':
+				$settings[] = Data::TYPE_SHARE_CREATED;
+				$settings[] = Data::TYPE_SHARE_CREATED_BY;
+				$settings[] = Data::TYPE_SHARE_CHANGED;
+				$settings[] = Data::TYPE_SHARE_CHANGED_BY;
+				$settings[] = Data::TYPE_SHARE_DELETED;
+				$settings[] = Data::TYPE_SHARE_DELETED_BY;
+//				$settings[] = Data::TYPE_SHARE_RESHARED;
+//				$settings[] = Data::TYPE_SHARE_RESHARED_BY;
+//
+//				$settings[] = Data::TYPE_SHARE_DOWNLOADED;
+
+			case 'email':
+				$settings[] = Data::TYPE_SHARED;
+				$settings[] = Data::TYPE_SHARED_BY;
+//				$settings[] = Data::TYPE_SHARE_EXPIRED;
+//				$settings[] = Data::TYPE_SHARE_UNSHARED;
+//
+//				$settings[] = Data::TYPE_SHARE_UPLOADED;
+//
+//				$settings[] = Data::TYPE_STORAGE_QUOTA_90;
+//				$settings[] = Data::TYPE_STORAGE_FAILURE;
+		}
+
+		return $settings;
+	}
+
 	/**
 	 * @brief Send an event into the activity stream
 	 * @param string $app The app where this event is associated with
@@ -45,15 +171,13 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM)
-	{
-
+	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM) {
 		$timestamp = time();
 		$user = \OCP\User::getUser();
 		
-		if($affecteduser === '') {
+		if ($affecteduser === '') {
 			$auser = \OCP\User::getUser();
-		} else{
+		} else {
 			$auser = $affecteduser;
 		}
 
@@ -80,12 +204,35 @@ class Data
 	 * @param array $params The parameter for the placeholder
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params)
-	{
+	public static function translation($app, $text, $params) {
 		$l = \OCP\Util::getL10N($app);
 		$result = $l->t($text, $params);
 		unset($l);
 		return($result);
+	}
+
+	/**
+	 * @param string	$user	Name of the user
+	 * @param string	$method	Should be one of 'stream', 'email'
+	 * @return string	Part of the SQL query limiting the activities
+	 */
+	public static function getUserNotificationTypesQuery($user, $method) {
+		$user_activities = unserialize(\OCP\Config::getUserValue(
+			$user, 'activity', 'notify_' . $method, serialize(self::getUserDefaultSetting($method))
+		));
+
+		// If the user selected to display no activities at all,
+		// we assume this was a mistake, so we display the default types.
+		if (empty($user_activities)) {
+			$user_activities = self::getUserDefaultSetting($method);
+			if (empty($user_activities)) {
+				// Default selection list is empty aswell.
+				// We don't want to display any activities then.
+				return '1 = 0';
+			}
+		}
+
+		return '`type` IN (' . implode(',', $user_activities) . ')';
 	}
 
 	/**
@@ -94,13 +241,18 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function read($start, $count)
-	{
+	public static function read($start, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY `timestamp` desc', $count, $start);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. ' WHERE `affecteduser` = ? ' . $limit_activities_type
+			. ' ORDER BY `timestamp` desc',
+			$count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
@@ -119,14 +271,18 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function search($txt, $count)
-	{
-
+	public static function search($txt, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY `timestamp` desc', $count);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. 'WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ' . $limit_activities_type
+			. 'ORDER BY `timestamp` desc'
+			, $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
@@ -143,11 +299,10 @@ class Data
 	 * @brief Show a specific event in the activities
 	 * @param array $event An array with all the event data in it
 	 */
-	public static function show($event)
-	{
+	public static function show($event) {
 		$l = \OC_L10N::get('lib');
 		$user = $event['user'];
-		if (!isset($event['isGrouped'])){
+		if (!isset($event['isGrouped'])) {
 			$event['isGrouped'] = false;
 		}
 
@@ -168,10 +323,10 @@ class Data
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
-		if ($event['isGrouped']){
+		if ($event['isGrouped']) {
 			$count = 0;
 			echo('<ul class="activitysubject grouped">');
-			foreach($event['events'] as $subEvent){
+			foreach($event['events'] as $subEvent) {
 				echo('<li>');
 				if ($subEvent['link'] <> '') echo('<a href="' . $subEvent['link'] . '">');
 				echo(\OC_Util::sanitizeHTML($subEvent['subject']));
@@ -184,15 +339,14 @@ class Data
 				}
 			}
 			echo('</ul>');
-		}
-		else{
+		} else {
 			if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
 			echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
 			echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
 		}
 
 		$rootView = new \OC\Files\View('');
-		if ($event['file'] !== null){
+		if ($event['file'] !== null) {
 			$exist = $rootView->file_exists('/' . $user . '/files' . $event['file']);
 			unset($rootView);
 			// show a preview image if the file still exists
@@ -211,8 +365,7 @@ class Data
 	/**
 	 * @brief Expire old events
 	 */
-	public static function expire()
-	{
+	public static function expire() {
 		// keep activity feed entries for one year
 		$ttl = (60 * 60 * 24 * 365);
 
@@ -227,8 +380,7 @@ class Data
 	 * @param string $link
 	 * @param string $content
 	 */
-	public static function generaterss($link, $content)
-	{
+	public static function generaterss($link, $content) {
 
 		$writer = xmlwriter_open_memory();
 		xmlwriter_set_indent($writer, 4);
@@ -281,6 +433,4 @@ class Data
 		unset($writer);
 		return ($entry);
 	}
-
-
 }
