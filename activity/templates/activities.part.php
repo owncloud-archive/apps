@@ -35,7 +35,7 @@ function makeEventGroup($events){
 	if (count($events) === 1){
 		return $events[0];
 	}
-	$event = array_shift($events);
+	$event = $events[0];
 	// populate with first event
 	$groupedEvent = array(
 		'isGrouped' => true,
