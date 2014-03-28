@@ -50,10 +50,18 @@ class Scanner {
 	
 
 	public static function av_scan($path) {
-		$path=$path[\OC\Files\Filesystem::signal_param_path];
+		$path = $path[\OC\Files\Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
-			if ($files_view->file_exists($path)) {
+
+			// check if path is a directory
+			if($files_view->is_dir($path))
+				return;
+
+			// we should have a file to work with, and the file shouldn't
+			// be empty
+			$fileExists = $files_view->file_exists($path);
+			if ($fileExists && $files_view->filesize($path) > 0) {
 				$fileStatus = self::scanFile($files_view, $path);
 				$result = $fileStatus->getNumericStatus();
 				switch($result) {
