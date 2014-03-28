@@ -56,8 +56,7 @@ class Data
 	const TYPE_STORAGE_QUOTA_90 = 14;
 	const TYPE_STORAGE_FAILURE = 15;
 
-	public static function getNotificationTypes($l)
-	{
+	public static function getNotificationTypes($l) {
 		return array(
 			'shared' => array(
 				'desc'		=> $l->t('A file or folder has been <strong>shared</strong>'),
@@ -133,11 +132,9 @@ class Data
 		);
 	}
 
-	public static function getUserDefaultSetting($method)
-	{
+	public static function getUserDefaultSetting($method) {
 		$settings = array();
-		switch ($method)
-		{
+		switch ($method) {
 			case 'stream':
 				$settings[] = Data::TYPE_SHARE_CREATED;
 				$settings[] = Data::TYPE_SHARE_CREATED_BY;
@@ -174,15 +171,13 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM)
-	{
-
+	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM) {
 		$timestamp = time();
 		$user = \OCP\User::getUser();
 		
-		if($affecteduser === '') {
+		if ($affecteduser === '') {
 			$auser = \OCP\User::getUser();
-		} else{
+		} else {
 			$auser = $affecteduser;
 		}
 
@@ -209,8 +204,7 @@ class Data
 	 * @param array $params The parameter for the placeholder
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params)
-	{
+	public static function translation($app, $text, $params) {
 		$l = \OCP\Util::getL10N($app);
 		$result = $l->t($text, $params);
 		unset($l);
@@ -222,24 +216,22 @@ class Data
 	 * @param string	$method	Should be one of 'stream', 'email'
 	 * @return string	Part of the SQL query limiting the activities
 	 */
-	public static function getUserNotificationTypesQuery($user, $method)
-	{
+	public static function getUserNotificationTypesQuery($user, $method) {
 		$user_activities = unserialize(\OCP\Config::getUserValue(
 			$user, 'activity', 'notify_' . $method, serialize(self::getUserDefaultSetting($method))
 		));
 
 		// If the user selected to display no activities at all,
 		// we assume this was a mistake, so we display the default types.
-		if (empty($user_activities))
-		{
+		if (empty($user_activities)) {
 			$user_activities = self::getUserDefaultSetting($method);
-			if (empty($user_activities))
-			{
+			if (empty($user_activities)) {
 				// Default selection list is empty aswell.
 				// We don't want to display any activities then.
 				return '1 = 0';
 			}
 		}
+
 		return '`type` IN (' . implode(',', $user_activities) . ')';
 	}
 
@@ -249,8 +241,7 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function read($start, $count)
-	{
+	public static function read($start, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
 		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
@@ -280,8 +271,7 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function search($txt, $count)
-	{
+	public static function search($txt, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
 		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
@@ -309,11 +299,10 @@ class Data
 	 * @brief Show a specific event in the activities
 	 * @param array $event An array with all the event data in it
 	 */
-	public static function show($event)
-	{
+	public static function show($event) {
 		$l = \OC_L10N::get('lib');
 		$user = $event['user'];
-		if (!isset($event['isGrouped'])){
+		if (!isset($event['isGrouped'])) {
 			$event['isGrouped'] = false;
 		}
 
@@ -334,10 +323,10 @@ class Data
 		echo('</div>');
 		echo('<div class="messagecontainer">');
 
-		if ($event['isGrouped']){
+		if ($event['isGrouped']) {
 			$count = 0;
 			echo('<ul class="activitysubject grouped">');
-			foreach($event['events'] as $subEvent){
+			foreach($event['events'] as $subEvent) {
 				echo('<li>');
 				if ($subEvent['link'] <> '') echo('<a href="' . $subEvent['link'] . '">');
 				echo(\OC_Util::sanitizeHTML($subEvent['subject']));
@@ -350,15 +339,14 @@ class Data
 				}
 			}
 			echo('</ul>');
-		}
-		else{
+		} else {
 			if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
 			echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
 			echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
 		}
 
 		$rootView = new \OC\Files\View('');
-		if ($event['file'] !== null){
+		if ($event['file'] !== null) {
 			$exist = $rootView->file_exists('/' . $user . '/files' . $event['file']);
 			unset($rootView);
 			// show a preview image if the file still exists
@@ -377,8 +365,7 @@ class Data
 	/**
 	 * @brief Expire old events
 	 */
-	public static function expire()
-	{
+	public static function expire() {
 		// keep activity feed entries for one year
 		$ttl = (60 * 60 * 24 * 365);
 
@@ -393,8 +380,7 @@ class Data
 	 * @param string $link
 	 * @param string $content
 	 */
-	public static function generaterss($link, $content)
-	{
+	public static function generaterss($link, $content) {
 
 		$writer = xmlwriter_open_memory();
 		xmlwriter_set_indent($writer, 4);

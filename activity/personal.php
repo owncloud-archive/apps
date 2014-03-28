@@ -31,8 +31,7 @@ $notify_stream = unserialize(OCP\Config::getUserValue(OCP\User::getUser(), 'acti
 $types = \OCA\Activity\Data::getNotificationTypes($l);
 
 $activities = array();
-foreach ($types as $type => $data)
-{
+foreach ($types as $type => $data) {
 	$checked_email = array_intersect($data['types'], $notify_email);
 	$checked_stream = array_intersect($data['types'], $notify_stream);
 	$activities[$type] = array(

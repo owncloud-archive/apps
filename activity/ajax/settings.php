@@ -28,14 +28,11 @@ $notify_email = $notify_stream = array();
 
 $l = OCP\Util::getL10N('activity');
 $types = \OCA\Activity\Data::getNotificationTypes($l);
-foreach ($types as $type => $data)
-{
-	if (!empty($_POST[$type . '_email']))
-	{
+foreach ($types as $type => $data) {
+	if (!empty($_POST[$type . '_email'])) {
 		$notify_email = array_merge($notify_email, $data['types']);
 	}
-	if (!empty($_POST[$type . '_stream']))
-	{
+	if (!empty($_POST[$type . '_stream'])) {
 		$notify_stream = array_merge($notify_stream, $data['types']);
 	}
 }
