@@ -67,7 +67,6 @@ class Data
 		}
 
 		// fire a hook so that other apps like notification systems can connect
-		// todo translations
 		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'user' => $user, 'affecteduser' => $affecteduser, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio, 'type' => $type));
 
 		return true;
