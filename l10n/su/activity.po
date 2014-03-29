@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-02-08 16:07+0000\n"
+"POT-Creation-Date: 2014-03-29 00:49-0400\n"
+"PO-Revision-Date: 2014-03-29 04:49+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Sundanese (http://www.transifex.com/projects/p/owncloud/language/su/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: su\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ajax/settings.php:43
+msgid "Your settings have been updated."
+msgstr ""
 
 #: appinfo/app.php:31
 msgid "Activity"
@@ -29,6 +33,24 @@ msgstr ""
 msgid "Loading older activities"
 msgstr ""
 
+#: lib/data.php:62
+msgid "A file or folder has been <strong>shared</strong>"
+msgstr ""
+
+#: lib/data.php:81
+msgid ""
+"A new file or folder has been <strong>created</strong> in a shared folder"
+msgstr ""
+
+#: lib/data.php:88
+msgid "A file or folder has been <strong>changed</strong> in a shared folder"
+msgstr ""
+
+#: lib/data.php:95
+msgid ""
+"A file or folder has been <strong>deleted</strong> from a shared folder"
+msgstr ""
+
 #: templates/list.php:28
 msgid "RSS feed"
 msgstr ""
@@ -40,4 +62,16 @@ msgstr ""
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
+msgstr ""
+
+#: templates/personal.php:3
+msgid "Notifications"
+msgstr ""
+
+#: templates/personal.php:9
+msgid "Mail"
+msgstr ""
+
+#: templates/personal.php:13
+msgid "Stream"
 msgstr ""
