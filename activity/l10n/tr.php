@@ -4,5 +4,6 @@
 "Loading older activities" => "Daha eski etkinlikler yükleniyor",
 "RSS feed" => "RSS Beslemesi",
 "No activities yet." => "Henüz bir besleme yok",
-"You will see a list of events here when you start to use your %s." => "%s kullanmaya başladığınızda burada olayların bir listesini göreceksiniz."
+"You will see a list of events here when you start to use your %s." => "%s kullanmaya başladığınızda burada olayların bir listesini göreceksiniz.",
+"Notifications" => "Bildirimler"
 );

@@ -4,5 +4,6 @@
 "Loading older activities" => "Jarduera zaharragoak kargatzen",
 "RSS feed" => "RSS jarioa",
 "No activities yet." => "Ez dago jarduerarik.",
-"You will see a list of events here when you start to use your %s." => "Gertaeren zerrenda bat ikusiko duzu zure %s erabiltzen hasten zarenean."
+"You will see a list of events here when you start to use your %s." => "Gertaeren zerrenda bat ikusiko duzu zure %s erabiltzen hasten zarenean.",
+"Notifications" => "Jakinarazpenak"
 );

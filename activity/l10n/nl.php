@@ -4,5 +4,6 @@
 "Loading older activities" => "Laden oude activiteiten",
 "RSS feed" => "RSS feed",
 "No activities yet." => "Nog geen activiteit.",
-"You will see a list of events here when you start to use your %s." => "U ziet hier een lijst met activiteiten als u gebruik gaat maken van uw %s."
+"You will see a list of events here when you start to use your %s." => "U ziet hier een lijst met activiteiten als u gebruik gaat maken van uw %s.",
+"Notifications" => "Meldingen"
 );

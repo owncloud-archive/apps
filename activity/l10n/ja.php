@@ -4,5 +4,6 @@
 "Loading older activities" => "古いアクティビティを読み込み中",
 "RSS feed" => "RSSフィード",
 "No activities yet." => "アクティビティはまだありません。",
-"You will see a list of events here when you start to use your %s." => "%s の使用を開始すると、ここでイベントリストを見ることができます。"
+"You will see a list of events here when you start to use your %s." => "%s の使用を開始すると、ここでイベントリストを見ることができます。",
+"Notifications" => "通知"
 );

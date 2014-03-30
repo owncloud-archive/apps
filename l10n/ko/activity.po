@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-29 00:49-0400\n"
-"PO-Revision-Date: 2014-03-29 04:49+0000\n"
+"POT-Creation-Date: 2014-03-30 00:49-0400\n"
+"PO-Revision-Date: 2014-03-29 05:00+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr "%s 사용을 시작하면 여기에서 이벤트 목록을 볼 수 있�
 
 #: templates/personal.php:3
 msgid "Notifications"
-msgstr ""
+msgstr "알림"
 
 #: templates/personal.php:9
 msgid "Mail"

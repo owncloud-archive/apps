@@ -4,5 +4,6 @@
 "Loading older activities" => "Carregant activitats anteriors",
 "RSS feed" => "Font RSS",
 "No activities yet." => "Sense activitats encara.",
-"You will see a list of events here when you start to use your %s." => "Quan comenceu a usar %s veureu una llista de successos aquí."
+"You will see a list of events here when you start to use your %s." => "Quan comenceu a usar %s veureu una llista de successos aquí.",
+"Notifications" => "Notificacions"
 );
