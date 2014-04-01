@@ -1,5 +1,4 @@
-<form id="activity_notifications">
-	<fieldset class="personalblock">
+<form id="activity_notifications" class="section">
 	<h2><?php p($l->t('Notifications')); ?></h2>
 		<table class="grid activitysettings">
 			<thead>
@@ -39,5 +38,4 @@
 			<?php endforeach; ?>
 			</tbody>
 		</table>
-	</fieldset>
 </form>
