@@ -6,13 +6,13 @@
 # Caner BAŞARAN <basaran.caner@gmail.com>, 2013
 # ismail yenigül <ismail.yenigul@surgate.com>, 2013
 # tridinebandim, 2013
-# volkangezer <volkangezer@gmail.com>, 2013
+# volkangezer <volkangezer@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-30 01:40+0000\n"
+"POT-Creation-Date: 2014-04-02 00:49-0400\n"
+"PO-Revision-Date: 2014-04-01 19:31+0000\n"
 "Last-Translator: volkangezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -83,4 +83,4 @@ msgstr "İçerik"
 msgid ""
 "You can use html markup (e.g. <br> for a linebreak) and inline style "
 "attributes (e.g. <a style=\"color:red;\">)."
-msgstr "Html biçimlendirme (örneğin <br> bir satır aralığı) ve satır içi stil niteliklerini (örneğin <a style=\"color:red;\">) kullanabilirsiniz."
+msgstr "Html biçimlendirme (örneğin: <br> bir satır aralığı) ve satır içi biçem niteliklerini (örneğin: <a style=\"color:red;\">) kullanabilirsiniz."

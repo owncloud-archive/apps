@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Your settings have been updated." => "Su configuración ha sido actualizada.",
+"Your settings have been updated." => "Sus ajustes han sido actualizados.",
 "Activity" => "Actividad",
 "No more activities to load." => "No hay más actividades por cargar.",
 "Loading older activities" => "Cargando actividades más antiguas",
@@ -11,5 +11,6 @@
 "No activities yet." => "Aún no hay actividades.",
 "You will see a list of events here when you start to use your %s." => "Aquí aparecerá una lista de eventos cuando comience a usar su %s.",
 "Notifications" => "Notificaciones",
-"Mail" => "Correo electrónico"
+"Mail" => "Correo electrónico",
+"Stream" => "Flujo"
 );

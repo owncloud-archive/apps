@@ -14,7 +14,7 @@
 "Host" => "Konak",
 "Address of Antivirus Host." => "Antivirus sunucusunun adresi.",
 "Port" => "Port",
-"Port number of Antivirus Host." => "Antivirüs sunucusunun port numarası.",
+"Port number of Antivirus Host." => "Antivirüs sunucusunun bağlantı noktası.",
 "Stream Length" => "Stream Length, Unun Akilim ",
 "ClamAV StreamMaxLength value in bytes." => "ClamAV Streamen Uzun fiyat bytes.",
 "Path to clamscan" => "Iceri clamscan ",
