@@ -107,7 +107,7 @@ class Hooks {
 	 * @param string $subject_by       The subject for other users (with "by $actor")
 	 */
 	public static function add_hooks_for_files($file_path, $activity_type, $subject, $activity_type_by, $subject_by) {
-		$affectedUsers = self::getUserPathsFromFile($file_path);
+		$affectedUsers = self::getUserPathsFromPath($file_path);
 		foreach ($affectedUsers as $user => $path) {
 			if ($user === \OCP\User::getUser()) {
 				$user_subject = $subject;
@@ -130,13 +130,24 @@ class Hooks {
 	 * @param string $path
 	 * @return array
 	 */
-	public static function getUserPathsFromFile($path) {
+	public static function getUserPathsFromPath($path) {
+		list($file_path, $uidOwner) = self::getSourcePathAndOwner($path);
+		return \OCP\Share::getUsersSharingFile($file_path, $uidOwner, true, true);
+	}
+
+	/**
+	 * Return the source
+	 *
+	 * @param string $path
+	 * @return array
+	 */
+	public static function getSourcePathAndOwner($path) {
 		$uidOwner = \OC\Files\Filesystem::getOwner(dirname($path));
 		$fileInfo = \OC\Files\Filesystem::getFileInfo($path);
 		$sourceFileInfo = $fileInfo->getData();
 		$file_path = substr($sourceFileInfo['path'], strlen('files'));
 
-		return \OCP\Share::getUsersSharingFile($file_path, $uidOwner, true, true);
+		return array($file_path, $uidOwner);
 	}
 
 	/**
@@ -163,29 +174,22 @@ class Hooks {
 	 */
 	public static function shareFileOrFolderWithUser($params) {
 		$file_path = \OC\Files\Filesystem::getPath($params['fileSource']);
-		$affectedUsers = self::getUserPathsFromFile($file_path);
+		list($path, $uidOwner) = self::getSourcePathAndOwner($file_path);
 
-		foreach ($affectedUsers as $user => $path) {
-			if ($user === \OCP\User::getUser()) {
-				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
-					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
-				));
+		// Folder owner
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+		$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
+		Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 
-				// Add to l10n: $l->t('You shared %s with %s');
-				$subject = 'You shared %s with %s';
-
-				Data::send('files', $subject, array($path, $params['shareWith']), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
-			} else if ($user === $params['shareWith']) {
-				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
-					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
-				));
-
-				// Add to l10n: $l->t('%s shared %s with you');
-				$subject = '%s shared %s with you';
-
-				Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED_BY, Data::PRIORITY_MEDIUM);
-			}
-		}
+		// New shared user
+		$path = '/Shared' . $params['fileTarget'];
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
+		Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED_BY, Data::PRIORITY_MEDIUM);
 	}
 
 	/**
