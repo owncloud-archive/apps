@@ -151,7 +151,7 @@ class Hooks {
 	}
 
 	/**
-	 * @brief Store the share events
+	 * @brief Manage sharing events
 	 * @param array $params The hook params
 	 */
 	public static function share($params) {
@@ -160,7 +160,7 @@ class Hooks {
 				if ($params['shareType'] == \OCP\Share::SHARE_TYPE_USER) {
 					self::shareFileOrFolderWithUser($params);
 				} else if ($params['shareType'] == \OCP\Share::SHARE_TYPE_GROUP) {
-					//self::shareFileOrFolderWithGroup($params);
+					self::shareFileOrFolderWithGroup($params);
 				}
 			} else {
 				self::shareFileOrFolder($params);
@@ -169,7 +169,7 @@ class Hooks {
 	}
 
 	/**
-	 * @brief Store the share events of files and folders
+	 * @brief Sharing a file or folder with a user
 	 * @param array $params The hook params
 	 */
 	public static function shareFileOrFolderWithUser($params) {
@@ -193,7 +193,52 @@ class Hooks {
 	}
 
 	/**
-	 * @brief Store the share events of files and folders
+	 * @brief Sharing a file or folder with a group
+	 * @param array $params The hook params
+	 */
+	public static function shareFileOrFolderWithGroup($params) {
+		$file_path = \OC\Files\Filesystem::getPath($params['fileSource']);
+		list($path, $uidOwner) = self::getSourcePathAndOwner($file_path);
+
+		// Folder owner
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+		$subject = 'You shared %s with group %s';// Add to l10n: $l->t('You shared %s with group %s');
+		Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+
+		// Members of the new group
+		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
+		$affectedUsers = array();
+		foreach (\OC_Group::usersInGroup($params['shareWith']) as $user) {
+			$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
+		}
+
+		if (!empty($affectedUsers)) {
+			// Check when there was a naming conflict and the target is different
+			// for some of the users
+			$query = \OC_DB::prepare('SELECT `share_with`, `file_target` FROM `*PREFIX*share` WHERE `parent` = ? ');
+			$result = $query->execute(array($params['id']));
+			if (\OCP\DB::isError($result)) {
+				\OCP\Util::writeLog('OCA\Activity\Hooks', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			} else {
+				while ($row = $result->fetchRow()) {
+					$affectedUsers[$user] = '/Shared' . $row['file_target'];
+				}
+			}
+
+			foreach ($affectedUsers as $user => $path) {
+				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+				));
+
+				Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED_BY, Data::PRIORITY_MEDIUM);
+			}
+		}
+	}
+
+	/**
+	 * @brief Sharing a file or folder via link/public
 	 * @param array $params The hook params
 	 */
 	public static function shareFileOrFolder($params) {
