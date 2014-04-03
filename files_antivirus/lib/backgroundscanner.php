@@ -88,16 +88,16 @@ class BackgroundScanner {
 		//TODO: Fix undefined $user here
 		switch($result) {
 			case Status::SCANRESULT_UNCHECKED:
-				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
+				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is not checked', \OCP\Util::ERROR);
 				break;
 			case Status::SCANRESULT_INFECTED:
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
-					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected, file deleted', \OCP\Util::ERROR);
 					$storage->unlink($path);
 				}
 				else {
-					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected', \OCP\Util::ERROR);
 				}
 				break;
 			case Status::SCANRESULT_CLEAN:
