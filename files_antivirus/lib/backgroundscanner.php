@@ -27,7 +27,7 @@ class BackgroundScanner {
 			.' AND (`*PREFIX*storages`.`id` LIKE ? OR `*PREFIX*storages`.`id` LIKE ?)'
 			.' AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)'
 			.' AND `path` LIKE ?';
-		$stmt = OCP\DB::prepare($sql, 5);
+		$stmt = \OCP\DB::prepare($sql, 5);
 		try {
 			$result = $stmt->execute(array($dir_mimetype, 'local::%', 'home::%', 'files/%'));
 			if (\OCP\DB::isError($result)) {
@@ -39,7 +39,7 @@ class BackgroundScanner {
 			return;
 		}
 
-		$serverContainer = OC::$server;
+		$serverContainer = \OC::$server;
 		/** @var $serverContainer \OCP\IServerContainer */
 		$root = $serverContainer->getRootFolder();
 
@@ -105,13 +105,13 @@ class BackgroundScanner {
 				break;
 			case Status::SCANRESULT_CLEAN:
 				try {
-					$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus` WHERE `fileid` = ?');
+					$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus` WHERE `fileid` = ?');
 					$result = $stmt->execute(array($id));
 					if (\OCP\DB::isError($result)) {
 						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 						return;
 					}
-					$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
+					$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 					$result = $stmt->execute(array($id, time()));
 					if (\OCP\DB::isError($result)) {
 						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
