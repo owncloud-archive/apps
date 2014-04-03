@@ -23,10 +23,13 @@ class BackgroundScanner {
 			.' FROM `*PREFIX*filecache`'
 			.' LEFT JOIN `*PREFIX*files_antivirus` ON `*PREFIX*files_antivirus`.`fileid` = `*PREFIX*filecache`.`fileid`'
 			.' JOIN `*PREFIX*storages` ON `*PREFIX*storages`.`numeric_id` = `*PREFIX*filecache`.`storage`'
-			.' WHERE `mimetype` != ? AND (`*PREFIX*storages`.`id` LIKE ? OR `*PREFIX*storages`.`id` LIKE ?) AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
+			.' WHERE `mimetype` != ?'
+			.' AND (`*PREFIX*storages`.`id` LIKE ? OR `*PREFIX*storages`.`id` LIKE ?)'
+			.' AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)'
+			.' AND `path` LIKE ?';
 		$stmt = OCP\DB::prepare($sql, 5);
 		try {
-			$result = $stmt->execute(array($dir_mimetype, 'local::%', 'home::%'));
+			$result = $stmt->execute(array($dir_mimetype, 'local::%', 'home::%', 'files/%'));
 			if (\OCP\DB::isError($result)) {
 				\OCP\Util::writeLog('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return;
