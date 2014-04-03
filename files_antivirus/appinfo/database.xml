@@ -16,8 +16,7 @@
    <field>
     <name>fileid</name>
     <type>integer</type>
-    <default></default>
-    <notnull>true</notnull>
+    <primary>true</primary>
     <unsigned>true</unsigned>
     <length>4</length>
    </field>
