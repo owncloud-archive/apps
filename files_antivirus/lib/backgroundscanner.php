@@ -23,10 +23,10 @@ class BackgroundScanner {
 			.' FROM `*PREFIX*filecache`'
 			.' LEFT JOIN `*PREFIX*files_antivirus` ON `*PREFIX*files_antivirus`.`fileid` = `*PREFIX*filecache`.`fileid`'
 			.' JOIN `*PREFIX*storages` ON `*PREFIX*storages`.`numeric_id` = `*PREFIX*filecache`.`storage`'
-			.' WHERE `mimetype` != ? AND `*PREFIX*storages`.`id` LIKE ? AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
+			.' WHERE `mimetype` != ? AND (`*PREFIX*storages`.`id` LIKE ? OR `*PREFIX*storages`.`id` LIKE ?) AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
 		$stmt = OCP\DB::prepare($sql, 5);
 		try {
-			$result = $stmt->execute(array($dir_mimetype, 'local::%'));
+			$result = $stmt->execute(array($dir_mimetype, 'local::%', 'home::%'));
 			if (\OCP\DB::isError($result)) {
 				\OCP\Util::writeLog('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return;
@@ -50,7 +50,7 @@ class BackgroundScanner {
 				self::scan($file->getId(), $path, $storage);
 			} else {
 				// ... but sometimes it doesn't, try to get the storage
-				$storage = self::getStorage($row['id']);
+				$storage = self::getStorage($serverContainer, $row['id']);
 				if ($storage !== null && $storage->is_dir('')) {
 					self::scan($row['fileid'], $row['path'], $storage);
 				} else {
@@ -63,12 +63,20 @@ class BackgroundScanner {
 	/*
 	* This function is a hack, it doesn't work if the $storage_id is a hash.
 	*/
-	protected static function getStorage($storage_id) {
+	protected static function getStorage($serverContainer, $storage_id) {
 		if (strpos($storage_id, 'local::') === 0) {
 			$arguments = array(
 				'datadir' => substr($storage_id, 7),
 			);
 			return new \OC\Files\Storage\Local($arguments);
+		}
+		if (strpos($storage_id, 'home::') === 0) {
+			$userid = substr($storage_id, 6);
+			$user = $serverContainer->getUserManager()->get($userid);
+			$arguments = array(
+				'user' => $user,
+			);
+			return new \OC\Files\Storage\Home($arguments);
 		}
 		return null;
 	}
