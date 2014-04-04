@@ -17,7 +17,9 @@ if (version_compare($installedVersion, '0.6', '<')) {
 	// remove the old job with old classname
 	$jobList = new \OC\BackgroundJob\JobList();
 	$jobs = $jobList->getAll();
-	foreach ($jobs as $job) 
-		if($job->getArgument()[0]=='OC_Files_Antivirus_BackgroundScanner')
+	foreach ($jobs as $job) {
+		$jobArg = $job->getArgument();
+		if($jobArg[0]=='OC_Files_Antivirus_BackgroundScanner')
 			$jobList->remove($job);
+	}
 }
