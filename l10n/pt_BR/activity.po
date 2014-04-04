@@ -4,14 +4,15 @@
 # 
 # Translators:
 # adielalves <hotmail2792@gmail.com>, 2013
+# dudanogueira <dudanogueira@gmail.com>, 2014
 # Flávio Veras <flaviove@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-30 00:49-0400\n"
-"PO-Revision-Date: 2014-03-29 13:50+0000\n"
-"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
+"POT-Creation-Date: 2014-04-04 00:49-0400\n"
+"PO-Revision-Date: 2014-04-03 11:58+0000\n"
+"Last-Translator: dudanogueira <dudanogueira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,12 +47,12 @@ msgstr "Um novo arquivo ou pasta foi <strong>criado</strong> em uma pasta compar
 
 #: lib/data.php:88
 msgid "A file or folder has been <strong>changed</strong> in a shared folder"
-msgstr "Um arquivo ou pasta foi <strong>criado</strong> em uma pasta compartilhada"
+msgstr "Um arquivo ou pasta foi <strong>alterado</strong> em uma pasta compartilhada"
 
 #: lib/data.php:95
 msgid ""
 "A file or folder has been <strong>deleted</strong> from a shared folder"
-msgstr "Um novo arquivo ou pasta foi <strong>eliminado</strong> de uma pasta compartilhada"
+msgstr "Um novo arquivo ou pasta foi <strong>apagada</strong> de uma pasta compartilhada"
 
 #: templates/list.php:28
 msgid "RSS feed"
@@ -64,16 +65,16 @@ msgstr "Nenhuma atividade ainda."
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr "Você verá aqui uma lista de eventos quando você começar a usar o %s."
+msgstr "Você verá uma lista de eventos aqui quando começar a usar o seu %s."
 
-#: templates/personal.php:3
+#: templates/personal.php:2
 msgid "Notifications"
 msgstr "Notificações"
 
-#: templates/personal.php:9
+#: templates/personal.php:8
 msgid "Mail"
-msgstr "Mail"
+msgstr "EMail"
 
-#: templates/personal.php:13
+#: templates/personal.php:12
 msgid "Stream"
 msgstr "Fluxo"
