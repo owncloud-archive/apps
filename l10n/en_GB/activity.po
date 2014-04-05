@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-01 00:49-0400\n"
-"PO-Revision-Date: 2014-03-31 10:26+0000\n"
+"POT-Creation-Date: 2014-04-05 00:49-0400\n"
+"PO-Revision-Date: 2014-04-04 11:59+0000\n"
 "Last-Translator: mnestis <transifex@mnestis.net>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -65,14 +65,14 @@ msgstr "No activities yet."
 msgid "You will see a list of events here when you start to use your %s."
 msgstr "You will see a list of events here when you start to use your %s."
 
-#: templates/personal.php:3
+#: templates/personal.php:2
 msgid "Notifications"
 msgstr "Notifications"
 
-#: templates/personal.php:9
+#: templates/personal.php:8
 msgid "Mail"
 msgstr "Mail"
 
-#: templates/personal.php:13
+#: templates/personal.php:12
 msgid "Stream"
 msgstr "Stream"

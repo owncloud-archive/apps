@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Helder Meneses <helder.meneses@gmail.com>, 2013
+# Helder Meneses <helder.meneses@gmail.com>, 2013-2014
 # jmruas <jmruas@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-30 00:49-0400\n"
-"PO-Revision-Date: 2014-03-29 05:00+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-04-05 00:49-0400\n"
+"PO-Revision-Date: 2014-04-04 15:50+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax/settings.php:43
 msgid "Your settings have been updated."
-msgstr ""
+msgstr "As suas definições foram actualizadas."
 
 #: appinfo/app.php:31
 msgid "Activity"
@@ -37,7 +37,7 @@ msgstr "A carregar actividades antigas"
 
 #: lib/data.php:62
 msgid "A file or folder has been <strong>shared</strong>"
-msgstr ""
+msgstr "Foi <strong>partilhado</strong> um ficheiro ou uma pasta"
 
 #: lib/data.php:81
 msgid ""
@@ -66,14 +66,14 @@ msgstr "Nenhuma actividade para já."
 msgid "You will see a list of events here when you start to use your %s."
 msgstr "Vai poder ver a lista de eventos aqui, quando começar a usar a sua %s"
 
-#: templates/personal.php:3
+#: templates/personal.php:2
 msgid "Notifications"
 msgstr "Notificações"
 
-#: templates/personal.php:9
+#: templates/personal.php:8
 msgid "Mail"
-msgstr ""
+msgstr "Correio"
 
-#: templates/personal.php:13
+#: templates/personal.php:12
 msgid "Stream"
 msgstr ""
