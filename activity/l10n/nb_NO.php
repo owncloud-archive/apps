@@ -5,5 +5,6 @@
 "RSS feed" => "RSS Strøm",
 "No activities yet." => "Ingen aktivitet enda.",
 "You will see a list of events here when you start to use your %s." => "Du vil se en liste av hendelser her når du starter å bruke din %s.",
-"Notifications" => "Varsler"
+"Notifications" => "Varsler",
+"Mail" => "E-post"
 );

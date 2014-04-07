@@ -1,6 +1,8 @@
 <?php $TRANSLATIONS = array(
+"Welcome to %s" => "Välkommen till %s",
 "Your personal web services. All your files, contacts, calendar and more, in one place." => "Din personliga webbtjänst. Alla dina filer, kontakter, kalender och mycket mer, allt på ett ställe.",
 "Get the apps to sync your files" => "Skaffa appar för att synkronisera dina filer",
+"Connect your desktop apps to %s" => "Anslut dina skrivbordsprogram till ownCloud %s",
 "Connect your Calendar" => "Anslut din Kalender",
 "Connect your Contacts" => "Anslut dina Kontakter",
 "Access files via WebDAV" => "Åtkomst av filer via WebDAV",
