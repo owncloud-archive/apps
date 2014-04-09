@@ -107,6 +107,11 @@ class Hooks {
 	 * @param string $subject_by       The subject for other users (with "by $actor")
 	 */
 	public static function add_hooks_for_files($file_path, $activity_type, $subject, $activity_type_by, $subject_by) {
+		// Do not add activities for .part-files
+		if (substr($file_path, -5) === '.part') {
+			return;
+		}
+
 		$affectedUsers = self::getUserPathsFromPath($file_path);
 		foreach ($affectedUsers as $user => $path) {
 			if ($user === \OCP\User::getUser()) {
