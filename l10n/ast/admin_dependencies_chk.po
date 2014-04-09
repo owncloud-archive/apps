@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-08 00:50-0400\n"
-"PO-Revision-Date: 2014-04-07 14:16+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-04-09 00:49-0400\n"
+"PO-Revision-Date: 2014-04-08 22:00+0000\n"
+"Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,56 +22,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "Ye necesariu'l módulu php-json por milenta aplicaciones pa comunicaciones inter"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "Ye necesariu'l módulu php-curl pa guetar el títulu la páxina cuando s'amieste un marcador"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "Ye necesariu'l módulu php-gd pa crear imáxenes amenorgaes de les tos semeyes"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "Ye necesariu'l módulu php-ldap pa coneutar al to sirvidor ldap"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "Ye necesariu'l módulu php-zip pa baxar múltiples ficheros darréu"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "Ye necesariu'l módulu php-mb_multibyte p'alministrar el cifráu correutu."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "Ye necesariu'l módulu php-ctype pa validar datos."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "Ye necesariu'l módulu php-xml pa compartir ficheros con webdav."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "La direutiva allow_url_fopen del to php.ini debería d'afitase a 1 pa recibir la base de conocimientu de los sirvidores OCS"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "Ye necesariu'l módulu php-pdo p'atroxar datos Owncloud na base de datos."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Ye necesariu'l módulu iconv pa convertir datos nun charset correutu."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "Estáu de dependencies"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "Usáu por :"
