@@ -1608,10 +1608,7 @@ var SecondaryToolbar = {
     this.close();
   },
 
-  openFileClick: function secondaryToolbarOpenFileClick(evt) {
-    document.getElementById('fileInput').click();
-    this.close();
-  },
+  // openFileClick removed because it is unused
 
   printClick: function secondaryToolbarPrintClick(evt) {
     window.print();
@@ -4963,19 +4960,7 @@ function webViewerLoad(evt) {
   var params = PDFView.parseQueryString(document.location.search.substring(1));
   var file = 'file' in params ? params.file : DEFAULT_URL;
 
-  var fileInput = document.createElement('input');
-  fileInput.id = 'fileInput';
-  fileInput.className = 'fileInput';
-  fileInput.setAttribute('type', 'file');
-  fileInput.oncontextmenu = noContextMenuHandler;
-  document.body.appendChild(fileInput);
-
-  if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-    document.getElementById('openFile').setAttribute('hidden', 'true');
-    document.getElementById('secondaryOpenFile').setAttribute('hidden', 'true');
-  } else {
-    document.getElementById('fileInput').value = null;
-  }
+  // fileInput element removed because it is unused
 
   // Special debugging flags in the hash section of the URL.
   var hash = document.location.hash.substring(1);
