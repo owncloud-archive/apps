@@ -6,7 +6,7 @@
 </script>
 
 <div id = "controls">
-<?
+<?php
 	include('reader/lib/dir.php');
 	include('reader/lib/thumbnail.php');
 	include('reader/lib/library_display.php');
@@ -25,7 +25,7 @@
 			<div class="crumb <?php if($i == count($path)-1) p('last');?> svg" data-dir='<?php p($curr_path);?>' style='background-image:url("<?php print_unescaped(OCP\image_path('core','breadcrumb.png'));?>")'>
 				<a href="<?php print_unescaped($base_url.$curr_path.'/'); ?>"><?php p($path[$i]); ?></a>
 			</div>
-<? 		}
+<?php 		}
 	}	
 ?>
 
