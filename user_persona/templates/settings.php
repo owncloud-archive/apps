@@ -9,8 +9,8 @@
  * later.
  */
 ?>
-<fieldset class="personalblock">
-    <legend><strong><?php p($l->t('Mozilla Persona login settings')) ?></strong>:</legend>
+<div class="section">
+    <h2><?php p($l->t('Mozilla Persona login settings')) ?>:</h2>
 	<?php p($l->t('IF more than one user has email provided by Persona THEN')); ?>
     <select id="mozilla-persona-policy">
 		<?php foreach ($_['allPolicies'] as $pValue => $pTitle) { ?>
@@ -20,4 +20,4 @@
 			</option>
 		<?php } ?>
     </select>
-</fieldset>
+</div>

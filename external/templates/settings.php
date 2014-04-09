@@ -1,5 +1,5 @@
 <form id="external">
-	<fieldset class="personalblock">
+	<div class="section">
 		<h2><?php p($l->t('External Sites'));?></h2>
 		<ul class="external_sites">
 
@@ -17,5 +17,5 @@
 
         <input type="button" id="add_external_site" value="<?php p($l->t("Add")); ?>" />
 		<span class="msg"></span>
-	</fieldset>
+	</div>
 </form>
