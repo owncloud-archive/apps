@@ -12,11 +12,9 @@
 	<table class="grid activitysettings">
 		<thead>
 			<tr>
-				<!--
 				<th class="small activity_select_group" data-select-group="email">
 					<?php p($l->t('Mail')); ?>
 				</th>
-				-->
 				<th class="small activity_select_group" data-select-group="stream">
 					<?php p($l->t('Stream')); ?>
 				</th>
@@ -26,14 +24,12 @@
 		<tbody>
 		<?php foreach ($_['activities'] as $activity => $data): ?>
 			<tr>
-				<!-- Email is not available yet
 				<td class="small">
 					<label for="<?php p($activity) ?>_email">
 						<input type="checkbox" id="<?php p($activity) ?>_email" name="<?php p($activity) ?>_email"
 							value="1" class="<?php p($activity) ?> email" <?php if ($data['email']): ?> checked="checked"<?php endif; ?> />
 					</label>
 				</td>
-				-->
 				<td class="small">
 					<label for="<?php p($activity) ?>_stream">
 						<input type="checkbox" id="<?php p($activity) ?>_stream" name="<?php p($activity) ?>_stream"
