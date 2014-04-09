@@ -44,7 +44,7 @@
 			<div class="activitymessage"><?php p($_['event']['message']) ?></div>
 		<?php endif ?>
 
-		<?php if ($_['previewImageLink']): ?>
+		<?php if (!empty($_['previewImageLink'])): ?>
 			<img class="preview" src="<?php p($_['previewImageLink']) ?>" alt="<?php p($_['event']['message']) ?>"/>
 		<?php endif ?>
 
