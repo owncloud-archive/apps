@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" id="migration-settings-block">
 	<h2><?php p($l->t('Account Export/Import'));?></h2>
 	<?php if(isset($_['error'])) { ?>
 		<h3><?php p($_['error']['error']); ?></h3>
