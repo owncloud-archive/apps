@@ -23,6 +23,7 @@
 
 /** @var $l OC_L10N */
 /** @var $theme OC_Defaults */
+/** @var $_ array */
 
 /**
  * @brief Makes a single event that aggregates the info
