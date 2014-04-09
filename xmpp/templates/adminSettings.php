@@ -1,5 +1,5 @@
 <form id="xmppadmin" action="#" method="post">
-	<fieldset class="personalblock">
+	<div class="section">
 		<h2><?php p($l->t('XMPP Admin Account'));?></h2>
         <p>
         	<label for="usermail"><?php p($l->t('Username'));?>
@@ -19,6 +19,6 @@
 			<input type="text" id="xmppDefaultDomain" name="xmppDefaultDomain" value="<?php p($_['xmppDefaultDomain']);?>">
 		</label>
 	</p>
-        <input type="submit" value="Save" />
-	</fieldset>
+        <input type="submit" value="<?php p($l->t('Save'));?>" />
+	</div>
 </form>
