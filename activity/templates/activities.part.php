@@ -23,6 +23,7 @@
 
 /** @var $l OC_L10N */
 /** @var $theme OC_Defaults */
+/** @var $_ array */
 
 /**
  * @brief Makes a single event that aggregates the info
@@ -76,13 +77,21 @@ foreach ($_['activity'] as $event) {
 			$eventsInGroup = array();
 			$lastGroup = null;
 			// close previous date group
-			echo('</div>'); // boxcontainer
-			echo('</div>'); // date group
+?>
+			</div>
+		</div>
+<?php
 		}
 		$lastDate = $currentDate;
-		echo('<div class="group" data-date="' . $currentDate . '">');
-		echo('<div class="groupheader"><span class="tooltip" title="' . \OCP\Util::formatDate(strip_time($event['timestamp']), true) .'">' . ucfirst($currentDate) . '</span></div>');
-		echo('<div class="boxcontainer">');
+?>
+	<div class="group" data-date="<?php p($currentDate) ?>">
+		<div class="groupheader">
+			<span class="tooltip" title="<?php p(\OCP\Util::formatDate(strip_time($event['timestamp']), true)) ?>">
+				<?php p(ucfirst($currentDate)) ?>
+			</span>
+		</div>
+		<div class="boxcontainer">
+<?php
 	}
 	$currentGroup = makeGroupKey($event);
 	// new box group
@@ -100,5 +109,7 @@ foreach ($_['activity'] as $event) {
 if (count($eventsInGroup) > 0){
 	\OCA\Activity\Data::show(makeEventGroup($eventsInGroup));
 }
-echo('</div>'); // boxcontainer
-echo('</div>'); // group
+// Close boxcontainer and group
+?>
+	</div>
+</div>
