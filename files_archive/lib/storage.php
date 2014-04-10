@@ -33,13 +33,11 @@ class Archive extends Common {
 	}
 
 	public function mkdir($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->addFolder($path);
+		return false;
 	}
 
 	public function rmdir($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->remove($path . '/');
+		return false;
 	}
 
 	public function opendir($path) {
@@ -102,7 +100,11 @@ class Archive extends Common {
 	}
 
 	public function isUpdatable($path) {
-		return is_writable($this->path);
+		return false;
+	}
+
+	public function isSharable($path) {
+		return false;
 	}
 
 	public function file_exists($path) {
@@ -114,11 +116,13 @@ class Archive extends Common {
 	}
 
 	public function unlink($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->remove($path);
+		return false;
 	}
 
 	public function fopen($path, $mode) {
+		if ($mode !== 'r' and $mode !== 'rb') {
+			return false;
+		}
 		$path = $this->stripPath($path);
 		return $this->archive->getStream($path, $mode);
 	}
@@ -128,25 +132,17 @@ class Archive extends Common {
 	}
 
 	public function touch($path, $mtime = null) {
-		if (is_null($mtime)) {
-			$tmpFile = \OCP\Files::tmpFile();
-			$this->archive->extractFile($path, $tmpFile);
-			$this->archive->addfile($path, $tmpFile);
-			return true;
-		} else {
-			return false; //not supported
-		}
+		return false;
 	}
 
-	private function toTmpFile($path) {
+	protected function toTmpFile($path) {
 		$tmpFile = \OCP\Files::tmpFile();
 		$this->archive->extractFile($path, $tmpFile);
 		return $tmpFile;
 	}
 
 	public function file_put_contents($path, $data) {
-		$path = $this->stripPath($path);
-		return $this->archive->addFile($path, $data);
+		return false;
 	}
 
 	public function file_get_contents($path) {
@@ -167,13 +163,13 @@ class Archive extends Common {
 		if (!self::$rootView) {
 			self::$rootView = new \OC\Files\View('');
 		}
-		self::$enableAutomount=false;//prevent recursion
+		self::$enableAutomount = false; //prevent recursion
 		$supported = array('zip', 'tar.gz', 'tar.bz2', 'tgz');
 		foreach ($supported as $type) {
 			$ext = '.' . $type . '/';
 			if (($pos = strpos(strtolower($path), $ext)) !== false) {
 				$archive = substr($path, 0, $pos + strlen($ext) - 1);
-				if (self::$rootView->file_exists($archive) and  array_search($archive, self::$mounted) === false) {
+				if (self::$rootView->file_exists($archive) and array_search($archive, self::$mounted) === false) {
 					$localArchive = self::$rootView->getLocalFile($archive);
 					\OC\Files\Filesystem::mount('\OC\Files\Storage\Archive', array('archive' => $localArchive), $archive . '/');
 					self::$mounted[] = $archive;
@@ -184,7 +180,7 @@ class Archive extends Common {
 	}
 
 	public function rename($path1, $path2) {
-		return $this->archive->rename($path1, $path2);
+		return false;
 	}
 
 	public function hasUpdated($path, $time) {
