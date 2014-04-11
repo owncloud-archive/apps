@@ -9,7 +9,7 @@
 "A file or folder has been <strong>deleted</strong> from a shared folder" => "<strong>Desanicióse</strong> un ficheru o direutoriu d'un direutoriu compartíu",
 "RSS feed" => "Feed RSS",
 "No activities yet." => "Entá nun hai actividaes.",
-"You will see a list of events here when you start to use your %s." => "Verás una llista d'eventos equí cuando entames a usar %s.",
+"You will see a list of events here when you start to use your %s." => "Vas ver una llista d'eventos equí cuando entames a usar %s.",
 "Notifications" => "Notificaciones",
 "Mail" => "Corréu",
 "Stream" => "Fluxu de rede"
