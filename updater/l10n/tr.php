@@ -7,7 +7,7 @@
 "Downloading package..." => "Paket indiriliyor...",
 "Unable to fetch package" => "Paket getirilemedi",
 "Creating backup..." => "Yedek oluşturuluyor...",
-"Here is your backup: " => "Backup sizin burda ",
+"Here is your backup: " => "İşte yedeğiniz:",
 "Failed to create backup" => "Yedek oluşturma başarısız oldu",
 "Moving files..." => "Dosyalar taşınıyor...",
 "All done. Click to the link below to start database upgrade." => "Tamamlandı. Veritabanı güncellemesi için aşağıdaki bağlantıya tıklayın.",
