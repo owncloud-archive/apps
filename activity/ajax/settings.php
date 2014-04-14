@@ -23,6 +23,7 @@
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('activity');
+OCP\JSON::callCheck();
 
 $notify_email = $notify_stream = array();
 
