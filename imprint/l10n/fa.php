@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "اخطار قانونی",
 "Nothing here yet" => "اینجا هنوز چیزی نیست.",
 "The content of the legal notice has to be configured first" => "محتوی اخطار قانونی ابتدا باید تنظیم شود.",
@@ -14,3 +15,4 @@
 "During login" => "در هنگام ورود به سیستم",
 "Content" => "محتوا"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

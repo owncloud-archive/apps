@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "法律聲明",
 "Nothing here yet" => "這裡沒有東西",
 "The content of the legal notice has to be configured first" => "必須先設定法律聲明的內容",
@@ -15,3 +16,4 @@
 "Content" => "內容",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "可以用 HTML 標記（像是 <br> 表示換行）和行內樣式屬性（如 <a style=\"color:red;\"> ）。"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Mode" => "ආකාරය",
 "Host" => "සත්කාරකය",
 "Address of Antivirus Host." => "ප්‍රතිවයිරස සත්කාරකයේ ලිපිනය",
@@ -8,3 +9,4 @@
 "Delete file" => "ගොනුය මකන්න",
 "Save" => "සුරකින්න"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

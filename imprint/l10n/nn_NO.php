@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Juridisk informasjon",
 "Nothing here yet" => "Ingenting her enno",
 "The content of the legal notice has to be configured first" => "Du må skriva inn tekst i den juridiske informasjonen først",
@@ -15,3 +16,4 @@
 "Content" => "Innhald",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Du kan bruka HTML-merking (t.d. <br> for linjeskift) og stilattributt (t.d. <a style=\"color:red;\">)."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

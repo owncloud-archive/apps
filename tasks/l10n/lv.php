@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Nederīgs datums/laiks",
 "Tasks" => "Uzdevumi",
 "Due" => "Līdz",
@@ -26,3 +27,4 @@
 "Less" => "Mazāk",
 "Delete" => "Dzēst"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);";

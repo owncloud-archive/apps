@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "無効な日付／時刻",
 "Tasks" => "タスク",
 "Due" => "期日",
@@ -26,3 +27,4 @@
 "Less" => "閉じる",
 "Delete" => "削除"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

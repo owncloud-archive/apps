@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "يتم التحقق من التثبيتات ...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "الترقية غير ممكنة. تاكد من ان الخادم يمتلك صلاحيات الكتابة لـ المجلدات التالية:",
 "Version not found" => "الاصدار غير موجود",
@@ -24,3 +25,4 @@
 "Delete" => "إلغاء",
 "No backups found" => "لم يتم العثور على نسخ احتاطي"
 );
+$PLURAL_FORMS = "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;";

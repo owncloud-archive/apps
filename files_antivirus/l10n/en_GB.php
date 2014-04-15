@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Hi {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Sorry, but malware was detected in a file you tried to upload and it had to be deleted.",
 "This email is a notification from {host}. Please, do not reply." => "This email is a notification from {host}. Please, do not reply.",
@@ -25,3 +26,4 @@
 "Delete file" => "Delete file",
 "Save" => "Save"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

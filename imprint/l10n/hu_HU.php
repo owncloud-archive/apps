@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Jogi nyilatkozat",
 "Nothing here yet" => "Még semmi nincs itt",
 "The content of the legal notice has to be configured first" => "Elsőként a jogi nyilatkozat tartalmát kell meghatározni",
@@ -15,3 +16,4 @@
 "Content" => "Tartalom",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "HTML kódok (pl. <br> a sortörés jelzésére) és inline stílusok (pl.  <a style=\"color:red;\">) is használhatók."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

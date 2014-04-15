@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Nesprávny dátum/čas",
 "Tasks" => "Úlohy",
 "Due" => "Do termínu",
@@ -26,3 +27,4 @@
 "Less" => "Menej",
 "Delete" => "Zmazať"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

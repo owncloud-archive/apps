@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Kurulumunuz kontrol ediliyor...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Güncelleme mümkün değil. Aşağıdaki dosya ve dizinlere web sunucunuzun yazma izni olduğundan emin olun:",
 "Version not found" => "Sürüm bulunamadı",
@@ -24,3 +25,4 @@
 "Delete" => "Sil",
 "No backups found" => "Yedek bulunamadı"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

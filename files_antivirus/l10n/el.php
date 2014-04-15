@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Καλωσόρισες {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Συγνώμη, αλλά στο αρχείο που προσπαθήσατε να μεταφορτώσετε βρέθηκε επιβλαβές λογισμικό και διαγράφηκε.",
 "This email is a notification from {host}. Please, do not reply." => "Αυτό το μήνυμα είναι μια ειδοποίηση από το {host}. Παρακαλώ, μην το απαντήσετε.",
@@ -25,3 +26,4 @@
 "Delete file" => "Διαγραφή αρχείου",
 "Save" => "Αποθήκευση"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Неправилен датум/време",
 "Tasks" => "Задачи",
 "Due" => "Краен рок",
@@ -26,3 +27,4 @@
 "Less" => "Помалку",
 "Delete" => "Избриши"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;";

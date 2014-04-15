@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Esi sveicināts, {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Augšupielādētajā datnē tika atrasta ļaunprātīga programmatūra, un to vajadzēja izdzēst.",
 "This email is a notification from {host}. Please, do not reply." => "Šis vēstule ir paziņojums no {host}. Lūdzu, neatbildiet.",
@@ -25,3 +26,4 @@
 "Delete file" => "Dzēst datni",
 "Save" => "Saglabāt"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);";

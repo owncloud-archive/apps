@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Έλεγχος της εγκατάστασής σας...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Δεν ήταν δυνατή η αναβάθμιση. Σιγουρευτείτε ότι ο διακομιστής ιστοσελίδων σας έχει άδεια εγγραφής στα ακόλουθα αρχεία και καταλόγους:",
 "Version not found" => "Δεν βρέθηκε η έκδοση",
@@ -24,3 +25,4 @@
 "Delete" => "Διαγραφή",
 "No backups found" => "Δεν βρέθηκαν αντίγραφα ασφαλείας"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

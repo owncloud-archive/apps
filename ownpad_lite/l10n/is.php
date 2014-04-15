@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "Blokkin mín",
 "Settings" => "Stillingar",
 "Pad Title" => "Nafn á blokk",
@@ -9,3 +10,4 @@
 "Username" => "Notendanafn",
 "Save" => "Vista"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

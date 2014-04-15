@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Asiakirja jaettiin",
 "User %s shared quick document %s with you." => "Käyttäjä %s jakoi asiakirjan %s kanssasi.",
 "My pad" => "Oma muistio",
@@ -11,3 +12,4 @@
 "Username" => "Käyttäjätunnus",
 "Save" => "Tallenna"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

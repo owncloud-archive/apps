@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Your personal web services. All your files, contacts, calendar and more, in one place." => "Viaj personaj TTT-servoj. Ĉiuj viaj dosieroj, kontaktoj, kalendaro kaj pli, en unu loko.",
 "Get the apps to sync your files" => "Ekhavu la aplikaĵojn por sinkronigi viajn dosierojn",
 "Connect your Calendar" => "Konektu vian Kalendaron",
@@ -7,3 +8,4 @@
 "Documentation" => "Dokumentaro",
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recommend it to your friends</a>!" => "Se vi ŝatas ownCloud-on, <a href=\"mailto:?subject=ownCloud&body=ownCloud estas bonega malfermita programaro por sinkronigi kaj kunhavigi viajn dosierojn. Vi povas ekhavi ĝin senkoste el http://owncloud.org\">rekomendu ĝin al viaj amikoj</a>!"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

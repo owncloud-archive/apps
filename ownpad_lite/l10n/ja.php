@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "ドキュメントは共有されました",
 "User %s shared quick document %s with you." => "ユーザー %s はあなたとクイックドキュメント %s を共有しました。",
 "My pad" => "マイパッド",
@@ -11,3 +12,4 @@
 "Username" => "ユーザー名",
 "Save" => "保存"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

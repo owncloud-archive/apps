@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "List" => "Lescht",
 "No category" => "Keng Kategorie",
 "1=highest" => "1=héchst",
@@ -11,3 +12,4 @@
 "Less" => "Manner",
 "Delete" => "Läschen"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

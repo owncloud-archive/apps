@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "インストールを確認中...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "アップグレードできません。ウェブサーバーに以下のファイルとディレクトリへの書き込みアクセスがあるか確認してください:",
 "Version not found" => "バージョンが見つかりません",
@@ -24,3 +25,4 @@
 "Delete" => "削除",
 "No backups found" => "バックアップが見つかりません"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

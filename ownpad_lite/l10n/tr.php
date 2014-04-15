@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Belge paylaşıldı",
 "User %s shared quick document %s with you." => "%s kullanıcısı sizinle %s hızlı belgesini paylaştı.",
 "My pad" => "Bloknotum",
@@ -11,3 +12,4 @@
 "Username" => "Kullanıcı Adı",
 "Save" => "Kaydet"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

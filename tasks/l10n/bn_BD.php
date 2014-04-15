@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "তারিখ/সময় সঠিক নয়",
 "Tasks" => "কর্ম",
 "No category" => "কোন ক্যাটেগরি  নেই",
@@ -22,3 +23,4 @@
 "Less" => "কম",
 "Delete" => "মুছে ফেল"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

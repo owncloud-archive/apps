@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Kontrolante vian instalon...",
 "Version not found" => "La versio ne troviĝis",
 "Downloading package..." => "Elŝutante pakaĵon...",
@@ -15,3 +16,4 @@
 "Delete" => "Forigi",
 "No backups found" => "Neniu sekurokopio troviĝis"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

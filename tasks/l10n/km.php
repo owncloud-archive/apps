@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "កាល​បរិច្ឆេទ/​ម៉ោង មិន​ត្រឹម​ត្រូវ",
 "Tasks" => "ភារកិច្ច",
 "Due" => "ពេល​បញ្ចប់",
@@ -26,3 +27,4 @@
 "Less" => "តិច",
 "Delete" => "លុប"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

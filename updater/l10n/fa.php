@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "نصب و راه اندازی خود را بررسی کنید...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "ارتقا امکان پذیر نیست. مطمئن شوید که وب سرور شما دسترسی نوشتن به فایل ها و دایرکتوری زیر را داراست:",
 "Version not found" => "نسخه یافت نشد",
@@ -22,3 +23,4 @@
 "Delete" => "حذف",
 "No backups found" => "هیچ پشتیبانی یافت نشد"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

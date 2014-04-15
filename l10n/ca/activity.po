@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# rogerc, 2013
+# rogerc, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-30 00:49-0400\n"
-"PO-Revision-Date: 2014-03-29 05:00+0000\n"
+"POT-Creation-Date: 2014-04-15 15:03-0400\n"
+"PO-Revision-Date: 2014-04-15 19:03+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,9 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/settings.php:43
+#: ajax/settings.php:44
 msgid "Your settings have been updated."
-msgstr ""
+msgstr "La configuració s'ha actualitzat."
 
 #: appinfo/app.php:31
 msgid "Activity"
@@ -36,21 +36,27 @@ msgstr "Carregant activitats anteriors"
 
 #: lib/data.php:62
 msgid "A file or folder has been <strong>shared</strong>"
-msgstr ""
+msgstr "S'ha <strong>compartit</strong> un fitxer o una carpeta"
 
 #: lib/data.php:81
 msgid ""
 "A new file or folder has been <strong>created</strong> in a shared folder"
-msgstr ""
+msgstr "S'ha <strong>creat</strong> un fitxer o una carpeta nous en una carpeta compartida"
 
 #: lib/data.php:88
 msgid "A file or folder has been <strong>changed</strong> in a shared folder"
-msgstr ""
+msgstr "Ha <strong>canviat</strong> un fitxer o una carpeta en una carpeta compartida"
 
 #: lib/data.php:95
 msgid ""
 "A file or folder has been <strong>deleted</strong> from a shared folder"
-msgstr ""
+msgstr "S'ha <strong>eliminat</strong> un fitxer o una carpeta d'una carpeta en una carpeta compartida"
+
+#: templates/activity.box.php:34
+msgid "%n more..."
+msgid_plural "%n more..."
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/list.php:28
 msgid "RSS feed"
@@ -65,14 +71,14 @@ msgstr "Sense activitats encara."
 msgid "You will see a list of events here when you start to use your %s."
 msgstr "Quan comenceu a usar %s veureu una llista de successos aquí."
 
-#: templates/personal.php:3
+#: templates/personal.php:2
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: templates/personal.php:9
+#: templates/personal.php:8
 msgid "Mail"
-msgstr ""
+msgstr "Correu electrónic"
 
-#: templates/personal.php:13
+#: templates/personal.php:12
 msgid "Stream"
-msgstr ""
+msgstr "Cadena"

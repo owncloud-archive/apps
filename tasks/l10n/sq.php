@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Tasks" => "Detyre",
 "List" => "Listë",
 "Location" => "Pozicioni",
@@ -8,3 +9,4 @@
 "Less" => "M'pak",
 "Delete" => "Elimino"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

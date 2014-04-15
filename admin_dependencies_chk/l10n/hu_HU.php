@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "A php-json modulra számos alkalmazásnak szüksége van az egymással való kommunikációhoz",
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "A php-curl modul szükséges az oldal címének lekéréséhez könyvjelző hozzáadásakor",
 "The php-gd module is needed to create thumbnails of your images" => "A php-gd modul szükséges az előnézeti képek létrehozásához",
@@ -13,3 +14,4 @@
 "Dependencies status" => "Függőségek állapota",
 "Used by :" => "Ez használja:"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

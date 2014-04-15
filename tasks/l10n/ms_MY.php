@@ -1,4 +1,6 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "More" => "Lanjutan",
 "Delete" => "Padam"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

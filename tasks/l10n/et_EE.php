@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Vigane kuupäev/kellaaeg",
 "Tasks" => "Ülesanded",
 "Due" => "Tähtaeg",
@@ -26,3 +27,4 @@
 "Less" => "Vähem",
 "Delete" => "Kustuta"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";
