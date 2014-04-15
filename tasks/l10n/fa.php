@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "زمان و تاریخ نامعتبر",
 "Tasks" => "وظایف",
 "Due" => "سررسید",
@@ -26,3 +27,4 @@
 "Less" => "کم‌تر",
 "Delete" => "حذف"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "文档已分享",
 "User %s shared quick document %s with you." => "用户 %s 与您分享了便捷文档 %s。",
 "My pad" => "我的 Pad",
@@ -11,3 +12,4 @@
 "Username" => "用户名",
 "Save" => "保存"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

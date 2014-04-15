@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Paigalduse kontrollimine…",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Uuendamine pole võimalik. Palun luba oma veebiserveril kirjutamine järgmistesse failidesse ja kataloogidesse:",
 "Version not found" => "Versiooni ei leitud",
@@ -24,3 +25,4 @@
 "Delete" => "Kustuta",
 "No backups found" => "Varukoopiaid ei leitud"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

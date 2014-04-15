@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "مستند به اشتراک گذاشته شد",
 "User %s shared quick document %s with you." => "کاربر %s مستند %s را سریع به اشتراک گذاشت.",
 "My pad" => "دفتر یادداشت من",
@@ -11,3 +12,4 @@
 "Username" => "نام کاربری",
 "Save" => "ذخیره"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

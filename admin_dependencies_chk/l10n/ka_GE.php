@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "ბევს აპლიკაციას შიდა კომუნიკაციისთვის სჭირდება php-json მოდული",
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "php-curl მოდული არის საჭირო გვერდის სათაურის მისაღებად გვერდის ბუქმარქებში დამატების დროს",
 "The php-gd module is needed to create thumbnails of your images" => "სურათების ესკიზების გასაკეთებლად საჭიროა php-gd მოდული",
@@ -13,3 +14,4 @@
 "Dependencies status" => "დამოკიდებულებების სტატუსი",
 "Used by :" => "გამოყენებულია:"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

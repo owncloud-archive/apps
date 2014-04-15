@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Leĝa sciigilo",
 "Nothing here yet" => "Nenio ĉeestas ankoraŭ",
 "The content of the legal notice has to be configured first" => "La enhavo de la leĝa sciigilo devas agordiĝi unue",
@@ -12,3 +13,4 @@
 "Navigation bottom" => "Naviga malsupro",
 "Content" => "Enhavo"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

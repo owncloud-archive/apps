@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "A telepített alkalmazásod ellenörzése ...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "A frissítés nem lehetséges. Ellenőrizd a web szerveren van-e írás jogod a következő fileokhoz és könyvtárakhoz:",
 "Version not found" => "Verziószám nem található",
@@ -22,3 +23,4 @@
 "Delete" => "Törlés",
 "No backups found" => "Nem található biztonsági mentés"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

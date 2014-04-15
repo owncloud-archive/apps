@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "日期/時間格式錯誤",
 "Tasks" => "工作項目",
 "Due" => "截止日期",
@@ -26,3 +27,4 @@
 "Less" => "少",
 "Delete" => "刪除"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

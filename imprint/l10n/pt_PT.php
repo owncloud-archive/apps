@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Notificação legal",
 "Nothing here yet" => "Vazio",
 "The content of the legal notice has to be configured first" => "O conteúdo da nota legal, deve ser configurado primeiro",
@@ -15,3 +16,4 @@
 "Content" => "Conteúdo",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Pode usar marcas html (ex: <br> para uma quebra de linha) e atributos em linha (ex:. <a style=\"color:red;\">)."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

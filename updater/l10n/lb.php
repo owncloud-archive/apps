@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Deng Installatioun gëtt iwwerpréift...",
 "Version not found" => "Versioun net fonnt",
 "Downloading package..." => "Package gëtt erofgelueden",
@@ -16,3 +17,4 @@
 "Delete" => "Läschen",
 "No backups found" => "Keng Backups fonnt"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "កំពុង​ពិនិត្យ​ការ​ដំឡើង​របស់​អ្នក...",
 "Version not found" => "រក​មិន​ឃើញ​កំណែ",
 "Update permissions on this directory and its content or remove it manually first." => "ធ្វើ​បច្ចុប្បន្នភាព​សិទ្ធិ​លើ​ទីតាំង​នេះ​និង​មាតិកា​របស់​វា ឬ​ក៏​លុប​វា​ចោល​ជា​មុន​សិន។",
@@ -21,3 +22,4 @@
 "Delete" => "លុប",
 "No backups found" => "រក​មិន​ឃើញ​ការ​បម្រុង​ទុក"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

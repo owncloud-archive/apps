@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Dokument bol zdieľaný",
 "User %s shared quick document %s with you." => "Používateľ %s s vami zdieľa dokument %s.",
 "My pad" => "Môj blok",
@@ -11,3 +12,4 @@
 "Username" => "Používateľské meno",
 "Save" => "Uložiť"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

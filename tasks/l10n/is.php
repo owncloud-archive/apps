@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Ógild dagssetning/tími",
 "Tasks" => "Verk",
 "Due" => "Lokið",
@@ -26,3 +27,4 @@
 "Less" => "Minna",
 "Delete" => "Eyða"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

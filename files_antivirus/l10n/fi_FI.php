@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Tervehdys {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Tiedostosta, jonka yritit lähettää, havaittiin haittaohjelma. Kyseinen tiedosto poistettiin.",
 "This email is a notification from {host}. Please, do not reply." => "Tämä viesti on ilmoitus kohteesta {host}. Älä vastaa tähän viestiin.",
@@ -18,3 +19,4 @@
 "Delete file" => "Poista tiedosto",
 "Save" => "Tallenna"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

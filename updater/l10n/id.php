@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Sedang memeriksa instalasi...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Pembaruan tidak dimungkinkan. Pastikan bahwa webserver Anda memiliki akses tulis ke berkas dan direktori berikut:",
 "Version not found" => "Versi tidak ditemukan",
@@ -22,3 +23,4 @@
 "Delete" => "Hapus",
 "No backups found" => "Tidak ada cadangan ditemukan"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

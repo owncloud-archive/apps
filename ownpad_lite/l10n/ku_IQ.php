@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "پاده‌که‌م",
 "Settings" => "ڕێکخستنه‌کان",
 "Pad Title" => "ناونیشانی پاد",
@@ -8,3 +9,4 @@
 "Username" => "ناوی به‌کارهێنه‌ر",
 "Save" => "پاشکه‌وتکردن"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "แพ็ดของฉัน",
 "Settings" => "ตั้งค่า",
 "Pad Title" => "ชื่อของ Pad",
@@ -9,3 +10,4 @@
 "Username" => "ชื่อผู้ใช้งาน",
 "Save" => "บันทึก"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

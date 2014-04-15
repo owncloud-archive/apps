@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Tikrinama Jūsų instaliacija...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Versijos pakėlimas neįmanomas. Įsitikinkite, kad Jūsų serveris turi rašymo teises šiuose failuose ir kataloguose:",
 "Version not found" => "Versija nerasta",
@@ -24,3 +25,4 @@
 "Delete" => "Ištrinti",
 "No backups found" => "Nerasta atsarginių kopijų"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);";

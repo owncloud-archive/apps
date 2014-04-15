@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Проверяется Ваша установка...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Обновление невозможно. Проверьте, что Ваш вебсервер имеет права на запись следующих файлов и директорий:",
 "Version not found" => "Версия не найдена",
@@ -24,3 +25,4 @@
 "Delete" => "Удалить",
 "No backups found" => "Резервных копий не найдено"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

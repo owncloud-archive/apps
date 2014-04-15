@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Pasidalinta dokumentu",
 "User %s shared quick document %s with you." => "Naudotojas %s su jumis pasidalino dokumentu %s.",
 "My pad" => "Mano planšetė",
@@ -11,3 +12,4 @@
 "Username" => "Prisijungimo vardas",
 "Save" => "Išsaugoti"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);";

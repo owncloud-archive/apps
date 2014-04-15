@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Érvénytelen dátum/idő",
 "Tasks" => "Feladatok",
 "Due" => "Teendő",
@@ -26,3 +27,4 @@
 "Less" => "Kevesebb",
 "Delete" => "Törlés"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

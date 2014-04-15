@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "正在检查您的安装...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "无法升级。请确认您的网页服务器有以下文件和目录的写权限：",
 "Version not found" => "版本未找到",
@@ -22,3 +23,4 @@
 "Delete" => "删除",
 "No backups found" => "未找到备份"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

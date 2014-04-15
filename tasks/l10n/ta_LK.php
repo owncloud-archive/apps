@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "செல்லுபடியற்ற திகதி/நேரம்",
 "Tasks" => "கடமைகள்",
 "Due" => "செலுத்தக்கூடிய",
@@ -26,3 +27,4 @@
 "Less" => "குறைவான",
 "Delete" => "நீக்குக"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "php-jsonモジュールはアプリケーション間の内部通信に必要です",
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "php-curlモジュールはブックマーク追加時のページタイトル取得に必要です",
 "The php-gd module is needed to create thumbnails of your images" => "php-gdモジュールはサムネイル画像の生成に必要です",
@@ -13,3 +14,4 @@
 "Dependencies status" => "依存関係の状況",
 "Used by :" => "利用先 :"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

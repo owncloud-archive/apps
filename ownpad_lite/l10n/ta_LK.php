@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "என்னுடைய pad",
 "Settings" => "அமைப்புகள்",
 "Pad Title" => "pad தலைப்பு",
@@ -9,3 +10,4 @@
 "Username" => "பயனாளர் பெயர்",
 "Save" => "சேமிக்க"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

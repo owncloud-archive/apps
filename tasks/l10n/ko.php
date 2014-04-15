@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "유효하지 않은 날짜/시간",
 "Tasks" => "작업",
 "Due" => "기한",
@@ -26,3 +27,4 @@
 "Less" => "덜 중요함",
 "Delete" => "삭제"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

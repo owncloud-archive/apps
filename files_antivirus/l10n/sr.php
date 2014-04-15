@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Поздрав, {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Нажалост, датотека је обрисана јер је откривен злонамерни програм у датотеци коју сте покушали да отпремите.",
 "This email is a notification from {host}. Please, do not reply." => "Ово је обавештење од {host}. Молимо вас да не одговарате на поруку.",
@@ -22,3 +23,4 @@
 "Delete file" => "Обриши датотеку",
 "Save" => "Сачувај"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

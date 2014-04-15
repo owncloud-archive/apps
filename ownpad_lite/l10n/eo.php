@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "Miaj skribaĵoj",
 "Settings" => "Agordo",
 "Pad Title" => "Titolo de la skribaĵo",
@@ -9,3 +10,4 @@
 "Username" => "Uzantonomo",
 "Save" => "Konservi"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

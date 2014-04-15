@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Iñigo Varela <ivarela@softastur.org>, 2014
+# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-08 00:50-0400\n"
-"PO-Revision-Date: 2014-04-07 14:16+0000\n"
+"POT-Creation-Date: 2014-04-15 15:03-0400\n"
+"PO-Revision-Date: 2014-04-15 19:03+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -17,61 +19,67 @@ msgstr ""
 "Language: ast\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/settings.php:43
+#: ajax/settings.php:44
 msgid "Your settings have been updated."
-msgstr ""
+msgstr "Anováronse los tos axustes."
 
 #: appinfo/app.php:31
 msgid "Activity"
-msgstr ""
+msgstr "Actividá"
 
 #: js/script.js:32
 msgid "No more activities to load."
-msgstr ""
+msgstr "Nun hai más actividaes pa cargar."
 
 #: js/script.js:33
 msgid "Loading older activities"
-msgstr ""
+msgstr "Cargando actividaes más vieyes"
 
 #: lib/data.php:62
 msgid "A file or folder has been <strong>shared</strong>"
-msgstr ""
+msgstr "<strong>Compartióse</strong> un ficheru o direutoriu"
 
 #: lib/data.php:81
 msgid ""
 "A new file or folder has been <strong>created</strong> in a shared folder"
-msgstr ""
+msgstr "<strong>Creóse</strong> un ficheru o direutoriu nun direutoriu compartíu"
 
 #: lib/data.php:88
 msgid "A file or folder has been <strong>changed</strong> in a shared folder"
-msgstr ""
+msgstr "<strong>Camudóse</strong> un ficheru o un direutoriu nun direutoriu compartíu"
 
 #: lib/data.php:95
 msgid ""
 "A file or folder has been <strong>deleted</strong> from a shared folder"
-msgstr ""
+msgstr "<strong>Desanicióse</strong> un ficheru o direutoriu d'un direutoriu compartíu"
+
+#: templates/activity.box.php:34
+msgid "%n more..."
+msgid_plural "%n more..."
+msgstr[0] ""
+msgstr[1] ""
 
 #: templates/list.php:28
 msgid "RSS feed"
-msgstr ""
+msgstr "Feed RSS"
 
 #: templates/list.php:32
 msgid "No activities yet."
-msgstr ""
+msgstr "Entá nun hai actividaes."
 
 #: templates/list.php:33
 #, php-format
 msgid "You will see a list of events here when you start to use your %s."
-msgstr ""
+msgstr "Vas ver una llista d'eventos equí cuando entames a usar %s."
 
 #: templates/personal.php:2
 msgid "Notifications"
-msgstr ""
+msgstr "Notificaciones"
 
 #: templates/personal.php:8
 msgid "Mail"
-msgstr ""
+msgstr "Corréu"
 
 #: templates/personal.php:12
 msgid "Stream"
-msgstr ""
+msgstr "Fluxu de rede"

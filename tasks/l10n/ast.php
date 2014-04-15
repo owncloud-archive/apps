@@ -1,4 +1,30 @@
-<?php $TRANSLATIONS = array(
-"Location" => "Llocalizacíon",
+<?php
+$TRANSLATIONS = array(
+"Invalid date/time" => "Data/hora non válida",
+"Tasks" => "Xeres",
+"Due" => "Vencimientu",
+"List" => "Llista",
+"Location" => "Llocalización",
+"No category" => "Ensin categoría",
+"Unspecified" => "Ensin especificar",
+"1=highest" => "1=mayor",
+"5=medium" => "5=media",
+"9=lowest" => "9=menor",
+"Empty Summary" => "Vaciar resume",
+"Invalid percent complete" => "Porcentaxe completáu non válidu",
+"Invalid priority" => "Prioridá non válida",
+"The calendar application also need to be enabled to use this application." => "L'aplicación de calendariu tamién tien d'activase pa usar esta aplicación.",
+"Add Task" => "Amestar xera",
+"Order Due" => "Ordenar por vencimientu",
+"Order List" => "Ordenar por llista",
+"Order Complete" => "Ordenar por completaes",
+"Order Location" => "Ordenar por llocalización",
+"Order Priority" => "Ordenar por prioridá",
+"Order Label" => "Ordenar por etiqueta",
+"Loading tasks..." => "Cargando xeres...",
+"Important" => "Importante",
+"More" => "Más",
+"Less" => "Menos",
 "Delete" => "Desaniciar"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

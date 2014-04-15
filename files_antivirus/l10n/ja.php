@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "{user} 様へ、",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "申し訳ありません。アップロードしようとしたファイルからマルウェアが検出されましたため、削除されました。",
 "This email is a notification from {host}. Please, do not reply." => "このメールは {host} からの通知用です。返信しないでください。",
@@ -25,3 +26,4 @@
 "Delete file" => "ファイルを削除",
 "Save" => "保存"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

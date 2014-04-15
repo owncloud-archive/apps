@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Đang kiểm tra quá trình cài đặt ...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Không thể nâng cấp. Hãy chắc chắn rằng Webserver cho phép ghi vào các tập tin và thư mục sau đây:",
 "Version not found" => "Không tìm thấy phiên bản",
@@ -24,3 +25,4 @@
 "Delete" => "Xóa",
 "No backups found" => "Không tìm thấy sao lưu"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

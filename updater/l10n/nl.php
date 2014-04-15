@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Controleren van uw configuratie...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Update is niet mogelijk. Controleer of uw webserver schrijfrechten heeft op de volgende bestanden en directories:",
 "Version not found" => "versie niet gevonden",
@@ -24,3 +25,4 @@
 "Delete" => "Verwijder",
 "No backups found" => "Geen backups gevonden"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

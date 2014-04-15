@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "Daudzām lietotnēm komunikācijai ir vajadzīgs php-json modulis",
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "Lai, pievienojot grāmatzīmi, saņemtu lapas virsrakstu, ir vajadzīgs php-curl modulis.",
 "The php-gd module is needed to create thumbnails of your images" => "Lai veidotu attēlu sīktēlus, ir vajadzīgs php-gd modulis",
@@ -13,3 +14,4 @@
 "Dependencies status" => "Atkarību statuss",
 "Used by :" => "Izmanto:"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);";

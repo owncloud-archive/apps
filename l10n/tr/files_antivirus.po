@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-02 00:49-0400\n"
-"PO-Revision-Date: 2014-04-01 18:10+0000\n"
+"POT-Creation-Date: 2014-04-09 00:49-0400\n"
+"PO-Revision-Date: 2014-04-08 23:30+0000\n"
 "Last-Translator: volkangezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr "Hoşgeldiniz {user},"
+msgstr "Hoş geldiniz {user},"
 
 #: templates/notification.php:2
 msgid ""
@@ -32,7 +32,7 @@ msgstr "Üzgünüz, yüklemeye çalıştığınız dosyada kötü amaçlı yazı
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Bu bir e-posta bilgilendirmesidir {host}. Lütfen cevap yazmayınız."
+msgstr "Bu {host} adresinden bir e-posta bilgilendirmesidir. Lütfen cevap yazmayınız."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -40,19 +40,19 @@ msgstr "Dosya yüklendi: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Antivirüs ayarları"
+msgstr "Antivirüs Yapılandırması"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr "Mod"
+msgstr "Kip"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "yürütülebilir"
+msgstr "Uygulama"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr "Demon "
+msgstr "Yardımcı"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
@@ -64,24 +64,24 @@ msgstr "Yuva"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr "Clamav Yuvası"
+msgstr "Clamav Yuvası."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
 msgid "Not required in Executable Mode."
-msgstr "Executable Modu istememis."
+msgstr "Çalıştırılabilir Kipte gerekli değil."
 
 #: templates/settings.php:8
 msgid "Host"
-msgstr "Konak"
+msgstr "Sunucu"
 
 #: templates/settings.php:8
 msgid "Address of Antivirus Host."
-msgstr "Antivirus sunucusunun adresi."
+msgstr "Antivirus Sunucusunun Adresi."
 
 #: templates/settings.php:9
 msgid "Port"
-msgstr "Port"
+msgstr "Bağlantı Noktası"
 
 #: templates/settings.php:9
 msgid "Port number of Antivirus Host."
@@ -89,31 +89,31 @@ msgstr "Antivirüs sunucusunun bağlantı noktası."
 
 #: templates/settings.php:10
 msgid "Stream Length"
-msgstr "Stream Length, Unun Akilim "
+msgstr "Akış Uzunluğu"
 
 #: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr "ClamAV Streamen Uzun fiyat bytes."
+msgstr "Bayt cinsinden ClamAV StreamMaxLength değeri."
 
 #: templates/settings.php:11
 msgid "Path to clamscan"
-msgstr "Iceri clamscan "
+msgstr "Clamscan yolu"
 
 #: templates/settings.php:11
 msgid "Path to clamscan executable."
-msgstr "Clamscan icin islemek "
+msgstr "Clamscan uygulaması yolu"
 
 #: templates/settings.php:11
 msgid "Not required in Daemon Mode."
-msgstr "Demo Modu ihbar degil."
+msgstr "Yardımcı Kipinde gerekli değil."
 
 #: templates/settings.php:12
 msgid "Action for infected files found while scanning"
-msgstr "Scan eyleme dosyalari harpanlamisi icin  bulundugu"
+msgstr "Tarama yapılırken bulunan virüslü dosyalar için eylem"
 
 #: templates/settings.php:13
 msgid "Only log"
-msgstr "Sadece log "
+msgstr "Sadece günlüğe yaz"
 
 #: templates/settings.php:13
 msgid "Delete file"

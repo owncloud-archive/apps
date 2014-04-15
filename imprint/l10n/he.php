@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "הערות משפטיות",
 "Nothing here yet" => "אין כאן כלום עדיין",
 "The content of the legal notice has to be configured first" => "יש להגדיר את תוכן ההערות המשפטיות תחילה",
@@ -11,3 +12,4 @@
 "Navigation bottom" => "ניווט תחתון",
 "Content" => "תוכן"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

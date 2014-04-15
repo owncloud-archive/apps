@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Virheellinen päivä tai aika",
 "Tasks" => "Tehtävät",
 "Due" => "Erääntyy",
@@ -26,3 +27,4 @@
 "Less" => "Vähemmän",
 "Delete" => "Poista"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

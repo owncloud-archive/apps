@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Checking your installation..." => "Kontroluji vaši instalaci...",
 "Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Aktualizaci nelze provést. Zkontrolujte, že má váš webový server právo zápisu do následujících adresářů a souborů:",
 "Version not found" => "Verze nebyla nalezena",
@@ -24,3 +25,4 @@
 "Delete" => "Smazat",
 "No backups found" => "Žádné zálohy nebyly nalezeny"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

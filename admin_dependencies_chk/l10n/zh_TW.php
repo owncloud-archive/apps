@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "許多應用程式依賴 php-json 模組來互相通訊",
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "需要 php-curl 模組才能在加入書籤時抓取網頁標題",
 "The php-gd module is needed to create thumbnails of your images" => "建立影像縮圖需要使用到 php-gd 模組",
@@ -13,3 +14,4 @@
 "Dependencies status" => "依存狀態",
 "Used by :" => "用於："
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

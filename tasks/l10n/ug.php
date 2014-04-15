@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "ئىناۋەتسىز چېسلا/ۋاقىت",
 "Tasks" => "ۋەزىپەلەر",
 "Due" => "مۆھلىتى",
@@ -13,3 +14,4 @@
 "Less" => "ئاز",
 "Delete" => "ئۆچۈر"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

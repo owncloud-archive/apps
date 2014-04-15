@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-29 00:49-0400\n"
-"PO-Revision-Date: 2014-03-29 04:49+0000\n"
+"POT-Creation-Date: 2014-04-15 15:03-0400\n"
+"PO-Revision-Date: 2014-04-15 19:03+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/settings.php:43
+#: ajax/settings.php:44
 msgid "Your settings have been updated."
 msgstr ""
 
@@ -52,6 +52,12 @@ msgid ""
 "A file or folder has been <strong>deleted</strong> from a shared folder"
 msgstr ""
 
+#: templates/activity.box.php:34
+msgid "%n more..."
+msgid_plural "%n more..."
+msgstr[0] ""
+msgstr[1] ""
+
 #: templates/list.php:28
 msgid "RSS feed"
 msgstr "RSS хранилище"
@@ -65,14 +71,14 @@ msgstr "Няма активност още."
 msgid "You will see a list of events here when you start to use your %s."
 msgstr "Вие ще видите списък на събития тук когато почнете да ползвате вашия %s."
 
-#: templates/personal.php:3
+#: templates/personal.php:2
 msgid "Notifications"
 msgstr ""
 
-#: templates/personal.php:9
+#: templates/personal.php:8
 msgid "Mail"
 msgstr ""
 
-#: templates/personal.php:13
+#: templates/personal.php:12
 msgid "Stream"
 msgstr ""
