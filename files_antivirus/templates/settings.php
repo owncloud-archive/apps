@@ -1,5 +1,5 @@
 <form id="antivirus" action="#" method="post">
-	<fieldset class="personalblock">
+	<div class="section">
 		<h2><?php p($l->t('Antivirus Configuration'));?></h2>
 		<p class='av_mode'><label for="av_mode"><?php p($l->t('Mode'));?></label>
 			<select id="av_mode" name="av_mode"><?php print_unescaped(html_select_options(array('executable' => $l->t('Executable'), 'daemon' => $l->t('Daemon'), 'socket' => $l->t('Daemon (Socket)')), $_['av_mode'])) ?></select>
@@ -14,5 +14,5 @@
 		</p>
 		<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']);?>" />
 		<input type="submit" value="<?php p($l->t('Save'));?>" />
-	</fieldset>
+	</div>
 </form>
