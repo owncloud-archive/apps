@@ -66,19 +66,20 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_write($params) {
+		$l = \OC_L10N::get('activity');
 		if( self::$createhookfired ) {
 			$params['path'] = self::$createhookfile;
 
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-			$subject = '%s created';// Add to l10n: $l->t('%s created');
-			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
+			$subject = $l->t('%s created', array(substr($params['path'], 1)));
+			Data::send('files', $subject, NULL, '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
 
 			if(substr($params['path'],0,8)=='/Shared/') {
 				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 				$realfile=substr($params['path'],7);
 				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-				$subject = '%s created by %s';// Add to l10n: $l->t('%s created by %s');
-				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8, Data::PRIORITY_HIGH);
+				$subject = $l->t('%s created by %s', array($realfile,\OCP\User::getUser()));
+				Data::send('files', $subject, NULL, '', array(), $realfile, $link, $uidOwner, 8, Data::PRIORITY_HIGH);
 			}
 			self::$createhookfired = false;
 			self::$createhookfile = '';
@@ -86,15 +87,15 @@ class Hooks {
 		} else {
 
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-			$subject = '%s changed';// Add to l10n: $l->t('%s changed');
-			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
+			$subject = $l->t('%s changed', array(substr($params['path'], 1)));
+			Data::send('files', $subject, NULL, '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
 		
 			if(substr($params['path'],0,8)=='/Shared/') {
 				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 				$realfile=substr($params['path'],7);
 				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-				$subject = '%s changed by %s';// Add to l10n: $l->t('%s changed by %s');
-				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6, Data::PRIORITY_HIGH);
+				$subject = $l->t('%s changed by %s', array($realfile,\OCP\User::getUser()));
+				Data::send('files', $subject, NULL, '', array(), $realfile, $link, $uidOwner, 6, Data::PRIORITY_HIGH);
 			}
 		}
 		
@@ -105,17 +106,17 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_delete($params) {
-
+		$l = \OC_L10N::get('activity');
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$subject = '%s deleted';// Add to l10n: $l->t('%s deleted');
-		Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
+		$subject = $l->t('%s deleted', array(substr($params['path'], 1)));
+		Data::send('files', $subject, NULL, '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
 
 		if(substr($params['path'],0,8)=='/Shared/') {
 			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
 			$realfile=substr($params['path'],7);
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-			$subject = '%s deleted by %s';// Add to l10n: $l->t('%s deleted by %s');
-			Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 7, Data::PRIORITY_HIGH);
+			$subject = $l->t('%s deleted by %s', array($realfile,\OCP\User::getUser()));
+			Data::send('files', $subject, NULL, '', array(), $realfile, $link, $uidOwner, 7, Data::PRIORITY_HIGH);
 		}
 
 	}
@@ -137,7 +138,7 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function share($params) {
-
+		$l = \OC_L10N::get('activity');
 		if ($params['itemType'] === 'file' || $params['itemType'] === 'folder') {
 	
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['fileTarget'])));
@@ -147,14 +148,14 @@ class Hooks {
 			$shareWith = $params['shareWith'];
 
 			if(!empty($shareWith)) {
-				$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
-				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
+				$subject = $l->t('You shared %s with %s', array(substr($params['fileTarget'], 1), $shareWith));
+				Data::send('files', $subject, NULL, '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			
-				$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
-				Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, Data::PRIORITY_MEDIUM);
+				$subject = $l->t('%s shared %s with you', array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)));
+				Data::send('files', $subject, NULL, '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, Data::PRIORITY_MEDIUM);
 			} else {
-				$subject = 'You shared %s';// Add to l10n: $l->t('You shared %s');
-				Data::send('files', $subject, array(substr($params['fileTarget'], 1)), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
+				$subject = $l->t('You shared %s', array(substr($params['fileTarget'], 1)));
+				Data::send('files', $subject, NULL, '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			}
 			
 		}
