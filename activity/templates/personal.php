@@ -43,4 +43,12 @@
 		<?php endforeach; ?>
 		</tbody>
 	</table>
+
+	<br />
+	<?php p($l->t('Send mails:')); ?>
+	<select id="notify_email_batchtime" name="notify_email_batchtime">
+		<option value="0"><?php p($l->t('Hourly')); ?></option>
+		<option value="1"><?php p($l->t('Daily')); ?></option>
+		<option value="2"><?php p($l->t('Weekly')); ?></option>
+	</select>
 </form>
