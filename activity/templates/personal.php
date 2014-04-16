@@ -46,9 +46,9 @@
 
 	<br />
 	<?php p($l->t('Send mails:')); ?>
-	<select id="notify_email_batchtime" name="notify_email_batchtime">
-		<option value="0"><?php p($l->t('Hourly')); ?></option>
-		<option value="1"><?php p($l->t('Daily')); ?></option>
-		<option value="2"><?php p($l->t('Weekly')); ?></option>
+	<select id="notify_setting_batchtime" name="notify_setting_batchtime">
+		<option value="0"<?php if ($_['setting_batchtime'] === 0): ?> selected="selected"<?php endif; ?>><?php p($l->t('Hourly')); ?></option>
+		<option value="1"<?php if ($_['setting_batchtime'] === 1): ?> selected="selected"<?php endif; ?>><?php p($l->t('Daily')); ?></option>
+		<option value="2"<?php if ($_['setting_batchtime'] === 2): ?> selected="selected"<?php endif; ?>><?php p($l->t('Weekly')); ?></option>
 	</select>
 </form>

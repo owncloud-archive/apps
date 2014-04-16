@@ -40,4 +40,14 @@ foreach ($types as $type => $desc) {
 
 $template = new OCP\Template('activity', 'personal');
 $template->assign('activities', $activities);
+if (\OCA\Activity\Data::getUserSetting($user, 'setting', 'batchtime') == 3600 * 24 * 7) {
+	$template->assign('setting_batchtime', 2);
+}
+else if (\OCA\Activity\Data::getUserSetting($user, 'setting', 'batchtime') == 3600 * 24) {
+	$template->assign('setting_batchtime', 1);
+}
+else {
+	$template->assign('setting_batchtime', 0);
+}
+
 return $template->fetchPage();
