@@ -112,7 +112,10 @@ class Hooks {
 		}
 
 		$affectedUsers = self::getUserPathsFromPath($file_path);
+		$filteredUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
 		foreach ($affectedUsers as $user => $path) {
+			if (!in_array($user, $filteredUsers)) continue;
+
 			if ($user === \OCP\User::getUser()) {
 				$user_subject = $subject;
 				$user_params = array($path);
@@ -183,7 +186,9 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
-		Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		}
 
 		// New shared user
 		$path = '/Shared' . $params['fileTarget'];
@@ -191,7 +196,9 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
-		Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		}
 	}
 
 	/**
@@ -207,12 +214,16 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = 'You shared %s with group %s';// Add to l10n: $l->t('You shared %s with group %s');
-		Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		}
 
 		// Members of the new group
 		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
 		$affectedUsers = array();
-		foreach (\OC_Group::usersInGroup($params['shareWith']) as $user) {
+		$usersInGroup = \OC_Group::usersInGroup($params['shareWith']);
+		$usersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
+		foreach ($usersInGroup as $user) {
 			$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
 		}
 
@@ -252,6 +263,55 @@ class Hooks {
 		// Add to l10n: $l->t('You shared %s');
 		$subject = 'You shared %s';
 
-		Data::send('files', $subject, array($path), '', array(), $path, $link, \OCP\User::getUser(), Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		if (Data::getUserSetting(\OCP\User::getUser(), 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', $subject, array($path), '', array(), $path, $link, \OCP\User::getUser(), Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		}
+	}
+
+	/**
+	 * Filters the given user array by their notification setting
+	 *
+	 * @param array $users
+	 * @param string $method
+	 * @param string $type
+	 * @return array
+	 */
+	public static function filterUsersBySetting($users, $method, $type) {
+		if (empty($users) || !is_array($users)) return array();
+
+		$filteredUsers = array();
+
+		$chunked_users = array_chunk(50, $users, true);
+		$placeholders_50 = implode(',', array_fill(0, 50, '?'));
+
+		foreach ($chunked_users as $chunk) {
+			$placeholders = (sizeof($chunk) == 50) ? $placeholders_50 : implode(',', array_fill(0, sizeof($chunk), '?'));
+
+			$query = \OCP\DB::prepare(
+				'SELECT `userid`, `configvalue` '
+				. ' FROM `*PREFIX*preferences` '
+				. ' WHERE `appid` = ? AND `configkey` = ? AND `userid` IN (' . $placeholders . ')');
+			$result = $query->execute(array_merge(array(
+				'activity',
+				'notify_' . $method . '_' . $type,
+			), $chunk));
+
+			while ($row = $result->fetchRow()) {
+				if ($row['configvalue']) {
+					$filteredUsers[] = $row['userid'];
+				}
+				unset($users[array_search($row['userid'], $chunk)]);
+			}
+		}
+
+		if (!empty($users)) {
+			// If the setting is enabled by default,
+			// we add all users that didn't set the preference yet.
+			if (\OCA\Activity\Data::getUserDefaultSetting($method, $type)) {
+				$filteredUsers = array_merge($filteredUsers, $users);
+			}
+		}
+
+		return $filteredUsers;
 	}
 }
