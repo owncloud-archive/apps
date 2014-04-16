@@ -28,6 +28,7 @@ OCP\Util::addStyle('activity', 'settings');
 $l=OC_L10N::get('activity');
 $types = \OCA\Activity\Data::getNotificationTypes($l);
 
+$user = OCP\User::getUser();
 $activities = array();
 foreach ($types as $type => $desc) {
 	$activities[$type] = array(
