@@ -33,7 +33,7 @@ foreach ($types as $type => $desc) {
 	/*
 	OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_email_' . $type, !empty($_POST[$type . '_email']));
 	*/
-	OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_stream_' . $type, (int) !empty($_POST[$type . '_stream']));
+	OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_stream_' . $type, !empty($_POST[$type . '_stream']));
 }
 
 OC_JSON::success(array("data" => array( "message" => $l->t('Your settings have been updated.'))));

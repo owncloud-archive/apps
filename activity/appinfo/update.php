@@ -56,7 +56,7 @@ if (version_compare($installedVersion, '1.1.6', '<')) {
 				$row['userid'],
 				'activity',
 				'notify_stream_' . $new_type,
-				in_array($old_type, unserialize($row['configvalue'])) ? '1' : '0',
+				in_array($old_type, unserialize($row['configvalue'])),
 			));
 		}
 	}

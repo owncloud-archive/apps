@@ -145,6 +145,15 @@ class Data
 		return($result);
 	}
 
+	public static function getUserSetting($user, $method, $type) {
+		return \OCP\Config::getUserValue(
+			$user,
+			'activity',
+			'notify_' . $method . '_' . $type,
+			\OCA\Activity\Data::getUserDefaultSetting($method, $type)
+		);
+	}
+
 	/**
 	 * @param string	$user	Name of the user
 	 * @param string	$method	Should be one of 'stream', 'email'
@@ -155,12 +164,7 @@ class Data
 		$types = \OCA\Activity\Data::getNotificationTypes($l);
 
 		foreach ($types as $type => $desc) {
-			if (\OCP\Config::getUserValue(
-				$user,
-				'activity',
-				'notify_' . $method . '_' . $type,
-				\OCA\Activity\Data::getUserDefaultSetting($method, $type)
-			)) {
+			if (self::getUserSetting($user, $method, $type)) {
 				$user_activities[] = $type;
 			}
 		}

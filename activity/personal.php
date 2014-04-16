@@ -32,18 +32,8 @@ $activities = array();
 foreach ($types as $type => $desc) {
 	$activities[$type] = array(
 		'desc'		=> $desc,
-		'email'		=> OCP\Config::getUserValue(
-			OCP\User::getUser(),
-			'activity',
-			'notify_email_' . $type,
-			\OCA\Activity\Data::getUserDefaultSetting('email', $type)
-		),
-		'stream'	=> OCP\Config::getUserValue(
-			OCP\User::getUser(),
-			'activity',
-			'notify_stream_' . $type,
-			\OCA\Activity\Data::getUserDefaultSetting('stream', $type)
-		),
+		'email'		=> \OCA\Activity\Data::getUserSetting($user, 'email', $type),
+		'stream'	=> \OCA\Activity\Data::getUserSetting($user, 'stream', $type),
 	);
 }
 
