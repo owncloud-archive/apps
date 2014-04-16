@@ -253,6 +253,12 @@ class Data
 		}
 	}
 
+	/**
+	 * @param string $user
+	 * @param string $method
+	 * @param string $type
+	 * @return string|int
+	 */
 	public static function getUserSetting($user, $method, $type) {
 		return \OCP\Config::getUserValue(
 			$user,
