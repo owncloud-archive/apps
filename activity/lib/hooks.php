@@ -285,7 +285,7 @@ class Hooks {
 
 		$filteredUsers = array();
 
-		$chunked_users = array_chunk(50, $users, true);
+		$chunked_users = array_chunk($users, 50, true);
 		$placeholders_50 = implode(',', array_fill(0, 50, '?'));
 
 		foreach ($chunked_users as $chunk) {
