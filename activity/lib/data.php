@@ -150,6 +150,48 @@ class Data
 	}
 
 	/**
+	 * @brief Send an event into the activity stream
+	 *
+	 * @param string $app The app where this event is associated with
+	 * @param string $subject A short description of the event
+	 * @param array  $subjectparams Array of parameters that are filled in the placeholders
+	 * @param string $affecteduser Name of the user we are sending the activity to
+	 * @param string $type Type of notification
+	 * @param int $latest_send_time Activity time() + batch setting of $affecteduser
+	 * @return bool
+	 */
+	public static function storeMail($app, $subject, array $subjectparams, $affecteduser, $type, $latest_send_time) {
+		$timestamp = time();
+
+		// store in DB
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity_mq` '
+			. ' (`amq_appid`, `amq_subject`, `amq_subjectparams`, `amq_affecteduser`, `amq_timestamp`, `amq_type`, `amq_latest_send`) '
+			. ' VALUES(?, ?, ?, ?, ?, ?, ?)');
+		$query->execute(array(
+			$app,
+			$subject,
+			serialize($subjectparams),
+			$affecteduser,
+			$timestamp,
+			$type,
+			$latest_send_time,
+		));
+
+		// fire a hook so that other apps like notification systems can connect
+		\OCP\Util::emitHook('OC_Activity', 'post_email', array(
+			'app'			=> $app,
+			'subject'		=> $subject,
+			'subjectparams'	=> $subjectparams,
+			'affecteduser'	=> $affecteduser,
+			'timestamp'		=> $timestamp,
+			'type'			=> $type,
+			'latest_send'	=> $latest_send_time,
+		));
+
+		return true;
+	}
+
+	/**
 	 * @brief Translate an event string with the translations from the app where it was send from
 	 * @param string $app The app where this event comes from
 	 * @param string $text The text including placeholders
