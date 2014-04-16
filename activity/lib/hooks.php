@@ -114,7 +114,9 @@ class Hooks {
 		$affectedUsers = self::getUserPathsFromPath($file_path);
 		$filteredUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
 		foreach ($affectedUsers as $user => $path) {
-			if (!in_array($user, $filteredUsers)) continue;
+			if (empty($filteredUsers[$user])) {
+				continue;
+			}
 
 			if ($user === \OCP\User::getUser()) {
 				$user_subject = $subject;
@@ -222,9 +224,11 @@ class Hooks {
 		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
 		$affectedUsers = array();
 		$usersInGroup = \OC_Group::usersInGroup($params['shareWith']);
-		$usersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
+		$filteredUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
 		foreach ($usersInGroup as $user) {
-			$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
+			if (!empty($filteredUsersInGroup[$user])) {
+				$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
+			}
 		}
 
 		if (!empty($affectedUsers)) {
@@ -298,7 +302,7 @@ class Hooks {
 
 			while ($row = $result->fetchRow()) {
 				if ($row['configvalue']) {
-					$filteredUsers[] = $row['userid'];
+					$filteredUsers[$row['userid']] = true;
 				}
 				unset($users[array_search($row['userid'], $chunk)]);
 			}
@@ -308,7 +312,9 @@ class Hooks {
 			// If the setting is enabled by default,
 			// we add all users that didn't set the preference yet.
 			if (\OCA\Activity\Data::getUserDefaultSetting($method, $type)) {
-				$filteredUsers = array_merge($filteredUsers, $users);
+				foreach ($users as $user) {
+					$filteredUsers[$user] = true;
+				}
 			}
 		}
 
