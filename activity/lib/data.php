@@ -68,6 +68,10 @@ class Data
 	}
 
 	public static function getUserDefaultSetting($method, $type) {
+		if ($method == 'setting' && $type == 'batchtime') {
+			return 3600;
+		}
+
 		$settings = self::getUserDefaultSettings($method);
 		return in_array($type, $settings);
 	}
