@@ -36,16 +36,16 @@ class Hooks {
 	 */
 	public static function register() {
 		//Listen to create file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_create', "OCA\Activity\Hooks", "file_create");
+		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
 
 		//Listen to write file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hooks", "file_write");
+		\OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Activity\Hooks', 'file_write');
 
 		//Listen to delete file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'delete', "OCA\Activity\Hooks", "file_delete");
+		\OCP\Util::connectHook('OC_Filesystem', 'delete', 'OCA\Activity\Hooks', 'file_delete');
 
 		//Listen to share signal
-		\OCP\Util::connectHook('OCP\Share', 'post_shared', "OCA\Activity\Hooks", "share");
+		\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OCA\Activity\Hooks', 'share');
 
 		// hooking up the activity manager
 		if (property_exists('OC', 'server')) {
@@ -66,14 +66,14 @@ class Hooks {
 		if ( self::$createhookfired ) {
 			// Add to l10n: $l->t('%s created');
 			// Add to l10n: $l->t('%s created by %s');
-			self::add_hooks_for_files(self::$createhookfile, Data::TYPE_SHARE_CREATED, '%s created', Data::TYPE_SHARE_CREATED_BY, '%s created by %s');
+			self::add_hooks_for_files(self::$createhookfile, Data::TYPE_SHARE_CREATED, '%s created', '%s created by %s');
 
 			self::$createhookfired = false;
 			self::$createhookfile = '';
 		} else {
 			// Add to l10n: $l->t('%s changed');
 			// Add to l10n: $l->t('%s changed by %s');
-			self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, '%s changed', Data::TYPE_SHARE_CHANGED_BY, '%s changed by %s');
+			self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, '%s changed', '%s changed by %s');
 		}
 	}
 
@@ -94,19 +94,18 @@ class Hooks {
 	public static function file_delete($params) {
 		// Add to l10n: $l->t('%s deleted');
 		// Add to l10n: $l->t('%s deleted by %s');
-		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_DELETED, '%s deleted', Data::TYPE_SHARE_DELETED_BY, '%1$s deleted by %2$s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_DELETED, '%s deleted', '%1$s deleted by %2$s');
 	}
 
 	/**
 	 * Creates the entries for file actions on $file_path
 	 *
 	 * @param string $file_path        The file that is being changed
-	 * @param int    $activity_type    The activity type for the actor
+	 * @param int    $activity_type    The activity type
 	 * @param string $subject          The subject for the actor
-	 * @param int    $activity_type_by The activity type for other users (with "by $actor")
 	 * @param string $subject_by       The subject for other users (with "by $actor")
 	 */
-	public static function add_hooks_for_files($file_path, $activity_type, $subject, $activity_type_by, $subject_by) {
+	public static function add_hooks_for_files($file_path, $activity_type, $subject, $subject_by) {
 		// Do not add activities for .part-files
 		if (substr($file_path, -5) === '.part') {
 			return;
@@ -116,16 +115,14 @@ class Hooks {
 		foreach ($affectedUsers as $user => $path) {
 			if ($user === \OCP\User::getUser()) {
 				$user_subject = $subject;
-				$user_type = $activity_type;
 				$user_params = array($path);
 			} else {
 				$user_subject = $subject_by;
-				$user_type = $activity_type_by;
 				$user_params = array($path, \OCP\User::getUser());
 			}
 
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($path)));
-			Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $user_type, Data::PRIORITY_HIGH);
+			Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
 		}
 	}
 
@@ -194,7 +191,7 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
-		Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED_BY, Data::PRIORITY_MEDIUM);
+		Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 	}
 
 	/**
@@ -228,7 +225,7 @@ class Hooks {
 				\OCP\Util::writeLog('OCA\Activity\Hooks', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 			} else {
 				while ($row = $result->fetchRow()) {
-					$affectedUsers[$user] = '/Shared' . $row['file_target'];
+					$affectedUsers[$row['share_with']] = '/Shared' . $row['file_target'];
 				}
 			}
 
@@ -237,7 +234,7 @@ class Hooks {
 					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 				));
 
-				Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED_BY, Data::PRIORITY_MEDIUM);
+				Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 			}
 		}
 	}

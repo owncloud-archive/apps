@@ -36,120 +36,55 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
-	const TYPE_SHARED = 4;
-	const TYPE_SHARED_BY = 5;
-	const TYPE_SHARE_EXPIRED = 9;
-	const TYPE_SHARE_UNSHARED = 16;
+	const TYPE_SHARED = 'shared';
+	const TYPE_SHARE_EXPIRED = 'share_expired';
+	const TYPE_SHARE_UNSHARED = 'share_unshared';
 
-	const TYPE_SHARE_CREATED = 3;
-	const TYPE_SHARE_CREATED_BY = 8;
-	const TYPE_SHARE_CHANGED = 1;
-	const TYPE_SHARE_CHANGED_BY = 6;
-	const TYPE_SHARE_DELETED = 2;
-	const TYPE_SHARE_DELETED_BY = 7;
-	const TYPE_SHARE_RESHARED = 10;
-	const TYPE_SHARE_RESHARED_BY = 11;
+	const TYPE_SHARE_CREATED = 'file_created';
+	const TYPE_SHARE_CHANGED = 'file_changed';
+	const TYPE_SHARE_DELETED = 'file_deleted';
+	const TYPE_SHARE_RESHARED = 'file_reshared';
 
-	const TYPE_SHARE_DOWNLOADED = 12;
-	const TYPE_SHARE_UPLOADED = 13;
+	const TYPE_SHARE_DOWNLOADED = 'file_downloaded';
+	const TYPE_SHARE_UPLOADED = 'file_uploaded';
 
-	const TYPE_STORAGE_QUOTA_90 = 14;
-	const TYPE_STORAGE_FAILURE = 15;
+	const TYPE_STORAGE_QUOTA_90 = 'storage_quota_90';
+	const TYPE_STORAGE_FAILURE = 'storage_failure';
 
 	public static function getNotificationTypes($l) {
 		return array(
-			'shared' => array(
-				'desc'		=> $l->t('A file or folder has been <strong>shared</strong>'),
-				'types'		=> array(
-					\OCA\Activity\Data::TYPE_SHARED,
-					\OCA\Activity\Data::TYPE_SHARED_BY,
-				),
-			),
-//			'shared_unshared' => array(
-//				'desc'		=> $l->t('Previously shared file or folder has been <strong>unshared</strong>'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_SHARE_UNSHARED,
-//				),
-//			),
-//			'shared_expired' => array(
-//				'desc'		=> $l->t('Expiration date of shared file or folder <strong>expired</strong>'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_SHARE_EXPIRED,
-//				),
-//			),
-			'share_created' => array(
-				'desc'		=> $l->t('A new file or folder has been <strong>created</strong> in a shared folder'),
-				'types'		=> array(
-					\OCA\Activity\Data::TYPE_SHARE_CREATED,
-					\OCA\Activity\Data::TYPE_SHARE_CREATED_BY,
-				),
-			),
-			'share_changed' => array(
-				'desc'		=> $l->t('A file or folder has been <strong>changed</strong> in a shared folder'),
-				'types'		=> array(
-					\OCA\Activity\Data::TYPE_SHARE_CHANGED,
-					\OCA\Activity\Data::TYPE_SHARE_CHANGED_BY,
-				),
-			),
-			'share_deleted' => array(
-				'desc'		=> $l->t('A file or folder has been <strong>deleted</strong> from a shared folder'),
-				'types'		=> array(
-					\OCA\Activity\Data::TYPE_SHARE_DELETED,
-					\OCA\Activity\Data::TYPE_SHARE_DELETED_BY,
-				),
-			),
-//			'share_reshared' => array(
-//				'desc'		=> $l->t('A file or folder has been <strong>reshared</strong>'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_SHARE_RESHARED,
-//					\OCA\Activity\Data::TYPE_SHARE_RESHARED_BY,
-//				),
-//			),
-//			'share_downloaded' => array(
-//				'desc'		=> $l->t('A file or folder shared via link has been <strong>downloaded</strong>'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED,
-//				),
-//			),
-//			'share_uploaded' => array(
-//				'desc'		=> $l->t('A file has been <strong>uploaded</strong> into a folder shared via link'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_SHARE_UPLOADED,
-//				),
-//			),
-//			'storage_quota_90' => array(
-//				'desc'		=> $l->t('<strong>Storage usage</strong> is at 90%%'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90,
-//				),
-//			),
-//			'storage_failure' => array(
-//				'desc'		=> $l->t('An <strong>external storage</strong> has an error'),
-//				'types'		=> array(
-//					\OCA\Activity\Data::TYPE_STORAGE_FAILURE,
-//				),
-//			),
+			\OCA\Activity\Data::TYPE_SHARED => $l->t('A file or folder has been <strong>shared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_UNSHARED => $l->t('Previously shared file or folder has been <strong>unshared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_EXPIRED => $l->t('Expiration date of shared file or folder <strong>expired</strong>'),
+			\OCA\Activity\Data::TYPE_SHARE_CREATED => $l->t('A new file or folder has been <strong>created</strong> in a shared folder'),
+			\OCA\Activity\Data::TYPE_SHARE_CHANGED => $l->t('A file or folder has been <strong>changed</strong> in a shared folder'),
+			\OCA\Activity\Data::TYPE_SHARE_DELETED => $l->t('A file or folder has been <strong>deleted</strong> from a shared folder'),
+//			\OCA\Activity\Data::TYPE_SHARE_RESHARED => $l->t('A file or folder has been <strong>reshared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED => $l->t('A file or folder shared via link has been <strong>downloaded</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_UPLOADED => $l->t('A file has been <strong>uploaded</strong> into a folder shared via link'),
+//			\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90 => $l->t('<strong>Storage usage</strong> is at 90%%'),
+//			\OCA\Activity\Data::TYPE_STORAGE_FAILURE => $l->t('An <strong>external storage</strong> has an error'),
 		);
 	}
 
-	public static function getUserDefaultSetting($method) {
+	public static function getUserDefaultSetting($method, $type) {
+		$settings = self::getUserDefaultSettings($method);
+		return in_array($type, $settings);
+	}
+
+	public static function getUserDefaultSettings($method) {
 		$settings = array();
 		switch ($method) {
 			case 'stream':
 				$settings[] = Data::TYPE_SHARE_CREATED;
-				$settings[] = Data::TYPE_SHARE_CREATED_BY;
 				$settings[] = Data::TYPE_SHARE_CHANGED;
-				$settings[] = Data::TYPE_SHARE_CHANGED_BY;
 				$settings[] = Data::TYPE_SHARE_DELETED;
-				$settings[] = Data::TYPE_SHARE_DELETED_BY;
 //				$settings[] = Data::TYPE_SHARE_RESHARED;
-//				$settings[] = Data::TYPE_SHARE_RESHARED_BY;
 //
 //				$settings[] = Data::TYPE_SHARE_DOWNLOADED;
 
 			case 'email':
 				$settings[] = Data::TYPE_SHARED;
-				$settings[] = Data::TYPE_SHARED_BY;
 //				$settings[] = Data::TYPE_SHARE_EXPIRED;
 //				$settings[] = Data::TYPE_SHARE_UNSHARED;
 //
@@ -216,22 +151,26 @@ class Data
 	 * @return string	Part of the SQL query limiting the activities
 	 */
 	public static function getUserNotificationTypesQuery($user, $method) {
-		$user_activities = unserialize(\OCP\Config::getUserValue(
-			$user, 'activity', 'notify_' . $method, serialize(self::getUserDefaultSetting($method))
-		));
+		$l = \OC_L10N::get('activity');
+		$types = \OCA\Activity\Data::getNotificationTypes($l);
 
-		// If the user selected to display no activities at all,
-		// we assume this was a mistake, so we display the default types.
-		if (empty($user_activities)) {
-			$user_activities = self::getUserDefaultSetting($method);
-			if (empty($user_activities)) {
-				// Default selection list is empty aswell.
-				// We don't want to display any activities then.
-				return '1 = 0';
+		foreach ($types as $type => $desc) {
+			if (\OCP\Config::getUserValue(
+				$user,
+				'activity',
+				'notify_' . $method . '_' . $type,
+				\OCA\Activity\Data::getUserDefaultSetting($method, $type)
+			)) {
+				$user_activities[] = $type;
 			}
 		}
 
-		return '`type` IN (' . implode(',', $user_activities) . ')';
+		// We don't want to display any activities
+		if (empty($user_activities)) {
+			return '1 = 0';
+		}
+
+		return "`type` IN ('" . implode("','", $user_activities) . "')";
 	}
 
 	/**
