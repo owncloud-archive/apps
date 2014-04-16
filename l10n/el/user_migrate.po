@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-31 00:49-0500\n"
-"PO-Revision-Date: 2013-12-30 15:51+0000\n"
-"Last-Translator: vkehayas <vkehayas@gmail.com>\n"
+"POT-Creation-Date: 2014-04-16 00:49-0400\n"
+"PO-Revision-Date: 2014-04-16 04:49+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/export.js:14 js/export.js:20
+#: js/export.js:14 js/export.js:20 templates/settings.php:7
 msgid "Export"
 msgstr "Εξαγωγή"
 
@@ -35,3 +35,7 @@ msgstr "Παρουσιάστηκε σφάλμα"
 #: templates/settings.php:2
 msgid "Account Export/Import"
 msgstr "Εξαγωγή/Εισαγωγή Λογαριασμού"
+
+#: templates/settings.php:12
+msgid "Import"
+msgstr ""

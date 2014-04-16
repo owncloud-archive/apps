@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Export" => "Exporta"
+"Export" => "Exporta",
+"Import" => "Importa"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

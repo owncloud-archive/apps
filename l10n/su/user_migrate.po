@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-03-11 06:30-0400\n"
-"PO-Revision-Date: 2014-02-08 16:07+0000\n"
+"POT-Creation-Date: 2014-04-16 00:49-0400\n"
+"PO-Revision-Date: 2014-04-16 04:49+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Sundanese (http://www.transifex.com/projects/p/owncloud/language/su/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: su\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/export.js:14 js/export.js:20
+#: js/export.js:14 js/export.js:20 templates/settings.php:7
 msgid "Export"
 msgstr ""
 
@@ -31,4 +31,8 @@ msgstr ""
 
 #: templates/settings.php:2
 msgid "Account Export/Import"
+msgstr ""
+
+#: templates/settings.php:12
+msgid "Import"
 msgstr ""

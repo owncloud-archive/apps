@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot, 2014
 # Mario Siegmann <mario_siegmann@web.de>, 2013-2014
 # traductor, 2014
 # kabum <uu.kabum@gmail.com>, 2013
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-15 15:03-0400\n"
-"PO-Revision-Date: 2014-04-15 19:03+0000\n"
+"POT-Creation-Date: 2014-04-16 00:49-0400\n"
+"PO-Revision-Date: 2014-04-15 19:10+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -57,8 +58,8 @@ msgstr "Eine neue Datei oder Ordner wurde im freigegebenen Ordner <strong>gelös
 #: templates/activity.box.php:34
 msgid "%n more..."
 msgid_plural "%n more..."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ein weiterer"
+msgstr[1] "%n weitere"
 
 #: templates/list.php:28
 msgid "RSS feed"
