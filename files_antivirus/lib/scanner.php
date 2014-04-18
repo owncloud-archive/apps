@@ -71,18 +71,9 @@ class Scanner {
 					case Status::SCANRESULT_INFECTED:
 						//remove file
 						$files_view->unlink($path);
-						\OCP\JSON::error(array("data" => array( "message" => "Virus detected! Can't upload the file." )));
-						$email = \OCP\Config::getUserValue(\OCP\User::getUser(), 'settings', 'email', '');
-						\OCP\Util::writeLog('files_antivirus', 'Email: '.$email, \OCP\Util::DEBUG);
-						if (!empty($email) ) {
-							$tmpl = new \OCP\Template('files_antivirus', 'notification');
-							$tmpl->assign('file', $path);
-							$tmpl->assign('host', \OCP\Util::getServerHost());
-							$tmpl->assign('user', \OCP\User::getDisplayName());
-							$msg = $tmpl->fetchPage();
-							$from = \OCP\Util::getDefaultEmailAddress('security-noreply');
-							\OCP\Util::sendMail($email, \OCP\User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
-						}
+						Notification::sendMail($path);
+						$message = \OCP\Util::getL10N('files_antivirus')->t("Virus detected! Can't upload the file %s", array(basename($path)));
+						\OCP\JSON::error(array("data" => array( "message" => $message)));
 						exit();
 						break;
 
