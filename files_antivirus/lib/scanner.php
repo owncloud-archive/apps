@@ -52,17 +52,28 @@ class Scanner {
 	public static function av_scan($path) {
 		$path = $path[\OC\Files\Filesystem::signal_param_path];
 		if ($path != '') {
-			$files_view = \OCP\Files::getStorage("files");
+			if (isset($_POST['dirToken'])){
+				//Public upload case
+				$filesView = \OC\Files\Filesystem::getView();
+			} else {
+				$filesView = \OCP\Files::getStorage("files");
+			}
+			
+			if (!is_object($filesView)){
+				\OCP\Util::writeLog('files_antivirus', 'Can\'t init filesystem view', \OCP\Util::WARN);
+				return;
+			}
 
 			// check if path is a directory
-			if($files_view->is_dir($path))
+			if($filesView->is_dir($path)){
 				return;
+			}
 
 			// we should have a file to work with, and the file shouldn't
 			// be empty
-			$fileExists = $files_view->file_exists($path);
-			if ($fileExists && $files_view->filesize($path) > 0) {
-				$fileStatus = self::scanFile($files_view, $path);
+			$fileExists = $filesView->file_exists($path);
+			if ($fileExists && $filesView->filesize($path) > 0) {
+				$fileStatus = self::scanFile($filesView, $path);
 				$result = $fileStatus->getNumericStatus();
 				switch($result) {
 					case Status::SCANRESULT_UNCHECKED:
@@ -70,7 +81,7 @@ class Scanner {
 						break;
 					case Status::SCANRESULT_INFECTED:
 						//remove file
-						$files_view->unlink($path);
+						$filesView->unlink($path);
 						Notification::sendMail($path);
 						$message = \OCP\Util::getL10N('files_antivirus')->t("Virus detected! Can't upload the file %s", array(basename($path)));
 						\OCP\JSON::error(array("data" => array( "message" => $message)));
