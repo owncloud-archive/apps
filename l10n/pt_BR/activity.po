@@ -4,15 +4,17 @@
 # 
 # Translators:
 # adielalves <hotmail2792@gmail.com>, 2013
+# adielalves <hotmail2792@gmail.com>, 2013
+# dudanogueira <dudanogueira@gmail.com>, 2014
 # dudanogueira <dudanogueira@gmail.com>, 2014
 # Flávio Veras <flaviove@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-15 15:03-0400\n"
-"PO-Revision-Date: 2014-04-15 19:03+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-04-20 00:49-0400\n"
+"PO-Revision-Date: 2014-04-19 10:43+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,8 +59,8 @@ msgstr "Um novo arquivo ou pasta foi <strong>apagada</strong> de uma pasta compa
 #: templates/activity.box.php:34
 msgid "%n more..."
 msgid_plural "%n more..."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%n mais..."
+msgstr[1] "%n mais..."
 
 #: templates/list.php:28
 msgid "RSS feed"
