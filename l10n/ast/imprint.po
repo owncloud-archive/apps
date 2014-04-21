@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-09 00:49-0400\n"
-"PO-Revision-Date: 2014-04-08 21:10+0000\n"
+"POT-Creation-Date: 2014-04-21 00:49-0400\n"
+"PO-Revision-Date: 2014-04-20 22:05+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "Esa configuración faise na estaya d'alministración."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr "Esa configuración tien de facese pola alministración del sistema."
+msgstr "Esa configuración tien de facese pela alministración del sistema."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
-msgstr ""
+msgstr "Nel aniciu de sesión"
 
 #: templates/tmpl_settings.php:61
 msgid "Content"
