@@ -107,7 +107,7 @@
 }
 
 .box .activitytime {
-	float: left;
+	float: right;
 	color:#666;
 	font-size: 0.8em;
 }

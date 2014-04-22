@@ -15,7 +15,7 @@
 			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
 				<?php p($_['formattedTimestamp']) ?>
 			</span>
-			<span class="appname"><?php p($_['event']['app']) ?></span>
+			<!--<span class="appname"><?php p($_['event']['app']) ?></span>-->
 		</span>
 	</div>
 	<div class="messagecontainer">
