@@ -84,12 +84,12 @@ foreach ($_['activity'] as $event) {
 		}
 		$lastDate = $currentDate;
 ?>
-	<div class="group" data-date="<?php p($currentDate) ?>">
-		<div class="groupheader">
+	<div class="section group" data-date="<?php p($currentDate) ?>">
+		<h2>
 			<span class="tooltip" title="<?php p(\OCP\Util::formatDate(strip_time($event['timestamp']), true)) ?>">
 				<?php p(ucfirst($currentDate)) ?>
 			</span>
-		</div>
+		</h2>
 		<div class="boxcontainer">
 <?php
 	}
