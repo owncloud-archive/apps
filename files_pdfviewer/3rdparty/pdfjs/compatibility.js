@@ -14,8 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* globals VBArray, PDFJS */
 
 'use strict';
+
+// Initializing PDFJS global object here, it case if we need to change/disable
+// some PDF.js features, e.g. range requests
+if (typeof PDFJS === 'undefined') {
+  (typeof window !== 'undefined' ? window : this).PDFJS = {};
+}
 
 // Checking if the typed arrays are supported
 (function checkTypedArrayCompatibility() {
@@ -54,8 +61,14 @@
       result = [];
       for (var i = 0; i < arg1; ++i)
         result[i] = 0;
-    } else
+    } else if ('slice' in arg1) {
       result = arg1.slice(0);
+    } else {
+      result = [];
+      for (var i = 0, n = arg1.length; i < n; ++i) {
+        result[i] = arg1[i];
+      }
+    }
 
     result.subarray = subarray;
     result.buffer = result;
@@ -79,15 +92,22 @@
   window.Float64Array = TypedArray;
 })();
 
+// URL = URL || webkitURL
+(function normalizeURLObject() {
+  if (!window.URL) {
+    window.URL = window.webkitURL;
+  }
+})();
+
 // Object.create() ?
 (function checkObjectCreateCompatibility() {
   if (typeof Object.create !== 'undefined')
     return;
 
   Object.create = function objectCreate(proto) {
-    var constructor = function objectCreateConstructor() {};
-    constructor.prototype = proto;
-    return new constructor();
+    function Constructor() {}
+    Constructor.prototype = proto;
+    return new Constructor();
   };
 })();
 
@@ -248,6 +268,36 @@
   };
 })();
 
+// window.atob (base64 encode function) ?
+(function checkWindowAtobCompatibility() {
+  if ('atob' in window)
+    return;
+
+  // https://github.com/davidchambers/Base64.js
+  var digits =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  window.atob = function (input) {
+    input = input.replace(/=+$/, '');
+    if (input.length % 4 == 1) throw new Error('bad atob input');
+    for (
+      // initialize result and counters
+      var bc = 0, bs, buffer, idx = 0, output = '';
+      // get next character
+      buffer = input.charAt(idx++);
+      // character found in table?
+      // initialize bit storage and add its ascii value
+      ~buffer && (bs = bc % 4 ? bs * 64 + buffer : buffer,
+        // and if not first of each 4 characters,
+        // convert the first 8 bits to one ascii character
+        bc++ % 4) ? output += String.fromCharCode(255 & bs >> (-2 * bc & 6)) : 0
+    ) {
+      // try to find character in table (0-63, not found => -1)
+      buffer = digits.indexOf(buffer);
+    }
+    return output;
+  };
+})();
+
 // Function.prototype.bind ?
 (function checkFunctionPrototypeBindCompatibility() {
   if (typeof Function.prototype.bind !== 'undefined')
@@ -261,36 +311,6 @@
     };
     return bound;
   };
-})();
-
-// IE9/10 text/html data URI
-(function checkDataURICompatibility() {
-  if (!('documentMode' in document) ||
-      document.documentMode !== 9 && document.documentMode !== 10)
-    return;
-  // overriding the src property
-  var originalSrcDescriptor = Object.getOwnPropertyDescriptor(
-    HTMLIFrameElement.prototype, 'src');
-  Object.defineProperty(HTMLIFrameElement.prototype, 'src', {
-    get: function htmlIFrameElementPrototypeSrcGet() { return this.$src; },
-    set: function htmlIFrameElementPrototypeSrcSet(src) {
-      this.$src = src;
-      if (src.substr(0, 14) != 'data:text/html') {
-        originalSrcDescriptor.set.call(this, src);
-        return;
-      }
-      // for text/html, using blank document and then
-      // document's open, write, and close operations
-      originalSrcDescriptor.set.call(this, 'about:blank');
-      setTimeout((function htmlIFrameElementPrototypeSrcOpenWriteClose() {
-        var doc = this.contentDocument;
-        doc.open('text/html');
-        doc.write(src.substr(src.indexOf(',') + 1));
-        doc.close();
-      }).bind(this), 0);
-    },
-    enumerable: true
-  });
 })();
 
 // HTMLElement dataset property
@@ -334,18 +354,22 @@
   function changeList(element, itemName, add, remove) {
     var s = element.className || '';
     var list = s.split(/\s+/g);
-    if (list[0] == '') list.shift();
+    if (list[0] === '') list.shift();
     var index = list.indexOf(itemName);
     if (index < 0 && add)
       list.push(itemName);
     if (index >= 0 && remove)
       list.splice(index, 1);
     element.className = list.join(' ');
+    return (index >= 0);
   }
 
   var classListPrototype = {
     add: function(name) {
       changeList(this.element, name, true, false);
+    },
+    contains: function(name) {
+      return changeList(this.element, name, false, false);
     },
     remove: function(name) {
       changeList(this.element, name, false, true);
@@ -378,21 +402,25 @@
   });
 })();
 
-// Check console compatability
+// Check console compatibility
 (function checkConsoleCompatibility() {
-  if (typeof console == 'undefined') {
-    console = {
+  if (!('console' in window)) {
+    window.console = {
       log: function() {},
-      error: function() {}
+      error: function() {},
+      warn: function() {}
     };
   } else if (!('bind' in console.log)) {
     // native functions in IE9 might not have bind
     console.log = (function(fn) {
-      return function(msg) { return fn(msg); }
+      return function(msg) { return fn(msg); };
     })(console.log);
     console.error = (function(fn) {
-      return function(msg) { return fn(msg); }
+      return function(msg) { return fn(msg); };
     })(console.error);
+    console.warn = (function(fn) {
+      return function(msg) { return fn(msg); };
+    })(console.warn);
   }
 })();
 
@@ -414,6 +442,14 @@
   }
 })();
 
+// Checks if possible to use URL.createObjectURL()
+(function checkOnBlobSupport() {
+  // sometimes IE loosing the data created with createObjectURL(), see #3977
+  if (navigator.userAgent.indexOf('Trident') >= 0) {
+    PDFJS.disableCreateObjectURL = true;
+  }
+})();
+
 // Checks if navigator.language is supported
 (function checkNavigatorLanguage() {
   if ('language' in navigator)
@@ -426,4 +462,30 @@
     },
     enumerable: true
   });
+})();
+
+(function checkRangeRequests() {
+  // Safari has issues with cached range requests see:
+  // https://github.com/mozilla/pdf.js/issues/3260
+  // Last tested with version 6.0.4.
+  var isSafari = Object.prototype.toString.call(
+                  window.HTMLElement).indexOf('Constructor') > 0;
+
+  // Older versions of Android (pre 3.0) has issues with range requests, see:
+  // https://github.com/mozilla/pdf.js/issues/3381.
+  // Make sure that we only match webkit-based Android browsers,
+  // since Firefox/Fennec works as expected.
+  var regex = /Android\s[0-2][^\d]/;
+  var isOldAndroid = regex.test(navigator.userAgent);
+
+  if (isSafari || isOldAndroid) {
+    PDFJS.disableRange = true;
+  }
+})();
+
+// Check if the browser supports manipulation of the history.
+(function checkHistoryManipulation() {
+  if (!window.history.pushState) {
+    PDFJS.disableHistory = true;
+  }
 })();
