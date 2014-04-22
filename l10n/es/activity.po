@@ -6,13 +6,14 @@
 # Art O. Pal <artopal@fastmail.fm>, 2013-2014
 # Francisco Losada, 2014
 # japaol <japaol@gmail.com>, 2013
+# josernesto1989 <jecarrenob@uci.cu>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-15 15:03-0400\n"
-"PO-Revision-Date: 2014-04-15 19:03+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-04-22 00:48-0400\n"
+"PO-Revision-Date: 2014-04-21 18:10+0000\n"
+"Last-Translator: josernesto1989 <jecarrenob@uci.cu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,8 +58,8 @@ msgstr "Un archivo o carpeta ha sido <strong>eliminado/a</strong> de una carpeta
 #: templates/activity.box.php:34
 msgid "%n more..."
 msgid_plural "%n more..."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%n más..."
+msgstr[1] "%n más..."
 
 #: templates/list.php:28
 msgid "RSS feed"

@@ -4,6 +4,7 @@ $TRANSLATIONS = array(
 "Executable" => "Executable",
 "Daemon" => "Degorriu",
 "Not required in Executable Mode." => "Nun se requier nel mou executable.",
+"Host" => "Equipu",
 "Port" => "Puertu",
 "Not required in Daemon Mode." => "Nun se requier nel mou degorriu.",
 "Delete file" => "Desanciar ficheru",
