@@ -129,8 +129,8 @@ class Hooks {
 			}
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($path)));
 
+			// Add activities to stream
 			if (!empty($filteredStreamUsers[$user])) {
-				// Add activities to stream
 				Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
 			}
 		}
