@@ -7,7 +7,7 @@ class OC_ReaderSearchProvider extends OC_Search_Provider{
 			$file=$fileData['path'];
 			$mime=$fileData['mimetype'];
 			if($mime=='application/pdf'){
-				$results[]=new OC_Search_Result(basename($file),'',OC_Helper::linkTo( 'reader', 'results.php' ).'?file='.$file,'eBook');
+				$results[]=new OC_Search_Result(basename($file),'',OC_Helper::linkTo( 'reader', 'results.php' ).'?file='.$file,'eBook', dirname($file));
 			}
 		}
 		return $results;
