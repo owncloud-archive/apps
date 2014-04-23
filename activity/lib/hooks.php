@@ -112,9 +112,10 @@ class Hooks {
 		}
 
 		$affectedUsers = self::getUserPathsFromPath($file_path);
-		$filteredUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
+		$filteredStreamUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
+
 		foreach ($affectedUsers as $user => $path) {
-			if (empty($filteredUsers[$user])) {
+			if (empty($filteredStreamUsers[$user])) {
 				continue;
 			}
 
@@ -125,9 +126,12 @@ class Hooks {
 				$user_subject = $subject_by;
 				$user_params = array($path, \OCP\User::getUser());
 			}
-
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($path)));
-			Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
+
+			if (!empty($filteredStreamUsers[$user])) {
+				// Add activities to stream
+				Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
+			}
 		}
 	}
 
@@ -188,6 +192,8 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
+
+		// Add activity to stream
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
@@ -198,6 +204,8 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
+
+		// Add activity to stream
 		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 		}
@@ -216,22 +224,23 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 		$subject = 'You shared %s with group %s';// Add to l10n: $l->t('You shared %s with group %s');
+
+		// Add activity to stream
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
 
 		// Members of the new group
-		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
 		$affectedUsers = array();
 		$usersInGroup = \OC_Group::usersInGroup($params['shareWith']);
-		$filteredUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
 		foreach ($usersInGroup as $user) {
-			if (!empty($filteredUsersInGroup[$user])) {
-				$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
-			}
+			$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
 		}
 
 		if (!empty($affectedUsers)) {
+			$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
+			$filteredStreamUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
+
 			// Check when there was a naming conflict and the target is different
 			// for some of the users
 			$query = \OC_DB::prepare('SELECT `share_with`, `file_target` FROM `*PREFIX*share` WHERE `parent` = ? ');
@@ -249,7 +258,10 @@ class Hooks {
 					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 				));
 
-				Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+				// Add activity to stream
+				if (!empty($filteredStreamUsersInGroup[$user])) {
+					Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+				}
 			}
 		}
 	}
