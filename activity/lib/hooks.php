@@ -366,8 +366,12 @@ class Hooks {
 					'notify_setting_batchtime',
 				), $chunk));
 
-				while ($row = $result->fetchRow()) {
-					$filteredUsers[$row['userid']] = $row['configvalue'];
+				if (\OCP\DB::isError($result)) {
+					\OCP\Util::writeLog('OCA\Activity\Hooks::filterUsersBySetting', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				} else {
+					while ($row = $result->fetchRow()) {
+						$filteredUsers[$row['userid']] = $row['configvalue'];
+					}
 				}
 			}
 		}
