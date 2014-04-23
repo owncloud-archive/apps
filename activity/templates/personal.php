@@ -1,10 +1,19 @@
+<?php
+/* Copyright (c) 2014, Joas Schilling nickvergessen@gmx.de
+ * This file is licensed under the Affero General Public License version 3
+ * or later. See the COPYING-README file. */
+
+/** @var $l OC_L10N */
+/** @var $_ array */
+?>
+
 <form id="activity_notifications" class="section">
 	<h2><?php p($l->t('Notifications')); ?></h2>
 	<table class="grid activitysettings">
 		<thead>
 			<tr>
 				<!--
-				<th class="small" activity_select_group" data-select-group="email">
+				<th class="small activity_select_group" data-select-group="email">
 					<?php p($l->t('Mail')); ?>
 				</th>
 				-->
@@ -19,7 +28,7 @@
 			<tr>
 				<!-- Email is not available yet
 				<td class="small">
-					<label for="<?php p($activity) ?>_stream">
+					<label for="<?php p($activity) ?>_email">
 						<input type="checkbox" id="<?php p($activity) ?>_email" name="<?php p($activity) ?>_email"
 							value="1" class="<?php p($activity) ?> email" <?php if ($data['email']): ?> checked="checked"<?php endif; ?> />
 					</label>
