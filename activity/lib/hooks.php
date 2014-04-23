@@ -153,7 +153,7 @@ class Hooks {
 	 * @return array
 	 */
 	public static function getSourcePathAndOwner($path) {
-		$uidOwner = \OC\Files\Filesystem::getOwner(dirname($path));
+		$uidOwner = \OC\Files\Filesystem::getOwner($path);
 		$fileInfo = \OC\Files\Filesystem::getFileInfo($path);
 		$sourceFileInfo = $fileInfo->getData();
 		$file_path = substr($sourceFileInfo['path'], strlen('files'));
