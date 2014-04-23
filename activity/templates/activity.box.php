@@ -8,16 +8,6 @@
 ?>
 
 <div class="box">
-	<div class="header">
-		<span class="avatar" data-user="<?php p($_['user']) ?>"></span>
-		<span>
-			<span class="user"><?php p($_['displayName']) ?></span>
-			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
-				<?php p($_['formattedTimestamp']) ?>
-			</span>
-			<!--<span class="appname"><?php p($_['event']['app']) ?></span>-->
-		</span>
-	</div>
 	<div class="messagecontainer">
 		<?php if ($_['isGrouped']): ?>
 			<?php $count = 0; ?>
@@ -41,6 +31,9 @@
 		<?php if (!$_['isGrouped']): ?>
 			<?php if ($_['event']['link']): ?><a href="<?php p($_['event']['link']) ?>"><?php endif ?>
 			<div class="activitysubject"><?php p($_['event']['subject']) ?></div>
+			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
+				<?php p($_['formattedTimestamp']) ?>
+			</span>
 			<div class="activitymessage"><?php p($_['event']['message']) ?></div>
 		<?php endif ?>
 
