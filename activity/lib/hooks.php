@@ -35,16 +35,11 @@ class Hooks {
 	 * All other events has to be triggered by the apps.
 	 */
 	public static function register() {
-		//Listen to create file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
-
-		//Listen to write file signal
+		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create_legacy');
+		//@todo: owncloud/core#8132: \OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
 		\OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Activity\Hooks', 'file_write');
-
-		//Listen to delete file signal
+		//@todo: owncloud/core#8132: \OCP\Util::connectHook('OC_Filesystem', 'post_update', 'OCA\Activity\Hooks', 'file_update');
 		\OCP\Util::connectHook('OC_Filesystem', 'delete', 'OCA\Activity\Hooks', 'file_delete');
-
-		//Listen to share signal
 		\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OCA\Activity\Hooks', 'share');
 
 		// hooking up the activity manager
@@ -81,10 +76,30 @@ class Hooks {
 	 * @brief Store the create hook events
 	 * @param array $params The hook params
 	 */
-	public static function file_create($params) {
+	public static function file_create_legacy($params) {
 		// remember the create event for later consumption
 		self::$createhookfired = true;
 		self::$createhookfile = $params['path'];
+	}
+
+	/**
+	 * @brief Store the create hook events
+	 * @param array $params The hook params
+	 */
+	public static function file_create($params) {
+		// Add to l10n: $l->t('%s created');
+		// Add to l10n: $l->t('%s created by %s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CREATED, '%s created', '%s created by %s');
+	}
+
+	/**
+	 * @brief Store the update hook events
+	 * @param array $params The hook params
+	 */
+	public static function file_update($params) {
+		// Add to l10n: $l->t('%s changed');
+		// Add to l10n: $l->t('%s changed by %s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, '%s changed', '%s changed by %s');
 	}
 
 	/**
