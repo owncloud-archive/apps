@@ -277,7 +277,7 @@ class Data
 
 		// search in DB
 		$query = \OCP\DB::prepare(
-			'SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
 			. ' FROM `*PREFIX*activity` '
 			. 'WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ' . $limit_activities_type
 			. 'ORDER BY `timestamp` desc'
