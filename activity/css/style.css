@@ -1,6 +1,12 @@
+#container h2 {
+	margin-left: 24px;
+	margin-bottom: 16px;
+}
+
 .activitysubject {
-	font-size:1.0em;
-	color: #333;
+	display: inline-block;
+	vertical-align: text-bottom;
+	margin-left: 5px;
 	text-overflow: ellipsis;
 	overflow-x: hidden;
 }
@@ -92,6 +98,7 @@
 .box .preview{
 	width: 50px;
 	height: 50px;
+	margin-left: 24px;
 }
 
 .box .user{
@@ -138,4 +145,24 @@
 	width: 200px;
 	padding: 10px;
 	color: #555;
+}
+
+
+
+/* colored icons, in addition to core ones */
+.icon-add-color,
+.icon-change-color,
+.icon-delete-color {
+	min-width: 16px;
+	min-height: 16px;
+	display: inline-block;
+}
+.icon-add-color {
+	background-image: url('../img/add-color.svg');
+}
+.icon-change-color {
+	background-image: url('../img/change-color.svg');
+}
+.icon-delete-color {
+	background-image: url('../img/delete-color.svg');
 }
