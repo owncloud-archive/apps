@@ -86,6 +86,7 @@
 .box .messagecontainer{
 	width: 100%;
 	display: block;
+	margin-bottom: 20px;
 }
 
 .box .preview{
@@ -125,7 +126,6 @@
 .box .grouped .more{
 	cursor: default;
 	color: #666;
-	text-align: right;
 }
 
 /* Infinite Scroll loader */
