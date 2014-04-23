@@ -246,7 +246,7 @@ class Hooks {
 			$query = \OC_DB::prepare('SELECT `share_with`, `file_target` FROM `*PREFIX*share` WHERE `parent` = ? ');
 			$result = $query->execute(array($params['id']));
 			if (\OCP\DB::isError($result)) {
-				\OCP\Util::writeLog('OCA\Activity\Hooks', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OCP\Util::writeLog('OCA\Activity\Hooks::shareFileOrFolderWithGroup', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 			} else {
 				while ($row = $result->fetchRow()) {
 					$affectedUsers[$row['share_with']] = '/Shared' . $row['file_target'];
@@ -312,11 +312,15 @@ class Hooks {
 				'notify_' . $method . '_' . $type,
 			), $chunk));
 
-			while ($row = $result->fetchRow()) {
-				if ($row['configvalue']) {
-					$filteredUsers[$row['userid']] = true;
+			if (\OCP\DB::isError($result)) {
+				\OCP\Util::writeLog('OCA\Activity\Hooks::filterUsersBySetting', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			} else {
+				while ($row = $result->fetchRow()) {
+					if ($row['configvalue']) {
+						$filteredUsers[$row['userid']] = true;
+					}
+					unset($users[array_search($row['userid'], $chunk)]);
 				}
-				unset($users[array_search($row['userid'], $chunk)]);
 			}
 		}
 

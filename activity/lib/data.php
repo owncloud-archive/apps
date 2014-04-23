@@ -198,10 +198,14 @@ class Data
 		$result = $query->execute(array($user));
 
 		$activity = array();
-		while ($row = $result->fetchRow()) {
-			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
-			$activity[] = $row;
+		if (\OCP\DB::isError($result)) {
+			\OCP\Util::writeLog('OCA\Activity\Data::read', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+		} else {
+			while ($row = $result->fetchRow()) {
+				$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+				$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+				$activity[] = $row;
+			}
 		}
 		return $activity;
 
@@ -228,10 +232,14 @@ class Data
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
-		while ($row = $result->fetchRow()) {
-			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
-			$activity[] = $row;
+		if (\OCP\DB::isError($result)) {
+			\OCP\Util::writeLog('OCA\Activity\Data::search', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+		} else {
+			while ($row = $result->fetchRow()) {
+				$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
+				$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+				$activity[] = $row;
+			}
 		}
 		return $activity;
 
