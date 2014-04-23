@@ -45,7 +45,7 @@ class Search extends \OC_Search_Provider{
 			$results[] = new \OC_Search_Result(
 				basename($file),
 				$d['subject'].' ('.\OCP\Util::formatDate($d['timestamp']).')',
-				\OC_Helper::linkTo( 'activity', 'index.php' ), 'Activity');
+				\OC_Helper::linkTo( 'activity', 'index.php' ), 'Activity', dirname($file));
 		}
 
 		return $results;
