@@ -25,8 +25,9 @@ abstract class OpenDocument extends \Zend_Search_Lucene_Document
         $coreProperties = array();
 
         // Read relations and search for core properties
-		libxml_disable_entity_loader(true);
+		$loadEntities = libxml_disable_entity_loader(true);
 		$sxe = simplexml_load_string($package->getFromName("meta.xml"));
+		libxml_disable_entity_loader($loadEntities);
 
 		if (is_object($sxe) && $sxe instanceof \SimpleXMLElement) {
 
