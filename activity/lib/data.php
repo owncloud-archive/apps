@@ -194,7 +194,7 @@ class Data
 				return $l->t('You shared %1$s', $params);
 			}
 
-			return $text;
+			return $l->t($text, $params);
 		} else {
 			$l = \OCP\Util::getL10N($app);
 			return $l->t($text, $params);
