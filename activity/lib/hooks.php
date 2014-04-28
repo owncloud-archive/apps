@@ -183,7 +183,7 @@ class Hooks {
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
 			$latest_send = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
-			Data::storeMail('files', $subject, array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
+			Data::storeMail('files', 'shared_user_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
 		}
 
 		// New shared user
@@ -199,7 +199,7 @@ class Hooks {
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
 			$latest_send = Data::getUserSetting($params['shareWith'], 'setting', 'batchtime') + time();
-			Data::storeMail('files', $subject, array(\OCP\User::getUser(), $path), $params['shareWith'], Data::TYPE_SHARED, $latest_send);
+			Data::storeMail('files', 'shared_with_by', array(\OCP\User::getUser(), $path), $params['shareWith'], Data::TYPE_SHARED, $latest_send);
 		}
 	}
 
@@ -223,7 +223,7 @@ class Hooks {
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
 			$latest_send = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
-			Data::storeMail('files', $subject, array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
+			Data::storeMail('files', 'shared_group_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
 		}
 
 		// Members of the new group
@@ -266,7 +266,7 @@ class Hooks {
 				// Add activity to mail queue
 				if (!empty($filteredEmailUsersInGroup[$user])) {
 					$latest_send = time() + $filteredEmailUsersInGroup[$user];
-					Data::storeMail('files', $subject, array(\OCP\User::getUser(), $path), $user, Data::TYPE_SHARED, $latest_send);
+					Data::storeMail('files', 'shared_with_by', array(\OCP\User::getUser(), $path), $user, Data::TYPE_SHARED, $latest_send);
 				}
 			}
 		}
