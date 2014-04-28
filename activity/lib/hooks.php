@@ -206,7 +206,7 @@ class Hooks {
 
 		// Add activity to stream
 		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
-			Data::send('files', 'shared_with_by', array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+			Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 		}
 	}
 
@@ -257,7 +257,7 @@ class Hooks {
 
 				// Add activity to stream
 				if (!empty($filteredStreamUsersInGroup[$user])) {
-					Data::send('files', 'shared_with_by', array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+					Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 				}
 			}
 		}

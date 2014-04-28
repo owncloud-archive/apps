@@ -84,3 +84,18 @@ if (version_compare($installedVersion, '1.1.10', '<')) {
 		$query->execute(array($new_subject, $old_subject));
 	}
 }
+
+if (version_compare($installedVersion, '1.1.11', '<')) {
+	$query = \OC_DB::prepare(
+		'SELECT `activity_id`, `subjectparams` '
+		. 'FROM `*PREFIX*activity` '
+		. 'WHERE `subject` = ?');
+	$result = $query->execute(array('shared_with_by'));
+	while ($row = $result->fetchRow()) {
+		$subjectparams = unserialize($row['subjectparams']);
+		$username = array_shift($subjectparams);
+		array_push($subjectparams, $username);
+		$query = \OC_DB::prepare('UPDATE `*PREFIX*activity` SET `subjectparams` = ? WHERE `activity_id` = ?');
+		$query->execute(array(serialize($subjectparams), $row['activity_id']));
+	}
+}
