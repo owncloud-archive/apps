@@ -131,6 +131,22 @@ class Data
 		return true;
 	}
 
+	public static function prepare_files_params($app, $text, $params, $file_position = false)
+	{
+		if ($app === 'files') {
+			$prepared_params = array();
+			foreach ($params as $i => $param) {
+				if ($file_position === $i) {
+					// Remove the path from the file string
+					$param = substr($param, strrpos($param, '/') + 1);
+				}
+				$prepared_params[] = $param;
+			}
+			return $prepared_params;
+		}
+		return $params;
+	}
+
 	/**
 	 * @brief Translate an event string with the translations from the app where it was send from
 	 * @param string $app The app where this event comes from
@@ -139,8 +155,14 @@ class Data
 	 * @return string translated
 	 */
 	public static function translation($app, $text, $params) {
+		if (!$text) {
+			return '';
+		}
+
 		if ($app === 'files') {
+
 			$l = \OCP\Util::getL10N('activity');
+			$params = self::prepare_files_params($app, $text, $params, 0);
 			if ($text === 'created_self') {
 				return $l->t('You created %1$s', $params);
 			}
@@ -156,7 +178,7 @@ class Data
 			else if ($text === 'deleted_self') {
 				return $l->t('You deleted %1$s', $params);
 			}
-			else if ($text === 'deleted_self') {
+			else if ($text === 'deleted_by') {
 				return $l->t('%2$s deleted %1$s', $params);
 			}
 			else if ($text === 'shared_user_self') {
