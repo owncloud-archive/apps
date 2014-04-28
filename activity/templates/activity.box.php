@@ -30,7 +30,7 @@
 		<?php endif ?>
 		<?php if (!$_['isGrouped']): ?>
 			<?php if ($_['event']['link']): ?><a href="<?php p($_['event']['link']) ?>"><?php endif ?>
-			<div class="activity-icon icon-change-color"></div>
+			<?php if (!empty($_['typeIcon'])): ?><div class="activity-icon <?php p($_['typeIcon']) ?>"></div><?php endif ?>
 			<div class="activitysubject"><?php p($_['event']['subject']) ?></div>
 			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
 				<?php p($_['formattedTimestamp']) ?>

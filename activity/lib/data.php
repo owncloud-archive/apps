@@ -314,6 +314,7 @@ class Data
 		$tmpl->assign('user', $event['user']);
 		$tmpl->assign('displayName', \OCP\User::getDisplayName($event['user']));
 		$tmpl->assign('event', $event);
+		$tmpl->assign('typeIcon', self::getTypeIcon($event['type']));
 		$tmpl->assign('isGrouped', !empty($event['isGrouped']));
 
 		$rootView = new \OC\Files\View('');
@@ -335,6 +336,23 @@ class Data
 		$tmpl->printPage();
 	}
 
+	/**
+	 * @param string $type
+	 * @return string
+	 */
+	public static function getTypeIcon($type)
+	{
+		switch ($type)
+		{
+			case self::TYPE_SHARE_CHANGED:
+				return 'icon-change-color';
+			case self::TYPE_SHARE_CREATED:
+				return 'icon-add-color';
+			case self::TYPE_SHARE_DELETED:
+				return 'icon-delete-color';
+		}
+		return '';
+	}
 
 	/**
 	 * @brief Expire old events
