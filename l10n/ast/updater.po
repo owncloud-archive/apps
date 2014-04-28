@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-09 00:49-0400\n"
-"PO-Revision-Date: 2014-04-08 19:50+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-04-28 00:48-0400\n"
+"PO-Revision-Date: 2014-04-27 11:40+0000\n"
+"Last-Translator: Iñigo Varela <ivarela@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: templates/update.php:19 templates/update.php:44
 msgid "Update"
-msgstr ""
+msgstr "Anovar"
 
 #: templates/update.php:22
 msgid "Backup directory"

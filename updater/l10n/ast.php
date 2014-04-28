@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Update" => "Anovar",
 "Download" => "Descargar",
 "Delete" => "Desaniciar"
 );
