@@ -139,10 +139,44 @@ class Data
 	 * @return string translated
 	 */
 	public static function translation($app, $text, $params) {
-		$l = \OCP\Util::getL10N($app);
-		$result = $l->t($text, $params);
-		unset($l);
-		return($result);
+		if ($app === 'files') {
+			$l = \OCP\Util::getL10N('activity');
+			if ($text === 'created_self') {
+				return $l->t('%s created', $params);
+			}
+			else if ($text === 'created_by') {
+				return $l->t('%s created by %s', $params);
+			}
+			else if ($text === 'changed_self') {
+				return $l->t('%s changed', $params);
+			}
+			else if ($text === 'changed_by') {
+				return $l->t('%s changed by %s', $params);
+			}
+			else if ($text === 'deleted_self') {
+				return $l->t('%s deleted', $params);
+			}
+			else if ($text === 'deleted_self') {
+				return $l->t('%s deleted by %s', $params);
+			}
+			else if ($text === 'shared_user_self') {
+				return $l->t('You shared %s with %s', $params);
+			}
+			else if ($text === 'shared_group_self') {
+				return $l->t('You shared %s with group %s', $params);
+			}
+			else if ($text === 'shared_with_by') {
+				return $l->t('%s shared %s with you', $params);
+			}
+			else if ($text === 'shared_link_self') {
+				return $l->t('You shared %s', $params);
+			}
+
+			return $text;
+		} else {
+			$l = \OCP\Util::getL10N($app);
+			return $l->t($text, $params);
+		}
 	}
 
 	public static function getUserSetting($user, $method, $type) {

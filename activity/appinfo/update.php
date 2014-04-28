@@ -64,3 +64,23 @@ if (version_compare($installedVersion, '1.1.6', '<')) {
 	$query = \OC_DB::prepare('DELETE FROM `*PREFIX*preferences` WHERE `appid` = ? AND (`configkey` = ? OR `configkey` = ?)');
 	$query->execute(array('activity', 'notify_stream', 'notify_email'));
 }
+
+if (version_compare($installedVersion, '1.1.10', '<')) {
+	$subject_map = array(
+		'%s created'		=> 'created_self',
+		'%s created by %s'	=> 'created_by',
+		'%s changed'		=> 'changed_self',
+		'%s changed by %s'	=> 'changed_by',
+		'%s deleted'		=> 'deleted_self',
+		'%s deleted by %s'	=> 'deleted_by',
+		'You shared %s with %s'			=> 'shared_user_self',
+		'You shared %s with group %s'	=> 'shared_group_self',
+		'%s shared %s with you'			=> 'shared_with_by',
+		'You shared %s'					=> 'shared_link_self',
+	);
+
+	foreach ($subject_map as $old_subject => $new_subject) {
+		$query = \OC_DB::prepare('UPDATE `*PREFIX*activity` SET `subject` = ? WHERE `subject` = ?');
+		$query->execute(array($new_subject, $old_subject));
+	}
+}

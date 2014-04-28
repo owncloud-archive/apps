@@ -55,16 +55,12 @@ class Hooks {
 	 */
 	public static function file_write($params) {
 		if ( self::$createhookfired ) {
-			// Add to l10n: $l->t('%s created');
-			// Add to l10n: $l->t('%s created by %s');
-			self::add_hooks_for_files(self::$createhookfile, Data::TYPE_SHARE_CREATED, '%s created', '%s created by %s');
+			self::add_hooks_for_files(self::$createhookfile, Data::TYPE_SHARE_CREATED, 'created_self', 'created_by');
 
 			self::$createhookfired = false;
 			self::$createhookfile = '';
 		} else {
-			// Add to l10n: $l->t('%s changed');
-			// Add to l10n: $l->t('%s changed by %s');
-			self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, '%s changed', '%s changed by %s');
+			self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, 'changed_self', 'changed_by');
 		}
 	}
 
@@ -83,9 +79,7 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_create($params) {
-		// Add to l10n: $l->t('%s created');
-		// Add to l10n: $l->t('%s created by %s');
-		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CREATED, '%s created', '%s created by %s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CREATED, 'created_self', 'created_by');
 	}
 
 	/**
@@ -93,9 +87,7 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_update($params) {
-		// Add to l10n: $l->t('%s changed');
-		// Add to l10n: $l->t('%s changed by %s');
-		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, '%s changed', '%s changed by %s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, 'changed_self', 'changed_by');
 	}
 
 	/**
@@ -103,9 +95,7 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_delete($params) {
-		// Add to l10n: $l->t('%s deleted');
-		// Add to l10n: $l->t('%s deleted by %s');
-		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_DELETED, '%s deleted', '%1$s deleted by %2$s');
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_DELETED, 'deleted_self', 'deleted_self');
 	}
 
 	/**
@@ -202,11 +192,10 @@ class Hooks {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
-		$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
 
 		// Add activity to stream
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
-			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+			Data::send('files', 'shared_user_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
 
 		// New shared user
@@ -214,11 +203,10 @@ class Hooks {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
-		$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
 
 		// Add activity to stream
 		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
-			Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+			Data::send('files', 'shared_with_by', array(\OCP\User::getUser(), $path), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 		}
 	}
 
@@ -234,11 +222,10 @@ class Hooks {
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
-		$subject = 'You shared %s with group %s';// Add to l10n: $l->t('You shared %s with group %s');
 
 		// Add activity to stream
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
-			Data::send('files', $subject, array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+			Data::send('files', 'shared_group_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
 
 		// Members of the new group
@@ -249,7 +236,6 @@ class Hooks {
 		}
 
 		if (!empty($affectedUsers)) {
-			$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
 			$filteredStreamUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
 
 			// Check when there was a naming conflict and the target is different
@@ -271,7 +257,7 @@ class Hooks {
 
 				// Add activity to stream
 				if (!empty($filteredStreamUsersInGroup[$user])) {
-					Data::send('files', $subject, array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+					Data::send('files', 'shared_with_by', array(\OCP\User::getUser(), $path), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 				}
 			}
 		}
@@ -287,11 +273,8 @@ class Hooks {
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
 
-		// Add to l10n: $l->t('You shared %s');
-		$subject = 'You shared %s';
-
 		if (Data::getUserSetting(\OCP\User::getUser(), 'stream', Data::TYPE_SHARED)) {
-			Data::send('files', $subject, array($path), '', array(), $path, $link, \OCP\User::getUser(), Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+			Data::send('files', 'shared_link_self', array($path), '', array(), $path, $link, \OCP\User::getUser(), Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
 		}
 	}
 
