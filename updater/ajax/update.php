@@ -41,16 +41,16 @@ if (count($errors)) {
 
 // Download package
 // Url to download package e.g. http://download.owncloud.org/releases/owncloud-4.0.5.tar.bz2
-$packageUrl = 'https://download.owncloud.com/download/community/owncloud-latest.zip';
+$packageUrl = '';
 
 //Package version e.g. 4.0.4
 $packageVersion = '';
 $updateData = \OC_Updater::check();
 
-if (isset($updateData['version'])) {
+if (isset($updateData['version'])){
 	$packageVersion = $updateData['version'];
 }
-if (isset($updateData['url']) && extension_loaded('bz2')) {
+if (isset($updateData['url'])){
 	$packageUrl = $updateData['url'];
 }
 if (!strlen($packageVersion) || !strlen($packageUrl)) {
