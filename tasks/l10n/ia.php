@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Location" => "Loco",
 "More" => "Plus",
 "Delete" => "Deler"
 );

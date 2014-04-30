@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Location" => "Lokacija",
 "More" => "više",
 "Delete" => "Obriši"
 );

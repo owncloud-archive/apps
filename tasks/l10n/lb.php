@@ -1,6 +1,7 @@
 <?php
 $TRANSLATIONS = array(
 "List" => "Lescht",
+"Location" => "Uert",
 "No category" => "Keng Kategorie",
 "1=highest" => "1=héchst",
 "5=medium" => "5=mëttel",
