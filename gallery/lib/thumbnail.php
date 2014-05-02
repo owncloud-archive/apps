@@ -66,8 +66,9 @@ class Thumbnail {
 		if (!is_dir($galleryDir . $dir)) {
 			mkdir($galleryDir . $dir, 0755, true);
 		}
-		$absolutePath = $this->view->getAbsolutePath($imagePath);
-		$this->image = new \OCP\Image(fopen('oc://' . $absolutePath, 'r'));
+		$local = $this->view->getLocalFile($imagePath);
+		$this->image = new \OCP\Image();
+		$this->image->loadFromFile($local);
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
