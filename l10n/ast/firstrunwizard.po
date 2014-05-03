@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# dixebra <davidlopezcastanon@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-28 00:48-0400\n"
-"PO-Revision-Date: 2014-04-27 11:40+0000\n"
-"Last-Translator: Iñigo Varela <ivarela@softastur.org>\n"
+"POT-Creation-Date: 2014-05-03 00:49-0400\n"
+"PO-Revision-Date: 2014-05-02 12:41+0000\n"
+"Last-Translator: dixebra <davidlopezcastanon@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 #: templates/wizard.php:6
 #, php-format
 msgid "Welcome to %s"
-msgstr ""
+msgstr "Afayaivu a %s"
 
 #: templates/wizard.php:8
 msgid ""
@@ -35,19 +36,19 @@ msgstr "Obtener les aplicaciones pa sincronizar ficheros"
 #: templates/wizard.php:26
 #, php-format
 msgid "Connect your desktop apps to %s"
-msgstr ""
+msgstr "Coneuta les tos aplicaciones d'escritoriu a %s"
 
 #: templates/wizard.php:28
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "Coneuta to Calendariu"
 
 #: templates/wizard.php:31
 msgid "Connect your Contacts"
-msgstr ""
+msgstr "Coneuta tos Contautos"
 
 #: templates/wizard.php:34 templates/wizard.php:42
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "Ficheru d'accesu via WebDAV"
 
 #: templates/wizard.php:39
 msgid "Documentation"
@@ -59,7 +60,7 @@ msgid ""
 "There’s more information in the <a target=\"_blank\" "
 "href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
 "href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Hai más información na <a target=\"_blank\" href=\"%s\">documentación y nel nuesu <a target=\"_blank\" href=\"http://owncloud.org\">sitiu web</a>."
 
 #: templates/wizard.php:49
 msgid ""
