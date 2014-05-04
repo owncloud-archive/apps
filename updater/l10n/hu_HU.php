@@ -13,6 +13,8 @@ $TRANSLATIONS = array(
 "Moving files..." => "Fileok mozgatása...",
 "All done. Click to the link below to start database upgrade." => "Minden kész. Kattints ide az adatbázis frissítés megkezdéséhez.",
 "Update failed" => "A frissítés sikertelen",
+"The update was unsuccessful. Please check logs at admin page and report this issue to the <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>." => "A frissítés sikertelen. A naplóbejegyzések elérhetőek az adminisztrációs felületen, az eset az <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud közösség</a>nek is jelezhető .",
+"Proceed" => "Végrehajt",
 "Update Center" => "Frissítés Központ",
 "Backup Management" => "Biztonsági mentések kezelése",
 "Update" => "Frissítés",

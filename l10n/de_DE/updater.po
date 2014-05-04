@@ -7,15 +7,15 @@
 # I Robot, 2012
 # Mario Siegmann <mario_siegmann@web.de>, 2013-2014
 # stefanniedermann <stefan.niedermann@googlemail.com>, 2013
-# traductor <transifex-3.7.mensaje@spamgourmet.com>, 2013
-# traductor <transifex-3.7.mensaje@spamgourmet.com>, 2014
-# traductor <transifex-3.7.mensaje@spamgourmet.com>, 2012
+# traductor, 2013
+# traductor, 2014
+# traductor, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-15 01:03-0500\n"
-"PO-Revision-Date: 2014-01-14 14:16+0000\n"
+"POT-Creation-Date: 2014-05-04 00:49-0400\n"
+"PO-Revision-Date: 2014-05-03 06:11+0000\n"
 "Last-Translator: Mario Siegmann <mario_siegmann@web.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"

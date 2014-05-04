@@ -6,13 +6,14 @@
 # ebela <bela@dandre.hu>, 2013
 # gyeben <gyonkibendeguz@gmail.com>, 2013
 # Laszlo Tornoci <torlasz@gmail.com>, 2013
+# pty <peti@szladovics.hu>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-01-11 00:49-0500\n"
-"PO-Revision-Date: 2014-01-11 05:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-05-04 00:49-0400\n"
+"PO-Revision-Date: 2014-05-03 06:11+0000\n"
+"Last-Translator: pty <peti@szladovics.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,11 +84,11 @@ msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "A frissítés sikertelen. A naplóbejegyzések elérhetőek az adminisztrációs felületen, az eset az <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud közösség</a>nek is jelezhető ."
 
 #: js/controllers.js:30
 msgid "Proceed"
-msgstr ""
+msgstr "Végrehajt"
 
 #: templates/admin.php:17
 msgid "Update Center"

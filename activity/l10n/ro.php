@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Your settings have been updated." => "Setarile au fost actualizate",
 "Activity" => "Activitate",
 "No more activities to load." => "Nu mai sunt activitati de incarcat.",
 "Loading older activities" => "Se incarca activitati mai vechi",
