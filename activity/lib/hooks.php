@@ -35,10 +35,8 @@ class Hooks {
 	 * All other events has to be triggered by the apps.
 	 */
 	public static function register() {
-		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create_legacy');
-		//@todo: owncloud/core#8132: \OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
-		\OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Activity\Hooks', 'file_write');
-		//@todo: owncloud/core#8132: \OCP\Util::connectHook('OC_Filesystem', 'post_update', 'OCA\Activity\Hooks', 'file_update');
+		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
+		\OCP\Util::connectHook('OC_Filesystem', 'post_update', 'OCA\Activity\Hooks', 'file_update');
 		\OCP\Util::connectHook('OC_Filesystem', 'delete', 'OCA\Activity\Hooks', 'file_delete');
 		\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OCA\Activity\Hooks', 'share');
 
@@ -47,31 +45,6 @@ class Hooks {
 		$am->registerConsumer(function() {
 			return new Consumer();
 		});
-	}
-
-	/**
-	 * @brief Store the write hook events
-	 * @param array $params The hook params
-	 */
-	public static function file_write($params) {
-		if ( self::$createhookfired ) {
-			self::add_hooks_for_files(self::$createhookfile, Data::TYPE_SHARE_CREATED, 'created_self', 'created_by');
-
-			self::$createhookfired = false;
-			self::$createhookfile = '';
-		} else {
-			self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, 'changed_self', 'changed_by');
-		}
-	}
-
-	/**
-	 * @brief Store the create hook events
-	 * @param array $params The hook params
-	 */
-	public static function file_create_legacy($params) {
-		// remember the create event for later consumption
-		self::$createhookfired = true;
-		self::$createhookfile = $params['path'];
 	}
 
 	/**
