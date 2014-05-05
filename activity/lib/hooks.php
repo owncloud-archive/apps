@@ -172,7 +172,7 @@ class Hooks {
 		}
 
 		// New shared user
-		$path = '/Shared' . $params['fileTarget'];
+		$path = $params['fileTarget'];
 		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
 			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 		));
@@ -205,7 +205,7 @@ class Hooks {
 		$affectedUsers = array();
 		$usersInGroup = \OC_Group::usersInGroup($params['shareWith']);
 		foreach ($usersInGroup as $user) {
-			$affectedUsers[$user] = '/Shared' . $params['fileTarget'];
+			$affectedUsers[$user] = $params['fileTarget'];
 		}
 
 		if (!empty($affectedUsers)) {
@@ -219,7 +219,7 @@ class Hooks {
 				\OCP\Util::writeLog('OCA\Activity\Hooks::shareFileOrFolderWithGroup', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 			} else {
 				while ($row = $result->fetchRow()) {
-					$affectedUsers[$row['share_with']] = '/Shared' . $row['file_target'];
+					$affectedUsers[$row['share_with']] = $row['file_target'];
 				}
 			}
 
