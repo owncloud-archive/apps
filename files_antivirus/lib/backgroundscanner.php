@@ -85,15 +85,15 @@ class BackgroundScanner {
 	}
 
 	public static function scan($id, $path, $storage) {
-		$fileStatus = Scanner::scanFile($storage, $path);
+		$fileStatus = \OCA\Files_Antivirus\Scanner::scanFile($storage, $path);
 		$result = $fileStatus->getNumericStatus();
 		
 		//TODO: Fix undefined $user here
 		switch($result) {
-			case Status::SCANRESULT_UNCHECKED:
+			case \OCA\Files_Antivirus\Status::SCANRESULT_UNCHECKED:
 				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is not checked', \OCP\Util::ERROR);
 				break;
-			case Status::SCANRESULT_INFECTED:
+			case \OCA\Files_Antivirus\Status::SCANRESULT_INFECTED:
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected, file deleted', \OCP\Util::ERROR);
@@ -103,7 +103,7 @@ class BackgroundScanner {
 					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected', \OCP\Util::ERROR);
 				}
 				break;
-			case Status::SCANRESULT_CLEAN:
+			case \OCA\Files_Antivirus\Status::SCANRESULT_CLEAN:
 				try {
 					$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus` WHERE `fileid` = ?');
 					$result = $stmt->execute(array($id));

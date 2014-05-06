@@ -7,9 +7,11 @@
  */
 
 
-namespace OCA\Files_Antivirus;
+namespace OCA\Files_Antivirus\Scanner;
 
-class Scanner_External extends \OCA\Files_Antivirus\Scanner {
+use OCA\Files_Antivirus\Status;
+
+class External extends \OCA\Files_Antivirus\Scanner {
 	
 	// Daemon/socket mode
 	protected $useSocket;
