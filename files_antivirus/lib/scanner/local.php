@@ -7,9 +7,11 @@
  */
 
 
-namespace OCA\Files_Antivirus;
+namespace OCA\Files_Antivirus\Scanner;
 
-class Scanner_Local extends \OCA\Files_Antivirus\Scanner{
+use OCA\Files_Antivirus\Status;
+
+class Local extends \OCA\Files_Antivirus\Scanner{
 	
 	protected $avPath;
 	

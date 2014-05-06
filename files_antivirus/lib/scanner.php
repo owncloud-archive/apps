@@ -126,13 +126,13 @@ class Scanner {
 				$avMode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
 				switch($avMode) {
 					case 'daemon':
-						self::$instance = new \OCA\Files_Antivirus\Scanner_External(false);
+						self::$instance = new \OCA\Files_Antivirus\Scanner\External(false);
 						break;
 					case 'socket':
-						self::$instance = new \OCA\Files_Antivirus\Scanner_External(true);
+						self::$instance = new \OCA\Files_Antivirus\Scanner\External(true);
 						break;
 					case 'executable':
-						self::$instance = new \OCA\Files_Antivirus\Scanner_Local();
+						self::$instance = new \OCA\Files_Antivirus\Scanner\Local();
 						break;
 					default:
 						self::$instance = false;
