@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Your settings have been updated." => "설정이 업데이트 되었습니다.",
 "Activity" => "활동",
 "No more activities to load." => "불러올 활동이 더 이상 없습니다.",
 "Loading older activities" => "이전 활동 불러오는 중",

@@ -5,14 +5,14 @@
 # Translators:
 # 책읽는달팽 <bjh13579@gmail.com>, 2013
 # Shinjo Park <kde@peremen.name>, 2013
-# 책읽는달팽 <bjh13579@gmail.com>, 2013
+# 책읽는달팽 <bjh13579@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-15 15:03-0400\n"
-"PO-Revision-Date: 2014-04-15 19:03+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-05-07 00:49-0400\n"
+"PO-Revision-Date: 2014-05-05 15:13+0000\n"
+"Last-Translator: 책읽는달팽 <bjh13579@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/settings.php:44
 msgid "Your settings have been updated."
-msgstr ""
+msgstr "설정이 업데이트 되었습니다."
 
 #: appinfo/app.php:31
 msgid "Activity"
