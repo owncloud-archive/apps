@@ -29,7 +29,6 @@ limitations under the License.
 	<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/jquery-migrate-1.2.1.min.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-showpassword.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-tipsy.js')); ?>"></script>
-	<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery.infieldlabel.js')); ?>"></script>
 	<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToRoute('js_config'));?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkTo('core', 'js/js.js')); ?>"></script>
