@@ -1,7 +1,9 @@
 <?php
 $TRANSLATIONS = array(
+"Welcome to %s" => "Добро пожаловать в %s",
 "Your personal web services. All your files, contacts, calendar and more, in one place." => "Ваши персональные веб сервисы. Все файлы, контакты, календарь и многое другое в одном месте.",
 "Get the apps to sync your files" => "Получить приложения для синхронизации ваших файлов",
+"Connect your desktop apps to %s" => "Подключите приложения с компьютера к %s",
 "Connect your Calendar" => "Подключите Ваш календарь",
 "Connect your Contacts" => "Подключите Ваши контакты",
 "Access files via WebDAV" => "Доступ к файлам через WebDAV",
