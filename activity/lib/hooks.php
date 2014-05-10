@@ -128,11 +128,15 @@ class Hooks {
 	 */
 	public static function getSourcePathAndOwner($path) {
 		$uidOwner = \OC\Files\Filesystem::getOwner($path);
-		$fileInfo = \OC\Files\Filesystem::getFileInfo($path);
-		$sourceFileInfo = $fileInfo->getData();
-		$file_path = substr($sourceFileInfo['path'], strlen('files'));
 
-		return array($file_path, $uidOwner);
+		if ($uidOwner != \OCP\User::getUser()) {
+			\OC\Files\Filesystem::initMountPoints($uidOwner);
+			$info = \OC\Files\Filesystem::getFileInfo($path);
+			$ownerView = new \OC\Files\View('/'.$uidOwner.'/files');
+			$path = $ownerView->getPath($info['fileid']);
+		}
+
+		return array($path, $uidOwner);
 	}
 
 	/**
