@@ -13,6 +13,7 @@ $TRANSLATIONS = array(
 "No activities yet." => "Nenhuma actividade para já.",
 "You will see a list of events here when you start to use your %s." => "Vai poder ver a lista de eventos aqui, quando começar a usar a sua %s",
 "Notifications" => "Notificações",
-"Mail" => "Correio"
+"Mail" => "Correio",
+"Stream" => "Fluxo"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

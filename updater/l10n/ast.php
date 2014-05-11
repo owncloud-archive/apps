@@ -1,10 +1,10 @@
 <?php
 $TRANSLATIONS = array(
 "Checking your installation..." => "Comprobando la to instalación...",
-"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Nun se pudo anovar la versión.  Comprueba que'l to servidor web tien permisu d'escritura a los siguientes ficheros y carpetes:",
+"Upgrade is not possible. Make sure that your webserver has write access to the following files and directories:" => "Nun se pudo anovar la versión.  Comprueba que'l to sirvidor web tien permisu d'escritura a los siguientes ficheros y carpetes:",
 "Version not found" => "Nun s'atopó la versión",
-"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Nun se puede anovar la versión.  El to servidor web nun tien abondos permisos pa desaniciar la siguiente carpeta:",
-"Update permissions on this directory and its content or remove it manually first." => "Anova los permisos nesta carpeta y nel so conteníu o desaniciala manualmente enantes.",
+"Upgrade is not possible. Your webserver has not enough permissions to remove the following directory:" => "Nun se pue anovar la versión.  El to sirvidor web nun tien abondos permisos pa desaniciar la siguiente carpeta:",
+"Update permissions on this directory and its content or remove it manually first." => "Anueva los permisos nesta carpeta y nel so conteníu o desaníciala manualmente enantes.",
 "Downloading package..." => "Descargando'l paquete...",
 "Unable to fetch package" => "Nun se pudo traer el paquete",
 "Creating backup..." => "Creando copia de seguridá...",
