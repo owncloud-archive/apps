@@ -165,7 +165,7 @@ class Archive extends Common {
 		}
 		$path = $params['path'];
 		if (!self::$rootView) {
-			self::$rootView = new \OC_FilesystemView('');
+			self::$rootView = new \OC\Files\View('');
 		}
 		self::$enableAutomount=false;//prevent recursion
 		$supported = array('zip', 'tar.gz', 'tar.bz2', 'tgz');
