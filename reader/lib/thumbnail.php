@@ -15,7 +15,7 @@
 		if (file_exists($thumb_path.$path)) {
 			return new \OC_Image($thumb_path.$path);
 		}
-		if (!\OC_Filesystem::file_exists($path)) {
+		if (!\OC\Files\Filesystem::file_exists($path)) {
 			return false;
 		}
 	}
