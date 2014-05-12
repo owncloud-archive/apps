@@ -56,12 +56,6 @@ source_file = templates/external.pot
 source_lang = en
 type = PO
 
-[owncloud.updater]
-file_filter = <lang>/updater.po
-source_file = templates/updater.pot
-source_lang = en
-type = PO
-
 [owncloud.ownpad_lite]
 file_filter = <lang>/ownpad_lite.po
 source_file = templates/ownpad_lite.pot
@@ -71,12 +65,6 @@ type = PO
 [owncloud.files_antivirus]
 file_filter = <lang>/files_antivirus.po
 source_file = templates/files_antivirus.pot
-source_lang = en
-type = PO
-
-[owncloud.firstrunwizard]
-file_filter = <lang>/firstrunwizard.po
-source_file = templates/firstrunwizard.pot
 source_lang = en
 type = PO
 
