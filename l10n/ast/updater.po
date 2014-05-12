@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-11 00:49-0400\n"
-"PO-Revision-Date: 2014-05-10 14:20+0000\n"
+"POT-Creation-Date: 2014-05-12 00:49-0400\n"
+"PO-Revision-Date: 2014-05-11 15:51+0000\n"
 "Last-Translator: Iñigo Varela <ivarela@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgid ""
 "The update was unsuccessful. Please check logs at admin page and report this"
 " issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
 "target=\"_blank\">ownCloud community</a>."
-msgstr ""
+msgstr "L'anovamientu falló. Por favor, revisa la razón del fallu nel log de la páxina d'almin y reporta esti problema a la <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">Comunidá de ownCloud</ a>."
 
 #: js/controllers.js:30
 msgid "Proceed"
@@ -110,7 +110,7 @@ msgstr "Copia de seguridá"
 
 #: templates/update.php:28
 msgid "Done on"
-msgstr ""
+msgstr "Fecho en"
 
 #: templates/update.php:34 templates/update.php:35
 msgid "Download"

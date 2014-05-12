@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Iñigo Varela <ivarela@softastur.org>, 2014
 # Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-28 00:48-0400\n"
-"PO-Revision-Date: 2014-04-27 10:52+0000\n"
+"POT-Creation-Date: 2014-05-12 00:49-0400\n"
+"PO-Revision-Date: 2014-05-11 16:10+0000\n"
 "Last-Translator: Iñigo Varela <ivarela@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -20,25 +21,25 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Hola {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Sentímoslo, pero deteutóse un malware nun ficheru que quies xubir y tuvo que desaniciase."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Esti corréu-e ye una notificación de {host}. Por favor, nun contestes al mensaxe."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Ficheru xubíu: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Axustes d'Antivirus"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -54,15 +55,15 @@ msgstr "Degorriu"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
-msgstr ""
+msgstr "Degorriu (Socket)"
 
 #: templates/settings.php:7
 msgid "Socket"
-msgstr ""
+msgstr "Socket"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr ""
+msgstr "Clamav Socket."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
@@ -75,7 +76,7 @@ msgstr "Equipu"
 
 #: templates/settings.php:8
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Direición del Host del Antivirus. "
 
 #: templates/settings.php:9
 msgid "Port"
@@ -83,23 +84,23 @@ msgstr "Puertu"
 
 #: templates/settings.php:9
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Númberu de puertu del Host del Antivirus"
 
 #: templates/settings.php:10
 msgid "Stream Length"
-msgstr ""
+msgstr "Llonxitú de la tresmisión"
 
 #: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "Valor StreamMaxLength del ClamAV en bytes."
 
 #: templates/settings.php:11
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Camín al clamscan"
 
 #: templates/settings.php:11
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Camín al executable clamscan."
 
 #: templates/settings.php:11
 msgid "Not required in Daemon Mode."
@@ -107,11 +108,11 @@ msgstr "Nun se requier nel mou degorriu."
 
 #: templates/settings.php:12
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Aición pa los ficheros infectaos que s'atopen mientres l'escanéu"
 
 #: templates/settings.php:13
 msgid "Only log"
-msgstr ""
+msgstr "Namái rexistrar"
 
 #: templates/settings.php:13
 msgid "Delete file"

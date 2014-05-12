@@ -5,12 +5,13 @@
 # Translators:
 # dixebra <davidlopezcastanon@gmail.com>, 2014
 # Iñigo Varela <ivarela@softastur.org>, 2014
+# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-11 00:49-0400\n"
-"PO-Revision-Date: 2014-05-10 14:20+0000\n"
+"POT-Creation-Date: 2014-05-12 00:49-0400\n"
+"PO-Revision-Date: 2014-05-11 16:00+0000\n"
 "Last-Translator: Iñigo Varela <ivarela@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +29,7 @@ msgstr "Bienllegáu a %s"
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "La to web de servicios personal. Tolos tos ficheros, contautos, calendariu y más, nun llugar."
 
 #: templates/wizard.php:14
 msgid "Get the apps to sync your files"
@@ -68,4 +69,4 @@ msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "Si te presta ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">recomiénda-yoslu a los tos collacios</a>!"

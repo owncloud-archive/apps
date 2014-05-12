@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-04 00:49-0400\n"
-"PO-Revision-Date: 2014-05-03 06:11+0000\n"
+"POT-Creation-Date: 2014-05-12 00:49-0400\n"
+"PO-Revision-Date: 2014-05-11 05:50+0000\n"
 "Last-Translator: សុវិចិត្រ Sovichet ទេព Tep\n"
 "Language-Team: Khmer (http://www.transifex.com/projects/p/owncloud/language/km/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "កំពុង​ពិនិត្យ​ការ​ដំឡើង​
 msgid ""
 "Upgrade is not possible. Make sure that your webserver has write access to "
 "the following files and directories:"
-msgstr ""
+msgstr "មិន​អាច​ធ្វើ​វិសិដ្ឋកម្ម​បាន​ទេ។ សូម​ប្រាកដ​ថា​ម៉ាស៊ីន​ប្រើ​វេប​របស់​អ្នក​មាន​សិទ្ធិ​សរសេរ​ចំពោះ​ឯកសារ​និង​ទីតាំង​ទាំង​នេះ៖"
 
 #: ajax/update.php:58
 msgid "Version not found"
@@ -36,7 +36,7 @@ msgstr "រក​មិន​ឃើញ​កំណែ"
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
-msgstr ""
+msgstr "មិន​អាច​ធ្វើ​វិសិដ្ឋកម្ម​បានទេ។ ម៉ាស៊ីន​បម្រើ​វេប​របស់​អ្នក​មិន​មាន​សិទ្ធិ​គ្រប់​គ្រាន់ ដើម្បី​លុប​ទីតាំង​ទាំង​នេះ​ទេ៖"
 
 #: ajax/update.php:67 ajax/update.php:75
 msgid ""
@@ -70,7 +70,7 @@ msgstr "កំពុង​ផ្លាស់​ទី​ឯកសារ..."
 
 #: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
-msgstr ""
+msgstr "រួច​អស់​ហើយ។ ចុច​តំណ​ខាង​ក្រោម ដើម្បី​ចាប់​ផ្ដើម​ធ្វើ​វិសិដ្ឋកម្ម​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #: ajax/update.php:109
 msgid "Update failed"
