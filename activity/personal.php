@@ -26,18 +26,15 @@ OCP\Util::addScript('activity', 'settings');
 OCP\Util::addStyle('activity', 'settings');
 
 $l=OC_L10N::get('activity');
-$notify_email = unserialize(OCP\Config::getUserValue(OCP\User::getUser(), 'activity', 'notify_email', serialize(\OCA\Activity\Data::getUserDefaultSetting('email'))));
-$notify_stream = unserialize(OCP\Config::getUserValue(OCP\User::getUser(), 'activity', 'notify_stream', serialize(\OCA\Activity\Data::getUserDefaultSetting('stream'))));
 $types = \OCA\Activity\Data::getNotificationTypes($l);
 
+$user = OCP\User::getUser();
 $activities = array();
-foreach ($types as $type => $data) {
-	$checked_email = array_intersect($data['types'], $notify_email);
-	$checked_stream = array_intersect($data['types'], $notify_stream);
+foreach ($types as $type => $desc) {
 	$activities[$type] = array(
-		'desc'		=> $data['desc'],
-		'email'		=> !empty($checked_email),
-		'stream'	=> !empty($checked_stream),
+		'desc'		=> $desc,
+		'email'		=> \OCA\Activity\Data::getUserSetting($user, 'email', $type),
+		'stream'	=> \OCA\Activity\Data::getUserSetting($user, 'stream', $type),
 	);
 }
 

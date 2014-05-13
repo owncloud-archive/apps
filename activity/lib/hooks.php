@@ -3,7 +3,7 @@
 /**
  * ownCloud - Activities App
  *
- * @author Frank Karlitschek
+ * @author Frank Karlitschek, Joas Schilling
  * @copyright 2013 Frank Karlitschek frank@owncloud.org
  *
  * This library is free software; you can redistribute it and/or
@@ -21,14 +21,12 @@
  *
  */
 
-
 namespace OCA\Activity;
 
 /**
  * @brief The class to handle the filesystem hooks
  */
 class Hooks {
-	
 	public static $createhookfired = false;
 	public static $createhookfile = '';
 
@@ -37,87 +35,16 @@ class Hooks {
 	 * All other events has to be triggered by the apps.
 	 */
 	public static function register() {
-
-		//Listen to create file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_create', "OCA\Activity\Hooks", "file_create");
-
-		//Listen to delete file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'delete', "OCA\Activity\Hooks", "file_delete");
-
-		//Listen to write file signal
-		\OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Activity\Hooks", "file_write");
-
-		//Listen to share signal
-		\OCP\Util::connectHook('OCP\Share', 'post_shared', "OCA\Activity\Hooks", "share");
+		\OCP\Util::connectHook('OC_Filesystem', 'post_create', 'OCA\Activity\Hooks', 'file_create');
+		\OCP\Util::connectHook('OC_Filesystem', 'post_update', 'OCA\Activity\Hooks', 'file_update');
+		\OCP\Util::connectHook('OC_Filesystem', 'delete', 'OCA\Activity\Hooks', 'file_delete');
+		\OCP\Util::connectHook('OCP\Share', 'post_shared', 'OCA\Activity\Hooks', 'share');
 
 		// hooking up the activity manager
-		if (property_exists('OC', 'server')) {
-			if (method_exists(\OC::$server, 'getActivityManager')) {
-				$am = \OC::$server->getActivityManager();
-				$am->registerConsumer(function() {
-					return new Consumer();
-				});
-			}
-		}
-	}
-
-	/**
-	 * @brief Store the write hook events
-	 * @param array $params The hook params
-	 */
-	public static function file_write($params) {
-		if( self::$createhookfired ) {
-			$params['path'] = self::$createhookfile;
-
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-			$subject = '%s created';// Add to l10n: $l->t('%s created');
-			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 3);
-
-			if(substr($params['path'],0,8)=='/Shared/') {
-				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
-				$realfile=substr($params['path'],7);
-				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-				$subject = '%s created by %s';// Add to l10n: $l->t('%s created by %s');
-				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 8, Data::PRIORITY_HIGH);
-			}
-			self::$createhookfired = false;
-			self::$createhookfile = '';
-			
-		} else {
-
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-			$subject = '%s changed';// Add to l10n: $l->t('%s changed');
-			Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 1);
-		
-			if(substr($params['path'],0,8)=='/Shared/') {
-				$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
-				$realfile=substr($params['path'],7);
-				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-				$subject = '%s changed by %s';// Add to l10n: $l->t('%s changed by %s');
-				Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 6, Data::PRIORITY_HIGH);
-			}
-		}
-		
-	}
-
-	/**
-	 * @brief Store the delete hook events
-	 * @param array $params The hook params
-	 */
-	public static function file_delete($params) {
-
-		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['path'])));
-		$subject = '%s deleted';// Add to l10n: $l->t('%s deleted');
-		Data::send('files', $subject, substr($params['path'], 1), '', array(), $params['path'], $link, \OCP\User::getUser(), 2);
-
-		if(substr($params['path'],0,8)=='/Shared/') {
-			$uidOwner = \OC\Files\Filesystem::getOwner($params['path']);
-			$realfile=substr($params['path'],7);
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($realfile)));
-			$subject = '%s deleted by %s';// Add to l10n: $l->t('%s deleted by %s');
-			Data::send('files', $subject, array($realfile,\OCP\User::getUser()), '', array(), $realfile, $link, $uidOwner, 7, Data::PRIORITY_HIGH);
-		}
-
+		$am = \OC::$server->getActivityManager();
+		$am->registerConsumer(function() {
+			return new Consumer();
+		});
 	}
 
 	/**
@@ -125,41 +52,259 @@ class Hooks {
 	 * @param array $params The hook params
 	 */
 	public static function file_create($params) {
-
-		// remember the create event for later consumption
-		self::$createhookfired = true;
-		self::$createhookfile = $params['path'];
-
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CREATED, 'created_self', 'created_by');
 	}
 
 	/**
-	 * @brief Store the share events
+	 * @brief Store the update hook events
+	 * @param array $params The hook params
+	 */
+	public static function file_update($params) {
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_CHANGED, 'changed_self', 'changed_by');
+	}
+
+	/**
+	 * @brief Store the delete hook events
+	 * @param array $params The hook params
+	 */
+	public static function file_delete($params) {
+		self::add_hooks_for_files($params['path'], Data::TYPE_SHARE_DELETED, 'deleted_self', 'deleted_self');
+	}
+
+	/**
+	 * Creates the entries for file actions on $file_path
+	 *
+	 * @param string $file_path        The file that is being changed
+	 * @param int    $activity_type    The activity type
+	 * @param string $subject          The subject for the actor
+	 * @param string $subject_by       The subject for other users (with "by $actor")
+	 */
+	public static function add_hooks_for_files($file_path, $activity_type, $subject, $subject_by) {
+		// Do not add activities for .part-files
+		if (substr($file_path, -5) === '.part') {
+			return;
+		}
+
+		$affectedUsers = self::getUserPathsFromPath($file_path);
+		$filteredStreamUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
+
+		foreach ($affectedUsers as $user => $path) {
+			if (empty($filteredStreamUsers[$user])) {
+				continue;
+			}
+
+			if ($user === \OCP\User::getUser()) {
+				$user_subject = $subject;
+				$user_params = array($path);
+			} else {
+				$user_subject = $subject_by;
+				$user_params = array($path, \OCP\User::getUser());
+			}
+			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($path)));
+
+			if (!empty($filteredStreamUsers[$user])) {
+				// Add activities to stream
+				Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
+			}
+		}
+	}
+
+	/**
+	 * Returns a "username => path" map for all affected users
+	 *
+	 * @param string $path
+	 * @return array
+	 */
+	public static function getUserPathsFromPath($path) {
+		list($file_path, $uidOwner) = self::getSourcePathAndOwner($path);
+		return \OCP\Share::getUsersSharingFile($file_path, $uidOwner, true, true);
+	}
+
+	/**
+	 * Return the source
+	 *
+	 * @param string $path
+	 * @return array
+	 */
+	public static function getSourcePathAndOwner($path) {
+		$uidOwner = \OC\Files\Filesystem::getOwner($path);
+
+		if ($uidOwner != \OCP\User::getUser()) {
+			\OC\Files\Filesystem::initMountPoints($uidOwner);
+			$info = \OC\Files\Filesystem::getFileInfo($path);
+			$ownerView = new \OC\Files\View('/'.$uidOwner.'/files');
+			$path = $ownerView->getPath($info['fileid']);
+		}
+
+		return array($path, $uidOwner);
+	}
+
+	/**
+	 * @brief Manage sharing events
 	 * @param array $params The hook params
 	 */
 	public static function share($params) {
-
 		if ($params['itemType'] === 'file' || $params['itemType'] === 'folder') {
-	
-			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['fileTarget'])));
-			$link2 = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname('/Shared/'.$params['fileTarget'])));
-
-			$sharedFrom = \OCP\User::getUser();
-			$shareWith = $params['shareWith'];
-
-			if(!empty($shareWith)) {
-				$subject = 'You shared %s with %s';// Add to l10n: $l->t('You shared %s with %s');
-				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
-			
-				$subject = '%s shared %s with you';// Add to l10n: $l->t('%s shared %s with you');
-				Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, Data::PRIORITY_MEDIUM);
+			if ($params['shareWith']) {
+				if ($params['shareType'] == \OCP\Share::SHARE_TYPE_USER) {
+					self::shareFileOrFolderWithUser($params);
+				} else if ($params['shareType'] == \OCP\Share::SHARE_TYPE_GROUP) {
+					self::shareFileOrFolderWithGroup($params);
+				}
 			} else {
-				$subject = 'You shared %s';// Add to l10n: $l->t('You shared %s');
-				Data::send('files', $subject, array(substr($params['fileTarget'], 1)), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
+				self::shareFileOrFolder($params);
 			}
-			
 		}
-
 	}
 
+	/**
+	 * @brief Sharing a file or folder with a user
+	 * @param array $params The hook params
+	 */
+	public static function shareFileOrFolderWithUser($params) {
+		$file_path = \OC\Files\Filesystem::getPath($params['fileSource']);
+		list($path, $uidOwner) = self::getSourcePathAndOwner($file_path);
 
+		// Folder owner
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+
+		// Add activity to stream
+		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', 'shared_user_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		}
+
+		// New shared user
+		$path = $params['fileTarget'];
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+
+		// Add activity to stream
+		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		}
+	}
+
+	/**
+	 * @brief Sharing a file or folder with a group
+	 * @param array $params The hook params
+	 */
+	public static function shareFileOrFolderWithGroup($params) {
+		$file_path = \OC\Files\Filesystem::getPath($params['fileSource']);
+		list($path, $uidOwner) = self::getSourcePathAndOwner($file_path);
+
+		// Folder owner
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+
+		// Add activity to stream
+		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', 'shared_group_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
+		}
+
+		// Members of the new group
+		$affectedUsers = array();
+		$usersInGroup = \OC_Group::usersInGroup($params['shareWith']);
+		foreach ($usersInGroup as $user) {
+			$affectedUsers[$user] = $params['fileTarget'];
+		}
+
+		if (!empty($affectedUsers)) {
+			$filteredStreamUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
+
+			// Check when there was a naming conflict and the target is different
+			// for some of the users
+			$query = \OC_DB::prepare('SELECT `share_with`, `file_target` FROM `*PREFIX*share` WHERE `parent` = ? ');
+			$result = $query->execute(array($params['id']));
+			if (\OCP\DB::isError($result)) {
+				\OCP\Util::writeLog('OCA\Activity\Hooks::shareFileOrFolderWithGroup', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			} else {
+				while ($row = $result->fetchRow()) {
+					$affectedUsers[$row['share_with']] = $row['file_target'];
+				}
+			}
+
+			foreach ($affectedUsers as $user => $path) {
+				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+				));
+
+				// Add activity to stream
+				if (!empty($filteredStreamUsersInGroup[$user])) {
+					Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+				}
+			}
+		}
+	}
+
+	/**
+	 * @brief Sharing a file or folder via link/public
+	 * @param array $params The hook params
+	 */
+	public static function shareFileOrFolder($params) {
+		$path = \OC\Files\Filesystem::getPath($params['fileSource']);
+		$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
+			'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
+		));
+
+		if (Data::getUserSetting(\OCP\User::getUser(), 'stream', Data::TYPE_SHARED)) {
+			Data::send('files', 'shared_link_self', array($path), '', array(), $path, $link, \OCP\User::getUser(), Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		}
+	}
+
+	/**
+	 * Filters the given user array by their notification setting
+	 *
+	 * @param array $users
+	 * @param string $method
+	 * @param string $type
+	 * @return array
+	 */
+	public static function filterUsersBySetting($users, $method, $type) {
+		if (empty($users) || !is_array($users)) return array();
+
+		$filteredUsers = array();
+
+		$chunked_users = array_chunk($users, 50, true);
+		$placeholders_50 = implode(',', array_fill(0, 50, '?'));
+
+		foreach ($chunked_users as $chunk) {
+			$placeholders = (sizeof($chunk) == 50) ? $placeholders_50 : implode(',', array_fill(0, sizeof($chunk), '?'));
+
+			$query = \OCP\DB::prepare(
+				'SELECT `userid`, `configvalue` '
+				. ' FROM `*PREFIX*preferences` '
+				. ' WHERE `appid` = ? AND `configkey` = ? AND `userid` IN (' . $placeholders . ')');
+			$result = $query->execute(array_merge(array(
+				'activity',
+				'notify_' . $method . '_' . $type,
+			), $chunk));
+
+			if (\OCP\DB::isError($result)) {
+				\OCP\Util::writeLog('OCA\Activity\Hooks::filterUsersBySetting', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			} else {
+				while ($row = $result->fetchRow()) {
+					if ($row['configvalue']) {
+						$filteredUsers[$row['userid']] = true;
+					}
+					unset($users[array_search($row['userid'], $chunk)]);
+				}
+			}
+		}
+
+		if (!empty($users)) {
+			// If the setting is enabled by default,
+			// we add all users that didn't set the preference yet.
+			if (\OCA\Activity\Data::getUserDefaultSetting($method, $type)) {
+				foreach ($users as $user) {
+					$filteredUsers[$user] = true;
+				}
+			}
+		}
+
+		return $filteredUsers;
+	}
 }
