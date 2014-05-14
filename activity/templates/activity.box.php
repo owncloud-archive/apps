@@ -28,8 +28,7 @@
 					<?php endif ?>
 				<?php endforeach ?>
 			</ul>
-		<?php endif ?>
-		<?php if (!$_['isGrouped']): ?>
+		<?php else: ?>
 			<?php if ($_['event']['link']): ?><a href="<?php p($_['event']['link']) ?>"><?php endif ?>
 			<div class="activity-icon <?php p($_['typeIcon']) ?>"></div>
 			<div class="activitysubject" title="<?php p($_['event']['subject']) ?>">
