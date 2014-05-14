@@ -29,6 +29,9 @@ namespace OCA\Activity\BackgroundJob;
  * @package OCA\Activity\BackgroundJob
  */
 class EmailNotification extends \OC\BackgroundJob\TimedJob {
+	const CLI_EMAIL_BATCH_SIZE = 500;
+	const WEB_EMAIL_BATCH_SIZE = 25;
+
 	/** @var \OCA\Activity\MailQueueHandler */
 	protected $mq_handler;
 
@@ -40,9 +43,25 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 	}
 
 	protected function run($argument) {
-		// If we are in CLI mode, we just send all emails
-		$limit = (\OC::$CLI) ? null : 25;
+		if (\OC::$CLI) {
+			do {
+				// If we are in CLI mode, we keep sending emails
+				// until we are done.
+				$emails_sent = $this->runStep(self::CLI_EMAIL_BATCH_SIZE);
+			} while ($emails_sent === self::CLI_EMAIL_BATCH_SIZE);
+		} else {
+			// Only send 25 Emails in one go for web cron
+			$this->runStep(self::WEB_EMAIL_BATCH_SIZE);
+		}
+	}
 
+	/**
+	 * Send an email to {$limit} users
+	 *
+	 * @param int $limit Number of users we want to send an email to
+	 * @return int Number of users we sent an email to
+	 */
+	protected function runStep($limit) {
 		// Get all users which should receive an email
 		$affected_users = $this->mq_handler->getAffectedUsers($limit);
 
@@ -60,5 +79,7 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 
 		// Delete all entries we dealed with
 		$this->mq_handler->deleteSentItems($affected_users, $send_time);
+
+		return sizeof($affected_users);
 	}
 }
