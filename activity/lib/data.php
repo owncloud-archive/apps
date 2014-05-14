@@ -204,16 +204,18 @@ class Data
 	 * @param bool $highlight_params Shall we highlight the parameters in the string?
 	 *             They will be highlighted with `<strong>`, all data will be passed through
 	 *             \OC_Util::sanitizeHTML() before, so no XSS is possible.
+	 * @param \OC_L10N $l Language object, if you want to use a different language (f.e. to send an email)
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
+	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false, \OC_L10N $l = null) {
 		if (!$text) {
 			return '';
 		}
+		if ($l === null) {
+			$l = \OCP\Util::getL10N('activity');
+		}
 
 		if ($app === 'files') {
-
-			$l = \OCP\Util::getL10N('activity');
 			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path, $highlight_params);
 			if ($text === 'created_self') {
 				return $l->t('You created %1$s', $params);
