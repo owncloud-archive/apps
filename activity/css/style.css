@@ -150,11 +150,6 @@
 	color: #555;
 }
 
-.activity-section .messagecontainer ul,
-.activity-section .messagecontainer div.activitysubject {
-	vertical-align: top;
-}
-
 /* colored icons, in addition to core ones */
 .activity-icon {
 	min-width: 16px;

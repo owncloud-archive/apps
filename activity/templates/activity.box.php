@@ -14,7 +14,7 @@
 			<div class="activity-icon <?php p($_['typeIcon']) ?>"></div>
 			<ul class="activitysubject grouped">
 				<?php foreach($_['event']['events'] as $subEvent):?>
-					<li title="<?php p($subEvent['subject_long']) ?>">
+					<li class="activitysubject" title="<?php p($subEvent['subject_long']) ?>">
 						<?php if ($subEvent['link']): ?><a href="<?php p($subEvent['link']) ?>"><?php endif ?>
 						<?php print_unescaped(str_replace(
 							array('{{beginparamhighlight}}', '{{endparamhighlight}}'),
