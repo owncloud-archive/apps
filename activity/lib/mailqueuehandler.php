@@ -91,6 +91,14 @@ class MailQueueHandler {
 		return $user_activity_map;
 	}
 
+	public function sendEmailToUser($user, $mail_data) {
+		\OCP\Util::writeLog(
+			'activity',
+			'Send email to user ' . $user . ' with ' . sizeof($mail_data) . 'emails',
+			\OCP\Util::FATAL
+		);
+	}
+
 	/**
 	 * Delete all entries we dealed with
 	 *

@@ -55,12 +55,7 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 
 		// Send Email
 		foreach ($mail_data as $affected_user => $user_mail_data) {
-			\OCP\Util::writeLog(
-				'activity',
-				'Send email to user ' . $affected_user . ' with ' . sizeof($user_mail_data) . 'emails',
-				\OCP\Util::FATAL
-			);
-			// $this->mq_handler->sendEmailToUser($affected_user, $user_mail_data);
+			$this->mq_handler->sendEmailToUser($affected_user, $user_mail_data);
 		}
 
 		// Delete all entries we dealed with
