@@ -12,7 +12,7 @@
 
 ?>
 <?php $data = OC_Updater::check(); ?>
-<?php $isNewVersionAvailable = isset($data['version']) &&  && $data['version'] != '' && $data['version'] !== Array() ?>
+<?php $isNewVersionAvailable = isset($data['version']) && $data['version'] != '' && $data['version'] !== Array() ?>
 <div id="updater-content" ng-app="updater" ng-init="navigation='backup'">
 	<ul ng-model="navigation">
 		<li ng-click="navigation='backup'" ng-class="{current : navigation=='backup'}"><?php p($l->t('Backup Management')) ?></li>
