@@ -104,6 +104,11 @@
 	margin-left: 24px;
 }
 
+.box .preview-dir-icon{
+	width: 32px;
+	height: 32px;
+}
+
 .box .user{
 	white-space: nowrap;
 	overflow: hidden;

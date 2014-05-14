@@ -337,9 +337,11 @@ class Data
 		$rootView = new \OC\Files\View('');
 		if ($event['file'] !== null){
 			$exist = $rootView->file_exists('/' . $event['user'] . '/files' . $event['file']);
+			$is_dir = $rootView->is_dir('/' . $event['user'] . '/files' . $event['file']);
 			unset($rootView);
+
 			// show a preview image if the file still exists
-			if ($exist) {
+			if (!$is_dir && $exist) {
 				$tmpl->assign('previewImageLink',
 					\OCP\Util::linkToRoute('core_ajax_preview', array(
 						'file' => $event['file'],
@@ -347,6 +349,9 @@ class Data
 						'y' => 150,
 					))
 				);
+			} else if ($exist) {
+				$tmpl->assign('previewImageLink', \OC_Helper::mimetypeIcon('dir'));
+				$tmpl->assign('previewLinkIsDir', true);
 			}
 		}
 
