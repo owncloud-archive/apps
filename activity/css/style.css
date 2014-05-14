@@ -152,12 +152,16 @@
 	min-width: 16px;
 	min-height: 16px;
 	display: inline-block;
+	vertical-align: top;
 }
 .icon-add-color {
 	background-image: url('../img/add-color.svg');
 }
-.icon-change-color {
-	background-image: url('../img/change-color.svg');
+.icon-change {
+	background-image: url('../img/change.svg');
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: .5;
 }
 .icon-delete-color {
 	background-image: url('../img/delete-color.svg');

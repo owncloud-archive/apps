@@ -362,7 +362,7 @@ class Data
 		switch ($type)
 		{
 			case self::TYPE_SHARE_CHANGED:
-				return 'icon-change-color';
+				return 'icon-change';
 			case self::TYPE_SHARE_CREATED:
 				return 'icon-add-color';
 			case self::TYPE_SHARE_DELETED:
