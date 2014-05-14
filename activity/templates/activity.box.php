@@ -11,6 +11,7 @@
 	<div class="messagecontainer">
 		<?php if ($_['isGrouped']): ?>
 			<?php $count = 0; ?>
+			<?php if (!empty($_['typeIcon'])): ?><div class="activity-icon <?php p($_['typeIcon']) ?>"></div><?php endif ?>
 			<ul class="activitysubject grouped">
 				<?php foreach($_['event']['events'] as $subEvent):?>
 					<li title="<?php p($subEvent['subject']) ?>">
