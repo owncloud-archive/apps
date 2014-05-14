@@ -155,6 +155,10 @@ class Data
 	 * @param string $text The text including placeholders
 	 * @param array $params The parameter for the placeholder
 	 * @param bool $strip_path Shall we strip the path from file names?
+	 * @param bool $highlight_params Shall we highlight the parameters in the string?
+	 *             They are marked with {{beginparamhighlight}} and {{endparamhighlight}}
+	 *             so you can replace it with your prefered html tags after sanitizeHTML
+	 *             has been called
 	 * @return string translated
 	 */
 	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
