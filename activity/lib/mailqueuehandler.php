@@ -76,7 +76,9 @@ class MailQueueHandler {
 			'SELECT * '
 			. ' FROM `*PREFIX*activity_mq` '
 			. ' WHERE `amq_timestamp` <= ? '
-			. ' AND `amq_affecteduser` IN (' . $placeholders . ')');
+			. ' AND `amq_affecteduser` IN (' . $placeholders . ')'
+			. ' ORDER BY `amq_timestamp`'
+		);
 		$result = $query->execute($query_params);
 
 		$user_activity_map = array();
