@@ -30,6 +30,15 @@ namespace OCA\Activity;
  * @package OCA\Activity
  */
 class MailQueueHandler {
+	/** @var array */
+	protected $languages;
+
+	/** @var string */
+	protected $sender_address;
+
+	/** @var string */
+	protected $sender_name;
+
 	/**
 	 * Get the users we want to send an email to
 	 *
@@ -70,7 +79,7 @@ class MailQueueHandler {
 	public function getItemsForUsers($affected_users, $max_time) {
 		$placeholders = implode(',', array_fill(0, sizeof($affected_users), '?'));
 		$query_params = $affected_users;
-		$query_params = array_unshift($query_params, (int) $max_time);
+		array_unshift($query_params, (int) $max_time);
 
 		$query = \OCP\DB::prepare(
 			'SELECT * '
@@ -93,12 +102,107 @@ class MailQueueHandler {
 		return $user_activity_map;
 	}
 
-	public function sendEmailToUser($user, $mail_data) {
-		\OCP\Util::writeLog(
-			'activity',
-			'Send email to user ' . $user . ' with ' . sizeof($mail_data) . 'emails',
-			\OCP\Util::FATAL
+	/**
+	 * Get a language object for a specific language
+	 *
+	 * @param string $lang Language identifier
+	 * @return \OC_L10N Language object of $lang
+	 */
+	protected function getLanguage($lang) {
+		if (!isset($this->languages[$lang])) {
+			$this->languages[$lang] = \OC_L10N::get('activity', $lang);
+		}
+
+		return $this->languages[$lang];
+	}
+
+	/**
+	 * Get the sender data
+	 * @param string $setting Either `email` or `name`
+	 * @return string
+	 */
+	protected function getSenderData($setting) {
+		if (empty($this->sender_address)) {
+			$this->sender_address = \OCP\Util::getDefaultEmailAddress('no-reply');
+		}
+		if (empty($this->sender_name)) {
+			$defaults = new \OC_Defaults();
+			$this->sender_name = $defaults->getName();
+		}
+
+		if ($setting === 'email') {
+			return $this->sender_address;
+		}
+		return $this->sender_name;
+	}
+
+	/**
+	 * Get the language string for a timeframe
+	 * However we are not very accurate here, so we match the setting of the user
+	 * a bit better
+	 *
+	 * @param \OC_L10N $l
+	 * @param int      $timestamp
+	 * @return \OC_L10N_String
+	 */
+	protected function getLangForApproximatedTimeframe(\OC_L10N $l, $timestamp) {
+		if (time() - $timestamp < 4000) {
+			return $l->t('in the last hour');
+		} else if (time() - $timestamp < 90000) {
+			return $l->t('in the last day');
+		} else {
+			return $l->t('in the last week');
+		}
+	}
+
+	/**
+	 * Send a notification to one user
+	 *
+	 * @param string $user Username of the recipient
+	 * @param string $email Email address of the recipient
+	 * @param string $lang Selected language of the recipient
+	 * @param array $mail_data Notification data we send to the user
+	 */
+	public function sendEmailToUser($user, $email, $lang, $mail_data) {
+		$l = $this->getLanguage($lang);
+
+		$activity_list = array();
+		foreach ($mail_data as $activity) {
+			$activity_list[] = \OCA\Activity\Data::translation(
+				$activity['amq_appid'], $activity['amq_subject'], unserialize($activity['amq_subjectparams']),
+				false, false, $l
+			);
+		}
+		$activity_list = implode("\n", $activity_list);
+
+		$email_text = $l->t(
+			'Hello %1$s,' . "\n"
+			. "\n"
+			. 'You receive this email because %2$s the following things happened at %3$s' . "\n"
+			. "\n"
+			. '%4$s' . "\n",
+			array(
+				$user,
+				$this->getLangForApproximatedTimeframe($l, $mail_data[0]['amq_timestamp']),
+				'owncloud', // @todo: Replace with oC URL
+				$activity_list,
+			)
 		);
+
+		// @todo Remove log after testing
+		\OCP\Util::writeLog('activity', 'Send email to user ' . $user . ' with text: ' . $email_text, \OCP\Util::FATAL);
+
+		try {
+			\OC_Mail::send(
+				$email, $user,
+				$l->t('Activity notification'), $email_text,
+				$this->getSenderData('email'), $this->getSenderData('name')
+			);
+		} catch (\Exception $e) {
+			$message = $l->t('A problem occurred while sending the e-mail. Please revisit your settings.');
+			\OC_JSON::error( array( "data" => array( "message" => $message)) );
+			exit;
+		}
 	}
 
 	/**
@@ -110,12 +214,16 @@ class MailQueueHandler {
 	public function deleteSentItems($affected_users, $max_time) {
 		$placeholders = implode(',', array_fill(0, sizeof($affected_users), '?'));
 		$query_params = $affected_users;
-		$query_params = array_unshift($query_params, (int) $max_time);
+		array_unshift($query_params, (int) $max_time);
 
 		$query = \OCP\DB::prepare(
 			'DELETE FROM `*PREFIX*activity_mq` '
 			. ' WHERE `amq_timestamp` <= ? '
 			. ' AND `amq_affecteduser` IN (' . $placeholders . ')');
-		$query->execute($query_params);
+		$result = $query->execute($query_params);
+
+		if (\OCP\DB::isError($result)) {
+			\OCP\Util::writeLog('OCA\Activity\BackgroundJob\EmailNotification::deleteSentItems', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+		}
 	}
 }
