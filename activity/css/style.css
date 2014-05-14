@@ -6,6 +6,8 @@
 .activitysubject {
 	display: inline-block;
 	vertical-align: text-bottom;
+	width: 85%;
+	margin-bottom: 5px;
 	margin-left: 5px;
 	text-overflow: ellipsis;
 	overflow-x: hidden;
