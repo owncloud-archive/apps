@@ -129,7 +129,7 @@ class Data
 		return true;
 	}
 
-	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false) {
+	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false, $highlight_params) {
 		if ($app === 'files') {
 			$prepared_params = array();
 			foreach ($params as $i => $param) {
@@ -137,7 +137,12 @@ class Data
 					// Remove the path from the file string
 					$param = substr($param, strrpos($param, '/') + 1);
 				}
-				$prepared_params[] = $param;
+
+				if ($highlight_params) {
+					$prepared_params[] = '{{beginparamhighlight}}' . $param . '{{endparamhighlight}}';
+				} else {
+					$prepared_params[] = $param;
+				}
 			}
 			return $prepared_params;
 		}
@@ -152,7 +157,7 @@ class Data
 	 * @param bool $strip_path Shall we strip the path from file names?
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params, $strip_path = false) {
+	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
 		if (!$text) {
 			return '';
 		}
@@ -160,7 +165,7 @@ class Data
 		if ($app === 'files') {
 
 			$l = \OCP\Util::getL10N('activity');
-			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path);
+			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path, $highlight_params);
 			if ($text === 'created_self') {
 				return $l->t('You created %1$s', $params);
 			}
@@ -256,11 +261,14 @@ class Data
 			\OCP\Util::writeLog('OCA\Activity\Data::read', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 		} else {
 			while ($row = $result->fetchRow()) {
-				$row['subject_short'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']), true);
-				$row['message_short'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']), true);
+				$row['subjectparams'] = unserialize($row['subjectparams']);
+				$row['messageparams'] = unserialize($row['messageparams']);
 
-				$row['subject'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']));
-				$row['message'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']));
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], $row['subjectparams'], true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], $row['messageparams'], true);
+
+				$row['subject_long'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
+				$row['message_long'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
 
 				$activity[] = $row;
 			}
@@ -294,11 +302,14 @@ class Data
 			\OCP\Util::writeLog('OCA\Activity\Data::search', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 		} else {
 			while ($row = $result->fetchRow()) {
-				$row['subject_short'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']), true);
-				$row['message_short'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']), true);
+				$row['subjectparams'] = unserialize($row['subjectparams']);
+				$row['messageparams'] = unserialize($row['messageparams']);
 
-				$row['subject'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']));
-				$row['message'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']));
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], $row['subjectparams'], true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], $row['messageparams'], true);
+
+				$row['subject_full'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
+				$row['message_full'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
 
 				$activity[] = $row;
 			}
@@ -406,18 +417,18 @@ class Data
 		// items
 		for ($i = 0; $i < count($content); $i++) {
 			xmlwriter_start_element($writer, 'item');
-			if (isset($content[$i]['subject'])) {
-				xmlwriter_write_element($writer, 'title', $content[$i]['subject']);
+			if (isset($content[$i]['subject_long'])) {
+				xmlwriter_write_element($writer, 'title', $content[$i]['subject_long']);
 			}
 
 			if (isset($content[$i]['link'])) xmlwriter_write_element($writer, 'link', $content[$i]['link']);
 			if (isset($content[$i]['link'])) xmlwriter_write_element($writer, 'guid', $content[$i]['link']);
 			if (isset($content[$i]['timestamp'])) xmlwriter_write_element($writer, 'pubDate', date('r', $content[$i]['timestamp']));
 
-			if (isset($content[$i]['message'])) {
+			if (isset($content[$i]['message_long'])) {
 				xmlwriter_start_element($writer, 'description');
 				xmlwriter_start_cdata($writer);
-				xmlwriter_text($writer, $content[$i]['message']);
+				xmlwriter_text($writer, $content[$i]['message_long']);
 				xmlwriter_end_cdata($writer);
 				xmlwriter_end_element($writer);
 			}
