@@ -29,16 +29,41 @@ namespace OCA\Activity\BackgroundJob;
  * @package OCA\Activity\BackgroundJob
  */
 class EmailNotification extends \OC\BackgroundJob\TimedJob {
+	/** @var \OCA\Activity\MailQueueHandler */
+	protected $mq_handler;
+
 	public function __construct() {
 		// Run all 15 Minutes
 		// @todo $this->setInterval(15 * 60);
 		$this->setInterval(10);
+		$this->mq_handler = new \OCA\Activity\MailQueueHandler();
 	}
 
 	protected function run($argument) {
-		// Get uids which should receive an Email
+		// If we are in CLI mode, we just send all emails
+		$limit = (\OC::$CLI) ? null : 25;
+
+		// Get all users which should receive an email
+		$affected_users = $this->mq_handler->getAffectedUsers($limit);
+
 		// Get all items for these users
+		// We do use don't use time() here, so we don't delete items
+		// later which were created in the same second, but where not
+		// collected for the emails
+		$send_time = time() - 5;
+		$mail_data = $this->mq_handler->getItemsForUsers($affected_users, $send_time);
+
 		// Send Email
-		// Delete all entries we handled
+		foreach ($mail_data as $affected_user => $user_mail_data) {
+			\OCP\Util::writeLog(
+				'activity',
+				'Send email to user ' . $affected_user . ' with ' . sizeof($user_mail_data) . 'emails',
+				\OCP\Util::FATAL
+			);
+			// $this->mq_handler->sendEmailToUser($affected_user, $user_mail_data);
+		}
+
+		// Delete all entries we dealed with
+		$this->mq_handler->deleteSentItems($affected_users, $send_time);
 	}
 }
