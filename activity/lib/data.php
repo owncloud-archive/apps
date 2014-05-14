@@ -21,9 +21,7 @@
  *
  */
 
-
 namespace OCA\Activity;
-
 
 /**
  * @brief Class for managing the data in the activities
@@ -131,12 +129,11 @@ class Data
 		return true;
 	}
 
-	public static function prepare_files_params($app, $text, $params, $file_position = false)
-	{
+	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false) {
 		if ($app === 'files') {
 			$prepared_params = array();
 			foreach ($params as $i => $param) {
-				if ($file_position === $i) {
+				if ($strip_path === true && $file_position === $i) {
 					// Remove the path from the file string
 					$param = substr($param, strrpos($param, '/') + 1);
 				}
@@ -152,9 +149,10 @@ class Data
 	 * @param string $app The app where this event comes from
 	 * @param string $text The text including placeholders
 	 * @param array $params The parameter for the placeholder
+	 * @param bool $strip_path Shall we strip the path from file names?
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params) {
+	public static function translation($app, $text, $params, $strip_path = false) {
 		if (!$text) {
 			return '';
 		}
@@ -162,7 +160,7 @@ class Data
 		if ($app === 'files') {
 
 			$l = \OCP\Util::getL10N('activity');
-			$params = self::prepare_files_params($app, $text, $params, 0);
+			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path);
 			if ($text === 'created_self') {
 				return $l->t('You created %1$s', $params);
 			}
@@ -258,8 +256,12 @@ class Data
 			\OCP\Util::writeLog('OCA\Activity\Data::read', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 		} else {
 			while ($row = $result->fetchRow()) {
-				$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-				$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']), true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']), true);
+
+				$row['subject'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']));
+				$row['message'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']));
+
 				$activity[] = $row;
 			}
 		}
@@ -292,8 +294,12 @@ class Data
 			\OCP\Util::writeLog('OCA\Activity\Data::search', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 		} else {
 			while ($row = $result->fetchRow()) {
-				$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-				$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']), true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']), true);
+
+				$row['subject'] = Data::translation($row['app'], $row['subject'], unserialize($row['subjectparams']));
+				$row['message'] = Data::translation($row['app'], $row['message'], unserialize($row['messageparams']));
+
 				$activity[] = $row;
 			}
 		}
@@ -365,7 +371,6 @@ class Data
 		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*activity` where `timestamp`<?');
 		$query->execute(array($timelimit));
 	}
-
 
 	/**
 	 * @brief Generate an RSS feed

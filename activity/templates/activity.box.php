@@ -13,9 +13,9 @@
 			<?php $count = 0; ?>
 			<ul class="activitysubject grouped">
 				<?php foreach($_['event']['events'] as $subEvent):?>
-					<li>
+					<li title="<?php p($subEvent['subject']) ?>">
 						<?php if ($subEvent['link']): ?><a href="<?php p($subEvent['link']) ?>"><?php endif ?>
-						<?php p($subEvent['subject']) ?>
+						<?php p($subEvent['subject_short']) ?>
 						<?php if ($subEvent['link']): ?></a><?php endif ?>
 					</li>
 					<?php $count++ ?>
@@ -31,7 +31,9 @@
 		<?php if (!$_['isGrouped']): ?>
 			<?php if ($_['event']['link']): ?><a href="<?php p($_['event']['link']) ?>"><?php endif ?>
 			<?php if (!empty($_['typeIcon'])): ?><div class="activity-icon <?php p($_['typeIcon']) ?>"></div><?php endif ?>
-			<div class="activitysubject"><?php p($_['event']['subject']) ?></div>
+			<div class="activitysubject" title="<?php p($_['event']['subject']) ?>">
+				<?php p($_['event']['subject_short']) ?>
+			</div>
 			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
 				<?php p($_['formattedTimestamp']) ?>
 			</span>

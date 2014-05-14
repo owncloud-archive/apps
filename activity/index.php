@@ -29,7 +29,6 @@ OCP\App::checkAppEnabled('activity');
 // activate the right navigation entry
 OCP\App::setActiveNavigationEntry('activity');
 
-
 // load the needed js scripts and css
 OCP\Util::addScript('activity', 'jquery.masonry.min');
 OCP\Util::addScript('activity', 'jquery.infinitescroll.min');
@@ -50,7 +49,6 @@ $nextpage = \OCP\Util::linkToAbsolute('activity', 'index.php', array('page' => $
 // read activities data
 $count = 30;
 $activity = OCA\Activity\Data::read(($page) * $count, 30);
-
 
 // show activity template
 $tmpl = new \OCP\Template('activity', 'list', 'user');
