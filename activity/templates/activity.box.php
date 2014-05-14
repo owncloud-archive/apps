@@ -16,11 +16,9 @@
 				<?php foreach($_['event']['events'] as $subEvent):?>
 					<li class="activitysubject" title="<?php p($subEvent['subject_long']) ?>">
 						<?php if ($subEvent['link']): ?><a href="<?php p($subEvent['link']) ?>"><?php endif ?>
-						<?php print_unescaped(str_replace(
-							array('{{beginparamhighlight}}', '{{endparamhighlight}}'),
-							array('<strong>', '</strong>'),
-							OC_Util::sanitizeHTML(\OCA\Activity\Data::translation($subEvent['app'], $subEvent['subject'], $subEvent['subjectparams'], true, true))
-						)) ?>
+						<?php print_unescaped(
+							\OCA\Activity\Data::translation($subEvent['app'], $subEvent['subject'], $subEvent['subjectparams'], true, true)
+						) ?>
 						<?php if ($subEvent['link']): ?></a><?php endif ?>
 					</li>
 					<?php $count++ ?>
@@ -36,11 +34,9 @@
 			<?php if ($_['event']['link']): ?><a href="<?php p($_['event']['link']) ?>"><?php endif ?>
 			<div class="activity-icon <?php p($_['typeIcon']) ?>"></div>
 			<div class="activitysubject" title="<?php p($_['event']['subject_long']) ?>">
-				<?php print_unescaped(str_replace(
-					array('{{beginparamhighlight}}', '{{endparamhighlight}}'),
-					array('<strong>', '</strong>'),
-					OC_Util::sanitizeHTML(\OCA\Activity\Data::translation($_['event']['app'], $_['event']['subject'], $_['event']['subjectparams'], true, true))
-				)) ?>
+				<?php print_unescaped(
+					\OCA\Activity\Data::translation($_['event']['app'], $_['event']['subject'], $_['event']['subjectparams'], true, true)
+				) ?>
 			</div>
 			<span class="activitytime tooltip" title="<?php p($_['formattedDate']) ?>">
 				<?php p($_['formattedTimestamp']) ?>

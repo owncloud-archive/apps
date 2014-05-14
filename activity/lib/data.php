@@ -129,7 +129,7 @@ class Data
 		return true;
 	}
 
-	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false, $highlight_params) {
+	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false, $highlight_params = false) {
 		if ($app === 'files') {
 			$prepared_params = array();
 			foreach ($params as $i => $param) {
@@ -139,7 +139,7 @@ class Data
 				}
 
 				if ($highlight_params) {
-					$prepared_params[] = '{{beginparamhighlight}}' . $param . '{{endparamhighlight}}';
+					$prepared_params[] = '<strong>' . \OC_Util::sanitizeHTML($param) . '</strong>';
 				} else {
 					$prepared_params[] = $param;
 				}
@@ -156,9 +156,8 @@ class Data
 	 * @param array $params The parameter for the placeholder
 	 * @param bool $strip_path Shall we strip the path from file names?
 	 * @param bool $highlight_params Shall we highlight the parameters in the string?
-	 *             They are marked with {{beginparamhighlight}} and {{endparamhighlight}}
-	 *             so you can replace it with your prefered html tags after sanitizeHTML
-	 *             has been called
+	 *             They will be highlighted with `<strong>`, all data will be passed through
+	 *             \OC_Util::sanitizeHTML() before, so no XSS is possible.
 	 * @return string translated
 	 */
 	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
