@@ -37,18 +37,12 @@ function makeEventGroup($events){
 		return $events[0];
 	}
 	$event = $events[0];
+
 	// populate with first event
-	$groupedEvent = array(
+	$groupedEvent = array_merge($event, array(
 		'isGrouped' => true,
-		'user' => $event['user'],
-		'affecteduser' => $event['affecteduser'],
-		'app' => $event['app'],
-		'type' => $event['type'],
-		'timestamp' => $event['timestamp'],
-		'file' => $event['file'],
-		'link' => $event['link'],
 		'events' => $events
-	);
+	));
 	return $groupedEvent;
 }
 
@@ -84,12 +78,12 @@ foreach ($_['activity'] as $event) {
 		}
 		$lastDate = $currentDate;
 ?>
-	<div class="group" data-date="<?php p($currentDate) ?>">
-		<div class="groupheader">
+	<div class="section activity-section group" data-date="<?php p($currentDate) ?>">
+		<h2>
 			<span class="tooltip" title="<?php p(\OCP\Util::formatDate(strip_time($event['timestamp']), true)) ?>">
 				<?php p(ucfirst($currentDate)) ?>
 			</span>
-		</div>
+		</h2>
 		<div class="boxcontainer">
 <?php
 	}

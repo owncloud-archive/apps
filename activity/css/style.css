@@ -1,6 +1,14 @@
+#container h2 {
+	margin-left: 24px;
+	margin-bottom: 16px;
+}
+
 .activitysubject {
-	font-size:1.0em;
-	color: #333;
+	display: inline-block;
+	vertical-align: text-bottom;
+	width: 85%;
+	margin-bottom: 5px;
+	margin-left: 5px;
 	text-overflow: ellipsis;
 	overflow-x: hidden;
 }
@@ -42,7 +50,6 @@
 
 #container {
   background: #FFF;
-  padding: 10px 5px;
   margin-bottom: 20px;
   border-radius: 5px;
   clear: both;
@@ -56,31 +63,9 @@
 	padding-bottom: 10px;
 }
 
-.groupheader{
-	font-weight: bold;
-	font-size:2.2em;
-	color: #666;
-	border-top: 1px solid #DDD;
-	padding: 20px 20px 10px 20px;
-	clear: both;
-	display: block;
-}
-
-.group:first-child .groupheader{
-	border-top: none;
-}
-
 .box {
-	width: 240px;
-	float: left;
-	padding: 15px;
-	margin: 10px;
-	background: #EEE;
-	font-weight: 300;
-	border: 1px solid #DDD;
-	-webkit-border-radius: 5px;
-	 -moz-border-radius: 5px;
-		  border-radius: 5px;
+	width: 100%;
+	display: block;
 }
 
 .box.loaded{
@@ -103,23 +88,25 @@
 
 .box .header{
 	height: 32px;
-	border-bottom: 1px solid #DDD;
-	padding-bottom: 20px;
 	margin-bottom: 10px;
 }
 
 .box .messagecontainer{
 	width: 100%;
 	display: block;
+	margin-bottom: 20px;
 }
 
 .box .preview{
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
 	display: block;
-	width: 150px;
-	height: 150px;
+	width: 50px;
+	height: 50px;
+	margin-left: 24px;
+}
+
+.box .preview-dir-icon{
+	width: 32px;
+	height: 32px;
 }
 
 .box .user{
@@ -136,7 +123,7 @@
 }
 
 .box .activitytime {
-	float: left;
+	float: right;
 	color:#666;
 	font-size: 0.8em;
 }
@@ -154,7 +141,6 @@
 .box .grouped .more{
 	cursor: default;
 	color: #666;
-	text-align: right;
 }
 
 /* Infinite Scroll loader */
@@ -167,4 +153,29 @@
 	width: 200px;
 	padding: 10px;
 	color: #555;
+}
+
+/* colored icons, in addition to core ones */
+.activity-icon {
+	min-width: 16px;
+	min-height: 16px;
+	display: inline-block;
+	vertical-align: top;
+}
+.icon-add-color {
+	background-image: url('../img/add-color.svg');
+}
+.icon-change {
+	background-image: url('../img/change.svg');
+}
+.icon-delete-color {
+	background-image: url('../img/delete-color.svg');
+}
+/* grey the changed and shared icons so they are less intense */
+.icon-change,
+.icon-shared,
+.icon-public {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: .5;
 }
