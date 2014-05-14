@@ -53,7 +53,7 @@
 		<?php endif ?>
 
 		<?php if (!empty($_['previewImageLink'])): ?>
-			<img class="preview<?php if (!empty($_['previewLinkIsDir'])): ?> preview-dir-icon<?php endif ?>" src="<?php p($_['previewImageLink']) ?>" alt="<?php p($_['event']['message']) ?>"/>
+			<img class="preview<?php if (!empty($_['previewLinkIsDir'])): ?> preview-dir-icon<?php endif ?>" src="<?php p($_['previewImageLink']) ?>" alt="<?php p($_['event']['message_long']) ?>"/>
 		<?php endif ?>
 
 		<?php if (!$_['isGrouped'] && $_['event']['link']): ?></a><?php endif; ?>

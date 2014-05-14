@@ -37,18 +37,12 @@ function makeEventGroup($events){
 		return $events[0];
 	}
 	$event = $events[0];
+
 	// populate with first event
-	$groupedEvent = array(
+	$groupedEvent = array_merge($event, array(
 		'isGrouped' => true,
-		'user' => $event['user'],
-		'affecteduser' => $event['affecteduser'],
-		'app' => $event['app'],
-		'type' => $event['type'],
-		'timestamp' => $event['timestamp'],
-		'file' => $event['file'],
-		'link' => $event['link'],
 		'events' => $events
-	);
+	));
 	return $groupedEvent;
 }
 

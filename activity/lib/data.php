@@ -312,8 +312,8 @@ class Data
 				$row['subject_short'] = Data::translation($row['app'], $row['subject'], $row['subjectparams'], true);
 				$row['message_short'] = Data::translation($row['app'], $row['message'], $row['messageparams'], true);
 
-				$row['subject_full'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
-				$row['message_full'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
+				$row['subject_long'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
+				$row['message_long'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
 
 				$activity[] = $row;
 			}
