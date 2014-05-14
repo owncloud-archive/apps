@@ -356,6 +356,8 @@ class Data
 				return 'icon-add-color';
 			case self::TYPE_SHARE_DELETED:
 				return 'icon-delete-color';
+			case self::TYPE_SHARED:
+				return 'icon-shared';
 		}
 		return '';
 	}
