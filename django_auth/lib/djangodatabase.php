@@ -30,11 +30,11 @@ class DjangoDatabase {
 
 	public static function getDatabase () {
 		if (self::$failed == false && is_null(self::$db)) {
-			$db_host     = OC_Appconfig::getValue('django_auth', 'django_db_host','localhost');
-			$db_name     = OC_Appconfig::getValue('django_auth', 'django_db_name','');
-			$db_driver   = OC_Appconfig::getValue('django_auth', 'django_db_driver', 'mysql');
-			$db_user     = OC_Appconfig::getValue('django_auth', 'django_db_user','');
-			$db_password = OC_Appconfig::getValue('django_auth', 'django_db_password','');
+			$db_host     = OCP\Config::getAppValue('django_auth', 'django_db_host','localhost');
+			$db_name     = OCP\Config::getAppValue('django_auth', 'django_db_name','');
+			$db_driver   = OCP\Config::getAppValue('django_auth', 'django_db_driver', 'mysql');
+			$db_user     = OCP\Config::getAppValue('django_auth', 'django_db_user','');
+			$db_password = OCP\Config::getAppValue('django_auth', 'django_db_password','');
 			$dsn = "${db_driver}:host=${db_host};dbname=${db_name}";
 
 			try {
