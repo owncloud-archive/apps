@@ -197,7 +197,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 		// HACK! we the "staff is admin" or "superuser is admin" feature is used
 		// we need to advertise to have the group "admin", if not OC_Group::inGroup
 		// would not call OC_GROUP_DJANGO::inGroup where we do more magic...
-		if (!in_array('admin') and ($staff_is_admin or $superuser_is_admin))
+		if (!in_array('admin', $groups) and (self::$staff_is_admin or self::$superuser_is_admin))
 			$groups[] = "admin";
 
 		return $groups;

@@ -124,7 +124,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 				}
 				elseif (self::beginsWith($storedHash, 'pbkdf2')) {
 					$chunks = preg_split('/\$/', $storedHash,4);
-					list($pbkdf, $algorithm) = preg_split('/_/', $chunks[0]);
+					list(,$algorithm) = preg_split('/_/', $chunks[0]);
 					$iter = $chunks[1];
 					$salt = $chunks[2];
 					$hash = $chunks[3];
@@ -140,7 +140,8 @@ class OC_USER_DJANGO extends OC_User_Backend {
 						return false;
 					}
 
-					if (base64_encode (phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm)) === $hash) {
+					$pkdf2 = phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm);
+					if ($pkdf2 and (base64_encode ($pkdf2) === $hash)) {
 						return $uid;
 					}
 					else {
