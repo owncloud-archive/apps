@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# André Koot <meneer@tken.net>, 2013
+# André Koot <meneer@tken.net>, 2013-2014
 # Richard Bos <radoeka@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
+"POT-Creation-Date: 2014-05-04 00:49-0400\n"
+"PO-Revision-Date: 2014-05-03 06:11+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -29,60 +29,64 @@ msgid ""
 "the following files and directories:"
 msgstr "Update is niet mogelijk. Controleer of uw webserver schrijfrechten heeft op de volgende bestanden en directories:"
 
-#: ajax/update.php:60
+#: ajax/update.php:58
 msgid "Version not found"
 msgstr "versie niet gevonden"
 
-#: ajax/update.php:67 ajax/update.php:76
+#: ajax/update.php:65 ajax/update.php:73
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
 msgstr "Bijwerken is niet mogelijk. Uw webserver heeft niet voldoende permissies om de volgende directory re verwijderen:"
 
-#: ajax/update.php:69 ajax/update.php:78
+#: ajax/update.php:67 ajax/update.php:75
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
 msgstr "Werk de permissies op deze directory en de inhoud bij , of verwijder ze eerst handmatig."
 
-#: ajax/update.php:85
+#: ajax/update.php:81
 msgid "Downloading package..."
 msgstr "Downloaden package..."
 
-#: ajax/update.php:89
+#: ajax/update.php:85
 msgid "Unable to fetch package"
 msgstr "Kon package niet ophalen"
 
-#: ajax/update.php:94
+#: ajax/update.php:90
 msgid "Creating backup..."
 msgstr "Creëren backup..."
 
-#: ajax/update.php:96
+#: ajax/update.php:92
 msgid "Here is your backup: "
 msgstr "Hier is uw backup:"
 
-#: ajax/update.php:99
+#: ajax/update.php:95
 msgid "Failed to create backup"
 msgstr "Backup maken mislukt"
 
-#: ajax/update.php:103
+#: ajax/update.php:99
 msgid "Moving files..."
 msgstr "Verplaatsen bestanden..."
 
-#: ajax/update.php:109
+#: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
 msgstr "Alles gedaan. Klik op onderstaande link om de database bij te werken."
 
-#: ajax/update.php:112
+#: ajax/update.php:109
 msgid "Update failed"
 msgstr "Update mislukt"
 
-#: js/controllers.js:25
+#: js/controllers.js:24
 msgid ""
-"The update was unsuccessful. Please report this issue to the <a "
-"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
-"community</a>."
-msgstr "De update is mislukt. Meld dit probleem aan de <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>."
+"The update was unsuccessful. Please check logs at admin page and report this"
+" issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
+"target=\"_blank\">ownCloud community</a>."
+msgstr "De update is mislukt. Controleer de logs op de beheerpagina en meld het probleem aan de <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud community</a>."
+
+#: js/controllers.js:30
+msgid "Proceed"
+msgstr "Ga verder"
 
 #: templates/admin.php:17
 msgid "Update Center"

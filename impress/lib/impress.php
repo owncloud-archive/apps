@@ -61,7 +61,7 @@ class Storage {
 	<title>'.$title.'</title>
 
 
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
 	<link href="'.\OCP\Util::linkToAbsolute('impress', 'css/player.css').'" rel="stylesheet" />
     </head>

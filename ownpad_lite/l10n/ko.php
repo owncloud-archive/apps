@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "문서 공유됨",
 "User %s shared quick document %s with you." => "%s 님이 빠른 문서 %s을(를) 공유하였습니다.",
 "My pad" => "내 패드",
@@ -11,3 +12,4 @@
 "Username" => "사용자 이름",
 "Save" => "저장"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

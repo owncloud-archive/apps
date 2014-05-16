@@ -42,4 +42,3 @@ $tmpl = new \OCP\Template('activity', 'activities.part', '');
 $tmpl->assign('activity', $activity);
 if ($page == 0) $tmpl->assign('nextpage', $nextpage);
 $tmpl->printPage();
-

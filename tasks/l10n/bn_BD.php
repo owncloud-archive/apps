@@ -1,6 +1,8 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "তারিখ/সময় সঠিক নয়",
 "Tasks" => "কর্ম",
+"Location" => "াবস্থান",
 "No category" => "কোন ক্যাটেগরি  নেই",
 "Unspecified" => "অনির্ধারিত",
 "1=highest" => "১ = সর্বোচ্চ",
@@ -22,3 +24,4 @@
 "Less" => "কম",
 "Delete" => "মুছে ফেল"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

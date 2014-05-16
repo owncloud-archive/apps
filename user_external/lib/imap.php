@@ -6,34 +6,51 @@
  * See the COPYING-README file.
  */
 
-class OC_User_IMAP extends OC_User_Backend{
+/**
+ * User authentication against an IMAP mail server
+ *
+ * @category Apps
+ * @package  UserExternal
+ * @author   Robin Appelman <icewind@owncloud.com>
+ * @license  http://www.gnu.org/licenses/agpl AGPL
+ * @link     http://github.com/owncloud/apps
+ */
+class OC_User_IMAP extends \OCA\user_external\Base {
 	private $mailbox;
 
+	/**
+	 * Create new IMAP authentication provider
+	 *
+	 * @param string $mailbox PHP imap_open mailbox definition, e.g.
+	 *                        {127.0.0.1:143/imap/readonly}
+	 */
 	public function __construct($mailbox) {
+		parent::__construct($mailbox);
 		$this->mailbox=$mailbox;
 	}
 
 	/**
-	 * @brief Check if the password is correct
-	 * @param $uid The username
-	 * @param $password The password
-	 * @returns true/false
-	 *
 	 * Check if the password is correct without logging in the user
+	 *
+	 * @param string $uid      The username
+	 * @param string $password The password
+	 *
+	 * @return true/false
 	 */
 	public function checkPassword($uid, $password) {
-		$mbox = @imap_open($this->mailbox, $uid, $password);
+		if (!function_exists('imap_open')) {
+			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
+			return false;
+		}
+		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN);
 		imap_errors();
 		imap_alerts();
-		if($mbox) {
+		if($mbox !== FALSE) {
 			imap_close($mbox);
+			$this->storeUser($uid);
 			return $uid;
 		}else{
 			return false;
 		}
-	}
-
-	public function userExists($uid) {
-		return true;
 	}
 }

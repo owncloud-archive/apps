@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Dokumenti u nda",
 "User %s shared quick document %s with you." => "Përdoruesi %s ndau me ju dokumentin e shpejtë %s.",
 "Settings" => "Parametra",
@@ -8,3 +9,4 @@
 "Username" => "Përdoruesi",
 "Save" => "Ruaj"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

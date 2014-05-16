@@ -1,28 +1,30 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Ongeldige datum/tijd",
 "Tasks" => "Taken",
 "Due" => "Einddatum",
-"List" => "Categorie",
+"List" => "Lijst",
 "Location" => "Locatie",
 "No category" => "Geen categorie",
-"Unspecified" => "Niet gespecificeerd",
+"Unspecified" => "Niet opgegeven",
 "1=highest" => "1=hoogste",
 "5=medium" => "5=gemiddeld",
 "9=lowest" => "9=laagste",
 "Empty Summary" => "Lege samenvatting",
-"Invalid percent complete" => "Ongeldige percentage compleet",
+"Invalid percent complete" => "Ongeldig percentage gereed",
 "Invalid priority" => "Ongeldige prioriteit",
-"The calendar application also need to be enabled to use this application." => "De kalender applicatie dient ingeschakeld te zijn om deze applicatie te gebruiken.",
-"Add Task" => "Voeg taak toe",
-"Order Due" => "Order gereed",
-"Order List" => "Orderlijst",
-"Order Complete" => "Order compleet",
-"Order Location" => "Order locatie",
-"Order Priority" => "Order prioriteit",
-"Order Label" => "Order label",
+"The calendar application also need to be enabled to use this application." => "De kalenderapplicatie moet geactiveerd zijn om deze applicatie te gebruiken.",
+"Add Task" => "Toevoegen taak",
+"Order Due" => "Taak te doen",
+"Order List" => "Taaklijst",
+"Order Complete" => "Taak gereed",
+"Order Location" => "Taak locatie",
+"Order Priority" => "Taak prioriteit",
+"Order Label" => "Taak label",
 "Loading tasks..." => "Taken laden",
 "Important" => "Belangrijk",
 "More" => "Meer",
 "Less" => "Minder",
-"Delete" => "Verwijder"
+"Delete" => "Verwijderen"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

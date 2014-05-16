@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Benvingut {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "S'ha detectar programari maliciós en un fitxer que heu intentat pujar i s'ha hagut d'eliminar.",
 "This email is a notification from {host}. Please, do not reply." => "Aquest correu és uan  notificació de {host}. No el respongueu.",
@@ -25,3 +26,4 @@
 "Delete file" => "Elimina el fitxer",
 "Save" => "Desa"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

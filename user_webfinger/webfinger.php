@@ -54,7 +54,8 @@ if (empty($id)) {
 define('WF_USER', $userName);
 define('WF_ID', $id);
 define('WF_BASEURL', $baseAddress);
-$apps = OC_Appconfig::getApps();
+$appConfig = \OC::$server->getAppConfig();
+$apps = $appConfig->getApps();
 $links = array();
 
 foreach ($apps as $app) {

@@ -1,10 +1,6 @@
 [main]
-host = https://www.transifex.net
-
-[owncloud.gallery]
-file_filter = <lang>/gallery.po
-source_file = templates/gallery.pot
-source_lang = en
+host = https://www.transifex.com
+lang_map = ja_JP: ja
 
 [owncloud.activity]
 file_filter = <lang>/activity.po
@@ -36,21 +32,9 @@ source_file = templates/user_migrate.pot
 source_lang = en
 type = PO
 
-[owncloud.user_openid]
-file_filter = <lang>/user_openid.po
-source_file = templates/user_openid.pot
-source_lang = en
-type = PO
-
 [owncloud.user_openid_provider]
 file_filter = <lang>/user_openid_provider.po
 source_file = templates/user_openid_provider.pot
-source_lang = en
-type = PO
-
-[owncloud.files_texteditor]
-file_filter = <lang>/files_texteditor.po
-source_file = templates/files_texteditor.pot
 source_lang = en
 type = PO
 
@@ -72,12 +56,6 @@ source_file = templates/external.pot
 source_lang = en
 type = PO
 
-[owncloud.updater]
-file_filter = <lang>/updater.po
-source_file = templates/updater.pot
-source_lang = en
-type = PO
-
 [owncloud.ownpad_lite]
 file_filter = <lang>/ownpad_lite.po
 source_file = templates/ownpad_lite.pot
@@ -87,12 +65,6 @@ type = PO
 [owncloud.files_antivirus]
 file_filter = <lang>/files_antivirus.po
 source_file = templates/files_antivirus.pot
-source_lang = en
-type = PO
-
-[owncloud.firstrunwizard]
-file_filter = <lang>/firstrunwizard.po
-source_file = templates/firstrunwizard.pot
 source_lang = en
 type = PO
 

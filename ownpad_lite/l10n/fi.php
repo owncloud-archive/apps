@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "My pad" => "minun pad",
 "Settings" => "asetukset",
 "Pad Title" => "pad otsikko",
@@ -7,3 +8,4 @@
 "Username" => "Käyttäjätunnus",
 "Save" => "tallentaa"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

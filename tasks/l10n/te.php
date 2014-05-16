@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "List" => "జాబితా",
 "No category" => "వర్గం లేదు",
 "Unspecified" => "పేర్కొనలేదు",
@@ -6,3 +7,4 @@
 "More" => "మరిన్ని",
 "Delete" => "తొలగించు"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

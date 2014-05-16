@@ -21,9 +21,7 @@
  *
  */
 
-
 namespace OCA\Activity;
-
 
 /**
  * @brief Class for managing the data in the activities
@@ -36,6 +34,67 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
+	const TYPE_SHARED = 'shared';
+	const TYPE_SHARE_EXPIRED = 'share_expired';
+	const TYPE_SHARE_UNSHARED = 'share_unshared';
+
+	const TYPE_SHARE_CREATED = 'file_created';
+	const TYPE_SHARE_CHANGED = 'file_changed';
+	const TYPE_SHARE_DELETED = 'file_deleted';
+	const TYPE_SHARE_RESHARED = 'file_reshared';
+
+	const TYPE_SHARE_DOWNLOADED = 'file_downloaded';
+	const TYPE_SHARE_UPLOADED = 'file_uploaded';
+
+	const TYPE_STORAGE_QUOTA_90 = 'storage_quota_90';
+	const TYPE_STORAGE_FAILURE = 'storage_failure';
+
+	public static function getNotificationTypes($l) {
+		return array(
+			\OCA\Activity\Data::TYPE_SHARED => $l->t('A file or folder has been <strong>shared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_UNSHARED => $l->t('Previously shared file or folder has been <strong>unshared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_EXPIRED => $l->t('Expiration date of shared file or folder <strong>expired</strong>'),
+			\OCA\Activity\Data::TYPE_SHARE_CREATED => $l->t('A new file or folder has been <strong>created</strong> in a shared folder'),
+			\OCA\Activity\Data::TYPE_SHARE_CHANGED => $l->t('A file or folder has been <strong>changed</strong> in a shared folder'),
+			\OCA\Activity\Data::TYPE_SHARE_DELETED => $l->t('A file or folder has been <strong>deleted</strong> from a shared folder'),
+//			\OCA\Activity\Data::TYPE_SHARE_RESHARED => $l->t('A file or folder has been <strong>reshared</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_DOWNLOADED => $l->t('A file or folder shared via link has been <strong>downloaded</strong>'),
+//			\OCA\Activity\Data::TYPE_SHARE_UPLOADED => $l->t('A file has been <strong>uploaded</strong> into a folder shared via link'),
+//			\OCA\Activity\Data::TYPE_STORAGE_QUOTA_90 => $l->t('<strong>Storage usage</strong> is at 90%%'),
+//			\OCA\Activity\Data::TYPE_STORAGE_FAILURE => $l->t('An <strong>external storage</strong> has an error'),
+		);
+	}
+
+	public static function getUserDefaultSetting($method, $type) {
+		$settings = self::getUserDefaultSettings($method);
+		return in_array($type, $settings);
+	}
+
+	public static function getUserDefaultSettings($method) {
+		$settings = array();
+		switch ($method) {
+			case 'stream':
+				$settings[] = Data::TYPE_SHARE_CREATED;
+				$settings[] = Data::TYPE_SHARE_CHANGED;
+				$settings[] = Data::TYPE_SHARE_DELETED;
+//				$settings[] = Data::TYPE_SHARE_RESHARED;
+//
+//				$settings[] = Data::TYPE_SHARE_DOWNLOADED;
+
+			case 'email':
+				$settings[] = Data::TYPE_SHARED;
+//				$settings[] = Data::TYPE_SHARE_EXPIRED;
+//				$settings[] = Data::TYPE_SHARE_UNSHARED;
+//
+//				$settings[] = Data::TYPE_SHARE_UPLOADED;
+//
+//				$settings[] = Data::TYPE_STORAGE_QUOTA_90;
+//				$settings[] = Data::TYPE_STORAGE_FAILURE;
+		}
+
+		return $settings;
+	}
+
 	/**
 	 * @brief Send an event into the activity stream
 	 * @param string $app The app where this event is associated with
@@ -45,15 +104,13 @@ class Data
 	 * @param string $link A link where this event is associated with (optional)
 	 * @return boolean
 	 */
-	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM)
-	{
-
+	public static function send($app, $subject, $subjectparams = array(), $message = '', $messageparams = array(), $file = '', $link = '', $affecteduser = '', $type = 0, $prio = Data::PRIORITY_MEDIUM) {
 		$timestamp = time();
 		$user = \OCP\User::getUser();
 		
-		if($affecteduser === '') {
+		if ($affecteduser === '') {
 			$auser = \OCP\User::getUser();
-		} else{
+		} else {
 			$auser = $affecteduser;
 		}
 
@@ -67,10 +124,29 @@ class Data
 		}
 
 		// fire a hook so that other apps like notification systems can connect
-		// todo translations
 		\OCP\Util::emitHook('OC_Activity', 'post_event', array('app' => $app, 'subject' => $subject, 'user' => $user, 'affecteduser' => $affecteduser, 'message' => $message, 'file' => $file, 'link'=> $link, 'prio' => $prio, 'type' => $type));
 
 		return true;
+	}
+
+	public static function prepare_files_params($app, $text, $params, $file_position = false, $strip_path = false, $highlight_params = false) {
+		if ($app === 'files') {
+			$prepared_params = array();
+			foreach ($params as $i => $param) {
+				if ($strip_path === true && $file_position === $i) {
+					// Remove the path from the file string
+					$param = substr($param, strrpos($param, '/') + 1);
+				}
+
+				if ($highlight_params) {
+					$prepared_params[] = '<strong>' . \OC_Util::sanitizeHTML($param) . '</strong>';
+				} else {
+					$prepared_params[] = $param;
+				}
+			}
+			return $prepared_params;
+		}
+		return $params;
 	}
 
 	/**
@@ -78,14 +154,89 @@ class Data
 	 * @param string $app The app where this event comes from
 	 * @param string $text The text including placeholders
 	 * @param array $params The parameter for the placeholder
+	 * @param bool $strip_path Shall we strip the path from file names?
+	 * @param bool $highlight_params Shall we highlight the parameters in the string?
+	 *             They will be highlighted with `<strong>`, all data will be passed through
+	 *             \OC_Util::sanitizeHTML() before, so no XSS is possible.
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params)
-	{
-		$l = \OCP\Util::getL10N($app);
-		$result = $l->t($text, $params);
-		unset($l);
-		return($result);
+	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
+		if (!$text) {
+			return '';
+		}
+
+		if ($app === 'files') {
+
+			$l = \OCP\Util::getL10N('activity');
+			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path, $highlight_params);
+			if ($text === 'created_self') {
+				return $l->t('You created %1$s', $params);
+			}
+			else if ($text === 'created_by') {
+				return $l->t('%2$s created %1$s', $params);
+			}
+			else if ($text === 'changed_self') {
+				return $l->t('You changed %1$s', $params);
+			}
+			else if ($text === 'changed_by') {
+				return $l->t('%2$s changed %1$s', $params);
+			}
+			else if ($text === 'deleted_self') {
+				return $l->t('You deleted %1$s', $params);
+			}
+			else if ($text === 'deleted_by') {
+				return $l->t('%2$s deleted %1$s', $params);
+			}
+			else if ($text === 'shared_user_self') {
+				return $l->t('You shared %1$s with %2$s', $params);
+			}
+			else if ($text === 'shared_group_self') {
+				return $l->t('You shared %1$s with group %2$s', $params);
+			}
+			else if ($text === 'shared_with_by') {
+				return $l->t('%2$s shared %1$s with you', $params);
+			}
+			else if ($text === 'shared_link_self') {
+				return $l->t('You shared %1$s', $params);
+			}
+
+			return $l->t($text, $params);
+		} else {
+			$l = \OCP\Util::getL10N($app);
+			return $l->t($text, $params);
+		}
+	}
+
+	public static function getUserSetting($user, $method, $type) {
+		return \OCP\Config::getUserValue(
+			$user,
+			'activity',
+			'notify_' . $method . '_' . $type,
+			\OCA\Activity\Data::getUserDefaultSetting($method, $type)
+		);
+	}
+
+	/**
+	 * @param string	$user	Name of the user
+	 * @param string	$method	Should be one of 'stream', 'email'
+	 * @return string	Part of the SQL query limiting the activities
+	 */
+	public static function getUserNotificationTypesQuery($user, $method) {
+		$l = \OC_L10N::get('activity');
+		$types = \OCA\Activity\Data::getNotificationTypes($l);
+
+		foreach ($types as $type => $desc) {
+			if (self::getUserSetting($user, $method, $type)) {
+				$user_activities[] = $type;
+			}
+		}
+
+		// We don't want to display any activities
+		if (empty($user_activities)) {
+			return '1 = 0';
+		}
+
+		return "`type` IN ('" . implode("','", $user_activities) . "')";
 	}
 
 	/**
@@ -94,20 +245,36 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function read($start, $count)
-	{
+	public static function read($start, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// fetch from DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser`  FROM `*PREFIX*activity` WHERE `affecteduser` = ? ORDER BY `timestamp` desc', $count, $start);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. ' WHERE `affecteduser` = ? ' . $limit_activities_type
+			. ' ORDER BY `timestamp` desc',
+			$count, $start);
 		$result = $query->execute(array($user));
 
 		$activity = array();
-		while ($row = $result->fetchRow()) {
-			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
-			$activity[] = $row;
+		if (\OCP\DB::isError($result)) {
+			\OCP\Util::writeLog('OCA\Activity\Data::read', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+		} else {
+			while ($row = $result->fetchRow()) {
+				$row['subjectparams'] = unserialize($row['subjectparams']);
+				$row['messageparams'] = unserialize($row['messageparams']);
+
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], $row['subjectparams'], true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], $row['messageparams'], true);
+
+				$row['subject_long'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
+				$row['message_long'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
+
+				$activity[] = $row;
+			}
 		}
 		return $activity;
 
@@ -119,21 +286,36 @@ class Data
 	 * @param int $count The number of statements to read
 	 * @return array
 	 */
-	public static function search($txt, $count)
-	{
-
+	public static function search($txt, $count) {
 		// get current user
 		$user = \OCP\User::getUser();
+		$limit_activities_type = 'AND ' . self::getUserNotificationTypesQuery($user, 'stream');
 
 		// search in DB
-		$query = \OCP\DB::prepare('SELECT `activity_id`, `app`, `subject`, `message`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` FROM `*PREFIX*activity` WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ORDER BY `timestamp` desc', $count);
+		$query = \OCP\DB::prepare(
+			'SELECT `activity_id`, `app`, `subject`, `subjectparams`, `message`, `messageparams`, `file`, `link`, `timestamp`, `priority`, `type`, `user`, `affecteduser` '
+			. ' FROM `*PREFIX*activity` '
+			. 'WHERE `affecteduser` = ? AND ((`subject` LIKE ?) OR (`message` LIKE ?) OR (`file` LIKE ?)) ' . $limit_activities_type
+			. 'ORDER BY `timestamp` desc'
+			, $count);
 		$result = $query->execute(array($user, '%' . $txt . '%', '%' . $txt . '%', '%' . $txt . '%')); //$result = $query->execute(array($user,'%'.$txt.''));
 
 		$activity = array();
-		while ($row = $result->fetchRow()) {
-			$row['subject'] = Data::translation($row['app'],$row['subject'],unserialize($row['subjectparams']));
-			$row['message'] = Data::translation($row['app'],$row['message'],unserialize($row['messageparams']));
-			$activity[] = $row;
+		if (\OCP\DB::isError($result)) {
+			\OCP\Util::writeLog('OCA\Activity\Data::search', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+		} else {
+			while ($row = $result->fetchRow()) {
+				$row['subjectparams'] = unserialize($row['subjectparams']);
+				$row['messageparams'] = unserialize($row['messageparams']);
+
+				$row['subject_short'] = Data::translation($row['app'], $row['subject'], $row['subjectparams'], true);
+				$row['message_short'] = Data::translation($row['app'], $row['message'], $row['messageparams'], true);
+
+				$row['subject_long'] = Data::translation($row['app'], $row['subject'], $row['subjectparams']);
+				$row['message_long'] = Data::translation($row['app'], $row['message'], $row['messageparams']);
+
+				$activity[] = $row;
+			}
 		}
 		return $activity;
 
@@ -143,76 +325,66 @@ class Data
 	 * @brief Show a specific event in the activities
 	 * @param array $event An array with all the event data in it
 	 */
-	public static function show($event)
-	{
+	public static function show($event) {
 		$l = \OC_L10N::get('lib');
-		$user = $event['user'];
-		if (!isset($event['isGrouped'])){
-			$event['isGrouped'] = false;
-		}
 
-		$formattedDate = \OCP\Util::formatDate($event['timestamp']);
-		$formattedTimestamp = \OCP\relative_modified_date($event['timestamp']);
-		$displayName = \OCP\User::getDisplayName($user);
-
-		// TODO: move into template?
-		echo('<div class="box">');
-
-		echo('<div class="header">');
-		echo('<span class="avatar" data-user="' . \OC_Util::sanitizeHTML($user) . '"></span>');
-		echo('<span>');
-		echo('<span class="user">' . \OC_Util::sanitizeHTML($displayName) . '</span>');
-		echo('<span class="activitytime tooltip" title="' . \OC_Util::sanitizeHTML($formattedDate) . '">' . \OC_Util::sanitizeHTML($formattedTimestamp) . '</span>');
-		echo('<span class="appname">' . \OC_Util::sanitizeHTML($event['app']) . '</span>');
-		echo('</span>');
-		echo('</div>');
-		echo('<div class="messagecontainer">');
-
-		if ($event['isGrouped']){
-			$count = 0;
-			echo('<ul class="activitysubject grouped">');
-			foreach($event['events'] as $subEvent){
-				echo('<li>');
-				if ($subEvent['link'] <> '') echo('<a href="' . $subEvent['link'] . '">');
-				echo(\OC_Util::sanitizeHTML($subEvent['subject']));
-				if ($subEvent['link'] <> '') echo('</a>');
-				echo('</li>');
-				$count++;
-				if ($count > 5){
-					echo('<li class="more">' . $l->n('%n more...', '%n more...', count($event['events']) - $count) . '</li>');
-					break;
-				}
-			}
-			echo('</ul>');
-		}
-		else{
-			if ($event['link'] <> '') echo('<a href="' . $event['link'] . '">');
-			echo('<div class="activitysubject">' . \OC_Util::sanitizeHTML($event['subject']) . '</div>');
-			echo('<div class="activitymessage">' . \OC_Util::sanitizeHTML($event['message']) . '</div>');
-		}
+		$tmpl = new \OCP\Template('activity', 'activity.box');
+		$tmpl->assign('formattedDate', \OCP\Util::formatDate($event['timestamp']));
+		$tmpl->assign('formattedTimestamp', \OCP\relative_modified_date($event['timestamp']));
+		$tmpl->assign('user', $event['user']);
+		$tmpl->assign('displayName', \OCP\User::getDisplayName($event['user']));
+		$tmpl->assign('event', $event);
+		$tmpl->assign('typeIcon', self::getTypeIcon($event['type']));
+		$tmpl->assign('isGrouped', !empty($event['isGrouped']));
 
 		$rootView = new \OC\Files\View('');
 		if ($event['file'] !== null){
-			$exist = $rootView->file_exists('/' . $user . '/files' . $event['file']);
+			$exist = $rootView->file_exists('/' . $event['user'] . '/files' . $event['file']);
+			$is_dir = $rootView->is_dir('/' . $event['user'] . '/files' . $event['file']);
 			unset($rootView);
+
 			// show a preview image if the file still exists
-			if ($exist) {
-				echo('<img class="preview" src="' . \OCP\Util::linkToRoute('core_ajax_preview', array('file' => $event['file'], 'x' => 150, 'y' => 150)) . '" />');
+			if (!$is_dir && $exist) {
+				$tmpl->assign('previewImageLink',
+					\OCP\Util::linkToRoute('core_ajax_preview', array(
+						'file' => $event['file'],
+						'x' => 150,
+						'y' => 150,
+					))
+				);
+			} else if ($exist) {
+				$tmpl->assign('previewImageLink', \OC_Helper::mimetypeIcon('dir'));
+				$tmpl->assign('previewLinkIsDir', true);
 			}
 		}
 
-		if (!$event['isGrouped'] && $event['link'] <> '') echo('</a>');
-		echo('</div>'); // end messagecontainer
-		echo('</div>'); // end box
-
+		$tmpl->printPage();
 	}
 
+	/**
+	 * @param string $type
+	 * @return string
+	 */
+	public static function getTypeIcon($type)
+	{
+		switch ($type)
+		{
+			case self::TYPE_SHARE_CHANGED:
+				return 'icon-change';
+			case self::TYPE_SHARE_CREATED:
+				return 'icon-add-color';
+			case self::TYPE_SHARE_DELETED:
+				return 'icon-delete-color';
+			case self::TYPE_SHARED:
+				return 'icon-shared';
+		}
+		return '';
+	}
 
 	/**
 	 * @brief Expire old events
 	 */
-	public static function expire()
-	{
+	public static function expire() {
 		// keep activity feed entries for one year
 		$ttl = (60 * 60 * 24 * 365);
 
@@ -221,14 +393,12 @@ class Data
 		$query->execute(array($timelimit));
 	}
 
-
 	/**
 	 * @brief Generate an RSS feed
 	 * @param string $link
 	 * @param string $content
 	 */
-	public static function generaterss($link, $content)
-	{
+	public static function generaterss($link, $content) {
 
 		$writer = xmlwriter_open_memory();
 		xmlwriter_set_indent($writer, 4);
@@ -255,18 +425,18 @@ class Data
 		// items
 		for ($i = 0; $i < count($content); $i++) {
 			xmlwriter_start_element($writer, 'item');
-			if (isset($content[$i]['subject'])) {
-				xmlwriter_write_element($writer, 'title', $content[$i]['subject']);
+			if (isset($content[$i]['subject_long'])) {
+				xmlwriter_write_element($writer, 'title', $content[$i]['subject_long']);
 			}
 
 			if (isset($content[$i]['link'])) xmlwriter_write_element($writer, 'link', $content[$i]['link']);
 			if (isset($content[$i]['link'])) xmlwriter_write_element($writer, 'guid', $content[$i]['link']);
 			if (isset($content[$i]['timestamp'])) xmlwriter_write_element($writer, 'pubDate', date('r', $content[$i]['timestamp']));
 
-			if (isset($content[$i]['message'])) {
+			if (isset($content[$i]['message_long'])) {
 				xmlwriter_start_element($writer, 'description');
 				xmlwriter_start_cdata($writer);
-				xmlwriter_text($writer, $content[$i]['message']);
+				xmlwriter_text($writer, $content[$i]['message_long']);
 				xmlwriter_end_cdata($writer);
 				xmlwriter_end_element($writer);
 			}
@@ -281,6 +451,4 @@ class Data
 		unset($writer);
 		return ($entry);
 	}
-
-
 }

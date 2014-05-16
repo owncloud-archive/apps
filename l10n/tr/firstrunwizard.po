@@ -4,13 +4,13 @@
 # 
 # Translators:
 # atakan96 <tayancatakan@gmail.com>, 2013
-# volkangezer <volkangezer@gmail.com>, 2013
+# volkangezer <volkangezer@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 18:16-0500\n"
-"PO-Revision-Date: 2013-11-21 11:52+0000\n"
+"POT-Creation-Date: 2014-04-17 00:49-0400\n"
+"PO-Revision-Date: 2014-04-16 19:50+0000\n"
 "Last-Translator: volkangezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,45 +19,51 @@ msgstr ""
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: templates/wizard.php:7
-msgid "Welcome to ownCloud"
-msgstr "ownCloud'a hoş geldiniz"
+#: templates/wizard.php:6
+#, php-format
+msgid "Welcome to %s"
+msgstr "%s'a Hoş Geldiniz"
 
-#: templates/wizard.php:9
+#: templates/wizard.php:8
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
 msgstr "Kendi kişisel web hizmetleriniz. Tümüyle sizin dosyalarınız, kişileriniz, takvimleriniz ve daha fazlası. Tümü bir yerde."
 
-#: templates/wizard.php:15
+#: templates/wizard.php:14
 msgid "Get the apps to sync your files"
 msgstr "Dosyalarınızı eşitlemek için uygulamaları indirin"
 
 #: templates/wizard.php:26
-msgid "Connect your desktop apps to ownCloud"
-msgstr "Masaüstü uygulamalarınızı ownCloud'a bağlayın"
+#, php-format
+msgid "Connect your desktop apps to %s"
+msgstr "Masaüstü uygulamalarınızı %s'a bağlayın"
 
-#: templates/wizard.php:29
+#: templates/wizard.php:28
 msgid "Connect your Calendar"
-msgstr "Takviminize bağlanın"
+msgstr "Takviminizi bağlayın"
 
-#: templates/wizard.php:32
+#: templates/wizard.php:31
 msgid "Connect your Contacts"
-msgstr "Kişilerinize bağlanın"
+msgstr "Kişilerinizi bağlayın"
 
-#: templates/wizard.php:36
+#: templates/wizard.php:34 templates/wizard.php:42
 msgid "Access files via WebDAV"
 msgstr "WebDAV ile dosyalarınıza erişin"
 
-#: templates/wizard.php:41
+#: templates/wizard.php:39
+msgid "Documentation"
+msgstr "Belgelendirme"
+
+#: templates/wizard.php:48
 #, php-format
 msgid ""
 "There’s more information in the <a target=\"_blank\" "
 "href=\"%s\">documentation</a> and on our <a target=\"_blank\" "
 "href=\"http://owncloud.org\">website</a>."
-msgstr "<a target=\"_blank\" href=\"%s\">Belgelendirmede</a> ve <a target=\"_blank\" href=\"http://owncloud.org\">website</a>mizde daha fazla bilgi mevcuttur."
+msgstr "<a target=\"_blank\" href=\"%s\">Belgelendirmede</a> ve <a target=\"_blank\" href=\"http://owncloud.org\">web site</a>mizde daha fazla bilgi mevcuttur."
 
-#: templates/wizard.php:42
+#: templates/wizard.php:49
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"

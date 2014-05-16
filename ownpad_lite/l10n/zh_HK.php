@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Settings" => "設定",
 "Open" => "開啟",
 "Share with" => "分享",
@@ -6,3 +7,4 @@
 "Username" => "用戶名稱",
 "Save" => "儲存"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

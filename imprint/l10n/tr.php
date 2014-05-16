@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Yasal uyarı",
 "Nothing here yet" => "Henüz burada bir şey yok",
 "The content of the legal notice has to be configured first" => "İlk olarak yasal uyarı içeriği yapılandırılmalıdır",
@@ -13,5 +14,6 @@
 "Navigation bottom" => "Alt gezinme",
 "During login" => "Giriş esnasında",
 "Content" => "İçerik",
-"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Html biçimlendirme (örneğin <br> bir satır aralığı) ve satır içi stil niteliklerini (örneğin <a style=\"color:red;\">) kullanabilirsiniz."
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Html biçimlendirme (örneğin: <br> bir satır aralığı) ve satır içi biçem niteliklerini (örneğin: <a style=\"color:red;\">) kullanabilirsiniz."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

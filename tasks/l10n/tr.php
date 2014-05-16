@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Geçersiz tarih/saat",
 "Tasks" => "Görevler",
 "Due" => "Tarih",
@@ -26,3 +27,4 @@
 "Less" => "Az",
 "Delete" => "Sil"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

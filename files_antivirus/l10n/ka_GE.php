@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "მივესალმოთ {user}–ს",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "ბოდიშით, მაგრამ ფაილი რომელიც თქვენ ატვიღთეთ შეიცავდა ვირუსს და ის აუცილებლად უნდა წაშლილიყო.",
 "This email is a notification from {host}. Please, do not reply." => "ეს არის ინფორმაციული მეილი {host}–დან. გთხოვთ არ უპასუხოთ.",
@@ -22,3 +23,4 @@
 "Delete file" => "ფაილების წაშლა",
 "Save" => "შენახვა"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

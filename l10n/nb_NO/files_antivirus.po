@@ -4,14 +4,15 @@
 # 
 # Translators:
 # MorphyNOR <ivar.bredesen@gmail.com>, 2013
+# vidaren <news@vidartysse.net>, 2014
 # troll <oyvind.hojem@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-21 00:49-0500\n"
-"PO-Revision-Date: 2013-12-20 06:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-03-26 05:41-0400\n"
+"PO-Revision-Date: 2014-03-26 06:00+0000\n"
+"Last-Translator: vidaren <news@vidartysse.net>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,28 +48,28 @@ msgstr "Modus"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "Utførende"
+msgstr "Eksekvering"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr "Daemon"
+msgstr "Bakgrunnsprosess"
 
 #: templates/settings.php:5
 msgid "Daemon (Socket)"
-msgstr ""
+msgstr "Bakgrunnsprosess (Socket)"
 
 #: templates/settings.php:7
 msgid "Socket"
-msgstr ""
+msgstr "Socket"
 
 #: templates/settings.php:7
 msgid "Clamav Socket."
-msgstr ""
+msgstr "Clamav Socket."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 #: templates/settings.php:10
 msgid "Not required in Executable Mode."
-msgstr "Ikke påkrevd i Utførende modus."
+msgstr "Ikke påkrevd i Eksekveringsmodus."
 
 #: templates/settings.php:8
 msgid "Host"
@@ -88,7 +89,7 @@ msgstr "Portnummer til Antivirus-tjener."
 
 #: templates/settings.php:10
 msgid "Stream Length"
-msgstr "Strøm lengden"
+msgstr "Strømmelengde"
 
 #: templates/settings.php:10
 msgid "ClamAV StreamMaxLength value in bytes."
@@ -104,7 +105,7 @@ msgstr "Sti til clamscan eksekveringsfil."
 
 #: templates/settings.php:11
 msgid "Not required in Daemon Mode."
-msgstr "Ikke påkrevd i daemon-modus."
+msgstr "Ikke påkrevd i Bakgrunnsprosess-modus."
 
 #: templates/settings.php:12
 msgid "Action for infected files found while scanning"

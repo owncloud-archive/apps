@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Üdv {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Sajnáljuk, de egy rosszindulatú program található egy fájlban, amit megpróbált feltölteni és ezért törölni kellett.",
 "This email is a notification from {host}. Please, do not reply." => "Ez az e-mail egy értesítés a következőtől: {host}. Kérjük, ne válaszoljon.",
@@ -25,3 +26,4 @@
 "Delete file" => "Törölje a fájlt",
 "Save" => "Mentés"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

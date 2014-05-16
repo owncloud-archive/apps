@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "法律声明",
 "Nothing here yet" => "这里还什么都没有",
 "The content of the legal notice has to be configured first" => "必须先配置法律通知等内容",
@@ -13,3 +14,4 @@
 "Navigation bottom" => "导航置底",
 "Content" => "内容"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

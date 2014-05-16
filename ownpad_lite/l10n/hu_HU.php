@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Document was shared" => "Megosztott dokumentum",
 "User %s shared quick document %s with you." => "%s felhasználó megosztotta Önnel ezt a dokumentumot: %s",
 "My pad" => "Saját Pad",
@@ -11,3 +12,4 @@
 "Username" => "Felhasználónév",
 "Save" => "Mentés"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

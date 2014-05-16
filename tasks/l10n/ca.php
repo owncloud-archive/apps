@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "data/hora incorrecta",
 "Tasks" => "Tasques",
 "Due" => "A causa",
@@ -26,3 +27,4 @@
 "Less" => "Menys",
 "Delete" => "Elimina"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

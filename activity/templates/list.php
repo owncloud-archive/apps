@@ -23,30 +23,31 @@
 
 /** @var $l OC_L10N */
 /** @var $theme OC_Defaults */
+/** @var $_ array */
+?>
+<a href="<?php p($_['rsslink']) ?>" class="button rssbutton"><?php p($l->t('RSS feed')) ?></a>
 
-// The rss activity button
-echo('<a href="' . $_['rsslink'] . '" class="button rssbutton">' . $l->t('RSS feed') . '</a>');
-
-if (count($_['activity']) == 0) {
-	echo('<div class="noactivities">' .
-		'<div class="head">' . $l->t('No activities yet.') . '</div>' .
-		'<div class="body">' . $l->t('You will see a list of events here when you start to use your %s.', $theme->getTitle()) . '</div>' .
-		'</div>');
-} else {
-
+<?php if (empty($_['activity'])): ?>
+	<div class="noactivities">
+		<div class="head"><?php p($l->t('No activities yet.')) ?></div>
+		<div class="body"><?php p($l->t('You will see a list of events here when you start to use your %s.', $theme->getTitle())) ?></div>
+	</div>
+<?php else:
 	// Show the activities. The container is needed for the endless scrolling
-	echo('<div id="container">');
-	$tmpl = new \OCP\Template('activity', 'activities.part', '');
-	$tmpl->assign('activity', $_['activity']);
-	$tmpl->printPage();
-	echo('</div>');
+	?>
+	<div id="container">
+		<?php
+			$tmpl = new \OCP\Template('activity', 'activities.part', '');
+			$tmpl->assign('activity', $_['activity']);
+			$tmpl->printPage();
+		?>
+	</div>
 
+	<?php
 	// Dummy navigation. Needed for endless scrolling
-	if (isset($_['nextpage'])) echo('
-	<nav id="page-nav">
-	  <a href="' . $_['nextpage'] . '"></a>
-	</nav>
-
-	');
-
-}
+	if (isset($_['nextpage'])): ?>
+		<nav id="page-nav">
+			<a href="<?php p($_['nextpage']) ?>"></a>
+		</nav>
+	<?php endif; ?>
+<?php endif; ?>

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Settings" => "Configuracion",
 "Open" => "Dubrís",
 "Share with" => "Parteja amb",
@@ -6,3 +7,4 @@
 "Username" => "Non d'usancièr",
 "Save" => "Enregistra"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

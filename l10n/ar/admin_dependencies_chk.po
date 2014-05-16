@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Abderraouf Mehdi Bouhali <armbouhali@gmail.com>, 2014
 # aboodilankaboot, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-03-19 00:49-0400\n"
+"PO-Revision-Date: 2014-03-18 18:40+0000\n"
+"Last-Translator: Abderraouf Mehdi Bouhali <armbouhali@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,56 +23,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "هناك حاجة لوحدة php-json من قبل العديد من التطبيقات للتواصل بين بعضها"
+msgstr "وحدة php-json ضرورية لتمكين التواصل بين عدد من التطبيقات"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr "هناك حاجة لوحدة php-curl لإحضار إسم الصفحة عندة إضافة إشارة مرجعية"
+msgstr "وحدة php-curl ضرورية لجلب عنوان الصفحة عند إضافة إشارة مرجعية"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr "هناك حاجة لوحدة php-gd لإنشاء صور مصغّرة"
+msgstr "وحدة php-gd ضرورية لإنشاء نسخ مصغرة عن صورك"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "هناك حاجة لوحدة php-ldap للإتصال بسيرفر Idap الخاص بك"
+msgstr "وحدة php-ldap ضرورية للإتصال بخادم Idap الخاص بك"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr "هناك حاجة لوحدة php-zip للتمكن من تحميل عدة ملفات في نفس الوقت"
+msgstr "وحدة php-zip ضرورية لإتاحة تحميل عدة ملفات دفعة واحدة"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr "هناك حاجة لوحدة php-mb_multibyte لإدارة الترميز بطريقة صحيحة"
+msgstr "وحدة php-mb_multibyte لإدارة الترميز بطريقة صحيحة"
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr "هناك حاجة لوحدة php-ctype للتحقق من صحة البيانات"
+msgstr "وحدة php-ctype ضرورية للتحقق من صحة البيانات"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr "هناك حاجة لوحدة php-xml لمشااركة الملفات مع webdav"
+msgstr "وحدة php-xml ضرورية لمشااركة الملفات مع webdav"
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "يجب أن يضبط الأمر التوجيهي allow_url_fopen الى 1 في ملف php.ini للتمكن من استرجاع قاعدة المعرفة من سيرفرات OCS "
+msgstr "يجب ضبط الأمر التوجيهي allow_url_fopen على1 في ملف php.ini للتمكن من استرجاع قاعدة المعارف من خوادم OCS "
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr "هناك حاجة لوحدة php-pdo لحفظ بيانات owncloud في قاعدة بيانات"
+msgstr "وحدة php-pdo ضرورية لتخزين بيانات owncloud في قاعدة بيانات"
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr "هناك حاجة لوحدة iconv لتحويل البيانات الى طقم المحارف الصحيح"
+msgstr "وحدة iconv ضرورية لتحويل البيانات الى طقم الحروف الصحيح"
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr "حالة الإعتمادية"
+msgstr "حالة المتطلبات"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr "مستخدم من قبل:"
+msgstr "مستخدم من قبل :"

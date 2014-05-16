@@ -23,6 +23,7 @@
 
 /** @var $l OC_L10N */
 /** @var $theme OC_Defaults */
+/** @var $_ array */
 
 /**
  * @brief Makes a single event that aggregates the info
@@ -35,19 +36,13 @@ function makeEventGroup($events){
 	if (count($events) === 1){
 		return $events[0];
 	}
-	$event = array_shift($events);
+	$event = $events[0];
+
 	// populate with first event
-	$groupedEvent = array(
+	$groupedEvent = array_merge($event, array(
 		'isGrouped' => true,
-		'user' => $event['user'],
-		'affecteduser' => $event['affecteduser'],
-		'app' => $event['app'],
-		'type' => $event['type'],
-		'timestamp' => $event['timestamp'],
-		'file' => $event['file'],
-		'link' => $event['link'],
 		'events' => $events
-	);
+	));
 	return $groupedEvent;
 }
 
@@ -76,13 +71,21 @@ foreach ($_['activity'] as $event) {
 			$eventsInGroup = array();
 			$lastGroup = null;
 			// close previous date group
-			echo('</div>'); // boxcontainer
-			echo('</div>'); // date group
+?>
+			</div>
+		</div>
+<?php
 		}
 		$lastDate = $currentDate;
-		echo('<div class="group" data-date="' . $currentDate . '">');
-		echo('<div class="groupheader"><span class="tooltip" title="' . \OCP\Util::formatDate(strip_time($event['timestamp']), true) .'">' . ucfirst($currentDate) . '</span></div>');
-		echo('<div class="boxcontainer">');
+?>
+	<div class="section activity-section group" data-date="<?php p($currentDate) ?>">
+		<h2>
+			<span class="tooltip" title="<?php p(\OCP\Util::formatDate(strip_time($event['timestamp']), true)) ?>">
+				<?php p(ucfirst($currentDate)) ?>
+			</span>
+		</h2>
+		<div class="boxcontainer">
+<?php
 	}
 	$currentGroup = makeGroupKey($event);
 	// new box group
@@ -100,5 +103,7 @@ foreach ($_['activity'] as $event) {
 if (count($eventsInGroup) > 0){
 	\OCA\Activity\Data::show(makeEventGroup($eventsInGroup));
 }
-echo('</div>'); // boxcontainer
-echo('</div>'); // group
+// Close boxcontainer and group
+?>
+	</div>
+</div>

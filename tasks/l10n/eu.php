@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Baliogabeko data/ordua",
 "Tasks" => "Zereginak",
 "Due" => "Epea",
@@ -26,3 +27,4 @@
 "Less" => "Gutxiago",
 "Delete" => "Ezabatu"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Legal notice" => "Lege oharra",
 "Nothing here yet" => "Ezer hemen oraindik",
 "The content of the legal notice has to be configured first" => "Lege oharraren edukia konfiguratu behar da lehenengo",
@@ -15,3 +16,4 @@
 "Content" => "Edukia",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "html etiketak erabil ditzakezu (adb: <br> lerro berri baterako) eta etiketa barneko estilo atributuak (adb: <a style=\"color:red\")."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

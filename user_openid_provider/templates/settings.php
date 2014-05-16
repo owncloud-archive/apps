@@ -1,6 +1,6 @@
 <form id="user_openid_provider">
-	<fieldset class="personalblock">
-		<strong><?php p($l->t('OpenID Provider remembered sites', 'user_openid_provider')) ?></strong>
+	<div class="section">
+		<h2><?php p($l->t('OpenID Provider remembered sites', 'user_openid_provider')) ?></h2>
 		<table>
 		<?php foreach($_['trusted_sites'] as $url => $trust): ?>
 			<tr>
@@ -10,5 +10,5 @@
 			</tr>
 		<?php endforeach ?>
 		</table>
-	</fieldset>
+	</div>
 </form>

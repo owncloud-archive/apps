@@ -25,21 +25,17 @@ require_once 'lib/external.php';
 
 OCP\User::checkLoggedIn();
 
-if (isset($_GET['id'])) {
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
-	$id = $_GET['id'];
-	$id = (int) $id;
+$sites = OC_External::getSites();
+if (sizeof($sites) >= $id) {
+	$url = $sites[$id - 1][1];
+	OCP\App::setActiveNavigationEntry('external_index' . $id);
 
-	$sites = OC_External::getSites();
-	if (sizeof($sites) >= $id) {
-		$url = $sites[$id - 1][1];
-		OCP\App::setActiveNavigationEntry('external_index' . $id);
-		
-		$tmpl = new OCP\Template('external', 'frame', 'user');
-		//overwrite x-frame-options
-		$tmpl->addHeader('X-Frame-Options', 'ALLOW-FROM *');
-		
-		$tmpl->assign('url', $url);
-		$tmpl->printPage();
-	}
+	$tmpl = new OCP\Template('external', 'frame', 'user');
+	//overwrite x-frame-options
+	$tmpl->addHeader('X-Frame-Options', 'ALLOW-FROM *');
+
+	$tmpl->assign('url', $url);
+	$tmpl->printPage();
 }

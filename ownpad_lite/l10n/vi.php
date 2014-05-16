@@ -1,4 +1,7 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
+"Document was shared" => "Tài liệu được chia sẻ",
+"User %s shared quick document %s with you." => "Người dùng %s chia sẻ tài liệu %s với bạn.",
 "My pad" => "Pad của tôi",
 "Settings" => "Cài đặt",
 "Pad Title" => "Tiêu đề pad",
@@ -9,3 +12,4 @@
 "Username" => "Tên đăng nhập",
 "Save" => "Lưu"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

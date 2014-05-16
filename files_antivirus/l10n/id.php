@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Salam {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Maaf, tetapi sebuah malware terdeteksi dalam berkas yang anda unggah dan harus dihapus.",
 "This email is a notification from {host}. Please, do not reply." => "Email ini adalah notifikasi dari {host}. Jangan dibalas.",
@@ -7,6 +8,9 @@
 "Mode" => "Mode",
 "Executable" => "Eksekutor",
 "Daemon" => "Daemon",
+"Daemon (Socket)" => "Daemon (Soket)",
+"Socket" => "Soket",
+"Clamav Socket." => "Soket Clamav.",
 "Not required in Executable Mode." => "Tidak diperlukan dalam Mode Eksekutor",
 "Host" => "Host",
 "Address of Antivirus Host." => "Alamat Host Antivirus",
@@ -22,3 +26,4 @@
 "Delete file" => "Hapus berkas",
 "Save" => "simpan"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

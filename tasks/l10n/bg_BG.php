@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "Невалидни дата/час",
 "Tasks" => "Задачи",
 "List" => "Списък",
@@ -16,3 +17,4 @@
 "Less" => "По-малко",
 "Delete" => "Изтриване"
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

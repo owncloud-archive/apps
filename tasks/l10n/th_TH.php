@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Invalid date/time" => "วันที่ / เวลา ไม่ถูกต้อง",
 "Tasks" => "งาน",
 "Due" => "วันที่ครบกำหนด",
@@ -26,3 +27,4 @@
 "Less" => "น้อย",
 "Delete" => "ลบ"
 );
+$PLURAL_FORMS = "nplurals=1; plural=0;";

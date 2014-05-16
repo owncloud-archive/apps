@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# mattheu_9x <mattheu.9x@gmail.com>, 2012
-# Sơn Nguyễn <sonnghit@gmail.com>, 2012
+# Nguyễn Tài <mattheu.9x@gmail.com>, 2012
+# Sơn Nguyễn <sonnghit@gmail.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:42+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2014-04-30 00:48-0400\n"
+"PO-Revision-Date: 2014-04-29 10:02+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "Vị trí"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "không có category"
+msgstr "không thể loại"
 
 #: lib/app.php:33
 msgid "Unspecified"
@@ -61,7 +61,7 @@ msgstr "9=thấp"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "Để trống tóm tắt  thông tin"
+msgstr "Để trống tóm tắt  "
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
@@ -82,7 +82,7 @@ msgstr "Thêm Task"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "theo Thời gian"
+msgstr "Theo Thời gian"
 
 #: templates/tasks.php:5
 msgid "Order List"

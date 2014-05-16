@@ -26,6 +26,12 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('activity');
 
+// rss is of content type text/xml
+if (isset($_SERVER['HTTP_ACCEPT']) && stristr($_SERVER['HTTP_ACCEPT'], 'application/rss+xml')) {
+	header('Content-Type: application/rss+xml');
+} else {
+	header('Content-Type: text/xml; charset=UTF-8');
+}
 
 // read the  data
 $activities=OCA\Activity\Data::read(0,30);

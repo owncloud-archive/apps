@@ -35,13 +35,13 @@
 
 <!-- settings of app 'imprint' -->
 <form id="imprint">
-	<fieldset class="personalblock">
-		<legend>
+	<div class="section">
+		<h2>
 			<span id="title" class="title">
 				<img class="" src="<?php p(OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
-				<strong><?php p($l->t("Imprint"));?></strong>
+				<?php p($l->t("Imprint"));?>
 			</span>
-		</legend>
+		</h2>
 		<div id="imprint-options" class="imprint-option">
 			<label for="imprint-option-position" class="imprint-option"><?php p($l->t("Placement").": ");?></label>
 			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
@@ -66,5 +66,5 @@
 				<?php p($l->t("You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)."));?>
 			</span>
 		</div>
-  </fieldset>
+	</div>
 </form>

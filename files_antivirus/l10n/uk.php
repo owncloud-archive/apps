@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Greetings {user}," => "Вітаємо {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Перепрошуємо, але у файлі, який ви намагаєтесь завантажити, виявлений шкідливий код, тому цей файл буде видалено.",
 "This email is a notification from {host}. Please, do not reply." => "Цей E-mail є повідомленням від {host}. Відповідати не потрібно.",
@@ -25,3 +26,4 @@
 "Delete file" => "Видалити файл",
 "Save" => "Зберегти"
 );
+$PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

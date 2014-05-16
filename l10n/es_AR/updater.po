@@ -5,13 +5,14 @@
 # Translators:
 # cjtess <claudio.tessone@gmail.com>, 2013
 # cjtess <claudio.tessone@gmail.com>, 2012
+# cnngimenez, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-11-21 04:26-0500\n"
-"PO-Revision-Date: 2013-11-16 07:43+0000\n"
-"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
+"POT-Creation-Date: 2014-05-04 00:49-0400\n"
+"PO-Revision-Date: 2014-05-03 06:11+0000\n"
+"Last-Translator: cnngimenez\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,60 +30,64 @@ msgid ""
 "the following files and directories:"
 msgstr "No es posible actualizar. Asegurate que tu servidor web tiene permisos de escritura en los siguientes archivos y directorios:"
 
-#: ajax/update.php:60
+#: ajax/update.php:58
 msgid "Version not found"
 msgstr "Versión no encontrada"
 
-#: ajax/update.php:67 ajax/update.php:76
+#: ajax/update.php:65 ajax/update.php:73
 msgid ""
 "Upgrade is not possible. Your webserver has not enough permissions to remove"
 " the following directory:"
 msgstr "No es posible actualizar. Tu servidor web no tiene permisos suficientes para borrar el siguiente directorio:"
 
-#: ajax/update.php:69 ajax/update.php:78
+#: ajax/update.php:67 ajax/update.php:75
 msgid ""
 "Update permissions on this directory and its content or remove it manually "
 "first."
 msgstr "Actualizar permisos en este directorio y sus contenidos, o primero borralo manualmente"
 
-#: ajax/update.php:85
+#: ajax/update.php:81
 msgid "Downloading package..."
 msgstr "Descargando paquete"
 
-#: ajax/update.php:89
+#: ajax/update.php:85
 msgid "Unable to fetch package"
 msgstr "No es posible obtener el paquete"
 
-#: ajax/update.php:94
+#: ajax/update.php:90
 msgid "Creating backup..."
 msgstr "Creando copia de seguridad..."
 
-#: ajax/update.php:96
+#: ajax/update.php:92
 msgid "Here is your backup: "
 msgstr "Acá está tu copia de seguridad:"
 
-#: ajax/update.php:99
+#: ajax/update.php:95
 msgid "Failed to create backup"
 msgstr "No fue posible crear una copia de seguridad"
 
-#: ajax/update.php:103
+#: ajax/update.php:99
 msgid "Moving files..."
 msgstr "Moviendo archivos..."
 
-#: ajax/update.php:109
+#: ajax/update.php:105
 msgid "All done. Click to the link below to start database upgrade."
 msgstr "Listo. Hacé click en el enlace más abajo para comenzar la actualización de la base de datos."
 
-#: ajax/update.php:112
+#: ajax/update.php:109
 msgid "Update failed"
 msgstr "Error al actualizar"
 
-#: js/controllers.js:25
+#: js/controllers.js:24
 msgid ""
-"The update was unsuccessful. Please report this issue to the <a "
-"href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud "
-"community</a>."
-msgstr "La actualización no fue exitosa. Reportá este problema a la comunidad e <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">ownCloud</a>."
+"The update was unsuccessful. Please check logs at admin page and report this"
+" issue to the <a href=\"https://github.com/owncloud/apps/issues\" "
+"target=\"_blank\">ownCloud community</a>."
+msgstr "La actualización no fue exitosa. Por favor, chequee los logs en la página de administración y reporte este problema a la <a href=\"https://github.com/owncloud/apps/issues\" target=\"_blank\">comunidad ownCloud</a>."
+
+#: js/controllers.js:30
+msgid "Proceed"
+msgstr "Prosiga"
 
 #: templates/admin.php:17
 msgid "Update Center"

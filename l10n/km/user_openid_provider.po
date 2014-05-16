@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# សុវិចិត្រ Sovichet ទេព Tep <sovichet.tep@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-09-13 19:45-0400\n"
-"PO-Revision-Date: 2013-09-12 11:11+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-03-11 06:30-0400\n"
+"PO-Revision-Date: 2014-02-24 12:10+0000\n"
+"Last-Translator: សុវិចិត្រ Sovichet ទេព Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Khmer (http://www.transifex.com/projects/p/owncloud/language/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr ""
+msgstr "ប្រតិបត្តិករ OpenID បាន​ចងចាំ​វេបសាយ"
 
 #: templates/settings.php:8
 msgid "Trusted"
-msgstr ""
+msgstr "ដែល​ទុក​ចិត្ត"
 
 #: templates/settings.php:8
 msgid "Denied"
-msgstr ""
+msgstr "ដែល​បដិសេធ"
 
 #: templates/settings.php:9
 msgid "Remove"
-msgstr ""
+msgstr "ដកចេញ"
