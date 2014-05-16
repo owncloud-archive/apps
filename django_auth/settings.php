@@ -36,7 +36,7 @@ $dbParams = array(
 
 if ($_POST) {
 	// CSRF check
-	OPC\JSON::callCheck();
+	OCP\JSON::callCheck();
 	foreach($params as $param) {
 		if(isset($_POST[$param])) {
 			OCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
@@ -48,7 +48,7 @@ if ($_POST) {
 	}
 	foreach($dbParams as $param) {
 		if(isset($_POST[$param])) {
-			OOCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
+			OCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
 		}
 	}
 }
