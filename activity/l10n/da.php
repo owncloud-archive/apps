@@ -3,6 +3,7 @@ $TRANSLATIONS = array(
 "Activity" => "Begivenhed",
 "No more activities to load." => "Ikke flere aktiviteter der kan hentes.",
 "Loading older activities" => "Henter ældre aktiviteter",
+"You shared %1$s" => "Du delte %1$s",
 "_%n more..._::_%n more..._" => array("",""),
 "RSS feed" => "RSS feed",
 "No activities yet." => "Ingen aktiviteter endnu.",
