@@ -41,9 +41,9 @@ class DjangoDatabase {
 				self::$db = new PDO($dsn, $db_user, $db_password);
 			} catch (PDOException $e) {
 				self::$failed = true;
-				OC_Log::write('OC_User_Django',
+				OCP\Util::writeLog('OC_User_Django',
 					'OC_User_Django, Failed to connect to redmine database: ' . $e->getMessage(),
-					OC_Log::ERROR);
+					\OCP\Util::ERROR);
 			}
 		}
 

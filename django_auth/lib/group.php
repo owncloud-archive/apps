@@ -50,7 +50,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* be returned.
 	*/
 	public static function createGroup( $gid ) {
-		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to create groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to create groups',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -62,7 +62,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* Deletes a group and removes it from the group_user-table
 	*/
 	public function deleteGroup( $gid ) {
-		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to delete groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to delete groups',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -109,6 +109,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
  WHERE `auth_group`.`name` = ?
    AND `auth_user`.`username`  = ?
    AND `auth_user`.`is_active` = 1';
+   echo $sql;
 			$query  = $this->db->prepare($sql);
 			$param = array( $gid, $uid );
 		}
@@ -128,7 +129,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* Adds a user to a group.
 	*/
 	public function addToGroup( $uid, $gid ) {
-		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to add users to groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to add users to groups',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -141,7 +142,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* removes the user from a group.
 	*/
 	public function removeFromGroup( $uid, $gid ) {
-		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to remove users from groups',3);
+		OCP\Util::writeLog('OC_Group_Django', 'Use the django webinterface to remove users from groups',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -198,6 +199,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 		// would not call OC_GROUP_DJANGO::inGroup where we do more magic...
 		if (!in_array('admin') and ($staff_is_admin or $superuser_is_admin))
 			$groups[] = "admin";
+
 		return $groups;
 	}
 

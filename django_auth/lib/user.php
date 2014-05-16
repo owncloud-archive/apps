@@ -35,7 +35,6 @@ class OC_USER_DJANGO extends OC_User_Backend {
 
 	public function __construct ()
 	{
-		echo "USER CONSTRUCTOR";
 		$this->db = Djangodatabase::getDatabase();
 	}
 
@@ -49,7 +48,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* itself, not in its subclasses.
 	*/
 	public function createUser($uid, $password) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to create users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to create users',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -61,7 +60,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Deletes a user
 	*/
 	public function deleteUser( $uid ) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to delete users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to delete users',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -74,7 +73,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Change the password of a user
 	*/
 	public function setPassword($uid, $password) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to change passwords',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to change passwords',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -137,7 +136,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 						$digest_size = 32;
 					}
 					else {
-						OC_Log::write('OC_User_Django', 'The given hash algorithm for pkdf2 is not supported: '.$chunks[0],3);
+						OCP\Util::writeLog('OC_User_Django', 'The given hash algorithm for pkdf2 is not supported: '.$chunks[0],\OCP\Util::ERROR);
 						return false;
 					}
 
@@ -167,7 +166,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					}
 					else
 					{
-						OC_Log::write('OC_User_Django', 'The given hash algorithm is not supported: '.$hasher,3);
+						OCP\Util::writeLog('OC_User_Django', 'The given hash algorithm is not supported: '.$hasher,\OCP\Util::ERROR);
 						return false;
 					}
 
