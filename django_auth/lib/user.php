@@ -114,6 +114,15 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					else
 						return false;
 				}
+				elseif (self::beginsWith($storedHash, 'md5')) {
+					$chunks = preg_split('/\$/', $storedHash,3);
+					$salt   = $chunks[1];
+					$hash   = $chunks[2];
+					if (md5($salt.$password) === $hash)
+						return $uid;
+					else
+						return false;
+				}
 				elseif (self::beginsWith($storedHash, 'pbkdf2')) {
 					$chunks = preg_split('/\$/', $storedHash,4);
 					list($pbkdf, $algorithm) = preg_split('/_/', $chunks[0]);
@@ -128,7 +137,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 						$digest_size = 32;
 					}
 					else {
-						OC_Log::write('OC_User_Django', 'The given hash algorithm is not supported: '.$algorithm,3);
+						OC_Log::write('OC_User_Django', 'The given hash algorithm for pkdf2 is not supported: '.$chunks[0],3);
 						return false;
 					}
 
@@ -138,6 +147,35 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					else {
 						return false;
 					}
+				}
+				elseif (self::beginsWith($storedHash, 'bcrypt')) {
+					// get the salt
+					preg_match('/(bcrypt(_sha256)?)\$(\$[^\$]+\$\d+\$.{22})/', $storedHash, $matches);
+					$hasher = $matches[1];
+					$salt = $matches[3];
+
+					if ($hasher === 'bcrypt')
+					{
+						// Truncate the password as the password hasher django uses does
+						$password = substr($password, 0, 72);
+					}
+					elseif ($hasher === 'bcrypt_sha256')
+					{
+						// SHA256 the password prior to passing it to crypt, like the password hasher django uses does
+						// works around the password truncation of
+						$password = hash("sha256", $password);
+					}
+					else
+					{
+						OC_Log::write('OC_User_Django', 'The given hash algorithm is not supported: '.$hasher,3);
+						return false;
+					}
+
+					// build hash string as stored in the database and compare it
+					if  ($hasher . "$" . crypt($password, $salt) === $storedHash)
+						return $uid;
+					return
+						false;
 				}
 			}
 			else {
