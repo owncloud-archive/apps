@@ -4,7 +4,7 @@
  * ownCloud - Django Authentification Backend
  *
  * @author Florian Reinhard
- * @copyright 2012-2013 Florian Reinhard <florian.reinhard@googlemail.com>
+ * @copyright 2012-2014 Florian Reinhard <florian.reinhard@googlemail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
