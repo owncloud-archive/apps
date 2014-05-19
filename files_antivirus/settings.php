@@ -28,6 +28,7 @@ $params = array(
 	'av_socket' => '/var/run/clamav/clamd.ctl',
 	'av_host' => '',
 	'av_port' => '',
+	'av_cmd_options' => '',
 	'av_chunk_size' => '1024',
 	'av_path' => '/usr/bin/clamscan',
 	'infected_action' => 'only_log',

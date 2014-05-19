@@ -3,6 +3,13 @@
 	margin-top: 14px;
 }
 
+.section-antivirus label {
+	display: inline-block;
+	min-width: 280px;
+	margin-right: 6px;
+	text-align: right;
+}
+
 .shaded{
 	opacity: .3;
 }
