@@ -44,6 +44,11 @@
 		</tbody>
 	</table>
 
+	<?php if (empty($_['activity_email'])): ?>
+		<br />
+		<strong><?php p($l->t('You need to set up your email address before you can receive notification emails.')); ?></strong>
+	<?php endif; ?>
+
 	<br />
 	<?php p($l->t('Send mails:')); ?>
 	<select id="notify_setting_batchtime" name="notify_setting_batchtime">

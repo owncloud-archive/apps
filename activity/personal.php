@@ -49,5 +49,6 @@ else if (\OCA\Activity\Data::getUserSetting($user, 'setting', 'batchtime') == 36
 else {
 	$template->assign('setting_batchtime', 0);
 }
+$template->assign('activity_email', \OCP\Config::getUserValue($user, 'settings', 'email', ''));
 
 return $template->fetchPage();
