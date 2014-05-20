@@ -37,8 +37,7 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 
 	public function __construct() {
 		// Run all 15 Minutes
-		// @todo $this->setInterval(15 * 60);
-		$this->setInterval(10);
+		$this->setInterval(15 * 60);
 		$this->mq_handler = new \OCA\Activity\MailQueueHandler();
 	}
 
