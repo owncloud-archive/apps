@@ -161,41 +161,30 @@ class MailQueueHandler {
 	 * @param string $user Username of the recipient
 	 * @param string $email Email address of the recipient
 	 * @param string $lang Selected language of the recipient
-	 * @param array $mail_data Notification data we send to the user
+	 * @param array $mailData Notification data we send to the user
 	 */
-	public function sendEmailToUser($user, $email, $lang, $mail_data) {
+	public function sendEmailToUser($user, $email, $lang, $mailData) {
 		$l = $this->getLanguage($lang);
 
-		$activity_list = array();
-		foreach ($mail_data as $activity) {
-			$activity_list[] = \OCA\Activity\Data::translation(
+		$activityList = array();
+		foreach ($mailData as $activity) {
+			$activityList[] = \OCA\Activity\Data::translation(
 				$activity['amq_appid'], $activity['amq_subject'], unserialize($activity['amq_subjectparams']),
 				false, false, $l
 			);
 		}
-		$activity_list = implode("\n", $activity_list);
 
-		$email_text = $l->t(
-			'Hello %1$s,' . "\n"
-			. "\n"
-			. 'You receive this email because %2$s the following things happened at %3$s' . "\n"
-			. "\n"
-			. '%4$s' . "\n",
-			array(
-				$user,
-				$this->getLangForApproximatedTimeframe($l, $mail_data[0]['amq_timestamp']),
-				'owncloud', // @todo: Replace with oC URL
-				$activity_list,
-			)
-		);
-
-		// @todo Remove log after testing
-		\OCP\Util::writeLog('activity', 'Send email to user ' . $user . ' with text: ' . $email_text, \OCP\Util::FATAL);
+		$alttext = new \OCP\Template('activity', 'email.notification', '');
+		$alttext->assign('username', $user);
+		$alttext->assign('timeframe', $this->getLangForApproximatedTimeframe($l, $mailData[0]['amq_timestamp']));
+		$alttext->assign('activities', $activityList);
+		$alttext->assign('owncloud_installation', \OC_Helper::makeURLAbsolute('/'));
+		$emailText = $alttext->fetchPage();
 
 		try {
 			\OC_Mail::send(
 				$email, $user,
-				$l->t('Activity notification'), $email_text,
+				$l->t('Activity notification'), $emailText,
 				$this->getSenderData('email'), $this->getSenderData('name')
 			);
 		} catch (\Exception $e) {
