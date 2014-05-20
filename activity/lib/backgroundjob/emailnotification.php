@@ -73,10 +73,10 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 		$user_emails = $this->getPreferencesForUsers($affected_users, 'settings', 'email');
 
 		// Get all items for these users
-		// We do use don't use time() here, so we don't delete items
-		// later which were created in the same second, but where not
-		// collected for the emails
-		$send_time = time() - 5;
+		// We do use don't use time() but "time() - 1" here, so we don't run into
+		// runtime issues and delete emails later, which were created in the
+		// same second, but where not collected for the emails.
+		$send_time = time() - 1;
 		$mail_data = $this->mq_handler->getItemsForUsers($affected_users, $send_time);
 
 		// Send Email
