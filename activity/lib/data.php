@@ -158,13 +158,13 @@ class Data
 	 *
 	 * @param string $app The app where this event is associated with
 	 * @param string $subject A short description of the event
-	 * @param array  $subjectparams Array of parameters that are filled in the placeholders
-	 * @param string $affecteduser Name of the user we are sending the activity to
+	 * @param array  $subjectParams Array of parameters that are filled in the placeholders
+	 * @param string $affectedUser Name of the user we are sending the activity to
 	 * @param string $type Type of notification
-	 * @param int $latest_send_time Activity time() + batch setting of $affecteduser
+	 * @param int $latestSendTime Activity time() + batch setting of $affecteduser
 	 * @return bool
 	 */
-	public static function storeMail($app, $subject, array $subjectparams, $affecteduser, $type, $latest_send_time) {
+	public static function storeMail($app, $subject, array $subjectParams, $affectedUser, $type, $latestSendTime) {
 		$timestamp = time();
 
 		// store in DB
@@ -174,22 +174,22 @@ class Data
 		$query->execute(array(
 			$app,
 			$subject,
-			serialize($subjectparams),
-			$affecteduser,
+			serialize($subjectParams),
+			$affectedUser,
 			$timestamp,
 			$type,
-			$latest_send_time,
+			$latestSendTime,
 		));
 
 		// fire a hook so that other apps like notification systems can connect
 		\OCP\Util::emitHook('OC_Activity', 'post_email', array(
 			'app'			=> $app,
 			'subject'		=> $subject,
-			'subjectparams'	=> $subjectparams,
-			'affecteduser'	=> $affecteduser,
+			'subjectparams'	=> $subjectParams,
+			'affecteduser'	=> $affectedUser,
 			'timestamp'		=> $timestamp,
 			'type'			=> $type,
-			'latest_send'	=> $latest_send_time,
+			'latest_send'	=> $latestSendTime,
 		));
 
 		return true;

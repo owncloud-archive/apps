@@ -182,8 +182,8 @@ class Hooks {
 		}
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
-			$latest_send = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
-			Data::storeMail('files', 'shared_user_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
+			$latestSend = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
+			Data::storeMail('files', 'shared_user_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latestSend);
 		}
 
 		// New shared user
@@ -198,8 +198,8 @@ class Hooks {
 		}
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
-			$latest_send = Data::getUserSetting($params['shareWith'], 'setting', 'batchtime') + time();
-			Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $params['shareWith'], Data::TYPE_SHARED, $latest_send);
+			$latestSend = Data::getUserSetting($params['shareWith'], 'setting', 'batchtime') + time();
+			Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $params['shareWith'], Data::TYPE_SHARED, $latestSend);
 		}
 	}
 
@@ -222,8 +222,8 @@ class Hooks {
 		}
 		// Add activity to mail queue
 		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
-			$latest_send = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
-			Data::storeMail('files', 'shared_group_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latest_send);
+			$latestSend = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
+			Data::storeMail('files', 'shared_group_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latestSend);
 		}
 
 		// Members of the new group
@@ -265,8 +265,8 @@ class Hooks {
 
 				// Add activity to mail queue
 				if (!empty($filteredEmailUsersInGroup[$user])) {
-					$latest_send = time() + $filteredEmailUsersInGroup[$user];
-					Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $user, Data::TYPE_SHARED, $latest_send);
+					$latestSend = time() + $filteredEmailUsersInGroup[$user];
+					Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $user, Data::TYPE_SHARED, $latestSend);
 				}
 			}
 		}
