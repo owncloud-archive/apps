@@ -91,7 +91,7 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 			$this->mq_handler->sendEmailToUser($user, $user_emails[$user], $language, $user_data);
 		}
 
-		// Delete all entries we dealed with
+		// Delete all entries we dealt with
 		$this->mq_handler->deleteSentItems($affected_users, $send_time);
 
 		return sizeof($affected_users);

@@ -137,12 +137,12 @@ class MailQueueHandler {
 	}
 
 	/**
-	 * Get the language string for a timeframe
+	 * Get the language string for a time frame
 	 * However we are not very accurate here, so we match the setting of the user
 	 * a bit better
 	 *
 	 * @param \OC_L10N $l
-	 * @param int      $timestamp
+	 * @param int $timestamp
 	 * @return \OC_L10N_String
 	 */
 	protected function getLangForApproximatedTimeframe(\OC_L10N $l, $timestamp) {
@@ -195,7 +195,7 @@ class MailQueueHandler {
 	}
 
 	/**
-	 * Delete all entries we dealed with
+	 * Delete all entries we dealt with
 	 *
 	 * @param array $affected_users
 	 * @param int $max_time
