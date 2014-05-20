@@ -146,6 +146,26 @@
 				<notnull>true</notnull>
 				<length>255</length>
 			</field>
+
+			<index>
+				<name>amp_user</name>
+				<field>
+					<name>amq_affecteduser</name>
+					<sorting>ascending</sorting>
+				</field>
+			</index>
+			<index>
+				<name>amp_latest_send_time</name>
+				<field>
+					<name>amq_latest_send</name>
+				</field>
+			</index>
+			<index>
+				<name>amp_timestamp_time</name>
+				<field>
+					<name>amq_timestamp</name>
+				</field>
+			</index>
 		</declaration>
 	  </table>
 </database>

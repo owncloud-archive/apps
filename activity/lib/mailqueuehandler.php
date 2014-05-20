@@ -86,7 +86,7 @@ class MailQueueHandler {
 			. ' FROM `*PREFIX*activity_mq` '
 			. ' WHERE `amq_timestamp` <= ? '
 			. ' AND `amq_affecteduser` IN (' . $placeholders . ')'
-			. ' ORDER BY `amq_timestamp`'
+			. ' ORDER BY `amq_timestamp` ASC'
 		);
 		$result = $query->execute($query_params);
 
