@@ -33,12 +33,12 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 	const WEB_EMAIL_BATCH_SIZE = 25;
 
 	/** @var \OCA\Activity\MailQueueHandler */
-	protected $mq_handler;
+	protected $mqHandler;
 
 	public function __construct() {
 		// Run all 15 Minutes
 		$this->setInterval(15 * 60);
-		$this->mq_handler = new \OCA\Activity\MailQueueHandler();
+		$this->mqHandler = new \OCA\Activity\MailQueueHandler();
 	}
 
 	protected function run($argument) {
@@ -62,47 +62,47 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 	 */
 	protected function runStep($limit) {
 		// Get all users which should receive an email
-		$affected_users = $this->mq_handler->getAffectedUsers($limit);
-		if (empty($affected_users)) {
+		$affectedUsers = $this->mqHandler->getAffectedUsers($limit);
+		if (empty($affectedUsers)) {
 			// No users found to notify, mission abort
 			return 0;
 		}
 
-		$user_languages = $this->getPreferencesForUsers($affected_users, 'core', 'lang');
-		$user_emails = $this->getPreferencesForUsers($affected_users, 'settings', 'email');
+		$userLanguages = $this->getPreferencesForUsers($affectedUsers, 'core', 'lang');
+		$userEmails = $this->getPreferencesForUsers($affectedUsers, 'settings', 'email');
 
 		// Get all items for these users
 		// We do use don't use time() but "time() - 1" here, so we don't run into
 		// runtime issues and delete emails later, which were created in the
 		// same second, but where not collected for the emails.
-		$send_time = time() - 1;
-		$mail_data = $this->mq_handler->getItemsForUsers($affected_users, $send_time);
+		$sendTime = time() - 1;
+		$mailData = $this->mqHandler->getItemsForUsers($affectedUsers, $sendTime);
 
 		// Send Email
 		$default_lang = \OC_Config::getValue('default_language', 'en');
-		foreach ($mail_data as $user => $user_data) {
-			if (!isset($user_emails[$user])) {
+		foreach ($mailData as $user => $data) {
+			if (!isset($userEmails[$user])) {
 				// The user did not setup an email address
 				// So we will not send an email :(
 				continue;
 			}
 
-			$language = (isset($user_languages[$user])) ? $user_languages[$user] : $default_lang;
-			$this->mq_handler->sendEmailToUser($user, $user_emails[$user], $language, $user_data);
+			$language = (isset($userLanguages[$user])) ? $userLanguages[$user] : $default_lang;
+			$this->mqHandler->sendEmailToUser($user, $userEmails[$user], $language, $data);
 		}
 
 		// Delete all entries we dealt with
-		$this->mq_handler->deleteSentItems($affected_users, $send_time);
+		$this->mqHandler->deleteSentItems($affectedUsers, $sendTime);
 
-		return sizeof($affected_users);
+		return sizeof($affectedUsers);
 	}
 
-	protected function getPreferencesForUsers($users, $appid, $configkey) {
+	protected function getPreferencesForUsers($users, $appId, $configKey) {
 		$placeholders = implode(',', array_fill(0, sizeof($users), '?'));
 
-		$query_params = $users;
-		array_unshift($query_params, $configkey);
-		array_unshift($query_params, $appid);
+		$queryParams = $users;
+		array_unshift($queryParams, $configKey);
+		array_unshift($queryParams, $appId);
 
 		$query = \OCP\DB::prepare(
 			'SELECT `userid`, `configvalue` '
@@ -110,17 +110,17 @@ class EmailNotification extends \OC\BackgroundJob\TimedJob {
 			. ' WHERE `appid` = ? AND `configkey` = ?'
 			. ' AND `userid` IN (' . $placeholders . ')'
 		);
-		$result = $query->execute($query_params);
+		$result = $query->execute($queryParams);
 
-		$user_preferences = array();
+		$userPreferences = array();
 		if (\OCP\DB::isError($result)) {
-			\OCP\Util::writeLog('OCA\Activity\BackgroundJob\EmailNotification::getPreferencesForUsers', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			\OCP\Util::writeLog('Activity', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 		} else {
 			while ($row = $result->fetchRow()) {
-				$user_preferences[$row['userid']] = $row['configvalue'];
+				$userPreferences[$row['userid']] = $row['configvalue'];
 			}
 		}
 
-		return $user_preferences;
+		return $userPreferences;
 	}
 }
