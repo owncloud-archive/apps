@@ -34,6 +34,10 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
+	const EMAIL_SEND_HOURLY = 0;
+	const EMAIL_SEND_DAILY = 1;
+	const EMAIL_SEND_WEEKLY = 2;
+
 	const TYPE_SHARED = 'shared';
 	const TYPE_SHARE_EXPIRED = 'share_expired';
 	const TYPE_SHARE_UNSHARED = 'share_unshared';
@@ -66,6 +70,10 @@ class Data
 	}
 
 	public static function getUserDefaultSetting($method, $type) {
+		if ($method == 'setting' && $type == 'batchtime') {
+			return 3600;
+		}
+
 		$settings = self::getUserDefaultSettings($method);
 		return in_array($type, $settings);
 	}
@@ -150,6 +158,48 @@ class Data
 	}
 
 	/**
+	 * @brief Send an event into the activity stream
+	 *
+	 * @param string $app The app where this event is associated with
+	 * @param string $subject A short description of the event
+	 * @param array  $subjectParams Array of parameters that are filled in the placeholders
+	 * @param string $affectedUser Name of the user we are sending the activity to
+	 * @param string $type Type of notification
+	 * @param int $latestSendTime Activity time() + batch setting of $affecteduser
+	 * @return bool
+	 */
+	public static function storeMail($app, $subject, array $subjectParams, $affectedUser, $type, $latestSendTime) {
+		$timestamp = time();
+
+		// store in DB
+		$query = \OCP\DB::prepare('INSERT INTO `*PREFIX*activity_mq` '
+			. ' (`amq_appid`, `amq_subject`, `amq_subjectparams`, `amq_affecteduser`, `amq_timestamp`, `amq_type`, `amq_latest_send`) '
+			. ' VALUES(?, ?, ?, ?, ?, ?, ?)');
+		$query->execute(array(
+			$app,
+			$subject,
+			serialize($subjectParams),
+			$affectedUser,
+			$timestamp,
+			$type,
+			$latestSendTime,
+		));
+
+		// fire a hook so that other apps like notification systems can connect
+		\OCP\Util::emitHook('OC_Activity', 'post_email', array(
+			'app'			=> $app,
+			'subject'		=> $subject,
+			'subjectparams'	=> $subjectParams,
+			'affecteduser'	=> $affectedUser,
+			'timestamp'		=> $timestamp,
+			'type'			=> $type,
+			'latest_send'	=> $latestSendTime,
+		));
+
+		return true;
+	}
+
+	/**
 	 * @brief Translate an event string with the translations from the app where it was send from
 	 * @param string $app The app where this event comes from
 	 * @param string $text The text including placeholders
@@ -158,16 +208,18 @@ class Data
 	 * @param bool $highlight_params Shall we highlight the parameters in the string?
 	 *             They will be highlighted with `<strong>`, all data will be passed through
 	 *             \OC_Util::sanitizeHTML() before, so no XSS is possible.
+	 * @param \OC_L10N $l Language object, if you want to use a different language (f.e. to send an email)
 	 * @return string translated
 	 */
-	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false) {
+	public static function translation($app, $text, $params, $strip_path = false, $highlight_params = false, \OC_L10N $l = null) {
 		if (!$text) {
 			return '';
 		}
+		if ($l === null) {
+			$l = \OCP\Util::getL10N('activity');
+		}
 
 		if ($app === 'files') {
-
-			$l = \OCP\Util::getL10N('activity');
 			$params = self::prepare_files_params($app, $text, $params, 0, $strip_path, $highlight_params);
 			if ($text === 'created_self') {
 				return $l->t('You created %1$s', $params);
@@ -207,6 +259,12 @@ class Data
 		}
 	}
 
+	/**
+	 * @param string $user
+	 * @param string $method
+	 * @param string $type
+	 * @return string|int
+	 */
 	public static function getUserSetting($user, $method, $type) {
 		return \OCP\Config::getUserValue(
 			$user,

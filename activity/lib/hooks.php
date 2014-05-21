@@ -87,9 +87,10 @@ class Hooks {
 
 		$affectedUsers = self::getUserPathsFromPath($file_path);
 		$filteredStreamUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'stream', $activity_type);
+		$filteredEmailUsers = self::filterUsersBySetting(array_keys($affectedUsers), 'email', $activity_type);
 
 		foreach ($affectedUsers as $user => $path) {
-			if (empty($filteredStreamUsers[$user])) {
+			if (empty($filteredStreamUsers[$user]) && empty($filteredEmailUsers[$user])) {
 				continue;
 			}
 
@@ -102,9 +103,14 @@ class Hooks {
 			}
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($path)));
 
+			// Add activities to stream
 			if (!empty($filteredStreamUsers[$user])) {
-				// Add activities to stream
 				Data::send('files', $user_subject, $user_params, '', array(), $path, $link, $user, $activity_type, Data::PRIORITY_HIGH);
+			}
+
+			// Add activity to mail queue
+			if (isset($filteredEmailUsers[$user])) {
+				Data::storeMail('files', $user_subject, $user_params, $user, $activity_type, time() + $filteredEmailUsers[$user]);
 			}
 		}
 	}
@@ -174,6 +180,11 @@ class Hooks {
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', 'shared_user_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
+		// Add activity to mail queue
+		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
+			$latestSend = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
+			Data::storeMail('files', 'shared_user_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latestSend);
+		}
 
 		// New shared user
 		$path = $params['fileTarget'];
@@ -184,6 +195,11 @@ class Hooks {
 		// Add activity to stream
 		if (Data::getUserSetting($params['shareWith'], 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $params['shareWith'], Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+		}
+		// Add activity to mail queue
+		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
+			$latestSend = Data::getUserSetting($params['shareWith'], 'setting', 'batchtime') + time();
+			Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $params['shareWith'], Data::TYPE_SHARED, $latestSend);
 		}
 	}
 
@@ -204,6 +220,11 @@ class Hooks {
 		if (Data::getUserSetting($uidOwner, 'stream', Data::TYPE_SHARED)) {
 			Data::send('files', 'shared_group_self', array($file_path, $params['shareWith']), '', array(), $path, $link, $uidOwner, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM );
 		}
+		// Add activity to mail queue
+		if (Data::getUserSetting($uidOwner, 'email', Data::TYPE_SHARED)) {
+			$latestSend = time() + Data::getUserSetting($uidOwner, 'setting', 'batchtime');
+			Data::storeMail('files', 'shared_group_self', array($file_path, $params['shareWith']), $uidOwner, Data::TYPE_SHARED, $latestSend);
+		}
 
 		// Members of the new group
 		$affectedUsers = array();
@@ -214,6 +235,7 @@ class Hooks {
 
 		if (!empty($affectedUsers)) {
 			$filteredStreamUsersInGroup = self::filterUsersBySetting($usersInGroup, 'stream', Data::TYPE_SHARED);
+			$filteredEmailUsersInGroup = self::filterUsersBySetting($usersInGroup, 'email', Data::TYPE_SHARED);
 
 			// Check when there was a naming conflict and the target is different
 			// for some of the users
@@ -228,6 +250,10 @@ class Hooks {
 			}
 
 			foreach ($affectedUsers as $user => $path) {
+				if (empty($filteredStreamUsersInGroup[$user]) && empty($filteredEmailUsersInGroup[$user])) {
+					continue;
+				}
+
 				$link = \OCP\Util::linkToAbsolute('files', 'index.php', array(
 					'dir' => ($params['itemType'] === 'file') ? dirname($path) : $path,
 				));
@@ -235,6 +261,12 @@ class Hooks {
 				// Add activity to stream
 				if (!empty($filteredStreamUsersInGroup[$user])) {
 					Data::send('files', 'shared_with_by', array($path, \OCP\User::getUser()), '', array(), $path, $link, $user, Data::TYPE_SHARED, Data::PRIORITY_MEDIUM);
+				}
+
+				// Add activity to mail queue
+				if (!empty($filteredEmailUsersInGroup[$user])) {
+					$latestSend = time() + $filteredEmailUsersInGroup[$user];
+					Data::storeMail('files', 'shared_with_by', array($path, \OCP\User::getUser()), $user, Data::TYPE_SHARED, $latestSend);
 				}
 			}
 		}
@@ -261,7 +293,8 @@ class Hooks {
 	 * @param array $users
 	 * @param string $method
 	 * @param string $type
-	 * @return array
+	 * @return array Returns a "username => b:true" Map for method = stream
+	 *               Returns a "username => i:batchtime" Map for method = email
 	 */
 	public static function filterUsersBySetting($users, $method, $type) {
 		if (empty($users) || !is_array($users)) return array();
@@ -295,12 +328,41 @@ class Hooks {
 			}
 		}
 
+		// Get the batch time setting from the database
+		if ($method == 'email') {
+			$chunkedFilteredUsers = array_chunk(array_keys($filteredUsers), 50);
+			foreach ($chunkedFilteredUsers as $chunk) {
+				$placeholders = (sizeof($chunk) == 50) ? $placeholders_50 : implode(',', array_fill(0, sizeof($chunk), '?'));
+
+				$query = \OCP\DB::prepare(
+					'SELECT `userid`, `configvalue` '
+					. ' FROM `*PREFIX*preferences` '
+					. ' WHERE `appid` = ? AND `configkey` = ? AND `userid` IN (' . $placeholders . ')');
+				$result = $query->execute(array_merge(array(
+					'activity',
+					'notify_setting_batchtime',
+				), $chunk));
+
+				if (\OCP\DB::isError($result)) {
+					\OCP\Util::writeLog('OCA\Activity\Hooks::filterUsersBySetting', \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				} else {
+					while ($row = $result->fetchRow()) {
+						$filteredUsers[$row['userid']] = $row['configvalue'];
+					}
+				}
+			}
+		}
+
 		if (!empty($users)) {
 			// If the setting is enabled by default,
 			// we add all users that didn't set the preference yet.
 			if (\OCA\Activity\Data::getUserDefaultSetting($method, $type)) {
 				foreach ($users as $user) {
-					$filteredUsers[$user] = true;
+					if ($method == 'stream') {
+						$filteredUsers[$user] = true;
+					} else {
+						$filteredUsers[$user] = \OCA\Activity\Data::getUserDefaultSetting('setting', 'batchtime');
+					}
 				}
 			}
 		}

@@ -1,6 +1,6 @@
 <?php
 /**
- * ownCloud
+ * ownCloud - Activity App
  *
  * @author Thomas Müller
  * @copyright 2013 Thomas Müller deepdiver@owncloud.com

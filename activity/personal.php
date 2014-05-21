@@ -4,7 +4,7 @@
 * ownCloud - Activity App
 *
 * @author Joas Schilling
-* @copyright 2014 Joas Schilling nickvergessen@gmx.de
+* @copyright 2014 Joas Schilling nickvergessen@owncloud.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -40,4 +40,15 @@ foreach ($types as $type => $desc) {
 
 $template = new OCP\Template('activity', 'personal');
 $template->assign('activities', $activities);
+if (\OCA\Activity\Data::getUserSetting($user, 'setting', 'batchtime') == 3600 * 24 * 7) {
+	$template->assign('setting_batchtime', \OCA\Activity\Data::EMAIL_SEND_WEEKLY);
+}
+else if (\OCA\Activity\Data::getUserSetting($user, 'setting', 'batchtime') == 3600 * 24) {
+	$template->assign('setting_batchtime', \OCA\Activity\Data::EMAIL_SEND_DAILY);
+}
+else {
+	$template->assign('setting_batchtime', \OCA\Activity\Data::EMAIL_SEND_HOURLY);
+}
+$template->assign('activity_email', \OCP\Config::getUserValue($user, 'settings', 'email', ''));
+
 return $template->fetchPage();

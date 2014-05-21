@@ -4,7 +4,7 @@
 * ownCloud - Activity App
 *
 * @author Joas Schilling
-* @copyright 2014 Joas Schilling nickvergessen@gmx.de
+* @copyright 2014 Joas Schilling nickvergessen@owncloud.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -30,10 +30,17 @@ $notify_email = $notify_stream = array();
 $l = OCP\Util::getL10N('activity');
 $types = \OCA\Activity\Data::getNotificationTypes($l);
 foreach ($types as $type => $desc) {
-	/*
 	OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_email_' . $type, !empty($_POST[$type . '_email']));
-	*/
 	OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_stream_' . $type, !empty($_POST[$type . '_stream']));
 }
+
+$email_batch_time = 3600;
+if ($_POST['notify_setting_batchtime'] == \OCA\Activity\Data::EMAIL_SEND_DAILY) {
+	$email_batch_time = 3600 * 24;
+}
+if ($_POST['notify_setting_batchtime'] == \OCA\Activity\Data::EMAIL_SEND_WEEKLY) {
+	$email_batch_time = 3600 * 24 * 7;
+}
+OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_setting_batchtime', $email_batch_time);
 
 OC_JSON::success(array("data" => array( "message" => $l->t('Your settings have been updated.'))));

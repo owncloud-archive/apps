@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ownCloud - Activity Application
+ * ownCloud - Activity App
  *
  * @author Frank Karlitschek
  * @copyright 2013 Frank Karlitschek frank@owncloud.org
