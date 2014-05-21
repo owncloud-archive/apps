@@ -35,10 +35,10 @@ foreach ($types as $type => $desc) {
 }
 
 $email_batch_time = 3600;
-if ($_POST['notify_setting_batchtime'] == 1) {
+if ($_POST['notify_setting_batchtime'] == \OCA\Activity\Data::EMAIL_SEND_DAILY) {
 	$email_batch_time = 3600 * 24;
 }
-if ($_POST['notify_setting_batchtime'] == 2) {
+if ($_POST['notify_setting_batchtime'] == \OCA\Activity\Data::EMAIL_SEND_WEEKLY) {
 	$email_batch_time = 3600 * 24 * 7;
 }
 OCP\Config::setUserValue(OCP\User::getUser(), 'activity', 'notify_setting_batchtime', $email_batch_time);

@@ -34,6 +34,10 @@ class Data
 	const PRIORITY_HIGH	= 40;
 	const PRIORITY_VERYHIGH	= 50;
 
+	const EMAIL_SEND_HOURLY = 0;
+	const EMAIL_SEND_DAILY = 1;
+	const EMAIL_SEND_WEEKLY = 2;
+
 	const TYPE_SHARED = 'shared';
 	const TYPE_SHARE_EXPIRED = 'share_expired';
 	const TYPE_SHARE_UNSHARED = 'share_unshared';
