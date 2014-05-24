@@ -98,7 +98,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	public function checkPassword($uid, $password) {
 		if (!$this->db) return false;
 
-		$query  = $this->db->prepare( 'SELECT username, password FROM auth_user WHERE username =  ?' );
+		$query  = $this->db->prepare( 'SELECT `username`, `password` FROM `auth_user` WHERE `username` =  ?' );
 		if ($query->execute( array( $uid))) {
 			$row = $query->fetch();
 			if (!empty($row)) {
@@ -193,7 +193,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	public function getUsers($search = '', $limit = 10, $offset = 0) {
 		if (!$this->db) return array();
 
-		$query  = $this->db->prepare( 'SELECT id, username, is_active FROM `auth_user` WHERE is_active=1 ORDER BY username' );
+		$query  = $this->db->prepare( 'SELECT `id`, `username`, `is_active` FROM `auth_user` WHERE `is_active`=1 ORDER BY `username`' );
 		$users  = array();
 		if ($query->execute()) {
 			while ( $row = $query->fetch()) {
@@ -211,7 +211,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	public function userExists($uid) {
 		if (!$this->db) return false;
 
-		$query  = $this->db->prepare( 'SELECT username FROM `auth_user` WHERE username = ? AND is_active=1' );
+		$query  = $this->db->prepare( 'SELECT `username` FROM `auth_user` WHERE `username` = ? AND `is_active`=1' );
 		if ($query->execute( array( $uid ))) {
 			$row = $query->fetch();
 			return !empty($row);

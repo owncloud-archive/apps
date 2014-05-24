@@ -63,5 +63,4 @@ $tmpl->assign('django_db_user',    OCP\Config::getAppValue( 'django_auth', 'djan
 $tmpl->assign('django_db_password',OCP\Config::getAppValue( 'django_auth', 'django_db_password', '' ));
 $tmpl->assign('django_db_name',    OCP\Config::getAppValue( 'django_auth', 'django_db_name',     '' ));
 
-
 return $tmpl->fetchPage();

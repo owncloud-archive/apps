@@ -109,7 +109,6 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
  WHERE `auth_group`.`name` = ?
    AND `auth_user`.`username`  = ?
    AND `auth_user`.`is_active` = 1';
-   echo $sql;
 			$query  = $this->db->prepare($sql);
 			$param = array( $gid, $uid );
 		}
@@ -186,7 +185,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 
 		if (!$this->db) return $groups;
 
-		$query = $this->db->prepare( "SELECT id, name FROM auth_group ORDER BY name" );
+		$query = $this->db->prepare( "SELECT `id`, `name` FROM `auth_group` ORDER BY `name`" );
 		if ($query->execute())
 		{
 			while ( $row = $query->fetch()) {
@@ -194,7 +193,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 			}
 		}
 
-		// HACK! we the "staff is admin" or "superuser is admin" feature is used
+		// HACK! when the "staff is admin" or "superuser is admin" feature is used
 		// we need to advertise to have the group "admin", if not OC_Group::inGroup
 		// would not call OC_GROUP_DJANGO::inGroup where we do more magic...
 		if (!in_array('admin', $groups) and (self::$staff_is_admin or self::$superuser_is_admin))

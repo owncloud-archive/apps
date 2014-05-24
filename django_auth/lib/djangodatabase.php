@@ -47,11 +47,11 @@ class DjangoDatabase {
 			}
 		}
 
-		if (self::$failed)
+		if (self::$failed) {
 			return false;
-		else
+		}
+		else {
 			return self::$db;
+		}
 	}
 }
-
-?>
