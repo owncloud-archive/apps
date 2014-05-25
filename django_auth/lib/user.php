@@ -4,7 +4,7 @@
  * ownCloud - Django Authentification Backend
  *
  * @author Florian Reinhard
- * @copyright 2012 Florian Reinhard <florian.reinhard@googlemail.com>
+ * @copyright 2012-2014 Florian Reinhard <florian.reinhard@googlemail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -22,6 +22,7 @@
  */
 
 require_once 'django_auth/3rdparty/phpsec.crypt.php';
+require_once 'django_auth/lib/djangodatabase.php';
 
 /**
 * @brief Class providing django users to ownCloud
@@ -31,6 +32,12 @@ require_once 'django_auth/3rdparty/phpsec.crypt.php';
 * django.contrib.auth.
 */
 class OC_USER_DJANGO extends OC_User_Backend {
+
+	public function __construct ()
+	{
+		$this->db = Djangodatabase::getDatabase();
+	}
+
 	/**
 	* @brief Create a new user
 	* @param $uid The username of the user to create
@@ -41,7 +48,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* itself, not in its subclasses.
 	*/
 	public function createUser($uid, $password) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to create users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to create users',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -53,7 +60,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Deletes a user
 	*/
 	public function deleteUser( $uid ) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to delete users',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to delete users',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -66,7 +73,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Change the password of a user
 	*/
 	public function setPassword($uid, $password) {
-		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to change passwords',3);
+		OCP\Util::writeLog('OC_User_Django', 'Use the django webinterface to change passwords',\OCP\Util::ERROR);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
@@ -89,48 +96,91 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Check if the password is correct without logging in the user
 	*/
 	public function checkPassword($uid, $password) {
-		$query  = OCP\DB::prepare( 'SELECT username, password FROM auth_user WHERE username =  ?' );
-		$result = $query->execute( array( $uid));
-		$row    = $result->fetchRow();
-		if ($row) {
-			$storedHash=$row['password'];
-			if (self::beginsWith($storedHash, 'sha1')) {
-				$chunks = preg_split('/\$/', $storedHash,3);
-				$salt   = $chunks[1];
-				$hash   = $chunks[2];
+		if (!$this->db) return false;
 
-				if (sha1($salt.$password) === $hash)
-					return $uid;
-				else
-					return false;
+		$query  = $this->db->prepare( 'SELECT `username`, `password` FROM `auth_user` WHERE `username` =  ?' );
+		if ($query->execute( array( $uid))) {
+			$row = $query->fetch();
+			if (!empty($row)) {
+				$storedHash=$row['password'];
+				if (self::beginsWith($storedHash, 'sha1')) {
+					$chunks = preg_split('/\$/', $storedHash,3);
+					$salt   = $chunks[1];
+					$hash   = $chunks[2];
+
+					if (sha1($salt.$password) === $hash)
+						return $uid;
+					else
+						return false;
+				}
+				elseif (self::beginsWith($storedHash, 'md5')) {
+					$chunks = preg_split('/\$/', $storedHash,3);
+					$salt   = $chunks[1];
+					$hash   = $chunks[2];
+					if (md5($salt.$password) === $hash)
+						return $uid;
+					else
+						return false;
+				}
+				elseif (self::beginsWith($storedHash, 'pbkdf2')) {
+					$chunks = preg_split('/\$/', $storedHash,4);
+					list(,$algorithm) = preg_split('/_/', $chunks[0]);
+					$iter = $chunks[1];
+					$salt = $chunks[2];
+					$hash = $chunks[3];
+
+					if ($algorithm === 'sha1') {
+						$digest_size = 20;
+					}
+					elseif ($algorithm === 'sha256') {
+						$digest_size = 32;
+					}
+					else {
+						OCP\Util::writeLog('OC_User_Django', 'The given hash algorithm for pkdf2 is not supported: '.$chunks[0],\OCP\Util::ERROR);
+						return false;
+					}
+
+					$pkdf2 = phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm);
+					if ($pkdf2 and (base64_encode ($pkdf2) === $hash)) {
+						return $uid;
+					}
+					else {
+						return false;
+					}
+				}
+				elseif (self::beginsWith($storedHash, 'bcrypt')) {
+					// get the salt
+					preg_match('/(bcrypt(_sha256)?)\$(\$[^\$]+\$\d+\$.{22})/', $storedHash, $matches);
+					$hasher = $matches[1];
+					$salt = $matches[3];
+
+					if ($hasher === 'bcrypt')
+					{
+						// Truncate the password as the password hasher django uses does
+						$password = substr($password, 0, 72);
+					}
+					elseif ($hasher === 'bcrypt_sha256')
+					{
+						// SHA256 the password prior to passing it to crypt, like the password hasher django uses does
+						// works around the password truncation of
+						$password = hash("sha256", $password);
+					}
+					else
+					{
+						OCP\Util::writeLog('OC_User_Django', 'The given hash algorithm is not supported: '.$hasher,\OCP\Util::ERROR);
+						return false;
+					}
+
+					// build hash string as stored in the database and compare it
+					if  ($hasher . "$" . crypt($password, $salt) === $storedHash)
+						return $uid;
+					return
+						false;
+				}
 			}
-			elseif (self::beginsWith($storedHash, 'pbkdf2')) {
-				$chunks = preg_split('/\$/', $storedHash,4);
-				list($pbkdf, $algorithm) = preg_split('/_/', $chunks[0]);
-				$iter = $chunks[1];
-				$salt = $chunks[2];
-				$hash = $chunks[3];
-
-				if ($algorithm === 'sha1') {
-					$digest_size = 20;
-				}
-				elseif ($algorithm === 'sha256') {
-					$digest_size = 32;
-				}
-				else {
-					return false;
-				}
-
-				if (base64_encode (phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm)) === $hash) {
-					return $uid;
-				}
-				else {
-					return false;
-				}
+			else {
+				return false;
 			}
-		}
-		else {
-			return false;
 		}
 	}
 
@@ -141,11 +191,14 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Get a list of all users.
 	*/
 	public function getUsers($search = '', $limit = 10, $offset = 0) {
-		$query  = OCP\DB::prepare( 'SELECT id, username, is_active FROM `auth_user` WHERE is_active=1 ORDER BY username' );
-		$result = $query->execute();
+		if (!$this->db) return array();
+
+		$query  = $this->db->prepare( 'SELECT `id`, `username`, `is_active` FROM `auth_user` WHERE `is_active`=1 ORDER BY `username`' );
 		$users  = array();
-		while ( $row = $result->fetchRow()) {
-			$users[] = $row['username'];
+		if ($query->execute()) {
+			while ( $row = $query->fetch()) {
+				$users[] = $row['username'];
+			}
 		}
 		return $users;
 	}
@@ -156,8 +209,13 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* @return boolean
 	*/
 	public function userExists($uid) {
-		$query  = OCP\DB::prepare( 'SELECT username FROM `auth_user` WHERE username = ? AND is_active=1' );
-		$result = $query->execute( array( $uid ));
-		return $result->numRows() > 0;
+		if (!$this->db) return false;
+
+		$query  = $this->db->prepare( 'SELECT `username` FROM `auth_user` WHERE `username` = ? AND `is_active`=1' );
+		if ($query->execute( array( $uid ))) {
+			$row = $query->fetch();
+			return !empty($row);
+		}
+		return false;
 	}
 }

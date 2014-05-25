@@ -3,7 +3,7 @@
  * ownCloud - Django Authentification Backend
  *
  * @author Florian Reinhard
- * @copyright 2012 Florian Reinhard <florian.reinhard@googlemail.com>
+ * @copyright 2012-2013 Florian Reinhard <florian.reinhard@googlemail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -22,9 +22,21 @@
 
 OCP\User::checkAdminUser();
 
-$params = array('staff_is_admin', 'superuser_is_admin');
+$params = array(
+	'staff_is_admin',
+	'superuser_is_admin'
+);
+$dbParams = array(
+	'django_db_host',
+	'django_db_user',
+	'django_db_password',
+	'django_db_name',
+	'django_db_driver'
+);
 
 if ($_POST) {
+	// CSRF check
+	OCP\JSON::callCheck();
 	foreach($params as $param) {
 		if(isset($_POST[$param])) {
 			OCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
@@ -34,11 +46,23 @@ if ($_POST) {
 			OCP\Config::setAppValue('django_auth', $param, 0);
 		}
 	}
+	foreach($dbParams as $param) {
+		if(isset($_POST[$param])) {
+			OCP\Config::setSystemValue($param, $_POST[$param]);
+		}
+	}
 }
 
 // fill template
 $tmpl = new OCP\Template( 'django_auth', 'settings');
+
 $tmpl->assign('staff_is_admin',    OCP\Config::getAppValue( 'django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN ));
 $tmpl->assign('superuser_is_admin',OCP\Config::getAppValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
+
+$tmpl->assign('django_db_driver',  OCP\Config::getSystemValue( 'django_db_driver',   'mysql' ));
+$tmpl->assign('django_db_host',    OCP\Config::getSystemValue( 'django_db_host',     'localhost' ));
+$tmpl->assign('django_db_user',    OCP\Config::getSystemValue( 'django_db_user',     '' ));
+$tmpl->assign('django_db_password',OCP\Config::getSystemValue( 'django_db_password', '' ));
+$tmpl->assign('django_db_name',    OCP\Config::getSystemValue( 'django_db_name',     '' ));
 
 return $tmpl->fetchPage();
