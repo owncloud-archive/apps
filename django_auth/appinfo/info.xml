@@ -6,7 +6,7 @@
 		Adding, editing and deleting of groups or users will just silently fail. So does changing passwords. Use the django.contrib.admin for these kind of tasks.
 		Supported password hashers: MD5, SHA1, PBKDF2_SHA1, PBKDF2_SHA256, BCRYPT, BCRYPT_SHA256.
 	</description>
-	<version>0.5</version>
+	<version>0.6</version>
 	<licence>AGPL</licence>
 	<author>Florian Reinhard florian.reinhard@googlemail.com</author>
 	<require>5</require>

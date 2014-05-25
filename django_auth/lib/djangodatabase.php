@@ -30,11 +30,11 @@ class DjangoDatabase {
 
 	public static function getDatabase () {
 		if (self::$failed == false && is_null(self::$db)) {
-			$db_host     = OCP\Config::getAppValue('django_auth', 'django_db_host','localhost');
-			$db_name     = OCP\Config::getAppValue('django_auth', 'django_db_name','');
-			$db_driver   = OCP\Config::getAppValue('django_auth', 'django_db_driver', 'mysql');
-			$db_user     = OCP\Config::getAppValue('django_auth', 'django_db_user','');
-			$db_password = OCP\Config::getAppValue('django_auth', 'django_db_password','');
+			$db_host     = OCP\Config::getSystemValue('django_db_host','localhost');
+			$db_name     = OCP\Config::getSystemValue('django_db_name','');
+			$db_driver   = OCP\Config::getSystemValue('django_db_driver', 'mysql');
+			$db_user     = OCP\Config::getSystemValue('django_db_user','');
+			$db_password = OCP\Config::getSystemValue('django_db_password','');
 			$dsn = "${db_driver}:host=${db_host};dbname=${db_name}";
 
 			try {
@@ -42,7 +42,7 @@ class DjangoDatabase {
 			} catch (PDOException $e) {
 				self::$failed = true;
 				OCP\Util::writeLog('OC_User_Django',
-					'OC_User_Django, Failed to connect to redmine database: ' . $e->getMessage(),
+					'OC_User_Django, Failed to connect to django database: ' . $e->getMessage(),
 					\OCP\Util::ERROR);
 			}
 		}

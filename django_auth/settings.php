@@ -48,19 +48,21 @@ if ($_POST) {
 	}
 	foreach($dbParams as $param) {
 		if(isset($_POST[$param])) {
-			OCP\Config::setAppValue('django_auth', $param, $_POST[$param]);
+			OCP\Config::setSystemValue($param, $_POST[$param]);
 		}
 	}
 }
 
 // fill template
 $tmpl = new OCP\Template( 'django_auth', 'settings');
+
 $tmpl->assign('staff_is_admin',    OCP\Config::getAppValue( 'django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN ));
 $tmpl->assign('superuser_is_admin',OCP\Config::getAppValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
-$tmpl->assign('django_db_driver',  OCP\Config::getAppValue( 'django_auth', 'django_db_driver',   'mysql' ));
-$tmpl->assign('django_db_host',    OCP\Config::getAppValue( 'django_auth', 'django_db_host',     'localhost' ));
-$tmpl->assign('django_db_user',    OCP\Config::getAppValue( 'django_auth', 'django_db_user',     '' ));
-$tmpl->assign('django_db_password',OCP\Config::getAppValue( 'django_auth', 'django_db_password', '' ));
-$tmpl->assign('django_db_name',    OCP\Config::getAppValue( 'django_auth', 'django_db_name',     '' ));
+
+$tmpl->assign('django_db_driver',  OCP\Config::getSystemValue( 'django_db_driver',   'mysql' ));
+$tmpl->assign('django_db_host',    OCP\Config::getSystemValue( 'django_db_host',     'localhost' ));
+$tmpl->assign('django_db_user',    OCP\Config::getSystemValue( 'django_db_user',     '' ));
+$tmpl->assign('django_db_password',OCP\Config::getSystemValue( 'django_db_password', '' ));
+$tmpl->assign('django_db_name',    OCP\Config::getSystemValue( 'django_db_name',     '' ));
 
 return $tmpl->fetchPage();
