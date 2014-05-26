@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Necdet Yücel <necdetyucel@gmail.com>, 2012
-# volkangezer <volkangezer@gmail.com>, 2013
+# volkangezer <volkangezer@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-30 00:48-0400\n"
-"PO-Revision-Date: 2014-04-29 10:02+0000\n"
+"POT-Creation-Date: 2014-05-26 17:43-0400\n"
+"PO-Revision-Date: 2014-05-24 14:21+0000\n"
 "Last-Translator: volkangezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Görevler"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr "Tarih"
+msgstr "Son Tarih"
 
 #: js/tasks.js:115
 msgid "List"
@@ -61,11 +61,11 @@ msgstr "9=en düşük"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "Özet Boş"
+msgstr "Boş Özet"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "Geçersiz yüzde "
+msgstr "Geçersiz tamamlanma yüzdesi"
 
 #: lib/app.php:107
 msgid "Invalid priority"
@@ -82,7 +82,7 @@ msgstr "Görev Ekle"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "İleri Tarihli İş"
+msgstr "İş Son Tarihi"
 
 #: templates/tasks.php:5
 msgid "Order List"
@@ -118,7 +118,7 @@ msgstr "Daha fazla"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "Az"
+msgstr "Daha az"
 
 #: templates/tasks.php:29
 msgid "Delete"

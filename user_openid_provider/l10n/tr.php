@@ -1,8 +1,8 @@
 <?php
 $TRANSLATIONS = array(
-"OpenID Provider remembered sites" => "OpenID Sağlayıcı adresler",
+"OpenID Provider remembered sites" => "OpenID Sağlayıcı hatırlanan siteler",
 "Trusted" => "Güvenilen",
-"Denied" => "Reddedildi",
-"Remove" => "Sil"
+"Denied" => "Reddedilen",
+"Remove" => "Kaldır"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

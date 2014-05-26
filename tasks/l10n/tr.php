@@ -2,7 +2,7 @@
 $TRANSLATIONS = array(
 "Invalid date/time" => "Geçersiz tarih/saat",
 "Tasks" => "Görevler",
-"Due" => "Tarih",
+"Due" => "Son Tarih",
 "List" => "Liste",
 "Location" => "Konum",
 "No category" => "Kategori yok",
@@ -10,12 +10,12 @@ $TRANSLATIONS = array(
 "1=highest" => "1=en yüksek",
 "5=medium" => "5=orta",
 "9=lowest" => "9=en düşük",
-"Empty Summary" => "Özet Boş",
-"Invalid percent complete" => "Geçersiz yüzde ",
+"Empty Summary" => "Boş Özet",
+"Invalid percent complete" => "Geçersiz tamamlanma yüzdesi",
 "Invalid priority" => "Geçersiz öncelik",
 "The calendar application also need to be enabled to use this application." => "Bu uygulamanın kullanılabilmesi için takvim uygulaması da etkinleştirilmelidir.",
 "Add Task" => "Görev Ekle",
-"Order Due" => "İleri Tarihli İş",
+"Order Due" => "İş Son Tarihi",
 "Order List" => "İş Listesi",
 "Order Complete" => "Tamamlanmış İş",
 "Order Location" => "İş Konumu",
@@ -24,7 +24,7 @@ $TRANSLATIONS = array(
 "Loading tasks..." => "Görevler yükleniyor...",
 "Important" => "Önemli",
 "More" => "Daha fazla",
-"Less" => "Az",
+"Less" => "Daha az",
 "Delete" => "Sil"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n > 1);";
