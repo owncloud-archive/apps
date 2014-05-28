@@ -5,7 +5,7 @@
 	<description>User Virtual Domain Backend</description>
 	<licence>GPL</licence>
 	<author>ZUNbado</author>
-	<require>4.5</require>
+	<requiremin>4.5</requiremin>
 	<types>
 		<authentication/>
 	</types>

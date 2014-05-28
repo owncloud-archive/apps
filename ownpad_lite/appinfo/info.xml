@@ -5,5 +5,5 @@
 	<description>ownCloud Etherpad Lite plugin based on etherpad-lite-jquery-plugin by John McLear.</description>
 	<licence>AGPL</licence>
 	<author>Victor Dubiniuk</author>
-	<require>4</require>
+	<requiremin>4</requiremin>
 </info>

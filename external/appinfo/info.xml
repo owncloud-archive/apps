@@ -5,6 +5,6 @@
 	<description>Enables admins to add external sites to the app navigation.</description>
 	<licence>AGPL</licence>
 	<author>Frank Karlitschek</author>
-	<require>4.93</require>
+	<requiremin>4.93</requiremin>
 	<shipped>true</shipped>
 </info>

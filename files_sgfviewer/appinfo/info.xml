@@ -6,5 +6,5 @@
 	<version>0.2</version>
 	<licence>AGPLv3</licence>
 	<author>Nils Jansen</author>
-	<require>2</require>
+	<requiremin>2</requiremin>
 </info>

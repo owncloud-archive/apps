@@ -10,7 +10,7 @@
 	<version>0.2</version>
 	<licence>AGPL</licence>
 	<author>Florian Reinhard florian.reinhard@googlemail.com</author>
-	<require>4</require>
+	<requiremin>4</requiremin>
 	<types>
 		<authentication/>
 	</types>

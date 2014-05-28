@@ -6,5 +6,5 @@
 	<version>0.2-beta6</version>
 	<licence>LGPLv3</licence>
 	<author>Florian Hülsmann</author>
-	<require>2</require>
+	<requiremin>2</requiremin>
 </info>

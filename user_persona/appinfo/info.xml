@@ -6,7 +6,7 @@
 	<version>0.3.1</version>
 	<licence>AGPL</licence>
 	<author>Victor Dubiniuk</author>
-	<require>5.0</require>
+	<requiremin>5.0</requiremin>
 	<types>
 		<authentication />
 		<prelogin />
