@@ -28,6 +28,7 @@ $params = array(
 	'av_socket' => '/var/run/clamav/clamd.ctl',
 	'av_host' => '',
 	'av_port' => '',
+	'av_cmd_options' => '',
 	'av_chunk_size' => '1024',
 	'av_path' => '/usr/bin/clamscan',
 	'infected_action' => 'only_log',
@@ -45,6 +46,7 @@ if($_POST){
 // fill template
 $tmpl = new OCP\Template( 'files_antivirus', 'settings');
 $tmpl->assign('requesttoken', OCP\Util::callRegister());
+OCP\Util::addStyle('files_antivirus', 'settings');
 OCP\Util::addScript('files_antivirus', 'settings');
 foreach($params as $param => $default){
 		$value = OCP\Config::getAppValue('files_antivirus', $param, $default);
