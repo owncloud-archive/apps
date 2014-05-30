@@ -5,5 +5,5 @@
 	<description>Puts a background picture in the content area</description>
 	<licence>AGPL</licence>
 	<author>Arthur Schiwon (contributor: Luc Didry)</author>
-	<require>5</require>
+	<requiremin>5</requiremin>
 </info>

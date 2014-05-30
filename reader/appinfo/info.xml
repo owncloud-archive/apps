@@ -13,6 +13,6 @@
 	
 	<author>Priyanka</author>
 	
-	<require>4</require>
+	<requiremin>4</requiremin>
 	
 </info>

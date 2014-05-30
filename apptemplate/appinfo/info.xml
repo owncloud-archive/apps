@@ -6,5 +6,5 @@
 	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Frank Karlitschek</author>
-	<require>4</require>
+	<requiremin>4</requiremin>
 </info>

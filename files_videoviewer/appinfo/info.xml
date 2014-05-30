@@ -7,5 +7,5 @@
 	<author>Victor Dubiniuk</author>
 	<shipped>true</shipped>
 	<default_enable/>
-	<require>4.93</require>
+	<requiremin>4.93</requiremin>
 </info>

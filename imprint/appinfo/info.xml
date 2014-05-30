@@ -42,7 +42,7 @@
 	<version>0.1.15</version>
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
-	<require>4.93</require>
+	<requiremin>4.93</requiremin>
 		<types>
 			<base/>
 		</types>

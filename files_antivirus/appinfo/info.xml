@@ -6,7 +6,7 @@
 	<description>Verify files for virus using ClamAV</description>
 	<licence>AGPL</licence>
 	<author>Manuel Delgado, Bart Visscher, thinksilicon.de</author>
-	<require>5</require>
+	<requiremin>6</requiremin>
 	<types>
 		<filesystem/>
 	</types>
