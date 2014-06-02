@@ -83,7 +83,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
   FROM `auth_user`
  WHERE `auth_user`.`username`  = ?
    AND `auth_user`.`is_active` = 1';
-			if (self::$superuser_is_admin or self::$staff_is_admin) {
+			if (self::$superuser_is_admin || self::$staff_is_admin) {
 				$sql.="\nAND (";
 				if (self::$superuser_is_admin) {
 					$sql.='`auth_user`.`is_superuser` = 1';
@@ -196,8 +196,8 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 		// HACK! when the "staff is admin" or "superuser is admin" feature is used
 		// we need to advertise to have the group "admin", if not OC_Group::inGroup
 		// would not call OC_GROUP_DJANGO::inGroup where we do more magic...
-		if (!in_array('admin', $groups) and (self::$staff_is_admin or self::$superuser_is_admin))
-			$groups[] = "admin";
+		if (!in_array('admin', $groups) && (self::$staff_is_admin || self::$superuser_is_admin))
+			$groups[] = 'admin';
 
 		return $groups;
 	}

@@ -141,7 +141,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					}
 
 					$pkdf2 = phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm);
-					if ($pkdf2 and (base64_encode ($pkdf2) === $hash)) {
+					if ($pkdf2 && (base64_encode ($pkdf2) === $hash)) {
 						return $uid;
 					}
 					else {
