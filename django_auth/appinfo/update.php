@@ -23,7 +23,6 @@
 // Get currently installed version
 $installedVersion = OCP\Config::getAppValue( 'django_auth', 'installed_version', '' );
 
-
 // Do configuration migration for versions after 0.3 and before 0.6. Versions 0.4 and 0.5 should be affected
 if ( version_compare('0.3', $installedVersion, '<') && version_compare('0.6', $installedVersion, '>'))
 {
