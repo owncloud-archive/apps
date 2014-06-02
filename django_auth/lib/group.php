@@ -189,7 +189,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 		if ($query->execute())
 		{
 			while ( $row = $query->fetch()) {
-				$groups[] = $row["name"];
+				$groups[] = $row['name'];
 			}
 		}
 

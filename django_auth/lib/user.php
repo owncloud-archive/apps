@@ -163,7 +163,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					{
 						// SHA256 the password prior to passing it to crypt, like the password hasher django uses does
 						// works around the password truncation of
-						$password = hash("sha256", $password);
+						$password = hash('sha256', $password);
 					}
 					else
 					{
@@ -172,7 +172,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					}
 
 					// build hash string as stored in the database and compare it
-					if  ($hasher . "$" . crypt($password, $salt) === $storedHash)
+					if  ($hasher . '$' . crypt($password, $salt) === $storedHash)
 						return $uid;
 					return
 						false;
