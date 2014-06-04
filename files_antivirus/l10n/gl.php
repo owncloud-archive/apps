@@ -1,7 +1,7 @@
 <?php
 $TRANSLATIONS = array(
 "Greetings {user}," => "Parabéns {user},",
-"Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Sentímolo, pero detectouse software malicioso nun ficheiro que tentaba enviar e tivo que ser eliminado.",
+"Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Sentímolo, mais detectouse software malicioso nun ficheiro que tentaba enviar e tivo que ser eliminado.",
 "This email is a notification from {host}. Please, do not reply." => "Este correo é unha notificación desde {host}. Non responda.",
 "File uploaded: {file}" => "Ficheiro enviado: {file}",
 "Antivirus Configuration" => "Configuración antivirus",
@@ -23,7 +23,7 @@ $TRANSLATIONS = array(
 "Not required in Daemon Mode." => "Non requirido no modo de servizo",
 "Action for infected files found while scanning" => "Acción para os ficheiros infectados detectados durante a análise",
 "Only log" => "Só rexistro",
-"Delete file" => "Eliminar ficheiro",
+"Delete file" => "Eliminar o ficheiro",
 "Save" => "Gardar"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -9,6 +9,7 @@ $TRANSLATIONS = array(
 "The php-ctype module is needed validate data." => "ត្រូវការ​ម៉ូឌុល php-ctype ដើម្បី​ផ្ទៀងផ្ទាត់​ទិន្នន័យ។",
 "The php-xml module is needed to share files with webdav." => "ត្រូវការ​ម៉ូឌុល php-xml ដើម្បី​ចែករំលែក​ឯកសារ​ជាមួយ webdav ។",
 "The php-pdo module is needed to store owncloud data into a database." => "ត្រូវការ​ម៉ូឌុល php-pdo ដើម្បី​រក្សាទុក​ទិន្នន័យ owncloud ទៅក្នុង​មូលដ្ឋាន​ទិន្នន័យ។",
+"Dependencies status" => "ស្ថានភាព​ដែល​អាស្រ័យ​បាន",
 "Used by :" => "ប្រើ​ដោយ៖"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

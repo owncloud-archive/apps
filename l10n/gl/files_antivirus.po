@@ -4,13 +4,14 @@
 # 
 # Translators:
 # mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2014
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-17 00:48-0400\n"
-"PO-Revision-Date: 2014-05-16 06:12+0000\n"
+"POT-Creation-Date: 2014-06-04 00:48-0400\n"
+"PO-Revision-Date: 2014-06-03 10:01+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +28,7 @@ msgstr "Parabéns {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "Sentímolo, pero detectouse software malicioso nun ficheiro que tentaba enviar e tivo que ser eliminado."
+msgstr "Sentímolo, mais detectouse software malicioso nun ficheiro que tentaba enviar e tivo que ser eliminado."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
@@ -116,7 +117,7 @@ msgstr "Só rexistro"
 
 #: templates/settings.php:13
 msgid "Delete file"
-msgstr "Eliminar ficheiro"
+msgstr "Eliminar o ficheiro"
 
 #: templates/settings.php:16
 msgid "Save"
