@@ -23,7 +23,7 @@ use OC\Files\Storage\Wrapper\Wrapper;
  */
 class LockingWrapper extends Wrapper {
 
-	/** @var \OCP\Files\Lock[] $locks Holds an array of lock instances indexed by path for this storage */
+	/** @var \OCA\Files_Locking\Lock[] $locks Holds an array of lock instances indexed by path for this storage */
 	protected $locks = array();
 
 	/**
@@ -31,7 +31,7 @@ class LockingWrapper extends Wrapper {
 	 * @param string $path Path to file, relative to this storage
 	 * @param integer $lockType A Lock class constant, Lock::READ/Lock::WRITE
 	 * @param null|resource $existingHandle An existing file handle from an fopen()
-	 * @return bool|\OCP\Files\Lock Lock instance on success, false on failure
+	 * @return bool|\OCA\Files_Locking\Lock Lock instance on success, false on failure
 	 */
 	protected function getLock($path, $lockType, $existingHandle = null){
 		$path = Filesystem::normalizePath($this->storage->getLocalFile($path));
@@ -164,7 +164,7 @@ class LockingWrapper extends Wrapper {
 
 	public function unlink($path) {
 		try {
-			if (Filesystem::is_file($path)) {
+			if ($this->storage->is_file($path)) {
 				$this->getLock($path, Lock::WRITE);
 			}
 			$result = $this->storage->unlink($path);

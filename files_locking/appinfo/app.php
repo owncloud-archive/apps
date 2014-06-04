@@ -6,7 +6,7 @@
 	 * @var \OC\Files\Storage\Storage $storage
 	 */
 	if ($storage instanceof \OC\Files\Storage\Storage && $storage->isLocal()) {
-		return new \OC\Files\Storage\Wrapper\LockingWrapper(array('storage' => $storage));
+		return new \OCA\Files_Locking\LockingWrapper(array('storage' => $storage));
 	} else {
 		return $storage;
 	}
