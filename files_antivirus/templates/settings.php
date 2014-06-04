@@ -21,7 +21,7 @@
 	<button id="antivirus-advanced"><?php p($l->t('Advanced')) ?></button>
 	<div class="spoiler">
 		<h3><?php p($l->t('Rules')) ?></h3>
-		<button id="antivirus-reset"><?php p($l->t('Reset to defaults')) ?></button>
+		<button id="antivirus-clear"><?php p($l->t('Clear All')) ?></button><button id="antivirus-reset"><?php p($l->t('Reset to defaults')) ?></button>
 		<table id="antivirus-statuses" class="grid">
 			<thead>
 			<tr>

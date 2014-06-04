@@ -162,6 +162,13 @@ $(document).ready(function() {
 				antivirusSettings.init();
 			});
 	});
+	$('#antivirus-clear').on('click', function (){
+		$.post(OC.filePath('files_antivirus', 'ajax', 'settings.php'), {action : 'clear'},
+			function onSuccess(){
+				$('#antivirus-statuses tbody td').remove();
+				antivirusSettings.init();
+			});
+	});
 	
 	$('#antivirus-add').on('click', function (){
 		antivirusSettings.renderRow({

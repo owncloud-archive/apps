@@ -18,6 +18,11 @@ switch ($action){
 		$statuses = $result->fetchAll();
 		\OCP\JSON::success(array('statuses'=>$statuses));
 		break;
+	case 'clear':
+		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus_status`');
+		$query->execute(array());
+		\OCP\JSON::success();
+		break;
 	case 'reset':
 		$query = \OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus_status`');
 		$query->execute(array());
