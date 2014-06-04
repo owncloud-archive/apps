@@ -115,7 +115,7 @@ class Status {
 			
 			if (!$isMatched){
 				$this->numericStatus = self::SCANRESULT_UNCHECKED;
-				$this->details = 'unknown';
+				$this->details = 'No matching rules. Please check antivirus rules.';
 			}
 			
 		} else { // Executable mode
@@ -140,7 +140,7 @@ class Status {
 					
 					break;
 				case self::SCANRESULT_UNCHECKED:
-					$this->details = isset($scanStatus['description']) ? $scanStatus['description'] : 'Unknown error' ;
+					$this->details = isset($scanStatus['description']) ? $scanStatus['description'] : 'No matching rule for exit code ' .  $this->numericStatus .'. Please check antivirus rules configuration.' ;
 			}
 		}
 		
