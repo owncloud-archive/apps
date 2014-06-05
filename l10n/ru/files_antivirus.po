@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Alexander Shashkevych <alex@stunpix.com>, 2013
-# Langaru <langaru@gmail.com>, 2013
+# Дмитрий <langaru@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-17 00:48-0400\n"
-"PO-Revision-Date: 2014-05-16 06:12+0000\n"
+"POT-Creation-Date: 2014-06-05 00:48-0400\n"
+"PO-Revision-Date: 2014-06-04 06:12+0000\n"
 "Last-Translator: Alexander Shashkevych <alex@stunpix.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"

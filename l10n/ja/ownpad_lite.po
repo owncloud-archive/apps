@@ -6,13 +6,13 @@
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2012
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013
 # kuromabo <md81bird@hitaki.net>, 2014
-# tt yn <tetuyano+transi@gmail.com>, 2012
+# YANO Tetsu <tetuyano+transi@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-30 00:48-0400\n"
-"PO-Revision-Date: 2014-04-29 10:02+0000\n"
+"POT-Creation-Date: 2014-06-05 00:48-0400\n"
+"PO-Revision-Date: 2014-06-04 06:12+0000\n"
 "Last-Translator: kuromabo <md81bird@hitaki.net>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
