@@ -21,10 +21,13 @@ class OC_Files_Antivirus_BackgroundScanner {
 			.' FROM `*PREFIX*filecache`'
 			.' LEFT JOIN `*PREFIX*files_antivirus` ON `*PREFIX*files_antivirus`.`fileid` = `*PREFIX*filecache`.`fileid`'
 			.' JOIN `*PREFIX*storages` ON `*PREFIX*storages`.`numeric_id` = `*PREFIX*filecache`.`storage`'
-			.' WHERE `mimetype` != ? AND `*PREFIX*storages`.`id` LIKE ? AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
+			.' WHERE `mimetype` != ?'
+			.' AND (`*PREFIX*storages`.`id` LIKE ? OR `*PREFIX*storages`.`id` LIKE ?)'
+			.' AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)'
+			.' AND `path` LIKE ?';
 		$stmt = OCP\DB::prepare($sql, 5);
 		try {
-			$result = $stmt->execute(array($dir_mimetype, 'local::%'));
+			$result = $stmt->execute(array($dir_mimetype, 'local::%', 'home::%', 'files/%'));
 			if (\OCP\DB::isError($result)) {
 				\OCP\Util::writeLog('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return;
@@ -33,46 +36,77 @@ class OC_Files_Antivirus_BackgroundScanner {
 			\OCP\Util::writeLog('files_antivirus', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			return;
 		}
+
+		$serverContainer = OC::$server;
+		/** @var $serverContainer \OCP\IServerContainer */
+		$root = $serverContainer->getRootFolder();
+
 		// scan the found files
 		while ($row = $result->fetchRow()) {
-			$storage = self::getStorage($row['id']);
-			if ($storage !== null) {
-				self::scan($row['fileid'], $row['path'], $storage);
+			$file = $root->getById($row['fileid']); // this should always work ...
+			if (!empty($file)) {
+				$file = $file[0];
+				$storage = $file->getStorage();
+				$path = $file->getInternalPath();
+				self::scan($file->getId(), $storage, $path);
 			} else {
-				\OCP\Util::writeLog('files_antivirus', 'File "'.$row['path'].'" has a non local storage backend "'.$row['id'].'"', \OCP\Util::ERROR);
+				// ... but sometimes it doesn't, try to get the storage
+				$storage = self::getStorage($serverContainer, $row['id']);
+				if ($storage !== null && $storage->is_dir('')) {
+					self::scan($row['fileid'], $storage, $row['path']);
+				} else {
+					\OCP\Util::writeLog('files_antivirus', 'Can\'t get \OCP\Files\File for id "'.$row['fileid'].'"', \OCP\Util::ERROR);
+				}
 			}
 		}
 	}
 
-	protected static function getStorage($storage_id) {
+	/*
+	* This function is a hack, it doesn't work if the $storage_id is a hash.
+	*/
+	protected static function getStorage($serverContainer, $storage_id) {
 		if (strpos($storage_id, 'local::') === 0) {
 			$arguments = array(
 				'datadir' => substr($storage_id, 7),
 			);
 			return new \OC\Files\Storage\Local($arguments);
 		}
+		if (strpos($storage_id, 'home::') === 0) {
+			$userid = substr($storage_id, 6);
+			$user = $serverContainer->getUserManager()->get($userid);
+			$arguments = array(
+				'user' => $user,
+			);
+			return new \OC\Files\Storage\Home($arguments);
+		}
 		return null;
 	}
 
-	public static function scan($id, $path, $storage) {
+	public static function scan($id, $storage, $path) {
 		$result = OC_Files_Antivirus::clamav_scan($storage, $path);
 		switch($result) {
 			case CLAMAV_SCANRESULT_UNCHECKED:
-				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
+				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is not checked', \OCP\Util::ERROR);
 				break;
 			case CLAMAV_SCANRESULT_INFECTED:
 				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
 				if ($infected_action == 'delete') {
-					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected, file deleted', \OCP\Util::ERROR);
 					$storage->unlink($path);
 				}
 				else {
-					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" with id "'.$id.'": is infected', \OCP\Util::ERROR);
 				}
 				break;
 			case CLAMAV_SCANRESULT_CLEAN:
-				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
+					$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*files_antivirus` WHERE `fileid` = ?');
+					$result = $stmt->execute(array($id));
+					if (\OCP\DB::isError($result)) {
+						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+						return;
+					}
+					$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 					$result = $stmt->execute(array($id, time()));
 					if (\OCP\DB::isError($result)) {
 						\OCP\Util::writeLog('files_antivirus', __METHOD__. ', DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
