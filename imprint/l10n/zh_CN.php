@@ -12,6 +12,8 @@ $TRANSLATIONS = array(
 "Header right" => "页眉居右",
 "Navigation top" => "导航置顶",
 "Navigation bottom" => "导航置底",
-"Content" => "内容"
+"During login" => "在登录中",
+"Content" => "内容",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "你可以使用html标记 (例如，使用 &lt;br&gt; 断行)和内嵌样式属性(例如，<a style=\"color:red;\">)"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";
