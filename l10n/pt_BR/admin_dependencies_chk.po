@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# sedir <philippi.sedir@gmail.com>, 2012
+# Flávio Veras <flaviove@gmail.com>, 2014
+# Sedir G. Morais <philippi.sedir@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-15 00:48-0400\n"
-"PO-Revision-Date: 2014-04-15 00:44+0000\n"
+"POT-Creation-Date: 2014-06-07 00:48-0400\n"
+"PO-Revision-Date: 2014-06-06 15:11+0000\n"
 "Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -66,11 +67,11 @@ msgstr "O módulo php-pdo é necessário para armazenar dados do ownCloud em um 
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr "O módulo iconv é necessário para converter dados da cadeira de caracteres correta."
+msgstr "O módulo iconv é necessário para converter dados da cadeia de caracteres corretamente."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr "Status da dependência"
+msgstr "Status das dependências"
 
 #: templates/settings.php:7
 msgid "Used by :"

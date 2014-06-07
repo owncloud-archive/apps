@@ -10,8 +10,8 @@ $TRANSLATIONS = array(
 "The php-xml module is needed to share files with webdav." => "O módulo php-xml é necessário para compartilhar arquivos com WebDAV.",
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" => "A diretiva allow_url_fopen do seu php.ini deve ser definida para 1 para obter a base de conhecimento dos servidores OCS",
 "The php-pdo module is needed to store owncloud data into a database." => "O módulo php-pdo é necessário para armazenar dados do ownCloud em um banco de dados.",
-"The iconv module is needed to convert data into the correct charset." => "O módulo iconv é necessário para converter dados da cadeira de caracteres correta.",
-"Dependencies status" => "Status da dependência",
+"The iconv module is needed to convert data into the correct charset." => "O módulo iconv é necessário para converter dados da cadeia de caracteres corretamente.",
+"Dependencies status" => "Status das dependências",
 "Used by :" => "Usado por:"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n > 1);";
