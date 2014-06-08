@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# bbartlomiej <bbartlomiej@gmail.com>, 2013
+# Bartek Krawczyk <bbartlomiej@gmail.com>, 2013
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
 # Maciej Tarmas <maciej@tarmas.pl>, 2013
 # Marcin Małecki <gerber@tkdami.net>, 2012
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-01 00:48-0400\n"
-"PO-Revision-Date: 2014-05-31 06:12+0000\n"
+"POT-Creation-Date: 2014-06-08 00:48-0400\n"
+"PO-Revision-Date: 2014-06-07 06:11+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"

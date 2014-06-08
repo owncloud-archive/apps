@@ -2,7 +2,9 @@
 $TRANSLATIONS = array(
 "Invalid date/time" => "তারিখ/সময় সঠিক নয়",
 "Tasks" => "কর্ম",
-"Location" => "াবস্থান",
+"Due" => "বকেয়া",
+"List" => "তালিকা",
+"Location" => "অবস্থান",
 "No category" => "কোন ক্যাটেগরি  নেই",
 "Unspecified" => "অনির্ধারিত",
 "1=highest" => "১ = সর্বোচ্চ",
@@ -11,6 +13,7 @@ $TRANSLATIONS = array(
 "Empty Summary" => "সারাংশটি ফাঁকা",
 "Invalid percent complete" => "শতকরা সুম্পন্ন হওয়া সঠিক নয়",
 "Invalid priority" => "গুরুত্বটি সঠিক নয়",
+"The calendar application also need to be enabled to use this application." => "এই আ্যাপলিকেশনটি ব্যবহার করতে হলে দিনপঞ্জীকা এ্যাপলিকেশনটি চালু করতে হবে ।",
 "Add Task" => "কর্ম যোগ কর",
 "Order Due" => "মুলতুবি রাখা নির্দেশ",
 "Order List" => "নির্দেশ তালিকা",
