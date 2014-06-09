@@ -21,10 +21,19 @@
 *
 */
 
-OC::$CLASSPATH['OC_Files_Antivirus'] = OC_App::getAppPath('files_antivirus').'/lib/clamav.php';
-OC::$CLASSPATH['OC_Files_Antivirus_BackgroundScanner'] = OC_App::getAppPath('files_antivirus').'/lib/scanner.php';
-
 OCP\App::registerAdmin('files_antivirus', 'settings');
-OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OC_Files_Antivirus', 'av_scan');
 
-OCP\BackgroundJob::AddRegularTask('OC_Files_Antivirus_BackgroundScanner', 'check');
+OCP\Util::connectHook('OC_Filesystem', 'post_write', '\OCA\Files_Antivirus\Scanner', 'av_scan');
+OCP\BackgroundJob::AddRegularTask('OCA\Files_Antivirus\BackgroundScanner', 'check');
+
+$avBinary = \OCP\Config::getAppValue('files_antivirus', 'av_path', '');
+
+if (empty($avBinary)){
+	\OCP\Config::setAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
+	$query = \OCP\DB::prepare('SELECT count(`id`) AS `totalRules` FROM `*PREFIX*files_antivirus_status`');
+	$result = $query->execute();
+	$result = $result->fetchRow();
+	if($result['totalRules'] == 0) {
+		\OCA\Files_Antivirus\Status::init();
+	}
+}
