@@ -10,15 +10,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-06 00:48-0400\n"
-"PO-Revision-Date: 2014-06-05 06:12+0000\n"
-"Last-Translator: ebela <bela@dandre.hu>\n"
+"POT-Creation-Date: 2014-06-10 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: js/settings.js:3
+msgid "Clean"
+msgstr ""
+
+#: js/settings.js:4
+msgid "Infected"
+msgstr ""
+
+#: js/settings.js:5
+msgid "Unchecked"
+msgstr ""
+
+#: js/settings.js:8
+msgid "Scanner exit status"
+msgstr ""
+
+#: js/settings.js:9
+msgid "Scanner output"
+msgstr ""
+
+#: lib/notification.php:29
+msgid "Malware detected"
+msgstr ""
+
+#: lib/scanner.php:86
+#, php-format
+msgid "Virus detected! Can't upload the file %s"
+msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -38,87 +67,123 @@ msgstr "Ez az e-mail egy értesítés a következőtől: {host}. Kérjük, ne v�
 msgid "File uploaded: {file}"
 msgstr "Fájl feltöltve: {file}"
 
-#: templates/settings.php:3
+#: templates/settings.php:4
 msgid "Antivirus Configuration"
 msgstr "Antivírus beállítása"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid "Mode"
 msgstr "Működési mód"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Executable"
 msgstr "Futtatható program"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Daemon"
 msgstr "Démon"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Daemon (Socket)"
 msgstr "Démon (socket)"
 
-#: templates/settings.php:7
+#: templates/settings.php:8
 msgid "Socket"
 msgstr "Csatorna"
 
-#: templates/settings.php:7
+#: templates/settings.php:8
 msgid "Clamav Socket."
 msgstr "Clamav csatorna"
 
-#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
-#: templates/settings.php:10
+#: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Executable Mode."
 msgstr "Nem szükséges, ha a működési mód: futtaható program"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Host"
 msgstr "Kiszolgáló"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Address of Antivirus Host."
 msgstr "A vírusellenőrző kiszolgáló címe"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Port"
 msgstr "Port"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Port number of Antivirus Host."
 msgstr "A vírusellenőrző kiszolgáló port száma"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Stream Length"
 msgstr "Folyamhossz"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "ClamAV StreamMaxLength érték byte-okban kifejezve"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Path to clamscan"
 msgstr "A clamscan elérési útvonala"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Path to clamscan executable."
 msgstr "A clamscan program elérési útvonala"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Not required in Daemon Mode."
 msgstr "Nem szükséges, ha a működési mód: démon"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Action for infected files found while scanning"
 msgstr "A vizsgálat során talált fertőzett fájlok ezt tegye:"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Only log"
 msgstr "Naplózza"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Delete file"
 msgstr "Törölje a fájlt"
 
-#: templates/settings.php:16
+#: templates/settings.php:17
 msgid "Save"
 msgstr "Mentés"
+
+#: templates/settings.php:21
+msgid "Advanced"
+msgstr ""
+
+#: templates/settings.php:23
+msgid "Rules"
+msgstr ""
+
+#: templates/settings.php:24
+msgid "Clear All"
+msgstr ""
+
+#: templates/settings.php:24
+msgid "Reset to defaults"
+msgstr ""
+
+#: templates/settings.php:29
+msgid "Match by"
+msgstr ""
+
+#: templates/settings.php:30
+msgid "Scanner exit status or signature to search"
+msgstr ""
+
+#: templates/settings.php:31
+msgid "Description"
+msgstr ""
+
+#: templates/settings.php:32
+msgid "Mark as"
+msgstr ""
+
+#: templates/settings.php:39
+msgid "Add a rule"
+msgstr ""

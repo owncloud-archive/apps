@@ -8,15 +8,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-06 00:48-0400\n"
-"PO-Revision-Date: 2014-06-05 06:12+0000\n"
-"Last-Translator: пан Володимир <volodya327@gmail.com>\n"
+"POT-Creation-Date: 2014-06-10 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: js/settings.js:3
+msgid "Clean"
+msgstr ""
+
+#: js/settings.js:4
+msgid "Infected"
+msgstr ""
+
+#: js/settings.js:5
+msgid "Unchecked"
+msgstr ""
+
+#: js/settings.js:8
+msgid "Scanner exit status"
+msgstr ""
+
+#: js/settings.js:9
+msgid "Scanner output"
+msgstr ""
+
+#: lib/notification.php:29
+msgid "Malware detected"
+msgstr ""
+
+#: lib/scanner.php:86
+#, php-format
+msgid "Virus detected! Can't upload the file %s"
+msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -36,87 +65,123 @@ msgstr "Цей E-mail є повідомленням від {host}. Відпов�
 msgid "File uploaded: {file}"
 msgstr "Файл вивантажено: {file}"
 
-#: templates/settings.php:3
+#: templates/settings.php:4
 msgid "Antivirus Configuration"
 msgstr "Налаштування Антивіруса"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid "Mode"
 msgstr "Режим"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Executable"
 msgstr "Виконуваний"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Daemon"
 msgstr "Фоновий Процес"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Daemon (Socket)"
 msgstr "Демон (Сокет)"
 
-#: templates/settings.php:7
+#: templates/settings.php:8
 msgid "Socket"
 msgstr "Сокет"
 
-#: templates/settings.php:7
+#: templates/settings.php:8
 msgid "Clamav Socket."
 msgstr "Сокет Clamav."
 
-#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
-#: templates/settings.php:10
+#: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
+#: templates/settings.php:11
 msgid "Not required in Executable Mode."
 msgstr "Не потрібно у режимі виконання."
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Host"
 msgstr "Хост"
 
-#: templates/settings.php:8
+#: templates/settings.php:9
 msgid "Address of Antivirus Host."
 msgstr "Адреса хоста Антивіруса."
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Port"
 msgstr "Порт"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Port number of Antivirus Host."
 msgstr "Номер порта у хоста Антивіруса."
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "Stream Length"
 msgstr "Довжина Потоку"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "Значення ClamAV StreamMaxLength в байтах."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Path to clamscan"
 msgstr "Шлях до clamscan"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Path to clamscan executable."
 msgstr "Шлях до виконуваного файлу clamscan."
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "Not required in Daemon Mode."
 msgstr "Не потрібно в режимі Фонового Процесу."
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Action for infected files found while scanning"
 msgstr "Дії для заражених файлів, знайдених при скануванні"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Only log"
 msgstr "Лише протоколювати"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Delete file"
 msgstr "Видалити файл"
 
-#: templates/settings.php:16
+#: templates/settings.php:17
 msgid "Save"
 msgstr "Зберегти"
+
+#: templates/settings.php:21
+msgid "Advanced"
+msgstr ""
+
+#: templates/settings.php:23
+msgid "Rules"
+msgstr ""
+
+#: templates/settings.php:24
+msgid "Clear All"
+msgstr ""
+
+#: templates/settings.php:24
+msgid "Reset to defaults"
+msgstr ""
+
+#: templates/settings.php:29
+msgid "Match by"
+msgstr ""
+
+#: templates/settings.php:30
+msgid "Scanner exit status or signature to search"
+msgstr ""
+
+#: templates/settings.php:31
+msgid "Description"
+msgstr ""
+
+#: templates/settings.php:32
+msgid "Mark as"
+msgstr ""
+
+#: templates/settings.php:39
+msgid "Add a rule"
+msgstr ""
