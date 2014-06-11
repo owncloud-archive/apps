@@ -21,6 +21,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "მოქმედება ინფიცირებულ ფაილებზე რომლებიც ნაპოვნი იქნა სკანირების დროს",
 "Only log" => "მხოლოდ ლოგირება",
 "Delete file" => "ფაილების წაშლა",
-"Save" => "შენახვა"
+"Save" => "შენახვა",
+"Advanced" => "დამატებითი ფუნქციები",
+"Description" => "გვერდის დახასიათება"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

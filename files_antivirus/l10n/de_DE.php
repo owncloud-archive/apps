@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Säubern",
+"Infected" => "Infiziert",
+"Unchecked" => "Ungeprüft",
+"Scanner exit status" => "Status beim Beenden der Suche",
+"Scanner output" => "Suchausgabe",
+"Malware detected" => "Malware gefunden",
+"Virus detected! Can't upload the file %s" => "Virus gefunden! Datei %s kann nicht hochgeladen werden",
 "Greetings {user}," => "Herzlich Willkommen {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Entschuldigung, in einer Datei, die Sie hochladen wollten, wurde Malware gefunden und sie musste daher gelöscht werden.",
 "This email is a notification from {host}. Please, do not reply." => "Diese E-Mail ist eine Benachrichtigung von {host}. Bitte antworten Sie nicht.",
@@ -24,6 +31,15 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Aktion für infizierte Dateien, welche beim Scannen gefunden wurden",
 "Only log" => "Nur loggen",
 "Delete file" => "Datei löschen",
-"Save" => "Speichern"
+"Save" => "Speichern",
+"Advanced" => "Fortgeschritten",
+"Rules" => "Regeln",
+"Clear All" => "Alles säubern",
+"Reset to defaults" => "Auf Standard rücksetzen",
+"Match by" => "Übereinstimmung durch",
+"Scanner exit status or signature to search" => "Status beim Beenden der Suche oder zu suchende Signatur",
+"Description" => "Beschreibung",
+"Mark as" => "Markiert als",
+"Add a rule" => "Regel hinzufügen"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

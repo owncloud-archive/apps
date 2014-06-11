@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "掃描時找到被感染的檔案所採取的動作",
 "Only log" => "僅做記錄",
 "Delete file" => "刪除檔案",
-"Save" => "儲存"
+"Save" => "儲存",
+"Advanced" => "進階",
+"Description" => "描述"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

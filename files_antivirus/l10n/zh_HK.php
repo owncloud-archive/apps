@@ -8,6 +8,7 @@ $TRANSLATIONS = array(
 "Executable" => "可執行",
 "Port" => "連接埠",
 "Delete file" => "刪除文件",
-"Save" => "儲存"
+"Save" => "儲存",
+"Advanced" => "進階"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

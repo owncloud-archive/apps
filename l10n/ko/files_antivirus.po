@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-10 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 04:48+0000\n"
+"POT-Creation-Date: 2014-06-11 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 05:01+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -156,7 +156,7 @@ msgstr "저장"
 
 #: templates/settings.php:21
 msgid "Advanced"
-msgstr ""
+msgstr "고급"
 
 #: templates/settings.php:23
 msgid "Rules"
@@ -180,7 +180,7 @@ msgstr ""
 
 #: templates/settings.php:31
 msgid "Description"
-msgstr ""
+msgstr "종류"
 
 #: templates/settings.php:32
 msgid "Mark as"

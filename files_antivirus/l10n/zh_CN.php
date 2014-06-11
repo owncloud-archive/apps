@@ -8,6 +8,9 @@ $TRANSLATIONS = array(
 "Mode" => "模式",
 "Executable" => "可执行文件",
 "Daemon" => "守护进程",
+"Daemon (Socket)" => "进程（套接字）",
+"Socket" => "套接字",
+"Clamav Socket." => "Clamav 套接字。",
 "Not required in Executable Mode." => "无需于执行模式",
 "Host" => "主机",
 "Address of Antivirus Host." => "杀毒软件主机地址",
@@ -21,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "扫描感染文件成功后的行动",
 "Only log" => "仅记录",
 "Delete file" => "删除文件",
-"Save" => "保存"
+"Save" => "保存",
+"Advanced" => "高级",
+"Description" => "描述"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

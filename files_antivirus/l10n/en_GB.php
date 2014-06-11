@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Action for infected files found while scanning",
 "Only log" => "Only log",
 "Delete file" => "Delete file",
-"Save" => "Save"
+"Save" => "Save",
+"Advanced" => "Advanced",
+"Description" => "Description"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

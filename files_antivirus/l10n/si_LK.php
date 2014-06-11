@@ -7,6 +7,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "පිරික්සුමේදි හමුවන ආසාධිත ගොනු සඳහා ගතයුතු පියවර",
 "Only log" => "වාර්තා කිරීම පමණක් කරන්න",
 "Delete file" => "ගොනුය මකන්න",
-"Save" => "සුරකින්න"
+"Save" => "සුරකින්න",
+"Advanced" => "දියුණු/උසස්",
+"Description" => "විස්තරය"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

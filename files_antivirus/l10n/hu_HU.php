@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "A vizsgálat során talált fertőzett fájlok ezt tegye:",
 "Only log" => "Naplózza",
 "Delete file" => "Törölje a fájlt",
-"Save" => "Mentés"
+"Save" => "Mentés",
+"Advanced" => "Haladó",
+"Description" => "Leírás"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Skenuojant rastas veiksmas užkrėstiems failams",
 "Only log" => "Tik žurnalas",
 "Delete file" => "Trinti failą",
-"Save" => "Išsaugoti"
+"Save" => "Išsaugoti",
+"Advanced" => "Išplėstiniai",
+"Description" => "Aprašymas"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);";

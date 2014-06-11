@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Czysty",
+"Infected" => "Zainfekowany",
+"Unchecked" => "Niesprawdzony",
+"Scanner exit status" => "Status zakończenia skanera",
+"Scanner output" => "Wyjście skanera",
+"Malware detected" => "Znaleziono malware",
+"Virus detected! Can't upload the file %s" => "Znaleziono wirusa! Nie można wysłać pliku %s",
 "Greetings {user}," => "Witaj {user}, ",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Niestey w pliku który próbowałeś wysłać znaleziono złośliwe oprogramowanie. Plik został usunięty.",
 "This email is a notification from {host}. Please, do not reply." => "Ten e-mail jest powiadomieniem od {hosta}. Proszę nie odpowiadać.",
@@ -24,6 +31,15 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Działania dla zainfekowanych plików znalezionych podczas skanowania",
 "Only log" => "Tylko log",
 "Delete file" => "Usuń plik",
-"Save" => "Zapisz"
+"Save" => "Zapisz",
+"Advanced" => "Zaawansowane",
+"Rules" => "Reguły",
+"Clear All" => "Wyczyść wszystkie",
+"Reset to defaults" => "Przywróć domyślne",
+"Match by" => "Zgodność z",
+"Scanner exit status or signature to search" => "Status zakończenia skanera lub sygnatura do szukania",
+"Description" => "Opis",
+"Mark as" => "Oznaczono jako",
+"Add a rule" => "Dodaj regułę"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

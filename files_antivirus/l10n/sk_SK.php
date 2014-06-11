@@ -1,5 +1,11 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Čistý",
+"Infected" => "Napadnutý",
+"Unchecked" => "Neoznačený",
+"Scanner output" => "Výstup skenera",
+"Malware detected" => "Detekovaný malvér",
+"Virus detected! Can't upload the file %s" => "Detekovaný vírus! Súbor nemôžete nahrať %s",
 "Greetings {user}," => "Vitajte {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Prepáčte, v nahrávanom súbore bol nájdený malware a musel byť zmazaný.",
 "This email is a notification from {host}. Please, do not reply." => "Tento email je oznámenie od {host}. Prosím, neodpovedajte.",
@@ -24,6 +30,14 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Opatrenia pre infikované súbory nájdené pri skenovaní",
 "Only log" => "Len logovať",
 "Delete file" => "Zmazať súbor",
-"Save" => "Uložiť"
+"Save" => "Uložiť",
+"Advanced" => "Rozšírené",
+"Rules" => "Pravidlá",
+"Clear All" => "Všetko vymazať",
+"Reset to defaults" => "Obnoviť predvolené",
+"Match by" => "Porovnané",
+"Description" => "Popis",
+"Mark as" => "Označiť ako",
+"Add a rule" => "Pridať pravidlo"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

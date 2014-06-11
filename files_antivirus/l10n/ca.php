@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Acció per als fitxers infectats trobats durant l'escanneig",
 "Only log" => "Només registra",
 "Delete file" => "Elimina el fitxer",
-"Save" => "Desa"
+"Save" => "Desa",
+"Advanced" => "Avançat",
+"Description" => "Descripció"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

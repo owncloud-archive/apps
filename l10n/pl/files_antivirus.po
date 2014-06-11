@@ -5,13 +5,14 @@
 # Translators:
 # b13n1u <b13n1u@gmail.com>, 2013
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Krzysztof Łojowski <maxxxrally@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-10 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-11 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 12:57+0000\n"
+"Last-Translator: Krzysztof Łojowski <maxxxrally@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,32 +22,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Czysty"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Zainfekowany"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Niesprawdzony"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Status zakończenia skanera"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Wyjście skanera"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Znaleziono malware"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Znaleziono wirusa! Nie można wysłać pliku %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -153,36 +154,36 @@ msgstr "Zapisz"
 
 #: templates/settings.php:21
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Reguły"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Wyczyść wszystkie"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Przywróć domyślne"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Zgodność z"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Status zakończenia skanera lub sygnatura do szukania"
 
 #: templates/settings.php:31
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "Oznaczono jako"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Dodaj regułę"

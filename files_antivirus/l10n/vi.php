@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Action for infected files found while scanning",
 "Only log" => "Chỉ nhật ký",
 "Delete file" => "Xóa tập tin",
-"Save" => "Lưu"
+"Save" => "Lưu",
+"Advanced" => "Nâng cao",
+"Description" => "Mô tả"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

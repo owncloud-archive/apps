@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Save" => "Պահպանել"
+"Save" => "Պահպանել",
+"Description" => "Նկարագրություն"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

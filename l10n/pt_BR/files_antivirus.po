@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Flávio Veras <flaviove@gmail.com>, 2013
+# Flávio Veras <flaviove@gmail.com>, 2013-2014
 # Rodrigo Tavares <rodrigost23@gmail.com>, 2013
 # Tulio Simoes Martins Padilha, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-10 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-11 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 09:11+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,32 +22,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Limpo"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Infectado"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Não verificado"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Estado de saída do Scanner"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Saída do Scanner"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Malware detectado"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Vírus detectado! Não é possível enviar o arquivo %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -154,36 +154,36 @@ msgstr "Salvar"
 
 #: templates/settings.php:21
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Regras"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Limpar Tudo"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Restaurar Padrões"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Verificado por"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Estado de saída do scanner ou assinatura para pesquisar"
 
 #: templates/settings.php:31
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "Marcar como"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Adicionar uma regra"

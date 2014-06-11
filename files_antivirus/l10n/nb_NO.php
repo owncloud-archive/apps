@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Ren",
+"Infected" => "Infisert",
+"Unchecked" => "Ikke sjekket",
+"Scanner exit status" => "Status fra skanning",
+"Scanner output" => "Utdata fra skanning",
+"Malware detected" => "Skadevare oppdaget",
+"Virus detected! Can't upload the file %s" => "Virus oppdaget! Kan ikke laste opp filen %s",
 "Greetings {user}," => "Hei {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Beklager, men skadevare ble oppdaget i en fil du prøvde å laste opp, og filen er derfor slettet.",
 "This email is a notification from {host}. Please, do not reply." => "Denne eposten er en varsel fra {host}. Vennligst ikke svar på denne.",
@@ -24,6 +31,15 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Handling for infiserte filer funnet under skanning",
 "Only log" => "Bare logg",
 "Delete file" => "Slett fil",
-"Save" => "Lagre"
+"Save" => "Lagre",
+"Advanced" => "Avansert",
+"Rules" => "Regler",
+"Clear All" => "Fjern alle",
+"Reset to defaults" => "Still tilbake til standard",
+"Match by" => "Søk på",
+"Scanner exit status or signature to search" => "Status fra skanning eller signatur for søk",
+"Description" => "Beskrivelse",
+"Mark as" => "Merk som",
+"Add a rule" => "Legg til regel"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

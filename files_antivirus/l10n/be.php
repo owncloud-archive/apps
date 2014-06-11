@@ -5,6 +5,7 @@ $TRANSLATIONS = array(
 "This email is a notification from {host}. Please, do not reply." => "Гэты ліст паведамленне ад {host}. Калі ласка, не адказвайце.",
 "File uploaded: {file}" => "Файл загружаны: {file}",
 "Antivirus Configuration" => "Канфігурацыі антывіруса",
-"Mode" => "Рэжым"
+"Mode" => "Рэжым",
+"Advanced" => "Дасведчаны"
 );
 $PLURAL_FORMS = "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

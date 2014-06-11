@@ -13,6 +13,8 @@ $TRANSLATIONS = array(
 "Port" => "ច្រក",
 "Port number of Antivirus Host." => "លេខ​ច្រក​នៃ​ម៉ាស៊ីន​ផ្ទុក​កម្មវិធី​ប្រឆាំង​មេរោគ។",
 "Stream Length" => "រយៈពេល​ស្ទ្រីម",
-"Save" => "រក្សាទុក"
+"Save" => "រក្សាទុក",
+"Advanced" => "កម្រិត​ខ្ពស់",
+"Description" => "ការ​អធិប្បាយ"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

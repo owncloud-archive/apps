@@ -24,6 +24,8 @@ $TRANSLATIONS = array(
 "Action for infected files found while scanning" => "Skaneerimisel leitud nakatunud failidega sooritatav toiming",
 "Only log" => "Ainult logi",
 "Delete file" => "Kustuta fail",
-"Save" => "Salvesta"
+"Save" => "Salvesta",
+"Advanced" => "Täpsem",
+"Description" => "Kirjeldus"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

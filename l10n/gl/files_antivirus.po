@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-10 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-11 00:48-0400\n"
+"PO-Revision-Date: 2014-06-10 08:20+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,32 +22,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Limpo"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Infectado"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Non comprobado"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Estado da saída da análise"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Saída da análise"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Detectouse software malicioso"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Detectouse un virus! Non é posíbel cargar o ficheiro %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -154,36 +154,36 @@ msgstr "Gardar"
 
 #: templates/settings.php:21
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Regras"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Limpar todo"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Restabelecer a valores predeterminados"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Coincide en"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Estado da saída da análise ou sinatura para buscar"
 
 #: templates/settings.php:31
 msgid "Description"
-msgstr ""
+msgstr "Descrición"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "Marcar como"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Engadir unha regra"
