@@ -1,5 +1,10 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Čisté",
+"Infected" => "Infikováno",
+"Unchecked" => "Nezkontrolováno",
+"Malware detected" => "Detekován škodlivý software",
+"Virus detected! Can't upload the file %s" => "Byl detekován virus! Nelze nahrát soubor %s",
 "Greetings {user}," => "Vítejte {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Bohužel byl v odeslaném souboru nalezen malware, soubor musel být odstraněn.",
 "This email is a notification from {host}. Please, do not reply." => "Tento e-mail je oznámení od {host}. Prosím, neodpovídejte na něj.",
@@ -26,6 +31,10 @@ $TRANSLATIONS = array(
 "Delete file" => "Smazat soubor",
 "Save" => "Uložit",
 "Advanced" => "Pokročilé",
-"Description" => "Popis"
+"Rules" => "Pravidla",
+"Clear All" => "Vyčistit Vše",
+"Description" => "Popis",
+"Mark as" => "Označit jako",
+"Add a rule" => "Přidat pravidlo"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

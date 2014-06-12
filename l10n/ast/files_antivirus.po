@@ -5,13 +5,14 @@
 # Translators:
 # Iñigo Varela <ivarela@softastur.org>, 2014
 # Ḷḷumex03 <l.lumex03.tornes@gmail.com>, 2014
+# Ḷḷumex03 <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-11 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 05:01+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-12 00:48-0400\n"
+"PO-Revision-Date: 2014-06-11 07:10+0000\n"
+"Last-Translator: Ḷḷumex03 <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/owncloud/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,32 +22,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Llimpiu"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Infestáu"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Ensin comprobar"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Estáu de salida del escáner"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Salida del escáner"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Malware deteutáu"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "¡Virus deteutáu! Nun pue xubise'l ficheru %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -157,23 +158,23 @@ msgstr "Avanzáu"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Regles"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Llimpiar too"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Reafitar valores"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Que concasen por"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Estáu de salida del escáner o robla pa guetar"
 
 #: templates/settings.php:31
 msgid "Description"
@@ -181,8 +182,8 @@ msgstr "Descripción"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "Conseñar como"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Amestar regla"
