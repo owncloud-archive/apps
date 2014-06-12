@@ -190,7 +190,10 @@ class Storage extends Common {
 		return 'archive::' . md5($this->path);
 	}
 
-	public function getCache($path = '') {
-		return new Cache($this, $this->mountManager, $this->archivePath);
+	public function getCache($path = '', $storage = null) {
+		if (!$storage) {
+			$storage = $this;
+		}
+		return new Cache($storage, $this->mountManager, $this->archivePath);
 	}
 }
