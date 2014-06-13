@@ -1,5 +1,11 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Rens",
+"Infected" => "Inficeret",
+"Unchecked" => "Ikke markeret",
+"Scanner output" => "Skanner output",
+"Malware detected" => "Malware fundet",
+"Virus detected! Can't upload the file %s" => "Virus fundet! Filen %s kan ikke uploades",
 "Greetings {user}," => "Velkommen {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Beklager, men der blev identificeret malware i en fil, som du har forsøgt at uploade, og den måtte slettes.",
 "This email is a notification from {host}. Please, do not reply." => "Denne email er en underretning fra {host}. Den kan ikke besvares.",
@@ -26,6 +32,11 @@ $TRANSLATIONS = array(
 "Delete file" => "Slet fil",
 "Save" => "Gem",
 "Advanced" => "Avanceret",
-"Description" => "Beskrivelse"
+"Rules" => "Regler ",
+"Clear All" => "Rens Alle",
+"Reset to defaults" => "Nulstil til standard",
+"Description" => "Beskrivelse",
+"Mark as" => "Marker som",
+"Add a rule" => "Tilføj regel"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013-2014
 # タカハシ <gomidori@live.jp>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-11 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 05:01+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-13 00:48-0400\n"
+"PO-Revision-Date: 2014-06-12 07:50+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,32 +21,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "クリーン"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "感染"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "チェックをはずす"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "スキャナーの終了ステータス"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "スキャナーの出力"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "マルウェアが検出されました"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "ウイルスが検出されました！ファイル %s をアップロードすることはできません"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -157,23 +157,23 @@ msgstr "詳細設定"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "ルール"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "全てクリア"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "デフォルトに戻す"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "一致"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "スキャナーの終了ステータスもしくは検索するシグネチャ"
 
 #: templates/settings.php:31
 msgid "Description"
@@ -181,8 +181,8 @@ msgstr "説明"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "マーク"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "ルールを追加"

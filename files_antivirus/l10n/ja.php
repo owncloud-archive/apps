@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "クリーン",
+"Infected" => "感染",
+"Unchecked" => "チェックをはずす",
+"Scanner exit status" => "スキャナーの終了ステータス",
+"Scanner output" => "スキャナーの出力",
+"Malware detected" => "マルウェアが検出されました",
+"Virus detected! Can't upload the file %s" => "ウイルスが検出されました！ファイル %s をアップロードすることはできません",
 "Greetings {user}," => "{user} 様へ、",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "申し訳ありません。アップロードしようとしたファイルからマルウェアが検出されましたため、削除されました。",
 "This email is a notification from {host}. Please, do not reply." => "このメールは {host} からの通知用です。返信しないでください。",
@@ -26,6 +33,13 @@ $TRANSLATIONS = array(
 "Delete file" => "ファイルを削除",
 "Save" => "保存",
 "Advanced" => "詳細設定",
-"Description" => "説明"
+"Rules" => "ルール",
+"Clear All" => "全てクリア",
+"Reset to defaults" => "デフォルトに戻す",
+"Match by" => "一致",
+"Scanner exit status or signature to search" => "スキャナーの終了ステータスもしくは検索するシグネチャ",
+"Description" => "説明",
+"Mark as" => "マーク",
+"Add a rule" => "ルールを追加"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";
