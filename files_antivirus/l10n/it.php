@@ -2,8 +2,9 @@
 $TRANSLATIONS = array(
 "Clean" => "Pulisci",
 "Infected" => "Infetto",
-"Unchecked" => "Non selezionato",
-"Scanner output" => "Risultati scanner",
+"Unchecked" => "Non marcato",
+"Scanner exit status" => "Stato di uscita dell'analizzatore",
+"Scanner output" => "Risultato analisi",
 "Malware detected" => "Malware rilevato",
 "Virus detected! Can't upload the file %s" => "Virus rilevato! Impossibile caricare il file %s",
 "Greetings {user}," => "Ciao {user},",
@@ -34,8 +35,11 @@ $TRANSLATIONS = array(
 "Advanced" => "Avanzate",
 "Rules" => "Regole",
 "Clear All" => "Pulisci tutto",
+"Reset to defaults" => "Ripristina i valori predefiniti",
+"Match by" => "Corrispondenza da",
+"Scanner exit status or signature to search" => "Stato di uscita dell'analizzatore o firma da cercare",
 "Description" => "Descrizione",
-"Mark as" => "Segna come",
-"Add a rule" => "Aggiungi regola"
+"Mark as" => "Marca come",
+"Add a rule" => "Aggiungi una regola"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

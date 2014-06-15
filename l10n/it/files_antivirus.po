@@ -6,14 +6,14 @@
 # Alessandro Felicetti <aleminecraft98@gmail.com>, 2014
 # Paolo Velati <paolo.velati@gmail.com>, 2013
 # Teo <teolo78@gmail.com>, 2013
-# Vincenzo Reale <vinx.reale@gmail.com>, 2013
+# Vincenzo Reale <vinx.reale@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-11 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 17:11+0000\n"
-"Last-Translator: Alessandro Felicetti <aleminecraft98@gmail.com>\n"
+"POT-Creation-Date: 2014-06-15 00:48-0400\n"
+"PO-Revision-Date: 2014-06-14 07:40+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,15 +31,15 @@ msgstr "Infetto"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr "Non selezionato"
+msgstr "Non marcato"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Stato di uscita dell'analizzatore"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr "Risultati scanner"
+msgstr "Risultato analisi"
 
 #: lib/notification.php:29
 msgid "Malware detected"
@@ -167,15 +167,15 @@ msgstr "Pulisci tutto"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Ripristina i valori predefiniti"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Corrispondenza da"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Stato di uscita dell'analizzatore o firma da cercare"
 
 #: templates/settings.php:31
 msgid "Description"
@@ -183,8 +183,8 @@ msgstr "Descrizione"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr "Segna come"
+msgstr "Marca come"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr "Aggiungi regola"
+msgstr "Aggiungi una regola"
