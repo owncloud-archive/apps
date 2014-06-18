@@ -1,5 +1,8 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Καθαρό",
+"Infected" => "Μολυνσμένο",
+"Virus detected! Can't upload the file %s" => "Εντοπίστηκε ιός! Δεν μπορώ να ανεβάσω το αρχείο %s",
 "Greetings {user}," => "Καλωσόρισες {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Συγνώμη, αλλά στο αρχείο που προσπαθήσατε να μεταφορτώσετε βρέθηκε επιβλαβές λογισμικό και διαγράφηκε.",
 "This email is a notification from {host}. Please, do not reply." => "Αυτό το μήνυμα είναι μια ειδοποίηση από το {host}. Παρακαλώ, μην το απαντήσετε.",
@@ -26,6 +29,9 @@ $TRANSLATIONS = array(
 "Delete file" => "Διαγραφή αρχείου",
 "Save" => "Αποθήκευση",
 "Advanced" => "Για προχωρημένους",
-"Description" => "Περιγραφή"
+"Rules" => "Κανόνες",
+"Clear All" => "Εκκαθάριση Όλων",
+"Description" => "Περιγραφή",
+"Add a rule" => "Προσθήκη κανόνα"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";
