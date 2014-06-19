@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Neteja",
+"Infected" => "Infectat",
+"Unchecked" => "No comprovat",
+"Scanner exit status" => "Estat de sortida de l'escànner",
+"Scanner output" => "Sortida de l'escànner",
+"Malware detected" => "S'ha detectat programari maliciós",
+"Virus detected! Can't upload the file %s" => "S'ha detectat un virus! El fitxer %s no es pot pujar",
 "Greetings {user}," => "Benvingut {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "S'ha detectar programari maliciós en un fitxer que heu intentat pujar i s'ha hagut d'eliminar.",
 "This email is a notification from {host}. Please, do not reply." => "Aquest correu és uan  notificació de {host}. No el respongueu.",
@@ -26,6 +33,13 @@ $TRANSLATIONS = array(
 "Delete file" => "Elimina el fitxer",
 "Save" => "Desa",
 "Advanced" => "Avançat",
-"Description" => "Descripció"
+"Rules" => "Regles",
+"Clear All" => "Neteja-ho tot",
+"Reset to defaults" => "Restableix als valors per defecte",
+"Match by" => "Coincideix amb",
+"Scanner exit status or signature to search" => "Estat de sortida de l'escànner o signatura a cercar",
+"Description" => "Descripció",
+"Mark as" => "Marca com a",
+"Add a rule" => "Afegeix una regla"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

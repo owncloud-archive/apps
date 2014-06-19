@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# rogerc, 2013
+# rogerc, 2013-2014
 # rogerc, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-11 00:48-0400\n"
-"PO-Revision-Date: 2014-06-10 05:01+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-19 00:48-0400\n"
+"PO-Revision-Date: 2014-06-18 15:30+0000\n"
+"Last-Translator: rogerc\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,32 +21,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Neteja"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Infectat"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "No comprovat"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Estat de sortida de l'escànner"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Sortida de l'escànner"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "S'ha detectat programari maliciós"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "S'ha detectat un virus! El fitxer %s no es pot pujar"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -157,23 +157,23 @@ msgstr "Avançat"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Regles"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Neteja-ho tot"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Restableix als valors per defecte"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Coincideix amb"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Estat de sortida de l'escànner o signatura a cercar"
 
 #: templates/settings.php:31
 msgid "Description"
@@ -181,8 +181,8 @@ msgstr "Descripció"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr ""
+msgstr "Marca com a"
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Afegeix una regla"
