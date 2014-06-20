@@ -1,41 +1,43 @@
-function viewOdf(dir, file) {
+function viewOdf(dir, file, fileList) {
     OC.addStyle('files_odfviewer', 'webodf');
     OC.addStyle('files_odfviewer', 'odfviewer');
     OC.addScript('files_odfviewer','webodf').done(function(){
-        var location = fileDownloadPath(dir, file);
+        var location = fileList.getDownloadUrl(file, dir);
 
 		// start viewer mode
-		FileList.setViewerMode(true);
+		fileList.setViewerMode(true);
 
 		// odf action toolbar
 		var odfToolbarHtml =
 			'<div id="odf-toolbar">' +
 			'<button id="odf_close">'+t('files_odfviewer','Close')+
 			'</button></div>';
-		$('#controls').append(odfToolbarHtml);
+		fileList.$el.find('#controls').append(odfToolbarHtml);
 
 		var canvashtml = '<div id="odf-canvas"></div>';
-		$('table').after(canvashtml);
+		fileList.$table.after(canvashtml);
 		// in case we are on the public sharing page we shall display the odf into the preview tag
 		$('#preview').html(canvashtml);
 
-		var odfelement = document.getElementById("odf-canvas");
-		var odfcanvas = new odf.OdfCanvas(odfelement);
+		var odfelement = $('#odf-canvas');
+		odfelement.data('fileList', fileList);
+		var odfcanvas = new odf.OdfCanvas(odfelement.get(0));
 		odfcanvas.load(location);
     });
 }
 
 function closeOdfViewer(){
 	// Remove odf-toolbar
+	var fileList = $('#odf-canvas').data('fileList');
 	$('#odf-toolbar').remove();
 	$('#odf-canvas').remove();
-	FileList.setViewerMode(false);
+	fileList.setViewerMode(false);
 	is_editor_shown = false;
 }
 
 $(document).ready(function() {
-	if(typeof FileActions!=='undefined'){
-
+	if(typeof OCA !== 'undefined' && OCA.Files) {
+		var fileActions = OCA.Files.fileActions;
 		var supportedMimes = new Array(
 			'application/vnd.oasis.opendocument.text', 
 			'application/vnd.oasis.opendocument.spreadsheet',
@@ -43,10 +45,10 @@ $(document).ready(function() {
 			'application/vnd.oasis.opendocument.presentation');
 		for (var i = 0; i < supportedMimes.length; ++i){
 			var mime = supportedMimes[i];
-			FileActions.register(mime,'View',OC.PERMISSION_READ,'',function(filename){
-				viewOdf($('#dir').val(),filename);
+			fileActions.register(mime, 'View', OC.PERMISSION_READ, '', function(filename, context){
+				viewOdf(context.dir, filename, context.fileList);
 			});
-			FileActions.setDefault(mime,'View');
+			fileActions.setDefault(mime,'View');
 		}
 	}
 	
