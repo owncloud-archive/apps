@@ -2,6 +2,10 @@
 $TRANSLATIONS = array(
 "Clean" => "Καθαρό",
 "Infected" => "Μολυνσμένο",
+"Unchecked" => "Μη-ελεγμένο",
+"Scanner exit status" => "Κατάσταση εξόδου ανιχνευτή",
+"Scanner output" => "Έξοδος ανιχνευτή",
+"Malware detected" => "Ανιχνεύθηκε κακόβουλο λογισμικό",
 "Virus detected! Can't upload the file %s" => "Εντοπίστηκε ιός! Δεν μπορώ να ανεβάσω το αρχείο %s",
 "Greetings {user}," => "Καλωσόρισες {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Συγνώμη, αλλά στο αρχείο που προσπαθήσατε να μεταφορτώσετε βρέθηκε επιβλαβές λογισμικό και διαγράφηκε.",
@@ -31,7 +35,11 @@ $TRANSLATIONS = array(
 "Advanced" => "Για προχωρημένους",
 "Rules" => "Κανόνες",
 "Clear All" => "Εκκαθάριση Όλων",
+"Reset to defaults" => "Επαναφορά στις προεπιλογές",
+"Match by" => "Ταίριασμα με βάση",
+"Scanner exit status or signature to search" => "Κατάσταση εξόδου ανιχνευτή ή υπογραφή προς αναζήτηση",
 "Description" => "Περιγραφή",
+"Mark as" => "Μαρκάρισμα ως",
 "Add a rule" => "Προσθήκη κανόνα"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";
