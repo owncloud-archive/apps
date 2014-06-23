@@ -35,7 +35,7 @@ class OC_USER_CAS_Hooks {
 
 			if ($cas_uid == $uid) {
 				if (array_key_exists($casBackend->mailMapping, $attributes)) {
-					$cas_email = $attributes[$casBackend->mailMapping][0];
+					$cas_email = $attributes[$casBackend->mailMapping];
 				}
 
 				if (array_key_exists($casBackend->groupMapping, $attributes)) {
