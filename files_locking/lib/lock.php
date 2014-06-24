@@ -59,6 +59,16 @@ class Lock {
 		$this->path = Filesystem::normalizePath($path);
 	}
 
+	/**
+	 * Acquire read lock on the current file.
+	 * If no existing handle is given, fopen() will be called
+	 * on the file to obtain one.
+	 *
+	 * @param resource $existingHandle existing file handle, defaults to null
+	 *
+	 * @return bool true if the lock could be obtained, false if a timeout
+	 * occurred or the file could not be opened
+	 */
 	protected function obtainReadLock($existingHandle = null) {
 		\OC_Log::write('lock', sprintf('INFO: Read lock requested for %s', $this->path), \OC_Log::DEBUG);
 		$timeout = Lock::$retries;
@@ -66,6 +76,9 @@ class Lock {
 		// Re-use an existing handle or get a new one
 		if(empty($existingHandle)) {
 			$handle = fopen($this->path, 'r');
+			if ($handle === false) {
+				return false;
+			}
 		}
 		else {
 			$handle = $existingHandle;
@@ -90,12 +103,25 @@ class Lock {
 		return true;
 	}
 
+	/**
+	 * Acquire write lock on the current file.
+	 * If no existing handle is given, fopen() will be called
+	 * on the file to obtain one.
+	 *
+	 * @param resource $existingHandle existing file handle, defaults to null
+	 *
+	 * @return bool true if the lock could be obtained, false if a timeout
+	 * occurred or the file could not be opened
+	 */
 	protected function obtainWriteLock($existingHandle = null) {
 		\OC_Log::write('lock', sprintf('INFO: Write lock requested for %s', $this->path), \OC_Log::DEBUG);
 
 		// Re-use an existing handle or get a new one
 		if (empty($existingHandle)) {
 			$handle = fopen($this->path, 'c');
+			if ($handle === false) {
+				return false;
+			}
 		}
 		else {
 			$handle = $existingHandle;
