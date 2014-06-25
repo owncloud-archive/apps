@@ -36,6 +36,7 @@ $TRANSLATIONS = array(
 "Rules" => "Reglas",
 "Clear All" => "Todo limpio",
 "Reset to defaults" => "Reset a valores por defecto",
+"Match by" => "Detectado por",
 "Scanner exit status or signature to search" => "Estado de la salida de escáner o firma a buscar",
 "Description" => "Descripción",
 "Mark as" => "Marcar como",
