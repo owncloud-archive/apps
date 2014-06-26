@@ -5,6 +5,7 @@
  *
  * @author Sixto Martin <sixto.martin.garcia@gmail.com>
  * @copyright Sixto Martin Garcia. 2012
+ * @copyright Leonis. 2014 <devteam@leonis.at>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -22,6 +23,8 @@
  */
 
 
+
+
 if (OCP\App::isEnabled('user_cas')) {
 
 	include_once('CAS.php');
@@ -34,6 +37,7 @@ if (OCP\App::isEnabled('user_cas')) {
 	OC_User::useBackend( 'CAS' );
 
 	OC::$CLASSPATH['OC_USER_CAS_Hooks'] = 'user_cas/lib/hooks.php';
+	OCP\Util::connectHook('OC_User', 'post_createUser', 'OC_USER_CAS_Hooks', 'post_createUser');
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_CAS_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_CAS_Hooks', 'logout');
 

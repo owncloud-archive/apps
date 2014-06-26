@@ -5,6 +5,7 @@
  *
  * @author Sixto Martin <sixto.martin.garcia@gmail.com>
  * @copyright Sixto Martin Garcia. 2012
+ * @copyright Leonis. 2014 <devteam@leonis.at>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -21,31 +22,18 @@
  *
  */
 
-	global $initialized_cas;
+global $initialized_cas;
 
-	$casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '1.0');
-	$casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', '');
-	$casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', '443');
-	$casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas');
-	$casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
-
-
-
-	if (!empty($casHostname)) {
-
-		if(!$initialized_cas) {
-
-			# phpCAS::setDebug();
-
-			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
-
-			if(!empty($casCertPath)) {
-				phpCAS::setCasServerCACert($casCertPath);
-			}
-			else {
-				phpCAS::setNoCasServerValidation();
-			}
-			$initialized_cas = true;			
-		}
-		phpCAS::forceAuthentication();
+if(!$initialized_cas) {
+	phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
+	if(!empty($casCertPath)) {
+		phpCAS::setCasServerCACert($casCertPath);
 	}
+	else {
+		phpCAS::setNoCasServerValidation();
+	}
+	$initialized_cas = true;			
+}
+
+phpCAS::forceAuthentication();
+	

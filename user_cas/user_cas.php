@@ -5,6 +5,7 @@
  *
  * @author Sixto Martin <sixto.martin.garcia@gmail.com>
  * @copyright Sixto Martin Garcia. 2012
+ * @copyright Leonis. 2014 <devteam@leonis.at>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -28,44 +29,52 @@ class OC_USER_CAS extends OC_User_Backend {
 	public $updateUserData;
 	public $protectedGroups;
 	public $defaultGroup;
+	public $displayNameMapping;
 	public $mailMapping;
 	public $groupMapping;
+	//public $initialized = false;
+	protected static $instance = null;
+
+	public static function getInstance() {
+		if (self::$instance == null) {
+			self::$instance = new OC_USER_CAS();
+		}
+		return self::$instance;
+	}
 
 	public function __construct() {
-		
-		$this->autocreate = OCP\Config::getAppValue('user_cas', 'cas_autocreate', false);
-		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', false);
+		// These are default values for the first login and should be changed via GUI
+		$CAS_HOSTNAME = 'your.domain.org';
+		$CAS_PORT = '443';
+		$CAS_PATH = '/cas';
+
+		$this->autocreate = OCP\Config::getAppValue('user_cas', 'cas_autocreate', true);
+		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', true);
 		$this->defaultGroup = OCP\Config::getAppValue('user_cas', 'cas_default_group', '');
 		$this->protectedGroups = explode (',', str_replace(' ', '', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', '')));
 		$this->mailMapping = OCP\Config::getAppValue('user_cas', 'cas_email_mapping', '');
+		$this->displayNameMapping = OCP\Config::getAppValue('user_cas', 'cas_displayName_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_cas', 'cas_group_mapping', '');
 
-	        $casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '1.0');
-	        $casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', '');
-	        $casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', '443');
-	        $casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas');
-	        $casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
-	
-	        if (!empty($casHostname)) {
-				global $initialized_cas;
+		$casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '2.0');
+		$casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', $CAS_HOSTNAME);
+		$casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', $CAS_PORT);
+		$casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', $CAS_PATH);
+		$casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
 
-			if(!$initialized_cas) {
+		global $initialized_cas;
 
-				# phpCAS::setDebug();
-
-				phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
-
-				if(!empty($casCertPath)) {
-					phpCAS::setCasServerCACert($casCertPath);
-				}
-				else {
-					phpCAS::setNoCasServerValidation();
-				}
-				$initialized_cas = true;
+		if(!$initialized_cas) {
+			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
+			if(!empty($casCertPath)) {
+				phpCAS::setCasServerCACert($casCertPath);
 			}
+			else {
+				phpCAS::setNoCasServerValidation();
+			}
+			$initialized_cas = true;
 		}
 	}
-
 
 	public function checkPassword($uid, $password) {
 
@@ -74,7 +83,23 @@ class OC_USER_CAS extends OC_User_Backend {
 		}
 
 		$uid = phpCAS::getUser();
-
 		return $uid;
 	}
+
+	
+	public function getDisplayName($uid) {
+		$udb = new OC_User_Database;
+		return $udb->getDisplayName($uid);
+	}
+
+	/**
+	* Sets the display name for by using the CAS attribute specified in the mapping
+	*
+	*/
+	public function setDisplayName($uid,$displayName) {
+		$udb = new OC_User_Database;
+		$udb->setDisplayName($uid,$displayName);
+	}
+
 }
+

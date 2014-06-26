@@ -5,6 +5,7 @@
  *
  * @author Sixto Martin <sixto.martin.garcia@gmail.com>
  * @copyright Sixto Martin Garcia. 2012
+ * @copyright Leonis. 2014 <devteam@leonis.at>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -23,7 +24,8 @@
 
 OC_Util::checkAdminUser();
 
-$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_email_mapping', 'cas_group_mapping');
+$params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data',
+ 'cas_protected_groups', 'cas_default_group', 'cas_email_mapping', 'cas_displayName_mapping','cas_group_mapping','cas_cert_path');
 
 OCP\Util::addscript('user_cas', 'settings');
 
@@ -51,19 +53,5 @@ foreach ($params as $param) {
 		$value = htmlentities(OCP\Config::getAppValue('user_cas', $param,''));
 		$tmpl->assign($param, $value);
 }
-
-// settings with default values
-$tmpl->assign( 'cas_server_version', OCP\Config::getAppValue('user_cas', 'cas_server_version', '2.0'));
-$tmpl->assign( 'cas_server_hostname', OCP\Config::getAppValue('user_cas', 'cas_server_hostname', ''));
-$tmpl->assign( 'cas_server_port', OCP\Config::getAppValue('user_cas', 'cas_server_port', '443'));
-$tmpl->assign( 'cas_server_path', OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas'));
-$tmpl->assign( 'cas_cert_path', OCP\Config::getAppValue('user_cas', 'cas_cer_path', ''));
-
-$tmpl->assign( 'cas_autocreate', OCP\Config::getAppValue('user_cas', 'cas_autocreate', 0));
-$tmpl->assign( 'cas_update_user_data', OCP\Config::getAppValue('user_cas', 'cas_update_user_data', 0));
-$tmpl->assign( 'cas_protected_groups', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', ''));
-$tmpl->assign( 'cas_default_group', OCP\Config::getAppValue('user_cas', 'cas_default_group', ''));
-$tmpl->assign( 'cas_email_mapping', OCP\Config::getAppValue('user_cas', 'cas_email_mapping', 'mail'));
-$tmpl->assign( 'cas_group_mapping', OCP\Config::getAppValue('user_cas', 'cas_group_mapping', ''));
 
 return $tmpl->fetchPage();
