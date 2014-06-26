@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-19 00:48-0400\n"
-"PO-Revision-Date: 2014-06-18 10:20+0000\n"
+"POT-Creation-Date: 2014-06-26 00:48-0400\n"
+"PO-Revision-Date: 2014-06-25 15:21+0000\n"
 "Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Desculpe, mas um malware foi encontrado em um arquivo que você tentou e
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Este e-mail é uma notificação de {host}. Por favor, não responda."
+msgstr "Este e-mail é uma notificação do {host}. Por favor, não responda."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -118,7 +118,7 @@ msgstr "Número da porta do Host do Antivírus."
 
 #: templates/settings.php:11
 msgid "Stream Length"
-msgstr "Duração do fluxo"
+msgstr "Duração do Fluxo"
 
 #: templates/settings.php:11
 msgid "ClamAV StreamMaxLength value in bytes."

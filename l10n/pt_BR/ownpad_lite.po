@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Flávio Veras <flaviove@gmail.com>, 2014
 # Sedir G. Morais <philippi.sedir@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-21 00:48-0400\n"
-"PO-Revision-Date: 2014-06-20 23:50+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-26 00:48-0400\n"
+"PO-Revision-Date: 2014-06-25 15:21+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgstr "Meu bloco"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr "Ajustes"
+msgstr "Configurações"
 
 #: templates/index.php:18
 msgid "Pad Title"
