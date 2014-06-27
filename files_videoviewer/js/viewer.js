@@ -52,11 +52,11 @@ var videoViewer = {
 		'video/x-matroska',
 		'video/x-ms-asf'
 	],
-	onView : function(file) {
+	onView : function(file, data) {
 		videoViewer.file = file;
-		videoViewer.dir = $('#dir').val();
+		videoViewer.dir = data.dir;
 		videoViewer.location = videoViewer.getMediaUrl(file);
-		videoViewer.mime = FileActions.getCurrentMimeType();
+		videoViewer.mime = data.fileActions.currentFile.parent().attr('data-mime');
 		
 		OC.addScript('files_videoviewer','mediaelement-and-player', function(){
 			OC.addScript('files_videoviewer','mep-extra', videoViewer.showPlayer);
@@ -102,11 +102,14 @@ var videoViewer = {
 };
 
 $(document).ready(function() {	
-	if (typeof FileActions !== 'undefined') {
+	if ( typeof OCA !== 'undefined'
+		&& typeof OCA.Files !== 'undefined'
+		&& typeof OCA.Files.fileActions !== 'undefined'
+	) {
 		for (var i = 0; i < videoViewer.mimeTypes.length; ++i) {
 			var mime = videoViewer.mimeTypes[i];
-			FileActions.register(mime, 'View', OC.PERMISSION_READ, '', videoViewer.onView);
-			FileActions.setDefault(mime, 'View');
+			OCA.Files.fileActions.register(mime, 'View', OC.PERMISSION_READ, '', videoViewer.onView);
+			OCA.Files.fileActions.setDefault(mime, 'View');
 		}
 		$(document).keydown(videoViewer.onKeyDown);
 	}
