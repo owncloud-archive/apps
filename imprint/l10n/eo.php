@@ -11,6 +11,7 @@ $TRANSLATIONS = array(
 "Header right" => "Dekstro de kapo",
 "Navigation top" => "Naviga supro",
 "Navigation bottom" => "Naviga malsupro",
+"During login" => "Dum ensaluto",
 "Content" => "Enhavo"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

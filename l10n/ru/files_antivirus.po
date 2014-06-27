@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Savchenko <a.v.savchenko@mail.ru>, 2014
 # Alexander Shashkevych <alex@stunpix.com>, 2013
 # Дмитрий <langaru@gmail.com>, 2013
+# Михаил Маслиёв <misha.masliev@yandex.ru>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-19 00:48-0400\n"
-"PO-Revision-Date: 2014-06-18 06:11+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-06-27 00:48-0400\n"
+"PO-Revision-Date: 2014-06-26 11:51+0000\n"
+"Last-Translator: Alexander Savchenko <a.v.savchenko@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,15 +23,15 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Чисто"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Заражён"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Не проверен"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
@@ -37,7 +39,7 @@ msgstr ""
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Вывод сканера"
 
 #: lib/notification.php:29
 msgid "Malware detected"
@@ -46,7 +48,7 @@ msgstr ""
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Обнаружен вирус! Невозможно загрузить файл %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -157,15 +159,15 @@ msgstr "Дополнительно"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Правила"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Очистить всё"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Сбросить к настройкам по-умолчанию"
 
 #: templates/settings.php:29
 msgid "Match by"
@@ -185,4 +187,4 @@ msgstr ""
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Добавить правило"
