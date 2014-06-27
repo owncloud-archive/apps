@@ -157,6 +157,7 @@ class Storage extends Common {
 
 	protected function toTmpFile($path) {
 		$tmpFile = \OCP\Files::tmpFile();
+		$path = $this->stripPath($path);
 		$this->archive->extractFile($path, $tmpFile);
 		return $tmpFile;
 	}
