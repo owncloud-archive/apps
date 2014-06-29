@@ -3,6 +3,7 @@ $TRANSLATIONS = array(
 "Clean" => "Čisté",
 "Infected" => "Infikováno",
 "Unchecked" => "Nezkontrolováno",
+"Scanner output" => "Výsledky skenu",
 "Malware detected" => "Detekován škodlivý software",
 "Virus detected! Can't upload the file %s" => "Byl detekován virus! Nelze nahrát soubor %s",
 "Greetings {user}," => "Vítejte {user},",

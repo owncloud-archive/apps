@@ -3,7 +3,9 @@ $TRANSLATIONS = array(
 "Clean" => "Чисто",
 "Infected" => "Заражён",
 "Unchecked" => "Не проверен",
+"Scanner exit status" => "Вывод статуса сканера",
 "Scanner output" => "Вывод сканера",
+"Malware detected" => "Вредоносные программы обнаружены ",
 "Virus detected! Can't upload the file %s" => "Обнаружен вирус! Невозможно загрузить файл %s",
 "Greetings {user}," => "Приветствуем Вас, {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Извините, но вредоносная программа была обнаружена в файле, который Вы пытаетесь скачать, и он был удалён.",
@@ -35,6 +37,7 @@ $TRANSLATIONS = array(
 "Clear All" => "Очистить всё",
 "Reset to defaults" => "Сбросить к настройкам по-умолчанию",
 "Description" => "Описание",
+"Mark as" => "Отметить как",
 "Add a rule" => "Добавить правило"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";
