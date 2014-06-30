@@ -1,7 +1,7 @@
 <?php
 $TRANSLATIONS = array(
 "Document was shared" => "Dokumentet ble delt",
-"User %s shared quick document %s with you." => "Bruker %s delte hurtig- dokument %s med deg.",
+"User %s shared quick document %s with you." => "Bruker %s delte hurtigdokument %s med deg.",
 "My pad" => "Min blokk",
 "Settings" => "Innstillinger",
 "Pad Title" => "Tittel på blokken",

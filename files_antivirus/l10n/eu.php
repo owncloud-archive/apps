@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Garbia",
+"Infected" => "Infektatuta",
+"Unchecked" => "Egiaztatu gabe",
+"Scanner exit status" => "Eskanerraren irteera egoera",
+"Scanner output" => "Eskanerraren irteera",
+"Malware detected" => "Malwarea aurkitu da",
+"Virus detected! Can't upload the file %s" => "Birus bat aurkitu da! Ezin da %s fitxategia igo",
 "Greetings {user}," => "Kaixo {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Barkatu, baina igotzen saiatu zaren fitxategi batean malware bat aurkitu da eta ezabatu behar da.",
 "This email is a notification from {host}. Please, do not reply." => "E-posta hau {hots}-(e)k bidalitako mezu bat da. Mesedez, ez erantzun.",
@@ -26,6 +33,12 @@ $TRANSLATIONS = array(
 "Delete file" => "Ezabatu fitxaegia",
 "Save" => "Gorde",
 "Advanced" => "Aurreratua",
-"Description" => "Deskribapena"
+"Rules" => "Arauak",
+"Clear All" => "Garbitu Dena",
+"Reset to defaults" => "Berrezarri Lehenetsiak",
+"Scanner exit status or signature to search" => "Eskanerraren irteera egoera edo bilatzeko sinadura",
+"Description" => "Deskribapena",
+"Mark as" => "Markatu honela",
+"Add a rule" => "Gehitu araua"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

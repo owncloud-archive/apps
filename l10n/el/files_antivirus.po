@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-22 00:48-0400\n"
-"PO-Revision-Date: 2014-06-21 16:16+0000\n"
+"POT-Creation-Date: 2014-06-30 00:48-0400\n"
+"PO-Revision-Date: 2014-06-29 18:11+0000\n"
 "Last-Translator: Vassilis Kehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "Ανιχνεύθηκε κακόβουλο λογισμικό"
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr "Εντοπίστηκε ιός! Δεν μπορώ να ανεβάσω το αρχείο %s"
+msgstr "Εντοπίστηκε ιός! Αδυναμία μεταφόρτωσης του αρχείου %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
