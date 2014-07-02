@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-25 06:27-0400\n"
-"PO-Revision-Date: 2014-06-24 14:02+0000\n"
+"POT-Creation-Date: 2014-07-02 00:48-0400\n"
+"PO-Revision-Date: 2014-07-01 07:14+0000\n"
 "Last-Translator: Matej Urbančič <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,12 @@ msgstr "Odvod preiskovalnika"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Zaznana je zlonamerna programska oprema"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "V datoteki je zaznan virus! Datoteke %s ni mogoče poslati v oblak!"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -168,11 +168,11 @@ msgstr "Povrni na privzeto"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Uskladi z"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Stanje končanja preiskovalnika ali podpis pa za iskanje"
 
 #: templates/settings.php:31
 msgid "Description"
