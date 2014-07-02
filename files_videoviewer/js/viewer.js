@@ -55,8 +55,8 @@ var videoViewer = {
 	onView : function(file, data) {
 		videoViewer.file = file;
 		videoViewer.dir = data.dir;
-		videoViewer.location = videoViewer.getMediaUrl(file);
-		videoViewer.mime = data.fileActions.currentFile.parent().attr('data-mime');
+		videoViewer.location = data.fileList.getDownloadUrl(file, videoViewer.dir);
+		videoViewer.mime = data.$file.attr('data-mime');
 		
 		OC.addScript('files_videoviewer','mediaelement-and-player', function(){
 			OC.addScript('files_videoviewer','mep-extra', videoViewer.showPlayer);
@@ -87,9 +87,6 @@ var videoViewer = {
 		delete videoViewer.player;
 
 		videoViewer.UI.hide();
-	},
-	getMediaUrl : function(file) {
-		return fileDownloadPath(videoViewer.dir, file);
 	},
 	onKeyDown : function(e) {
 		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {
