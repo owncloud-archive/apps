@@ -36,6 +36,7 @@ $TRANSLATIONS = array(
 "Rules" => "Arauak",
 "Clear All" => "Garbitu Dena",
 "Reset to defaults" => "Berrezarri Lehenetsiak",
+"Match by" => "Bilatze irizpidea",
 "Scanner exit status or signature to search" => "Eskanerraren irteera egoera edo bilatzeko sinadura",
 "Description" => "Deskribapena",
 "Mark as" => "Markatu honela",
