@@ -2,10 +2,11 @@
 <info>
 	<id>tasks</id>
 	<name>Tasks</name>
-	<version>0.1</version>
+	<version>0.2</version>
 	<licence>AGPL</licence>
 	<author>Bart Visscher</author>
 	<requiremin>4.93</requiremin>
 	<shipped>true</shipped>
 	<description>Tasks view from calendar</description>
+	<ocsid>166058</ocsid>
 </info>
