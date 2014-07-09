@@ -5,7 +5,7 @@ $TRANSLATIONS = array(
 "Due" => "期日",
 "List" => "リスト",
 "Location" => "位置",
-"No category" => "カテゴリ無し",
+"No category" => "カテゴリなし",
 "Unspecified" => "未指定",
 "1=highest" => "1=高",
 "5=medium" => "5=中",
