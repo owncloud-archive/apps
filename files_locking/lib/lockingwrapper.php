@@ -35,6 +35,9 @@ class LockingWrapper extends Wrapper {
 	 */
 	protected function getLock($path, $lockType, $existingHandle = null){
 		$path = Filesystem::normalizePath($this->storage->getLocalFile($path));
+		if(is_dir($path)) {
+			return false;
+		}
 		if(!isset($this->locks[$path])) {
 			$this->locks[$path] = new Lock($path);
 		}
@@ -51,6 +54,9 @@ class LockingWrapper extends Wrapper {
 	 */
 	protected function releaseLock($path, $lockType, $releaseAll = false){
 		$path = Filesystem::normalizePath($this->storage->getLocalFile($path));
+		if(is_dir($path)) {
+			return false;
+		}
 		if(isset($this->locks[$path])) {
 			if($releaseAll) {
 				return $this->locks[$path]->releaseAll();
