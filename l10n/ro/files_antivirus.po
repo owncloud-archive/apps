@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alex <__sashok@mail.ru>, 2014
 # Dumitru Ursu <>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-05 00:48-0400\n"
-"PO-Revision-Date: 2014-07-04 15:12+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-07-12 00:48-0400\n"
+"PO-Revision-Date: 2014-07-11 16:31+0000\n"
+"Last-Translator: Alex <__sashok@mail.ru>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Curat"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Infectat"
 
 #: js/settings.js:5
 msgid "Unchecked"
@@ -45,7 +46,7 @@ msgstr ""
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Virus detectat! Nu s-a putut încărca fișierul %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -59,23 +60,23 @@ msgstr "Scuzați, dar un program malițios a fost detectat în fișierul pe care
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Acest mesaj este o notificare de la {host}. Rugăm, nu răspundeți."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Fișier încărcat: {file}"
 
 #: templates/settings.php:4
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Configurare Antivirus"
 
 #: templates/settings.php:5
 msgid "Mode"
-msgstr ""
+msgstr "Mod"
 
 #: templates/settings.php:6
 msgid "Executable"
-msgstr ""
+msgstr "Executabile"
 
 #: templates/settings.php:6
 msgid "Daemon"
@@ -120,15 +121,15 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "Valoarea în octeți pentru StreamMaxLength din ClamAV"
 
 #: templates/settings.php:12
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Calea către clamscan"
 
 #: templates/settings.php:12
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Calea către executabilul clamscan"
 
 #: templates/settings.php:12
 msgid "Not required in Daemon Mode."
@@ -136,7 +137,7 @@ msgstr ""
 
 #: templates/settings.php:13
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Acțiune pentru fișierele infectate gasite în timpul scanării"
 
 #: templates/settings.php:14
 msgid "Only log"
@@ -144,7 +145,7 @@ msgstr ""
 
 #: templates/settings.php:14
 msgid "Delete file"
-msgstr ""
+msgstr "Sterge fișier"
 
 #: templates/settings.php:17
 msgid "Save"
@@ -156,15 +157,15 @@ msgstr "Avansat"
 
 #: templates/settings.php:23
 msgid "Rules"
-msgstr ""
+msgstr "Reguli"
 
 #: templates/settings.php:24
 msgid "Clear All"
-msgstr ""
+msgstr "Curăță tot"
 
 #: templates/settings.php:24
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Resetează la valorile implicite"
 
 #: templates/settings.php:29
 msgid "Match by"
@@ -184,4 +185,4 @@ msgstr ""
 
 #: templates/settings.php:39
 msgid "Add a rule"
-msgstr ""
+msgstr "Adaugă o regulă"
