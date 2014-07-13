@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Anders J. Sørensen, 2014
+# Aputsiaĸ Niels Janussen <aj@isit.gl>, 2014
 # Claus Christensen <claus_chr@webspeed.dk>, 2013
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-05 00:48-0400\n"
-"PO-Revision-Date: 2014-07-04 15:12+0000\n"
-"Last-Translator: Anders J. Sørensen\n"
+"POT-Creation-Date: 2014-07-13 00:48-0400\n"
+"PO-Revision-Date: 2014-07-12 06:30+0000\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +35,7 @@ msgstr "Ikke markeret"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Afslutningsstatus for skanner"
 
 #: js/settings.js:9
 msgid "Scanner output"
@@ -170,11 +171,11 @@ msgstr "Nulstil til standard"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr ""
+msgstr "Match med"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Skannerens afslutningsstatus eller signatur, der skal søges efter"
 
 #: templates/settings.php:31
 msgid "Description"
