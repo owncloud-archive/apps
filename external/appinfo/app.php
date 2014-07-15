@@ -21,13 +21,17 @@
  *
  */
 
-OC::$CLASSPATH['OC_External'] = 'external/lib/external.php';
-OCP\Util::addStyle( 'external', 'style');
+use OCA\External\External;
 
+OCP\Util::addStyle( 'external', 'style');
 OCP\App::registerAdmin('external', 'settings');
 
-$sites = OC_External::getSites();
+$sites = External::getSites();
 for ($i = 0; $i < sizeof($sites); $i++) {
 	OCP\App::addNavigationEntry(
-			array('id' => 'external_index' . ($i + 1), 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1), 'icon' => OCP\Util::imagePath('external', 'external.png'), 'name' => $sites[$i][0]));
+			array(
+				'id' => 'external_index' . ($i + 1), 'order' => 80 + $i,
+				'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1),
+				'icon' => OCP\Util::imagePath('external', 'external.png'),
+				'name' => $sites[$i][0]));
 }
