@@ -1,6 +1,7 @@
 <?php
 
 OCP\User::checkAdminUser();
+OCP\JSON::checkAppEnabled('external');
 
 OCP\Util::addscript( "external", "admin" );
 

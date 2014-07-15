@@ -1,7 +1,8 @@
 $(document).ready(function(){
-    	newSiteHtml = '<li><input type="text" class="site_name" name="site_name[]" value="" placeholder="Name" />\n\
-    <input type="text" name="site_url[]" class="site_url" value=""  placeholder="URL" />\n\
-<img class="svg action delete_button" src="'+OC.imagePath("core", "actions/delete") +'" title="Remove site" /></li>';
+	var newSiteHtml = '<li><input type="text" class="site_name" name="site_name[]" value="" placeholder="Name" />\n' +
+		'<input type="text" name="site_url[]" class="site_url" value=""  placeholder="URL" />' +
+		'<img class="svg action delete_button" src="' +
+		OC.imagePath("core", "actions/delete") +'" title="Remove site" /></li>';
 
 	// Handler functions
 	function addSiteEventHandler(event) {
@@ -21,16 +22,17 @@ $(document).ready(function(){
 
 	function saveSites() {
 		var post = $('#external').serialize();
+		OC.msg.startSaving('#external .msg');
 		$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
-			// OC.msg.finishedSaving('#site_name .msg', data);
+			OC.msg.finishedSaving('#external .msg', data);
 		});
 	}
 
-	function showDeleteButton(event) {
+	function showDeleteButton() {
 		$(this).find('img.delete_button').fadeIn(100);
 	}
 
-	function hideDeleteButton(event) {
+	function hideDeleteButton() {
 		$(this).find('img.delete_button').fadeOut(100);
 	}
 
