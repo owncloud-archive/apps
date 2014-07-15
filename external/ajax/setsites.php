@@ -7,6 +7,7 @@
  */
 
 
+OCP\JSON::checkAppEnabled('external');
 OCP\User::checkAdminUser();
 OCP\JSON::callCheck();
 
@@ -17,10 +18,23 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 	}
 }
 
+$l=OC_L10N::get('external');
+
+foreach($sites as $site) {
+	if (strpos($site[1], 'https://') === 0) {
+		continue;
+	}
+	if (strpos($site[1], 'http://') === 0) {
+		continue;
+	}
+	OC_JSON::error(array("data" => array( "message" => $l->t('Please enter valid urls - they have to start with either http:// or https://') )));
+	return;
+}
+
 if (sizeof($sites) == 0) {
 	$appConfig = \OC::$server->getAppConfig();
 	$appConfig->deleteKey('external', 'sites');
 } else {
 	OCP\Config::setAppValue('external', 'sites', json_encode($sites));
 }
-echo 'true';
+OC_JSON::success(array("data" => array( "message" => $l->t("External sites saved.") )));
