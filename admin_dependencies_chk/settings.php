@@ -51,6 +51,12 @@ $modules[] =array(
 	'message'=> $l->t('The php-ldap module is needed connect to your ldap server'));
 
 $modules[] =array(
+	'status' => function_exists('bcadd') ? 'ok' : 'warning',
+	'part'=> 'php-bcmath',
+	'modules'=> array('user_ldap'),
+	'message'=> $l->t('The php-bcmath module is needed to support AD primary groups'));
+
+$modules[] =array(
 	'status' => class_exists('ZipArchive') ? 'ok' : 'warning',
 	'part'=> 'php-zip',
 	'modules'=> array('admin_export','core'),
