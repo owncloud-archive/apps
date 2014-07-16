@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-08 00:48-0400\n"
-"PO-Revision-Date: 2014-06-07 06:11+0000\n"
+"POT-Creation-Date: 2014-07-16 00:48-0400\n"
+"PO-Revision-Date: 2014-07-16 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,22 +19,47 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#: ajax/setsites.php:30
+msgid ""
+"Please enter valid urls - they have to start with either http:// or https://"
+msgstr ""
+
+#: ajax/setsites.php:40
+msgid "External sites saved."
+msgstr ""
+
 #: templates/settings.php:3
 msgid "External Sites"
 msgstr "Zewnętrzne strony"
 
+#: templates/settings.php:5
+msgid ""
+"Please note that some browsers will block displaying of sites via http if "
+"you are running https."
+msgstr ""
+
+#: templates/settings.php:7
+msgid ""
+"Furthermore please note that many sites these days disallow iframing due to "
+"security reasons."
+msgstr ""
+
 #: templates/settings.php:9
+msgid "We highly recommend to test the configured sites below properly."
+msgstr ""
+
+#: templates/settings.php:16
 msgid "Name"
 msgstr "Nazwa"
 
-#: templates/settings.php:10
+#: templates/settings.php:17
 msgid "URL"
 msgstr "URL"
 
-#: templates/settings.php:11
+#: templates/settings.php:18
 msgid "Remove site"
 msgstr "Usuń stronę"
 
-#: templates/settings.php:18
+#: templates/settings.php:25
 msgid "Add"
 msgstr "Dodaj"
