@@ -45,16 +45,22 @@ $modules[] =array(
 	'message'=> $l->t('The php-gd module is needed to create thumbnails of your images'));
 
 $modules[] =array(
-	'status' => function_exists("ldap_bind") ? 'ok' : 'error',
+	'status' => function_exists('ldap_bind') ? 'ok' : 'error',
 	'part'=> 'php-ldap',
 	'modules'=> array('user_ldap'),
 	'message'=> $l->t('The php-ldap module is needed connect to your ldap server'));
 
 $modules[] =array(
+	'status' => function_exists('bcadd') ? 'ok' : 'warning',
+	'part'=> 'php-bcmath',
+	'modules'=> array('user_ldap'),
+	'message'=> $l->t('The php-bcmath module is needed to support AD primary groups'));
+
+$modules[] =array(
 	'status' => class_exists('ZipArchive') ? 'ok' : 'warning',
 	'part'=> 'php-zip',
 	'modules'=> array('admin_export','core'),
-	'message'=> $l->t('The php-zip module is needed download multiple files at once'));
+	'message'=> $l->t('The php-zip module is needed to download multiple files at once'));
 
 $modules[] =array(
 	'status' => function_exists('mb_detect_encoding') ? 'ok' : 'error',
