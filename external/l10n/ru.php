@@ -1,6 +1,11 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http:// or https://" => "Пожалуйста, введите правильные URL, они должны начинаться с http:// или https://",
+"External sites saved." => "Внешние сайты сохранены.",
 "External Sites" => "Внешние сайты",
+"Please note that some browsers will block displaying of sites via http if you are running https." => "Пожалуйста, имейте ввиду, что некоторые браузеры не отображают сайты с доступные по http, если вы используете https.",
+"Furthermore please note that many sites these days disallow iframing due to security reasons." => "Кроме того, имейте ввиду, что многие сайты не разрешают iframing в целях безопасности.",
+"We highly recommend to test the configured sites below properly." => "Мы настойчиво рекомендуем правильно протестировать сконфигурированные ниже сайты.",
 "Name" => "Имя",
 "URL" => "Ссылка",
 "Remove site" => "Удалить сайт",

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ivo, 2014
 # Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-05 00:48-0400\n"
-"PO-Revision-Date: 2014-07-04 15:12+0000\n"
-"Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
+"POT-Creation-Date: 2014-07-17 00:48-0400\n"
+"PO-Revision-Date: 2014-07-16 23:41+0000\n"
+"Last-Translator: Ivo\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,11 +46,11 @@ msgstr "Отвори"
 
 #: templates/index.php:20
 msgid "Share with"
-msgstr "Споделено с"
+msgstr "Сподели с"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr "Споделяне"
+msgstr "Сподели"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
