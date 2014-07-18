@@ -1,5 +1,7 @@
 <?php
 $TRANSLATIONS = array(
+"Host" => "Сървър",
+"Port" => "Порт",
 "Save" => "Запис",
 "Advanced" => "Разширено",
 "Description" => "Описание"

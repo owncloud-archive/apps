@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ivo, 2014
 # Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-16 00:48-0400\n"
-"PO-Revision-Date: 2014-07-16 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-07-18 00:48-0400\n"
+"PO-Revision-Date: 2014-07-17 22:50+0000\n"
+"Last-Translator: Ivo\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,31 +22,31 @@ msgstr ""
 #: ajax/setsites.php:30
 msgid ""
 "Please enter valid urls - they have to start with either http:// or https://"
-msgstr ""
+msgstr "Моля, въведи съществуащи интернет адреси - те трябва да започват с http:// или https://"
 
 #: ajax/setsites.php:40
 msgid "External sites saved."
-msgstr ""
+msgstr "Външните сайтове са записани."
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr "Външни сайтове"
+msgstr "Външни Сайтове"
 
 #: templates/settings.php:5
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "Да знаеш, че някои браузъри ще блокират показването на интернет страници през http ако същевременно използваш https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "И още, моля, да знаеш, че много интернет страници в наши дни не разрешават използването на iframe от съображения за сигурност."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr ""
+msgstr "Силно препоръчваме да тестваш настроените сайтове."
 
 #: templates/settings.php:16
 msgid "Name"
@@ -53,12 +54,12 @@ msgstr "Име"
 
 #: templates/settings.php:17
 msgid "URL"
-msgstr "Уеб адрес"
+msgstr "Интернет Адрес"
 
 #: templates/settings.php:18
 msgid "Remove site"
-msgstr "Премахване на сайт"
+msgstr "Премахни сайт"
 
 #: templates/settings.php:25
 msgid "Add"
-msgstr "Добавяне"
+msgstr "Добави"

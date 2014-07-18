@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Vincenzo Reale <vinx.reale@gmail.com>, 2012
+# Vincenzo Reale <vinx.reale@gmail.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-16 00:48-0400\n"
-"PO-Revision-Date: 2014-07-16 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-07-18 00:48-0400\n"
+"PO-Revision-Date: 2014-07-17 18:41+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,11 @@ msgstr ""
 #: ajax/setsites.php:30
 msgid ""
 "Please enter valid urls - they have to start with either http:// or https://"
-msgstr ""
+msgstr "Digita URL validi - devono iniziare con http:// o https://"
 
 #: ajax/setsites.php:40
 msgid "External sites saved."
-msgstr ""
+msgstr "Siti esterni salvati."
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -35,13 +35,13 @@ msgstr "Siti esterni"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "Nota che alcuni browser bloccheranno la visualizzazione dei siti tramite http se stai utilizzando https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "Nota inoltre che molti siti attualmente non consentono l'utilizzo di iframe per motivi di sicurezza."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
