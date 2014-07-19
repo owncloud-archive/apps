@@ -1,6 +1,11 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http:// or https://" => "Lütfen geçerli adres girin - http:// veya https:// ile başlamalıdırlar",
+"External sites saved." => "Harici siteler kaydedildi.",
 "External Sites" => "Harici Siteler",
+"Please note that some browsers will block displaying of sites via http if you are running https." => "Eğer https kullanıyorsanız, bazı tarayıcıların http sitelerinin gösterimini engelleyeceğini unutmayın.",
+"Furthermore please note that many sites these days disallow iframing due to security reasons." => "Ayrıca, günümüzdeki çoğu site, güvenlik gerekçeleri nedeniyle iframe özelliğine izin vermemektedir.",
+"We highly recommend to test the configured sites below properly." => "Aşağıda yapılandırılmış siteleri sınamanızı şiddetle tavsiye ederiz.",
 "Name" => "İsim",
 "URL" => "URL",
 "Remove site" => "Siteyi kaldır",
