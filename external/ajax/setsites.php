@@ -27,7 +27,10 @@ foreach($sites as $site) {
 	if (strpos($site[1], 'http://') === 0) {
 		continue;
 	}
-	OC_JSON::error(array("data" => array( "message" => $l->t('Please enter valid urls - they have to start with either http:// or https://') )));
+	if (strncmp($site[1], '/', 1) === 0) {
+		continue;
+	}
+	OC_JSON::error(array("data" => array( "message" => $l->t('Please enter valid urls - they have to start with either http://, https:// or /') )));
 	return;
 }
 
