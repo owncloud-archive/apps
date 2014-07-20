@@ -1,8 +1,4 @@
 $(document).ready(function(){
-	var newSiteHtml = '<li><input type="text" class="site_name" name="site_name[]" value="" placeholder="Name" />\n' +
-		'<input type="text" name="site_url[]" class="site_url" value=""  placeholder="URL" />' +
-		'<img class="svg action delete_button" src="' +
-		OC.imagePath("core", "actions/delete") +'" title="Remove site" /></li>';
 
 	// Handler functions
 	function addSiteEventHandler(event) {
@@ -38,6 +34,7 @@ $(document).ready(function(){
 
 	// Initialize events
 	$('input[name^=site_]').change(addSiteEventHandler);
+	$('select[name^=site_]').change(addSiteEventHandler);
 	$('img.delete_button').click(deleteButtonEventHandler);
 	$('img.delete_button').tipsy();
 
@@ -45,7 +42,10 @@ $(document).ready(function(){
 
 	$('#add_external_site').click(function(event) {
 		event.preventDefault();
-		$('#external ul').append(newSiteHtml);
+
+		$('#external ul li:last').clone().appendTo('#external ul');
+		$('#external ul li:last input').val('');
+		$('#external ul li:last select').val('');
 
 		$('input.site_url:last').prev('input.site_name').andSelf().change(addSiteEventHandler);
 		$('img.delete_button').click(deleteButtonEventHandler);

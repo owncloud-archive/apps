@@ -29,9 +29,12 @@ OCP\App::registerAdmin('external', 'settings');
 $sites = External::getSites();
 for ($i = 0; $i < sizeof($sites); $i++) {
 	OCP\App::addNavigationEntry(
-			array(
-				'id' => 'external_index' . ($i + 1), 'order' => 80 + $i,
-				'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1),
-				'icon' => OCP\Util::imagePath('external', 'external.png'),
-				'name' => $sites[$i][0]));
+		array(
+			'id'    => 'external_index' . ($i + 1),
+			'order' => 80 + $i,
+			'href'  => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1),
+			'icon'  => OCP\Util::imagePath('external', !empty($sites[$i][2]) ? $sites[$i][2] : 'external.png'),
+			'name'  => $sites[$i][0]
+		)
+	);
 }
