@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-19 00:48-0400\n"
-"PO-Revision-Date: 2014-07-18 23:20+0000\n"
+"POT-Creation-Date: 2014-07-20 00:48-0400\n"
+"PO-Revision-Date: 2014-07-19 10:40+0000\n"
 "Last-Translator: Ivo\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -26,11 +26,11 @@ msgstr "Документът беше споделен"
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr "Потребителят %s сподели документа %s с Вас."
+msgstr "Потребителят %s сподели документа %s с теб."
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr "Моят пад"
+msgstr "Моят тефтер"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -38,7 +38,7 @@ msgstr "Настройки"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr "Наименование"
+msgstr "Заглавие"
 
 #: templates/index.php:19
 msgid "Open"
@@ -54,12 +54,12 @@ msgstr "Сподели"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr "Сервизен уеб адрес за Etherpad"
+msgstr "Сервизен интернет адрес за Etherpad"
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr "Потребител"
+msgstr "Потребителско Име"
 
 #: templates/settings.php:28
 msgid "Save"
-msgstr "Запис"
+msgstr "Запиши"
