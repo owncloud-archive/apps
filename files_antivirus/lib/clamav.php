@@ -33,7 +33,17 @@ class OC_Files_Antivirus {
 	public static function av_scan($path) {
 		$path=$path[\OC\Files\Filesystem::signal_param_path];
 		if ($path != '') {
-			$files_view = \OCP\Files::getStorage("files");
+			if (isset($_POST['dirToken'])){
+				//Public upload case
+				$files_view = \OC\Files\Filesystem::getView();
+			} else {
+				$files_view = \OCP\Files::getStorage("files");
+			}
+			
+			if (!is_object($files_view)){
+				\OCP\Util::writeLog('files_antivirus', 'Can\'t init filesystem view', \OCP\Util::WARN);
+				return;
+			}
 			if ($files_view->file_exists($path)) {
 				$result = self::clamav_scan($files_view, $path);
 				switch($result) {
