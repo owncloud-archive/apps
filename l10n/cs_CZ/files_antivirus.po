@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-05 00:48-0400\n"
-"PO-Revision-Date: 2014-07-04 15:12+0000\n"
+"POT-Creation-Date: 2014-07-22 00:48-0400\n"
+"PO-Revision-Date: 2014-07-21 08:41+0000\n"
 "Last-Translator: Jaroslav Lichtblau <jaroslav@lichtblau.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Nezkontrolováno"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Výstupní hodnota skeneru"
 
 #: js/settings.js:9
 msgid "Scanner output"
@@ -174,7 +174,7 @@ msgstr "Odpovídá těmto"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Výstupní hodnota skeneru nebo hledaný podpis"
 
 #: templates/settings.php:31
 msgid "Description"
