@@ -1,5 +1,5 @@
-<fieldset id="status_list" class="personalblock">
-	<legend><?php p($l->t('Dependencies status'));?></legend>
+<div id="status_list" class="section">
+	<h2><?php p($l->t('Dependencies status'));?></h2>
 	<ul class="state">
 		<?php foreach($_['items'] as $item):?>
 			<li class="state_<?php p($item['status']);?>">
@@ -13,4 +13,4 @@
 			</li>
 		<?php endforeach;?>
 	</ul>
-</fieldset>
+</div>
