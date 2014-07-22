@@ -38,6 +38,11 @@ class LockingWrapper extends Wrapper {
 		if(is_dir($path)) {
 			return false;
 		}
+
+		// when uploading files the stat cache will contain the size
+		// zero after the is_dir() call above, so clearing it to
+		// make sure its real size will get re-read when needed
+		clearstatcache(false, $path);
 		if(!isset($this->locks[$path])) {
 			$this->locks[$path] = new Lock($path);
 		}
