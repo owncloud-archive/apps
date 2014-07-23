@@ -15,7 +15,7 @@ if (version_compare($installedVersion, '0.5', '<')) {
 
 if (version_compare($installedVersion, '0.6', '<')) {
 	// remove the old job with old classname
-	$jobList = new \OC\BackgroundJob\JobList();
+	$jobList = \OC::$server->getJobList();
 	$jobs = $jobList->getAll();
 	foreach ($jobs as $job) {
 		$jobArg = $job->getArgument();
