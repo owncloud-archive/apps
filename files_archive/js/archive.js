@@ -5,25 +5,18 @@
  * See the COPYING-README file.
  */
 
-$(document).ready(function() {
-	if(OC.currentUser) {
-		if(typeof FileActions!=='undefined'){
-			FileActions.register('application/zip','Open', OC.PERMISSION_READ, '',function(filename){
-				window.location=OC.linkTo('files', 'index.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-			});
-			FileActions.setDefault('application/zip','Open');
-			FileActions.register('application/x-gzip','Open', OC.PERMISSION_READ, '',function(filename){
-				window.location=OC.linkTo('files', 'index.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-			});
-			FileActions.setDefault('application/x-compressed','Open');
-			FileActions.register('application/x-compressed','Open', OC.PERMISSION_READ, '',function(filename){
-				window.location=OC.linkTo('files', 'index.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-			});
-			FileActions.setDefault('application/x-compressed','Open');
-			FileActions.register('application/x-tar','Open', OC.PERMISSION_READ, '',function(filename){
-				window.location=OC.linkTo('files', 'index.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-			});
-			FileActions.setDefault('application/x-tar','Open');
-		}
+$(document).ready(function () {
+	var registerMime = function (mime) {
+		OCA.Files.fileActions.register(mime, 'Open', OC.PERMISSION_READ, '', function (filename, context) {
+			context.fileList.changeDirectory(context.dir + '/' + filename);
+		});
+		OCA.Files.fileActions.setDefault(mime, 'Open');
+	};
+
+	if (OCA.Files) {
+		registerMime('application/zip');
+		registerMime('application/x-gzip');
+		registerMime('application/x-compressed');
+		registerMime('application/x-tar');
 	}
 });
