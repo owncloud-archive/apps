@@ -10,8 +10,13 @@ $(document).ready(function(){
 	function deleteButtonEventHandler(event) {
 		event.preventDefault();
 
-		$(this).tipsy('hide');
-		$(this).parent().remove();
+		if($(this).parent().is(':only-child')) {
+			$(this).parent().children('input').val('');
+			$(this).parent().children('select').val('');
+		} else {
+			$(this).tipsy('hide');
+			$(this).parent().remove();
+		}
 
 		saveSites();
 	}
