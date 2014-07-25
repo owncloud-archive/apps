@@ -28,18 +28,21 @@ class Downloader {
 			if (self::fetch($url)===false) {
 				throw new \Exception("Error storing package content");
 			}
+			
 			if (preg_match('/\.zip$/i', $url)) {
-				rename(self::$package, self::$package . '.zip');
-				self::$package .= '.zip';
+				$type = '.zip';
 			} elseif (preg_match('/(\.tgz|\.tar\.gz)$/i', $url)) {
-				rename(self::$package, self::$package . '.tgz');
-				self::$package .= '.tgz';
+				$type = '.tgz';
 			} elseif (preg_match('/\.tar\.bz2$/i', $url)) {
-				rename(self::$package, self::$package . '.tar.bz2');
-				self::$package .= '.tar.bz2';
+				$type = '.tar.bz2';
 			} else {
-				throw new \Exception('Unable to extract package');
+				throw new \Exception('Unable to extract package: unknown format');
 			}
+			
+			rename(self::$package, self::$package . $type);
+			self::$package = self::$package . $type;
+
+			App::log('Downloaded ' . filesize(self::$package) . ' bytes.' , \OCP\Util::DEBUG);
 
 			$extractDir = self::getPackageDir($version);
 			Helper::mkdir($extractDir, true);
@@ -58,8 +61,14 @@ class Downloader {
 		
 		//  Prepare extracted data
 		//  to have '3rdparty', 'apps' and 'core' subdirectories
-		$sources = Helper::getSources($version);
 		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
+		if (!file_exists($baseDir)){
+			App::log('Expected fresh sources in ' . $baseDir . '. Nothing is found. Something is wrong with OC_Archive.');
+			App::log($extractDir  . ' content: ' . implode(' ', scandir($extractDir)));
+			throw new \Exception(self::$package . " extraction error");
+		}
+
+		$sources = Helper::getSources($version);
 		rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
 		rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
 		rename($baseDir, $sources[Helper::CORE_DIRNAME]);
