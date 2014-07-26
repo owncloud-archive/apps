@@ -3,7 +3,7 @@ $(document).ready(function () {
 		return elem.offsetParent ? (elem.offsetTop + pageY(elem.offsetParent)) : elem.offsetTop;
 	}
 
-	var buffer = 5; //scroll bar buffer
+	var buffer = 0; //scroll bar buffer
 	function resizeIframe() {
 		var height = document.documentElement.clientHeight;
 		height -= pageY(document.getElementById('ifm')) + buffer;
