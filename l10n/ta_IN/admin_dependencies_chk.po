@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# yogann <yoganmail@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-05-01 00:48-0400\n"
-"PO-Revision-Date: 2012-08-12 22:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-07-26 00:48-0400\n"
+"PO-Revision-Date: 2014-07-26 04:30+0000\n"
+"Last-Translator: yogann <yoganmail@gmail.com>\n"
 "Language-Team: Tamil (India) (http://www.transifex.com/projects/p/owncloud/language/ta_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +22,12 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "Php-json தொகுதிக்கூறு  இடை-தொடர்புக்கு பல மென்பொருள்களுக்கு தேவைப்படுகின்றன."
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr " php-curl தொகுதிக்கூறு புத்தகக்குறிப்பை சேர்க்கும் பொழுது பக்கத்தின் தலைப்பை எடுக்க தேவை படுகிறது."
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"

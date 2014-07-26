@@ -1,6 +1,11 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http:// or https://" => "Proszę wpisać poprawne adresy - powinny zaczynać się na http:// lub https://",
+"External sites saved." => "Zewnętrzne strony zostały zapisane.",
 "External Sites" => "Zewnętrzne strony",
+"Please note that some browsers will block displaying of sites via http if you are running https." => "Zauważ, że niektóre przeglądarki będą blokować wyświetlanie stron przez http, jeśli używasz https.",
+"Furthermore please note that many sites these days disallow iframing due to security reasons." => "Ponadto należy pamiętać, że wiele stron w dzisiejszych czasach zabrania używanie iframe ze względów bezpieczeństwa.",
+"We highly recommend to test the configured sites below properly." => "Wysoce zalecane jest przetestowanie skonfigurowanych stron poniżej.",
 "Name" => "Nazwa",
 "URL" => "URL",
 "Remove site" => "Usuń stronę",
