@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-26 00:48-0400\n"
-"PO-Revision-Date: 2014-07-26 04:30+0000\n"
+"POT-Creation-Date: 2014-07-27 00:48-0400\n"
+"PO-Revision-Date: 2014-07-26 16:40+0000\n"
 "Last-Translator: yogann <yoganmail@gmail.com>\n"
 "Language-Team: Tamil (India) (http://www.transifex.com/projects/p/owncloud/language/ta_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "Php-json தொகுதிக்கூறு  இடை-தொடர்புக்கு பல மென்பொருள்களுக்கு தேவைப்படுகின்றன."
+msgstr "Php-json தொகுதிக்கூறு  இடை-தொடர்பு கொள்ள  பல பயன்பாடுகளுக்கு தேவைப்படுகின்றன."
 
 #: settings.php:39
 msgid ""
@@ -31,47 +31,47 @@ msgstr " php-curl தொகுதிக்கூறு புத்தகக�
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "Php-GD தொகுதிக்கூறு உங்கள் படங்களை சிறுபடங்களாக்க தேவை."
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "Php-LDAP தொகுதிக்கூறு உங்கள் LDAP சேவையகத்துடன் இணைக்க தேவை."
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "Php-ZIP தொகுதிக்கூறு ஒரே நேரத்தில் பல கோப்புகளை பதிவிறக்கம் செய்ய தேவை."
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "php-mb_multibyte தொகுதிக்கூறு, குறியீடுகளை சரியான முறையில் நிர்வாகம் செய்ய தேவை. "
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "php-ctype தரவுகளை பரிசோதிக்க தேவை"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "WebDAV உடன்  கோப்புகளை பகிர்ந்து கொள்ள Php-xml தொகுதிக்கூறு  வேண்டும்."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "உங்கள் php.ini 'இல் allow_url_fopen என்ற கட்டளை Ocs சர்வர்கள் இருந்து அறிவு தளம் மீட்டெடுக்க 1'ஆக அமைக்கப்படவேண்டும். "
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "உங்கள் owncloud தரவுகளை  ஒரு தரவுத்தளத்தில் பதிவு செய்ய Php-PDO தொகுதிக்கூறு தேவை."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "தரவுகளை சரியான எழுத்துத்தொகுப்பாக மாற்ற Iconv தொகுதி தேவை."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "சார்ந்திருப்பவைகளின் நிலை"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "பயன்படுத்தியவர் :"

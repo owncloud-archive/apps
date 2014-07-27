@@ -1,5 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Content" => "內容"
+"Export" => "輸出"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";
