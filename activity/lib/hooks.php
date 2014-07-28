@@ -147,7 +147,7 @@ class Hooks {
 			$sharedFrom = \OCP\User::getUser();
 			$shareWith = $params['shareWith'];
 
-			if(!empty($shareWith)) {
+			if($params['shareType'] !== \OCP\Share::SHARE_TYPE_LINK) {
 				$subject = 'You shared %s with %s';
 				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			
