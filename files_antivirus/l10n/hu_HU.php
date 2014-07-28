@@ -1,5 +1,9 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Tiszta",
+"Infected" => "Fertőzött",
+"Malware detected" => "Kártevő észlelve",
+"Virus detected! Can't upload the file %s" => "Vírus észlelve. Nem tölthető fel a következő file %s",
 "Greetings {user}," => "Üdv {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Sajnáljuk, de egy rosszindulatú program található egy fájlban, amit megpróbált feltölteni és ezért törölni kellett.",
 "This email is a notification from {host}. Please, do not reply." => "Ez az e-mail egy értesítés a következőtől: {host}. Kérjük, ne válaszoljon.",
@@ -26,6 +30,11 @@ $TRANSLATIONS = array(
 "Delete file" => "Törölje a fájlt",
 "Save" => "Mentés",
 "Advanced" => "Haladó",
-"Description" => "Leírás"
+"Rules" => "Szabályok",
+"Reset to defaults" => "Alapértékek visszaállítása",
+"Match by" => "Egyezzen mint",
+"Description" => "Leírás",
+"Mark as" => "Jelöljük mint",
+"Add a rule" => "Szabály hozzááadása"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";
