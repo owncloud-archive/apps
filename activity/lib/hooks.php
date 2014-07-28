@@ -144,12 +144,13 @@ class Hooks {
 			$link = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname($params['fileTarget'])));
 			$link2 = \OCP\Util::linkToAbsolute('files', 'index.php', array('dir' => dirname('/Shared/'.$params['fileTarget'])));
 
-			$sharedFrom = \OCP\User::getUser();
+			$sharedFrom = \OCP\User::getDisplayName();
 			$shareWith = $params['shareWith'];
+			$shareWithName = \OCP\User::getDisplayName($shareWith);
 
-			if(!empty($shareWith)) {
+			if(!empty($shareWith) && \OCP\User::userExists($shareWith)) {
 				$subject = 'You shared %s with %s';
-				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWith), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
+				Data::send('files', $subject, array(substr($params['fileTarget'], 1), $shareWithName), '', array(), $params['fileTarget'], $link, \OCP\User::getUser(), 4, Data::PRIORITY_MEDIUM );
 			
 				$subject = '%s shared %s with you';
 				Data::send('files', $subject, array($sharedFrom, substr('/Shared'.$params['fileTarget'], 1)), '', array(), '/Shared/'.$params['fileTarget'], $link2, $shareWith, 5, Data::PRIORITY_MEDIUM);
