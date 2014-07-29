@@ -115,7 +115,7 @@ abstract class Location {
 		foreach ($pathArray as $path) {
 			// There is a little sense to make these entries absolute
 			if (!in_array($path, array('.', '..'))) {
-				$result [$path] = $base . '/' . $path;
+				$result [$path] = realpath($base . '/' . $path);
 			}
 		}
 		return $result;
