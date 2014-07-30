@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Anna kelvolliset osoitteet - niiden tulee alkaa joko etuliitteellä http:// tai https://",
 "External sites saved." => "Ulkoiset sivustot tallennettu.",
 "External Sites" => "Ulkoiset sivustot",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Huomioi, että jotkin selaimet estävät http-protokollaa käyttävien sivustojen näyttämisen, jos käytät itse https-protokollaa.",

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-16 00:48-0400\n"
-"PO-Revision-Date: 2014-07-16 04:48+0000\n"
+"POT-Creation-Date: 2014-07-30 00:48-0400\n"
+"PO-Revision-Date: 2014-07-30 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,13 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: ajax/setsites.php:30
+#: ajax/setsites.php:33
 msgid ""
-"Please enter valid urls - they have to start with either http:// or https://"
+"Please enter valid urls - they have to start with either http://, https:// "
+"or /"
 msgstr ""
 
-#: ajax/setsites.php:40
+#: ajax/setsites.php:43
 msgid "External sites saved."
 msgstr ""
 

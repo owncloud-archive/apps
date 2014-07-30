@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Vänligen ange en giltig url - dem måste börja med antingen http:// eller https://",
 "External sites saved." => "Extern sida sparad.",
 "External Sites" => "Externa webbplatser",
 "Name" => "Namn",

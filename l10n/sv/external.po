@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-20 00:48-0400\n"
-"PO-Revision-Date: 2014-07-19 17:41+0000\n"
-"Last-Translator: enoch85 <enoch85@gmail.com>\n"
+"POT-Creation-Date: 2014-07-30 00:48-0400\n"
+"PO-Revision-Date: 2014-07-30 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,12 +19,13 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/setsites.php:30
+#: ajax/setsites.php:33
 msgid ""
-"Please enter valid urls - they have to start with either http:// or https://"
-msgstr "Vänligen ange en giltig url - dem måste börja med antingen http:// eller https://"
+"Please enter valid urls - they have to start with either http://, https:// "
+"or /"
+msgstr ""
 
-#: ajax/setsites.php:40
+#: ajax/setsites.php:43
 msgid "External sites saved."
 msgstr "Extern sida sparad."
 

@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Моля, въведи съществуащи интернет адреси - те трябва да започват с http:// или https://",
 "External sites saved." => "Външните сайтове са записани.",
 "External Sites" => "Външни Сайтове",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Да знаеш, че някои браузъри ще блокират показването на интернет страници през http ако същевременно използваш https.",

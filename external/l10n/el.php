@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Παρακαλώ εισάγετε έγκυρα urls - θα πρέπει να ξεκινούν είτε με http:// ή με https://",
 "External sites saved." => "Οι εξωτερικοί ιστότοποι αποθηκεύτηκαν.",
 "External Sites" => "Εξωτερικοί ιστότοποι",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Παρακαλώ σημειώστε ότι μερικά προγράμματα περιήγησης θα εμποδίσουν ιστότοπους μέσω http αν εσείς τρέχετε https.",

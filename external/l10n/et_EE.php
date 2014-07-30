@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Palun sisesta korrektsed URL-id - need peavad algama kas http:// või https://",
 "External sites saved." => "Välised saidid salvestatud.",
 "External Sites" => "Välised saidid",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Palun võta teadmiseks, et mõned brauserid blokeerivad saitide kuva üle http, kui sina kasutad https-i.",

@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Geef geldige urls op - die moeten starten met http:// of https://",
 "External sites saved." => "Externe sites bewaard.",
 "External Sites" => "Externe sites",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Let op dat sommige browsers http sites niet tonen als u https gebruikt.",

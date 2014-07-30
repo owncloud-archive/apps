@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "বৈধ URL গুলি লিখুন-তারা http:// অথবা https:// এর সঙ্গে শুরু হবে",
 "External sites saved." => "বাহ্যিক সাইট সংরক্ষিত করা হবে।",
 "External Sites" => "বাহ্যিক সাইট",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "কোন কোন ব্রাউজারে আপনি HTTPS চালাচ্ছেন বলে HTTP-র মাধ্যমে সাইটের প্রদর্শন অবরুদ্ধ করা হবে।",

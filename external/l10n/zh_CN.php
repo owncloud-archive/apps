@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "请输入以 http:// 或 https:// 开头的有效网址",
 "External sites saved." => "外部站点已经保存。",
 "External Sites" => "外部站点",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "请注意当运行 HTTPS 环境下时，部分浏览器将会屏蔽显示 HTTP 网站。",

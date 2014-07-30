@@ -1,6 +1,5 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http:// or https://" => "Vpisati je treba veljavne naslove URL - začeti se morajo s http:// oziroma https://",
 "External sites saved." => "Zunanji strežniki so shranjeni.",
 "External Sites" => "Zunanje strani",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Nekateri brskalniki onemogočajo prikazovanje spletišč preko protokola http, če je zagnan protokol https!",
