@@ -88,11 +88,8 @@ function shouldEnforceAuthentication()
 		return false;
 	}
 
-	$url = OCP\Util::getRequestUri();
-	$url_pieces = preg_split('/[\/?]/', $uri);
-
-	return !isset($url_pieces[0]) || !in_array(
-		$url_pieces[0],
+	$script = basename($_SERVER['SCRIPT_FILENAME']);
+	return !in_array($script,
 		array(
 			'cron.php',
 			'public.php',
