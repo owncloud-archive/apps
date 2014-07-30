@@ -43,7 +43,9 @@ if (OCP\App::isEnabled('user_saml')) {
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_SAML_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_SAML_Hooks', 'logout');
 
-	$forceLogin = OCP\Config::getAppValue('user_saml', 'saml_force_saml_login', false);
+	$forceLogin = OCP\Config::getAppValue('user_saml', 'saml_force_saml_login', false)
+		&& shouldEnforceAuthentication();
+
 
 	if( (isset($_GET['app']) && $_GET['app'] == 'user_saml') || (!OCP\User::isLoggedIn() && $forceLogin && !isset($_GET['admin_login']) )) {
 
@@ -71,4 +73,31 @@ if (OCP\App::isEnabled('user_saml')) {
 		// Load js code in order to render the SAML link and to hide parts of the normal login form
 		OCP\Util::addScript('user_saml', 'utils');
 	}
+}
+
+
+/*
+ * Checks if requiring SAML authentication on current URL makes sense when
+ * forceLogin is set.
+ *
+ * Disables it when using the command line too
+ */
+function shouldEnforceAuthentication()
+{
+	if (OC::$CLI) {
+		return false;
+	}
+
+	$url = OCP\Util::getRequestUri();
+	$url_pieces = preg_split('/[\/?]/', $uri);
+
+	return !isset($url_pieces[0]) || !in_array(
+		$url_pieces[0],
+		array(
+			'cron.php',
+			'public.php',
+			'remote.php',
+			'status.php',
+		)
+	);
 }
