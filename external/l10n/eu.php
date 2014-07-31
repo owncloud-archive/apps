@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http://, https:// or /" => "Sartu baliozko helbideak - hasi behar dute http://, https:// edo /",
 "External sites saved." => "Kanpoko guneak  gordeta.",
 "External Sites" => "Kanpoko guneak",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Egin kontu zenbait nabigatzailek blokea dezaketela guneen http bidezko bistaratzea https erabiltzen ari bazara.",

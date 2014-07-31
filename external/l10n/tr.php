@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http://, https:// or /" => "Lütfen geçerli adres girin - http://, https:// veya / ile başlamalıdırlar",
 "External sites saved." => "Harici siteler kaydedildi.",
 "External Sites" => "Harici Siteler",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Eğer https kullanıyorsanız, bazı tarayıcıların http sitelerinin gösterimini engelleyeceğini unutmayın.",

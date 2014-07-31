@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http://, https:// or /" => "Por favor digite URLs válidas - Elas tem de começar com um ou outro http://, https:// ou /",
 "External sites saved." => "Páginas externas guardadas.",
 "External Sites" => "Páginas Externas",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Por favor note que alguns navegadores vão bloquear a mostragem das paginas via http se está a correr https.",
