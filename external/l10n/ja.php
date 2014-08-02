@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http://, https:// or /" => "正しいURLを入力してください。http:// や https:// または / のいずれかで始まる必要があります。",
 "External sites saved." => "外部サイトを保存しました。",
 "External Sites" => "外部サイト",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "ブラウザーによっては、https で動作している時に http で接続するとブロックされてしまうことがあるのでご注意ください。",
