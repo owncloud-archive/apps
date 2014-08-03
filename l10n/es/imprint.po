@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2013
-# Art O. Pal <artopal@fastmail.fm>, 2013
+# Artopal <artopal@fastmail.fm>, 2013
 # David López Felguera <davidlopez.david@gmail.com>, 2013
 # Francisco Losada, 2013
 # Pablo Laguna <laguna.sanchez@gmail.com>, 2013
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-13 00:48-0400\n"
-"PO-Revision-Date: 2014-06-12 19:36+0000\n"
+"POT-Creation-Date: 2014-08-03 00:48-0400\n"
+"PO-Revision-Date: 2014-08-02 23:20+0000\n"
 "Last-Translator: Rubén del Campo Gómez <yo@rubendelcampo.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
