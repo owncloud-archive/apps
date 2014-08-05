@@ -42,13 +42,13 @@ if( $_GET['operation']=='create' ) {
 		die();
 	} else {
 		// Save path in session
-		OC::$session->set('ocuserexportpath', $response->data);
+		\OC::$server->getSession()->set('ocuserexportpath', $response->data);
 	}
 	OCP\JSON::success();
 	die();
 } else if( $_GET['operation']=='download' ) {
 	// Download the export
-	$path = OC::$session->exists('ocuserexportpath') ? OC::$session->get('ocuserexportpath') : false;
+	$path = \OC::$server->getSession()->exists('ocuserexportpath') ? \OC::$server->getSession()->get('ocuserexportpath') : false;
 	if( !$path ) {
 		OCP\JSON::error();
 		exit;
@@ -59,5 +59,5 @@ if( $_GET['operation']=='create' ) {
 	@ob_end_clean();
 	readfile($path);
 	unlink( $path );
-	OC::$session->remove('ocuserexportpath');
+	\OC::$server->getSession()->remove('ocuserexportpath');
 }
