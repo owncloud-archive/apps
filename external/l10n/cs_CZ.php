@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"Please enter valid urls - they have to start with either http://, https:// or /" => "Vkládejte prosím platné adresy url - musí začínat buď http://, https:// nebo /",
 "External sites saved." => "Externí stránky uloženy.",
 "External Sites" => "Externí stránky",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Buďte si prosím vědomi, že některé prohlížeče mohou blokovat zobrazování stránek z http prostoru, pokud vy používáte https.",
