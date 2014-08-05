@@ -82,6 +82,21 @@ class Data
 	 */
 	public static function translation($app, $text, $params)
 	{
+		// Replace the user id with the display name of the users
+		if ($app === 'files') {
+			switch ($text) {
+				case '%s created by %s':
+				case '%s changed by %s':
+				case '%s deleted by %s':
+				case 'You shared %s with %s':
+					$params[1] = \OCP\User::getDisplayName($params[1]);
+				break;
+				case '%s shared %s with you':
+					$params[0] = \OCP\User::getDisplayName($params[0]);
+				break;
+			}
+		}
+
 		$l = \OCP\Util::getL10N($app);
 		$result = $l->t($text, $params);
 		unset($l);
