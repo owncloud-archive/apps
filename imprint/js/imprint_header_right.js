@@ -32,9 +32,19 @@ $(document).ready(function(){
 	anchor.attr('href',OC.linkTo('imprint','index.php'));
 	anchor.text(t("imprint","Legal notice"));
 	anchor.addClass('imprint-anchor').addClass('header-right');
+
+	// Indicates oC<7
+	var lessSevenLinkShare = $('#save-button').contents()[0] == undefined;
+
 	//	workaround for chaotic header layout definitions in OC-4.x
 	if (  (0==$('#header').height()) // indicates OC<5
 		&&('right'!=$('#header .searchbox').css('float'))) // special situations like guest view
 		anchor.css('right','250px');
-	$('#header').append(anchor);
+
+	if (lessSevenLinkShare) {
+		$('#header').append(anchor);
+	} else {
+		$('#header .header-right').prepend(anchor);
+		anchor.css('float', 'none');
+	}
 })
