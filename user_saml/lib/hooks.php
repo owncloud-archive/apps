@@ -62,6 +62,22 @@ class OC_USER_SAML_Hooks {
 					}
 				}
 
+				$saml_quota = '';
+				if (!empty($samlBackend->quotaMapping)) {
+					foreach ($samlBackend->quotaMapping as $quotaMapping) {
+						if (array_key_exists($quotaMapping, $attributes) && !empty($attributes[$quotaMapping][0])) {
+							$saml_quota = $attributes[$quotaMapping][0];
+							break;
+						}
+					}
+					OC_Log::write('saml','Current quota: "'.$saml_quota.'" for user: '.$uid, OC_Log::DEBUG);
+				}
+
+				if (empty($saml_quota) && !empty($samlBackend->defaultQuota)) {
+					$saml_quota = $samlBackend->defaultQuota;
+					OC_Log::write('saml','Using default quota ('.$saml_quota.') for user: '.$uid, OC_Log::DEBUG);
+				}
+
 				$saml_groups = array();
 				foreach ($samlBackend->groupMapping as $groupMapping) {
 					if (array_key_exists($groupMapping, $attributes) && !empty($attributes[$groupMapping])) {
@@ -93,6 +109,9 @@ class OC_USER_SAML_Hooks {
 							if (isset($saml_display_name)) {
 								update_display_name($uid, $saml_display_name);
 							}
+							if (isset($saml_quota)) {
+								update_quota($uid, $saml_quota);
+							}
 						}
 					}
 				}
@@ -108,6 +127,9 @@ class OC_USER_SAML_Hooks {
 						}
 						if (isset($saml_display_name)) {
 							update_display_name($uid, $saml_display_name);
+						}
+						if (isset($saml_quota)) {
+							update_quota($uid, $saml_quota);
 						}
 					}
 				}
@@ -169,4 +191,10 @@ function update_groups($uid, $groups, $protectedGroups=array(), $just_created=fa
 
 function update_display_name($uid, $displayName) {
 	OC_User::setDisplayName($uid, $displayName);
+}
+
+function update_quota($uid, $quota) {
+	if (!empty($quota)) {
+		\OCP\Config::setUserValue($uid, 'files', 'quota', \OCP\Util::computerFileSize($quota));
+	}
 }
