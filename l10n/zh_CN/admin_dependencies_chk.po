@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,33 +38,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "如要链接到您的LDAP服务器，则php-ldap模块必需。"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "如要一次下载多个文件 ，php-zip模块必需。"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "php-mb_multibyte 模块用来管理编码。"
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "php-ctype 模块是必备的，用来验证数据"
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "通过webdav共享文件，需要php-xml 模块。"
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "PHP.ini中的allow_url_fopen 指令应设置为1，以从OCS 服务器中获取knowledge base知识体系 "
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "php-pdo 模块是必备的，用来储存owncloud数据到数据库里。"
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr " iconv 模块是必备的，用来转换数据到正确的编码格式。"
 

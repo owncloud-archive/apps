@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,33 +37,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "ldap সার্ভারে সংযুক্ত হওয়ার জন্য php-ldap মডিউলটি আবশ্যক"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "একাধিক ফাইল একত্রে ডাউনলোড করার জন্য php-zip মডিউলটি আবশ্যক"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "সঠিকভাবে সংকেতায়ন করতে  php-mb_multibyte মডিউলটি আবশ্যক।"
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "উপাত্ত  নিশ্চিত করার জন্য php-ctype মডিউলটি আবশ্যক।"
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "webdav এর সাথে ফাইলগুলো ভাগাভাগি করার জন্য  php-xml মডিউলটি আবশ্যক।"
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "OCS সার্ভার থেকে জ্ঞান ভিত্তি উদ্ধার করা জন্য php.ini ফাইলে  allow_url_fopen  নির্দেশনাটির মান ১ এ নির্ধারণ করা আবশ্যক "
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "ডাটাবেজে  ownCloud উপাত্ত যোগ করার জন্য php-pdo মডিউলটি আবশ্যক।"
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr ""
 

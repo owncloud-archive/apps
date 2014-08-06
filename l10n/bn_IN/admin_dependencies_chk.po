@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-17 00:48-0400\n"
-"PO-Revision-Date: 2014-07-16 10:12+0000\n"
-"Last-Translator: ishita mukherjee <ishitamukh91@gmail.com>\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/projects/p/owncloud/language/bn_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,33 +38,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "PHP-LDAP মডিউল আপনার LDAP সার্ভারে সংযোগ প্রয়োজন হয়"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "PHP-জিপ মডিউল একযোগে একাধিক ফাইল ডাউনলোড প্রয়োজন হয়"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "PHP-mb_multibyte মডিউল সঠিকভাবে এনকোডিং পরিচালনা করতে প্রয়োজন।"
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "PHP-ctype মডিউল যাচাই তথ্যে প্রয়োজন হয়।"
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "PHP-XML মডিউল WebDAV এর সাথে ফাইল শেয়ার করার জন্যে প্রয়োজন হয়।"
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "আপনার php.ini এর allow_url_fopen নির্দেশ OCS সার্ভার থেকে নলেজ বেস আহরণের জন্য 1 নির্ধারণ করা উচিত"
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "PHP-PDO মডিউল একটি ডাটাবেসের মধ্যে owncloud তথ্য ধারণ করার জন্য প্রয়োজন হয়।"
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr "Iconv মডিউল সঠিক ক্যারসেটের মধ্যে তথ্য রূপান্তর করতে প্রয়োজন হয়।"
 

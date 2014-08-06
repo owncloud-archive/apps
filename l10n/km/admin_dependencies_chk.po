@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# bethborin <borovin38@gmail.com>, 2014
-# សុវិចិត្រ Sovichet ទេព Tep, 2014
+# beth borin <borovin38@gmail.com>, 2014
+# Sovichet Tep, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-04 00:48-0400\n"
-"PO-Revision-Date: 2014-06-02 07:42+0000\n"
-"Last-Translator: bethborin <borovin38@gmail.com>\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Khmer (http://www.transifex.com/projects/p/owncloud/language/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,33 +39,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "ត្រូវការ​ម៉ូឌុល php-ldap ដើម្បី​ភ្ជាប់​ទៅ​ម៉ាស៊ីនបម្រើ ldap របស់​អ្នក"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "ត្រូវ​ការ​ម៉ូឌុល php-zip ដើម្បី​ទាញយក​ឯកសារ​ច្រើង​ក្នុង​ពេល​ព្រម​គ្នា"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "ត្រូវ​ការ​ម៉ូឌុល php-mb_multibyte ដើម្បី​គ្រប់គ្រង​ការ​អិនកូដ​ឲ្យ​បាន​ត្រឹម​ត្រូវ។"
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "ត្រូវការ​ម៉ូឌុល php-ctype ដើម្បី​ផ្ទៀងផ្ទាត់​ទិន្នន័យ។"
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "ត្រូវការ​ម៉ូឌុល php-xml ដើម្បី​ចែករំលែក​ឯកសារ​ជាមួយ webdav ។"
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr ""
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "ត្រូវការ​ម៉ូឌុល php-pdo ដើម្បី​រក្សាទុក​ទិន្នន័យ owncloud ទៅក្នុង​មូលដ្ឋាន​ទិន្នន័យ។"
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr ""
 

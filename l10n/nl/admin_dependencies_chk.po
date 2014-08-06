@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,33 +38,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "De php-ldap module is nodig om een verbinding met uw ldap server te maken"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "De php-module is nodig voor het ophalen van meerdere bestanden in één keer"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "De php-mb_multibyte module is nodig voor het beheren van de juiste encoding."
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "De php-ctype module is nodig voor het valideren van data."
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "De php-xml module is nodig voor het delen van bestanden via webdav."
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "De php.ini allow_url_fopen variabele moet op 1 worden gezet om informatie van OCS servers op te halen"
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "De php-pdo module is nodig voor het opslaan van data in de database."
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr "The iconv module is nodig voor het converteren van data naar de juiste character encoding."
 

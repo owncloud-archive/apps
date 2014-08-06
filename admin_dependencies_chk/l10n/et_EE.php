@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "Järjehoidja lisamisel on lehe pealkirja tõmbamiseks vajalik php-curl moodul",
 "The php-gd module is needed to create thumbnails of your images" => "php-gd moodul on vajalik sinu piltidest pisipiltide loomiseks",
 "The php-ldap module is needed connect to your ldap server" => "php-ldap moodul on vajalik sinu ldap serveriga ühendumiseks",
-"The php-zip module is needed download multiple files at once" => "php-zip moodul on vajalik mitme faili korraga alla laadimiseks",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "php-mb_multibyte moodul on vajalik kodeerimise korrektseks haldamiseks.",
 "The php-ctype module is needed validate data." => "php-ctype moodul on vajalik andmete kontrollimiseks.",
 "The php-xml module is needed to share files with webdav." => "php-xml moodul on vajalik failide jagamiseks webdav-iga.",

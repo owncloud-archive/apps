@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-31 00:48-0400\n"
-"PO-Revision-Date: 2014-07-30 06:10+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,18 +48,23 @@ msgstr "Ota myös huomioon, että monet sivustot estävät iframe-käytön tieto
 msgid "We highly recommend to test the configured sites below properly."
 msgstr "Suosittelemme testaamaan alla määriteltyjen sivustojen toimivuuden."
 
-#: templates/settings.php:16
+#: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
 msgstr "Nimi"
 
-#: templates/settings.php:17
+#: templates/settings.php:18 templates/settings.php:41
 msgid "URL"
 msgstr "Verkko-osoite"
 
-#: templates/settings.php:18
+#: templates/settings.php:30 templates/settings.php:32
+#: templates/settings.php:46
+msgid "Select an icon"
+msgstr ""
+
+#: templates/settings.php:35 templates/settings.php:48
 msgid "Remove site"
 msgstr "Poista sivusto"
 
-#: templates/settings.php:25
+#: templates/settings.php:56
 msgid "Add"
 msgstr "Lisää"

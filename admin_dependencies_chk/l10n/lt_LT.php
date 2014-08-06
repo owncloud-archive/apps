@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "Modulis \"php-curl\" yra reikalingas norint pridėti į pamėgtus puslapius.",
 "The php-gd module is needed to create thumbnails of your images" => "Php-gd modulis yra naudojamas paveikslėlių miniatiūroms kurti.",
 "The php-ldap module is needed connect to your ldap server" => "Php-ldap modulis yra reikalingas prisijungimui prie jūsų ldap serverio",
-"The php-zip module is needed download multiple files at once" => "Php-zip modulis yra reikalingas kelių failų atsiuntimui iš karto.",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "Php-mb_multibyte modulis yra naudojamas apdoroti įvairius teksto kodavimo formatus.",
 "The php-ctype module is needed validate data." => "Php-ctype modulis yra reikalingas duomenų tikrinimui.",
 "The php-xml module is needed to share files with webdav." => "Php-xml modulis yra reikalingas failų dalinimuisi naudojant webdav.",

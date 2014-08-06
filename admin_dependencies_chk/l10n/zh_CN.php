@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "新增书签时获取网页标题，需要php-curl 模块",
 "The php-gd module is needed to create thumbnails of your images" => " php-gd 模块必需，以创建图片的缩略图",
 "The php-ldap module is needed connect to your ldap server" => "如要链接到您的LDAP服务器，则php-ldap模块必需。",
-"The php-zip module is needed download multiple files at once" => "如要一次下载多个文件 ，php-zip模块必需。",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "php-mb_multibyte 模块用来管理编码。",
 "The php-ctype module is needed validate data." => "php-ctype 模块是必备的，用来验证数据",
 "The php-xml module is needed to share files with webdav." => "通过webdav共享文件，需要php-xml 模块。",

@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "Các module php-curl cần thiết để lấy các tiêu đề trang khi thêm một bookmark",
 "The php-gd module is needed to create thumbnails of your images" => "module php-gd dùng để tạo ra các hình thu nhỏ cho hình ảnh",
 "The php-ldap module is needed connect to your ldap server" => "module php-ldap dùng để kết nối tới máy chủ ldap",
-"The php-zip module is needed download multiple files at once" => "module php-zip cần tải nhiều dữ liệu cùng một lúc",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "module php-mb_multibyte dùng để quản lý một cách chính xác các bộ mã hóa.",
 "The php-ctype module is needed validate data." => "module php-ctype dùng để xác nhận dữ liệu.",
 "The php-xml module is needed to share files with webdav." => "module php-xml dùng để chia sẻ tập tin với WebDAV.",

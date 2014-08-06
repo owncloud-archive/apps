@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "PHP-curl viðbótin er nauðsynleg til að sækja nöfn vefsíða þegar verið er að bæta við bókamerkjum",
 "The php-gd module is needed to create thumbnails of your images" => "PHP-gd viðbótin er nauðsynleg til að búa til yfirlitsmynd af myndunum þínum",
 "The php-ldap module is needed connect to your ldap server" => "PHP-ldap viðbótin er nauðsynleg til að eiga samskipti við ldap þjóna",
-"The php-zip module is needed download multiple files at once" => "PHP-zip viðbótin er nauðsynleg til að hægt sé að hlaða niður mörgum skrám í einu",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "PHP-mb_multibyte viðbótin er nauðsynleg til að meðhönda kóðun.",
 "The php-ctype module is needed validate data." => "PHP-ctype  viðbótin er nauðsynleg til að sannreyna gögn.",
 "The php-xml module is needed to share files with webdav." => "PHP-xml viðbóðtin er nauðsynleg til að deila skrám yfir WebDAV.",

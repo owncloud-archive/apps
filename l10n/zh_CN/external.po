@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-30 00:48-0400\n"
-"PO-Revision-Date: 2014-07-30 04:48+0000\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -49,18 +49,23 @@ msgstr "另外请注意由于安全原因，部分站点禁用了 iFrame。"
 msgid "We highly recommend to test the configured sites below properly."
 msgstr "我们强烈建议提前测试配置。"
 
-#: templates/settings.php:16
+#: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
 msgstr "名称"
 
-#: templates/settings.php:17
+#: templates/settings.php:18 templates/settings.php:41
 msgid "URL"
 msgstr "URL"
 
-#: templates/settings.php:18
+#: templates/settings.php:30 templates/settings.php:32
+#: templates/settings.php:46
+msgid "Select an icon"
+msgstr ""
+
+#: templates/settings.php:35 templates/settings.php:48
 msgid "Remove site"
 msgstr "移除站点"
 
-#: templates/settings.php:25
+#: templates/settings.php:56
 msgid "Add"
 msgstr "增加"

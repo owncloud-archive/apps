@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-12-02 15:24-0500\n"
-"PO-Revision-Date: 2013-11-29 20:20+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,33 +39,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "php-ldap-moduuli vaaditaan, jotta yhteys ldap-palvelimeen on mahdollista"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "php-zip-moduuli vaaditaan, jotta useiden tiedostojen samanaikainen lataus on mahdollista"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "php-mb_multibyte-moduuli vaaditaan, jotta oikeaoppinen merkistökoodaus on mahdollista"
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "php-ctype moduulia tarvitaan datan oikeellisuuden tarkistamisessa."
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "php-xml-moduuli vaaditaan, jotta tiedostojen jako webdavia käyttäen on mahdollista"
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "allow_url_fopen direktiivi php.ini tiedostossasi on asetettava arvoon 1 jotta OCS palvelimilta voidaan hakea tietokanta"
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "php-pdo-moduuli tarvitaan, jotta ownCloud-tietojen tallennus tietokantaan on mahdollista"
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr "iconv-moduuli tarvitaan, jotta dataa voidaan muuntaa oikeaan merkistöön."
 

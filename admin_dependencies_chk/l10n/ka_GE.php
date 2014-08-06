@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "php-curl მოდული არის საჭირო გვერდის სათაურის მისაღებად გვერდის ბუქმარქებში დამატების დროს",
 "The php-gd module is needed to create thumbnails of your images" => "სურათების ესკიზების გასაკეთებლად საჭიროა php-gd მოდული",
 "The php-ldap module is needed connect to your ldap server" => "php-ldap მოდული არის საჭირო იმისათვის რომ დაუკავშირდეთ ldap სერვერს",
-"The php-zip module is needed download multiple files at once" => "php-zip მოდული არის საჭირო ფაილების ერთობლიობის ერთად გადმოსაწერად",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "php-mb_multibyte მოდული არის საჭირო კორექტული ენკოდირებისთვის.",
 "The php-ctype module is needed validate data." => "php-ctype მოდული არის საჭირო ინფორმაციის შესამოწმებლად.",
 "The php-xml module is needed to share files with webdav." => "php-xml მოდული არის საჭირო ფაილების გაზიარებისთვის webdav პროტოკოლით.",

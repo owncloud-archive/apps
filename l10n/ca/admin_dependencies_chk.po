@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:24+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-08-06 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,33 +39,37 @@ msgid "The php-ldap module is needed connect to your ldap server"
 msgstr "El mòdul php-ldap és necessari per connectar amb el servidor ldap"
 
 #: settings.php:57
-msgid "The php-zip module is needed download multiple files at once"
-msgstr "El mòdul php-zip és necessari per baixar múltiples fitxers de cop"
+msgid "The php-bcmath module is needed to support AD primary groups"
+msgstr ""
 
 #: settings.php:63
+msgid "The php-zip module is needed to download multiple files at once"
+msgstr ""
+
+#: settings.php:69
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
 msgstr "El mòdul php-mb_multibyte és necessari per gestionar correctament la codificació."
 
-#: settings.php:69
+#: settings.php:75
 msgid "The php-ctype module is needed validate data."
 msgstr "El mòdul php-ctype és necessari per validar dades."
 
-#: settings.php:75
+#: settings.php:81
 msgid "The php-xml module is needed to share files with webdav."
 msgstr "El mòdul php-xml és necessari per compatir els fitxers amb webdav."
 
-#: settings.php:81
+#: settings.php:87
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
 msgstr "La directiva allow_url_fopen de php.ini hauria d'establir-se en 1 per accedir a la base de coneixements dels servidors OCS"
 
-#: settings.php:87
+#: settings.php:93
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "El mòdul php-pdo és necessari per desar les dades d'ownCloud en una base de dades."
 
-#: settings.php:93
+#: settings.php:99
 msgid "The iconv module is needed to convert data into the correct charset."
 msgstr "El módul iconv és necessari per convertir dades al codi de caràcters correcte."
 

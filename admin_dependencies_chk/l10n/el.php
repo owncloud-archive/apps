@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "Η μονάδα php-curl απαιτείται για την ανάκτηση του τίτλου της σελίδας κατά την προσθήκη σελιδοδείκτη",
 "The php-gd module is needed to create thumbnails of your images" => "Η μονάδα php-gd απαιτείται για τη δημιουργία μικρογραφιών των εικόνων σας",
 "The php-ldap module is needed connect to your ldap server" => "Η μονάδα php-ldap απαιτείται για σύνδεση με το διακομιστή ldap σας",
-"The php-zip module is needed download multiple files at once" => "Η μονάδα php-zip απαιτείται για λήψη πολλών αρχείων αμέσως",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "Η μονάδα php-mb_multibyte απαιτείται για τη σωστή διαχείρηση της κωδικοποίησης.",
 "The php-ctype module is needed validate data." => "Η μονάδα php-ctype απαιτείται για επικύρωση δεδομένων.",
 "The php-xml module is needed to share files with webdav." => "Η μονάδα php-xml απαιτείται για διαμοιρασμό των αρχείων μέσω webdav.",

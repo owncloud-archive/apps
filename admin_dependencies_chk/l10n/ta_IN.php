@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => " php-curl தொகுதிக்கூறு புத்தகக்குறிப்பை சேர்க்கும் பொழுது பக்கத்தின் தலைப்பை எடுக்க தேவை படுகிறது.",
 "The php-gd module is needed to create thumbnails of your images" => "Php-GD தொகுதிக்கூறு உங்கள் படங்களை சிறுபடங்களாக்க தேவை.",
 "The php-ldap module is needed connect to your ldap server" => "Php-LDAP தொகுதிக்கூறு உங்கள் LDAP சேவையகத்துடன் இணைக்க தேவை.",
-"The php-zip module is needed download multiple files at once" => "Php-ZIP தொகுதிக்கூறு ஒரே நேரத்தில் பல கோப்புகளை பதிவிறக்கம் செய்ய தேவை.",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "php-mb_multibyte தொகுதிக்கூறு, குறியீடுகளை சரியான முறையில் நிர்வாகம் செய்ய தேவை. ",
 "The php-ctype module is needed validate data." => "php-ctype தரவுகளை பரிசோதிக்க தேவை",
 "The php-xml module is needed to share files with webdav." => "WebDAV உடன்  கோப்புகளை பகிர்ந்து கொள்ள Php-xml தொகுதிக்கூறு  வேண்டும்.",

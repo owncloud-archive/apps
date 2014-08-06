@@ -4,7 +4,6 @@ $TRANSLATIONS = array(
 "The php-curl module is needed to fetch the page title when adding a bookmark" => "وحدة php-curl ضرورية لجلب عنوان الصفحة عند إضافة إشارة مرجعية",
 "The php-gd module is needed to create thumbnails of your images" => "وحدة php-gd ضرورية لإنشاء نسخ مصغرة عن صورك",
 "The php-ldap module is needed connect to your ldap server" => "وحدة php-ldap ضرورية للإتصال بخادم Idap الخاص بك",
-"The php-zip module is needed download multiple files at once" => "وحدة php-zip ضرورية لإتاحة تحميل عدة ملفات دفعة واحدة",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "وحدة php-mb_multibyte لإدارة الترميز بطريقة صحيحة",
 "The php-ctype module is needed validate data." => "وحدة php-ctype ضرورية للتحقق من صحة البيانات",
 "The php-xml module is needed to share files with webdav." => "وحدة php-xml ضرورية لمشااركة الملفات مع webdav",
