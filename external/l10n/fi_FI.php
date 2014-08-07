@@ -8,6 +8,7 @@ $TRANSLATIONS = array(
 "We highly recommend to test the configured sites below properly." => "Suosittelemme testaamaan alla määriteltyjen sivustojen toimivuuden.",
 "Name" => "Nimi",
 "URL" => "Verkko-osoite",
+"Select an icon" => "Valitse kuvake",
 "Remove site" => "Poista sivusto",
 "Add" => "Lisää"
 );

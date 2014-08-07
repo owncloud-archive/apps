@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-06 00:48-0400\n"
-"PO-Revision-Date: 2014-08-06 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-08-07 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 08:20+0000\n"
+"Last-Translator: Ivo\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,11 +40,11 @@ msgstr "Php-ldap модулът е нужен за свързване с ldap с
 
 #: settings.php:57
 msgid "The php-bcmath module is needed to support AD primary groups"
-msgstr ""
+msgstr "Php-bcmath модулът е задължителн за поддръжка на AD primary групи."
 
 #: settings.php:63
 msgid "The php-zip module is needed to download multiple files at once"
-msgstr ""
+msgstr "Php-zip модулът е задължителен, за теглене на повече от един файла едновремеnно"
 
 #: settings.php:69
 msgid ""

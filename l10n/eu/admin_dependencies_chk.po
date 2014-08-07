@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Gabilondo <alexgabi@openmailbox.org>, 2014
 # asieriko <asieriko@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-06 00:48-0400\n"
-"PO-Revision-Date: 2014-08-06 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-08-07 00:48-0400\n"
+"PO-Revision-Date: 2014-08-06 21:30+0000\n"
+"Last-Translator: Alexander Gabilondo <alexgabi@openmailbox.org>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,11 +40,11 @@ msgstr "php-ldap modulua behar da zure ldap zerbitzarira konektatzeko"
 
 #: settings.php:57
 msgid "The php-bcmath module is needed to support AD primary groups"
-msgstr ""
+msgstr "php-bcmath modulua behar da AD talde primarioak onartzeko"
 
 #: settings.php:63
 msgid "The php-zip module is needed to download multiple files at once"
-msgstr ""
+msgstr "php-zip modulua behar da  hainbat fitxategi batera deskargatzeko"
 
 #: settings.php:69
 msgid ""
