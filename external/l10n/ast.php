@@ -8,6 +8,7 @@ $TRANSLATIONS = array(
 "We highly recommend to test the configured sites below properly." => "Encamentámoste que pruebes los sitios configuraos a continuación.",
 "Name" => "Nome",
 "URL" => "URL",
+"Select an icon" => "Seleicionar un iconu",
 "Remove site" => "Desaniciar sitiu",
 "Add" => "Amestar"
 );
