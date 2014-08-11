@@ -3,6 +3,8 @@ INTRODUCTION
 
 This App provide CAS authentication support, using the phpCAS library of Jasig.
 
+CAS authentication can be linked with user_ldap plugins to recognize user logged with
+user_cas as the same if logged with user_ldap.
 
 INSTALLATION
 ============
@@ -48,6 +50,8 @@ Basic
 
 **Update user**: This option uses the data provided by CAS to update user attributes each time they log in.
 
+**Link to LDAP backend**: Link CAS authentication with LDAP users and groups backend to use same owncloud user than if user logged with LDAP.
+
 Mapping
 -------
 
@@ -58,6 +62,15 @@ If CAS provides extra attributes, user_cas can retrieve the values of them. Sinc
 **Display Name**: Name of display name attribute in CAS (this might be the "real name" of a user)
 
 **Group**: Name of group attribute in CAS 
+
+PHP-CAS Library
+---------------
+
+Setting up the PHP-CAS library options :
+
+**PHP CAS path (CAS.php file)**: Set path to CAS.php file of the library to use.
+
+**PHP CAS debug file**: Set path to the debug file.
 
 EXTRA INFO
 ==========

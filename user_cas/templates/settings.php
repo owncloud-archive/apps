@@ -8,6 +8,7 @@
 		<li><a href="#casSettings-1"><?php p($l->t('CAS Server'));?></a></li>
 	        <li><a href="#casSettings-2"><?php p($l->t('Basic'));?></a></li>
 		<li><a href="#casSettings-3"><?php p($l->t('Mapping'));?></a></li>
+		<li><a href="#casSettings-4"><?php p($l->t('PHP-CAS Library'));?></a></li>
 	</ul>
 
 	<fieldset id="casSettings-1">
@@ -28,6 +29,7 @@
 	</fieldset>
 	<fieldset id="casSettings-2">
 	<p><label for="cas_autocreate"><?php p($l->t('Autocreate user after CAS login?'));?></label><input type="checkbox" id="cas_autocreate" name="cas_autocreate" <?php print_unescaped((($_['cas_autocreate'] != false) ? 'checked="checked"' : '')); ?>></p>
+	<p><label for="cas_link_to_ldap_backend"><?php p($l->t('Link CAS authentication with LDAP users and groups backend'));?></label><input type="checkbox" id="cas_link_to_ldap_backend" name="cas_link_to_ldap_backend" <?php print_unescaped((($_['cas_link_to_ldap_backend'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_update_user_data"><?php p($l->t('Update user data after login?'));?></label><input type="checkbox" id="cas_update_user_data" name="cas_update_user_data" <?php print_unescaped((($_['cas_update_user_data'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_protected_groups"><?php p($l->t('Groups that will not be unlinked from the user when sync the CAS server and the owncloud'));?></label><input type="text" id="cas_protected_groups" name="cas_protected_groups" value="<?php p($_['cas_protected_groups']); ?>" /></p> <?php p($l->t('(protected grop are multivalued, use comma to separate the values)')); ?>
         <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and no group data was found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
@@ -37,6 +39,10 @@
 		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php p($_['cas_email_mapping']); ?>" /></p>
 		<p><label for="cas_displayName_mapping"><?php p($l->t('Display Name'));?></label><input type="text" id="cas_displayName_mapping" name="cas_displayName_mapping" value="<?php p($_['cas_displayName_mapping']); ?>" /></p>
 		<p><label for="cas_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="cas_group_mapping" name="cas_group_mapping" value="<?php p($_['cas_group_mapping']); ?>" /></p>
+	</fieldset>
+	<fieldset id="casSettings-4">
+		<p><label for="cas_php_cas_path"><?php p($l->t('PHP CAS path (CAS.php file)'));?></label><input type="text" id="cas_php_cas_path" name="cas_php_cas_path" value="<?php p($_['cas_php_cas_path']); ?>" /></p>
+		<p><label for="cas_debug_file"><?php p($l->t('PHP CAS debug file'));?></label><input type="text" id="cas_debug_file" name="cas_debug_file" value="<?php p($_['cas_debug_file']); ?>" /></p>
 	</fieldset>
 	<input type="submit" value="Save" />
 	</div>
