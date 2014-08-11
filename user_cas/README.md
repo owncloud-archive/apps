@@ -3,6 +3,8 @@ INTRODUCTION
 
 This App provide CAS authentication support, using the phpCAS library of Jasig.
 
+CAS authentication can be linked with user_ldap plugins to recognize user logged with
+user_cas as the same if logged with user_ldap.
 
 INSTALLATION
 ============
@@ -47,6 +49,8 @@ Basic
 **Autocreate user**: This option enables automatic creation of users authenticated against CAS. This means, users which do not exist in the database yet authenticat against CAS and the app will create and store them in the database on their first login. Default: on.
 
 **Update user**: This option uses the data provided by CAS to update user attributes each time they log in.
+
+**Link to LDAP backend**: Link CAS authentication with LDAP users and groups backend to use same owncloud user than if user logged with LDAP.
 
 Mapping
 -------

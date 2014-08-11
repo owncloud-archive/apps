@@ -22,6 +22,9 @@
  *
  */
 
+require_once(__DIR__ . '/lib/ldap_backend_adapter.php');
+use OCA\user_cas\lib\LdapBackendAdapter;
+
 class OC_USER_CAS extends OC_User_Backend {
 
 	// cached settings
@@ -35,6 +38,8 @@ class OC_USER_CAS extends OC_User_Backend {
 	//public $initialized = false;
 	protected static $instance = null;
 	protected static $_initialized_php_cas = false;
+	private $ldapBackendAdapter=false;
+	private $cas_link_to_ldap_backend=false;
 
 	public static function getInstance() {
 		if (self::$instance == null) {
@@ -45,6 +50,7 @@ class OC_USER_CAS extends OC_User_Backend {
 
 	public function __construct() {
 		$this->autocreate = OCP\Config::getAppValue('user_cas', 'cas_autocreate', true);
+		$this->cas_link_to_ldap_backend = \OCP\Config::getAppValue('user_cas', 'cas_link_to_ldap_backend', false);
 		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', true);
 		$this->defaultGroup = OCP\Config::getAppValue('user_cas', 'cas_default_group', '');
 		$this->protectedGroups = explode (',', str_replace(' ', '', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', '')));
@@ -90,7 +96,14 @@ class OC_USER_CAS extends OC_User_Backend {
 		return self :: $_initialized_php_cas;
 	}
 
+	private function initializeLdapBackendAdapter() {
+		if (!$this->cas_link_to_ldap_backend) {
+			return false;
 		}
+		if ($this -> ldapBackendAdapter === false) {
+			$this -> ldapBackendAdapter = new LdapBackendAdapter();
+		}
+		return true;
 	}
 
 	public function checkPassword($uid, $password) {
@@ -103,6 +116,21 @@ class OC_USER_CAS extends OC_User_Backend {
 		}
 
 		$uid = phpCAS::getUser();
+		if ($uid === false) {
+			OC_Log::write('cas','phpCAS return no user !', OC_Log::ERROR);
+			return false;
+		}
+
+		if ($this->initializeLdapBackendAdapter()) {
+			OC_Log::write('cas',"Search CAS user '$uid' in LDAP", OC_Log::DEBUG);
+			//Retrieve user in LDAP directory
+			$ocname = $this->ldapBackendAdapter->getUuid($uid);
+
+			if (($uid !== false) && ($ocname !== false)) {
+				OC_Log::write('cas',"Found CAS user '$uid' in LDAP with name '$ocname'", OC_Log::DEBUG);
+				return $ocname;
+			}
+		}
 		return $uid;
 	}
 

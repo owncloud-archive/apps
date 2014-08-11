@@ -29,6 +29,7 @@
 	</fieldset>
 	<fieldset id="casSettings-2">
 	<p><label for="cas_autocreate"><?php p($l->t('Autocreate user after CAS login?'));?></label><input type="checkbox" id="cas_autocreate" name="cas_autocreate" <?php print_unescaped((($_['cas_autocreate'] != false) ? 'checked="checked"' : '')); ?>></p>
+	<p><label for="cas_link_to_ldap_backend"><?php p($l->t('Link CAS authentication with LDAP users and groups backend'));?></label><input type="checkbox" id="cas_link_to_ldap_backend" name="cas_link_to_ldap_backend" <?php print_unescaped((($_['cas_link_to_ldap_backend'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_update_user_data"><?php p($l->t('Update user data after login?'));?></label><input type="checkbox" id="cas_update_user_data" name="cas_update_user_data" <?php print_unescaped((($_['cas_update_user_data'] != false) ? 'checked="checked"' : '')); ?>></p>
 	<p><label for="cas_protected_groups"><?php p($l->t('Groups that will not be unlinked from the user when sync the CAS server and the owncloud'));?></label><input type="text" id="cas_protected_groups" name="cas_protected_groups" value="<?php p($_['cas_protected_groups']); ?>" /></p> <?php p($l->t('(protected grop are multivalued, use comma to separate the values)')); ?>
         <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and no group data was found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
