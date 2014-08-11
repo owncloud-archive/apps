@@ -94,6 +94,9 @@ class OC_USER_CAS extends OC_User_Backend {
 	}
 
 	public function checkPassword($uid, $password) {
+		if (!self :: initialized_php_cas()) {
+			return false;
+		}
 
 		if(!phpCAS::isAuthenticated()) {
 			return false;
