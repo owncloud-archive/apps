@@ -34,6 +34,7 @@ class OC_USER_CAS extends OC_User_Backend {
 	public $groupMapping;
 	//public $initialized = false;
 	protected static $instance = null;
+	protected static $_initialized_php_cas = false;
 
 	public static function getInstance() {
 		if (self::$instance == null) {
@@ -43,11 +44,6 @@ class OC_USER_CAS extends OC_User_Backend {
 	}
 
 	public function __construct() {
-		// These are default values for the first login and should be changed via GUI
-		$CAS_HOSTNAME = 'your.domain.org';
-		$CAS_PORT = '443';
-		$CAS_PATH = '/cas';
-
 		$this->autocreate = OCP\Config::getAppValue('user_cas', 'cas_autocreate', true);
 		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', true);
 		$this->defaultGroup = OCP\Config::getAppValue('user_cas', 'cas_default_group', '');
@@ -56,15 +52,32 @@ class OC_USER_CAS extends OC_User_Backend {
 		$this->displayNameMapping = OCP\Config::getAppValue('user_cas', 'cas_displayName_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_cas', 'cas_group_mapping', '');
 
-		$casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '2.0');
-		$casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', $CAS_HOSTNAME);
-		$casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', $CAS_PORT);
-		$casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', $CAS_PATH);
-		$casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
+		self :: initialized_php_cas();
+	}
 
-		global $initialized_cas;
+	public static function initialized_php_cas() {
+		if(!self :: $_initialized_php_cas) {
+			$casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '2.0');
+			$casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', $_SERVER['SERVER_NAME']);
+			$casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', 443);
+			$casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas');
+			$casDebugFile=OCP\Config::getAppValue('user_cas', 'cas_debug_file', '');
+			$casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
+			$php_cas_path=OCP\Config::getAppValue('user_cas', 'cas_php_cas_path', 'CAS.php');
 
-		if(!$initialized_cas) {
+			if (!class_exists('phpCAS')) {
+				if (empty($php_cas_path)) $php_cas_path='CAS.php';
+				OC_Log::write('cas',"Try to load phpCAS library ($php_cas_path)", OC_Log::DEBUG);
+				include_once($php_cas_path);
+				if (!class_exists('phpCAS')) {
+					OC_Log::write('cas','Fail to load phpCAS library !', OC_Log::ERROR);
+					return false;
+				}
+			}
+
+			if ($casDebugFile !== '') {
+				phpCAS::setDebug($casDebugFile);
+			}
 			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
 			if(!empty($casCertPath)) {
 				phpCAS::setCasServerCACert($casCertPath);
@@ -72,7 +85,11 @@ class OC_USER_CAS extends OC_User_Backend {
 			else {
 				phpCAS::setNoCasServerValidation();
 			}
-			$initialized_cas = true;
+			self :: $_initialized_php_cas = true;
+		}
+		return self :: $_initialized_php_cas;
+	}
+
 		}
 	}
 

@@ -59,6 +59,15 @@ If CAS provides extra attributes, user_cas can retrieve the values of them. Sinc
 
 **Group**: Name of group attribute in CAS 
 
+PHP-CAS Library
+---------------
+
+Setting up the PHP-CAS library options :
+
+**PHP CAS path (CAS.php file)**: Set path to CAS.php file of the library to use.
+
+**PHP CAS debug file**: Set path to the debug file.
+
 EXTRA INFO
 ==========
 

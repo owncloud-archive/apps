@@ -8,6 +8,7 @@
 		<li><a href="#casSettings-1"><?php p($l->t('CAS Server'));?></a></li>
 	        <li><a href="#casSettings-2"><?php p($l->t('Basic'));?></a></li>
 		<li><a href="#casSettings-3"><?php p($l->t('Mapping'));?></a></li>
+		<li><a href="#casSettings-4"><?php p($l->t('PHP-CAS Library'));?></a></li>
 	</ul>
 
 	<fieldset id="casSettings-1">
@@ -37,6 +38,10 @@
 		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php p($_['cas_email_mapping']); ?>" /></p>
 		<p><label for="cas_displayName_mapping"><?php p($l->t('Display Name'));?></label><input type="text" id="cas_displayName_mapping" name="cas_displayName_mapping" value="<?php p($_['cas_displayName_mapping']); ?>" /></p>
 		<p><label for="cas_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="cas_group_mapping" name="cas_group_mapping" value="<?php p($_['cas_group_mapping']); ?>" /></p>
+	</fieldset>
+	<fieldset id="casSettings-4">
+		<p><label for="cas_php_cas_path"><?php p($l->t('PHP CAS path (CAS.php file)'));?></label><input type="text" id="cas_php_cas_path" name="cas_php_cas_path" value="<?php p($_['cas_php_cas_path']); ?>" /></p>
+		<p><label for="cas_debug_file"><?php p($l->t('PHP CAS debug file'));?></label><input type="text" id="cas_debug_file" name="cas_debug_file" value="<?php p($_['cas_debug_file']); ?>" /></p>
 	</fieldset>
 	<input type="submit" value="Save" />
 	</div>

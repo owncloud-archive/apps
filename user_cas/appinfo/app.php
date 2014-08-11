@@ -27,8 +27,6 @@
 
 if (OCP\App::isEnabled('user_cas')) {
 
-	include_once('CAS.php');
-
 	require_once 'user_cas/user_cas.php';
 
 	OCP\App::registerAdmin('user_cas', 'settings');
@@ -43,16 +41,20 @@ if (OCP\App::isEnabled('user_cas')) {
 
 	if( isset($_GET['app']) && $_GET['app'] == 'user_cas' ) {
 
-		require_once 'user_cas/auth.php';
+		if (OC_USER_CAS :: initialized_php_cas()) {
 
-		if (!OC_User::login('', '')) {
-			$error = true;
-			OC_Log::write('cas','Error trying to authenticate the user', OC_Log::DEBUG);
-		}
+			phpCAS::forceAuthentication();
+
+			if (!OC_User::login('', '')) {
+				$error = true;
+				OC_Log::write('cas','Error trying to authenticate the user', OC_Log::DEBUG);
+			}
 		
-		if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] != 'app=user_cas') {
-			header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
-			exit();
+			if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] != 'app=user_cas') {
+				header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
+				exit();
+			}
+
 		}
 
 		OC::$REQUESTEDAPP = '';
