@@ -26,6 +26,7 @@
 class OC_USER_SAML_Hooks {
 
 	static public function post_login($parameters) {
+		$uid = '';
 		$userid = $parameters['uid'];
 		$samlBackend = new OC_USER_SAML();
 
@@ -80,6 +81,8 @@ class OC_USER_SAML_Hooks {
 
 function get_user_attributes($uid, $samlBackend) {
 	$attributes = $samlBackend->auth->getAttributes();
+	$result = array();
+
 	$result['email'] = '';
 	foreach ($samlBackend->mailMapping as $mailMapping) {
 		if (array_key_exists($mailMapping, $attributes) && !empty($attributes[$mailMapping][0])) {
@@ -111,7 +114,7 @@ function get_user_attributes($uid, $samlBackend) {
 }
 
 
-function update_user_data($uid, $email=null, $groups=null, $protectedGroups='', $displayName=null, $just_created=false) {
+function update_user_data($uid, $email=null, $groups=null, $protectedGroups=array(), $displayName=null, $just_created=false) {
 	OC_Util::setupFS($uid);
 	OCP\Util::writeLog('saml','Updating data of the user: '.$uid, OCP\Util::DEBUG);
 	if(isset($email)) {
