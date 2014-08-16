@@ -1,30 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Invalid date/time" => "Μη-έγκυρη ημερομηνία/ώρα",
 "Tasks" => "Εργασίες",
-"Due" => "Προθεσμία",
-"List" => "Λίστα",
-"Location" => "Τοποθεσία",
-"No category" => "Χωρίς κατηγορία",
-"Unspecified" => "Απροσδιόριστο",
-"1=highest" => "1=υψηλότερο",
-"5=medium" => "5=μέτριο",
-"9=lowest" => "9=χαμηλότερο",
-"Empty Summary" => "Άδεια περίληψη",
-"Invalid percent complete" => "Μη έγκυρο ποσοστό ολοκλήρωσης",
-"Invalid priority" => "Μη έγκυρη προτεραιότητα ",
-"The calendar application also need to be enabled to use this application." => "Η εφαρμογή του ημερολογίου πρέπει επίσης να είναι ενεργοποιημένη για να χρησιμοποιήσετε αυτή την εφαρμογή.",
-"Add Task" => "Προσθήκη εργασίας",
-"Order Due" => "Προθεσμία",
-"Order List" => "Λίστα",
-"Order Complete" => "Ολοκληρωμένα",
-"Order Location" => "Τοποθεσία",
-"Order Priority" => "Προτεραιότητα",
-"Order Label" => "Ετικέτα",
-"Loading tasks..." => "Φόρτωση εργασιών...",
-"Important" => "Σημαντικό ",
-"More" => "Περισσότερα",
-"Less" => "Λιγότερα",
-"Delete" => "Διαγραφή"
+"Important" => "Σημαντικό "
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

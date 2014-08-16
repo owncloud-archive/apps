@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-06-08 00:48-0400\n"
-"PO-Revision-Date: 2014-06-07 15:10+0000\n"
-"Last-Translator: obakfahad <obak.krondon@gmail.com>\n"
+"POT-Creation-Date: 2014-08-16 00:48-0400\n"
+"PO-Revision-Date: 2014-08-16 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "তারিখ/সময় সঠিক নয়"
+msgstr ""
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -28,84 +28,84 @@ msgstr "কর্ম"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr "বকেয়া"
+msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "তালিকা"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr "অবস্থান"
+msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "কোন ক্যাটেগরি  নেই"
+msgstr ""
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr "অনির্ধারিত"
+msgstr ""
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr "১ = সর্বোচ্চ"
+msgstr ""
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr "৫ = মধ্যম"
+msgstr ""
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr "৯ = সর্বনিম্ন"
+msgstr ""
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "সারাংশটি ফাঁকা"
+msgstr ""
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "শতকরা সুম্পন্ন হওয়া সঠিক নয়"
+msgstr ""
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr "গুরুত্বটি সঠিক নয়"
+msgstr ""
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "এই আ্যাপলিকেশনটি ব্যবহার করতে হলে দিনপঞ্জীকা এ্যাপলিকেশনটি চালু করতে হবে ।"
+msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "কর্ম যোগ কর"
+msgstr ""
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "মুলতুবি রাখা নির্দেশ"
+msgstr ""
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "নির্দেশ তালিকা"
+msgstr ""
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "নির্দেশ নির্বাহ সুসম্পন্ন হয়েছে"
+msgstr ""
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "নির্দেশের অবস্থান"
+msgstr ""
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "নির্দেশের গুরুত্ব"
+msgstr ""
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "নির্দেশের আখ্যা"
+msgstr ""
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "কর্মসমূহ লোড করা হচ্ছে"
+msgstr ""
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -113,12 +113,12 @@ msgstr "গুরুত্বপূর্ণ"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "বেশী"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "কম"
+msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "মুছে ফেল"
+msgstr ""

@@ -1,30 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Invalid date/time" => "Virheellinen päivä tai aika",
 "Tasks" => "Tehtävät",
-"Due" => "Erääntyy",
-"List" => "Lista",
-"Location" => "Sijainti",
-"No category" => "Ei luokkaa",
-"Unspecified" => "Määrittelemätön",
-"1=highest" => "1=korkein",
-"5=medium" => "5=keskitaso",
-"9=lowest" => "9=matalin",
-"Empty Summary" => "Tyhjä yhteenveto",
-"Invalid percent complete" => "Epäselvä prosenttiosuus valmistunut",
-"Invalid priority" => "Virheellinen prioriteetti",
-"The calendar application also need to be enabled to use this application." => "Myös kalenterisovellus on aktivoitava jotta tätä sovellusta voi käyttää. ",
-"Add Task" => "Lisää tehtävä",
-"Order Due" => "Järjestys määräaikaan mennessä",
-"Order List" => "Järjestys listana",
-"Order Complete" => "Järjestys valmistumisen mukaan",
-"Order Location" => "Järjestys paikan mukaan",
-"Order Priority" => "Järjestys kiireellisyyden mukaan",
-"Order Label" => "Järjestys leiman mukaan",
-"Loading tasks..." => "Ladataan tehtäviä...",
-"Important" => "Tärkeä",
-"More" => "Enemmän",
-"Less" => "Vähemmän",
-"Delete" => "Poista"
+"Important" => "Tärkeä"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

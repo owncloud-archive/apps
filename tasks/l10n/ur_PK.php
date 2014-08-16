@@ -1,30 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Invalid date/time" => "غلط تاریخ / وقت",
 "Tasks" => "کام",
-"Due" => "باقی",
-"List" => "فہرست",
-"Location" => "مقام",
-"No category" => "کوئی قسم نہیں",
-"Unspecified" => "غیر منسوب",
-"1=highest" => "1 = سب سے زیادہ",
-"5=medium" => "5 = متوسط",
-"9=lowest" => "9 = سب سے کم",
-"Empty Summary" => "خالی خلاصہ",
-"Invalid percent complete" => "غلط مکمل فصید",
-"Invalid priority" => "غلط ترجیح",
-"The calendar application also need to be enabled to use this application." => "اس پروگرام کو استعمال کرنے کے لئے کیلنڈر اپلیکیشن کوبھی فعال کرنے کی ضرورت ہے",
-"Add Task" => "کام شامل کریں",
-"Order Due" => " آرڈر باقی",
-"Order List" => "آرڈر کی فہرست",
-"Order Complete" => "آرڈر مکمل",
-"Order Location" => "آرڈر مقام",
-"Order Priority" => "آرڈر ترجیح",
-"Order Label" => "آرڈر لیبل",
-"Loading tasks..." => "کام لوڈ ہو رہے ہیں",
-"Important" => "اہم",
-"More" => "مزید",
-"Less" => "کم",
-"Delete" => "حذف کریں"
+"Important" => "اہم"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

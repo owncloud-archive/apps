@@ -1,30 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Invalid date/time" => "date/heure invalide",
 "Tasks" => "Tâches",
-"Due" => "Dû",
-"List" => "Liste",
-"Location" => "Emplacement",
-"No category" => "Aucune catégorie",
-"Unspecified" => "Non spécifié",
-"1=highest" => "1=le plus important",
-"5=medium" => "5=importance moyenne",
-"9=lowest" => "9=le moins important",
-"Empty Summary" => "Résumé vide",
-"Invalid percent complete" => "Pourcentage d'achèvement invalide",
-"Invalid priority" => "Priorité invalide",
-"The calendar application also need to be enabled to use this application." => "Il est nécessaire d'activer également l'application calendrier pour pouvoir utiliser cette application.",
-"Add Task" => "Ajouter une tâche",
-"Order Due" => "Trier par échéance",
-"Order List" => "Liste des tâches",
-"Order Complete" => "Tâches réalisées",
-"Order Location" => "Trier par lieu",
-"Order Priority" => "Trier par priorité",
-"Order Label" => "Trier par étiquette",
-"Loading tasks..." => "Chargement des tâches…",
-"Important" => "Important",
-"More" => "Plus",
-"Less" => "Moins",
-"Delete" => "Supprimer"
+"Important" => "Important"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n > 1);";

@@ -1,30 +1,6 @@
 <?php
 $TRANSLATIONS = array(
-"Invalid date/time" => "Netinkama data/laikas",
 "Tasks" => "Užduotys",
-"Due" => "Terminas",
-"List" => "Sąrašas",
-"Location" => "Vieta",
-"No category" => "Be kategorijos",
-"Unspecified" => "Nenurodyta",
-"1=highest" => "1=didžiausias",
-"5=medium" => "5=vidutinis",
-"9=lowest" => "9=žemiausias",
-"Empty Summary" => "Tuščias aprašymas",
-"Invalid percent complete" => "Netinkamas baigimo procentas",
-"Invalid priority" => "Netinkamas prioritetas",
-"The calendar application also need to be enabled to use this application." => "Kalendorius turi būti įjungtas norint naudotis šia programėle.",
-"Add Task" => "Pridėti užduotį",
-"Order Due" => "Rikiuoti pagal datą",
-"Order List" => "Rikiuoti pagal sąrašą",
-"Order Complete" => "Rikiuoti pagal pabaigtus",
-"Order Location" => "Rikiuoti pagal vietą",
-"Order Priority" => "Rikiuoti pagal prioritetą",
-"Order Label" => "Rikiuoti pagal etiketę",
-"Loading tasks..." => "kraunamos užduotys...",
-"Important" => "Svarbūs",
-"More" => "Daugiau",
-"Less" => "Mažiau",
-"Delete" => "Ištrinti"
+"Important" => "Svarbūs"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);";
