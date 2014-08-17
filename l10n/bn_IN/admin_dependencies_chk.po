@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Bibhas C Debnath <me@bibhas.in>, 2014
 # ishita mukherjee <ishitamukh91@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-06 00:48-0400\n"
-"PO-Revision-Date: 2014-08-06 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-08-17 00:48-0400\n"
+"PO-Revision-Date: 2014-08-16 05:10+0000\n"
+"Last-Translator: Bibhas C Debnath <me@bibhas.in>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/projects/p/owncloud/language/bn_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +23,12 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "PHP-JSON মডিউল পারস্পরিক যোগাযোগের জন্য অনেক অ্যাপ্লিকেশন দ্বারা প্রয়োজন হয়"
+msgstr "PHP-JSON মডিউলটি পারস্পরিক যোগাযোগের জন্য অনেক অ্যাপ্লিকেশন দ্বারা প্রয়োজন হয়"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr "একটি বুকমার্ক যোগ করার সময় PHP-কার্ল মডিউল শিরোনামটি আনা প্রয়োজন"
+msgstr "একটি বুকমার্ক যোগ করার সময় শিরোনামটি আনার জন্য PHP-CURL মডিউলটি প্রয়োজন"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -39,11 +40,11 @@ msgstr "PHP-LDAP মডিউল আপনার LDAP সার্ভারে �
 
 #: settings.php:57
 msgid "The php-bcmath module is needed to support AD primary groups"
-msgstr ""
+msgstr "PHP-BCMATH মডিউলটি AD প্রাথমিক গ্রুপগুলিকে সহায়তা করার জন্য প্রয়োজন হয়"
 
 #: settings.php:63
 msgid "The php-zip module is needed to download multiple files at once"
-msgstr ""
+msgstr "PHP-ZIP মডিউলটি একযোগে একাধিক ফাইল ডাউনলোড করার জন্য প্রয়োজন হয়"
 
 #: settings.php:69
 msgid ""

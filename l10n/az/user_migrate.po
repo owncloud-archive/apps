@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unixidzero <unixidzero@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-04-16 00:49-0400\n"
-"PO-Revision-Date: 2014-04-16 04:49+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-08-17 00:48-0400\n"
+"PO-Revision-Date: 2014-08-16 09:50+0000\n"
+"Last-Translator: unixidzero <unixidzero@gmail.com>\n"
 "Language-Team: Azerbaijani (http://www.transifex.com/projects/p/owncloud/language/az/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +20,20 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20 templates/settings.php:7
 msgid "Export"
-msgstr ""
+msgstr "Çıxarış"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr ""
+msgstr "Çixarış faylının genersiyası zamanı nə isə səhv baş verdi"
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr ""
+msgstr "Səhv baş verdi"
 
 #: templates/settings.php:2
 msgid "Account Export/Import"
-msgstr ""
+msgstr "Hesab Çıxariş/Götürmə"
 
 #: templates/settings.php:12
 msgid "Import"
-msgstr ""
+msgstr "Əlavə et"
