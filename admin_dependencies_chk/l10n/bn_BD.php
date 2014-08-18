@@ -3,6 +3,7 @@ $TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "আন্তঃযোগাযোগের জন্য  php-json module মডিউলটি অনেক অ্যাপ্লিকেসন ব্যবহার করে থাকে",
 "The php-gd module is needed to create thumbnails of your images" => "আপনার ছবির অঙ্গুলীবীক্ষণ তৈরী করার জন্য php-gd  মডিউলটি আবশ্যক",
 "The php-ldap module is needed connect to your ldap server" => "ldap সার্ভারে সংযুক্ত হওয়ার জন্য php-ldap মডিউলটি আবশ্যক",
+"The php-bcmath module is needed to support AD primary groups" => "AD primary group সাপোরট করতে php-bcmath module দরকারি",
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "সঠিকভাবে সংকেতায়ন করতে  php-mb_multibyte মডিউলটি আবশ্যক।",
 "The php-ctype module is needed validate data." => "উপাত্ত  নিশ্চিত করার জন্য php-ctype মডিউলটি আবশ্যক।",
 "The php-xml module is needed to share files with webdav." => "webdav এর সাথে ফাইলগুলো ভাগাভাগি করার জন্য  php-xml মডিউলটি আবশ্যক।",

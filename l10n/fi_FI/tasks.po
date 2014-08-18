@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Ari Takalo <ari.takalo@iki.fi>, 2012
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012,2014
 # teho <tehoratopato@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-17 00:48-0400\n"
-"PO-Revision-Date: 2014-08-17 04:48+0000\n"
+"POT-Creation-Date: 2014-08-18 00:48-0400\n"
+"PO-Revision-Date: 2014-08-18 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
