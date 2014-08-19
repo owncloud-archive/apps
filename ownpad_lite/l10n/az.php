@@ -5,6 +5,7 @@ $TRANSLATIONS = array(
 "My pad" => "Mənim qeydiyyatım",
 "Settings" => "Quraşdırmalar",
 "Share" => "Yayımla",
+"Username" => "İstifadəçi adı",
 "Save" => "Saxlamaq"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

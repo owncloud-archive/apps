@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Albion von Darx, 2013
+# Jaroslav Lichtblau <jaroslav@lichtblau.cz>, 2014
 # Martin Skopal <fireball@atlas.cz>, 2012
 # Michal Hrušecký <Michal@hrusecky.net>, 2012
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-18 00:48-0400\n"
-"PO-Revision-Date: 2014-08-18 04:48+0000\n"
+"POT-Creation-Date: 2014-08-19 00:48-0400\n"
+"PO-Revision-Date: 2014-08-19 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
