@@ -6,6 +6,7 @@
 # Dimitris M. <monopatis@gmail.com>, 2012
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2012
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2014
+# evigiannakou <evigian@in.gr>, 2014
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012
 # Petros Kyladitis <petros.kyladitis@gmail.com>, 2012
 # Vassilis Kehayas <vkehayas@gmail.com>, 2013
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-20 00:48-0400\n"
-"PO-Revision-Date: 2014-08-20 04:48+0000\n"
+"POT-Creation-Date: 2014-08-21 00:48-0400\n"
+"PO-Revision-Date: 2014-08-21 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"

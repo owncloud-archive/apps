@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Denis <reg.transifex.net@demitel.ru>, 2012
+# Pavel <mpolr21@gmail.com>, 2014
 # Сергей Коптев <skoptev@ukr.net>, 2012
 # Victor Dubiniuk <victor.dubiniuk@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-20 00:48-0400\n"
-"PO-Revision-Date: 2014-08-20 04:48+0000\n"
+"POT-Creation-Date: 2014-08-21 00:48-0400\n"
+"PO-Revision-Date: 2014-08-21 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
