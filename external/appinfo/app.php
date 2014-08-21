@@ -32,7 +32,7 @@ for ($i = 0; $i < sizeof($sites); $i++) {
 		array(
 			'id'    => 'external_index' . ($i + 1),
 			'order' => 80 + $i,
-			'href'  => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1),
+			'href'  => OCP\Util::linkToRoute('external_index', array('id'=> $i + 1)),
 			'icon'  => OCP\Util::imagePath('external', !empty($sites[$i][2]) ? $sites[$i][2] : 'external.svg'),
 			'name'  => $sites[$i][0]
 		)
