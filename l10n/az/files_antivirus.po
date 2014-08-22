@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-19 00:48-0400\n"
-"PO-Revision-Date: 2014-08-18 13:20+0000\n"
+"POT-Creation-Date: 2014-08-22 00:48-0400\n"
+"PO-Revision-Date: 2014-08-21 14:21+0000\n"
 "Last-Translator: unixidzero <unixidzero@gmail.com>\n"
 "Language-Team: Azerbaijani (http://www.transifex.com/projects/p/owncloud/language/az/)\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: templates/settings.php:6
 msgid "Daemon (Socket)"
-msgstr ""
+msgstr "Daemon (Socket)"
 
 #: templates/settings.php:8
 msgid "Socket"
@@ -96,7 +96,7 @@ msgstr ""
 #: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
 #: templates/settings.php:11
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Yerinə yetirilmə rejimində tələb edilmir."
 
 #: templates/settings.php:9
 msgid "Host"
