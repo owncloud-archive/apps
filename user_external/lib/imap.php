@@ -47,6 +47,7 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 		imap_alerts();
 		if($mbox !== FALSE) {
 			imap_close($mbox);
+			$uid = mb_strtolower($uid);
 			$this->storeUser($uid);
 			return $uid;
 		}else{
