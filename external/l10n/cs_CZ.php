@@ -1,10 +1,10 @@
 <?php
 $TRANSLATIONS = array(
-"Please enter valid urls - they have to start with either http://, https:// or /" => "Vkládejte prosím platné adresy url - musí začínat buď http://, https:// nebo /",
+"Please enter valid urls - they have to start with either http://, https:// or /" => "Vkládejte prosím platné adresy URL - musí začínat buď http://, https:// nebo /",
 "External sites saved." => "Externí stránky uloženy.",
 "External Sites" => "Externí stránky",
 "Please note that some browsers will block displaying of sites via http if you are running https." => "Buďte si prosím vědomi, že některé prohlížeče mohou blokovat zobrazování stránek z http prostoru, pokud vy používáte https.",
-"Furthermore please note that many sites these days disallow iframing due to security reasons." => "Z bezpečnostních důvodů je také často zakázáno používání funkce iframe.",
+"Furthermore please note that many sites these days disallow iframing due to security reasons." => "Mnoho stránek také z bezpečnostních důvodů neumožňuje zobrazení v iframe.",
 "We highly recommend to test the configured sites below properly." => "Velmi doporučujeme důkladně otestovat níže nastavené stránky.",
 "Name" => "Název",
 "URL" => "URL",
