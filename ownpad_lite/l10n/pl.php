@@ -1,7 +1,7 @@
 <?php
 $TRANSLATIONS = array(
 "Document was shared" => "Dokument został udostępniony",
-"User %s shared quick document %s with you." => "Użytkownik %s współdzieli szybki dokument %s z tobą.",
+"User %s shared quick document %s with you." => "Użytkownik %s współdzieli szybki dokument %s z Tobą.",
 "My pad" => "Moja konsola",
 "Settings" => "Ustawienia",
 "Pad Title" => "Nazwa konsoli",

@@ -6,13 +6,14 @@
 # b13n1u <b13n1u@gmail.com>, 2013
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
 # Krzysztof Łojowski <maxxxrally@gmail.com>, 2014
+# Maciej Przybecki <maciej.przybecki@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-07-05 00:48-0400\n"
-"PO-Revision-Date: 2014-07-04 15:12+0000\n"
-"Last-Translator: Krzysztof Łojowski <maxxxrally@gmail.com>\n"
+"POT-Creation-Date: 2014-08-26 00:48-0400\n"
+"PO-Revision-Date: 2014-08-25 07:50+0000\n"
+"Last-Translator: Maciej Przybecki <maciej.przybecki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +62,7 @@ msgstr "Niestey w pliku który próbowałeś wysłać znaleziono złośliwe opro
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Ten e-mail jest powiadomieniem od {hosta}. Proszę nie odpowiadać."
+msgstr "Ten e-mail jest powiadomieniem od {host}. Proszę nie odpowiadać."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -85,15 +86,15 @@ msgstr "Demon"
 
 #: templates/settings.php:6
 msgid "Daemon (Socket)"
-msgstr "Demon (Gniazd)"
+msgstr "Demon (Socket)"
 
 #: templates/settings.php:8
 msgid "Socket"
-msgstr "Gniazdo"
+msgstr "Socket"
 
 #: templates/settings.php:8
 msgid "Clamav Socket."
-msgstr "Gniazdo Clamav"
+msgstr "Socket Clamav"
 
 #: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
 #: templates/settings.php:11
@@ -106,7 +107,7 @@ msgstr "Host"
 
 #: templates/settings.php:9
 msgid "Address of Antivirus Host."
-msgstr "Adres hosta Antivirus."
+msgstr "Adres serwera antywirusowego."
 
 #: templates/settings.php:10
 msgid "Port"
@@ -114,7 +115,7 @@ msgstr "Port"
 
 #: templates/settings.php:10
 msgid "Port number of Antivirus Host."
-msgstr "Numer portu hosta Antivirus."
+msgstr "Numer portu serwera antywirusowego."
 
 #: templates/settings.php:11
 msgid "Stream Length"
@@ -142,7 +143,7 @@ msgstr "Działania dla zainfekowanych plików znalezionych podczas skanowania"
 
 #: templates/settings.php:14
 msgid "Only log"
-msgstr "Tylko log"
+msgstr "Tylko loguj"
 
 #: templates/settings.php:14
 msgid "Delete file"
@@ -170,7 +171,7 @@ msgstr "Przywróć domyślne"
 
 #: templates/settings.php:29
 msgid "Match by"
-msgstr "Zgodność z"
+msgstr "Pasujące do"
 
 #: templates/settings.php:30
 msgid "Scanner exit status or signature to search"
@@ -182,7 +183,7 @@ msgstr "Opis"
 
 #: templates/settings.php:32
 msgid "Mark as"
-msgstr "Oznaczono jako"
+msgstr "Oznacz jako"
 
 #: templates/settings.php:39
 msgid "Add a rule"

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
+# Maciej Przybecki <maciej.przybecki@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
-"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-07-31 00:49-0400\n"
-"PO-Revision-Date: 2013-07-30 12:12+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2014-08-26 00:48-0400\n"
+"PO-Revision-Date: 2014-08-25 08:20+0000\n"
+"Last-Translator: Maciej Przybecki <maciej.przybecki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr "Dostawca OpenID zapamiętywane witryny"
+msgstr "Zapamiętane serwery dostawcy OpenID"
 
 #: templates/settings.php:8
 msgid "Trusted"
@@ -28,7 +29,7 @@ msgstr "Zaufany"
 
 #: templates/settings.php:8
 msgid "Denied"
-msgstr "Zablokowany"
+msgstr "Zabroniony"
 
 #: templates/settings.php:9
 msgid "Remove"
