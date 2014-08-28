@@ -162,13 +162,13 @@ $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('escapeshellcmd') ? 'ok' : 'warning',
 	'part'=> 'escapeshellcmd',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP escapeshellcmd function is needed to find system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The PHP escapeshellcmd function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('escapeshellarg') ? 'ok' : 'warning',
 	'part'=> 'escapeshellarg',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP escapeshellarg function is needed to find system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The PHP escapeshellarg function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('shell_exec') ? 'ok' : 'warning',
@@ -180,7 +180,7 @@ $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('exec') ? 'ok' : 'warning',
 	'part'=> 'exec',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP escapeshellarg function is needed to find system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The PHP exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 foreach($modules as $key => $module) {
 	$enabled = false ;
