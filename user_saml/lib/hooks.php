@@ -46,8 +46,7 @@ class OC_USER_SAML_Hooks {
 			if ($usernameFound && $uid == $userid) {
 				if ($samlBackend->updateUserData) {
 					$attrs = get_user_attributes($uid, $samlBackend);
-					update_user_data($uid, $attrs['email'], $attrs['groups'],
-						$attrs['protected_groups'], $attrs['display_name']);
+					update_user_data($uid, $attrs);
 				}
 				return true;
 			}
@@ -61,8 +60,7 @@ class OC_USER_SAML_Hooks {
 		if (!$samlBackend->updateUserData) {
 			// Ensure that user data will be filled atleast once
 			$attrs = get_user_attributes($uid, $samlBackend);
-			update_user_data($uid, $attrs['email'], $attrs['groups'],
-				$attrs['protected_groups'], $attrs['display_name'], true);
+			update_user_data($uid, $attrs, true);
 		}
 	}
 
@@ -110,21 +108,40 @@ function get_user_attributes($uid, $samlBackend) {
 		OCP\Util::writeLog('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OCP\Util::DEBUG);
 	}
 	$result['protected_groups'] = $samlBackend->protectedGroups;
+
+	$result['quota'] = '';
+	if (!empty($samlBackend->quotaMapping)) {
+		foreach ($samlBackend->quotaMapping as $quotaMapping) {
+			if (array_key_exists($quotaMapping, $attributes) && !empty($attributes[$quotaMapping][0])) {
+				$result['quota'] = $attributes[$quotaMapping][0];
+				break;
+			}
+		}
+		OCP\Util::writeLog('saml','Current quota: "'.$result['quota'].'" for user: '.$uid, OCP\Util::DEBUG);
+	}
+	if (empty($result['quota']) && !empty($samlBackend->defaultQuota)) {
+		$result['quota'] = $samlBackend->defaultQuota;
+		OCP\Util::writeLog('saml','Using default quota ('.$result['quota'].') for user: '.$uid, OCP\Util::DEBUG);
+	}
+
 	return $result;	
 }
 
 
-function update_user_data($uid, $email=null, $groups=null, $protectedGroups=array(), $displayName=null, $just_created=false) {
+function update_user_data($uid, $attributes=array(), $just_created=false) {
 	OC_Util::setupFS($uid);
 	OCP\Util::writeLog('saml','Updating data of the user: '.$uid, OCP\Util::DEBUG);
-	if(isset($email)) {
-		update_mail($uid, $email);
+	if(isset($attributes['email'])) {
+		update_mail($uid, $attributes['email']);
 	}
-	if (isset($groups)) {
-		update_groups($uid, $groups, $protectedGroups, $just_created);
+	if (isset($attributes['groups'])) {
+		update_groups($uid, $attributes['groups'], $attributes['protected_groups'], $just_created);
 	}
-	if (isset($displayName)) {
-		update_display_name($uid, $displayName);
+	if (isset($attributes['display_name'])) {
+		update_display_name($uid, $attributes['display_name']);
+	}
+	if (isset($attributes['quota'])) {
+		update_quota($uid, $attributes['quota']);
 	}
 }	
 
