@@ -1,5 +1,8 @@
 <?php
 $TRANSLATIONS = array(
+"Legal notice" => "আইনী বিজ্ঞপ্তি",
+"Nothing here yet" => "এখনো এখানে কিছু নেই",
+"The content of the legal notice has to be configured first" => "প্রথমে আইনী বিজ্ঞপ্তির বিষয়বস্তু কনফিগার করতে হবে",
 "Imprint" => "প্রতিচ্ছাপ"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

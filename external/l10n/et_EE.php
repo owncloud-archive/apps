@@ -8,6 +8,7 @@ $TRANSLATIONS = array(
 "We highly recommend to test the configured sites below properly." => "Tungivalt soovitame testida allpool sisestatud saitide seadistust.",
 "Name" => "Nimi",
 "URL" => "URL",
+"Select an icon" => "Vali ikoon",
 "Remove site" => "Eemalda sait",
 "Add" => "Lisa"
 );
