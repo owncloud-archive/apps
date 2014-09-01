@@ -1,6 +1,17 @@
 <?php
 $TRANSLATIONS = array(
+"Invalid date/time" => "ئىناۋەتسىز چېسلا/ۋاقىت",
 "Tasks" => "ۋەزىپەلەر",
-"Important" => "مۇھىم"
+"Due" => "مۆھلىتى",
+"List" => "تىزىم",
+"Location" => "ئورنى",
+"No category" => "كاتېگورىيە يوق",
+"Unspecified" => "بەلگىلەنمىگەن",
+"Add Task" => "ۋەزىپە قوش",
+"Loading tasks..." => "ۋەزىپىلەرنى يۈكلەۋاتىدۇ…",
+"Important" => "مۇھىم",
+"More" => "تېخىمۇ كۆپ",
+"Less" => "ئاز",
+"Delete" => "ئۆچۈر"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"List" => "Senarai",
 "Location" => "Lokasi",
 "More" => "Lanjutan",
 "Delete" => "Padam"

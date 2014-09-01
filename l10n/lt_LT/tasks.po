@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "Netinkama data/laikas"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -30,84 +30,84 @@ msgstr "Užduotys"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "Terminas"
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "Sąrašas"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "Vieta"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr ""
+msgstr "Be kategorijos"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "Nenurodyta"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=didžiausias"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=vidutinis"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=žemiausias"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "Tuščias aprašymas"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "Netinkamas baigimo procentas"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Netinkamas prioritetas"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "Kalendorius turi būti įjungtas norint naudotis šia programėle."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "Pridėti užduotį"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Rikiuoti pagal datą"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Rikiuoti pagal sąrašą"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Rikiuoti pagal pabaigtus"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Rikiuoti pagal vietą"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Rikiuoti pagal prioritetą"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Rikiuoti pagal etiketę"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "kraunamos užduotys..."
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -115,12 +115,12 @@ msgstr "Svarbūs"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "Daugiau"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "Mažiau"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"

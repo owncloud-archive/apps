@@ -1,6 +1,30 @@
 <?php
 $TRANSLATIONS = array(
+"Invalid date/time" => "Невірна дата/час",
 "Tasks" => "Завдання",
-"Important" => "Важливо"
+"Due" => "Строк",
+"List" => "Список",
+"Location" => "Місце",
+"No category" => "Без категорії",
+"Unspecified" => "Невизначено",
+"1=highest" => "1=найвищий",
+"5=medium" => "5=середній",
+"9=lowest" => "9=найнижчий",
+"Empty Summary" => "Порожнє резюме",
+"Invalid percent complete" => "Невірний відсоток завершення",
+"Invalid priority" => "Невірний пріоритет",
+"The calendar application also need to be enabled to use this application." => "Для використання цього додатку також необхідно активувати додаток Календар.",
+"Add Task" => "Додати завдання",
+"Order Due" => "Строк завдання",
+"Order List" => "Список задач",
+"Order Complete" => "Завершення завдання",
+"Order Location" => "Місце завдання",
+"Order Priority" => "Пріоритет завдання",
+"Order Label" => "Мітка завдання",
+"Loading tasks..." => "Завантаження задач...",
+"Important" => "Важливо",
+"More" => "Більше",
+"Less" => "Менше",
+"Delete" => "Видалити"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";

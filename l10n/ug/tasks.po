@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Uighur (http://www.transifex.com/projects/p/owncloud/language/ug/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "ئىناۋەتسىز چېسلا/ۋاقىت"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -27,23 +27,23 @@ msgstr "ۋەزىپەلەر"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "مۆھلىتى"
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "تىزىم"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "ئورنى"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr ""
+msgstr "كاتېگورىيە يوق"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "بەلگىلەنمىگەن"
 
 #: lib/app.php:34
 msgid "1=highest"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "ۋەزىپە قوش"
 
 #: templates/tasks.php:4
 msgid "Order Due"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "ۋەزىپىلەرنى يۈكلەۋاتىدۇ…"
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -112,12 +112,12 @@ msgstr "مۇھىم"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "تېخىمۇ كۆپ"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "ئاز"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "ئۆچۈر"

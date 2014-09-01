@@ -1,5 +1,6 @@
 <?php
 $TRANSLATIONS = array(
+"List" => "Tièra",
 "Location" => "Plaça",
 "More" => "Mai d'aquò",
 "Delete" => "Escafa"

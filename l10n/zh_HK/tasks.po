@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: templates/tasks.php:26
 msgid "Less"
@@ -120,4 +120,4 @@ msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "刪除"

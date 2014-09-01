@@ -1,6 +1,30 @@
 <?php
 $TRANSLATIONS = array(
+"Invalid date/time" => "Neveljaven datum ali čas",
 "Tasks" => "Naloge",
-"Important" => "Pomembno"
+"Due" => "Rok",
+"List" => "Seznam",
+"Location" => "Mesto",
+"No category" => "Ni kategorije",
+"Unspecified" => "Nedoločeno",
+"1=highest" => "1=najvišje",
+"5=medium" => "5=srednje",
+"9=lowest" => "9=najnižje",
+"Empty Summary" => "Ni povzetka",
+"Invalid percent complete" => "Neveljaven odstotek dokončanja",
+"Invalid priority" => "Neveljavna prednost",
+"The calendar application also need to be enabled to use this application." => "Za uporabo tega programa mora biti koledar omogočen.",
+"Add Task" => "Dodaj nalogo",
+"Order Due" => "Razvrsti po roku",
+"Order List" => "Razvrsti v seznam",
+"Order Complete" => "Razvrsti po zaključenosti",
+"Order Location" => "Razvrsti po mestih",
+"Order Priority" => "Razvrsti po prednosti",
+"Order Label" => "Razvrsti po oznakah",
+"Loading tasks..." => "Poteka nalaganje nalog ...",
+"Important" => "Pomembno",
+"More" => "Več",
+"Less" => "Manj",
+"Delete" => "Izbriši"
 );
 $PLURAL_FORMS = "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);";

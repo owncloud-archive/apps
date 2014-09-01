@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "日期/時間格式錯誤"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -30,84 +30,84 @@ msgstr "工作項目"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "截止日期"
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "清單"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "地點"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr ""
+msgstr "未分類"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "未指定"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=最高"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=中等"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=最低"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "空白的摘要"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "無效的完成百分比"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "無效的優先權"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "需要啓用日曆應用程式才能使用本應用程式"
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "新增工作項目"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "依截止日期排序"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "依清單排序"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "依已完成排序"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "依地點排序"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "依優先權排序"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "依標籤排序"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "載入工作項目中..."
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -115,12 +115,12 @@ msgstr "重要"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "更少"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "刪除"

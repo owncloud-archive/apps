@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "არასწორი თარიღი/დრო"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -28,84 +28,84 @@ msgstr "დავალებები"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "საჭირო"
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "სია"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "ადგილმდებარეობა"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr ""
+msgstr "კატეგორია არ არის"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "არ არის არჩეული"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=საუკეთესო"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=საშუალო"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=უდაბლესი"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "ცარიელი რეზიუმე"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "დასრულების არასწორი პროცენტი"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "არასწორი პრიორიტეტი"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "შემდეგი აპლიკაციის ჩართვა მოითხოვს ასევე კალენდარ აპლიკაციის ჩართვას."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "დავალების დამატება"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "შეკვეთის დამატება"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "შეკვეთების სია"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "შეკვეთის დასრულება"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "შეკვეთის ადგილმდებარეობა"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "შეკვეთის პრიორიტეტი"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "შეკვეთის ეტიკეტი"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "დავალებების ჩამოტვირთვა..."
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -113,12 +113,12 @@ msgstr "აუცილებელი"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "უფრო მეტი"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "უფრო ნაკლები"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"

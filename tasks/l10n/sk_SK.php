@@ -1,6 +1,30 @@
 <?php
 $TRANSLATIONS = array(
+"Invalid date/time" => "Nesprávny dátum/čas",
 "Tasks" => "Úlohy",
-"Important" => "Dôležité"
+"Due" => "Do termínu",
+"List" => "Zoznam",
+"Location" => "Umiestnenie",
+"No category" => "Bez kategórie",
+"Unspecified" => "Nešpecifikované",
+"1=highest" => "1= najvyššia",
+"5=medium" => "5=stredná",
+"9=lowest" => "9=najnižšia",
+"Empty Summary" => "Prázdny sumár",
+"Invalid percent complete" => "Neplatné percento dokončenia",
+"Invalid priority" => "Nesprávna priorita",
+"The calendar application also need to be enabled to use this application." => "Táto aplikácia si vyžaduje aj aplikáciu Kalendár.",
+"Add Task" => "Pridať úlohu",
+"Order Due" => "Zoradiť podľa termínu",
+"Order List" => "Zoradiť podľa zoznamu",
+"Order Complete" => "Zoradiť podľa dokončenia",
+"Order Location" => "Zoradiť podľa umiestnenia",
+"Order Priority" => "Zoradiť podľa dôležitosti",
+"Order Label" => "Zoradiť podľa štítka",
+"Loading tasks..." => "Nahrávam úlohy...",
+"Important" => "Dôležité",
+"More" => "Viac",
+"Less" => "Menej",
+"Delete" => "Zmazať"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;";

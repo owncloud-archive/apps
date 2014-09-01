@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 17:01+0000\n"
+"POT-Creation-Date: 2014-09-01 00:48-0400\n"
+"PO-Revision-Date: 2014-08-31 17:22+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "செல்லுபடியற்ற திகதி/நேரம்"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -28,84 +28,84 @@ msgstr "கடமைகள்"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr ""
+msgstr "செலுத்தக்கூடிய"
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "வரிசை"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "இடம்"
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr ""
+msgstr "வகை இல்லை"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "குறிப்பிடப்படாத"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1= உயர்ந்த"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5 = நடுத்தர"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9 = குறைந்த"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "வெற்றிட சுருக்கம்"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "செல்லுபடியற்ற சதவீத முடிவு"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "தவறான முன்னுரிமை"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "இந்த செயலியை பயன்படுத்துவதற்கு நாட்காட்டி செயலியை இயலுமைப்படுத்த வேண்டும்."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "கடமையை சேர்க்க"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "காரண ஒழுங்கு"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "வரிசை பட்டியல்"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "வரிசை முடிவு"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "இட வரிசை"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "வரிசையில் முன்னுரிமை"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "சீட்டு வரிசை"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "கடமையை ஏற்றப்படுகிறது..."
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -113,12 +113,12 @@ msgstr "முக்கியமான "
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "மேலதிக"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "குறைவான"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "நீக்குக"
