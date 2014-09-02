@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 17:22+0000\n"
+"POT-Creation-Date: 2014-09-02 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/owncloud/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -32,11 +32,11 @@ msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "Listë"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr "Vendndodhja"
+msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
@@ -77,7 +77,7 @@ msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "Shto detyre"
+msgstr ""
 
 #: templates/tasks.php:4
 msgid "Order Due"
@@ -113,12 +113,12 @@ msgstr "Importo"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "Më tepër"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "M'pak"
+msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "Fshi"
+msgstr ""

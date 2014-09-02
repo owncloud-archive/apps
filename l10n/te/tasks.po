@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 17:22+0000\n"
+"POT-Creation-Date: 2014-09-02 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/owncloud/language/te/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "జాబితా"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
@@ -40,11 +40,11 @@ msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "వర్గం లేదు"
+msgstr ""
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr "పేర్కొనలేదు"
+msgstr ""
 
 #: lib/app.php:34
 msgid "1=highest"
@@ -60,7 +60,7 @@ msgstr ""
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "ఖాళీ సారాంశం"
+msgstr ""
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "మరిన్ని"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
@@ -121,4 +121,4 @@ msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "తొలగించు"
+msgstr ""

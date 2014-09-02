@@ -1,5 +1,7 @@
 <?php
 $TRANSLATIONS = array(
+"Document was shared" => "ডকুমেন্ট ভাগাভাগি করা হয়েছে",
+"User %s shared quick document %s with you." => "%s ব্যাবহারকারী %s কুইক ডকুমেন্টটি আপনার সাথে ভাগাভাগি করেছে।",
 "My pad" => "আমার প্যাড",
 "Settings" => "নিয়ামকসমূহ",
 "Pad Title" => "প্যাড শিরোনাম",

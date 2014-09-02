@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 17:22+0000\n"
+"POT-Creation-Date: 2014-09-02 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Неисправан датум или време"
+msgstr ""
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -32,15 +32,15 @@ msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "Списак"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr "Локација"
+msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "Ниједна категорија"
+msgstr ""
 
 #: lib/app.php:33
 msgid "Unspecified"
@@ -113,12 +113,12 @@ msgstr ""
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "Више"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "Мање"
+msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "Обриши"
+msgstr ""

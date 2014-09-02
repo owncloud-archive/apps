@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 17:22+0000\n"
+"POT-Creation-Date: 2014-09-02 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 04:48+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "วันที่ / เวลา ไม่ถูกต้อง"
+msgstr ""
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -28,84 +28,84 @@ msgstr "งาน"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr "วันที่ครบกำหนด"
+msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "รายการ"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr "ตำแหน่งที่อยู่"
+msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "ไม่มีหมวดหมู่"
+msgstr ""
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr "ยังไม่ได้ระบุ"
+msgstr ""
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr "1=สูงสุด"
+msgstr ""
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr "5=ปานกลาง"
+msgstr ""
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr "9=ต่ำสุด"
+msgstr ""
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "ข้อมูลสรุปยังว่างอยู่"
+msgstr ""
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "สัดส่วนเปอร์เซ็นต์ความสมบูรณ์ไม่ถูกต้อง"
+msgstr ""
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr "ความสำคัญไม่ถูกต้อง"
+msgstr ""
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "แอพพลิเคชั่นปฏิทินจำเป็นต้องได้รับการเปิดใช้งานด้วยเช่นกันจึงจะสามารถใช้งานแอพพลิเคชั่นตัวนี้ได้"
+msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "เพิ่มงานใหม่"
+msgstr ""
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "จัดเรียงตามกำหนดเวลา"
+msgstr ""
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "จัดเรียงตามรายชื่อ"
+msgstr ""
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "จัดเรียงตามความสมบูรณ์"
+msgstr ""
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "จัดเรียงตามตำแหน่งที่อยู่"
+msgstr ""
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "จัดเรียงตามระดับความสำคัญ"
+msgstr ""
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "จัดเรียงตามป้ายชื่อ"
+msgstr ""
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "กำลังโหลดข้อมูลงาน..."
+msgstr ""
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -113,12 +113,12 @@ msgstr "สำคัญ"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "มาก"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "น้อย"
+msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "ลบ"
+msgstr ""

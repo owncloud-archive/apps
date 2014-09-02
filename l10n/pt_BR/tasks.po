@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 17:22+0000\n"
-"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
+"POT-Creation-Date: 2014-09-02 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Data/hora inválida"
+msgstr ""
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -29,84 +29,84 @@ msgstr "Tarefas"
 
 #: js/tasks.js:86
 msgid "Due"
-msgstr "Vencimento"
+msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr "Listar"
+msgstr ""
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr "Localização"
+msgstr ""
 
 #: js/tasks.js:457
 msgid "No category"
-msgstr "Sem categoria"
+msgstr ""
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr "Não especificado"
+msgstr ""
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr "1=maior"
+msgstr ""
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr "5=médio"
+msgstr ""
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr "9=menor"
+msgstr ""
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "Sumário Vazio"
+msgstr ""
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "Porcentagem completa inválida"
+msgstr ""
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr "Prioridade inválida"
+msgstr ""
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "A aplicação de calendário também precisa estar habilitada para usar essa aplicação."
+msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "Adicionar Tarefa"
+msgstr ""
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Ordenar Vencimento"
+msgstr ""
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "Ordenar Lista"
+msgstr ""
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "Ordenar Completo"
+msgstr ""
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "Ordenar por Local"
+msgstr ""
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "Ordenar Prioridade"
+msgstr ""
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "Ordenar Rótulo"
+msgstr ""
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Carregando tarefas..."
+msgstr ""
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -114,12 +114,12 @@ msgstr "Importante"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "Mais"
+msgstr ""
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "Menos"
+msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr "Eliminar"
+msgstr ""
