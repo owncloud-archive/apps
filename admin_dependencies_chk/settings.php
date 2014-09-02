@@ -200,6 +200,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('If this version of PHP uses 32-bit integers, file uploads via the WebGUI are limited to 2GB.'));
 
+$modules[] =array(
+        'status' => \OC_Helper::is_function_enabled('disk_free_space') ? 'ok' : 'warning',
+        'part'=> 'disk_free_space',
+        'modules'=> array('core'),
+        'message'=> $l->t('The PHP disk_free_space function is recommended to calculate the free disk space on your server. Make sure it is not disabled in the disabled_functions of your php.ini.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
