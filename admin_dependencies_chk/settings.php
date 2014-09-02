@@ -182,6 +182,24 @@ $modules[] =array(
 	'modules'=> array('core'),
 	'message'=> $l->t('The PHP exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
+$modules[] =array(
+        'status' => !\OC_Util::runningOnWindows() ? 'ok' : 'warning',
+        'part'=> 'Operating System',
+        'modules'=> array('core'),
+        'message'=> $l->t('Some functions like Video and OpenOffice/LibreOffice previews as well as SMB/CIFS mounts via the External Storage Support app are only supported on non-windows systems.'));
+
+$modules[] =array(
+        'status' => (\OC_BackgroundJob::getExecutionType() == 'cron' || \OC_BackgroundJob::getExecutionType() == 'webcron') ? 'ok' : 'warning',
+        'part'=> 'Background jobs',
+        'modules'=> array('core','news'),
+        'message'=> $l->t('Its recommended to use Background Jobs configured as cron or webcron for better performance. Additional the news app needs the Background Jobs configured as cron or webcron.'));
+
+$modules[] =array(
+        'status' => (PHP_INT_SIZE == 8) ? 'ok' : 'warning',
+        'part'=> '64 bit PHP Integer Size',
+        'modules'=> array('core'),
+        'message'=> $l->t('If this version of PHP uses 32-bit integers, file uploads via the WebGUI are limited to 2GB.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
