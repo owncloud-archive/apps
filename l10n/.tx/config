@@ -14,12 +14,6 @@ source_file = templates/admin_migrate.pot
 source_lang = en
 type = PO
 
-[owncloud.tasks]
-file_filter = <lang>/tasks.po
-source_file = templates/tasks.pot
-source_lang = en
-type = PO
-
 [owncloud.user_migrate]
 file_filter = <lang>/user_migrate.po
 source_file = templates/user_migrate.pot
