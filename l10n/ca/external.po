@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Auburus <jordi.nopa@gmail.com>, 2014
 # rogerc, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-14 00:48-0400\n"
-"PO-Revision-Date: 2014-08-13 16:01+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-09-03 00:48-0400\n"
+"PO-Revision-Date: 2014-09-02 22:19+0000\n"
+"Last-Translator: Auburus <jordi.nopa@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,11 @@ msgstr ""
 msgid ""
 "Please enter valid urls - they have to start with either http://, https:// "
 "or /"
-msgstr ""
+msgstr "Siusplau introdueix adreces vàlides - han de començar amb http://, https:// o /"
 
 #: ajax/setsites.php:43
 msgid "External sites saved."
-msgstr ""
+msgstr "S'han desat els llocs web externs"
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -36,17 +37,17 @@ msgstr "Llocs web externs"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "Siusplau tingues en compte que alguns navegadors poden bloquejar les webs amb http quan utilitzis https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "A més a més nota que actualment molts llocs web estan deshabilitant els iframes per motius de seguretat."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr ""
+msgstr "Recomanem ferventment que els llocs web configurats a continuació siguin testejats adequadament."
 
 #: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
@@ -59,7 +60,7 @@ msgstr "URL"
 #: templates/settings.php:30 templates/settings.php:32
 #: templates/settings.php:46
 msgid "Select an icon"
-msgstr ""
+msgstr "Seleccioneu una icona"
 
 #: templates/settings.php:35 templates/settings.php:48
 msgid "Remove site"
