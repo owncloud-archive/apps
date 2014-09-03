@@ -96,61 +96,61 @@ $modules[] =array(
 	'status' => function_exists('iconv') ? 'ok' : 'error',
 	'part'=> 'php-iconv',
 	'modules'=> array('files_texteditor','news','contacts'),
-	'message'=> $l->t('The iconv module is needed to convert data into the correct charset.'));
+	'message'=> $l->t('The php-iconv module is needed to convert data into the correct charset.'));
 
 $modules[] =array(
 	'status' => function_exists('finfo_file') ? 'ok' : 'warning',
 	'part'=> 'php-fileinfo',
 	'modules'=> array('core'),
-	'message'=> $l->t('The fileinfo module is highly recommended to enhance file analysis performance.'));
+	'message'=> $l->t('The php-fileinfo module is highly recommended to enhance file analysis performance.'));
 
 $modules[] =array(
 	'status' => function_exists('bzopen') ? 'ok' : 'warning',
 	'part'=> 'php-bz2',
 	'modules'=> array('core'),
-	'message'=> $l->t('The bz2 module is required for extraction of apps.'));
+	'message'=> $l->t('The php-bz2 module is required for extraction of apps.'));
 
 $modules[] =array(
 	'status' => class_exists('Collator') ? 'ok' : 'warning',
 	'part'=> 'php-intl',
 	'modules'=> array('core'),
-	'message'=> $l->t('The intl module increases language translation performance.'));
+	'message'=> $l->t('The php-intl module increases language translation performance.'));
 
 $modules[] =array(
 	'status' => function_exists('mcrypt_cbc') ? 'ok' : 'warning',
 	'part'=> 'php-mcrypt',
 	'modules'=> array('files_encryption'),
-	'message'=> $l->t('The mcrypt module increases file encryption performance.'));
+	'message'=> $l->t('The php-mcrypt module increases file encryption performance.'));
 
 $modules[] =array(
 	'status' => function_exists('openssl_csr_export_to_file') ? 'ok' : 'warning',
 	'part'=> 'php-openssl',
 	'modules'=> array('core','files_encryption'),
-	'message'=> $l->t('The openssl module is required for accessing HTTPS resources and for files encryption.'));
+	'message'=> $l->t('The php-openssl module is required for accessing HTTPS resources and for files encryption.'));
 
 $modules[] =array(
 	'status' => function_exists('ftp_alloc') ? 'ok' : 'warning',
 	'part'=> 'php-ftp',
 	'modules'=> array('files_external'),
-	'message'=> $l->t('The ftp module is required for accessing a FTP storage.'));
+	'message'=> $l->t('The php-ftp module is required for accessing a FTP storage.'));
 
 $modules[] =array(
 	'status' => function_exists('exif_imagetype') ? 'ok' : 'warning',
 	'part'=> 'php-exif',
 	'modules'=> array('gallery'),
-	'message'=> $l->t('The exif module is required for image rotation in the pictures app.'));
+	'message'=> $l->t('The php-exif module is required for image rotation in the pictures app.'));
 
 $modules[] =array(
 	'status' => function_exists('gmp_abs') ? 'ok' : 'warning',
 	'part'=> 'php-gmp',
 	'modules'=> array('files_external'),
-	'message'=> $l->t('The gmp module is recommended to increase performance of SFTP storage access.'));
+	'message'=> $l->t('The php-gmp module is recommended to increase performance of SFTP storage access.'));
 
 $modules[] =array(
 	'status' => class_exists('Imagick') ? 'ok' : 'warning',
 	'part'=> 'php-imagick',
 	'modules'=> array('core'),
-	'message'=> $l->t('The imagick module is required for preview generation of basic file types.'));
+	'message'=> $l->t('The php-imagick module is required for preview generation of basic file types.'));
 
 $modules[] =array(
 	'status' => (function_exists('xcache_set') || function_exists('apc_add')) ? 'ok' : 'warning',
@@ -162,25 +162,25 @@ $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('escapeshellcmd') ? 'ok' : 'warning',
 	'part'=> 'escapeshellcmd',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP escapeshellcmd function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP escapeshellcmd function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('escapeshellarg') ? 'ok' : 'warning',
 	'part'=> 'escapeshellarg',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP escapeshellarg function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP escapeshellarg function is needed for various internal calls like finding or executing system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('shell_exec') ? 'ok' : 'warning',
 	'part'=> 'shell_exec',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP shell_exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP shell_exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('exec') ? 'ok' : 'warning',
 	'part'=> 'exec',
 	'modules'=> array('core'),
-	'message'=> $l->t('The PHP exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP exec function is needed to execute system binaries on non-windows systems. Make sure it is not disabled in the disabled_functions of your php.ini '));
 
 $modules[] =array(
         'status' => !\OC_Util::runningOnWindows() ? 'ok' : 'warning',
@@ -204,7 +204,13 @@ $modules[] =array(
         'status' => \OC_Helper::is_function_enabled('disk_free_space') ? 'ok' : 'warning',
         'part'=> 'disk_free_space',
         'modules'=> array('core'),
-        'message'=> $l->t('The PHP disk_free_space function is recommended to calculate the free disk space on your server. Make sure it is not disabled in the disabled_functions of your php.ini.'));
+        'message'=> $l->t('The internal PHP disk_free_space function is recommended to calculate the free disk space on your server. Make sure it is not disabled in the disabled_functions of your php.ini.'));
+
+$modules[] =array(
+	'status' => function_exists('imap_8bit') ? 'ok' : 'warning',
+	'part'=> 'php-imap',
+	'modules'=> array('user_external'),
+	'message'=> $l->t('The php-imap module is needed to authenticate user login against an IMAP server.'));
 
 foreach($modules as $key => $module) {
 	$enabled = false ;
