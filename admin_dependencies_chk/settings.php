@@ -23,6 +23,16 @@
 $l=OCP\Util::getL10N('admin_dependencies_chk');
 $tmpl = new OCP\Template( 'admin_dependencies_chk', 'settings');
 
+function checkDependencies($program) {
+        if (function_exists('shell_exec')) {
+                $output=shell_exec('command -v ' . $program . ' 2> /dev/null');
+                if (!empty($output)) {
+                        return true;
+                }
+        }
+        return false;
+}
+
 $modules = array();
 
 //Possible status are : ok, error, warning
@@ -211,6 +221,24 @@ $modules[] =array(
 	'part'=> 'php-imap',
 	'modules'=> array('user_external'),
 	'message'=> $l->t('The php-imap module is needed to authenticate user login against an IMAP server.'));
+
+$modules[] =array(
+        'status' => (checkDependencies('iconv') || checkDependencies('ffmpeg')) ? 'ok' : 'warning',
+        'part'=> 'ffmpeg, iconv',
+        'modules'=> array('core'),
+        'message'=> $l->t('The ffmpeg or iconv binary is needed for the video preview generation. Make sure it is installed and the shell_exec php function is enabled.'));
+
+$modules[] =array(
+        'status' => checkDependencies('smbclient') ? 'ok' : 'warning',
+        'part'=> 'smbclient',
+        'modules'=> array('files_external'),
+        'message'=> $l->t('The smbclient binary is needed for the mount of SMB/CIFS storages via the external storage support app. Make sure it is installed and the shell_exec php function is enabled.'));
+
+$modules[] =array(
+        'status' => (checkDependencies('libreoffice') || checkDependencies('openoffice')) ? 'ok' : 'warning',
+        'part'=> 'libreoffice, openoffice',
+        'modules'=> array('core'),
+        'message'=> $l->t('The libreoffice or openoffice binary is needed for the preview generation of extended office documents. Make sure it is installed and the shell_exec php function is enabled.'));
 
 foreach($modules as $key => $module) {
 	$enabled = false ;
