@@ -10,4 +10,5 @@
 	<types>
 		<filesystem/>
 	</types>
+	<shipped>true</shipped>
 </info>
