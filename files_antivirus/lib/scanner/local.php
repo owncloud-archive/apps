@@ -34,9 +34,22 @@ class Local extends \OCA\Files_Antivirus\Scanner{
 		
 		$fhandler = $this->getFileHandle($fileView, $filepath);
 		\OCP\Util::writeLog('files_antivirus', 'Exec scan: '.$filepath, \OCP\Util::DEBUG);
+		
+		$avCmdOptions = \OCP\Config::getAppValue('files_antivirus', 'av_cmd_options', '');
+		$shellArgs = explode(',', $avCmdOptions);
+		$shellArgs = array_map(function($i){
+				return escapeshellarg($i);
+			},
+			$shellArgs
+		);
+		
+		$preparedArgs = '';
+		if (count($shellArgs)){
+			$preparedArgs = implode(' ', $shellArgs);
+		}
 
 		// using 2>&1 to grab the full command-line output.
-		$cmd = escapeshellcmd($this->avPath) ." - 2>&1";
+		$cmd = escapeshellcmd($this->avPath) . " " . $preparedArgs ." - 2>&1";
 		$descriptorSpec = array(
 			0 => array("pipe","r"), // STDIN
 			1 => array("pipe","w")  // STDOUT
