@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-31 13:01-0400\n"
-"PO-Revision-Date: 2014-08-31 15:18+0000\n"
-"Last-Translator: wiracle\n"
+"POT-Creation-Date: 2014-09-06 00:48-0400\n"
+"PO-Revision-Date: 2014-09-06 04:48+0000\n"
+"Last-Translator: I Robot\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,66 +127,70 @@ msgstr "Длина потока"
 msgid "ClamAV StreamMaxLength value in bytes."
 msgstr "Значение максимальной длины потока ClamAV в байтах."
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Path to clamscan"
 msgstr "Путь к  clamscan"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Path to clamscan executable."
 msgstr "Путь к исполнителю  clamscan."
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Not required in Daemon Mode."
 msgstr "Не требуется в режиме демона."
 
-#: templates/settings.php:13
+#: templates/settings.php:16
+msgid "Extra command line options (comma-separated)"
+msgstr ""
+
+#: templates/settings.php:18
 msgid "Action for infected files found while scanning"
 msgstr "Действие для инфицированных файлов, найденных в процессе сканирования"
 
-#: templates/settings.php:14
+#: templates/settings.php:19
 msgid "Only log"
 msgstr "Только лог"
 
-#: templates/settings.php:14
+#: templates/settings.php:19
 msgid "Delete file"
 msgstr "Удалить файл"
 
-#: templates/settings.php:17
+#: templates/settings.php:22
 msgid "Save"
 msgstr "Сохранить"
 
-#: templates/settings.php:21
+#: templates/settings.php:26
 msgid "Advanced"
 msgstr "Дополнительно"
 
-#: templates/settings.php:23
+#: templates/settings.php:28
 msgid "Rules"
 msgstr "Правила"
 
-#: templates/settings.php:24
+#: templates/settings.php:29
 msgid "Clear All"
 msgstr "Очистить всё"
 
-#: templates/settings.php:24
+#: templates/settings.php:29
 msgid "Reset to defaults"
 msgstr "Сбросить к настройкам по-умолчанию"
 
-#: templates/settings.php:29
+#: templates/settings.php:34
 msgid "Match by"
 msgstr "Поиск по"
 
-#: templates/settings.php:30
+#: templates/settings.php:35
 msgid "Scanner exit status or signature to search"
 msgstr "Статус сканера или сигнатура для поиска"
 
-#: templates/settings.php:31
+#: templates/settings.php:36
 msgid "Description"
 msgstr "Описание"
 
-#: templates/settings.php:32
+#: templates/settings.php:37
 msgid "Mark as"
 msgstr "Отметить как"
 
-#: templates/settings.php:39
+#: templates/settings.php:44
 msgid "Add a rule"
 msgstr "Добавить правило"
