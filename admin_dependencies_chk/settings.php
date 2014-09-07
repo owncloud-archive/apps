@@ -163,10 +163,10 @@ $modules[] =array(
 	'message'=> $l->t('The php-imagick module is required for preview generation of basic file types.'));
 
 $modules[] =array(
-	'status' => (function_exists('xcache_set') || function_exists('apc_add')) ? 'ok' : 'warning',
-	'part'=> 'php-xcache, php-apc, php-apcu',
+	'status' => (function_exists('xcache_set') || function_exists('apc_add') || function_exists('opcache_reset')) ? 'ok' : 'warning',
+	'part'=> 'php-xcache, php-apc, php-apcu, php-opcache',
 	'modules'=> array('core'),
-	'message'=> $l->t('One of the xcache, apc or apcu modules is recommended to increase overall performance.'));
+	'message'=> $l->t('One of the xcache, apc, apcu or opcache modules is recommended to increase overall performance.'));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('escapeshellcmd') ? 'ok' : 'warning',
