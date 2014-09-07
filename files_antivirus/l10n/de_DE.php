@@ -28,6 +28,7 @@ $TRANSLATIONS = array(
 "Path to clamscan" => "Pfad zu clamscan",
 "Path to clamscan executable." => "Pfad zum clamscan-Programm",
 "Not required in Daemon Mode." => "Nicht erforderlich im Dienstmodus (Daemon)",
+"Extra command line options (comma-separated)" => "Zusätzliche Kommandozeilenoptionen (Kommata-getrennt)",
 "Action for infected files found while scanning" => "Aktion für infizierte Dateien, welche beim Scannen gefunden wurden",
 "Only log" => "Nur loggen",
 "Delete file" => "Datei löschen",

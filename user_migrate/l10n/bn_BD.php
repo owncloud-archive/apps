@@ -3,6 +3,7 @@ $TRANSLATIONS = array(
 "Export" => "রপ্তানি",
 "Something went wrong while the export file was being generated" => "রপ্তানী ফাইল তৈলী করার সময় কিছু একটা গোলমাল হয়েছে",
 "An error has occurred" => "একটা সমস্যা দেখা দিয়েছে",
+"Account Export/Import" => "একাউন্ট আমদানি/রপ্তানি",
 "Import" => "আমদানি"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

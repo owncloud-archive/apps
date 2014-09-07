@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-01 00:48-0400\n"
-"PO-Revision-Date: 2014-08-31 18:11+0000\n"
+"POT-Creation-Date: 2014-09-07 00:48-0400\n"
+"PO-Revision-Date: 2014-09-06 18:10+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "বৈধ urls দিন - তার শুরুতে  http://, https:
 
 #: ajax/setsites.php:43
 msgid "External sites saved."
-msgstr "বাঞ্যিক সাইট সংরক্ষণ করা হলো"
+msgstr "বাহ্যিক সাইট সংরক্ষণ করা হলো"
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -37,17 +37,17 @@ msgstr "বাহ্যিক সাইট"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "মনে রাখুন আপনি https চালালে কিছু ব্রাউজার http হয়ে আসা কিছু সাইট পদর্শ ন বাধাগ্রস্ত করতে পারে।"
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "আরো মনে রাখুন যে নিরাপত্তাজনিত কারণে ইদানিং অনেক সাইট iframing অনুমোদন করেনা"
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr ""
+msgstr "নীচে কনফিগার করা সাইটগুলো পরীক্ষা করতে জোর সুপারিশ করছি।"
 
 #: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
