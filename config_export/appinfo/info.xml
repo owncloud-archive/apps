@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>config_export</id>
+	<name>Configuration Export</name>
+	<description>Allows admins to export ownCloud configuration data. WARNING: This app enabled all users in the 'admin' group to 
+		retrive the config.php, which can include database and mail server credentials, in addition of other sensitive information.</description>
+	<licence>AGPL</licence>
+	<author>Tom Needham</author>
+	<requiremin>6</requiremin>
+	<shipped>true</shipped>
+	<default_enable/>
+</info>
