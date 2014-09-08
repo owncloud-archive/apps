@@ -114,7 +114,7 @@ class Thumbnail {
 	static public function removeHook($params) {
 		$path = $params['path'];
 		$user = \OCP\USER::getUser();
-		$galleryDir = \OC_User::getHome($user) . '/gallery/';
+		$galleryDir = \OC_User::getHome($user) . '/gallery/' . $user . '/';
 		$thumbPath = $galleryDir . $path;
 		if (is_dir($thumbPath)) {
 			if (file_exists($thumbPath . '.png')) {
