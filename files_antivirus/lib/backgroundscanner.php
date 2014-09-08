@@ -10,6 +10,10 @@ namespace OCA\Files_Antivirus;
 
 class BackgroundScanner {
 	public static function check() {
+		if (!\OCP\App::isEnabled('files_antivirus')){
+			return;
+		}
+		
 		// get mimetype code for directory
 		$query = \OCP\DB::prepare('SELECT `id` FROM `*PREFIX*mimetypes` WHERE `mimetype` = ?');
 		$result = $query->execute(array('httpd/unix-directory'));
