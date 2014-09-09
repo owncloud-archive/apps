@@ -29,11 +29,14 @@ OCP\BackgroundJob::AddRegularTask('OCA\Files_Antivirus\BackgroundScanner', 'chec
 $avBinary = \OCP\Config::getAppValue('files_antivirus', 'av_path', '');
 
 if (empty($avBinary)){
-	\OCP\Config::setAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
-	$query = \OCP\DB::prepare('SELECT count(`id`) AS `totalRules` FROM `*PREFIX*files_antivirus_status`');
-	$result = $query->execute();
-	$result = $result->fetchRow();
-	if($result['totalRules'] == 0) {
-		\OCA\Files_Antivirus\Status::init();
+	try {
+		$query = \OCP\DB::prepare('SELECT count(`id`) AS `totalRules` FROM `*PREFIX*files_antivirus_status`');
+		$result = $query->execute();
+		$result = $result->fetchRow();
+		if($result['totalRules'] == 0) {
+			\OCA\Files_Antivirus\Status::init();
+		}
+		\OCP\Config::setAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
+	} catch (\Exception $e) {
 	}
 }
