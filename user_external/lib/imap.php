@@ -42,6 +42,27 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
 			return false;
 		}
+
+        if (file_exists($filename)) {
+            $user_allowed = false;
+            if (($handle = fopen($filename, "r"))  !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !$
+                    if (in_array($uid, $data)) {
+                        $user_allowed = true;
+                    }
+                }
+                fclose($handle);
+                if ($user_allowed !== TRUE) {
+                    return false;
+                }
+            }
+        }
+
+        if  (substr($this->mailbox, 1, 1) === '.') {
+            $this->mailbox = ltrim($this->mailbox, '{');
+            $this->mailbox = '{' . $uid . $this->mailbox;
+        }
+
 		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN);
 		imap_errors();
 		imap_alerts();
