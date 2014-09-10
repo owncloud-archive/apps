@@ -240,6 +240,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('The libreoffice or openoffice binary is needed for the preview generation of extended office documents. Make sure it is installed and the shell_exec php function is enabled.'));
 
+$modules[] =array(
+	'status' => checkDependencies('clamscan') ? 'ok' : 'warning',
+	'part'=> 'clamscan',
+	'modules'=> array('files_antivirus'),
+	'message'=> $l->t('The clamscan binary is needed for virus scanning with the Executable Mode. Make sure it is installed and the shell_exec php function is enabled.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
