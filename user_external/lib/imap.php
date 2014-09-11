@@ -43,25 +43,27 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			return false;
 		}
 
-		$filename = dirname(__FILE__) . '/../imap_users.csv';
 		$user_allowed = false;
-		if (file_exists($filename)) {
-			if (($handle = fopen($filename, "r"))  !== FALSE) {
-				while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
-					if (in_array($uid, $data)) {
-						$user_allowed = true;
-						$displayName = $data[1];
-						$group = $data[3];
-						if (filter_var($data[0], FILTER_VALIDATE_EMAIL) && empty($data[2])) {
-							$email = $data[0];
-						}else{
-							$email = $data[2];
+		if (!$this->userExists($uid)) {
+			$filename = dirname(__FILE__) . '/../imap_users.csv';
+			if (file_exists($filename)) {
+				if (($handle = fopen($filename, "r"))  !== FALSE) {
+					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
+						if (in_array($uid, $data)) {
+							$user_allowed = true;
+							$displayName = $data[1];
+							$group = $data[3];
+							if (filter_var($data[0], FILTER_VALIDATE_EMAIL) && empty($data[2])) {
+								$email = $data[0];
+							}else{
+								$email = $data[2];
+							}
 						}
 					}
-				}
-				fclose($handle);
-				if ($user_allowed !== TRUE) {
-					return false;
+					fclose($handle);
+					if ($user_allowed !== TRUE) {
+						return false;
+					}
 				}
 			}
 		}
@@ -71,16 +73,21 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			$this->mailbox = '{' . $uid . $this->mailbox;
 		}
 
-		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN);
+		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
 		imap_errors();
 		imap_alerts();
 		if($mbox !== FALSE) {
 			imap_close($mbox);
-            		if ($user_allowed) {
-            			$this->storeUser($uid, $displayName, $email, $group);
-            		}else{
-            			$this->storeUser($uid);
-            		}
+			$uid = mb_strtolower($uid);
+            if ($user_allowed) {
+            	$this->storeUser($uid, $email, $displayName, $group);
+            }else{
+            	if (filter_var($uid, FILTER_VALIDATE_EMAIL)) {
+            		$this->storeUser($uid, $uid);
+            	else{
+            		$this->storeUser($uid);
+            	}
+            }
 			return $uid;
 		}else{
 			return false;
