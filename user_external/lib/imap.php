@@ -44,7 +44,7 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 		}
 
         $filename = dirname(__FILE__) . '/../imap_users.csv';
-		$user_allowed = false;
+	$user_allowed = false;
         if (file_exists($filename)) {
             if (($handle = fopen($filename, "r"))  !== FALSE) {
                 while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
@@ -71,11 +71,11 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 		imap_alerts();
 		if($mbox !== FALSE) {
 			imap_close($mbox);
-            if ($user_allowed) {
-                $this->storeUser($uid, $displayName, $email);
-            }else{
-                $this->storeUser($uid);
-            }
+            		if ($user_allowed) {
+                		$this->storeUser($uid, $displayName, $email);
+            		}else{
+                		$this->storeUser($uid);
+            		}
 			return $uid;
 		}else{
 			return false;
