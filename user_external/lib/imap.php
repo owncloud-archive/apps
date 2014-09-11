@@ -51,7 +51,12 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 					if (in_array($uid, $data)) {
 						$user_allowed = true;
 						$displayName = $data[1];
-						$email = $data[2];
+						$group = $data[3];
+						if (filter_var($data[0], FILTER_VALIDATE_EMAIL) && empty($data[2])) {
+							$email = $data[0];
+						}else{
+							$email = $data[2];
+						}
 					}
 				}
 				fclose($handle);
@@ -72,7 +77,7 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 		if($mbox !== FALSE) {
 			imap_close($mbox);
             		if ($user_allowed) {
-            			$this->storeUser($uid, $displayName, $email);
+            			$this->storeUser($uid, $displayName, $email, $group);
             		}else{
             			$this->storeUser($uid);
             		}

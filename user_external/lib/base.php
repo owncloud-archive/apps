@@ -151,7 +151,7 @@ abstract class Base extends \OC_User_Backend{
 	 *
 	 * @return void
 	 */
-	protected function storeUser($uid, $displayName, $email)
+	protected function storeUser($uid, $displayName, $email, $group)
 	{
 		if (!$this->userExists($uid)) {
 			OC_DB::executeAudited(
