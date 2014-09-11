@@ -88,7 +88,7 @@ class Lock {
 			if($this->isLockFileLocked($this->getLockFile($this->path))) {
 				\OC_Log::write('lock', sprintf('INFO: Read lock has locked lock file %s for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
 				do {
-					usleep(Lock::$retryInterval);
+					usleep(Lock::$retryInterval * 1000);
 					$timeout--;
 				} while($this->isLockFileLocked($this->getLockFile($this->path)) && $timeout > 0);
 				\OC_Log::write('lock', sprintf('INFO: Lock file %s has become unlocked for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
@@ -145,7 +145,7 @@ class Lock {
 		while ((!$lockReturn = flock($handle, LOCK_EX | LOCK_NB, $wouldBlock)) && $timeout > 0) {
 			// We don't have a lock on the original file, try to get a lock on its lock file
 			if ($haveBlock || $haveBlock = $this->lockLockFile($this->lockFile)) {
-				usleep(Lock::$retryInterval);
+				usleep(Lock::$retryInterval * 1000);
 			}
 			else {
 				\OC_Log::write('lock', sprintf('FAIL: Write lock failed, unable to lock original %s or lock file', $this->path), \OC_Log::DEBUG);
@@ -193,7 +193,7 @@ class Lock {
 		// Wait for lock over timeout
 		while((!$lockReturn = flock($handle, LOCK_EX | LOCK_NB, $wouldBlock)) && $timeout > 0) {
 			\OC_Log::write('lock', sprintf('FAIL: Could not acquire lock on lock file %s, %s timeout increments remain.', $lockFile, $timeout), \OC_Log::DEBUG);
-			usleep(self::$retryInterval);
+			usleep(self::$retryInterval * 1000);
 			$timeout--;
 		}
 		if ($wouldBlock == true || $lockReturn == false) {
