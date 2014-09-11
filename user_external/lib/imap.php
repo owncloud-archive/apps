@@ -84,7 +84,7 @@ class OC_User_IMAP extends \OCA\user_external\Base {
             }else{
             	if (filter_var($uid, FILTER_VALIDATE_EMAIL)) {
             		$this->storeUser($uid, $uid);
-            	else{
+            	}else{
             		$this->storeUser($uid);
             	}
             }
