@@ -155,10 +155,24 @@ abstract class Base extends \OC_User_Backend{
 	{
 		if (!$this->userExists($uid)) {
 			OC_DB::executeAudited(
-				'INSERT INTO `*PREFIX*users_external` ( `uid`, `backend`, `displayname`, `email` )'
-				. ' VALUES( ?, ?, ?, ? )',
-				array($uid, $this->backend, $displayName, $email)
+				'INSERT INTO `*PREFIX*users_external` ( `uid`, `backend`, `displayname` )'
+				. ' VALUES( ?, ?, ? )',
+				array($uid, $this->backend, $displayName)
 			);
+			if (!empty($email)) {
+				OC_DB::executeAudited(
+					'INSERT INTO `*PREFIX*preferences` ( `userid`, `appid`, `configkey`, `configvalue` )'
+					. ' VALUES( ?, ?, ?, ? )',
+					array($uid, settings, email, $email)
+				);
+			}
+			if (!empty($group)) {
+				OC_DB::executeAudited(
+					'INSERT INTO `*PREFIX*group_user` ( `gid`, `uid` )'
+					. ' VALUES( ?, ? )',
+					array($group, $uid)
+				);
+			}
 		}
 	}
 
