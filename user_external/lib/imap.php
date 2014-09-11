@@ -43,28 +43,28 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			return false;
 		}
 
-        $filename = dirname(__FILE__) . '/../imap_users.csv';
-	$user_allowed = false;
-        if (file_exists($filename)) {
-            if (($handle = fopen($filename, "r"))  !== FALSE) {
-                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
-                    if (in_array($uid, $data)) {
-                        $user_allowed = true;
-                        $displayName = $data[1];
-                        $email = $data[2];
-                    }
-                }
-                fclose($handle);
-                if ($user_allowed !== TRUE) {
-                    return false;
-                }
-            }
-        }
+		$filename = dirname(__FILE__) . '/../imap_users.csv';
+		$user_allowed = false;
+		if (file_exists($filename)) {
+			if (($handle = fopen($filename, "r"))  !== FALSE) {
+				while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
+					if (in_array($uid, $data)) {
+						$user_allowed = true;
+						$displayName = $data[1];
+						$email = $data[2];
+					}
+				}
+				fclose($handle);
+				if ($user_allowed !== TRUE) {
+					return false;
+				}
+			}
+		}
 
-        if  (substr($this->mailbox, 1, 1) === '.') {
-            $this->mailbox = ltrim($this->mailbox, '{');
-            $this->mailbox = '{' . $uid . $this->mailbox;
-        }
+		if  (substr($this->mailbox, 1, 1) === '.') {
+			$this->mailbox = ltrim($this->mailbox, '{');
+			$this->mailbox = '{' . $uid . $this->mailbox;
+		}
 
 		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN);
 		imap_errors();
@@ -72,9 +72,9 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 		if($mbox !== FALSE) {
 			imap_close($mbox);
             		if ($user_allowed) {
-                		$this->storeUser($uid, $displayName, $email);
+            			$this->storeUser($uid, $displayName, $email);
             		}else{
-                		$this->storeUser($uid);
+            			$this->storeUser($uid);
             		}
 			return $uid;
 		}else{
