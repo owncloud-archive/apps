@@ -1,6 +1,7 @@
 <?php
 $TRANSLATIONS = array(
 "Settings" => "Postavke",
+"Open" => "Otvorite",
 "Share with" => "Djeli sa",
 "Share" => "Podijeli",
 "Username" => "Korisničko ime",

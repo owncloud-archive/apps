@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-03 00:48-0400\n"
-"PO-Revision-Date: 2014-09-02 05:23+0000\n"
+"POT-Creation-Date: 2014-09-11 00:48-0400\n"
+"PO-Revision-Date: 2014-09-10 12:30+0000\n"
 "Last-Translator: I Robot\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: templates/index.php:19
 msgid "Open"
-msgstr ""
+msgstr "Otvorite"
 
 #: templates/index.php:20
 msgid "Share with"
