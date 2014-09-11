@@ -37,6 +37,14 @@
     <length>64</length>
    </field>
 
+   <field>
+    <name>email</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>64</length>
+   </field>
+
    <index>
     <name>users_unique</name>
     <primary>true</primary>

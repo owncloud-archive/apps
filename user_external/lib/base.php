@@ -151,13 +151,13 @@ abstract class Base extends \OC_User_Backend{
 	 *
 	 * @return void
 	 */
-	protected function storeUser($uid)
+	protected function storeUser($uid, $displayName, $email)
 	{
 		if (!$this->userExists($uid)) {
 			OC_DB::executeAudited(
-				'INSERT INTO `*PREFIX*users_external` ( `uid`, `backend` )'
-				. ' VALUES( ?, ? )',
-				array($uid, $this->backend)
+				'INSERT INTO `*PREFIX*users_external` ( `uid`, `backend`, `displayname`, `email` )'
+				. ' VALUES( ?, ?, ?, ? )',
+				array($uid, $this->backend, $displayName, $email)
 			);
 		}
 	}
