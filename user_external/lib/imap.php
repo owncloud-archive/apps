@@ -45,7 +45,7 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 
 		$user_allowed = false;
 		if (!$this->userExists($uid)) {
-			$filename = dirname(__FILE__) . '/../imap_users.csv';
+			$filename = OC::$SERVERROOT.'/data/imap_users.conf';
 			if (file_exists($filename)) {
 				if (($handle = fopen($filename, "r"))  !== FALSE) {
 					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
