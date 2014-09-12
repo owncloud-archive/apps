@@ -43,9 +43,13 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			return false;
 		}
 
+		$filename = OC::$SERVERROOT.'/data/imap_users.conf';
 		$user_allowed = false;
+		$email =  "";
+		$displayName =  "";
+		$group = "";
+		
 		if (!$this->userExists($uid)) {
-			$filename = OC::$SERVERROOT.'/data/imap_users.conf';
 			if (file_exists($filename)) {
 				if (($handle = fopen($filename, "r"))  !== FALSE) {
 					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
@@ -73,21 +77,18 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			$this->mailbox = '{' . $uid . $this->mailbox;
 		}
 
+		if (filter_var($uid, FILTER_VALIDATE_EMAIL)) {
+			$email = $uid;
+		}
+		
 		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
 		imap_errors();
 		imap_alerts();
+		
 		if($mbox !== FALSE) {
 			imap_close($mbox);
 			$uid = mb_strtolower($uid);
-            if ($user_allowed) {
-            	$this->storeUser($uid, $email, $displayName, $group);
-            }else{
-            	if (filter_var($uid, FILTER_VALIDATE_EMAIL)) {
-            		$this->storeUser($uid, $uid);
-            	}else{
-            		$this->storeUser($uid);
-            	}
-            }
+            $this->storeUser($uid, $email, $displayName, $group);
 			return $uid;
 		}else{
 			return false;
