@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-30 00:48-0400\n"
-"PO-Revision-Date: 2014-08-29 18:11+0000\n"
+"POT-Creation-Date: 2014-09-12 03:29-0400\n"
+"PO-Revision-Date: 2014-09-11 18:01+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "প্রথমে আইনী বিজ্ঞপ্তির বিষ
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "ঐ কনফিগারেসনটি প্রশাসন শাখা থেকে করা হয়।"
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
@@ -46,7 +46,7 @@ msgstr "প্রতিচ্ছাপ"
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "স্থাপন"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"

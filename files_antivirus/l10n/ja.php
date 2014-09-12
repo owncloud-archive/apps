@@ -28,6 +28,7 @@ $TRANSLATIONS = array(
 "Path to clamscan" => "clamscan のパス",
 "Path to clamscan executable." => "clamscan 実行ファイルへのパス。",
 "Not required in Daemon Mode." => "デーモンモードでは不要です。",
+"Extra command line options (comma-separated)" => "追加コマンドラインオプション (カンマ区切り)",
 "Action for infected files found while scanning" => "スキャン中に発見された感染ファイルに対する操作",
 "Only log" => "ログのみ",
 "Delete file" => "ファイルを削除",

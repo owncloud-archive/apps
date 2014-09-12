@@ -6,8 +6,14 @@ $TRANSLATIONS = array(
 "That configuration is done in the administration section." => "Administrativ seksiyada olan confiqurasiya hazırdır.",
 "That configuration has to be done by the system administration." => "Configurasiya sistem inzibatçısı tərəfindən bitdi.",
 "Imprint" => "İşarələmək",
+"Placement" => "Yerləşdirmə",
+"Standalone app" => "Baxımsız proqram təminati",
+"Header left" => "Sol başlıq",
 "Header right" => "Başlıq yetkisi",
+"Navigation top" => "Üst naviqasiya",
+"Navigation bottom" => "Alt naviqasiya",
 "During login" => "Giriş zamanı",
-"Content" => "Tərkib"
+"Content" => "Tərkib",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Sen html qeydini(m.ü.  <br> sətir keçidi ) və sətirdaxili stil atributlarını istifadə edə bilərsən(m.ü. <a style=\"color:red;\">). "
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

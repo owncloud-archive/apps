@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-02 00:48-0400\n"
-"PO-Revision-Date: 2014-09-01 20:20+0000\n"
+"POT-Creation-Date: 2014-09-12 03:29-0400\n"
+"PO-Revision-Date: 2014-09-11 14:35+0000\n"
 "Last-Translator: unixidzero <unixidzero@gmail.com>\n"
 "Language-Team: Azerbaijani (http://www.transifex.com/projects/p/owncloud/language/az/)\n"
 "MIME-Version: 1.0\n"
@@ -46,15 +46,15 @@ msgstr "İşarələmək"
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "Yerləşdirmə"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "Baxımsız proqram təminati"
 
 #: templates/tmpl_settings.php:49 templates/tmpl_settings.php:57
 msgid "Header left"
-msgstr ""
+msgstr "Sol başlıq"
 
 #: templates/tmpl_settings.php:50 templates/tmpl_settings.php:58
 msgid "Header right"
@@ -62,11 +62,11 @@ msgstr "Başlıq yetkisi"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "Üst naviqasiya"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr ""
+msgstr "Alt naviqasiya"
 
 #: templates/tmpl_settings.php:54
 msgid "During login"
@@ -80,4 +80,4 @@ msgstr "Tərkib"
 msgid ""
 "You can use html markup (e.g. <br> for a linebreak) and inline style "
 "attributes (e.g. <a style=\"color:red;\">)."
-msgstr ""
+msgstr "Sen html qeydini(m.ü.  <br> sətir keçidi ) və sətirdaxili stil atributlarını istifadə edə bilərsən(m.ü. <a style=\"color:red;\">). "
