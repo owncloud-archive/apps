@@ -1,6 +1,6 @@
-#Owncloud Antivirus App   
+#ownCloud Antivirus App   
 
-files_antivirus is an antivirus app for [Owncloud](https://github.com/owncloud) based on [ClamAV](http://www.clamav.net).
+files_antivirus is an antivirus app for [ownCloud](https://github.com/owncloud) based on [ClamAV](http://www.clamav.net).
 
 v0.3
 
@@ -33,7 +33,7 @@ The App is not complete yet, the following works/is done:
 
 ## Requirements
 
-* Owncloud 4
+* ownCloud 4
 * ClamAV (Binaries or a server running ClamAV in daemon mode)
 
 ## 3rd party software used
