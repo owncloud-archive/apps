@@ -22,4 +22,4 @@
  */
 
 OCP\App::addNavigationEntry(
-		array('id' => 'pong', 'order' => 80, 'href' => OCP\Util::linkTo('pong', 'index.php') , 'icon' => OCP\Util::imagePath('pong', 'pong.png'), 'name' => 'Pong'));
+		array('id' => 'pong', 'order' => 80, 'href' => OCP\Util::linkToRoute('pong.index') , 'icon' => OCP\Util::imagePath('pong', 'pong.png'), 'name' => 'Pong'));
