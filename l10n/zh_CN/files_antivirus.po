@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# chen ben <benna.chen@gmail.com>, 2014
 # bzdk <cn.leoyang@gmail.com>, 2013
 # Kaijia Feng <fengkaijia@gmail.com>, 2014
 # Lau Sian Lerk <kiawin@gmail.com>, 2013
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-06 00:48-0400\n"
-"PO-Revision-Date: 2014-09-06 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-09-14 00:48-0400\n"
+"PO-Revision-Date: 2014-09-14 01:11+0000\n"
+"Last-Translator: chen ben <benna.chen@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,7 +140,7 @@ msgstr "无需于守护进程"
 
 #: templates/settings.php:16
 msgid "Extra command line options (comma-separated)"
-msgstr ""
+msgstr "其他命令行选项(逗号分隔)"
 
 #: templates/settings.php:18
 msgid "Action for infected files found while scanning"

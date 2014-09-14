@@ -28,6 +28,7 @@ $TRANSLATIONS = array(
 "Path to clamscan" => "clamscan路径",
 "Path to clamscan executable." => "clamscan执行文件路径",
 "Not required in Daemon Mode." => "无需于守护进程",
+"Extra command line options (comma-separated)" => "其他命令行选项(逗号分隔)",
 "Action for infected files found while scanning" => "扫描感染文件成功后的行动",
 "Only log" => "仅记录",
 "Delete file" => "删除文件",
