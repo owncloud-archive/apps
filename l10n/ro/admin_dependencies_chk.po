@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ciprian Ghenciu <g.ciprian@osn.ro>, 2012
+# Petre Catalin Alexandru <cosmoreddog@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-06 00:48-0400\n"
-"PO-Revision-Date: 2014-08-06 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-09-16 00:53-0400\n"
+"PO-Revision-Date: 2014-09-15 16:11+0000\n"
+"Last-Translator: Petre Catalin Alexandru <cosmoreddog@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,11 +40,11 @@ msgstr "Modulul php-ldap este necesar pentru conectarea la un server ldap"
 
 #: settings.php:57
 msgid "The php-bcmath module is needed to support AD primary groups"
-msgstr ""
+msgstr "Modulul php-bcmath este necesar pentru a suporta grupuri primare AD"
 
 #: settings.php:63
 msgid "The php-zip module is needed to download multiple files at once"
-msgstr ""
+msgstr "Modulul php-zip este necesar pentru a descarca mai multe fisiere odata"
 
 #: settings.php:69
 msgid ""

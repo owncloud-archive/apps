@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-12 03:29-0400\n"
-"PO-Revision-Date: 2014-09-11 18:01+0000\n"
+"POT-Creation-Date: 2014-09-16 00:53-0400\n"
+"PO-Revision-Date: 2014-09-15 19:00+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "ম্যালওয়্যার পাওয়া গেছে"
 
 #: lib/scanner.php:86
 #, php-format
@@ -63,7 +63,7 @@ msgstr ""
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "ফাইল আপলোড করা হয়েছে: {file}"
 
 #: templates/settings.php:4
 msgid "Antivirus Configuration"
@@ -71,11 +71,11 @@ msgstr ""
 
 #: templates/settings.php:5
 msgid "Mode"
-msgstr ""
+msgstr "মোড"
 
 #: templates/settings.php:6
 msgid "Executable"
-msgstr ""
+msgstr "কার্যোপযোগী"
 
 #: templates/settings.php:6
 msgid "Daemon"
