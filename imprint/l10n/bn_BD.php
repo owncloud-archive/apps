@@ -7,6 +7,7 @@ $TRANSLATIONS = array(
 "Imprint" => "প্রতিচ্ছাপ",
 "Placement" => "স্থাপন",
 "Standalone app" => "অসাধারণ অ্যাপ",
+"Navigation top" => "উপর দিকনির্দেশ",
 "During login" => "লগইনকালে",
 "Content" => "বিষয়বস্তু"
 );

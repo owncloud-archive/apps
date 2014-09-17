@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-16 00:53-0400\n"
-"PO-Revision-Date: 2014-09-15 19:00+0000\n"
+"POT-Creation-Date: 2014-09-17 00:48-0400\n"
+"PO-Revision-Date: 2014-09-16 18:41+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -87,11 +87,11 @@ msgstr ""
 
 #: templates/settings.php:8
 msgid "Socket"
-msgstr ""
+msgstr "সকেট"
 
 #: templates/settings.php:8
 msgid "Clamav Socket."
-msgstr ""
+msgstr "Clamav সকেট"
 
 #: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
 #: templates/settings.php:11
