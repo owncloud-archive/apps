@@ -124,7 +124,7 @@ $modules[] =array(
 	'status' => class_exists('Collator') ? 'ok' : 'warning',
 	'part'=> 'php-intl',
 	'modules'=> array('core'),
-	'message'=> $l->t('The php-intl module increases language translation performance.'));
+	'message'=> $l->t('The php-intl module increases language translation performance and fixes sorting of non-ASCII characters.'));
 
 $modules[] =array(
 	'status' => function_exists('mcrypt_cbc') ? 'ok' : 'warning',
