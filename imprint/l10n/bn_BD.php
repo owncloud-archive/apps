@@ -9,6 +9,7 @@ $TRANSLATIONS = array(
 "Standalone app" => "অসাধারণ অ্যাপ",
 "Navigation top" => "উপর দিকনির্দেশ",
 "During login" => "লগইনকালে",
-"Content" => "বিষয়বস্তু"
+"Content" => "বিষয়বস্তু",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "আপনি এইচটিএমএল মার্কআপ (যেমন: লাইনব্রেক বুঝাতে <br>) এবং ইনলাইন স্টাইল এট্রিবিউট (যেমন: <a style=\"color:red;\">) ব্যবহার করতে পারেন।"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

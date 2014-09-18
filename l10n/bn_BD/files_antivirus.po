@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-17 00:48-0400\n"
-"PO-Revision-Date: 2014-09-16 18:41+0000\n"
+"POT-Creation-Date: 2014-09-18 00:48-0400\n"
+"PO-Revision-Date: 2014-09-17 18:10+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "হোস্ট"
 
 #: templates/settings.php:9
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "এন্টিভাইরাস হোস্টের ঠিকানা"
 
 #: templates/settings.php:10
 msgid "Port"
@@ -116,15 +116,15 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Stream Length"
-msgstr ""
+msgstr "স্ট্রীমের দৈর্ঘ্য"
 
 #: templates/settings.php:11
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength value in bytes."
 
 #: templates/settings.php:13
 msgid "Path to clamscan"
-msgstr ""
+msgstr "clamscan এর পথ"
 
 #: templates/settings.php:13
 msgid "Path to clamscan executable."

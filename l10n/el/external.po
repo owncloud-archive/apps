@@ -6,13 +6,14 @@
 # Playerthe12 <a7652246@drdrb.net>, 2014
 # evigiannakou <evigian@in.gr>, 2014
 # Marios Bekatoros <>, 2012
+# Vassilis Kehayas <vkehayas@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-25 00:48-0400\n"
-"PO-Revision-Date: 2014-08-25 01:34+0000\n"
-"Last-Translator: evigiannakou <evigian@in.gr>\n"
+"POT-Creation-Date: 2014-09-18 00:48-0400\n"
+"PO-Revision-Date: 2014-09-17 21:40+0000\n"
+"Last-Translator: Vassilis Kehayas <vkehayas@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,13 +39,13 @@ msgstr "Εξωτερικοί ιστότοποι"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr "Παρακαλώ σημειώστε ότι μερικά προγράμματα περιήγησης θα εμποδίσουν ιστότοπους μέσω http αν εσείς τρέχετε https."
+msgstr "Παρακαλώ σημειώστε ότι μερικά προγράμματα περιήγησης θα εμποδίσουν την εμφάνιση ιστοτόπων μέσω http αν χρησιμοποιήτε https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr "Επιπροσθέτως, παρακαλούμε να σημειώσετε ότι πολλοί ιστότοποι στις μέρες μας δεν επιτρέπουν το iframing για λόγους ασφαλείας."
+msgstr "Επιπροσθέτως, παρακαλούμε να σημειώσετε ότι πολλοί ιστότοποι πλέον δεν επιτρέπουν το iframing για λόγους ασφαλείας."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
