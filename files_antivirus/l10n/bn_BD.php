@@ -17,10 +17,15 @@ $TRANSLATIONS = array(
 "Stream Length" => "স্ট্রীমের দৈর্ঘ্য",
 "ClamAV StreamMaxLength value in bytes." => "ClamAV StreamMaxLength value in bytes.",
 "Path to clamscan" => "clamscan এর পথ",
+"Path to clamscan executable." => "clamscan চালু করার পথ",
+"Not required in Daemon Mode." => "ডেমন মোডে অপ্রয়োজনীয়",
+"Only log" => "শুধুমাত্র লগ",
+"Delete file" => "ফাইল মোছ",
 "Save" => "সংরক্ষণ",
 "Advanced" => "সুচারু",
 "Rules" => "নিয়মাবলী",
 "Clear All" => "সব মুছুন",
-"Description" => "বিবরণ"
+"Description" => "বিবরণ",
+"Mark as" => "হিসেবে চিহ্নিত কর"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

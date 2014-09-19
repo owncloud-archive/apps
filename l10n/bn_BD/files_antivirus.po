@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-09-18 00:48-0400\n"
-"PO-Revision-Date: 2014-09-17 18:10+0000\n"
+"POT-Creation-Date: 2014-09-19 00:48-0400\n"
+"PO-Revision-Date: 2014-09-18 14:40+0000\n"
 "Last-Translator: azizul <aziz.murad3@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -128,11 +128,11 @@ msgstr "clamscan এর পথ"
 
 #: templates/settings.php:13
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "clamscan চালু করার পথ"
 
 #: templates/settings.php:13
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "ডেমন মোডে অপ্রয়োজনীয়"
 
 #: templates/settings.php:16
 msgid "Extra command line options (comma-separated)"
@@ -144,11 +144,11 @@ msgstr ""
 
 #: templates/settings.php:19
 msgid "Only log"
-msgstr ""
+msgstr "শুধুমাত্র লগ"
 
 #: templates/settings.php:19
 msgid "Delete file"
-msgstr ""
+msgstr "ফাইল মোছ"
 
 #: templates/settings.php:22
 msgid "Save"
@@ -184,7 +184,7 @@ msgstr "বিবরণ"
 
 #: templates/settings.php:37
 msgid "Mark as"
-msgstr ""
+msgstr "হিসেবে চিহ্নিত কর"
 
 #: templates/settings.php:44
 msgid "Add a rule"
