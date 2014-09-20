@@ -8,7 +8,7 @@ $TRANSLATIONS = array(
 "Open" => "Åbn",
 "Share with" => "Del med",
 "Share" => "Del",
-"Etherpad service URL" => "Etherpad service URL",
+"Etherpad service URL" => "URL for Etherpad-tjeneste",
 "Username" => "Brugernavn",
 "Save" => "Gem"
 );

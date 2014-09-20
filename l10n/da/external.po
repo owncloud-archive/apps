@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-28 00:48-0400\n"
-"PO-Revision-Date: 2014-08-27 11:55+0000\n"
+"POT-Creation-Date: 2014-09-20 00:48-0400\n"
+"PO-Revision-Date: 2014-09-19 08:01+0000\n"
 "Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -38,17 +38,17 @@ msgstr "Eksterne sites"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr "Vær opmærksom på at nogle browsere vil blokere sider via http:// hvis du køre https://"
+msgstr "Vær opmærksom på at nogle browsere vil blokere sider via http://, hvis du kører https://"
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr "derudover vær opmærksom på at mange sites ikke tillader iframing idag, på grund af sikkerhedsmæssige årsager"
+msgstr "Du skal i tillæg være opmærksom på, at mange steder ikke tillader iframing i dag af sikkerhedsmæssige grunde."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr "Vi anbefaler kraftigt, at de nedenstående sites testes behørigt"
+msgstr "Vi anbefaler kraftigt, at de nedenstående steder testes behørigt."
 
 #: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
