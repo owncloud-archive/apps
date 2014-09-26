@@ -35,14 +35,7 @@ class LockingWrapper extends Wrapper {
 	 */
 	protected function getLock($path, $lockType, $existingHandle = null){
 		$path = Filesystem::normalizePath($this->storage->getLocalFile($path));
-		if(is_dir($path)) {
-			return false;
-		}
 
-		// when uploading files the stat cache will contain the size
-		// zero after the is_dir() call above, so clearing it to
-		// make sure its real size will get re-read when needed
-		clearstatcache(false, $path);
 		if(!isset($this->locks[$path])) {
 			$this->locks[$path] = new Lock($path);
 		}
@@ -110,8 +103,10 @@ class LockingWrapper extends Wrapper {
 
 	public function copy($path1, $path2) {
 		try {
-			$this->getLock($path1, Lock::READ);
-			$this->getLock($path2, Lock::WRITE);
+			if (!$this->storage->is_dir($path1)) {
+				$this->getLock($path1, Lock::READ);
+				$this->getLock($path2, Lock::WRITE);
+			}
 			$result = $this->storage->copy($path1, $path2);
 		}
 		catch(\Exception $originalException) {
@@ -127,8 +122,10 @@ class LockingWrapper extends Wrapper {
 
 	public function rename($path1, $path2) {
 		try {
-			$this->getLock($path1, Lock::READ);
-			$this->getLock($path2, Lock::WRITE);
+			if (!$this->storage->is_dir($path1)) {
+				$this->getLock($path1, Lock::READ);
+				$this->getLock($path2, Lock::WRITE);
+			}
 			$result = $this->storage->rename($path1, $path2);
 		}
 		catch(\Exception $originalException) {
