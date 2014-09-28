@@ -246,6 +246,12 @@ $modules[] =array(
 	'modules'=> array('files_antivirus'),
 	'message'=> $l->t('The clamscan binary is needed for virus scanning with the Executable Mode. Make sure it is installed and the shell_exec php function is enabled.'));
 
+$modules[] =array(
+        'status' => is_writable(get_temp_dir()) ? 'ok' : 'error',
+        'part'=> 'tmp_dir',
+        'modules'=> array('core'),
+        'message'=> $l->t('The tmp dir: "' . get_temp_dir() . '" needs to be writeable by the user which is running your webserver / PHP process.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
