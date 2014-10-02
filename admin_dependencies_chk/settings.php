@@ -202,7 +202,7 @@ $modules[] =array(
         'status' => (\OC_BackgroundJob::getExecutionType() == 'cron' || \OC_BackgroundJob::getExecutionType() == 'webcron') ? 'ok' : 'warning',
         'part'=> 'Background jobs',
         'modules'=> array('core','news'),
-        'message'=> $l->t('Its recommended to use Background Jobs configured as cron or webcron for better performance. Additional the news app needs the Background Jobs configured as cron or webcron.'));
+        'message'=> $l->t('Its recommended to use Background Jobs configured as cron or webcron for better performance and sent out activity mails on time. Additional the news app needs the Background Jobs configured as cron or webcron.'));
 
 $modules[] =array(
         'status' => (PHP_INT_SIZE == 8) ? 'ok' : 'warning',
