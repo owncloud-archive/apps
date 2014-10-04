@@ -36,13 +36,15 @@
 	<description>
 		This simple app adds a legal notice (Imprint / Impressum) to the ownCloud framework.
 		The imprints content can be configured using plain text or html markup.
-		The app is simple but sufficient for the purpose. 
+		The app is simple but sufficient for the purpose.
 	</description>
-	<version>0.1.15</version>
+	<version>0.2.0</version>
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
-	<requiremin>4.93</requiremin>
+	<requiremin>7</requiremin>
 		<types>
-			<base/>
+			<type>prelogin</type>
 		</types>
+		<website>http://apps.owncloud.com/content/show.php/Imprint?content=153220</website>
+		<shipped>false</shipped>
 </info>
