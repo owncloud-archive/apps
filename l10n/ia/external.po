@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-14 00:48-0400\n"
-"PO-Revision-Date: 2014-08-13 16:01+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-04 00:48-0400\n"
+"PO-Revision-Date: 2014-10-03 16:41+0000\n"
+"Last-Translator: giogio <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua (http://www.transifex.com/projects/p/owncloud/language/ia/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid ""
 "Please enter valid urls - they have to start with either http://, https:// "
 "or /"
-msgstr ""
+msgstr "Pro favor inserta valide urls - illos debe initiar o con  http://, https:// o /"
 
 #: ajax/setsites.php:43
 msgid "External sites saved."
-msgstr ""
+msgstr "Sitos externe salveguardate"
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -36,17 +36,17 @@ msgstr "Sitos externe"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "Pro favor nota que alcun navigatores blocara le monstrar de sitos via http si tu es executante https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "Ulteriormente nota que multe sitos iste dies dishabilita iframing debite a motivationes de securitate."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr ""
+msgstr "Nos recommenda calidemente provar le sitos configurate a basso propriemente."
 
 #: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
@@ -59,7 +59,7 @@ msgstr "URL"
 #: templates/settings.php:30 templates/settings.php:32
 #: templates/settings.php:46
 msgid "Select an icon"
-msgstr ""
+msgstr "Selige un icone"
 
 #: templates/settings.php:35 templates/settings.php:48
 msgid "Remove site"
