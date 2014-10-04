@@ -30,20 +30,16 @@
  */
 
 // Session checks
-OCP\App::checkAppEnabled ( 'imprint' );
-OCP\Util::addScript      ( 'imprint', 'imprint_content' );
+\OCP\App::checkAppEnabled('imprint');
+\OCP\Util::addScript('imprint', 'imprint_content');
 
-OCP\App::setActiveNavigationEntry ( 'imprint' );
-OCP\Util::addStyle  ( 'imprint','imprint' );
+\OCP\App::setActiveNavigationEntry('imprint');
+\OCP\Util::addStyle('imprint', 'imprint');
 
 // prepare view
-if (OCP\User::isLoggedIn())
-	$tmpl_view = 'user';
-else
-	$tmpl_view = 'guest';
-
+$tmpl_view = (\OCP\User::isLoggedIn()) ? 'user' : 'guest';
 // fetch content
-$tmpl = new OCP\Template( 'imprint', 'tmpl_index', $tmpl_view );
+$tmpl = new \OCP\Template( 'imprint', 'tmpl_index', $tmpl_view );
 // render template
 $tmpl->printPage ( );
 ?>

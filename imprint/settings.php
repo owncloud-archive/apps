@@ -31,18 +31,18 @@
  */
 
 // Session checks
-OCP\User::checkLoggedIn  ( );
-OCP\User::checkAdminUser ( );
-OCP\App::checkAppEnabled ( 'imprint' );
+\OCP\User::checkLoggedIn();
+\OCP\User::checkAdminUser();
+\OCP\App::checkAppEnabled('imprint');
 
-OCP\Util::addStyle  ( '3rdparty', 'chosen/chosen' );
-OCP\Util::addStyle  ( 'imprint',  'imprint' );
+\OCP\Util::addStyle('3rdparty', 'chosen/chosen');
+\OCP\Util::addStyle('imprint', 'imprint');
 
-OCP\Util::addScript ( '3rdparty', 'chosen/chosen.jquery.min' );
-OCP\Util::addScript ( 'imprint',  'settings' );
+\OCP\Util::addScript('3rdparty', 'chosen/chosen.jquery.min');
+\OCP\Util::addScript('imprint', 'settings');
 
 // fetch template
-$tmpl = new OCP\Template ( 'imprint', 'tmpl_settings' );
+$tmpl = new \OCP\Template('imprint', 'tmpl_settings');
 // render template
-return $tmpl->fetchPage ( );
+return $tmpl->fetchPage();
 ?>

@@ -37,7 +37,7 @@
 	<div class="section">
 		<h2>
 			<span id="title" class="title">
-				<img class="" src="<?php p(OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
+				<img class="" src="<?php p(\OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
 				<?php p($l->t("Imprint"));?>
 			</span>
 		</h2>

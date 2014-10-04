@@ -28,42 +28,18 @@
  * @author Christian Reiner
  */
 
-$l = new OC_L10n('imprint');
-
-OCP\App::registerAdmin ( 'imprint', 'settings' );
-OCP\Util::addStyle  ( 'imprint', 'imprint' );
-// workaround for OC-4.x's chaotoc header layout
-if (5>@reset(OCP\Util::getVersion()))
-	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
-
-// backwards compatibility for OC5's global p() functions
-$ocVersion = implode('.',OCP\Util::getVersion());
-if (version_compare($ocVersion,'4.93','<')) // OC-5
-{
-	if ( ! function_exists('p'))
-	{
-		function p($string) {
-			print(OCP\Util::sanitizeHTML($string));
-		}
-	}
-	if ( ! function_exists('print_unescaped'))
-	{
-		function print_unescaped($string) {
-			print($string);
-		}
-	}
-}
+\OCP\App::registerAdmin('imprint', 'settings');
+\OCP\Util::addStyle('imprint', 'imprint');
 
 // add link according to what position is selected inside the apps options
 if( ! \OCP\User::isLoggedIn()) {
 	// user NOT logged in, anonymous access, only limited positions to place the link:
-	switch ( OCP\Config::getAppValue( 'imprint', 'anonposition', '' ) )
-	{
+	switch ( \OCP\Config::getAppValue('imprint', 'anonposition', '')) {
 		case 'header-left':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
+			\OCP\Util::addScript('imprint', 'imprint_header_left');
 			break;
 		case 'header-right':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
+			\OCP\Util::addScript('imprint', 'imprint_header_right');
 			break;
 		default:
 			// don't show a link!
@@ -71,31 +47,28 @@ if( ! \OCP\User::isLoggedIn()) {
 	} // switch
 } else { // if logged in
 	// user logged in, we have more positions to place the link:
-	switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
-	{
+	switch(\OCP\Config::getAppValue('imprint', 'position', 'standalone')) {
 		case 'header-left':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
+			\OCP\Util::addScript('imprint', 'imprint_header_left');
 			break;
 		case 'header-right':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
+			\OCP\Util::addScript('imprint', 'imprint_header_right');
 			break;
 		case 'navigation-top':
-			OCP\Util::addScript ( 'imprint', 'imprint_navigation_top' );
+			\OCP\Util::addScript('imprint', 'imprint_navigation_top');
 			break;
 		case 'navigation-bottom':
-			OCP\Util::addScript ( 'imprint', 'imprint_navigation_bottom' );
+			\OCP\Util::addScript('imprint', 'imprint_navigation_bottom');
 			break;
 		default:
 		case 'standalone':
 			// no js required, we add the imprint as a normal app to the navigation
-			OCP\App::addNavigationEntry ( array (
+			\OCP\App::addNavigationEntry(array(
 				'id'    => 'imprint',
 				'order' => 99999,
-				'href'  => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon'  => (5<=@reset(OCP\Util::getVersion()))
-									? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
-									: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
-				'name'  => $l->t("Legal notice") ) );
+				'href'  => \OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+				'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
+				'name'  => \OC_L10N::get('imprint')->t("Legal notice")
+			));
 	} // switch
 } // if logged in
-?>
