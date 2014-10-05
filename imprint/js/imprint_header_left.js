@@ -31,7 +31,6 @@ $(document).ready(function(){
 	anchor.attr('href',OC.linkTo('imprint','index.php'));
 	anchor.text(t("imprint","Legal notice"));
 	anchor.addClass('imprint-anchor').addClass('header-left');
-// 	if (0!=$('#header').height()) // indicates OC>=5
-// 		anchor.css('left',$('#header #owncloud').outerWidth()+'px'); // do not hide ownCloud logo
-	$('#header #owncloud').after(anchor);
+
+	$('#header a.menutoggle').after(anchor);
 })

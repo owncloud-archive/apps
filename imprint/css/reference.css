@@ -27,25 +27,39 @@
  * @author Christian Reiner
  */
 
-/* some rules for the reference itself */
-a.imprint-anchor{
-	margin: 0;
-	padding: 0 30px;
+#header #owncloud,
+#header .menutoggle {
 	position: relative;
-	font-size: 100%;
-	font-weight: inherit;
-}
-#header a.imprint-anchor.header-left{
-	line-height: 40px;
-	color: #BFBFBF;
+	left: initial;
+	top: initial;
 	float: left;
-	top: 11px;
-	left: 150px;
-	font-weight: bold;
 }
-#header a.imprint-anchor.header-right{
-	line-height: 44px;
-	color: #BFBFBF;
+
+#header form.searchbox {
+	display: inline-block;
 	float: right;
-	font-weight: bold;
+}
+
+/* some rules for the reference itself */
+a.imprint-anchor {
+	margin: 0;
+	padding: 0 15px;
+	position: relative;
+	display: inline-block;
+	font-size: inherit;
+	font-weight: inherit;
+	color: #BFBFBF;
+	line-height: 45px;
+}
+
+a.imprint-anchor:hover {
+	color: #FFFFFF;
+}
+
+#header a.imprint-anchor.header-left {
+	float: left;
+}
+
+#header a.imprint-anchor.header-right {
+	float: right;
 }
