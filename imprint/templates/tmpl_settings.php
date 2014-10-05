@@ -42,14 +42,14 @@
 			</span>
 		</h2>
 		<div id="imprint-options" class="imprint-option">
-			<label for="imprint-option-position" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
-			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
+			<label for="imprint-option-position-user" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
+			<select id="imprint-option-position-user" class="imprint-option" type="select" name="position-user">
 				<option value=""></option>
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>
 			</select>
-			<label for="imprint-option-anonposition" class="imprint-option"><?php p($l->t("During login").": ");?></label>
-			<select id="imprint-option-anonposition" class="imprint-option" type="select" name="anonposition">
+			<label for="imprint-option-position-none" class="imprint-option"><?php p($l->t("During login").": ");?></label>
+			<select id="imprint-option-position-none" class="imprint-option" type="select" name="position-none">
 				<option value=""></option>
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>

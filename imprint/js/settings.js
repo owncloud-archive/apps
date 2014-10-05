@@ -29,11 +29,11 @@
 
 $(document).ready(function(){
 	// prepare storing of changed settings
-	$('#imprint #imprint-option-position').on('change',function(){
-		OC.AppConfig.setValue('imprint','position',$(this).val());
+	$('#imprint #imprint-option-position-user').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-user',$(this).val());
 	})
-	$('#imprint #imprint-option-anonposition').on('change',function(){
-		OC.AppConfig.setValue('imprint','anonposition',$(this).val());
+	$('#imprint #imprint-option-position-none').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-none',$(this).val());
 	})
 	$('#imprint #imprint-option-standalone').on('change',function(){
 		OC.AppConfig.setValue('imprint','standalone',$(this).is(':checked'));
@@ -43,11 +43,11 @@ $(document).ready(function(){
 	})
 
 	// initialize options with stored settings
-	OC.AppConfig.getValue('imprint','position','',function(data){
-		$('#imprint #imprint-option-position option[value="'+data+'"]').attr('selected', 'yes')
+	OC.AppConfig.getValue('imprint','position-user','',function(data){
+		$('#imprint #imprint-option-position-user option[value="'+data+'"]').attr('selected', 'yes')
 	});
-	OC.AppConfig.getValue('imprint','anonposition','',function(data){
-		$('#imprint #imprint-option-anonposition option[value="'+data+'"]').attr('selected', 'yes')
+	OC.AppConfig.getValue('imprint','position-none','',function(data){
+		$('#imprint #imprint-option-position-none option[value="'+data+'"]').attr('selected', 'yes')
 	});
 	// checkbox 'standalone'
 	OC.AppConfig.getValue('imprint','standalone','',function(data){

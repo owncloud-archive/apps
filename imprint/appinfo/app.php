@@ -34,7 +34,7 @@
 // add link according to what position is selected inside the apps options
 if ( ! \OCP\User::isLoggedIn()) {
 	// user NOT logged in, anonymous access, only limited positions to place the link:
-	switch ( \OCP\Config::getAppValue('imprint', 'anonposition', '')) {
+	switch ( \OCP\Config::getAppValue('imprint', 'position-none', '')) {
 		case 'header-left':
 			\OCP\Util::addScript('imprint', 'imprint_header_left');
 			break;
@@ -47,7 +47,7 @@ if ( ! \OCP\User::isLoggedIn()) {
 	} // switch
 } else { // if logged in
 	// user logged in, we have more positions to place the link:
-	switch (\OCP\Config::getAppValue('imprint', 'position', 'standalone')) {
+	switch (\OCP\Config::getAppValue('imprint', 'position-user', '')) {
 		case 'header-left':
 			\OCP\Util::addScript('imprint', 'imprint_header_left');
 			break;
