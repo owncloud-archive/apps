@@ -59,6 +59,8 @@
 				<option value=""></option>
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>
+				<option value="footer-left"><?php p($l->t("Footer left"));?></option>
+				<option value="footer-right"><?php p($l->t("Footer right"));?></option>
 			</select>
 			<br>
 			<label for="imprint-option-standalone" class="imprint-option"><?php p($l->t("Application").": ");?></label>
