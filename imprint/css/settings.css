@@ -27,43 +27,54 @@
  * @author Christian Reiner
  */
 
-.imprint-option{
+.imprint-option {
 	vertical-align: middle;
 }
-.imprint-option label{
+
+.imprint-option label {
 	display: inline-block;
 	width: 85px;
 }
-.imprint-option textarea{
+
+.imprint-option label.followup {
+	text-align: right;
+}
+
+.imprint-option textarea {
 	min-width: 850px;
 	min-height: 70px;
 }
-.imprint-hint{
+
+.imprint-hint {
 	font-style: italic;
 	margin: 0 8.5px;
 }
+
 /* some rules for the 'dummy' content */
-.imprint-factoid{
+.imprint-factoid {
 	font-size: 160%;
 	font-weight: bold;
 	font-style: normal;
 	color: gray;
 }
-.imprint-suggestion{
+
+.imprint-suggestion {
 	margin: 4px;
 	font-size: 110%;
 	font-weight: light;
 	font-style: italic;
 	color: gray;
 }
-.imprint-explanation{
+
+.imprint-explanation {
 	margin: 14px 0 28px;
 	font-size: 100%;
 	font-weight: normal;
 	font-style: normal;
 	color: black;
 }
-.imprint-reference{
+
+.imprint-reference {
 	color: blue;
 	text-decoration: underline;
 }

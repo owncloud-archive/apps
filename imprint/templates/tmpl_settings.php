@@ -48,7 +48,13 @@
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>
 			</select>
-			<label for="imprint-option-position-none" class="imprint-option"><?php p($l->t("During login").": ");?></label>
+			<label for="imprint-option-position-guest" class="imprint-option followup"><?php p($l->t("As guest").": ");?></label>
+			<select id="imprint-option-position-guest" class="imprint-option" type="select" name="position-guest">
+				<option value=""></option>
+				<option value="header-left"><?php p($l->t("Header left"));?></option>
+				<option value="header-right"><?php p($l->t("Header right"));?></option>
+			</select>
+			<label for="imprint-option-position-none" class="imprint-option followup"><?php p($l->t("At login").": ");?></label>
 			<select id="imprint-option-position-none" class="imprint-option" type="select" name="position-none">
 				<option value=""></option>
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
