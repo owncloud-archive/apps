@@ -22,15 +22,35 @@
 */
 
 /**
- * @file js/imprint_header_left.js
+ * @file js/reference.js
  * @brief Client side activity library
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint','index.php'));
-	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor').addClass('header-left');
+OC.Imprint = {
+	Label: t('imprint',"Legal notice"),
+	Target: OC.linkTo('imprint','index.php'),
+	View: {
+		'body-user': 'user',
+		'body-settings': 'user',
+		'body-guest': 'guest',
+		'body-login': 'none'
+	}, // View
+	injectAnchor: function(){
+		var view = OC.Imprint.View[$('body').attr('id')];
+		var option = 'position-'+view;
+		OC.AppConfig.getValue('imprint',option,'',function(position){
+			// create an anchor element (imprint reference)
+			var anchor=$('<a />');
+			anchor.attr('href',OC.Imprint.Target);
+			anchor.text(OC.Imprint.Label);
+			anchor.addClass('imprint-anchor').addClass('imprint-view-'+view).addClass('imprint-position-'+position);
+			// inject anchor element into DOM
+			$('#header form.searchbox').after(anchor);
+		});
+	} // injectAnchor
+}
 
-	$('#header a.menutoggle').after(anchor);
+$(document).ready(function() {
+	// inject a reference anchor (imprint link) into the page
+	OC.Imprint.injectAnchor();
 })

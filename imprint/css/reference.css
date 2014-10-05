@@ -56,10 +56,10 @@ a.imprint-anchor:hover {
 	color: #FFFFFF;
 }
 
-#header a.imprint-anchor.header-left {
+#header a.imprint-anchor.imprint-position-header-left {
 	float: left;
 }
 
-#header a.imprint-anchor.header-right {
+#header a.imprint-anchor.imprint-position-header-right {
 	float: right;
 }

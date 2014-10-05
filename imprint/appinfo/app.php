@@ -30,40 +30,16 @@
 
 \OCP\App::registerAdmin('imprint', 'settings');
 \OCP\Util::addStyle('imprint', 'reference');
+\OCP\Util::addScript('imprint', 'reference');
 
-// add link according to what position is selected inside the apps options
-if ( ! \OCP\User::isLoggedIn()) {
-	// user NOT logged in, anonymous access, only limited positions to place the link:
-	switch ( \OCP\Config::getAppValue('imprint', 'position-none', '')) {
-		case 'header-left':
-			\OCP\Util::addScript('imprint', 'imprint_header_left');
-			break;
-		case 'header-right':
-			\OCP\Util::addScript('imprint', 'imprint_header_right');
-			break;
-		default:
-			// don't show a link!
-			break;
-	} // switch
-} else { // if logged in
-	// user logged in, we have more positions to place the link:
-	switch (\OCP\Config::getAppValue('imprint', 'position-user', '')) {
-		case 'header-left':
-			\OCP\Util::addScript('imprint', 'imprint_header_left');
-			break;
-		case 'header-right':
-			\OCP\Util::addScript('imprint', 'imprint_header_right');
-			break;
-	} // switch
-	// offer application as standalone entry in the menu?
-	if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
-			// no js required, we add the imprint as a normal app to the navigation
-			\OCP\App::addNavigationEntry(array(
-				'id'    => 'imprint',
-				'order' => 99999,
-				'href'  => \OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
-				'name'  => \OC_L10N::get('imprint')->t("Legal notice")
-			));
-	} // if
-} // if logged in
+// offer application as standalone entry in the menu?
+if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
+		// no js required, we add the imprint as a normal app to the navigation
+		\OCP\App::addNavigationEntry(array(
+			'id'    => 'imprint',
+			'order' => 99999,
+			'href'  => \OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+			'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
+			'name'  => \OC_L10N::get('imprint')->t("Legal notice")
+		));
+} // if
