@@ -34,7 +34,7 @@
 \OCP\Util::addScript('imprint', 'imprint_content');
 
 \OCP\App::setActiveNavigationEntry('imprint');
-\OCP\Util::addStyle('imprint', 'imprint');
+\OCP\Util::addStyle('imprint', 'reference');
 
 // prepare view
 $tmpl_view = (\OCP\User::isLoggedIn()) ? 'user' : 'guest';

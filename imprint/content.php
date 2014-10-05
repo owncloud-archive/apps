@@ -36,7 +36,7 @@
 if (FALSE === ($content=\OCP\Config::getAppValue('imprint','content',FALSE)))
 {
 	$tmpl = new \OCP\Template('imprint', 'tmpl_dummy');
-	\OCP\Util::addStyle('imprint','imprint');
+	\OCP\Util::addStyle('imprint','reference');
 }
 else
 {

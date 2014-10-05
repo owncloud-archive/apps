@@ -1,4 +1,3 @@
-<?php
 /**
 * @package imprint an ownCloud app
 * @author Christian Reiner
@@ -23,27 +22,41 @@
 */
 
 /**
- * @file settings.php
- * This apps system settings dialog
- * The dialog will be included in the general framework of the system settings page
- * @access public
+ * @file css/position.css
+ * @brief Style definitions of the apps view
  * @author Christian Reiner
  */
 
-// Session checks
-\OCP\User::checkLoggedIn();
-\OCP\User::checkAdminUser();
-\OCP\App::checkAppEnabled('imprint');
-
-\OCP\Util::addStyle('3rdparty', 'chosen/chosen');
-\OCP\Util::addStyle('imprint', 'settings');
-\OCP\Util::addStyle('imprint', 'reference');
-
-\OCP\Util::addScript('3rdparty', 'chosen/chosen.jquery.min');
-\OCP\Util::addScript('imprint', 'settings');
-
-// fetch template
-$tmpl = new \OCP\Template('imprint', 'tmpl_settings');
-// render template
-return $tmpl->fetchPage();
-?>
+/* some rules for the reference itself */
+a.imprint-anchor{
+	margin: 0;
+	padding: 0 30px;
+	position: relative;
+	font-size: 100%;
+	font-weight: inherit;
+}
+#header a.imprint-anchor.header-left{
+	line-height: 40px;
+	color: #BFBFBF;
+	float: left;
+	top: 11px;
+	left: 150px;
+	font-weight: bold;
+}
+#header a.imprint-anchor.header-right{
+	line-height: 44px;
+	color: #BFBFBF;
+	float: right;
+	font-weight: bold;
+}
+#navigation a.imprint-anchor.navigation-top{
+	border: none;
+	color: 666;
+}
+#navigation a.imprint-anchor.navigation-bottom{
+	position: absolute;
+	bottom: 40px;
+	border: none;
+	color: 666;
+	border: 0;
+}

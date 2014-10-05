@@ -22,46 +22,11 @@
 */
 
 /**
- * @file css/imprint.css
+ * @file css/settings.css
  * @brief Style definitions of the apps view
  * @author Christian Reiner
  */
 
-/* some rules for the reference itself */
-a.imprint-anchor{
-	margin: 0;
-	padding: 0 30px;
-	position: relative;
-	font-size: 100%;
-	font-weight: inherit;
-}
-#header a.imprint-anchor.header-left{
-	line-height: 40px;
-	color: #BFBFBF;
-	float: left;
-	top: 11px;
-	left: 150px;
-	font-weight: bold;
-}
-#header a.imprint-anchor.header-right{
-	line-height: 44px;
-	color: #BFBFBF;
-	float: right;
-	font-weight: bold;
-}
-#navigation a.imprint-anchor.navigation-top{
-	border: none;
-	color: 666;
-}
-#navigation a.imprint-anchor.navigation-bottom{
-	position: absolute;
-	bottom: 40px;
-	border: none;
-	color: 666;
-	border: 0;
-}
-
-/* some rules for the settings */
 .imprint-option{
 	vertical-align: middle;
 }

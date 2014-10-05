@@ -29,7 +29,7 @@
  */
 
 \OCP\App::registerAdmin('imprint', 'settings');
-\OCP\Util::addStyle('imprint', 'imprint');
+\OCP\Util::addStyle('imprint', 'reference');
 
 // add link according to what position is selected inside the apps options
 if( ! \OCP\User::isLoggedIn()) {
