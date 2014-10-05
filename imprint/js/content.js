@@ -22,7 +22,7 @@
  */
 
 /**
- * @file js/imprint_content.js
+ * @file js/content.js
  * @brief Client side activity library
  * @author Christian Reiner
  */
