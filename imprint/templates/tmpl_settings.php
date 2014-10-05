@@ -42,9 +42,9 @@
 			</span>
 		</h2>
 		<div id="imprint-options" class="imprint-option">
-			<label for="imprint-option-position" class="imprint-option"><?php p($l->t("Placement").": ");?></label>
+			<label for="imprint-option-position" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
 			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
-				<option value="standalone"><?php p($l->t("Standalone app"));?></option>
+				<option value=""></option>
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>
 				<option value="navigation-top"><?php p($l->t("Navigation top"));?></option>
@@ -56,6 +56,9 @@
 				<option value="header-left"><?php p($l->t("Header left"));?></option>
 				<option value="header-right"><?php p($l->t("Header right"));?></option>
 			</select>
+			<br>
+			<label for="imprint-option-standalone" class="imprint-option"><?php p($l->t("Application").": ");?></label>
+			<input id="imprint-option-standalone" type="checkbox" class="imprint-option">Offer as application inside the menu</input>
 			<br>
 			<label   for="imprint-content" class="imprint-option"><?php p($l->t("Content").': ');?></label>
 			<textarea id="imprint-content" class="imprint-option"></textarea>

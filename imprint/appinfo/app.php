@@ -32,7 +32,7 @@
 \OCP\Util::addStyle('imprint', 'reference');
 
 // add link according to what position is selected inside the apps options
-if( ! \OCP\User::isLoggedIn()) {
+if ( ! \OCP\User::isLoggedIn()) {
 	// user NOT logged in, anonymous access, only limited positions to place the link:
 	switch ( \OCP\Config::getAppValue('imprint', 'anonposition', '')) {
 		case 'header-left':
@@ -47,7 +47,7 @@ if( ! \OCP\User::isLoggedIn()) {
 	} // switch
 } else { // if logged in
 	// user logged in, we have more positions to place the link:
-	switch(\OCP\Config::getAppValue('imprint', 'position', 'standalone')) {
+	switch (\OCP\Config::getAppValue('imprint', 'position', 'standalone')) {
 		case 'header-left':
 			\OCP\Util::addScript('imprint', 'imprint_header_left');
 			break;
@@ -60,8 +60,9 @@ if( ! \OCP\User::isLoggedIn()) {
 		case 'navigation-bottom':
 			\OCP\Util::addScript('imprint', 'imprint_navigation_bottom');
 			break;
-		default:
-		case 'standalone':
+	} // switch
+	// offer application as standalone entry in the menu?
+	if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
 			// no js required, we add the imprint as a normal app to the navigation
 			\OCP\App::addNavigationEntry(array(
 				'id'    => 'imprint',
@@ -70,5 +71,5 @@ if( ! \OCP\User::isLoggedIn()) {
 				'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
 				'name'  => \OC_L10N::get('imprint')->t("Legal notice")
 			));
-	} // switch
+	} // if
 } // if logged in

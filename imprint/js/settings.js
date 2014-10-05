@@ -35,6 +35,9 @@ $(document).ready(function(){
 	$('#imprint #imprint-option-anonposition').on('change',function(){
 		OC.AppConfig.setValue('imprint','anonposition',$(this).val());
 	})
+	$('#imprint #imprint-option-standalone').on('change',function(){
+		OC.AppConfig.setValue('imprint','standalone',$(this).is(':checked'));
+	})
 	$('#imprint').find('#imprint-content').on('focusout',function(){
 		OC.AppConfig.setValue('imprint','content',$(this).val());
 	})
@@ -45,6 +48,14 @@ $(document).ready(function(){
 	});
 	OC.AppConfig.getValue('imprint','anonposition','',function(data){
 		$('#imprint #imprint-option-anonposition option[value="'+data+'"]').attr('selected', 'yes')
+	});
+	// checkbox 'standalone'
+	OC.AppConfig.getValue('imprint','standalone','',function(data){
+		if ('true' === data) {
+			$('#imprint #imprint-option-standalone').attr('checked', 'checked');
+		} else {
+			$('#imprint #imprint-option-standalone').removeAttr('checked');
+		}
 	});
 	OC.AppConfig.getValue('imprint','content','',function(data){
 		$('#imprint #imprint-content').html(data);
