@@ -54,12 +54,6 @@ if ( ! \OCP\User::isLoggedIn()) {
 		case 'header-right':
 			\OCP\Util::addScript('imprint', 'imprint_header_right');
 			break;
-		case 'navigation-top':
-			\OCP\Util::addScript('imprint', 'imprint_navigation_top');
-			break;
-		case 'navigation-bottom':
-			\OCP\Util::addScript('imprint', 'imprint_navigation_bottom');
-			break;
 	} // switch
 	// offer application as standalone entry in the menu?
 	if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {

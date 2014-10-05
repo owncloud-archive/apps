@@ -49,14 +49,3 @@ a.imprint-anchor{
 	float: right;
 	font-weight: bold;
 }
-#navigation a.imprint-anchor.navigation-top{
-	border: none;
-	color: 666;
-}
-#navigation a.imprint-anchor.navigation-bottom{
-	position: absolute;
-	bottom: 40px;
-	border: none;
-	color: 666;
-	border: 0;
-}
