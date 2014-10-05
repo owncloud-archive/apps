@@ -33,8 +33,22 @@ OC.Imprint = {
 		'body-user': 'user',
 		'body-settings': 'user',
 		'body-guest': 'guest',
+		'body-public': 'guest',
 		'body-login': 'none'
 	}, // View
+	Position: {
+		'user': {
+			'header-left':  function(anchor){$('#header a.menutoggle').after(anchor);},
+			'header-right': function(anchor){$('#header form.searchbox').after(anchor);},
+		},
+		'guest': {
+			'header-left':  function(anchor){},
+			'header-right': function(anchor){},
+			'footer-left':  function(anchor){$('footer').prepend(anchor);},
+			'footer-right': function(anchor){$('footer').append(anchor);},
+		},
+		'none': {},
+	},
 	injectAnchor: function(){
 		var view = OC.Imprint.View[$('body').attr('id')];
 		var option = 'position-'+view;
@@ -45,7 +59,8 @@ OC.Imprint = {
 			anchor.text(OC.Imprint.Label);
 			anchor.addClass('imprint-anchor').addClass('imprint-view-'+view).addClass('imprint-position-'+position);
 			// inject anchor element into DOM
-			$('#header form.searchbox').after(anchor);
+			if (typeof OC.Imprint.Position[view][position] === 'function')
+				OC.Imprint.Position[view][position](anchor);
 		});
 	} // injectAnchor
 }
