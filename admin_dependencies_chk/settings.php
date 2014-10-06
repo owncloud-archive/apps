@@ -67,6 +67,12 @@ $modules[] =array(
 	'message'=> $l->t('The php-bcmath module is needed to support AD primary groups'));
 
 $modules[] =array(
+        'status' =>  version_compare(phpversion(), '5.4.0', '>=') ? 'ok' : 'warning',
+        'part'=> 'php version',
+        'modules'=> array('user_ldap'),
+        'message'=> $l->t('For performance reasons, we recommend using PHP 5.4 or greater to use the LDAP application with more than 500 users.'));
+
+$modules[] =array(
 	'status' => class_exists('ZipArchive') ? 'ok' : 'warning',
 	'part'=> 'php-zip',
 	'modules'=> array('admin_export','core'),
