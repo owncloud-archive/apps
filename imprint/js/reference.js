@@ -44,10 +44,15 @@ OC.Imprint = {
 		'guest': {
 			'header-left':  function(anchor){$('#header #owncloud').after(anchor);},
 			'header-right': function(anchor){$('#header div.header-right').after(anchor);},
-			'footer-left':  function(anchor){$('footer').prepend(anchor);},
-			'footer-right': function(anchor){$('footer').append(anchor);},
+			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
+			'footer-right': function(anchor){$('footer p.info').before(anchor);},
 		},
-		'none': {},
+		'none': {
+			'header-left':  function(anchor){$('header div#header').before(anchor);},
+			'header-right': function(anchor){$('header div#header').before(anchor);},
+			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
+			'footer-right': function(anchor){$('footer p.info').before(anchor);},
+		},
 	},
 	injectAnchor: function(view,position){
 		if (view && position) {

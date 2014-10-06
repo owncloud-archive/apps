@@ -42,6 +42,14 @@
 	float: right;
 }
 
+#body-login .wrapper {
+	width: auto;
+}
+
+footer p.info {
+	width: 22em;
+}
+
 /* some rules for the reference itself */
 a.imprint-anchor {
 	margin: 0;
@@ -49,19 +57,44 @@ a.imprint-anchor {
 	position: relative;
 	display: inline-block;
 	font-size: inherit;
-	font-weight: inherit;
-	color: #BFBFBF;
+	font-weight: bold;
+	color: #bfbfbf;
+}
+
+a.imprint-anchor.imprint-position-header-left,
+a.imprint-anchor.imprint-position-header-right {
 	line-height: 45px;
 }
 
-a.imprint-anchor:hover {
-	color: #FFFFFF;
+a.imprint-anchor.imprint-position-footer-left,
+a.imprint-anchor.imprint-position-footer-right {
+	color: #777777;
+	padding: 20px 15px 0;
 }
 
-#header a.imprint-anchor.imprint-position-header-left {
+a.imprint-anchor.imprint-view-none.imprint-position-footer-left,
+a.imprint-anchor.imprint-view-none.imprint-position-footer-right {
+	color: #cccccc;
+}
+
+a.imprint-anchor.imprint-position-header-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-header-right.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-footer-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-footer-right.imprint-anchor:hover {
+	color: #ffffff;
+}
+
+a.imprint-anchor.imprint-view-guest.imprint-position-footer-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-view-guest.imprint-position-footer-right.imprint-anchor:hover {
+	color: #000000;
+}
+
+a.imprint-anchor.imprint-position-header-left,
+a.imprint-anchor.imprint-position-footer-left {
 	float: left;
 }
 
-#header a.imprint-anchor.imprint-position-header-right {
+a.imprint-anchor.imprint-position-header-right,
+a.imprint-anchor.imprint-position-footer-right {
 	float: right;
 }
