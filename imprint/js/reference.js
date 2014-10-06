@@ -30,42 +30,44 @@ OC.Imprint = {
 	Label: t('imprint',"Legal notice"),
 	Target: OC.linkTo('imprint','index.php'),
 	View: {
-		'body-user': 'user',
+		'body-user':     'user',
 		'body-settings': 'user',
-		'body-guest': 'guest',
-		'body-public': 'guest',
-		'body-login': 'none'
+		'body-guest':    'guest',
+		'body-public':   'guest',
+		'body-login':    'none'
 	}, // View
-	Position: {
+	Placement: {
 		'user': {
 			'header-left':  function(anchor){$('#header a.menutoggle').after(anchor);},
 			'header-right': function(anchor){$('#header form.searchbox').after(anchor);},
 		},
 		'guest': {
-			'header-left':  function(anchor){},
-			'header-right': function(anchor){},
+			'header-left':  function(anchor){$('#header #owncloud').after(anchor);},
+			'header-right': function(anchor){$('#header div.header-right').after(anchor);},
 			'footer-left':  function(anchor){$('footer').prepend(anchor);},
 			'footer-right': function(anchor){$('footer').append(anchor);},
 		},
 		'none': {},
 	},
-	injectAnchor: function(){
-		var view = OC.Imprint.View[$('body').attr('id')];
-		var option = 'position-'+view;
-		OC.AppConfig.getValue('imprint',option,'',function(position){
+	injectAnchor: function(view,position){
+		if (view && position) {
 			// create an anchor element (imprint reference)
 			var anchor=$('<a />');
 			anchor.attr('href',OC.Imprint.Target);
 			anchor.text(OC.Imprint.Label);
 			anchor.addClass('imprint-anchor').addClass('imprint-view-'+view).addClass('imprint-position-'+position);
 			// inject anchor element into DOM
-			if (typeof OC.Imprint.Position[view][position] === 'function')
-				OC.Imprint.Position[view][position](anchor);
-		});
+			if (typeof OC.Imprint.Placement[view][position] === 'function') {
+				OC.Imprint.Placement[view][position](anchor);
+			}
+		};
 	} // injectAnchor
 }
 
 $(document).ready(function() {
+	// extract positioning information from DOM
+	var view     = OC.Imprint.View[$('body').attr('id')];
+	var position = $('head meta[data-imprint-position-'+view+']').attr('data-imprint-position-'+view);
 	// inject a reference anchor (imprint link) into the page
-	OC.Imprint.injectAnchor();
+	OC.Imprint.injectAnchor(view,position);
 })

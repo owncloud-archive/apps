@@ -35,7 +35,9 @@
 	float: left;
 }
 
-#header form.searchbox {
+#header form.searchbox,
+#header div.header-right {
+	position: relative;
 	display: inline-block;
 	float: right;
 }

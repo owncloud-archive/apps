@@ -28,9 +28,14 @@
  * @author Christian Reiner
  */
 
-\OCP\App::registerAdmin('imprint', 'settings');
-\OCP\Util::addStyle('imprint', 'reference');
-\OCP\Util::addScript('imprint', 'reference');
+\OCP\App::registerAdmin('imprint', 'settings' );
+\OCP\Util::addStyle    ('imprint', 'reference');
+\OCP\Util::addScript   ('imprint', 'reference');
+
+// add imprint positioning options as meta tags to the html head to avoid additional ajax requests
+\OCP\Util::addHeader('meta', array('data-imprint-position-user' =>\OCP\Config::getAppValue('imprint', 'position-user',  '')));
+\OCP\Util::addHeader('meta', array('data-imprint-position-guest'=>\OCP\Config::getAppValue('imprint', 'position-guest', '')));
+\OCP\Util::addHeader('meta', array('data-imprint-position-none' =>\OCP\Config::getAppValue('imprint', 'position-none',  '')));
 
 // offer application as standalone entry in the menu?
 if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
@@ -38,7 +43,7 @@ if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
 		\OCP\App::addNavigationEntry(array(
 			'id'    => 'imprint',
 			'order' => 99999,
-			'href'  => \OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+			'href'  => \OCP\Util::linkTo   ('imprint', 'index.php'),
 			'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
 			'name'  => \OC_L10N::get('imprint')->t("Legal notice")
 		));
