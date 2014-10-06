@@ -35,7 +35,7 @@
 // add imprint positioning options as meta tags to the html head to avoid additional ajax requests
 \OCP\Util::addHeader('meta', array('data-imprint-position-user' =>\OCP\Config::getAppValue('imprint', 'position-user',  '')));
 \OCP\Util::addHeader('meta', array('data-imprint-position-guest'=>\OCP\Config::getAppValue('imprint', 'position-guest', '')));
-\OCP\Util::addHeader('meta', array('data-imprint-position-none' =>\OCP\Config::getAppValue('imprint', 'position-none',  '')));
+\OCP\Util::addHeader('meta', array('data-imprint-position-login'=>\OCP\Config::getAppValue('imprint', 'position-login', '')));
 
 // offer application as standalone entry in the menu?
 if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {

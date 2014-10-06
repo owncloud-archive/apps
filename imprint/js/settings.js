@@ -35,8 +35,8 @@ $(document).ready(function(){
 	$('#imprint #imprint-option-position-guest').on('change',function(){
 		OC.AppConfig.setValue('imprint','position-guest',$(this).val());
 	})
-	$('#imprint #imprint-option-position-none').on('change',function(){
-		OC.AppConfig.setValue('imprint','position-none',$(this).val());
+	$('#imprint #imprint-option-position-login').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-login',$(this).val());
 	})
 	$('#imprint #imprint-option-standalone').on('change',function(){
 		OC.AppConfig.setValue('imprint','standalone',$(this).is(':checked'));
@@ -52,8 +52,8 @@ $(document).ready(function(){
 	OC.AppConfig.getValue('imprint','position-guest','',function(data){
 		$('#imprint #imprint-option-position-guest option[value="'+data+'"]').attr('selected', 'yes')
 	});
-	OC.AppConfig.getValue('imprint','position-none','',function(data){
-		$('#imprint #imprint-option-position-none option[value="'+data+'"]').attr('selected', 'yes')
+	OC.AppConfig.getValue('imprint','position-login','',function(data){
+		$('#imprint #imprint-option-position-login option[value="'+data+'"]').attr('selected', 'yes')
 	});
 	// checkbox 'standalone'
 	OC.AppConfig.getValue('imprint','standalone','',function(data){

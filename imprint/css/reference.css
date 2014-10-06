@@ -72,8 +72,8 @@ a.imprint-anchor.imprint-position-footer-right {
 	padding: 20px 15px 0;
 }
 
-a.imprint-anchor.imprint-view-none.imprint-position-footer-left,
-a.imprint-anchor.imprint-view-none.imprint-position-footer-right {
+a.imprint-anchor.imprint-view-login.imprint-position-footer-left,
+a.imprint-anchor.imprint-view-login.imprint-position-footer-right {
 	color: #cccccc;
 }
 

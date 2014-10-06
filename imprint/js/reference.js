@@ -34,7 +34,7 @@ OC.Imprint = {
 		'body-settings': 'user',
 		'body-guest':    'guest',
 		'body-public':   'guest',
-		'body-login':    'none'
+		'body-login':    'login'
 	}, // View
 	Placement: {
 		'user': {
@@ -47,7 +47,7 @@ OC.Imprint = {
 			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
 			'footer-right': function(anchor){$('footer p.info').before(anchor);},
 		},
-		'none': {
+		'login': {
 			'header-left':  function(anchor){$('header div#header').before(anchor);},
 			'header-right': function(anchor){$('header div#header').before(anchor);},
 			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
