@@ -43,11 +43,7 @@
 	<author>Christian Reiner</author>
 	<requiremin>7</requiremin>
 		<types>
-			<authentication />
 			<prelogin />
-			<filesystem />
-			<logging />
-			<session />
 		</types>
 		<website>http://apps.owncloud.com/content/show.php/Imprint?content=153220</website>
 		<shipped>false</shipped>
