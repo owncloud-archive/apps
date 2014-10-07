@@ -33,6 +33,7 @@
 	left: initial;
 	top: initial;
 	float: left;
+	left: 0;
 }
 
 #header form.searchbox,
