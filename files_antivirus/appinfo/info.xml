@@ -3,7 +3,11 @@
 	<id>files_antivirus</id>
 	<name>Antivirus App for files</name>
 	<version>0.6</version>
-	<description>Verify files for virus using ClamAV</description>
+	<description>
+		This application inspects files that are uploaded to ownCloud for viruses before they are written to the ownCloud storage. If a file is identified as a virus, it is either logged or not uploaded to the server. The application relies on the underlying ClamAV virus scanning engine, which the admin points ownCloud to when configuring the application. 
+For this app to be effective, the ClamAV virus definitions should be kept up to date. Also note that enabling this app will impact system performance as additional processing is required for every upload. More information is available in the Antivirus documentation.
+
+	</description>
 	<licence>AGPL</licence>
 	<author>Manuel Delgado, Bart Visscher, thinksilicon.de</author>
 	<requiremin>6</requiremin>
