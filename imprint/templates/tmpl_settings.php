@@ -33,48 +33,46 @@
 ?>
 
 <!-- settings of app 'imprint' -->
-<form id="imprint">
-	<div class="section">
-		<h2>
-			<span id="title" class="title">
-				<img class="" src="<?php p(\OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
-				<?php p($l->t("Imprint"));?>
-			</span>
-		</h2>
-		<div id="imprint-options" class="imprint-option">
-			<label for="imprint-option-position-user" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
-			<select id="imprint-option-position-user" class="imprint-option" type="select" name="position-user">
-				<option value=""></option>
-				<option value="header-left"><?php p($l->t("Header left"));?></option>
-				<option value="header-right"><?php p($l->t("Header right"));?></option>
-			</select>
-			<label for="imprint-option-position-guest" class="imprint-option followup"><?php p($l->t("As guest").": ");?></label>
-			<select id="imprint-option-position-guest" class="imprint-option" type="select" name="position-guest">
-				<option value=""></option>
-				<option value="header-left"><?php p($l->t("Header left"));?></option>
-				<option value="header-right"><?php p($l->t("Header right"));?></option>
-				<option value="footer-left"><?php p($l->t("Footer left"));?></option>
-				<option value="footer-right"><?php p($l->t("Footer right"));?></option>
-			</select>
-			<label for="imprint-option-position-login" class="imprint-option followup"><?php p($l->t("At login").": ");?></label>
-			<select id="imprint-option-position-login" class="imprint-option" type="select" name="position-login">
-				<option value=""></option>
-				<option value="header-left"><?php p($l->t("Header left"));?></option>
-				<option value="header-right"><?php p($l->t("Header right"));?></option>
-				<option value="footer-left"><?php p($l->t("Footer left"));?></option>
-				<option value="footer-right"><?php p($l->t("Footer right"));?></option>
-			</select>
-			<br>
-			<label for="imprint-option-standalone" class="imprint-option"><?php p($l->t("Application").": ");?></label>
-			<input id="imprint-option-standalone" type="checkbox" class="imprint-option">Offer as application inside the menu</input>
-			<br>
-			<label   for="imprint-content" class="imprint-option"><?php p($l->t("Content").': ');?></label>
-			<textarea id="imprint-content" class="imprint-option"></textarea>
-			<br>
-			<label   for="imprint-usage"   class="imprint-option"></label>
-			<span     id="imprint-usage"   class="imprint-option imprint-hint">
-				<?php p($l->t("You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)."));?>
-			</span>
-		</div>
+<div class="section" id="imprint">
+	<h2>
+		<span id="title" class="title">
+			<img class="" src="<?php p(\OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
+			<?php p($l->t("Imprint"));?>
+		</span>
+	</h2>
+	<div id="imprint-options" class="imprint-option">
+		<label for="imprint-option-position-user" class="imprint-option"><?php p($l->t("Reference").": ");?></label>
+		<select id="imprint-option-position-user" class="imprint-option" type="select" name="position-user">
+			<option value=""></option>
+			<option value="header-left"><?php p($l->t("Header left"));?></option>
+			<option value="header-right"><?php p($l->t("Header right"));?></option>
+		</select>
+		<label for="imprint-option-position-guest" class="imprint-option followup"><?php p($l->t("As guest").": ");?></label>
+		<select id="imprint-option-position-guest" class="imprint-option" type="select" name="position-guest">
+			<option value=""></option>
+			<option value="header-left"><?php p($l->t("Header left"));?></option>
+			<option value="header-right"><?php p($l->t("Header right"));?></option>
+			<option value="footer-left"><?php p($l->t("Footer left"));?></option>
+			<option value="footer-right"><?php p($l->t("Footer right"));?></option>
+		</select>
+		<label for="imprint-option-position-login" class="imprint-option followup"><?php p($l->t("At login").": ");?></label>
+		<select id="imprint-option-position-login" class="imprint-option" type="select" name="position-login">
+			<option value=""></option>
+			<option value="header-left"><?php p($l->t("Header left"));?></option>
+			<option value="header-right"><?php p($l->t("Header right"));?></option>
+			<option value="footer-left"><?php p($l->t("Footer left"));?></option>
+			<option value="footer-right"><?php p($l->t("Footer right"));?></option>
+		</select>
+		<br>
+		<label for="imprint-option-standalone" class="imprint-option"><?php p($l->t("Application").": ");?></label>
+		<input id="imprint-option-standalone" type="checkbox" class="imprint-option">Offer as application inside the menu</input>
+		<br>
+		<label   for="imprint-content" class="imprint-option"><?php p($l->t("Content").': ');?></label>
+		<textarea id="imprint-content" class="imprint-option"></textarea>
+		<br>
+		<label   for="imprint-usage"   class="imprint-option"></label>
+		<span     id="imprint-usage"   class="imprint-option imprint-hint">
+			<?php p($l->t("You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)."));?>
+		</span>
 	</div>
-</form>
+</div>
