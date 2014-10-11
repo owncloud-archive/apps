@@ -24,6 +24,7 @@ use OCP\Files\LockNotAcquiredException;
 
 /**
  * Class Lock
+ *
  * @package OC\Files
  */
 class Lock {
@@ -45,7 +46,7 @@ class Lock {
 	/** @var array $stack A stack of lock data */
 	protected $stack = array();
 
-	/** @var resource $handle A file handle used to maintain a lock  */
+	/** @var resource $handle A file handle used to maintain a lock */
 	protected $handle;
 
 	/** @var string $lockFile Filename of the lock file */
@@ -56,6 +57,7 @@ class Lock {
 
 	/**
 	 * Constructor for the lock instance
+	 *
 	 * @param string $path Absolute pathname for a local file on which to obtain a lock
 	 */
 	public function __construct($path) {
@@ -77,29 +79,31 @@ class Lock {
 		$timeout = Lock::$retries;
 
 		// Re-use an existing handle or get a new one
-		if(empty($existingHandle)) {
+		if (empty($existingHandle)) {
 			$handle = fopen($this->path, 'r');
 			if ($handle === false) {
 				return false;
 			}
-		}
-		else {
+		} else {
 			$handle = $existingHandle;
 		}
 
-		do {
-			if($this->isLockFileLocked($this->getLockFile($this->path))) {
-				\OC_Log::write('lock', sprintf('INFO: Read lock has locked lock file %s for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
-				do {
-					usleep(Lock::$retryInterval * 1000);
-					$timeout--;
-				} while($this->isLockFileLocked($this->getLockFile($this->path)) && $timeout > 0);
-				\OC_Log::write('lock', sprintf('INFO: Lock file %s has become unlocked for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
+		if ($this->isLockFileLocked($this->getLockFile($this->path))) {
+			\OC_Log::write('lock', sprintf('INFO: Read lock has locked lock file %s for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
+			do {
+				usleep(Lock::$retryInterval * 1000);
+				$timeout--;
+			} while ($this->isLockFileLocked($this->getLockFile($this->path)) && $timeout > 0);
+			\OC_Log::write('lock', sprintf('INFO: Lock file %s has become unlocked for %s', $this->getLockFile($this->path), $this->path), \OC_Log::DEBUG);
+		} else {
+			do {
+				usleep(Lock::$retryInterval * 1000);
+				$timeout--;
+			} while ((!$lockReturn = flock($handle, LOCK_SH | LOCK_NB, $wouldBlock)) && $timeout > 0);
+			if ($wouldBlock == true || $lockReturn == false || $timeout <= 0) {
+				\OC_Log::write('lock', sprintf('FAIL: Failed to acquire read lock for %s', $this->path), \OC_Log::DEBUG);
+				return false;
 			}
-		} while ((!$lockReturn = flock($handle, LOCK_SH | LOCK_NB, $wouldBlock)) && $timeout > 0);
-		if ($wouldBlock == true || $lockReturn == false || $timeout <= 0) {
-			\OC_Log::write('lock', sprintf('FAIL: Failed to acquire read lock for %s', $this->path), \OC_Log::DEBUG);
-			return false;
 		}
 		if (!$existingHandle) {
 			$this->handle = $handle;
@@ -127,8 +131,7 @@ class Lock {
 			if ($handle === false) {
 				return false;
 			}
-		}
-		else {
+		} else {
 			$handle = $existingHandle;
 		}
 
@@ -151,8 +154,7 @@ class Lock {
 			// We don't have a lock on the original file, try to get a lock on its lock file
 			if ($haveBlock || $haveBlock = $this->lockLockFile($this->lockFile)) {
 				usleep(Lock::$retryInterval * 1000);
-			}
-			else {
+			} else {
 				\OC_Log::write('lock', sprintf('FAIL: Write lock failed, unable to lock original %s or lock file', $this->path), \OC_Log::DEBUG);
 				return false;
 			}
@@ -174,15 +176,16 @@ class Lock {
 	 * Create a lock file and lock it
 	 * Sets $this->lockFile to the specified lock file, indicating that the lock file is IN USE for this lock instance
 	 * Also sets $this->lockFileHandle to a file handle of the lock file
+	 *
 	 * @param string $filename The name of the file to lock
 	 * @return bool False if lock can't be acquired, true if it can.
 	 */
-	protected function lockLockFile ( $filename ) {
+	protected function lockLockFile($filename) {
 		$lockFile = $this->getLockFile($filename);
 		\OC_Log::write('lock', sprintf('INFO: Locking lock file %s for %s', $lockFile, $filename), \OC_Log::DEBUG);
 
 		// If we already manage the lock file, success
-		if(!empty($this->lockFile)) {
+		if (!empty($this->lockFile)) {
 			\OC_Log::write('lock', sprintf('PASS: Lock file %s was locked by this request for %s', $lockFile, $filename), \OC_Log::DEBUG);
 			return true;
 		}
@@ -190,7 +193,7 @@ class Lock {
 		// Check if the lock file exists, and if not, try to create it
 		\OC_Log::write('lock', sprintf('INFO: Does lock file %s already exist?  %s', $lockFile, file_exists($lockFile) ? 'yes' : 'no'), \OC_Log::DEBUG);
 		$handle = fopen($lockFile, 'c');
-		if(!$handle) {
+		if (!$handle) {
 			\OC_Log::write('lock', sprintf('FAIL: Could not create lock file %s', $lockFile), \OC_Log::DEBUG);
 			return false;
 		}
@@ -199,7 +202,7 @@ class Lock {
 		$wouldBlock = false;
 		$timeout = self::$retries;
 		// Wait for lock over timeout
-		while((!$lockReturn = flock($handle, LOCK_EX | LOCK_NB, $wouldBlock)) && $timeout > 0) {
+		while ((!$lockReturn = flock($handle, LOCK_EX | LOCK_NB, $wouldBlock)) && $timeout > 0) {
 			\OC_Log::write('lock', sprintf('FAIL: Could not acquire lock on lock file %s, %s timeout increments remain.', $lockFile, $timeout), \OC_Log::DEBUG);
 			usleep(self::$retryInterval * 1000);
 			$timeout--;
@@ -219,13 +222,14 @@ class Lock {
 
 	/**
 	 * Add a lock of a specific type to the stack
+	 *
 	 * @param integer $lockType A constant representing the type of lock to queue
 	 * @param null|resource $existingHandle An existing file handle from an fopen()
 	 * @throws LockNotAcquiredException
 	 */
 	public function addLock($lockType, $existingHandle = null) {
-		if(!isset($this->stack[$lockType])) {
-			switch($lockType) {
+		if (!isset($this->stack[$lockType])) {
+			switch ($lockType) {
 				case Lock::READ:
 					$result = $this->obtainReadLock($existingHandle);
 					break;
@@ -236,10 +240,9 @@ class Lock {
 					$result = false;
 					break;
 			}
-			if($result) {
+			if ($result) {
 				$this->stack[$lockType] = 0;
-			}
-			else {
+			} else {
 				throw new LockNotAcquiredException($this->path, $lockType);
 			}
 		}
@@ -253,14 +256,14 @@ class Lock {
 	 * Release locks on handles and files
 	 */
 	public function release($lockType) {
-		if(isset($this->stack[$lockType])) {
+		if (isset($this->stack[$lockType])) {
 			$this->stack[$lockType]--;
-			if($this->stack[$lockType] <= 0) {
+			if ($this->stack[$lockType] <= 0) {
 				unset($this->stack[$lockType]);
 			}
 		}
 
-		if(count($this->stack) == 0) {
+		if (count($this->stack) == 0) {
 			// No more locks needed on this file, release the handle and/or lock file
 			$this->releaseAll();
 		}
@@ -271,6 +274,7 @@ class Lock {
 
 	/**
 	 * Get the lock file associated to a file
+	 *
 	 * @param string $filename The filename of the file to create a lock file for
 	 * @return string The filename of the lock file
 	 */
@@ -290,24 +294,23 @@ class Lock {
 
 	/**
 	 * Determine if a file has an associated and flocked lock file
+	 *
 	 * @param string $lockFile The filename of the lock file to check
 	 * @return bool True if the lock file is flocked
 	 */
 	protected function isLockFileLocked($lockFile) {
-		if(file_exists($lockFile)) {
-			if($handle = fopen($lockFile, 'c')) {
-				if($lock = flock($handle, LOCK_EX | LOCK_NB)) {
+		if (file_exists($lockFile)) {
+			if ($handle = fopen($lockFile, 'c')) {
+				if ($lock = flock($handle, LOCK_EX | LOCK_NB)) {
 					// Got lock, not blocking, release and unlink
 					unlink($lockFile);
 					fclose($handle);
 					flock($handle, LOCK_UN);
 					return false;
-				}
-				else {
+				} else {
 					return true;
 				}
-			}
-			else {
+			} else {
 				return true;
 			}
 		}
@@ -316,6 +319,7 @@ class Lock {
 
 	/**
 	 * Release all queued locks on the file
+	 *
 	 * @return bool
 	 */
 	public function releaseAll() {
@@ -342,7 +346,7 @@ class Lock {
 
 	public function __destruct() {
 		// Only releaseAll if we have locks to release
-		if(!empty($this->handle) || !empty($this->lockFile)) {
+		if (!empty($this->handle) || !empty($this->lockFile)) {
 			\OC_Log::write('lock', sprintf('INFO: Destroying locks on %s', $this->path), \OC_Log::DEBUG);
 			$this->releaseAll();
 		}

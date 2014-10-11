@@ -56,6 +56,14 @@ class LockTest extends \Test\TestCase {
 		$lock2->addLock(Lock::WRITE);
 	}
 
+	/**
+	 * @expectedException \OCP\Files\LockNotAcquiredException
+	 */
+	public function testReadAfterWrite() {
+		$this->fileLock->addLock(Lock::WRITE);
+		$this->fileLock->addLock(Lock::READ);
+	}
+
 	private function lockExistingHandleAndOutOfScope() {
 		$handle = fopen(__DIR__ . '/data/test.txt', 'c');
 		$this->fileLock->addLock(Lock::WRITE, $handle);
