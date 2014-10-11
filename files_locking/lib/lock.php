@@ -101,7 +101,9 @@ class Lock {
 			\OC_Log::write('lock', sprintf('FAIL: Failed to acquire read lock for %s', $this->path), \OC_Log::DEBUG);
 			return false;
 		}
-		$this->handle = $handle;
+		if (!$existingHandle) {
+			$this->handle = $handle;
+		}
 		\OC_Log::write('lock', sprintf('PASS: Acquired read lock for %s', $this->path), \OC_Log::DEBUG);
 		return true;
 	}
@@ -160,7 +162,9 @@ class Lock {
 			\OC_Log::write('lock', sprintf('FAIL: Write lock failed due to timeout on %s', $this->path), \OC_Log::DEBUG);
 			return false;
 		}
-		$this->handle = $handle;
+		if (!$existingHandle) {
+			$this->handle = $handle;
+		}
 		\OC_Log::write('lock', sprintf('PASS: Write lock succeeded on %s', $this->path), \OC_Log::DEBUG);
 
 		return true;

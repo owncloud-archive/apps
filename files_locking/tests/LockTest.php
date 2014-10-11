@@ -54,7 +54,17 @@ class LockTest extends \Test\TestCase {
 		$lock2 = new Lock(__DIR__ . '/data/test.txt');
 		$lock1->addLock(Lock::WRITE);
 		$lock2->addLock(Lock::WRITE);
+	}
 
+	private function lockExistingHandleAndOutOfScope() {
+		$handle = fopen(__DIR__ . '/data/test.txt', 'c');
+		$this->fileLock->addLock(Lock::WRITE, $handle);
+	}
+
+	public function testExistingHandleDontKeepLock() {
+		// if the locked file handle goes out of scope, the lock needs to be cleaned up and we should be able to re-acquire a lock
+		$this->lockExistingHandleAndOutOfScope();
+		$lock = new Lock(__DIR__ . '/data/test.txt');
+		$lock->addLock(Lock::WRITE);
 	}
 }
- 
