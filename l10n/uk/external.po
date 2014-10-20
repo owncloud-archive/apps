@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Sergiy, 2014
 # Сергей Коптев <skoptev@ukr.net>, 2012
 # Victor Dubiniuk <victor.dubiniuk@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-08-14 00:48-0400\n"
-"PO-Revision-Date: 2014-08-13 16:02+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-20 00:48-0400\n"
+"PO-Revision-Date: 2014-10-19 17:20+0000\n"
+"Last-Translator: Sergiy\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,11 +24,11 @@ msgstr ""
 msgid ""
 "Please enter valid urls - they have to start with either http://, https:// "
 "or /"
-msgstr ""
+msgstr "Будь ласка, введіть правильно url - вони мають починатися з http://, https:// або /"
 
 #: ajax/setsites.php:43
 msgid "External sites saved."
-msgstr ""
+msgstr "Зовнішні сайти збережено."
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -37,17 +38,17 @@ msgstr "Зовнішні сайти"
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
-msgstr ""
+msgstr "Майте на увазі, деякі браузери блокують сайти по http, якщо ви використовуєте https."
 
 #: templates/settings.php:7
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
-msgstr ""
+msgstr "Крім того, будь ласка, зверніть увагу, що багато сайтів не дозволяють iframing з міркувань безпеки."
 
 #: templates/settings.php:9
 msgid "We highly recommend to test the configured sites below properly."
-msgstr ""
+msgstr "Ми наполегливо рекомендуємо правильно протестувати сконфігуровані нижче сайти."
 
 #: templates/settings.php:17 templates/settings.php:40
 msgid "Name"
@@ -60,7 +61,7 @@ msgstr "URL"
 #: templates/settings.php:30 templates/settings.php:32
 #: templates/settings.php:46
 msgid "Select an icon"
-msgstr ""
+msgstr "Оберіть іконку"
 
 #: templates/settings.php:35 templates/settings.php:48
 msgid "Remove site"

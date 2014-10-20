@@ -1,5 +1,12 @@
 <?php
 $TRANSLATIONS = array(
+"Clean" => "Чистий",
+"Infected" => "Інфікований",
+"Unchecked" => "Неперевірений",
+"Scanner exit status" => "Статус виходу сканера",
+"Scanner output" => "Вихідні дані сканеру",
+"Malware detected" => "Malware виявлено",
+"Virus detected! Can't upload the file %s" => "Виявлений Вірус ! Неможливо завантажити файл %s",
 "Greetings {user}," => "Вітаємо {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Перепрошуємо, але у файлі, який ви намагаєтесь завантажити, виявлений шкідливий код, тому цей файл буде видалено.",
 "This email is a notification from {host}. Please, do not reply." => "Цей E-mail є повідомленням від {host}. Відповідати не потрібно.",
@@ -21,11 +28,19 @@ $TRANSLATIONS = array(
 "Path to clamscan" => "Шлях до clamscan",
 "Path to clamscan executable." => "Шлях до виконуваного файлу clamscan.",
 "Not required in Daemon Mode." => "Не потрібно в режимі Фонового Процесу.",
+"Extra command line options (comma-separated)" => "Extra варіанти командного рядка (через кому)",
 "Action for infected files found while scanning" => "Дії для заражених файлів, знайдених при скануванні",
 "Only log" => "Лише протоколювати",
 "Delete file" => "Видалити файл",
 "Save" => "Зберегти",
 "Advanced" => "Додатково",
-"Description" => "Опис"
+"Rules" => "Правила",
+"Clear All" => "Очистити всі",
+"Reset to defaults" => "Відновити значення за замовчуванням",
+"Match by" => "Сортувати за ",
+"Scanner exit status or signature to search" => "Статус виходу сканера або підпис до пошуку",
+"Description" => "Опис",
+"Mark as" => "Відзначити як",
+"Add a rule" => "Додати правило"
 );
 $PLURAL_FORMS = "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);";
