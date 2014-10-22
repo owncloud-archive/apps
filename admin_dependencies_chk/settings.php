@@ -49,6 +49,12 @@ $modules[] =array(
 	'message'=> $l->t('The php-curl is highly recommended, some functionality, e.g. http user authentication, depends on this. The module is also needed to fetch the page title when adding a bookmark in the bookmarks app.'));
 
 $modules[] =array(
+	'status' => (function_exists('curl_init') || ini_get('allow_url_include') == '1') ? 'ok' : 'error',
+	'part'=> 'php-curl, allow_url_include',
+	'modules'=> array('files_external'),
+	'message'=> $l->t('Either the php-curl module or the "allow_url_include = On" setting in your php.ini is needed to include external storages.'));
+
+$modules[] =array(
 	'status' => function_exists('imagepng') ? 'ok' : 'error',
 	'part'=> 'php-gd',
 	'modules'=> array('gallery'),
