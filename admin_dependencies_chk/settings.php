@@ -52,7 +52,7 @@ $modules[] =array(
 	'status' => (function_exists('curl_init') || ini_get('allow_url_include') == '1') ? 'ok' : 'error',
 	'part'=> 'php-curl, allow_url_include',
 	'modules'=> array('files_external'),
-	'message'=> $l->t('Either the php-curl module or the "allow_url_include = On" setting in your php.ini is needed to include external storages.'));
+	'message'=> $l->t('Either the php-curl module or the "allow_url_include = On" setting in your php.ini is needed to include external storages. It is HIGHLY!! recommended to use php-curl instead of allow_url_include for security reasons.'));
 
 $modules[] =array(
 	'status' => function_exists('imagepng') ? 'ok' : 'error',
