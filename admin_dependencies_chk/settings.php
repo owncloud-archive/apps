@@ -45,8 +45,8 @@ $modules[] =array(
 $modules[] =array(
 	'status' => function_exists('curl_init') ? 'ok' : 'error',
 	'part'=> 'php-curl',
-	'modules'=> array('bookmarks'),
-	'message'=> $l->t('The php-curl module is needed to fetch the page title when adding a bookmark'));
+	'modules'=> array('bookmarks','core'),
+	'message'=> $l->t('The php-curl is highly recommended, some functionality, e.g. http user authentication, depends on this. The module is also needed to fetch the page title when adding a bookmark in the bookmarks app.'));
 
 $modules[] =array(
 	'status' => function_exists('imagepng') ? 'ok' : 'error',
@@ -88,7 +88,7 @@ $modules[] =array(
 	'status' => function_exists('ctype_digit') ? 'ok' : 'error',
 	'part'=> 'php-ctype',
 	'modules'=> array('core'),
-	'message'=> $l->t('The php-ctype module is needed validate data.'));
+	'message'=> $l->t('The php-ctype module is needed to validate data.'));
 
 $modules[] =array(
 	'status' => class_exists('DOMDocument') ? 'ok' : 'error',
