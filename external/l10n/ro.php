@@ -3,6 +3,7 @@ $TRANSLATIONS = array(
 "External Sites" => "Pagini externe",
 "Name" => "Nume",
 "URL" => "URL",
+"Select an icon" => "Selectați o iconiță",
 "Remove site" => "Înlătură pagina",
 "Add" => "Adaugă"
 );
