@@ -264,6 +264,18 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('The tmp dir: "' . get_temp_dir() . '" needs to be writeable by the user which is running your webserver / PHP process.'));
 
+$modules[] =array(
+	'status' => \OC_Helper::is_function_enabled('ini_set') ? 'ok' : 'warning',
+	'part'=> 'ini_set',
+	'modules'=> array('core'),
+	'message'=> $l->t('The internal PHP ini_set function is needed to set PHP settings on runtime. Make sure it is not disabled in the disabled_functions of your php.ini '));
+
+$modules[] =array(
+	'status' => \OC_Helper::is_function_enabled('set_time_limit') ? 'ok' : 'warning',
+	'part'=> 'set_time_limit',
+	'modules'=> array('core'),
+	'message'=> $l->t('The internal PHP set_time_limit function is needed to raise PHP timeouts on runtime. Make sure it is not disabled in the disabled_functions of your php.ini '));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
