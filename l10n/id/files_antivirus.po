@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-10-22 00:48-0400\n"
-"PO-Revision-Date: 2014-10-21 05:21+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-25 00:48-0400\n"
+"PO-Revision-Date: 2014-10-25 03:30+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,32 +21,32 @@ msgstr ""
 
 #: js/settings.js:3
 msgid "Clean"
-msgstr ""
+msgstr "Bersihkan"
 
 #: js/settings.js:4
 msgid "Infected"
-msgstr ""
+msgstr "Terinfeksi"
 
 #: js/settings.js:5
 msgid "Unchecked"
-msgstr ""
+msgstr "Belum terperiksa"
 
 #: js/settings.js:8
 msgid "Scanner exit status"
-msgstr ""
+msgstr "Status keluar pemindai"
 
 #: js/settings.js:9
 msgid "Scanner output"
-msgstr ""
+msgstr "Keluaran pemindai"
 
 #: lib/notification.php:29
 msgid "Malware detected"
-msgstr ""
+msgstr "Malware terdeteksi"
 
 #: lib/scanner.php:86
 #, php-format
 msgid "Virus detected! Can't upload the file %s"
-msgstr ""
+msgstr "Virus terdeteksi! Tidak dapat mengunggah berkas %s"
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
@@ -56,11 +56,11 @@ msgstr "Salam {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "Maaf, tetapi sebuah malware terdeteksi dalam berkas yang anda unggah dan harus dihapus."
+msgstr "Maaf, tetapi sebuah malware terdeteksi dalam berkas yang Anda unggah dan berkas tersebut akan dihapus."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Email ini adalah notifikasi dari {host}. Jangan dibalas."
+msgstr "Email ini adalah pemberitahuan dari {host}. Jangan dibalas."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -76,7 +76,7 @@ msgstr "Mode"
 
 #: templates/settings.php:6
 msgid "Executable"
-msgstr "Eksekutor"
+msgstr "Dapat dijalankan"
 
 #: templates/settings.php:6
 msgid "Daemon"
@@ -97,7 +97,7 @@ msgstr "Soket Clamav."
 #: templates/settings.php:8 templates/settings.php:9 templates/settings.php:10
 #: templates/settings.php:11
 msgid "Not required in Executable Mode."
-msgstr "Tidak diperlukan dalam Mode Eksekutor"
+msgstr "Tidak diperlukan dalam Mode Dapat Dijalankan"
 
 #: templates/settings.php:9
 msgid "Host"
@@ -137,15 +137,15 @@ msgstr "Tidak diperlukan dalam Mode Daemon."
 
 #: templates/settings.php:16
 msgid "Extra command line options (comma-separated)"
-msgstr ""
+msgstr "Opsi baris perintah ekstra (pisahkan dengan koma)"
 
 #: templates/settings.php:18
 msgid "Action for infected files found while scanning"
-msgstr "Aksi untuk berkas yang terinfeksi saat pemindaian"
+msgstr "Tindakan untuk berkas yang terinfeksi saat pemindaian"
 
 #: templates/settings.php:19
 msgid "Only log"
-msgstr "Catat saja"
+msgstr "Log saja"
 
 #: templates/settings.php:19
 msgid "Delete file"
@@ -153,7 +153,7 @@ msgstr "Hapus berkas"
 
 #: templates/settings.php:22
 msgid "Save"
-msgstr "simpan"
+msgstr "Simpan"
 
 #: templates/settings.php:26
 msgid "Advanced"
@@ -161,32 +161,32 @@ msgstr "Lanjutan"
 
 #: templates/settings.php:28
 msgid "Rules"
-msgstr ""
+msgstr "Aturan"
 
 #: templates/settings.php:29
 msgid "Clear All"
-msgstr ""
+msgstr "Bersihkan Semua"
 
 #: templates/settings.php:29
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Setel ulang ke default"
 
 #: templates/settings.php:34
 msgid "Match by"
-msgstr ""
+msgstr "Cocok dengan"
 
 #: templates/settings.php:35
 msgid "Scanner exit status or signature to search"
-msgstr ""
+msgstr "Status keluar atau tandatangan pemindai untuk penelusuran"
 
 #: templates/settings.php:36
 msgid "Description"
-msgstr "Penjelasan"
+msgstr "Keterangan"
 
 #: templates/settings.php:37
 msgid "Mark as"
-msgstr ""
+msgstr "Tandai sebagai"
 
 #: templates/settings.php:44
 msgid "Add a rule"
-msgstr ""
+msgstr "Tambahkan aturan"
