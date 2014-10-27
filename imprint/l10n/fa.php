@@ -6,13 +6,9 @@ $TRANSLATIONS = array(
 "That configuration is done in the administration section." => " پیکربندی در بخش مدیریت انجام شده است.",
 "That configuration has to be done by the system administration." => "پیکر بندی باید توسط مدیریت سیستم انجام شود.",
 "Imprint" => "مهر زدن",
-"Placement" => "کاریابی",
-"Standalone app" => "برنامه های رایج",
 "Header left" => "سربرگ سمت چپ",
 "Header right" => "سربرگ سمت راست",
-"Navigation top" => "کنترل بالا",
-"Navigation bottom" => "کنترل پایین",
-"During login" => "در هنگام ورود به سیستم",
-"Content" => "محتوا"
+"Content" => "محتوا",
+"You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "شما میتوانید از کدهای html(مانند <br>  برای خط جدید) ویا از استایل ها (مانند <a style=\"color:red;\">) استفاده کنید."
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

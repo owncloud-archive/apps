@@ -6,12 +6,8 @@ $TRANSLATIONS = array(
 "That configuration is done in the administration section." => "ადმინისტრაციის სექციაში ეს კონფიგურაცია უკვე დასრულებულია.",
 "That configuration has to be done by the system administration." => "ეს კონფიგურაცია უნდა დასრულდეს ადმინისტრაციის მიერ.",
 "Imprint" => "ბეჭედი",
-"Placement" => "განთავსება",
-"Standalone app" => "ავტონომიური აპლიკაცია",
 "Header left" => "სათაური მარცხნივ",
 "Header right" => "სათაური მარჯვნივ",
-"Navigation top" => "ნავიგაცია ზევით",
-"Navigation bottom" => "ნავიგაცია ქვევით",
 "Content" => "კონტენტი"
 );
 $PLURAL_FORMS = "nplurals=1; plural=0;";

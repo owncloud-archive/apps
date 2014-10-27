@@ -6,11 +6,8 @@ $TRANSLATIONS = array(
 "That configuration is done in the administration section." => "ניתן לשנות הגדרות אלו באגף הניהול.",
 "That configuration has to be done by the system administration." => "הגדרות אלו ניתנות לשינוי על ידי מנהל המערכת.",
 "Imprint" => "חותמת",
-"Standalone app" => "יישום עצמאי",
 "Header left" => "כותרת שמאלית",
 "Header right" => "כותרת ימנית",
-"Navigation top" => "ניווט עליון",
-"Navigation bottom" => "ניווט תחתון",
 "Content" => "תוכן"
 );
 $PLURAL_FORMS = "nplurals=2; plural=(n != 1);";

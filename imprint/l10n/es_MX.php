@@ -6,13 +6,8 @@ $TRANSLATIONS = array(
 "That configuration is done in the administration section." => "Esta configuración es realizada en la sección de administración.",
 "That configuration has to be done by the system administration." => "Esta configuración debe hacerse por el administrador del sistema.",
 "Imprint" => "Imprint",
-"Placement" => "Ubicación",
-"Standalone app" => "App autónoma",
 "Header left" => "Encabezado izquierdo",
 "Header right" => "Encabezado derecho",
-"Navigation top" => "Navegación superior",
-"Navigation bottom" => "Navegación inferior",
-"During login" => "Durante el inicio de sesión",
 "Content" => "Contenido",
 "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." => "Puede utilizar el formato HTML (por ejemplo <br> para un salto de línea) y los atributos de estilo en línea (por ejemplo <a style=\"color:red;\">)."
 );
