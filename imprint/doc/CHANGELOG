@@ -21,6 +21,11 @@
 *****
 
 Changelog:
+* Tue Oct 28 2014 Christian Reiner: version 0.2.0
+Ported app to owncloud version 7.
+Removed all backwards compatibility hacks.
+Integration of the content reference also on login and guest pages.
+Enhanced administration section.
 * Tue Aug 13 2013 Christian Reiner: version 0.1.15
 Fixed a hard crash introduced by someones well meant contribution some weeks ago.
 The faulty code got released by accident and is fixed now in this version.

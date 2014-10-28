@@ -41,14 +41,10 @@
 		<div class="imprint-factoid">    <?php p($l->t("Nothing here yet")."!");?></div>
 		<div class="imprint-suggestion"> <?php p($l->t("The content of the legal notice has to be configured first").".");?></div>
 		<div class="imprint-explanation">
-			<?php
-				if (   \OCP\User::isLoggedIn()
-						&& (  (method_exists('OC_User','isAdminUser')
-								&& OC_User::isAdminUser(\OCP\User::getUser()) )
-						|| OC_Group::inGroup(\OCP\User::getUser(), 'admin') ) )
-					p($l->t("That configuration is done in the administration section."));
-				else
-					p($l->t("That configuration has to be done by the system administration."));
+			<?php if ( OCP\User::checkAdminUser() ) {
+				p($l->t("That configuration is done in the administration section."));
+			else
+				p($l->t("That configuration has to be done by the system administration."));
 			?>
 			</a>
 		</div>
