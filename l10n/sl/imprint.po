@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Matej Urbančič <>, 2013
+# Matej Urbančič <>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-10-27 00:48-0400\n"
-"PO-Revision-Date: 2014-10-27 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-28 00:48-0400\n"
+"PO-Revision-Date: 2014-10-27 20:50+0000\n"
+"Last-Translator: Matej Urbančič <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr "Natis"
 
 #: templates/tmpl_settings.php:44
 msgid "Reference"
-msgstr ""
+msgstr "Sklic"
 
 #: templates/tmpl_settings.php:47 templates/tmpl_settings.php:53
 #: templates/tmpl_settings.php:61
@@ -58,23 +58,23 @@ msgstr "Desna glava"
 
 #: templates/tmpl_settings.php:50
 msgid "As guest"
-msgstr ""
+msgstr "Kot gost"
 
 #: templates/tmpl_settings.php:55 templates/tmpl_settings.php:63
 msgid "Footer left"
-msgstr ""
+msgstr "Leva glava"
 
 #: templates/tmpl_settings.php:56 templates/tmpl_settings.php:64
 msgid "Footer right"
-msgstr ""
+msgstr "Desna glava"
 
 #: templates/tmpl_settings.php:58
 msgid "At login"
-msgstr ""
+msgstr "Pri prijavi"
 
 #: templates/tmpl_settings.php:67
 msgid "Application"
-msgstr ""
+msgstr "Program"
 
 #: templates/tmpl_settings.php:70
 msgid "Content"

@@ -4,15 +4,17 @@
 # 
 # Translators:
 # Adalberto Rodrigues <rodrigues_adalberto@yahoo.fr>, 2013
+# Antoine Vacher <devel@tigre-bleu.net>, 2014
+# MrAttila76 <mrattila76@gmail.com>, 2014
 # Nicolas Roudninski <nicolas@tycho.fr>, 2013
 # Romain DEP. <rom1dep@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-10-27 00:48-0400\n"
-"PO-Revision-Date: 2014-10-27 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-28 00:48-0400\n"
+"PO-Revision-Date: 2014-10-27 22:43+0000\n"
+"Last-Translator: Thomas Imbreckx <zinks@member.fsf.org>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +48,7 @@ msgstr "Empreinte"
 
 #: templates/tmpl_settings.php:44
 msgid "Reference"
-msgstr ""
+msgstr "Référence"
 
 #: templates/tmpl_settings.php:47 templates/tmpl_settings.php:53
 #: templates/tmpl_settings.php:61
@@ -60,23 +62,23 @@ msgstr "En-tête droit"
 
 #: templates/tmpl_settings.php:50
 msgid "As guest"
-msgstr ""
+msgstr "En tant qu'invité"
 
 #: templates/tmpl_settings.php:55 templates/tmpl_settings.php:63
 msgid "Footer left"
-msgstr ""
+msgstr "Pied de page gauche"
 
 #: templates/tmpl_settings.php:56 templates/tmpl_settings.php:64
 msgid "Footer right"
-msgstr ""
+msgstr "Pied de page droit"
 
 #: templates/tmpl_settings.php:58
 msgid "At login"
-msgstr ""
+msgstr "Lors de la connexion"
 
 #: templates/tmpl_settings.php:67
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #: templates/tmpl_settings.php:70
 msgid "Content"

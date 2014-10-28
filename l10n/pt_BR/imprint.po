@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-10-27 00:48-0400\n"
-"PO-Revision-Date: 2014-10-27 04:48+0000\n"
-"Last-Translator: I Robot\n"
+"POT-Creation-Date: 2014-10-28 00:48-0400\n"
+"PO-Revision-Date: 2014-10-27 21:11+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr "Marca"
 
 #: templates/tmpl_settings.php:44
 msgid "Reference"
-msgstr ""
+msgstr "Referência"
 
 #: templates/tmpl_settings.php:47 templates/tmpl_settings.php:53
 #: templates/tmpl_settings.php:61
@@ -59,23 +59,23 @@ msgstr "Cabeçalho direito"
 
 #: templates/tmpl_settings.php:50
 msgid "As guest"
-msgstr ""
+msgstr "Como convidado"
 
 #: templates/tmpl_settings.php:55 templates/tmpl_settings.php:63
 msgid "Footer left"
-msgstr ""
+msgstr "Rodapé esquerdo"
 
 #: templates/tmpl_settings.php:56 templates/tmpl_settings.php:64
 msgid "Footer right"
-msgstr ""
+msgstr "Redapé direito"
 
 #: templates/tmpl_settings.php:58
 msgid "At login"
-msgstr ""
+msgstr "No login"
 
 #: templates/tmpl_settings.php:67
 msgid "Application"
-msgstr ""
+msgstr "Aplicação"
 
 #: templates/tmpl_settings.php:70
 msgid "Content"
