@@ -45,6 +45,6 @@ if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
 			'order' => 99999,
 			'href'  => \OCP\Util::linkTo   ('imprint', 'index.php'),
 			'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
-			'name'  => \OC_L10N::get('imprint')->t("Legal notice")
+			'name'  => \OCP\Util::getL10N  ('imprint')->t("Legal notice")
 		));
 } // if
