@@ -28,6 +28,7 @@ $TRANSLATIONS = array(
 "Path to clamscan" => "clamscan bidea",
 "Path to clamscan executable." => "clamscan programaren kokapena.",
 "Not required in Daemon Mode." => "Ez da beharrezkoa Deabru Moduan.",
+"Extra command line options (comma-separated)" => "Komando lerroko aukera gehiago (komekin banatuta)",
 "Action for infected files found while scanning" => "Eskaneatzean aurkitutako infektatutako fitxategiekin hartu beharreko ekintza",
 "Only log" => "Bakarrik erregistratu",
 "Delete file" => "Ezabatu fitxaegia",
