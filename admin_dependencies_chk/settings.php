@@ -268,13 +268,19 @@ $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('ini_set') ? 'ok' : 'warning',
 	'part'=> 'ini_set',
 	'modules'=> array('core'),
-	'message'=> $l->t('The internal PHP ini_set function is needed to set PHP settings on runtime. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP ini_set function is needed to set PHP settings on runtime. Make sure it is not disabled in the disabled_functions of your php.ini.'));
 
 $modules[] =array(
 	'status' => \OC_Helper::is_function_enabled('set_time_limit') ? 'ok' : 'warning',
 	'part'=> 'set_time_limit',
 	'modules'=> array('core'),
-	'message'=> $l->t('The internal PHP set_time_limit function is needed to raise PHP timeouts on runtime. Make sure it is not disabled in the disabled_functions of your php.ini '));
+	'message'=> $l->t('The internal PHP set_time_limit function is needed to raise PHP timeouts on runtime. Make sure it is not disabled in the disabled_functions of your php.ini.'));
+
+$modules[] =array(
+	'status' => (\OC_Helper::is_function_enabled('curl_init') &&  \OC_Helper::is_function_enabled('curl_exec'))? 'ok' : 'warning',
+	'part'=> 'curl_init,curl_exec',
+	'modules'=> array('core'),
+	'message'=> $l->t('The functions curl_init and curl_exec functions of the php-curl module are needed for internal calls of cURL. Make sure they are disabled in the disabled_functions of your php.ini.'));
 
 foreach($modules as $key => $module) {
 	$enabled = false ;
