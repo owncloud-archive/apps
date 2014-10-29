@@ -43,9 +43,9 @@
 		<div class="imprint-explanation">
 			<?php if ( OCP\User::checkAdminUser() ) {
 				p($l->t("That configuration is done in the administration section."));
-			else
+			} else {
 				p($l->t("That configuration has to be done by the system administration."));
-			?>
+			} ?>
 			</a>
 		</div>
 	</body>
