@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "Ενθυμούμενες ιστοσελίδες Παρόχου OpenID",
+    "Trusted" : "Έμπιστοι",
+    "Denied" : "Αρνηθέντες",
+    "Remove" : "Αφαίρεση"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,8 @@
+{ "translations": {
+    "External Sites" : "Externe Seiten",
+    "Name" : "Name",
+    "URL" : "URL",
+    "Remove site" : "Seite entfernen",
+    "Add" : "Hinzufügen"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

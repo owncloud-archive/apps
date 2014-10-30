@@ -1,0 +1,11 @@
+OC.L10N.register(
+    "imprint",
+    {
+    "Legal notice" : "Правна забелешка",
+    "Nothing here yet" : "Тука сеуште нема ништо",
+    "That configuration is done in the administration section." : "Ова нагодување е направено во секцијата за администрација.",
+    "Header left" : "Заглавие лево",
+    "Header right" : "Заглавие десно",
+    "Content" : "Содржина"
+},
+"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;");

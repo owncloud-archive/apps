@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "Ejoj memorataj de OpenID-provizanto",
+    "Trusted" : "Fidataj",
+    "Denied" : "Malakceptata",
+    "Remove" : "Forigi"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

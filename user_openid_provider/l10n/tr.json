@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID Sağlayıcı hatırlanan siteler",
+    "Trusted" : "Güvenilen",
+    "Denied" : "Reddedilen",
+    "Remove" : "Kaldır"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

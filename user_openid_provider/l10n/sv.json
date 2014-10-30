@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID-leverantör sparade platser",
+    "Trusted" : "Betrodd",
+    "Denied" : "Nekad",
+    "Remove" : "Radera"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

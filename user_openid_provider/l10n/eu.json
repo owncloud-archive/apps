@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID Hornitzaileak gogoratutako lekuak",
+    "Trusted" : "Fidagarriak",
+    "Denied" : "Ukatuta",
+    "Remove" : "Ezabatu"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,8 @@
+{ "translations": {
+    "Export" : "Eksporter",
+    "Something went wrong while the export file was being generated" : "Noe gikk galt under generering av eksportfilen",
+    "An error has occurred" : "En feil har oppstått",
+    "Account Export/Import" : "Eksport/import av konto",
+    "Import" : "Importer"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,7 @@
+{ "translations": {
+    "Host" : "Tenar",
+    "Save" : "Lagre",
+    "Advanced" : "Avansert",
+    "Description" : "Skildring"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

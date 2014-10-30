@@ -1,0 +1,16 @@
+OC.L10N.register(
+    "external",
+    {
+    "Please enter valid urls - they have to start with either http://, https:// or /" : "Будь ласка, введіть правильно url - вони мають починатися з http://, https:// або /",
+    "External sites saved." : "Зовнішні сайти збережено.",
+    "External Sites" : "Зовнішні сайти",
+    "Please note that some browsers will block displaying of sites via http if you are running https." : "Майте на увазі, деякі браузери блокують сайти по http, якщо ви використовуєте https.",
+    "Furthermore please note that many sites these days disallow iframing due to security reasons." : "Крім того, будь ласка, зверніть увагу, що багато сайтів не дозволяють iframing з міркувань безпеки.",
+    "We highly recommend to test the configured sites below properly." : "Ми наполегливо рекомендуємо правильно протестувати сконфігуровані нижче сайти.",
+    "Name" : "Ім'я",
+    "URL" : "URL",
+    "Select an icon" : "Оберіть іконку",
+    "Remove site" : "Видалити сайт",
+    "Add" : "Додати"
+},
+"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "Yadda saxlanan saytların OpenİD təchizatçısı",
+    "Trusted" : "İnamlıdır",
+    "Denied" : "Qadağan edilib",
+    "Remove" : "Sil"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
