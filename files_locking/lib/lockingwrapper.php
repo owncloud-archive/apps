@@ -135,8 +135,10 @@ class LockingWrapper extends Wrapper {
 		}
 		$this->releaseLock($path1, Lock::READ);
 		$this->releaseLock($path2, Lock::WRITE);
-		$lockPath = Filesystem::normalizePath($this->storage->getLocalFile($path1));
-		unset($this->locks[$lockPath]);
+		$lockPath1 = Filesystem::normalizePath($this->storage->getLocalFile($path1));
+		$lockPath2 = Filesystem::normalizePath($this->storage->getLocalFile($path2));
+		$this->locks[$lockPath2] = $this->locks[$lockPath1];
+		unset($this->locks[$lockPath1]);
 		return $result;
 	}
 
