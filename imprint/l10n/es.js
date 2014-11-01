@@ -11,6 +11,8 @@ OC.L10N.register(
     "Header left" : "Encabezado izquierdo",
     "Header right" : "Encabezado derecho",
     "As guest" : "Como invitado",
+    "Footer left" : "Lado izquierdo del pie",
+    "Footer right" : "Lado derecho del pie",
     "At login" : "Al iniciar sesión",
     "Application" : "Aplicación",
     "Content" : "Contenido",
