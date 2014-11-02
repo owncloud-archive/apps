@@ -5,8 +5,14 @@
     "That configuration is done in the administration section." : "その設定は管理セクションで行うことができます。",
     "That configuration has to be done by the system administration." : "その設定はシステム管理で行う必要があります。",
     "Imprint" : "インプリント",
+    "Reference" : "参照",
     "Header left" : "ヘッダの左",
     "Header right" : "ヘッダの右",
+    "As guest" : "ゲストとして",
+    "Footer left" : "フッターの左",
+    "Footer right" : "フッターの右",
+    "At login" : "ログイン時",
+    "Application" : "アプリケーション",
     "Content" : "内容",
     "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "HTMLマークアップ(例： 改行は &lt;br&gt;) とスタイル属性(例： &lt;a style=\"color:red;\"&gt;)を使用できます。"
 },"pluralForm" :"nplurals=1; plural=0;"
