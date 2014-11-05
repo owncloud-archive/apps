@@ -9,6 +9,11 @@ OC.L10N.register(
     "Imprint" : "Штамп",
     "Header left" : "Заголовок слева",
     "Header right" : "Заголовок справа",
+    "As guest" : "Как гость",
+    "Footer left" : "Низ страницы слева",
+    "Footer right" : "Низ страницы справа",
+    "At login" : "При логине",
+    "Application" : "Приложение",
     "Content" : "Содержание",
     "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Можно использовать html разметку (например, <br> для переноса строки) и атрибуты стиля (например <a style=\"color:red;\">)."
 },
