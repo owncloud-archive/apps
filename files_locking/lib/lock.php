@@ -56,7 +56,7 @@ class Lock {
 	 * @param string $path Absolute pathname for a local file on which to obtain a lock
 	 */
 	public function __construct($path) {
-		$this->path = Filesystem::normalizePath($path);
+		$this->path = Filesystem::normalizePath($path, true, true);
 	}
 
 	/**
@@ -315,10 +315,15 @@ class Lock {
 		\OC_Log::write('lock', sprintf('INFO: Releasing locks on %s', $this->path), \OC_Log::DEBUG);
 		if (!empty($this->handle) && is_resource($this->handle)) {
 			flock($this->handle, LOCK_UN);
+			fclose($this->handle);
 			\OC_Log::write('lock', sprintf('INFO: Released lock handle %s on %s', $this->handle, $this->path), \OC_Log::DEBUG);
 			$this->handle = null;
 		}
 		if (!empty($this->lockFile) && file_exists($this->lockFile)) {
+			if (!empty($this->lockFileHandle) && is_resource($this->lockFileHandle)) {
+				fclose($this->lockFileHandle);
+				$this->lockFileHandle = null;
+			}
 			unlink($this->lockFile);
 			\OC_Log::write('lock', sprintf('INFO: Released lock file %s on %s', $this->lockFile, $this->path), \OC_Log::DEBUG);
 			$this->lockFile = null;
