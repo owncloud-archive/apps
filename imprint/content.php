@@ -33,18 +33,24 @@
 \OCP\App::checkAppEnabled('imprint');
 
 // prepare content
-if (FALSE === ($content=\OCP\Config::getAppValue('imprint','content',FALSE)))
-{
+if (FALSE === ($content=\OCP\Config::getAppValue('imprint','content',FALSE))) {
 	$tmpl = new \OCP\Template('imprint', 'tmpl_dummy');
 	\OCP\Util::addStyle('imprint','reference');
 }
 else
 {
 	// detect type of stored content and process accordingly
-	if (strlen($content)!=strlen(strip_tags($content)))
+	if (strlen($content)!=strlen(strip_tags($content))) {
+		// html markup
 		$processed_content = $content;
-	else
-		$processed_content = sprintf ("<pre>\n%s\n</pre>", $content);
+	} else {
+		$renderer = new Slimdown();
+		// markdown
+		if ( strlen($content) == strlen($processed_content=$renderer->render($content))) {
+			// plain text
+			$processed_content = sprintf ("<pre>\n%s\n</pre>", $content);
+		}
+	}
 	// output processed content
 	\OCP\Util::addStyle ('imprint', 'content');
 	$tmpl = new \OCP\Template('imprint', 'tmpl_content');
