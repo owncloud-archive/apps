@@ -282,6 +282,12 @@ $modules[] =array(
 	'modules'=> array('core'),
 	'message'=> $l->t('The functions curl_init and curl_exec functions of the php-curl module are needed for internal calls of cURL. Make sure they are disabled in the disabled_functions of your php.ini.'));
 
+$modules[] =array(
+        'status' => checkDependencies('grep') ? 'ok' : 'warning',
+        'part'=> 'grep',
+        'modules'=> array('core'),
+        'message'=> $l->t('The grep binary is needed for the App Code Checker to be able to check 3rd party Apps (not possible on Windows). Make sure it is installed and the exec php function is enabled.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
