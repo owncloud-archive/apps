@@ -28,8 +28,13 @@
  */
 
 /* some general content padding */
+#imprint-body {
+	width: 100%;
+	text-align: center;
+}
 #imprint-content {
+	display: inline-block;
+	text-align: initial;
 	padding: 14px;
 	font-size: larger;
-	text-align: center;
 }

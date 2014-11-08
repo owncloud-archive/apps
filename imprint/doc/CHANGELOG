@@ -21,6 +21,8 @@
 *****
 
 Changelog:
+* Sat Nov 02 2014 Christian Reiner: version 0.2.1
+Rendering of markdown as alternative to html markup and plain text.
 * Tue Oct 28 2014 Christian Reiner: version 0.2.0
 Ported app to owncloud version 7.
 Removed all backwards compatibility hacks.

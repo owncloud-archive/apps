@@ -37,7 +37,9 @@
 		<link rel="stylesheet" href="<?php p(\OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
 		<link rel="stylesheet" href="<?php p(\OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
 	</head>
-	<body id="imprint-content">
-		<?php	print_unescaped($_['processed-content']); ?>
+	<body id="imprint-body">
+		<div id="imprint-content">
+			<?php	print_unescaped($_['processed-content']); ?>
+		</div>
 	</body>
 </html>
