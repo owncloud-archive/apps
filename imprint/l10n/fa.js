@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "مهر زدن",
     "Header left" : "سربرگ سمت چپ",
     "Header right" : "سربرگ سمت راست",
-    "Content" : "محتوا",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "شما میتوانید از کدهای html(مانند <br>  برای خط جدید) ویا از استایل ها (مانند <a style=\"color:red;\">) استفاده کنید."
+    "Content" : "محتوا"
 },
 "nplurals=1; plural=0;");

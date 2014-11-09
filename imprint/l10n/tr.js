@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Sağ dipnot",
     "At login" : "Girişte",
     "Application" : "Uygulama",
-    "Content" : "İçerik",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Html biçimlendirme (örneğin: <br> bir satır aralığı) ve satır içi biçem niteliklerini (örneğin: <a style=\"color:red;\">) kullanabilirsiniz."
+    "Content" : "İçerik"
 },
 "nplurals=2; plural=(n > 1);");

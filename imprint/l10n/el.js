@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "Αποτύπωμα",
     "Header left" : "Αριστερή επικεφαλίδα",
     "Header right" : "Δεξιά επικεφαλίδα",
-    "Content" : "Περιεχόμενο",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Μπορείτε να χρησιμοποιήσετε σήμανση html (π.χ. <br> για να αφήσετε μια κενή γραμμή) και ενωματωμένα χαρακτηριστικά στυλ (π.χ. <a style=\"color:red;\">)."
+    "Content" : "Περιεχόμενο"
 },
 "nplurals=2; plural=(n != 1);");

@@ -7,7 +7,6 @@
     "Imprint" : "Imprint",
     "Header left" : "머릿글 왼쪽",
     "Header right" : "머릿글 오른쪽",
-    "Content" : "내용",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "HTML 마크업(예: 줄을 띄울 때 <br> 삽입) 및 인라인 스타일 속성(예: <a style=\"color:red;\">)을 사용할 수 있습니다."
+    "Content" : "내용"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

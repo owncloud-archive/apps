@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "法律聲明",
     "Header left" : "頁首內靠左",
     "Header right" : "頁首內靠右",
-    "Content" : "內容",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "可以用 HTML 標記（像是 <br> 表示換行）和行內樣式屬性（如 <a style=\"color:red;\"> ）。"
+    "Content" : "內容"
 },
 "nplurals=1; plural=0;");

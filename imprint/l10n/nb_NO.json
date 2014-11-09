@@ -7,7 +7,6 @@
     "Imprint" : "Avtrykk",
     "Header left" : "Overskrift venstre",
     "Header right" : "Overskrift høyre",
-    "Content" : "Innhold",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Du kan bruke html markup (f.eks. <br> for et linjeskift) og inline stil-attributter (f.eks. <a style=\"color:red;\">)."
+    "Content" : "Innhold"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

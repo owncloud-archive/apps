@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "Відбиток",
     "Header left" : "Заголовок ліворуч",
     "Header right" : "Заголовок праворуч",
-    "Content" : "Зміст",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Ви можете використовувати HTML розмітку (наприклад, <br> для перенесення рядка) і вбудовані атрибути стилю (наприклад <a style=\"color:red;\">)."
+    "Content" : "Зміст"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

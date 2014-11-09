@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Sidefod til højre",
     "At login" : "Ved login",
     "Application" : "Applikation",
-    "Content" : "Indhold",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Du kan bruge html markup (f.eks. <br> for linjeskift) og inline style attributter (f.eks. <a style=\"color:red;\">)."
+    "Content" : "Indhold"
 },
 "nplurals=2; plural=(n != 1);");

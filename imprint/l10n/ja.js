@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "フッターの右",
     "At login" : "ログイン時",
     "Application" : "アプリケーション",
-    "Content" : "内容",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "HTMLマークアップ(例： 改行は &lt;br&gt;) とスタイル属性(例： &lt;a style=\"color:red;\"&gt;)を使用できます。"
+    "Content" : "内容"
 },
 "nplurals=1; plural=0;");

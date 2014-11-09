@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Jalus paremal",
     "At login" : "Logimisel",
     "Application" : "Rakendus",
-    "Content" : "Sisu",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Saad kasutada HTML märgendeid (nt. <br> reavahetuseks) ning sisestiili atribuute (nt. <a style=\"color:red;\">)."
+    "Content" : "Sisu"
 },
 "nplurals=2; plural=(n != 1);");

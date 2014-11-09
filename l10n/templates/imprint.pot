@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 8.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2014-11-08 00:48-0500\n"
+"POT-Creation-Date: 2014-11-09 00:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: appinfo/app.php:48 js/reference.js:30
+#: appinfo/app.php:50 js/reference.js:30
 msgid "Legal notice"
 msgstr ""
 
-#: templates/tmpl_dummy.php:41
+#: templates/tmpl_dummy.php:35
 msgid "Nothing here yet"
 msgstr ""
 
-#: templates/tmpl_dummy.php:42
+#: templates/tmpl_dummy.php:37
 msgid "The content of the legal notice has to be configured first"
 msgstr ""
 
-#: templates/tmpl_dummy.php:45
+#: templates/tmpl_dummy.php:42
 msgid "That configuration is done in the administration section."
 msgstr ""
 
-#: templates/tmpl_dummy.php:47
+#: templates/tmpl_dummy.php:44
 msgid "That configuration has to be done by the system administration."
 msgstr ""
 
@@ -81,6 +81,6 @@ msgstr ""
 
 #: templates/tmpl_settings.php:75
 msgid ""
-"You can use html markup (e.g. <br> for a linebreak) and inline style "
-"attributes (e.g. <a style=\"color:red;\">)."
+"You can use plain text, markdown notation or html markup with inline style "
+"attributes. "
 msgstr ""

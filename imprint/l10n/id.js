@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Kaki kanan",
     "At login" : "Saat masuk",
     "Application" : "Aplikasi",
-    "Content" : "Konten",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Anda dapat menggunakan markup html (contoh <br> untuk baris baru) dan atribut inline style (contoh <a style=\"color:red;\">)."
+    "Content" : "Konten"
 },
 "nplurals=1; plural=0;");

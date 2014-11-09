@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Päta vpravo",
     "At login" : "Pri prihlasovaní",
     "Application" : "Aplikácia",
-    "Content" : "Obsah",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Môžete používať html značky (e.g. <br> pre riadkovanie) a atribúty štýlov (napr. <a style=\"color:red;\">)."
+    "Content" : "Obsah"
 },
 "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;");

@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Prawa stopka",
     "At login" : "Jako użytkownik",
     "Application" : "Aplikacje",
-    "Content" : "Treść",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Można użyć znaczników html (np. <br> dla nowej linii)  i atrybutów stylu w treści (np. <a style=\"color:red;\">)."
+    "Content" : "Treść"
 },
 "nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

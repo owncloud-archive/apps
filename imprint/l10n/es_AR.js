@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "Imprint",
     "Header left" : "Encabezado izquierdo",
     "Header right" : "Encabezado derecho",
-    "Content" : "Contenido",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Podés usar código html (p.ej. <br> para un salto de línea) y atributos de estilo (p.ej.  <a style=\"color:red;\">)."
+    "Content" : "Contenido"
 },
 "nplurals=2; plural=(n != 1);");

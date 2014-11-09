@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "Impressum",
     "Header left" : "Topptekst, venstre",
     "Header right" : "Topptekst, høgre",
-    "Content" : "Innhald",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Du kan bruka HTML-merking (t.d. <br> for linjeskift) og stilattributt (t.d. <a style=\"color:red;\">)."
+    "Content" : "Innhald"
 },
 "nplurals=2; plural=(n != 1);");

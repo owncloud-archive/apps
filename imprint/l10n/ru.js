@@ -14,7 +14,6 @@ OC.L10N.register(
     "Footer right" : "Низ страницы справа",
     "At login" : "При логине",
     "Application" : "Приложение",
-    "Content" : "Содержание",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Можно использовать html разметку (например, <br> для переноса строки) и атрибуты стиля (например <a style=\"color:red;\">)."
+    "Content" : "Содержание"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

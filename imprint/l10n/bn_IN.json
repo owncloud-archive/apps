@@ -7,7 +7,6 @@
     "Imprint" : "অঙ্কিত করা",
     "Header left" : "হেডারের বাম",
     "Header right" : "হেডারের ডান",
-    "Content" : "বিষয়বস্তু",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "আপনি এইচটিএমএল মারকাপ (যেমন লাইনব্রেকের জন্যে <br>) এবং ইনলাইন স্টাইল গুণাবলী (যেমন <a style=\"color:red;\">)।"
+    "Content" : "বিষয়বস্তু"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

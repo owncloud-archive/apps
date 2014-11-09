@@ -9,7 +9,6 @@ OC.L10N.register(
     "Imprint" : "Impresszum",
     "Header left" : "Fejléc bal",
     "Header right" : "Fejléc jobb",
-    "Content" : "Tartalom",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "HTML kódok (pl. <br> a sortörés jelzésére) és inline stílusok (pl.  <a style=\"color:red;\">) is használhatók."
+    "Content" : "Tartalom"
 },
 "nplurals=2; plural=(n != 1);");

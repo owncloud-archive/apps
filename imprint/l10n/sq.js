@@ -7,9 +7,14 @@ OC.L10N.register(
     "That configuration is done in the administration section." : "Ky konfigurim bëhet në seksionin e administrimit.",
     "That configuration has to be done by the system administration." : "Kjo konfigurimit është bërë nga administrata e sistemit.",
     "Imprint" : "Stampoj",
+    "Reference" : "Referencë",
     "Header left" : "Koka majtas",
     "Header right" : "Koka djathtas",
-    "Content" : "Përmbajtje",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Ju mund të përdorni Markup html (p.sh. <br> për një ndarje) dhe atributet stilit në linjë (p.sh. <a style=\"color:red;\">)."
+    "As guest" : "Si mysafir",
+    "Footer left" : "Fundi majtas",
+    "Footer right" : "Fundi djathtas",
+    "At login" : "Në hyrje",
+    "Application" : "Aplikacioni",
+    "Content" : "Përmbajtje"
 },
 "nplurals=2; plural=(n != 1);");

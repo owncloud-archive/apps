@@ -10,7 +10,6 @@ OC.L10N.register(
     "Header left" : "Ezker goiburua",
     "Header right" : "Eskuin goiburua",
     "As guest" : "Gonbidatu gisa",
-    "Content" : "Edukia",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "html etiketak erabil ditzakezu (adb: <br> lerro berri baterako) eta etiketa barneko estilo atributuak (adb: <a style=\"color:red\")."
+    "Content" : "Edukia"
 },
 "nplurals=2; plural=(n != 1);");

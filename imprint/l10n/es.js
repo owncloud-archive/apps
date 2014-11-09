@@ -15,7 +15,6 @@ OC.L10N.register(
     "Footer right" : "Lado derecho del pie",
     "At login" : "Al iniciar sesión",
     "Application" : "Aplicación",
-    "Content" : "Contenido",
-    "You can use html markup (e.g. <br> for a linebreak) and inline style attributes (e.g. <a style=\"color:red;\">)." : "Puede utilizar el formato HTML (por ejemplo <br> para un salto de línea) y los atributos de estilo en línea (por ejemplo <a style=\"color:red;\">)."
+    "Content" : "Contenido"
 },
 "nplurals=2; plural=(n != 1);");
