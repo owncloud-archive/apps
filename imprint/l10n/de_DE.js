@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Fußzeile rechts",
     "At login" : "Beim Anmelden",
     "Application" : "Anwendung",
-    "Content" : "Inhalt"
+    "Content" : "Inhalt",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Sie können einfachen Text, abgeschriebene Notizen oder HTML-Markups mit Inline-Stilattributen verwenden."
 },
 "nplurals=2; plural=(n != 1);");

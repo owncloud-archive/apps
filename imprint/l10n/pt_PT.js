@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Rodapé à direita",
     "At login" : "No login",
     "Application" : "Aplicação",
-    "Content" : "Conteúdo"
+    "Content" : "Conteúdo",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Podes usar texto simples, a notação de remarcação ou marcação html com atributos de estilo em linha."
 },
 "nplurals=2; plural=(n != 1);");

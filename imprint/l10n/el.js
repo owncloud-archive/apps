@@ -9,6 +9,9 @@ OC.L10N.register(
     "Imprint" : "Αποτύπωμα",
     "Header left" : "Αριστερή επικεφαλίδα",
     "Header right" : "Δεξιά επικεφαλίδα",
+    "As guest" : "Ως επισκέπτης",
+    "At login" : "Κατά την σύνδεση",
+    "Application" : "Εφαρμογή",
     "Content" : "Περιεχόμενο"
 },
 "nplurals=2; plural=(n != 1);");

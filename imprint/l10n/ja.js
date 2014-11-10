@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "フッターの右",
     "At login" : "ログイン時",
     "Application" : "アプリケーション",
-    "Content" : "内容"
+    "Content" : "内容",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "プレーンテキストかマークダウン表記､インラインスタイル属性のhtmlマークアップが使用できます。"
 },
 "nplurals=1; plural=0;");

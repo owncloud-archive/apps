@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Sidefod til højre",
     "At login" : "Ved login",
     "Application" : "Applikation",
-    "Content" : "Indhold"
+    "Content" : "Indhold",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Du kan anvende ren tekst, markdown-notation eller html-opmærkning med inline-stilattributter."
 },
 "nplurals=2; plural=(n != 1);");

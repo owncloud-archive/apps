@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Voettekst rechts",
     "At login" : "Bij inloggen",
     "Application" : "Applicatie",
-    "Content" : "Inhoud"
+    "Content" : "Inhoud",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "U kunt gebruik maken van kale tekst, 'markdown' notatie of html-opmaak met ingebedde stijl attributen."
 },
 "nplurals=2; plural=(n != 1);");
