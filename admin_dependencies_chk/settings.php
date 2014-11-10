@@ -280,7 +280,7 @@ $modules[] =array(
 	'status' => (\OC_Helper::is_function_enabled('curl_init') &&  \OC_Helper::is_function_enabled('curl_exec'))? 'ok' : 'warning',
 	'part'=> 'curl_init,curl_exec',
 	'modules'=> array('core'),
-	'message'=> $l->t('The functions curl_init and curl_exec functions of the php-curl module are needed for internal calls of cURL. Make sure they are disabled in the disabled_functions of your php.ini.'));
+	'message'=> $l->t('The functions curl_init and curl_exec functions of the php-curl module are needed for internal calls of cURL. Make sure they are not disabled in the disabled_functions of your php.ini.'));
 
 $modules[] =array(
         'status' => checkDependencies('grep') ? 'ok' : 'warning',
