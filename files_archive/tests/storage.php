@@ -16,13 +16,16 @@ class Archive_Zip extends Storage {
 	 */
 	private $tmpFile;
 
-	public function setUp() {
+	protected function setUp() {
+		parent::setUp();
+
 		$this->tmpFile=\OCP\Files::tmpFile('.zip');
 		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		unlink($this->tmpFile);
+		parent::tearDown();
 	}
 }
 
@@ -32,12 +35,14 @@ class Archive_Tar extends Storage {
 	 */
 	private $tmpFile;
 
-	public function setUp() {
+	protected function setUp() {
+		parent::setUp();
 		$this->tmpFile=\OCP\Files::tmpFile('.tar.gz');
 		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		unlink($this->tmpFile);
+		parent::tearDown();
 	}
 }

@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class Test_User_Imap extends PHPUnit_Framework_TestCase{
+class Test_User_Imap extends \Test\TestCase {
 	/**
 	 * @var OC_User_IMAP $instance
 	 */
@@ -21,7 +21,9 @@ class Test_User_Imap extends PHPUnit_Framework_TestCase{
 		$this->skipUnless($config['imap']['run']);
 	}
 
-	function setUp() {
+	protected function setUp() {
+		parent::setUp();
+
 		$config=$this->getConfig();
 		$this->instance=new OC_User_IMAP($config['imap']['mailbox']);
 	}
