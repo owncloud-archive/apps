@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Fundi djathtas",
     "At login" : "Në hyrje",
     "Application" : "Aplikacioni",
-    "Content" : "Përmbajtje"
+    "Content" : "Përmbajtje",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Ju mund të përdorni tekst të thjeshtë, shënim Markdown ose kodim HTML me atribute stilistike në rresht."
 },
 "nplurals=2; plural=(n != 1);");
