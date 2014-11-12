@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Footer right",
     "At login" : "At login",
     "Application" : "Application",
-    "Content" : "Content"
+    "Content" : "Content",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "You can use plain text, markdown notation or html markup with inline style attributes. "
 },
 "nplurals=2; plural=(n != 1);");

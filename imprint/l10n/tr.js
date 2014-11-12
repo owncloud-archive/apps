@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Sağ dipnot",
     "At login" : "Girişte",
     "Application" : "Uygulama",
-    "Content" : "İçerik"
+    "Content" : "İçerik",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Düz metin, markdown yazımı veya html etiketlerini inline biçem nitelikleri ile kullanabilirsiniz."
 },
 "nplurals=2; plural=(n > 1);");

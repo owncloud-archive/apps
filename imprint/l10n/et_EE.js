@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Jalus paremal",
     "At login" : "Logimisel",
     "Application" : "Rakendus",
-    "Content" : "Sisu"
+    "Content" : "Sisu",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Saad kasutada lihtteksti, märgenditega kirjaviisi või HTML märgendeid koos inline stiili atribuutidega"
 },
 "nplurals=2; plural=(n != 1);");
