@@ -36,6 +36,9 @@ class Lock {
 	/** @var int $retryInterval Milliseconds between retries */
 	public static $retryInterval = 50;
 
+	/** @var string $locksDir Lock directory */
+	protected static $locksDir = '';
+
 	/** @var string $path Filename of the file as represented in storage */
 	protected $path;
 
@@ -268,16 +271,17 @@ class Lock {
 	 * @return string The filename of the lock file
 	 */
 	public static function getLockFile($filename) {
-		static $locksDir = false;
-		if(!$locksDir) {
+		if (!self::$locksDir) {
 			$dataDir = Config::getSystemValue('datadirectory');
-			$locksDir = $dataDir . '/.locks';
-			if(!file_exists($locksDir)) {
-				mkdir($locksDir);
-			}
+			self::$locksDir = $dataDir . '/.locks';
 		}
+
+		if (!file_exists(self::$locksDir)) {
+			mkdir(self::$locksDir);
+		}
+
 		$filename = Filesystem::normalizePath($filename);
-		return $locksDir . '/' . sha1($filename) . '.lock';
+		return self::$locksDir . '/' . sha1($filename) . '.lock';
 	}
 
 	/**
