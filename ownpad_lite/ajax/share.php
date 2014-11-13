@@ -48,11 +48,12 @@ if ($source && $recipients) {
 	$emailTo = array_shift($recipientList['email']);
 
 	try {
-		$emailFrom = \OCP\Util::getDefaultEmailAddress('noreply');
 		\OCP\Util::sendMail(
-			$emailTo, $nameTo, $subject, $message, $emailFrom, $nameFrom
+			$emailTo, $nameTo, $subject, $message,
+			\OCP\Util::getDefaultEmailAddress('noreply'),
+			\OCP\Util::getDefaultSenderName($nameFrom)
 		);
-	} catch (Exception $e) {
+	} catch (\Exception $e) {
 		$status = false;
 	}
 } else {
