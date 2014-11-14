@@ -50,12 +50,6 @@ source_file = templates/ownpad_lite.pot
 source_lang = en
 type = PO
 
-[owncloud.files_antivirus]
-file_filter = <lang>/files_antivirus.po
-source_file = templates/files_antivirus.pot
-source_lang = en
-type = PO
-
 [owncloud.imprint]
 file_filter = <lang>/imprint.po
 source_file = templates/imprint.pot

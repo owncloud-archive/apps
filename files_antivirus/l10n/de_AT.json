@@ -1,8 +1,0 @@
-{ "translations": {
-    "Host" : "Host",
-    "Port" : "Port",
-    "Save" : "Speichern",
-    "Advanced" : "Erweitert",
-    "Description" : "Beschreibung"
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
-}
