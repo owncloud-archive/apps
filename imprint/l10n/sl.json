@@ -13,6 +13,7 @@
     "Footer right" : "Desna noga",
     "At login" : "Pri prijavi",
     "Application" : "Program",
-    "Content" : "Vsebina"
+    "Content" : "Vsebina",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Uporabiti je mogoče le besedilo, označene opombe ali pa oblikovanje HTML z atributi navedenimi v vmesnih slogih."
 },"pluralForm" :"nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);"
 }
