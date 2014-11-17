@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Десен футър",
     "At login" : "По време на вписване",
     "Application" : "Приложение",
-    "Content" : "Съдържание"
+    "Content" : "Съдържание",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Можеш да изполваш текст, отбелязваш или да използваш html с inline атрибути."
 },
 "nplurals=2; plural=(n != 1);");

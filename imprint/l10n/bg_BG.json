@@ -13,6 +13,7 @@
     "Footer right" : "Десен футър",
     "At login" : "По време на вписване",
     "Application" : "Приложение",
-    "Content" : "Съдържание"
+    "Content" : "Съдържание",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Можеш да изполваш текст, отбелязваш или да използваш html с inline атрибути."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
