@@ -35,6 +35,9 @@ if ($_POST) {
 		if (isset($_POST[$param])) {
 			OCP\Config::setAppValue('user_saml', $param, $_POST[$param]);
 		}  
+		elseif ('saml_force_saml_login' == $param) {
+			OCP\Config::setAppValue('user_saml', $param, 0);
+		}
 		elseif ('saml_autocreate' == $param) {
 			// unchecked checkboxes are not included in the post paramters
 			OCP\Config::setAppValue('user_saml', $param, 0);
