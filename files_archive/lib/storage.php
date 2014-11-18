@@ -1,24 +1,40 @@
 <?php
 /**
- * Copyright (c) 2012 Robin Appelman <icewind@owncloud.com>
+ * Copyright (c) 2014 Robin Appelman <icewind@owncloud.com>
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
  */
 
-namespace OC\Files\Storage;
+namespace OCA\Files_Archive;
 
-class Archive extends Common {
+use OC\Files\Cache\Updater;
+use OC\Files\Filesystem;
+use OC\Files\Storage\Common;
+use OC\Files\View;
+
+class Storage extends Common {
 	/**
 	 * underlying local storage used for missing functions
 	 *
 	 * @var \OC_Archive
 	 */
 	private $archive;
+
+	/**
+	 * @var string absolute path to the archive on the local fs
+	 */
 	private $path;
-	private static $mounted = array();
-	private static $enableAutomount = true;
-	private static $rootView;
+
+	/**
+	 * @var string path to the archive in ownCloud's filesystem
+	 */
+	private $archivePath;
+
+	/**
+	 * @var \OC\Files\Mount\Manager $mountManager
+	 */
+	private $mountManager;
 
 	private function stripPath($path) { //files should never start with /
 		if (!$path || $path[0] == '/') {
@@ -30,20 +46,22 @@ class Archive extends Common {
 	public function __construct($params) {
 		$this->archive = \OC_Archive::open($params['archive']);
 		$this->path = $params['archive'];
+		$this->mountManager = $params['manager'];
+		$this->archivePath = $params['archivePath'];
 	}
 
 	public function mkdir($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->addFolder($path);
+		return false;
 	}
 
 	public function rmdir($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->remove($path . '/');
+		$this->unlink($path);
 	}
 
 	public function opendir($path) {
-		if (substr($path, -1) !== '/') {
+		if (!$path) {
+			$path = '/';
+		} else if (substr($path, -1) !== '/') {
 			$path .= '/';
 		}
 		$path = $this->stripPath($path);
@@ -65,7 +83,7 @@ class Archive extends Common {
 	public function stat($path) {
 		$ctime = -1;
 		$path = $this->stripPath($path);
-		if ($path == '') {
+		if (!$path or $path === '/') {
 			$stat = stat($this->path);
 			$stat['size'] = 0;
 		} else {
@@ -87,7 +105,7 @@ class Archive extends Common {
 
 	public function filetype($path) {
 		$path = $this->stripPath($path);
-		if ($path == '') {
+		if (!$path or $path === '/') {
 			return 'dir';
 		}
 		if (substr($path, -1) == '/') {
@@ -98,27 +116,33 @@ class Archive extends Common {
 	}
 
 	public function isReadable($path) {
-		return is_readable($this->path);
+		return true;
 	}
 
 	public function isUpdatable($path) {
-		return is_writable($this->path);
+		return false;
+	}
+
+	public function isSharable($path) {
+		return $path === '' or $path === '/';
 	}
 
 	public function file_exists($path) {
 		$path = $this->stripPath($path);
 		if ($path == '') {
-			return file_exists($this->path);
+			return true;
 		}
 		return $this->archive->fileExists($path);
 	}
 
 	public function unlink($path) {
-		$path = $this->stripPath($path);
-		return $this->archive->remove($path);
+		return false;
 	}
 
 	public function fopen($path, $mode) {
+		if ($mode !== 'r' and $mode !== 'rb') {
+			return false;
+		}
 		$path = $this->stripPath($path);
 		return $this->archive->getStream($path, $mode);
 	}
@@ -128,25 +152,18 @@ class Archive extends Common {
 	}
 
 	public function touch($path, $mtime = null) {
-		if (is_null($mtime)) {
-			$tmpFile = \OCP\Files::tmpFile();
-			$this->archive->extractFile($path, $tmpFile);
-			$this->archive->addfile($path, $tmpFile);
-			return true;
-		} else {
-			return false; //not supported
-		}
+		return false;
 	}
 
 	protected function toTmpFile($path) {
 		$tmpFile = \OCP\Files::tmpFile();
+		$path = $this->stripPath($path);
 		$this->archive->extractFile($path, $tmpFile);
 		return $tmpFile;
 	}
 
 	public function file_put_contents($path, $data) {
-		$path = $this->stripPath($path);
-		return $this->archive->addFile($path, $data);
+		return false;
 	}
 
 	public function file_get_contents($path) {
@@ -154,44 +171,30 @@ class Archive extends Common {
 		return $this->archive->getFile($path);
 	}
 
-	/**
-	 * automount paths from file hooks
-	 *
-	 * @param array $params
-	 */
-	public static function autoMount($params) {
-		if (!self::$enableAutomount) {
-			return;
+	public function getMimeType($path) {
+		if (!$path or $path === '/') {
+			return \OC_Helper::getFileNameMimeType($this->path);
+		} else {
+			return parent::getMimeType($path);
 		}
-		$path = $params['path'];
-		if (!self::$rootView) {
-			self::$rootView = new \OC\Files\View('');
-		}
-		self::$enableAutomount=false;//prevent recursion
-		$supported = array('zip', 'tar.gz', 'tar.bz2', 'tgz');
-		foreach ($supported as $type) {
-			$ext = '.' . $type . '/';
-			if (($pos = strpos(strtolower($path), $ext)) !== false) {
-				$archive = substr($path, 0, $pos + strlen($ext) - 1);
-				if (self::$rootView->file_exists($archive) and  array_search($archive, self::$mounted) === false) {
-					$localArchive = self::$rootView->getLocalFile($archive);
-					\OC\Files\Filesystem::mount('\OC\Files\Storage\Archive', array('archive' => $localArchive), $archive . '/');
-					self::$mounted[] = $archive;
-				}
-			}
-		}
-		self::$enableAutomount = true;
 	}
 
 	public function rename($path1, $path2) {
-		return $this->archive->rename($path1, $path2);
+		return false;
 	}
 
 	public function hasUpdated($path, $time) {
-		return $this->filemtime($this->path) > $time;
+		return false;
 	}
 
 	public function getId() {
 		return 'archive::' . md5($this->path);
+	}
+
+	public function getCache($path = '', $storage = null) {
+		if (!$storage) {
+			$storage = $this;
+		}
+		return new Cache($storage, $this->mountManager, $this->archivePath);
 	}
 }
