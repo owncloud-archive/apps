@@ -81,8 +81,8 @@ $modules[] =array(
 $modules[] =array(
 	'status' => class_exists('ZipArchive') ? 'ok' : 'warning',
 	'part'=> 'php-zip',
-	'modules'=> array('admin_export','core'),
-	'message'=> $l->t('The php-zip module is needed to download multiple files at once'));
+	'modules'=> array('admin_export','core','updater'),
+	'message'=> $l->t('The php-zip module is needed by core to download multiple files at once and by the updater app.'));
 
 $modules[] =array(
 	'status' => function_exists('mb_detect_encoding') ? 'ok' : 'error',
