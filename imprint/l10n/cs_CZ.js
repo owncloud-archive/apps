@@ -16,6 +16,6 @@ OC.L10N.register(
     "At login" : "Při přihlášení",
     "Application" : "Aplikace",
     "Content" : "Obsah",
-    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Můžete použít normální text, zápis ve formátu markdown nebo html s vloženými znaky stylu."
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Můžete použít normální text, zápis ve formátu markdown nebo html s atributy stylů."
 },
 "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;");
