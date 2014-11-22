@@ -15,6 +15,7 @@ OC.L10N.register(
     "Footer right" : "Päta vpravo",
     "At login" : "Pri prihlasovaní",
     "Application" : "Aplikácia",
-    "Content" : "Obsah"
+    "Content" : "Obsah",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Môžete použiť obyčajný text, formátovaný zápis alebo html formátovanie. "
 },
 "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;");
