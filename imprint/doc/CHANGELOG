@@ -21,6 +21,10 @@
 *****
 
 Changelog:
+
+* Mon Nov 24 2014 Christian Reiner: version 0.2.2
+Fix crash for non privileged users when no content has been configured before.
+Removed stale reference to obsolete internal style sheet definition.
 * Sat Nov 02 2014 Christian Reiner: version 0.2.1
 Rendering of markdown as alternative to html markup and plain text.
 * Tue Oct 28 2014 Christian Reiner: version 0.2.0
