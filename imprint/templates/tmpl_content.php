@@ -38,7 +38,7 @@
 	</head>
 	<body id="imprint-body">
 		<div id="imprint-content">
-			<?php	print_unescaped($_['processed-content']); ?>
+			<?php	print_unescaped($_['content']); ?>
 		</div>
 	</body>
 </html>

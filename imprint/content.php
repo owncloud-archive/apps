@@ -53,7 +53,7 @@ if (strlen($content)!=strlen(strip_tags($content))) {
 // output processed content
 \OCP\Util::addStyle ('imprint', 'content');
 $tmpl = new \OCP\Template('imprint', 'tmpl_content');
-$tmpl->assign('processed-content', $processed_content);
+$tmpl->assign('content', $processed_content);
 
 // render template
 $tmpl->printPage();
