@@ -38,8 +38,4 @@
 
 -----
 
-_<?php if ( OCP\User::checkAdminUser() ) {
-	p($l->t("That configuration is done in the administration section."));
-} else {
-	p($l->t("That configuration has to be done by the system administration."));
-} ?>_
+_<?php p($l->t("That configuration has to be done by the system administration.")); ?>_
