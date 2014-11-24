@@ -21,6 +21,8 @@
 *****
 
 Changelog:
+
+Removed stale reference to obsolete internal style sheet definition.
 * Sat Nov 02 2014 Christian Reiner: version 0.2.1
 Rendering of markdown as alternative to html markup and plain text.
 * Tue Oct 28 2014 Christian Reiner: version 0.2.0
