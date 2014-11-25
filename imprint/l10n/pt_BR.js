@@ -4,7 +4,6 @@ OC.L10N.register(
     "Legal notice" : "Aviso legal",
     "Nothing here yet" : "Nada aqui ainda",
     "The content of the legal notice has to be configured first" : "O conteúdo do aviso legal deve ser configurado primeiro",
-    "That configuration is done in the administration section." : "Esta configuração é feita na seção de administração.",
     "That configuration has to be done by the system administration." : "Esta configuração deverá ser feita pela administração do sistema.",
     "Imprint" : "Marca",
     "Reference" : "Referência",

@@ -5,7 +5,7 @@ OC.L10N.register(
     "The php-curl module is needed to fetch the page title when adding a bookmark" : "Das Modul php-curl wird benötigt, um den Titel der Seite für die Lesezeichen hinzuzufügen.",
     "The php-gd module is needed to create thumbnails of your images" : "Das Modul php-gd wird für die Erzeugung der Vorschaubilder benötigt.",
     "The php-ldap module is needed connect to your ldap server" : "Das Modul php-ldap wird für die Verbindung mit dem LDAP-Server benötigt.",
-    "The php-bcmath module is needed to support AD primary groups" : "Das php-bcmath Modul wird für das HINZUFÜGEN primärer Gruppen benötigt",
+    "The php-bcmath module is needed to support AD primary groups" : "Das Modul php-bcmath wird für die Unterstützung primärer Active Directory-Gruppen benötigt",
     "The php-zip module is needed to download multiple files at once" : "Das php-zip Modul wird für das gleichzeitige Herunterladen mehrerer Dateien benötigt",
     "The php-mb_multibyte module is needed to manage correctly the encoding." : "Das Modul php_mb_multibyte wird benötigt, um das Encoding richtig zu handhaben.",
     "The php-ctype module is needed validate data." : "Das Modul php-ctype wird benötigt, um Daten zu prüfen.",

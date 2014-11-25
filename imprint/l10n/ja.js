@@ -4,7 +4,6 @@ OC.L10N.register(
     "Legal notice" : "免責事項",
     "Nothing here yet" : "ここにはまだ何もありません",
     "The content of the legal notice has to be configured first" : "免責事項の内容をまず設定しなくてはなりません",
-    "That configuration is done in the administration section." : "その設定は管理セクションで行うことができます。",
     "That configuration has to be done by the system administration." : "その設定はシステム管理で行う必要があります。",
     "Imprint" : "インプリント",
     "Reference" : "参照",

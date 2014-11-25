@@ -4,7 +4,6 @@ OC.L10N.register(
     "Legal notice" : "Юридическое уведомление",
     "Nothing here yet" : "Пока ничего нет",
     "The content of the legal notice has to be configured first" : "Сначала следует задать содержимое юридического уведомления",
-    "That configuration is done in the administration section." : "Эта конфигурация делается в разделе администрирования.",
     "That configuration has to be done by the system administration." : "Эту конфигурацию должен сделать системный администратор",
     "Imprint" : "Штамп",
     "Reference" : "Ссылка",

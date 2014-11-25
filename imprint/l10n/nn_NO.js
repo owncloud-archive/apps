@@ -4,7 +4,6 @@ OC.L10N.register(
     "Legal notice" : "Juridisk informasjon",
     "Nothing here yet" : "Ingenting her enno",
     "The content of the legal notice has to be configured first" : "Du må skriva inn tekst i den juridiske informasjonen først",
-    "That configuration is done in the administration section." : "Den konfigurasjonen gjer du i administrasjonsdelen.",
     "That configuration has to be done by the system administration." : "Den konfigurasjonen må gjerast av systemadministrasjonen.",
     "Imprint" : "Impressum",
     "Header left" : "Topptekst, venstre",

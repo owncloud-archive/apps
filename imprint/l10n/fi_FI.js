@@ -4,7 +4,6 @@ OC.L10N.register(
     "Legal notice" : "Lainopillinen huomautus",
     "Nothing here yet" : "Täällä ei ole vielä mitään",
     "The content of the legal notice has to be configured first" : "Lainopillinen huomautus on määriteltävä ensin",
-    "That configuration is done in the administration section." : "Kyseiset asetukset tehdään ylläpito-osiossa.",
     "That configuration has to be done by the system administration." : "Kyseiset asetukset tulee tehdä järjestelmän ylläpitäjän toimesta.",
     "Reference" : "Viittaus",
     "Header left" : "Ylätunniste vasen",
