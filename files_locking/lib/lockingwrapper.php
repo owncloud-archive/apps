@@ -34,7 +34,7 @@ class LockingWrapper extends Wrapper {
 	 * @return bool|\OCA\Files_Locking\Lock Lock instance on success, false on failure
 	 */
 	protected function getLock($path, $lockType, $existingHandle = null){
-		$path = Filesystem::normalizePath($this->storage->getLocalFile($path));
+		$path = Filesystem::normalizePath($this->storage->getLocalFile($path), true, true);
 
 		if(!isset($this->locks[$path])) {
 			$this->locks[$path] = new Lock($path);

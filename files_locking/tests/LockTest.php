@@ -14,14 +14,15 @@ namespace OCA\Files_Locking\Tests;
 
 use OCA\Files_Locking\Lock;
 
-class LockTest extends \PHPUnit_Framework_TestCase {
+class LockTest extends \Test\TestCase {
 	/**
 	 * @var Lock
 	 */
 	private $fileLock;
 
+	protected function setup() {
+		parent::setUp();
 
-	public function setup() {
 		\OCP\App::checkAppEnabled('files_locking');
 		$this->fileLock = new Lock(__DIR__ . '/data/test.txt');
 	}

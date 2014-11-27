@@ -18,7 +18,7 @@ use OC_User_Dummy;
 use OCA\Files_Locking\LockingWrapper;
 use OCP\App;
 
-class LockingWrapperTest extends \PHPUnit_Framework_TestCase {
+class LockingWrapperTest extends \Test\TestCase {
 
 	/**
 	 * @var OC_User
@@ -33,7 +33,9 @@ class LockingWrapperTest extends \PHPUnit_Framework_TestCase {
 	 */
 	private $fileLocker;
 
-	public function setup() {
+	protected function setup() {
+		parent::setUp();
+
 		App::checkAppEnabled('files_locking');
 		OC_User::clearBackends();
 		OC_User::useBackend(new OC_User_Dummy());
