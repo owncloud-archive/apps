@@ -9,7 +9,7 @@ OC.L10N.register(
     "Open" : "Ouvrir",
     "Share with" : "Partager avec",
     "Share" : "Partager",
-    "Etherpad service URL" : "URL de service Etherpad",
+    "Etherpad service URL" : "URL du service Etherpad",
     "Username" : "Nom d'utilisateur",
     "Save" : "Sauvegarder"
 },
