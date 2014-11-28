@@ -147,8 +147,9 @@ function update_user_data($uid, $attributes=array(), $just_created=false) {
 
 
 function update_mail($uid, $email) {
-	if ($email != OC_Preferences::getValue($uid, 'settings', 'email', '')) {
-		OC_Preferences::setValue($uid, 'settings', 'email', $email);
+	$config = \OC::$server->getConfig();
+	if ($email != $config->getUserValue($uid, 'settings', 'email', '')) {
+		$config->setUserValue($uid, 'settings', 'email', $email);
 		OC_Log::write('saml','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
 	}
 }
