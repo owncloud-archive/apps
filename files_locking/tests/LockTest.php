@@ -27,6 +27,11 @@ class LockTest extends \Test\TestCase {
 		$this->fileLock = new Lock(__DIR__ . '/data/test.txt');
 	}
 
+	protected function tearDown() {
+		$this->fileLock->releaseAll();
+		parent::tearDown();
+	}
+
 	public function testObtainReadLockAndRelease() {
 		$this->assertTrue(\Test_Helper::invokePrivate($this->fileLock, 'obtainReadLock'));
 		$this->assertTrue($this->fileLock->release('read'));
