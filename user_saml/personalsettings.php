@@ -3,8 +3,7 @@
 /**
  * ownCloud - user_saml
  *
- * @author Sixto Martin <smartin@yaco.es>
- * @copyright 2012 Yaco Sistemas // CONFIA
+ * @author Szabó Gyula <gyufi@niif.hu>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
