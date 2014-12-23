@@ -1,0 +1,20 @@
+OC.L10N.register(
+    "imprint",
+    {
+    "Legal notice" : "ಕಾನೂನು ಅಧಿಸೂಚನೆಗಳು",
+    "Nothing here yet" : "ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ",
+    "The content of the legal notice has to be configured first" : "ಕಾನೂನು ಅಧಿಸೂಚನೆಯನ್ನು ಮೊದಲ  ಸಂರಚಿಸಬೇಕಾಗುತ್ತದೆ",
+    "That configuration has to be done by the system administration." : "ಸಂರಚನಾ ವ್ಯವಸ್ಥೆಯನ್ನು ನಿರ್ವಾಹಕರು ಸಜ್ಜುಗೊಳಿಸಬೇಕು.",
+    "Imprint" : "ಮುದ್ರೆ",
+    "Reference" : "ಉಲ್ಲೇಖ",
+    "Header left" : "ಎಡ ಶೀರ್ಷಿಕೆ",
+    "Header right" : "ಬಲ ಶೀರ್ಷಿಕೆ",
+    "As guest" : "ಅತಿಥಿಯಾಗಿ",
+    "Footer left" : "ಎಡ ಅಡಿಬರಹ",
+    "Footer right" : "ಬಲ ಅಡಿಬರಹ",
+    "At login" : "ಪ್ರವೇಶದಲ್ಲಿ",
+    "Application" : "ಕಾರ್ಯಕ್ರಮ",
+    "Content" : "ವಿಷಯ",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "ನೀವು ಸರಳ ಪಠ್ಯ, HTML ಸಂಕೇತಗಳು ಅಥವಾ ಒಳಸಾಲು-ಶೈಲಿಯ ಲಕ್ಷಣಗಳನ್ನು ಬಳಸಬಹುದು"
+},
+"nplurals=1; plural=0;");
