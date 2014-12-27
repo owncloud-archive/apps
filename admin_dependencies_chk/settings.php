@@ -208,7 +208,13 @@ $modules[] =array(
         'status' => !\OC_Util::runningOnWindows() ? 'ok' : 'warning',
         'part'=> 'Operating System',
         'modules'=> array('core'),
-        'message'=> $l->t('Some functions like Video and OpenOffice/LibreOffice previews as well as SMB/CIFS mounts via the External Storage Support app are only supported on non-windows systems.'));
+        'message'=> $l->t('While ownCloud server will run on Windows, it is not recommended at this time (See: http://doc.owncloud.org/server/7.0/admin_manual/installation/windows_installation.html). Furthermore some functions like Video and OpenOffice/LibreOffice previews as well as SMB/CIFS mounts via the External Storage Support app are only supported on non-windows systems.'));
+
+$modules[] =array(
+        'status' => !\OC_Util::runningOnMac() ? 'ok' : 'error',
+        'part'=> 'Operating System',
+        'modules'=> array('core'),
+        'message'=> $l->t('Installing ownCloud Server 7.0 on Mac OS is currently not supported (See: http://doc.owncloud.org/server/7.0/admin_manual/installation/macos_installation.html).'));
 
 $modules[] =array(
         'status' => (\OC_BackgroundJob::getExecutionType() == 'cron' || \OC_BackgroundJob::getExecutionType() == 'webcron') ? 'ok' : 'warning',
