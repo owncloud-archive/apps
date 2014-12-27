@@ -9,6 +9,8 @@ OC.L10N.register(
     "Header left" : "Αριστερή επικεφαλίδα",
     "Header right" : "Δεξιά επικεφαλίδα",
     "As guest" : "Ως επισκέπτης",
+    "Footer left" : "Αριστερό υποσέλιδο",
+    "Footer right" : "Δεξιό υποσέλιδο",
     "At login" : "Κατά την σύνδεση",
     "Application" : "Εφαρμογή",
     "Content" : "Περιεχόμενο"
