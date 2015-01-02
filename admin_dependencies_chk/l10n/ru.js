@@ -2,7 +2,7 @@ OC.L10N.register(
     "admin_dependencies_chk",
     {
     "The php-json module is needed by the many applications for inter communications" : "Модуль php-json необходим многим приложениям для внутреннего взаимодействия",
-    "The php-curl module is needed to fetch the page title when adding a bookmark" : "Php-curl модуль необходим, чтобы получить заголовок страницы при добавлении закладки",
+    "The php-curl module is needed to fetch the page title when adding a bookmark" : "Модуль php-curl необходим, чтобы получить заголовок страницы при добавлении её закладки",
     "The php-gd module is needed to create thumbnails of your images" : "Модуль php-gd необходим для создания миниатюр картинок",
     "The php-ldap module is needed connect to your ldap server" : "Модуль php-ldap необходим для соединения с сервером LDAP",
     "The php-bcmath module is needed to support AD primary groups" : "Для поддержки первичных групп AD необходим модуль php-bcmath",
