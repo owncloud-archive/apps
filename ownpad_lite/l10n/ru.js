@@ -2,7 +2,7 @@ OC.L10N.register(
     "ownpad_lite",
     {
     "Document was shared" : "Документ был открыт в общий доступ",
-    "User %s shared quick document %s with you." : "Пользователь %s поделился документом %s с Вами.",
+    "User %s shared quick document %s with you." : "Пользователь %s поделился документом %s с вами.",
     "My pad" : "Мой блокнот",
     "Settings" : "Конфигурация",
     "Pad Title" : "Заголовок документа",
