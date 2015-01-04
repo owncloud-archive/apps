@@ -3,6 +3,7 @@
     "The php-curl module is needed to fetch the page title when adding a bookmark" : "Lai, pievienojot grāmatzīmi, saņemtu lapas virsrakstu, ir vajadzīgs php-curl modulis.",
     "The php-gd module is needed to create thumbnails of your images" : "Lai veidotu attēlu sīktēlus, ir vajadzīgs php-gd modulis",
     "The php-ldap module is needed connect to your ldap server" : "Lai savienotos ar ldap serveri, ir vajadzīgs php-ldap modulis",
+    "The php-zip module is needed to download multiple files at once" : "Lai vienlaicīgi lejupielādētu vairākus failus, nepieciešams php-zip modulis",
     "The php-mb_multibyte module is needed to manage correctly the encoding." : "Lai pareizi pārvaldītu kodējumu, ir vajadzīgs php-mb_multibyte modulis.",
     "The php-ctype module is needed validate data." : "Lai pārbaudītu datus, ir vajadzīgs php-ctype moduis.",
     "The php-xml module is needed to share files with webdav." : "Lai koplietotu datnes ar webdav, ir vajadzīgs php-xml modulis.",
