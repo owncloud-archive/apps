@@ -4,6 +4,7 @@ OC.L10N.register(
     "External Sites" : "Külső oldalak",
     "Name" : "Név",
     "URL" : "URL",
+    "Select an icon" : "Ikon beállítása",
     "Remove site" : "Oldal eltávolítása",
     "Add" : "Hozzáadás"
 },
