@@ -5,7 +5,7 @@ OC.L10N.register(
     "Nothing here yet" : "Rien à afficher pour le moment",
     "The content of the legal notice has to be configured first" : "Le contenu des mentions légales doit d'abord être configuré",
     "That configuration has to be done by the system administration." : "Cette configuration doit être effectuée par l'administrateur système.",
-    "Imprint" : "Empreinte",
+    "Imprint" : "Mentions légales",
     "Reference" : "Référence",
     "Header left" : "En-tête gauche",
     "Header right" : "En-tête droit",
