@@ -1,7 +1,7 @@
 OC.L10N.register(
     "admin_migrate",
     {
-    "Export data" : "Экспортировать данные",
+    "Export data" : "Экспорт данных",
     "All system files and user data" : "Все системные файлы и пользовательские данные",
     "Only system files" : "Только системные файлы",
     "Only user data" : "Только пользовательские данные",

@@ -14,6 +14,7 @@ OC.L10N.register(
     "Footer right" : "Нижній колонтитул праворуч ",
     "At login" : "При вході",
     "Application" : "Додаток",
-    "Content" : "Зміст"
+    "Content" : "Зміст",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Ви можете використовувати звичайний текст, позначення або HTML-розмітку з атрибутами вбудованого стилю."
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
