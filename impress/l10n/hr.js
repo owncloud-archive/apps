@@ -2,6 +2,7 @@ OC.L10N.register(
     "impress",
     {
     "Documentation" : "dokumentacija",
+    "No Impress files are found in your ownCloud. Please upload a .impress file." : "Nisu pronađene Impress datoteke na ownCloud-i. Molim učitajte .impress datoteku.",
     "Name" : "Ime",
     "Size" : "Veličina",
     "Date" : "datum"

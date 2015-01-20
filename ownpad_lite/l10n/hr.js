@@ -1,6 +1,7 @@
 OC.L10N.register(
     "ownpad_lite",
     {
+    "Document was shared" : "Dokument je bio dijeljen",
     "Settings" : "Postavke",
     "Open" : "Otvorite",
     "Share with" : "Djeli sa",
