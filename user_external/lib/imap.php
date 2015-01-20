@@ -42,12 +42,53 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
 			return false;
 		}
-		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN);
+
+		$filename = OC::$SERVERROOT.'/data/imap_users.conf';
+		$user_allowed = false;
+		$email =  "";
+		$displayName =  "";
+		$group = "";
+		
+		if (!$this->userExists($uid)) {
+			if (file_exists($filename)) {
+				if (($handle = fopen($filename, "r"))  !== FALSE) {
+					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $user_allowed !== TRUE) {
+						if (in_array($uid, $data)) {
+							$user_allowed = true;
+							$displayName = $data[1];
+							$group = $data[3];
+							if (filter_var($data[0], FILTER_VALIDATE_EMAIL) && empty($data[2])) {
+								$email = $data[0];
+							}else{
+								$email = $data[2];
+							}
+						}
+					}
+					fclose($handle);
+					if ($user_allowed !== TRUE) {
+						return false;
+					}
+				}
+			}
+		}
+
+		if  (substr($this->mailbox, 1, 1) === '.') {
+			$this->mailbox = ltrim($this->mailbox, '{');
+			$this->mailbox = '{' . $uid . $this->mailbox;
+		}
+
+		if (filter_var($uid, FILTER_VALIDATE_EMAIL)) {
+			$email = $uid;
+		}
+		
+		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
 		imap_errors();
 		imap_alerts();
+		
 		if($mbox !== FALSE) {
 			imap_close($mbox);
-			$this->storeUser($uid);
+			$uid = mb_strtolower($uid);
+            $this->storeUser($uid, $email, $displayName, $group);
 			return $uid;
 		}else{
 			return false;
