@@ -82,7 +82,7 @@ abstract class Base extends \OC_User_Backend{
 				'limit'  => $limit,
 				'offset' => $offset
 			),
-			array($search . '%', $search . '%', $this->backend)
+			array('%' . $search . '%', '%' . $search . '%', $this->backend)
 		);
 
 		$displayNames = array();
