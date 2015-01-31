@@ -14,7 +14,7 @@ OC.L10N.register(
     "Footer right" : "Низ страницы справа",
     "At login" : "При логине",
     "Application" : "Приложение",
-    "Content" : "Содержание",
+    "Content" : "Содержимое",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "Вы можете использовать простой текст, нотацию markdown или разметку HTML со встроенными стилями в атрибутах тегов."
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
