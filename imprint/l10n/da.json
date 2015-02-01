@@ -1,9 +1,9 @@
 { "translations": {
     "Legal notice" : "Juridisk meddelelse",
     "Nothing here yet" : "Her er intet, endnu.",
-    "The content of the legal notice has to be configured first" : "Indholdet af den juridiske meddelelse skal konfigureres først",
-    "That configuration has to be done by the system administration." : "Konfigurationen skal foretages af en systemadministrator.",
-    "Imprint" : "Imprint",
+    "The content of the legal notice has to be configured first" : "Indholdet af den juridiske meddelelse skal først konfigureres",
+    "That configuration has to be done by the system administration." : "Denne konfiguration skal foretages af en systemadministrator.",
+    "Imprint" : "Aftryk",
     "Reference" : "Reference",
     "Header left" : "Sidehoved venstre",
     "Header right" : "Sidehoved højre",

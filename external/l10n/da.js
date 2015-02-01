@@ -5,7 +5,7 @@ OC.L10N.register(
     "External sites saved." : "Eksterne sites gemt",
     "External Sites" : "Eksterne sites",
     "Please note that some browsers will block displaying of sites via http if you are running https." : "Vær opmærksom på at nogle browsere vil blokere sider via http://, hvis du kører https://",
-    "Furthermore please note that many sites these days disallow iframing due to security reasons." : "Du skal i tillæg være opmærksom på, at mange steder ikke tillader iframing i dag af sikkerhedsmæssige grunde.",
+    "Furthermore please note that many sites these days disallow iframing due to security reasons." : "vær derudover opmærksom på at mange sites ikke tillader iframing idag, på grund af sikkerhedsmæssige årsager.",
     "We highly recommend to test the configured sites below properly." : "Vi anbefaler kraftigt, at de nedenstående steder testes behørigt.",
     "Name" : "Navn",
     "URL" : "URL",

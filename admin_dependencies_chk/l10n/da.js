@@ -1,7 +1,7 @@
 OC.L10N.register(
     "admin_dependencies_chk",
     {
-    "The php-json module is needed by the many applications for inter communications" : "Modulet php-json kræves af mange applikationer til intern kommunikere.",
+    "The php-json module is needed by the many applications for inter communications" : "Modulet php-json kræves af mange applikationer til intern kommunikation.",
     "The php-curl module is needed to fetch the page title when adding a bookmark" : "Modulet php-curl er påkrævet for at kunne hente titlen på en side, når et bogmærke tilføjes.",
     "The php-gd module is needed to create thumbnails of your images" : "Modulet php-gd er påkrævet for at at oprette miniaturer af dine billeder.",
     "The php-ldap module is needed connect to your ldap server" : "Modulet php-ldap er påkrævet for at kunne forbinde til en LDAP-server.",
