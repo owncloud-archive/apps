@@ -809,7 +809,7 @@ OC.Contacts = OC.Contacts || {};
 		var buildGroupSelect = function(availableGroups) {
 			//this.$groupSelect.find('option').remove();
 			$.each(availableGroups, function(idx, group) {
-				var $option = $('<option value="' + group.id + '">' + group.name + '</option>');
+				var $option = $('<option value="' + group.id + '">' + escapeHTML(group.name) + '</option>');
 				if(self.inGroup(group.name)) {
 					$option.attr('selected', 'selected');
 				}
