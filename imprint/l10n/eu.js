@@ -9,6 +9,10 @@ OC.L10N.register(
     "Header left" : "Ezker goiburua",
     "Header right" : "Eskuin goiburua",
     "As guest" : "Gonbidatu gisa",
+    "Footer left" : "Ezker orri oina",
+    "Footer right" : "Eskuin orri oina",
+    "At login" : "Saioa hasterakoan",
+    "Application" : "Aplikazioa",
     "Content" : "Edukia"
 },
 "nplurals=2; plural=(n != 1);");
