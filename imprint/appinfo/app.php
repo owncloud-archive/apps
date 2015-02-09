@@ -28,7 +28,7 @@
  * @author Christian Reiner
  */
 
-OC::$CLASSPATH['Slimdown'] = 'imprint/3rdparty/slimdown/slimdown.php';
+OC::$CLASSPATH['Slimdown'] = 'imprint/vendor/slimdown.php';
 
 \OCP\App::registerAdmin('imprint', 'settings' );
 \OCP\Util::addStyle    ('imprint', 'reference');
