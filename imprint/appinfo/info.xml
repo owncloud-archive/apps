@@ -38,10 +38,24 @@
 		The imprints content can be configured using plain text or html markup.
 		The app is simple but sufficient for the purpose.
 	</description>
-	<version>0.2.2</version>
+	<version>0.2.3</version>
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
 	<requiremin>7</requiremin>
+	<category>other</category>
+	<types>
+		<type>internet</type>
+	</types>
+	<website>https://github.com/owncloud/apps</website>
+	<bugs>https://github.com/owncloud/apps/issues</bugs>
+	<repository type="git">https://github.com/owncloud/apps.git</repository>
+	<documentation>
+		<admin>https://raw.githubusercontent.com/owncloud/shorty/master/apps/doc/CONFIGURATION</admin>
+	</documentation>
+	<dependencies>
+		<owncloud min-version="7" max-version="9"/>
+		<php min-version="5.3"/>
+	</dependencies>
 		<types>
 			<prelogin />
 		</types>

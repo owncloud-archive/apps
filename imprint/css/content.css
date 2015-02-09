@@ -29,7 +29,7 @@
 
 /* some general content padding */
 #imprint-body {
-	width: 100%;
+    overflow-y: hidden;
 	text-align: center;
 }
 #imprint-content {
