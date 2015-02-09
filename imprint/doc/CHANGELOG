@@ -22,6 +22,8 @@
 
 Changelog:
 
+* Mon Feb 09 2015 Christian Reiner: version 0.2.3
+Compatibility with owncloud version 8
 * Mon Nov 24 2014 Christian Reiner: version 0.2.2
 Fix crash for non privileged users when no content has been configured before.
 Removed stale reference to obsolete internal style sheet definition.
