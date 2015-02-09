@@ -29,8 +29,8 @@
  */
 
 $this->create('imprint_index', '/')
-    ->actionInclude('imprint/index.php');
+	->actionInclude('imprint/index.php');
 $this->create('imprint_settings', '/settings.php')
-    ->actionInclude('imprint/settings.php');
+	->actionInclude('imprint/settings.php');
 $this->create('imprint_content', '/content.php')
-    ->actionInclude('imprint/content.php');
+	->actionInclude('imprint/content.php');

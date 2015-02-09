@@ -39,20 +39,20 @@ OC.Imprint = {
 	Placement: {
 		'user': {
 			'header-left':  function(anchor){$('#header a.menutoggle').after(anchor);},
-			'header-right': function(anchor){$('#header form.searchbox').after(anchor);},
+			'header-right': function(anchor){$('#header form.searchbox').after(anchor);}
 		},
 		'guest': {
 			'header-left':  function(anchor){$('#header #owncloud').after(anchor);},
 			'header-right': function(anchor){$('#header div.header-right').after(anchor);},
 			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
-			'footer-right': function(anchor){$('footer p.info').before(anchor);},
+			'footer-right': function(anchor){$('footer p.info').before(anchor);}
 		},
 		'login': {
 			'header-left':  function(anchor){$('header div#header').before(anchor);},
 			'header-right': function(anchor){$('header div#header').before(anchor);},
 			'footer-left':  function(anchor){$('footer p.info').before(anchor);},
-			'footer-right': function(anchor){$('footer p.info').before(anchor);},
-		},
+			'footer-right': function(anchor){$('footer p.info').before(anchor);}
+		}
 	},
 	injectAnchor: function(view,position){
 		if (view && position) {

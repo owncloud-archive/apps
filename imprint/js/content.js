@@ -27,6 +27,6 @@
  * @author Christian Reiner
  */
 $(window).load(function(){
-    var requiredHeight = $(window.frames[0].document).find('body').height();
-    $('#imprint-frame').css({height:requiredHeight+'px'});
+	var requiredHeight = $(window.frames[0].document).find('body').height();
+	$('#imprint-frame').css({height:requiredHeight+'px'});
 });
