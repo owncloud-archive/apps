@@ -26,7 +26,7 @@
  * @brief Client side activity library
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var availableHeight = $('body#body-login').height()-$('body#body-login header').height();
-	$('body#body-login div#login').css({height:availableHeight+'px'});
-})
+$(window).load(function(){
+    var requiredHeight = $(window.frames[0].document).find('body').height();
+    $('#imprint-frame').css({height:requiredHeight+'px'});
+});

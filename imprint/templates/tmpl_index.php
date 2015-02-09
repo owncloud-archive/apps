@@ -32,4 +32,4 @@
  */
 ?>
 
-<iframe src="<?php p(\OCP\Util::linkTo('imprint','content.php'));?>" width="100%" height="100%"></iframe>
+<iframe id="imprint-frame" src="<?php p(\OCP\Util::linkTo('imprint','content.php'));?>" width="100%"></iframe>
