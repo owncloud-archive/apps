@@ -22,6 +22,8 @@
 
 Changelog:
 
+* Mon Feb 09 2015 Christian Reiner: version 0.2.4
+Hotfix to make the app work in fresh installs of OC-8
 * Mon Feb 09 2015 Christian Reiner: version 0.2.3
 Compatibility with owncloud version 8
 * Mon Nov 24 2014 Christian Reiner: version 0.2.2
