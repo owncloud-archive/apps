@@ -4,7 +4,7 @@ OC.L10N.register(
     "The php-json module is needed by the many applications for inter communications" : "El módulo php-json es necesario para muchas aplicaciones para intercomunicaciones",
     "The php-curl module is needed to fetch the page title when adding a bookmark" : "El módulo php-curl es necesario para obtener el título de la página cuando se añade un marcador",
     "The php-gd module is needed to create thumbnails of your images" : "El módulo php-gd es necesario para crear miniaturas de tus imágenes",
-    "The php-ldap module is needed connect to your ldap server" : "El módulo php-ldap es necesario para conectar a tu servidor ldap",
+    "The php-ldap module is needed connect to your ldap server" : "El módulo php-ldap es necesario para conectar a su servidor ldap",
     "The php-bcmath module is needed to support AD primary groups" : "El módulo php-bcmath es necesario para soportar grupos primarios de AD",
     "The php-zip module is needed to download multiple files at once" : "El módulo php-zip es necesario para descargar muchos archivos al mismo tiempo",
     "The php-mb_multibyte module is needed to manage correctly the encoding." : "El módulo php-mb_multibyte es necesario para gestionar correctamente la codificación.",
