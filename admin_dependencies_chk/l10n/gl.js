@@ -8,10 +8,10 @@ OC.L10N.register(
     "The php-bcmath module is needed to support AD primary groups" : "Precisase o módulo php-bcmath para compatibilidade cos grupos AD primarios",
     "The php-zip module is needed to download multiple files at once" : "Precisase o módulo php-zip para descargar varios ficheiros ao mesmo tempo",
     "The php-mb_multibyte module is needed to manage correctly the encoding." : "O módulo php-mb_multibyte precísase para xestionar correctamente a codificación.",
-    "The php-ctype module is needed validate data." : "O módulo php-ctype precísase para validar datos.",
-    "The php-xml module is needed to share files with webdav." : "O módulo php-xml precísase para compartir ficheiros con webdav.",
+    "The php-ctype module is needed validate data." : "Precisase do módulo php-ctype para validar datos.",
+    "The php-xml module is needed to share files with webdav." : "Precisase do módulo php-xml para compartir ficheiros con webdav.",
     "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" : "A directiva allow_url_fopen do seu php.ini debe estabelecerse a 1 para obter coñecemento básico desde servidores OCS",
-    "The php-pdo module is needed to store owncloud data into a database." : "O módulo php-pdo precísase para gardar datos de owncloud na base de datos.",
+    "The php-pdo module is needed to store owncloud data into a database." : "Precisase do módulo php-pdo para gardar datos de owncloud na base de datos.",
     "The iconv module is needed to convert data into the correct charset." : "O módulo iconv precisase para converter datos no conxunto de caracteres correcto.",
     "Dependencies status" : "Estado das dependencias",
     "Used by :" : "Empregado por:"
