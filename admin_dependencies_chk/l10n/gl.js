@@ -7,7 +7,7 @@ OC.L10N.register(
     "The php-ldap module is needed connect to your ldap server" : "O módulo php-ldap precísase para conectar co seu servidor ldap",
     "The php-bcmath module is needed to support AD primary groups" : "Precisase o módulo php-bcmath para compatibilidade cos grupos AD primarios",
     "The php-zip module is needed to download multiple files at once" : "Precisase o módulo php-zip para descargar varios ficheiros ao mesmo tempo",
-    "The php-mb_multibyte module is needed to manage correctly the encoding." : "O módulo php-mb_multibyte precísase para xestionar correctamente a codificación.",
+    "The php-mb_multibyte module is needed to manage correctly the encoding." : "Precisase do módulo php-mb_multibyte para xestionar correctamente a codificación.",
     "The php-ctype module is needed validate data." : "Precisase do módulo php-ctype para validar datos.",
     "The php-xml module is needed to share files with webdav." : "Precisase do módulo php-xml para compartir ficheiros con webdav.",
     "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" : "A directiva allow_url_fopen do seu php.ini debe estabelecerse a 1 para obter coñecemento básico desde servidores OCS",
