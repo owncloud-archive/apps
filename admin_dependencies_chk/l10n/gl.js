@@ -1,7 +1,7 @@
 OC.L10N.register(
     "admin_dependencies_chk",
     {
-    "The php-json module is needed by the many applications for inter communications" : "Precisase o módulo php-json para a intercomunicación de varias aplicacións",
+    "The php-json module is needed by the many applications for inter communications" : "Precisase o módulo php-json para varias aplicacións de intercomunicación",
     "The php-curl module is needed to fetch the page title when adding a bookmark" : "Precisase o módulo php-curl para a busca de títulos de páxina cando se engaden marcadores",
     "The php-gd module is needed to create thumbnails of your images" : "Precisase o módulo php-gd para crear as miniaturas das súas imaxes",
     "The php-ldap module is needed connect to your ldap server" : "Precisase o módulo php-ldap para conectar co seu servidor ldap",
@@ -9,7 +9,7 @@ OC.L10N.register(
     "The php-zip module is needed to download multiple files at once" : "Precisase o módulo php-zip para descargar varios ficheiros ao mesmo tempo",
     "The php-mb_multibyte module is needed to manage correctly the encoding." : "Precisase do módulo php-mb_multibyte para xestionar correctamente a codificación.",
     "The php-ctype module is needed validate data." : "Precisase do módulo php-ctype para validar datos.",
-    "The php-xml module is needed to share files with webdav." : "Precisase do módulo php-xml para compartir ficheiros con webdav.",
+    "The php-xml module is needed to share files with webdav." : "Precisase do módulo php-xml para compartir ficheiros con WebDAV.",
     "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" : "A directiva allow_url_fopen do seu php.ini debe estabelecerse a 1 para obter coñecemento básico desde servidores OCS",
     "The php-pdo module is needed to store owncloud data into a database." : "Precisase do módulo php-pdo para gardar datos de owncloud na base de datos.",
     "The iconv module is needed to convert data into the correct charset." : "Precisase o módulo iconv para converter datos no conxunto de caracteres correcto.",
