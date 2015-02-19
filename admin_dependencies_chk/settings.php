@@ -294,6 +294,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('The grep binary is needed for the App Code Checker to be able to check 3rd party Apps (not possible on Windows). Make sure it is installed and the exec php function is enabled.'));
 
+$modules[] =array(
+        'status' => ini_get('mbstring.func_overload') === "0" ? 'ok' : 'error',
+        'part'=> 'mbstring.func_overload',
+        'modules'=> array('core','news'),
+        'message'=> $l->t('An enabled mbstring.func_overload PHP setting could potentially break responses for apps using the appframework. Make sure it is set to 0 in your php.ini.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
