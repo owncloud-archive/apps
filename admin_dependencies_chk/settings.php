@@ -300,6 +300,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('An enabled mbstring.func_overload PHP setting could potentially break responses for apps using the appframework. Make sure it is set to 0 in your php.ini.'));
 
+$modules[] =array(
+        'status' => (ini_get('output_buffering') === "0" || ini_get('output_buffering') === "Off") ? 'ok' : 'warning',
+        'part'=> 'output_buffering',
+        'modules'=> array('core'),
+        'message'=> $l->t('The php.ini setting output_buffering should be set to Off or 0 to avoid memory-related errors when uploading large files.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
