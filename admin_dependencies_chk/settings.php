@@ -297,7 +297,7 @@ $modules[] =array(
 $modules[] =array(
         'status' => ini_get('mbstring.func_overload') === "0" ? 'ok' : 'error',
         'part'=> 'mbstring.func_overload',
-        'modules'=> array('core','news'),
+        'modules'=> array('core'),
         'message'=> $l->t('An enabled mbstring.func_overload PHP setting could potentially break responses for apps using the appframework. Make sure it is set to 0 in your php.ini.'));
 
 foreach($modules as $key => $module) {
