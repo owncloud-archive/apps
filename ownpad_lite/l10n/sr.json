@@ -1,4 +1,6 @@
 { "translations": {
+    "Document was shared" : "Документ је дељен",
+    "User %s shared quick document %s with you." : "Корисник %s дели са вама брзи документ %s.",
     "My pad" : "Моја табла",
     "Settings" : "Поставке",
     "Pad Title" : "Наслов табле",
