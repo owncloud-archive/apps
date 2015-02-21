@@ -24,7 +24,11 @@ $l=OCP\Util::getL10N('admin_dependencies_chk');
 $tmpl = new OCP\Template( 'admin_dependencies_chk', 'settings');
 
 function apache_module_exists($module) {
-    return in_array($module, apache_get_modules());
+        if (function_exists('apache_get_modules()')) {
+                return in_array($module, apache_get_modules());
+        } else {
+                return false;
+        }
 }
 
 function checkDependencies($program) {
