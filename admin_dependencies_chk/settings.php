@@ -320,6 +320,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('An enabled mod_deflate Apache module can cause corrupted files while syncing. Please disabled it in your webservers config.'));
 
+$modules[] =array(
+        'status' => !apache_module_exists('mod_pagespeed') ? 'ok' : 'error',
+        'part'=> 'mod_pagespeed',
+        'modules'=> array('core'),
+        'message'=> $l->t('An enabled mod_pagespeed Apache module is currently not supported. Please disabled it in your webservers config.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
