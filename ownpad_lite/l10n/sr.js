@@ -1,7 +1,7 @@
 OC.L10N.register(
     "ownpad_lite",
     {
-    "Document was shared" : "Документ је дељен",
+    "Document was shared" : "Документ је подељен",
     "User %s shared quick document %s with you." : "Корисник %s дели са вама брзи документ %s.",
     "My pad" : "Моја табла",
     "Settings" : "Поставке",
