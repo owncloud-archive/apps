@@ -23,6 +23,10 @@
 $l=OCP\Util::getL10N('admin_dependencies_chk');
 $tmpl = new OCP\Template( 'admin_dependencies_chk', 'settings');
 
+function apache_module_exists($module) {
+    return in_array($module, apache_get_modules());
+}
+
 function checkDependencies($program) {
         if (function_exists('shell_exec')) {
                 $output=shell_exec('command -v ' . $program . ' 2> /dev/null');
@@ -305,6 +309,12 @@ $modules[] =array(
         'part'=> 'output_buffering',
         'modules'=> array('core'),
         'message'=> $l->t('The php.ini setting output_buffering should be set to Off or 0 to avoid memory-related errors when uploading large files.'));
+
+$modules[] =array(
+        'status' => !apache_module_exists('mod_deflate') ? 'ok' : 'error',
+        'part'=> 'mod_deflate',
+        'modules'=> array('core'),
+        'message'=> $l->t('An enabled mod_deflate Apache module can cause corrupted files while syncing. Please disabled it in your webservers config.'));
 
 foreach($modules as $key => $module) {
 	$enabled = false ;
