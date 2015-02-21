@@ -1,0 +1,16 @@
+OC.L10N.register(
+    "ownpad_lite",
+    {
+    "Document was shared" : "مستند به اشتراک گذاشته شد",
+    "User %s shared quick document %s with you." : "کاربر %s مستند %s را سریع به اشتراک گذاشت.",
+    "My pad" : "دفتر یادداشت من",
+    "Settings" : "تنظیمات",
+    "Pad Title" : "عنوان دفتر یادداشت",
+    "Open" : "باز کردن",
+    "Share with" : "به اشتراک گذاشتن با",
+    "Share" : "اشتراک‌گذاری",
+    "Etherpad service URL" : " آدرس سرویس Etherpad",
+    "Username" : "نام کاربری",
+    "Save" : "ذخیره"
+},
+"nplurals=1; plural=0;");

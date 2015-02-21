@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -27,35 +26,35 @@
  * @file content.php
  * Content of the imprint as configured
  * @access public
- * @author Christian Reiner
  */
 
 // Session checks
-// OCP\User::checkLoggedIn();
-OCP\App::checkAppEnabled ( 'imprint' );
+// \OCP\User::checkLoggedIn();
+\OCP\App::checkAppEnabled('imprint');
 
 // prepare content
-if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
-{
-	$tmpl = new OCP\Template( 'imprint', 'tmpl_dummy' );
-	OCP\Util::addStyle  ( 'imprint','imprint' );
-	// workaround for OC-4.x's chaotoc header layout
-	if (5>@reset(OCP\Util::getVersion()))
-		OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
-}
-else
-{
-	// detect type of stored content and process accordingly
-	if ( strlen($content)!=strlen(strip_tags($content)) )
-		$processed_content = $content;
-	else
-		$processed_content = sprintf ( "<pre>\n%s\n</pre>", $content );
-	// output processed content
-	OCP\Util::addStyle  ( 'imprint','content' );
-	$tmpl = new OCP\Template( 'imprint', 'tmpl_content' );
-	$tmpl->assign ( 'processed-content', $processed_content );
+if (FALSE === ($content=\OCP\Config::getAppValue('imprint','content',FALSE))) {
+	$dummy = new \OCP\Template('imprint', 'tmpl_dummy');
+	$content = $dummy->fetchPage();
 }
 
+// detect type of stored content and process accordingly
+if (strlen($content)!=strlen(strip_tags($content))) {
+	// html markup
+	$processed_content = $content;
+} else {
+	$renderer = new Slimdown();
+	// markdown
+	if ( strlen($content) == strlen($processed_content=$renderer->render($content))) {
+		// plain text
+		$processed_content = sprintf ("<pre>\n%s\n</pre>", $content);
+	}
+}
+// output processed content
+\OCP\Util::addStyle ('imprint', 'content');
+$tmpl = new \OCP\Template('imprint', 'tmpl_content');
+$tmpl->assign('content', $processed_content);
+
 // render template
-$tmpl->printPage ( );
+$tmpl->printPage();
 ?>

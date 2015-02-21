@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -33,6 +32,4 @@
  */
 ?>
 
-<!-- an iframe holding the imprints content (safety reasons...) -->
-<iframe src="<?php p(OCP\Util::linkTo('imprint','content.php'));?>" 
-		width="100%" height="100%"></iframe>
+<iframe id="imprint-frame" src="<?php p(\OCP\Util::linkTo('imprint','content.php'));?>" width="100%"></iframe>

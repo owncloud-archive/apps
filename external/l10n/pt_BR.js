@@ -1,0 +1,16 @@
+OC.L10N.register(
+    "external",
+    {
+    "Please enter valid urls - they have to start with either http://, https:// or /" : "Por favor entrar com urls válidas - elas deven iniciar com http://, https:// ou /",
+    "External sites saved." : "Sites externos salvos.",
+    "External Sites" : "Sites externos",
+    "Please note that some browsers will block displaying of sites via http if you are running https." : "Por favor, note que alguns navegadores irão bloquear a exibição de sites via http, se você estiver executando o https.",
+    "Furthermore please note that many sites these days disallow iframing due to security reasons." : "Além disso, por favor, note que muitos sites hoje em dia impossibilitam iframing devido a razões de segurança.",
+    "We highly recommend to test the configured sites below properly." : "Recomendamos testar os sites configurados abaixo corretamente.",
+    "Name" : "Nome",
+    "URL" : "URL",
+    "Select an icon" : "Selecionar um ícone",
+    "Remove site" : "Remover site",
+    "Add" : "Adicionar"
+},
+"nplurals=2; plural=(n > 1);");

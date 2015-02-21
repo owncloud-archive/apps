@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "situs penyedia OpenID yang di ingat",
+    "Trusted" : "dipercaya",
+    "Denied" : "ditolak",
+    "Remove" : "hilangkan"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

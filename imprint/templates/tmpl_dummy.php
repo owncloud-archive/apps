@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -33,28 +32,10 @@
  */
 ?>
 
-<html>
-	<head>
-		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
-		<?php if (5>@reset(OCP\Util::getVersion())) { ?>
-			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
-		<?php } ?>
-	</head>
-	<body id="imprint-content">
-		<div class="imprint-factoid">    <?php p($l->t("Nothing here yet")."!");?></div>
-		<div class="imprint-suggestion"> <?php p($l->t("The content of the legal notice has to be configured first").".");?></div>
-		<div class="imprint-explanation">
-			<?php 
-				if (   OCP\User::isLoggedIn()
-					&& (  (    method_exists('OC_User','isAdminUser')
-							&& OC_User::isAdminUser(OCP\User::getUser()) )
-						|| OC_Group::inGroup(OCP\User::getUser(), 'admin') ) )
-					p($l->t("That configuration is done in the administration section."));
-				else
-					p($l->t("That configuration has to be done by the system administration."));
-			?>
-			</a>
-		</div>
-	</body>
-</html>
+#<?php p($l->t("Nothing here yet")."!");?>
+
+##<?php p($l->t("The content of the legal notice has to be configured first").".");?>
+
+-----
+
+_<?php p($l->t("That configuration has to be done by the system administration.")); ?>_

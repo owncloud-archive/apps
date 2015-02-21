@@ -1,8 +1,7 @@
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -30,22 +29,39 @@
 
 $(document).ready(function(){
 	// prepare storing of changed settings
-	$('#imprint #imprint-option-position').on('change',function(){
-		OC.AppConfig.setValue('imprint','position',$(this).val());
+	$('#imprint #imprint-option-position-user').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-user',$(this).val());
 	})
-	$('#imprint #imprint-option-anonposition').on('change',function(){
-		OC.AppConfig.setValue('imprint','anonposition',$(this).val());
+	$('#imprint #imprint-option-position-guest').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-guest',$(this).val());
+	})
+	$('#imprint #imprint-option-position-login').on('change',function(){
+		OC.AppConfig.setValue('imprint','position-login',$(this).val());
+	})
+	$('#imprint #imprint-option-standalone').on('change',function(){
+		OC.AppConfig.setValue('imprint','standalone',$(this).is(':checked'));
 	})
 	$('#imprint').find('#imprint-content').on('focusout',function(){
 		OC.AppConfig.setValue('imprint','content',$(this).val());
 	})
 
 	// initialize options with stored settings
-	OC.AppConfig.getValue('imprint','position','',function(data){
-		$('#imprint #imprint-option-position option[value="'+data+'"]').attr('selected', 'yes')
+	OC.AppConfig.getValue('imprint','position-user','',function(data){
+		$('#imprint #imprint-option-position-user option[value="'+data+'"]').attr('selected', 'yes')
 	});
-	OC.AppConfig.getValue('imprint','anonposition','',function(data){
-		$('#imprint #imprint-option-anonposition option[value="'+data+'"]').attr('selected', 'yes')
+	OC.AppConfig.getValue('imprint','position-guest','',function(data){
+		$('#imprint #imprint-option-position-guest option[value="'+data+'"]').attr('selected', 'yes')
+	});
+	OC.AppConfig.getValue('imprint','position-login','',function(data){
+		$('#imprint #imprint-option-position-login option[value="'+data+'"]').attr('selected', 'yes')
+	});
+	// checkbox 'standalone'
+	OC.AppConfig.getValue('imprint','standalone','',function(data){
+		if ('true' === data) {
+			$('#imprint #imprint-option-standalone').attr('checked', 'checked');
+		} else {
+			$('#imprint #imprint-option-standalone').removeAttr('checked');
+		}
 	});
 	OC.AppConfig.getValue('imprint','content','',function(data){
 		$('#imprint #imprint-content').html(data);

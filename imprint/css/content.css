@@ -1,8 +1,7 @@
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -29,8 +28,13 @@
  */
 
 /* some general content padding */
+#imprint-body {
+	overflow-y: hidden;
+	text-align: center;
+}
 #imprint-content {
+	display: inline-block;
+	text-align: initial;
 	padding: 14px;
 	font-size: larger;
-	text-align: center;
 }

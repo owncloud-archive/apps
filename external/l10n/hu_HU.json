@@ -1,0 +1,9 @@
+{ "translations": {
+    "External Sites" : "Külső oldalak",
+    "Name" : "Név",
+    "URL" : "URL",
+    "Select an icon" : "Ikon beállítása",
+    "Remove site" : "Oldal eltávolítása",
+    "Add" : "Hozzáadás"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

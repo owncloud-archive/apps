@@ -26,6 +26,7 @@
 class OC_USER_SAML_Hooks {
 
 	static public function post_login($parameters) {
+		$uid = '';
 		$userid = $parameters['uid'];
 		$samlBackend = new OC_USER_SAML();
 
@@ -43,95 +44,9 @@ class OC_USER_SAML_Hooks {
 			}
 
 			if ($usernameFound && $uid == $userid) {
-
-				$attributes = $samlBackend->auth->getAttributes();
-
-				$saml_email = '';
-				foreach ($samlBackend->mailMapping as $mailMapping) {
-					if (array_key_exists($mailMapping, $attributes) && !empty($attributes[$mailMapping][0])) {
-						$saml_email = $attributes[$mailMapping][0];
-						break;
-					}
-				}
-
-				$saml_display_name = '';
-				foreach ($samlBackend->displayNameMapping as $displayNameMapping) {
-					if (array_key_exists($displayNameMapping, $attributes) && !empty($attributes[$displayNameMapping][0])) {
-						$saml_display_name = $attributes[$displayNameMapping][0];
-						break;
-					}
-				}
-
-				$saml_quota = '';
-				if (!empty($samlBackend->quotaMapping)) {
-					foreach ($samlBackend->quotaMapping as $quotaMapping) {
-						if (array_key_exists($quotaMapping, $attributes) && !empty($attributes[$quotaMapping][0])) {
-							$saml_quota = $attributes[$quotaMapping][0];
-							break;
-						}
-					}
-					OC_Log::write('saml','Current quota: "'.$saml_quota.'" for user: '.$uid, OC_Log::DEBUG);
-				}
-
-				if (empty($saml_quota) && !empty($samlBackend->defaultQuota)) {
-					$saml_quota = $samlBackend->defaultQuota;
-					OC_Log::write('saml','Using default quota ('.$saml_quota.') for user: '.$uid, OC_Log::DEBUG);
-				}
-
-				$saml_groups = array();
-				foreach ($samlBackend->groupMapping as $groupMapping) {
-					if (array_key_exists($groupMapping, $attributes) && !empty($attributes[$groupMapping])) {
-						$saml_groups = array_merge($saml_groups, $attributes[$groupMapping]);
-					}
-				}
-				if (empty($saml_groups) && !empty($samlBackend->defaultGroup)) {
-					$saml_groups = array($samlBackend->defaultGroup);
-					OC_Log::write('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
-				}
-
-				if (!OC_User::userExists($uid)) {
-					if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $uid)) {
-						OC_Log::write('saml','Invalid username "'.$uid.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
-						return false;
-					}
-					else {
-						$random_password = OC_Util::generate_random_bytes(20);
-						OC_Log::write('saml','Creating new user: '.$uid, OC_Log::DEBUG);
-						OC_User::createUser($uid, $random_password);
-						if(OC_User::userExists($uid)) {
-							OC_Util::setupFS($uid);
-							if (isset($saml_email)) {
-								update_mail($uid, $saml_email);
-							}
-							if (isset($saml_groups)) {
-								update_groups($uid, $saml_groups, $samlBackend->protectedGroups, true);
-							}
-							if (isset($saml_display_name)) {
-								update_display_name($uid, $saml_display_name);
-							}
-							if (isset($saml_quota)) {
-								update_quota($uid, $saml_quota);
-							}
-						}
-					}
-				}
-				else {
-					if ($samlBackend->updateUserData) {
-						OC_Util::setupFS($uid);
-						OC_Log::write('saml','Updating data of the user: '.$uid,OC_Log::DEBUG);
-						if(isset($saml_email)) {
-							update_mail($uid, $saml_email);
-						}
-						if (isset($saml_groups)) {
-							update_groups($uid, $saml_groups, $samlBackend->protectedGroups, false);
-						}
-						if (isset($saml_display_name)) {
-							update_display_name($uid, $saml_display_name);
-						}
-						if (isset($saml_quota)) {
-							update_quota($uid, $saml_quota);
-						}
-					}
+				if ($samlBackend->updateUserData) {
+					$attrs = get_user_attributes($uid, $samlBackend);
+					update_user_data($uid, $attrs);
 				}
 				return true;
 			}
@@ -139,22 +54,102 @@ class OC_USER_SAML_Hooks {
 		return false;
 	}
 
+	static public function post_createUser($parameters) {
+		$uid = $parameters['uid'];
+		$samlBackend = new OC_USER_SAML();
+		if (!$samlBackend->updateUserData) {
+			// Ensure that user data will be filled atleast once
+			$attrs = get_user_attributes($uid, $samlBackend);
+			update_user_data($uid, $attrs, true);
+		}
+	}
 
 	static public function logout($parameters) {
 		$samlBackend = new OC_USER_SAML();
 		if ($samlBackend->auth->isAuthenticated()) {
 			OC_Log::write('saml', 'Executing SAML logout', OC_Log::DEBUG);
+			unset($_COOKIE["SimpleSAMLAuthToken"]);
+			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT);
+			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT . '/');
 			$samlBackend->auth->logout();
 		}
 		return true;
 	}
+}
 
+function get_user_attributes($uid, $samlBackend) {
+	$attributes = $samlBackend->auth->getAttributes();
+	$result = array();
+
+	$result['email'] = '';
+	foreach ($samlBackend->mailMapping as $mailMapping) {
+		if (array_key_exists($mailMapping, $attributes) && !empty($attributes[$mailMapping][0])) {
+			$result['email'] = $attributes[$mailMapping][0];
+			break;
+		}
+	}
+
+	$result['display_name'] = '';
+	foreach ($samlBackend->displayNameMapping as $displayNameMapping) {
+		if (array_key_exists($displayNameMapping, $attributes) && !empty($attributes[$displayNameMapping][0])) {
+			$result['display_name'] = $attributes[$displayNameMapping][0];
+			break;
+		}
+	}
+
+	$result['groups'] = array();
+	foreach ($samlBackend->groupMapping as $groupMapping) {
+		if (array_key_exists($groupMapping, $attributes) && !empty($attributes[$groupMapping])) {
+			$result['groups'] = array_merge($result['groups'], $attributes[$groupMapping]);
+		}
+	}
+	if (empty($result['groups']) && !empty($samlBackend->defaultGroup)) {
+		$result['groups'] = array($samlBackend->defaultGroup);
+		OCP\Util::writeLog('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OCP\Util::DEBUG);
+	}
+	$result['protected_groups'] = $samlBackend->protectedGroups;
+
+	$result['quota'] = '';
+	if (!empty($samlBackend->quotaMapping)) {
+		foreach ($samlBackend->quotaMapping as $quotaMapping) {
+			if (array_key_exists($quotaMapping, $attributes) && !empty($attributes[$quotaMapping][0])) {
+				$result['quota'] = $attributes[$quotaMapping][0];
+				break;
+			}
+		}
+		OCP\Util::writeLog('saml','Current quota: "'.$result['quota'].'" for user: '.$uid, OCP\Util::DEBUG);
+	}
+	if (empty($result['quota']) && !empty($samlBackend->defaultQuota)) {
+		$result['quota'] = $samlBackend->defaultQuota;
+		OCP\Util::writeLog('saml','Using default quota ('.$result['quota'].') for user: '.$uid, OCP\Util::DEBUG);
+	}
+
+	return $result;	
 }
 
 
+function update_user_data($uid, $attributes=array(), $just_created=false) {
+	OC_Util::setupFS($uid);
+	OCP\Util::writeLog('saml','Updating data of the user: '.$uid, OCP\Util::DEBUG);
+	if(isset($attributes['email'])) {
+		update_mail($uid, $attributes['email']);
+	}
+	if (isset($attributes['groups'])) {
+		update_groups($uid, $attributes['groups'], $attributes['protected_groups'], $just_created);
+	}
+	if (isset($attributes['display_name'])) {
+		update_display_name($uid, $attributes['display_name']);
+	}
+	if (isset($attributes['quota'])) {
+		update_quota($uid, $attributes['quota']);
+	}
+}	
+
+
 function update_mail($uid, $email) {
-	if ($email != OC_Preferences::getValue($uid, 'settings', 'email', '')) {
-		OC_Preferences::setValue($uid, 'settings', 'email', $email);
+	$config = \OC::$server->getConfig();
+	if ($email != $config->getUserValue($uid, 'settings', 'email', '')) {
+		$config->setUserValue($uid, 'settings', 'email', $email);
 		OC_Log::write('saml','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
 	}
 }
@@ -188,6 +183,7 @@ function update_groups($uid, $groups, $protectedGroups=array(), $just_created=fa
 		}
 	}
 }
+
 
 function update_display_name($uid, $displayName) {
 	OC_User::setDisplayName($uid, $displayName);

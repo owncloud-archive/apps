@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -32,18 +31,19 @@
  */
 
 // Session checks
-OCP\User::checkLoggedIn  ( );
-OCP\User::checkAdminUser ( );
-OCP\App::checkAppEnabled ( 'imprint' );
+\OCP\User::checkLoggedIn();
+\OCP\User::checkAdminUser();
+\OCP\App::checkAppEnabled('imprint');
 
-OCP\Util::addStyle  ( '3rdparty', 'chosen/chosen' );
-OCP\Util::addStyle  ( 'imprint',  'imprint' );
+\OCP\Util::addStyle('imprint', '../vendor/chosen.jquery.min');
+\OCP\Util::addStyle('imprint', 'settings');
+\OCP\Util::addStyle('imprint', 'reference');
 
-OCP\Util::addScript ( '3rdparty', 'chosen/chosen.jquery.min' );
-OCP\Util::addScript ( 'imprint',  'settings' );
+\OCP\Util::addScript('imprint', '../vendor/chosen.jquery.min');
+\OCP\Util::addScript('imprint', 'settings');
 
 // fetch template
-$tmpl = new OCP\Template ( 'imprint', 'tmpl_settings' );
+$tmpl = new \OCP\Template('imprint', 'tmpl_settings');
 // render template
-return $tmpl->fetchPage ( );
+return $tmpl->fetchPage();
 ?>

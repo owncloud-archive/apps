@@ -14,12 +14,6 @@ source_file = templates/admin_migrate.pot
 source_lang = en
 type = PO
 
-[owncloud.tasks]
-file_filter = <lang>/tasks.po
-source_file = templates/tasks.pot
-source_lang = en
-type = PO
-
 [owncloud.user_migrate]
 file_filter = <lang>/user_migrate.po
 source_file = templates/user_migrate.pot
@@ -53,12 +47,6 @@ type = PO
 [owncloud.ownpad_lite]
 file_filter = <lang>/ownpad_lite.po
 source_file = templates/ownpad_lite.pot
-source_lang = en
-type = PO
-
-[owncloud.files_antivirus]
-file_filter = <lang>/files_antivirus.po
-source_file = templates/files_antivirus.pot
 source_lang = en
 type = PO
 

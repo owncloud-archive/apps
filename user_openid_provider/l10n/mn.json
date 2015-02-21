@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID Хангагчыг бүртгэсэн сайтууд",
+    "Trusted" : "Итгэгдсэн",
+    "Denied" : "Цуцлагдсан",
+    "Remove" : "Устгах"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

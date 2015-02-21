@@ -1,0 +1,12 @@
+{ "translations": {
+    "Please enter valid urls - they have to start with either http://, https:// or /" : "Va rugam introduceti adrese valide - trebuie sa inceapa cu  http://, https:// sau /",
+    "External sites saved." : "Pagini externe salvate .",
+    "External Sites" : "Pagini externe",
+    "We highly recommend to test the configured sites below properly." : "Recomandam insistent testarea conforma a site-urilor configurate mai jos ",
+    "Name" : "Nume",
+    "URL" : "URL",
+    "Select an icon" : "Selectați o iconiță",
+    "Remove site" : "Înlătură pagina",
+    "Add" : "Adaugă"
+},"pluralForm" :"nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));"
+}

@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -35,15 +34,11 @@
 
 <html>
 	<head>
-		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
-		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
-		<?php if (5>@reset(OCP\Util::getVersion())) { ?>
-			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
-		<?php } ?>
+		<link rel="stylesheet" href="<?php p(\OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
 	</head>
-	<body id="imprint-content">
-<?php
-	print_unescaped ( $_['processed-content'] );
-?>
+	<body id="imprint-body">
+		<div id="imprint-content">
+			<?php	print_unescaped($_['content']); ?>
+		</div>
 	</body>
 </html>

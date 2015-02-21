@@ -1,0 +1,8 @@
+{ "translations": {
+    "External Sites" : "אתרים חיצוניים",
+    "Name" : "שם",
+    "URL" : "כתובת",
+    "Remove site" : "הסרת אתר",
+    "Add" : "הוספה"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

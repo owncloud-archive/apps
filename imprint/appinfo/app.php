@@ -1,9 +1,8 @@
 <?php
 /**
 * @package imprint an ownCloud app
-* @category base
 * @author Christian Reiner
-* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 *
@@ -29,74 +28,25 @@
  * @author Christian Reiner
  */
 
-$l = new OC_L10n('imprint');
+OC::$CLASSPATH['Slimdown'] = 'imprint/vendor/slimdown.php';
 
-OCP\App::registerAdmin ( 'imprint', 'settings' );
-OCP\Util::addStyle  ( 'imprint', 'imprint' );
-// workaround for OC-4.x's chaotoc header layout
-if (5>@reset(OCP\Util::getVersion()))
-	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
+\OCP\App::registerAdmin('imprint', 'settings' );
+\OCP\Util::addStyle    ('imprint', 'reference');
+\OCP\Util::addScript   ('imprint', 'reference');
 
-// backwards compatibility for OC5's global p() functions
-$ocVersion = implode('.',OCP\Util::getVersion());
-if (version_compare($ocVersion,'4.93','<')) // OC-5
-{
-	if ( ! function_exists('p'))
-	{
-		function p($string) {
-			print(OCP\Util::sanitizeHTML($string));
-		}
-	}
-	if ( ! function_exists('print_unescaped'))
-	{
-		function print_unescaped($string) {
-			print($string);
-		}
-	}
-}
+// add imprint positioning options as meta tags to the html head to avoid additional ajax requests
+\OCP\Util::addHeader('meta', array('data-imprint-position-user' =>\OCP\Config::getAppValue('imprint', 'position-user',  '')));
+\OCP\Util::addHeader('meta', array('data-imprint-position-guest'=>\OCP\Config::getAppValue('imprint', 'position-guest', '')));
+\OCP\Util::addHeader('meta', array('data-imprint-position-login'=>\OCP\Config::getAppValue('imprint', 'position-login', '')));
 
-// add link according to what position is selected inside the apps options
-if( ! \OCP\User::isLoggedIn()) {
-	// user NOT logged in, anonymous access, only limited positions to place the link:
-	switch ( OCP\Config::getAppValue( 'imprint', 'anonposition', '' ) )
-	{
-		case 'header-left':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
-			break;
-		case 'header-right':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
-			break;
-		default:
-			// don't show a link!
-			break;
-	} // switch
-} else { // if logged in
-	// user logged in, we have more positions to place the link:
-	switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
-	{
-		case 'header-left':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
-			break;
-		case 'header-right':
-			OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
-			break;
-		case 'navigation-top':
-			OCP\Util::addScript ( 'imprint', 'imprint_navigation_top' );
-			break;
-		case 'navigation-bottom':
-			OCP\Util::addScript ( 'imprint', 'imprint_navigation_bottom' );
-			break;
-		default:
-		case 'standalone':
-			// no js required, we add the imprint as a normal app to the navigation
-			OCP\App::addNavigationEntry ( array (
-				'id'    => 'imprint',
-				'order' => 99999,
-				'href'  => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-				'icon'  => (5<=@reset(OCP\Util::getVersion()))
-									? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
-									: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
-				'name'  => $l->t("Legal notice") ) );
-	} // switch
-} // if logged in
-?>
+// offer application as standalone entry in the menu?
+if ('true' === \OCP\Config::getAppValue('imprint', 'standalone', 'false')) {
+		// no js required, we add the imprint as a normal app to the navigation
+		\OCP\App::addNavigationEntry(array(
+			'id'    => 'imprint',
+			'order' => 99999,
+			'href'  => \OCP\Util::linkTo   ('imprint', 'index.php'),
+			'icon'  => \OCP\Util::imagePath('imprint', 'imprint-light.svg'),
+			'name'  => \OCP\Util::getL10N  ('imprint')->t("Legal notice")
+		));
+} // if
