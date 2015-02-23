@@ -27,6 +27,16 @@
  * @author Christian Reiner
  */
 
+
+#imprint.section > img {
+	float: left;
+	position: relative;
+	margin-right: 0.5em;
+	vertical-align: bottom;
+	width: 20px;
+	opacity: 0.7;
+}
+
 .imprint-option {
 	vertical-align: middle;
 }
