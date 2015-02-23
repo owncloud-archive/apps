@@ -22,6 +22,8 @@
 
 Changelog:
 
+* Mon Feb 23 2015 Christian Reiner: version 0.2.5
+Offer a separate navigation entry inside the admins settings page.
 * Mon Feb 09 2015 Christian Reiner: version 0.2.4
 Hotfix to make the app work in fresh installs of OC-8
 * Mon Feb 09 2015 Christian Reiner: version 0.2.3
