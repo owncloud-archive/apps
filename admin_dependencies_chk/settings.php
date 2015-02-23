@@ -326,6 +326,12 @@ $modules[] =array(
         'modules'=> array('core'),
         'message'=> $l->t('An enabled mod_pagespeed Apache module is currently not supported. Please disabled it in your webservers config.'));
 
+$modules[] =array(
+        'status' => !apache_module_exists('mod_reqtimeout') ? 'ok' : 'error',
+        'part'=> 'mod_reqtimeout',
+        'modules'=> array('core'),
+        'message'=> $l->t('An enabled mod_reqtimeout Apache module can stop large uploads from completing. Please disabled it in your webservers config.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
