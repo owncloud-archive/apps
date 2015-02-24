@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 8.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2015-02-23 00:48-0500\n"
+"POT-Creation-Date: 2015-02-24 00:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,49 +33,49 @@ msgstr ""
 msgid "That configuration has to be done by the system administration."
 msgstr ""
 
-#: templates/tmpl_settings.php:40
+#: templates/tmpl_settings.php:38
 msgid "Imprint"
 msgstr ""
 
-#: templates/tmpl_settings.php:44
+#: templates/tmpl_settings.php:40
 msgid "Reference"
 msgstr ""
 
-#: templates/tmpl_settings.php:47 templates/tmpl_settings.php:53
-#: templates/tmpl_settings.php:61
+#: templates/tmpl_settings.php:43 templates/tmpl_settings.php:49
+#: templates/tmpl_settings.php:57
 msgid "Header left"
 msgstr ""
 
-#: templates/tmpl_settings.php:48 templates/tmpl_settings.php:54
-#: templates/tmpl_settings.php:62
+#: templates/tmpl_settings.php:44 templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:58
 msgid "Header right"
 msgstr ""
 
-#: templates/tmpl_settings.php:50
+#: templates/tmpl_settings.php:46
 msgid "As guest"
 msgstr ""
 
-#: templates/tmpl_settings.php:55 templates/tmpl_settings.php:63
+#: templates/tmpl_settings.php:51 templates/tmpl_settings.php:59
 msgid "Footer left"
 msgstr ""
 
-#: templates/tmpl_settings.php:56 templates/tmpl_settings.php:64
+#: templates/tmpl_settings.php:52 templates/tmpl_settings.php:60
 msgid "Footer right"
 msgstr ""
 
-#: templates/tmpl_settings.php:58
+#: templates/tmpl_settings.php:54
 msgid "At login"
 msgstr ""
 
-#: templates/tmpl_settings.php:67
+#: templates/tmpl_settings.php:63
 msgid "Application"
 msgstr ""
 
-#: templates/tmpl_settings.php:70
+#: templates/tmpl_settings.php:66
 msgid "Content"
 msgstr ""
 
-#: templates/tmpl_settings.php:75
+#: templates/tmpl_settings.php:71
 msgid ""
 "You can use plain text, markdown notation or html markup with inline style "
 "attributes. "
