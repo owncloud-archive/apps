@@ -35,11 +35,9 @@
 \OCP\User::checkAdminUser();
 \OCP\App::checkAppEnabled('imprint');
 
-\OCP\Util::addStyle('imprint', '../vendor/chosen.jquery.min');
 \OCP\Util::addStyle('imprint', 'settings');
 \OCP\Util::addStyle('imprint', 'reference');
 
-\OCP\Util::addScript('imprint', '../vendor/chosen.jquery.min');
 \OCP\Util::addScript('imprint', 'settings');
 
 // fetch template

@@ -21,6 +21,10 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 */
+
+vendor_style('imprint', 'chosen.jquery.min');
+vendor_script('imprint', 'chosen.jquery.min');
+
 ?>
 
 <?php
@@ -31,6 +35,7 @@
  * @author Christian Reiner
  */
 ?>
+
 
 <!-- settings of app 'imprint' -->
 <div class="section" id="imprint">
