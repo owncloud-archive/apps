@@ -14,6 +14,7 @@ OC.L10N.register(
     "Footer right" : "Prawa stopka",
     "At login" : "Jako użytkownik",
     "Application" : "Aplikacje",
-    "Content" : "Treść"
+    "Content" : "Treść",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Możesz użyć czystego tekstu, znakowania lub znaczników html z atrybutami stylów"
 },
 "nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");
