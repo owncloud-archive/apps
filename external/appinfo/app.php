@@ -23,7 +23,6 @@
 
 use OCA\External\External;
 
-OCP\Util::addStyle( 'external', 'style');
 OCP\App::registerAdmin('external', 'settings');
 
 $sites = External::getSites();
