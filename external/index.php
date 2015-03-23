@@ -26,6 +26,7 @@ use OCA\External\External;
 
 OCP\JSON::checkAppEnabled('external');
 OCP\User::checkLoggedIn();
+OCP\Util::addStyle( 'external', 'style');
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
