@@ -2,7 +2,7 @@ OC.L10N.register(
     "user_migrate",
     {
     "Export" : "Izvezi",
-    "Something went wrong while the export file was being generated" : "Nešto nije bilo u redu dok je fajl za izvoz bio generisan",
+    "Something went wrong while the export file was being generated" : "Nešto je pošlo naopako pri generisanju fajla za izvoz",
     "An error has occurred" : "Došlo je do greške",
     "Account Export/Import" : "Uvoz/Izvoz naloga",
     "Import" : "Uvezi"
