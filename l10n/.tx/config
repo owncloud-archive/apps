@@ -2,12 +2,6 @@
 host = https://www.transifex.com
 lang_map = ja_JP: ja
 
-[owncloud.admin_dependencies_chk]
-file_filter = <lang>/admin_dependencies_chk.po
-source_file = templates/admin_dependencies_chk.pot
-source_lang = en
-type = PO
-
 [owncloud.admin_migrate]
 file_filter = <lang>/admin_migrate.po
 source_file = templates/admin_migrate.pot
