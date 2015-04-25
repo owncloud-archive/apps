@@ -2,7 +2,7 @@ OC.L10N.register(
     "impress",
     {
     "Documentation" : "Dokumentatioun",
-    "No Impress files are found in your ownCloud. Please upload a .impress file." : "Keen gultegen impress ass fonnt ginn. WEG een .impress heichlueden.",
+    "No Impress files are found in your ownCloud. Please upload a .impress file." : "Et gouf kee gëltegen Impress-Fichier fonnt. Lued w.e.g. e \".impress\"-Fichier erop.",
     "Name" : "Numm",
     "Size" : "Gréisst",
     "Date" : "Datum"
