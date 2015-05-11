@@ -54,6 +54,9 @@ class OC_User_SMB extends \OCA\user_external\Base{
 		} else if (strpos($lastline, self::LOGINERROR) !== false) {
 			//normal login error
 			return false;
+		} else if (strpos($lastline, 'NT_STATUS_BAD_NETWORK_NAME') !== false) {
+			//login on minor error
+			goto login;
 		} else if ($retval != 0) {
 			//some other error
 			OCP\Util::writeLog(
@@ -62,6 +65,7 @@ class OC_User_SMB extends \OCA\user_external\Base{
 			);
 			return false;
 		} else {
+			login:
 			$this->storeUser($uid);
 			return $uid;
 		}
