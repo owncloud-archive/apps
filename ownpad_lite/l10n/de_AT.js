@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Settings" : "Einstellungen",
     "Share" : "Freigeben",
+    "Username" : "Benutzername",
     "Save" : "Speichern"
 },
 "nplurals=2; plural=(n != 1);");
