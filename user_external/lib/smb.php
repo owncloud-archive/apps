@@ -18,7 +18,7 @@
 class OC_User_SMB extends \OCA\user_external\Base{
 	private $host;
 
-	const SMBCLIENT = 'smbclient';
+	const SMBCLIENT = 'smbclient -L';
 	const LOGINERROR = 'NT_STATUS_LOGON_FAILURE';
 
 	/**
