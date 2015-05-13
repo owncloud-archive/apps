@@ -9,7 +9,9 @@ Note that the External Site link must use the same type of encryption as provide
 	</description>
 	<licence>AGPL</licence>
 	<author>Frank Karlitschek</author>
-	<requiremin>4.93</requiremin>
+	<dependencies>
+		<owncloud min-version="8.1" />
+	</dependencies>
 	<shipped>true</shipped>
 	<ocsid>166046</ocsid>
 </info>
