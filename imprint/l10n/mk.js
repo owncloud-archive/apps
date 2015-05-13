@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Legal notice" : "Правна забелешка",
     "Nothing here yet" : "Тука сеуште нема ништо",
+    "Imprint" : "Печат",
     "Header left" : "Заглавие лево",
     "Header right" : "Заглавие десно",
     "Content" : "Содржина"
