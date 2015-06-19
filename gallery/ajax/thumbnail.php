@@ -51,6 +51,9 @@ if (is_array($linkItem) && isset($linkItem['uid_owner'])) {
 	// prepend path to share
 	$ownerView = new \OC\Files\View('/' . $owner . '/files');
 	$path = $ownerView->getPath($linkItem['file_source']);
+	if($path === null) {
+		exit();
+	}
 	$img = $path . '/' . $img;
 }
 
