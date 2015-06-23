@@ -27,7 +27,9 @@ if (isset($_GET['token'])) {
 
 		// The token defines the target directory (security reasons)
 		$path = \OC\Files\Filesystem::getPath($linkItem['file_source']);
-
+		if($path === null) {
+			exit();
+		}
 		$view = new \OC\Files\View(\OC\Files\Filesystem::getView()->getAbsolutePath($path));
 		$images = $view->searchByMime('image');
 

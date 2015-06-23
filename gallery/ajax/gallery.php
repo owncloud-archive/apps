@@ -19,6 +19,9 @@ if ($owner !== OCP\User::getUser()) {
 	list($shareId, , $gallery) = explode('/', $gallery, 3);
 	if (OCP\Share::getItemSharedWith('file', $shareId)) {
 		$sharedGallery = $ownerView->getPath($shareId);
+		if($sharedGallery === null) {
+			exit();
+		}
 		if ($gallery) {
 			$gallery = $sharedGallery . '/' . $gallery;
 		} else {
