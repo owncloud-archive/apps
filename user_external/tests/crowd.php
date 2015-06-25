@@ -18,7 +18,7 @@ class Test_User_AtlasCrowd extends \Test\TestCase {
 
 	function skip() {
 		$config=$this->getConfig();
-		$this->skipUnless($config['imap']['run']);
+		$this->skipUnless($config['crowd']['run']);
 	}
 
 	protected function setUp() {
