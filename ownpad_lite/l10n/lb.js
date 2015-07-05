@@ -1,15 +1,15 @@
 OC.L10N.register(
     "ownpad_lite",
     {
-    "Document was shared" : "Den Dokument ass gedeelt ginn",
-    "User %s shared quick document %s with you." : "User %s huet denn quick Document %s mad dir gedeelt",
-    "My pad" : "Mein Notitzbuch",
+    "Document was shared" : "D'Dokument ass gedeelt ginn",
+    "User %s shared quick document %s with you." : "De Benotzer %s huet dat séiert Dokument %s mat dir gedeelt",
+    "My pad" : "Mäi Pad",
     "Settings" : "Astellungen",
-    "Pad Title" : "Pad Titel",
+    "Pad Title" : "Pad-Titel",
     "Open" : "Opmaachen",
     "Share with" : "Deele mat",
     "Share" : "Deelen",
-    "Etherpad service URL" : "Etherpad service URL",
+    "Etherpad service URL" : "Adress vum Etherpad-Service",
     "Username" : "Benotzernumm",
     "Save" : "Späicheren"
 },
