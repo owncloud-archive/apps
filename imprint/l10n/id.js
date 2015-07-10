@@ -14,6 +14,7 @@ OC.L10N.register(
     "Footer right" : "Kaki kanan",
     "At login" : "Saat masuk",
     "Application" : "Aplikasi",
-    "Content" : "Konten"
+    "Content" : "Konten",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Anda dapat menggunakan teks biasa, notasi markdown atau markup html dengan atribut gaya inline."
 },
 "nplurals=1; plural=0;");
