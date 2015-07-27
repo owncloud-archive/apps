@@ -48,7 +48,6 @@ var videoViewer = {
 		'application/ogg',
 		'video/ogg',
 		'video/quicktime',
-		'video/x-msvideo',
 		'video/x-matroska',
 		'video/x-ms-asf'
 	],
