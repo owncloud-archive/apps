@@ -6,4 +6,4 @@ OC.L10N.register(
     "Denied" : "Hafnað",
     "Remove" : "Fjarlægja"
 },
-"nplurals=2; plural=(n % 10 == 1 || n % 100 != 11);");
+"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

@@ -6,4 +6,4 @@ OC.L10N.register(
     "An error has occurred" : "Villa kom upp",
     "Import" : "Flytja inn"
 },
-"nplurals=2; plural=(n % 10 == 1 || n % 100 != 11);");
+"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

@@ -3,5 +3,5 @@
     "Something went wrong while the export file was being generated" : "Eitthvað fór úrskeðis við gerð skráar til útflutning",
     "An error has occurred" : "Villa kom upp",
     "Import" : "Flytja inn"
-},"pluralForm" :"nplurals=2; plural=(n % 10 == 1 || n % 100 != 11);"
+},"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }

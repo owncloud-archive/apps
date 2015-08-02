@@ -4,5 +4,5 @@
     "URL" : "URL",
     "Remove site" : "Fjarlægja vefsvæði",
     "Add" : "Bæta við"
-},"pluralForm" :"nplurals=2; plural=(n % 10 == 1 || n % 100 != 11);"
+},"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
 }
