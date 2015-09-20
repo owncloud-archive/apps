@@ -26,4 +26,14 @@ return array(
 		'user'=>'test',//valid username/password combination
 		'password'=>'test',
 	),
+	'crowd' => array(
+		'run' => false,
+		'host' => 'localhost:8095',
+		'secure' => false,
+		'appuri' => '/crowd',
+		'appname' => 'owncloud',
+		'apppassword' => 'secure',
+		'user' => 'test',//valid username/password combination
+		'password' => 'test',
+	),
 );

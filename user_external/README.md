@@ -107,3 +107,34 @@ Add the following to your `config.php`:
 
 ### Dependencies
 The `smbclient` executable needs to be installed and accessible within `$PATH`.
+
+Atlassian Crowd
+---------------
+
+Make a REST call to Atlassian Crowd to authenticate Users.
+
+
+### Configuration
+There are a couple of Parameters which need to be set.
+
+* Hostname (the Hostname Atlassian Crowd is running on, possibly including the Port)
+* SSL (use SSL = true, false otherwise)
+* Service URI (the URI the REST API is running on)
+* Application Name (the Application Name as setup on Crowd)
+* Application Password (the Application Password as setup on Crowd)
+
+Add the following to your `config.php`:
+
+    'user_backends' =>
+        array(
+            'class' => 'OC_User_AtlasCrowd',
+            'arguments' => array(
+                'crowd.example.com', true, '/crowd', 'owncloud', 's0m37h1ngVERYs3cure'
+            ),
+        ),
+    ),
+
+The application will take care about the users display name & e-mail address. Both are fetched from Crowd during the REST call.
+
+### Dependencies
+None. Guzzle HTTP Client is loaded by ownCloud itself.
