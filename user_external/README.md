@@ -107,3 +107,23 @@ Add the following to your `config.php`:
 
 ### Dependencies
 The `smbclient` executable needs to be installed and accessible within `$PATH`.
+
+
+WebDAV
+------
+
+Authenticate users by a WebDAV call. You can use any WebDAV server, ownCloud server or other web server to authenticate. It should return http 200 for right credentials and http 401 for wrong ones.
+
+Attention: This app is not compatible with the LDAP user and group backend. This app is not the WebDAV interface of ownCloud, if you don't understand what it does then do not enable it.
+
+### Configuration
+The only supported parameter is the URL of the web server.
+
+Add the following to your `config.php`:
+
+    'user_backends' => array(
+        array(
+            'class' => '\OCA\User_External\WebDAVAuth',
+            'arguments' => array('https://example.com/webdav'),
+        ),
+    ),
