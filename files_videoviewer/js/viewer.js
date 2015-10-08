@@ -54,7 +54,12 @@ var videoViewer = {
 	onView : function(file, data) {
 		videoViewer.file = file;
 		videoViewer.dir = data.dir;
-		videoViewer.location = data.fileList.getDownloadUrl(file, videoViewer.dir);
+		if ($('#isPublic').length){
+			// No seek for public videos atm, sorry
+			videoViewer.location = data.fileList.getDownloadUrl(file, videoViewer.dir);
+		} else {
+			videoViewer.location = OC.linkToRemote('webdav') + OC.joinPaths(videoViewer.dir, file);
+		}
 		videoViewer.mime = data.$file.attr('data-mime');
 		
 		OC.addScript('files_videoviewer','mediaelement-and-player', function(){
