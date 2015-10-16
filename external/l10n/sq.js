@@ -2,8 +2,8 @@ OC.L10N.register(
     "external",
     {
     "External Sites" : "Vendndodhje të jashtme",
-    "Name" : "Emri",
-    "URL" : "URL-i",
+    "Name" : "Emër",
+    "URL" : "URL",
     "Remove site" : "Hiqe vendndodhjen",
     "Add" : "Shto"
 },
