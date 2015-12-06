@@ -6,6 +6,7 @@ OC.L10N.register(
     "External Sites" : "Išoriniai serveriai",
     "Name" : "Pavadinimas",
     "URL" : "URL",
+    "Select an icon" : "Pasirinkite piktogramą",
     "Remove site" : "Pašalinti serverį",
     "Add" : "Pridėti"
 },
