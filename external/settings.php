@@ -7,6 +7,12 @@ OCP\Util::addscript( "external", "admin" );
 
 $tmpl = new OCP\Template( 'external', 'settings');
 
-$tmpl->assign('images', glob(\OC_App::getAppPath('external') . '/img/*.*'));
+$images = glob(\OC_App::getAppPath('external') . '/img/*.*');
+$theme = \OC_Util::getTheme();
+if (file_exists(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/")) {
+	$images = array_merge($images, glob(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/*.*"));
+}
+
+$tmpl->assign('images', $images);
 
 return $tmpl->fetchPage();
