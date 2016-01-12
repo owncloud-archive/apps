@@ -18,7 +18,7 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 	}
 }
 
-$l=OC_L10N::get('external');
+$l = \OC::$server->getL10N('external');
 
 foreach($sites as $site) {
 	if (strpos($site[1], 'https://') === 0) {
