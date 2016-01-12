@@ -103,7 +103,7 @@ class OC_USER_SAML extends OC_User_Backend {
                 } else {
                         $random_password = \OC_Util::generateRandomBytes(64);
                         OCP\Util::writeLog('saml','Creating new user: '.$uid, OCP\Util::DEBUG);
-                        OC_User::createUser($uid, $random_password);
+                        \OC::$server->getUserManager()->createUser($uid, $random_password);
                         return $uid;
                 }
         }
