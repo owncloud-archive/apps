@@ -7,6 +7,8 @@
 	<author>Victor Dubiniuk</author>
 	<shipped>true</shipped>
 	<default_enable/>
-	<requiremin>4.93</requiremin>
+	<dependencies>
+		<owncloud min-version="9.0" max-version="9.0" />
+	</dependencies>
 	<ocsid>166054</ocsid>
 </info>
