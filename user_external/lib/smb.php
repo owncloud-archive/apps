@@ -50,7 +50,6 @@ class OC_User_SMB extends \OCA\user_external\Base{
 		} else if (strpos($lastline, 'NT_STATUS_LOGON_FAILURE') !== false) {
 			// bad password
 			return false;
-		}
 		} else if ($retval === 127) {
 			// command not found
 			OCP\Util::writeLog('user_external', 'ERROR: smbclient executable missing', OCP\Util::ERROR);
