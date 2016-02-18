@@ -43,7 +43,7 @@ class OC_User_SMB extends \OCA\user_external\Base{
 		$result=array();
 		$command=self::SMBCLIENT.' //'.$this->host.'/dummy -U '.$uidEscaped.'%'.$password;
 		$lastline = exec($command, $output, $retval);
-		if ($retval == 0 || strpos($lastline, 'NT_STATUS_BAD_NETWORK_NAME') !== false) {
+		if ($retval === 0 || strpos($lastline, 'NT_STATUS_BAD_NETWORK_NAME') !== false) {
 			// success, or a minor error
 			$this->storeUser($uid);
 			return $uid;
