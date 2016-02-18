@@ -17,9 +17,7 @@
  */
 class OC_User_SMB extends \OCA\user_external\Base{
 	private $host;
-
-	const SMBCLIENT = 'smbclient -L';
-	const LOGINERROR = 'NT_STATUS_LOGON_FAILURE';
+	const SMBCLIENT = 'smbclient';
 
 	/**
 	 * Create new samba authentication provider
@@ -43,31 +41,24 @@ class OC_User_SMB extends \OCA\user_external\Base{
 		$uidEscaped=escapeshellarg($uid);
 		$password=escapeshellarg($password);
 		$result=array();
-		$command=self::SMBCLIENT.' //'.$this->host.'/dummy -U'.$uidEscaped.'%'.$password;
+		$command=self::SMBCLIENT.' //'.$this->host.'/dummy -U '.$uidEscaped.'%'.$password;
 		$lastline = exec($command, $output, $retval);
-		if ($retval === 127) {
-			OCP\Util::writeLog(
-				'user_external', 'ERROR: smbclient executable missing',
-				OCP\Util::ERROR
-			);
-			return false;
-		} else if (strpos($lastline, self::LOGINERROR) !== false) {
-			//normal login error
-			return false;
-		} else if (strpos($lastline, 'NT_STATUS_BAD_NETWORK_NAME') !== false) {
-			//login on minor error
-			goto login;
-		} else if ($retval != 0) {
-			//some other error
-			OCP\Util::writeLog(
-				'user_external', 'ERROR: smbclient error: ' . trim($lastline),
-				OCP\Util::ERROR
-			);
-			return false;
-		} else {
-			login:
+		if ($retval == 0 || strpos($lastline, 'NT_STATUS_BAD_NETWORK_NAME') !== false) {
+			// success, or a minor error
 			$this->storeUser($uid);
 			return $uid;
+		} else if (strpos($lastline, 'NT_STATUS_LOGON_FAILURE') !== false) {
+			// bad password
+			return false;
+		}
+		} else if ($retval === 127) {
+			// command not found
+			OCP\Util::writeLog('user_external', 'ERROR: smbclient executable missing', OCP\Util::ERROR);
+			return false;
+		} else {
+			// some other error
+			OCP\Util::writeLog('user_external', 'ERROR: smbclient error: ' . trim($lastline), OCP\Util::ERROR);
+			return false;
 		}
 	}
 }
