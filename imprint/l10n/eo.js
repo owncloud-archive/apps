@@ -7,6 +7,9 @@ OC.L10N.register(
     "That configuration has to be done by the system administration." : "Tiun agordon devas fari la sistemadministranto.",
     "Header left" : "Maldekstro de kapo",
     "Header right" : "Dekstro de kapo",
+    "As guest" : "Gaste",
+    "At login" : "Ĉe ensaluto",
+    "Application" : "Aplikaĵo",
     "Content" : "Enhavo"
 },
 "nplurals=2; plural=(n != 1);");
