@@ -88,7 +88,7 @@ class OC_USER_SAML extends OC_User_Backend {
 			}
 		}
 
-		OC_Log::write('saml','Not found attribute used to get the username at the requested saml attribute assertion',OC_Log::DEBUG);
+		OCP\Util::writeLog('saml','Not found attribute used to get the username at the requested saml attribute assertion', OCP\Util::DEBUG);
 		$secure_cookie = OC_Config::getValue("forcessl", false);
 		$expires = time() + OC_Config::getValue('remember_login_cookie_lifetime', 60*60*24*15);
 		setcookie("user_saml_logged_in", "1", $expires, '', '', $secure_cookie);

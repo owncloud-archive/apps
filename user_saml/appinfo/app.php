@@ -54,7 +54,7 @@ if (OCP\App::isEnabled('user_saml')) {
 
 		if (!OC_User::login('', '')) {
 			$error = true;
-			OC_Log::write('saml','Error trying to authenticate the user', OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Error trying to authenticate the user', OCP\Util::DEBUG);
 		}
 		
 		if (isset($_GET["linktoapp"])) {

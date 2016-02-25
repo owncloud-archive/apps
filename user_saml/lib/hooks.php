@@ -38,7 +38,7 @@ class OC_USER_SAML_Hooks {
 				if (array_key_exists($usernameMapping, $attributes) && !empty($attributes[$usernameMapping][0])) {
 					$usernameFound = true;
 					$uid = $attributes[$usernameMapping][0];
-					OC_Log::write('saml','Authenticated user '.$uid,OC_Log::DEBUG);
+					OCP\Util::writeLog('saml','Authenticated user '.$uid,OCP\Util::DEBUG);
 					break;
 				}
 			}
@@ -67,7 +67,7 @@ class OC_USER_SAML_Hooks {
 	static public function logout($parameters) {
 		$samlBackend = new OC_USER_SAML();
 		if ($samlBackend->auth->isAuthenticated()) {
-			OC_Log::write('saml', 'Executing SAML logout', OC_Log::DEBUG);
+			OCP\Util::writeLog('saml', 'Executing SAML logout', OCP\Util::DEBUG);
 			unset($_COOKIE["SimpleSAMLAuthToken"]);
 			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT);
 			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT . '/');
@@ -150,7 +150,7 @@ function update_mail($uid, $email) {
 	$config = \OC::$server->getConfig();
 	if ($email != $config->getUserValue($uid, 'settings', 'email', '')) {
 		$config->setUserValue($uid, 'settings', 'email', $email);
-		OC_Log::write('saml','Set email "'.$email.'" for the user: '.$uid, OC_Log::DEBUG);
+		OCP\Util::writeLog('saml','Set email "'.$email.'" for the user: '.$uid, OCP\Util::DEBUG);
 	}
 }
 
@@ -162,23 +162,23 @@ function update_groups($uid, $groups, $protectedGroups=array(), $just_created=fa
 		foreach($old_groups as $group) {
 			if(!in_array($group, $protectedGroups) && !in_array($group, $groups)) {
 				OC_Group::removeFromGroup($uid,$group);
-				OC_Log::write('saml','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('saml','Removed "'.$uid.'" from the group "'.$group.'"', OCP\Util::DEBUG);
 			}
 		}
 	}
 
 	foreach($groups as $group) {
 		if (preg_match( '/[^a-zA-Z0-9 _\.@\-]/', $group)) {
-			OC_Log::write('saml','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OC_Log::DEBUG);
+			OCP\Util::writeLog('saml','Invalid group "'.$group.'", allowed chars "a-zA-Z0-9" and "_.@-" ',OCP\Util::DEBUG);
 		}
 		else {
 			if (!OC_Group::inGroup($uid, $group)) {
 				if (!OC_Group::groupExists($group)) {
 					OC_Group::createGroup($group);
-					OC_Log::write('saml','New group created: '.$group, OC_Log::DEBUG);
+					OCP\Util::writeLog('saml','New group created: '.$group, OCP\Util::DEBUG);
 				}
 				OC_Group::addToGroup($uid, $group);
-				OC_Log::write('saml','Added "'.$uid.'" to the group "'.$group.'"', OC_Log::DEBUG);
+				OCP\Util::writeLog('saml','Added "'.$uid.'" to the group "'.$group.'"', OCP\Util::DEBUG);
 			}
 		}
 	}
