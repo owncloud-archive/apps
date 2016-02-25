@@ -68,10 +68,10 @@ class OC_USER_SAML_Hooks {
 		$samlBackend = new OC_USER_SAML();
 		if ($samlBackend->auth->isAuthenticated()) {
 			OC_Log::write('saml', 'Executing SAML logout', OC_Log::DEBUG);
+			$samlBackend->auth->logout();
 			unset($_COOKIE["SimpleSAMLAuthToken"]);
 			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT);
 			setcookie('SimpleSAMLAuthToken', '', time()-3600, \OC::$WEBROOT . '/');
-			$samlBackend->auth->logout();
 		}
 		return true;
 	}
