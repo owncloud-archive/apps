@@ -1,6 +1,7 @@
 OC.L10N.register(
     "ownpad_lite",
     {
+    "Document was shared" : "Споделен документ",
     "My pad" : "Мој нотес",
     "Settings" : "Подесувања",
     "Pad Title" : "Наслов на нотес",
