@@ -14,7 +14,7 @@ class WebDavAuth extends Base {
 
 	public function __construct($webDavAuthUrl) {
 		parent::__construct($webDavAuthUrl);
-		$this->$webDavAuthUrl =$webDavAuthUrl;
+		$this->webDavAuthUrl =$webDavAuthUrl;
 	}
 
 	/**
