@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="16" width="16" version="1.0" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs>
+  <linearGradient id="a" y2="47.208" gradientUnits="userSpaceOnUse" y1="-5.2547" gradientTransform="matrix(.21865 0 0 .26685 56.619 1.4022)" x2="-39.422" x1="-39.422">
+   <stop offset="0"/>
+   <stop stop-color="#363636" offset="1"/>
+  </linearGradient>
+ </defs>
+ <rect style="color:#000000" fill-opacity="0" height="97.986" width="163.31" y="-32.993" x="-62.897"/>
+ <g transform="translate(-40 1)">
+  <path opacity=".6" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m43.35 1.0021c-0.19747 0.03825-0.35356 0.23333-0.35 0.43744l-0.000307 13.123c0.000004 0.22904 0.20522 0.43743 0.43077 0.43744h10.14c0.22555-0.000006 0.43077-0.2084 0.43077-0.43744l0.000307-12.961c-0.000329-0.33644-0.2655-0.60186-0.51687-0.5999h-10.135zm0.65 9.9979h9l0.000413 3h-9z" fill="#fff"/>
+  <path opacity=".7" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m43.35 0.0020508c-0.19747 0.03825-0.35356 0.23333-0.35 0.43744l-0.000307 13.123c0.000004 0.22904 0.20522 0.43743 0.43077 0.43744h10.14c0.22555-0.000006 0.43077-0.2084 0.43077-0.43744v-12.96c0-0.33649-0.266-0.60191-0.517-0.59995h-10.135zm0.65 9.9979h9l0.000413 3h-9z" fill="url(#a)"/>
+ </g>
+</svg>

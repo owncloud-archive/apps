@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+ <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <linearGradient id="a" x2=".29688" y1=".92188" x1=".62109" y2=".18359">
+    <stop stop-color="#417dad" offset="0"/>
+    <stop stop-color="#fff" offset="1"/>
+   </linearGradient>
+  </defs>
+  <g>
+   <title>Layer 1</title>
+   <g stroke="#000">
+    <line y2="18.626" x2="18.5" y1="5.6006" x1="5.6468" fill="none"/>
+    <rect opacity=".75" height="5.125" width="9.625" y=".5" x=".5" stroke-width=".5" fill="url(#a)"/>
+    <rect opacity=".75" height="5.125" width="9.625" y="18.25" x="13.75" stroke-width=".5" fill="url(#a)"/>
+   </g>
+   <g stroke="#000">
+    <path fill="#a0a0a0" d="m14.571 9.1214l-0.98244 5.1885 2.7086-4.3608"/>
+    <path fill="url(#a)" d="m14.276 6.7626c-0.25872 0.72562-0.40735 1.6563-0.33812 2.1543l2.9078 1.2509c0.30961-0.21212 1.082-1.1814 1.082-1.7374"/>
+    <path fill="url(#a)" d="m16.289 0.37519l-2.4641 5.9304 4.7648 2.3944 2.1318-4.9674"/>
+   </g>
+  </g>
+ </svg>
+</svg>

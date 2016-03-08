@@ -1,0 +1,11 @@
+v0.3.1
+* Owncloud 5.x support
+* Switch to Mozilla Persona
+v0.3
+* Refactored core
+v0.2
+* Multiple emails handling
+* SSL fix
+* Strict notice fix
+v0.1
+* BrowserID support

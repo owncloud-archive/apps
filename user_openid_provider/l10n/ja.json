@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenIDプロバイダーはサイトを記憶しました",
+    "Trusted" : "信頼",
+    "Denied" : "拒否",
+    "Remove" : "削除"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

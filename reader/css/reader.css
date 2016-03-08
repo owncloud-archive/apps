@@ -1,0 +1,33 @@
+div#controls{z-index:65;}
+div.crumb { float:left; display:block; background:no-repeat right 0; padding:.75em 1.5em 0 1em; height:2.9em;}
+div.crumb:first-child { padding-left:1em; }
+div.crumb.last { font-weight:bold; }
+
+table#readerContent { white-space:normal; position:absolute; top:37px;font-family:Arial;}
+tbody#fileList tr { background:white; height:150px;font-size:12px;}
+tbody tr:hover, tbody tr:active, tbody tr.selected { background-color: white }
+	
+.thumbnail:not([data-loaded]) { background-color: white; }
+td#thumbnail_container { border:1px solid #EEE;  background-color: #f8f8f8;}
+td#thumbnail_container img {border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; position:relative; left:25px; top: 3px;}
+
+td.filename.svg { background:no-repeat; height:150px; white-space:normal; color:#888; text-shadow:#fff 0 1px 0; vertical-align:top;}
+td.filename a.name { position:relative;}
+
+a.name span.nametext { position:relative; top: 4px; left:-25px; }
+span.nametext { padding-left:1px; font-family:Arial; font-size:16px; font-weight:normal; white-space:nowrap;}
+a.dirs span.nametext {margin-left:10px;}
+div#thumbs { position:relative;}
+div#thumbs img { border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; /*position:absolute; left:25px; top: 20px;*/}
+
+#contentbox{ display:none; border:1px solid #DDD; width:150px; height:20px; margin-left:12px; margin-top:5px; -webkit-box-shadow: 2px 2px 2px 0px grey; box-shadow: 2px 2px 2px 0px grey; }
+#displaybox { margin-top:8px; margin-left:12px; font-size:14px; color:grey; width:200px; height:30px; }
+#displaybox a { color:grey; }
+input.start { margin-left:12px;}
+
+div#result { position:absolute; left:2px; top:35px;}
+.each_result { background-color: #EEE; display:inline-block; margin:5px; height:25px; border-radius:5px; }
+.each_result:hover { background-color: #DDD;}
+#each_tag,#close { padding: 5px; font-size:14px;}
+#each_tag { color:grey;}
+form#TagForm { position:absolute; top:100px; left:10px;}

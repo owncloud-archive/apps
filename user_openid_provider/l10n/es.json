@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "Sitios recordados del proveedor de OpenID",
+    "Trusted" : "Confiado",
+    "Denied" : "Denegado",
+    "Remove" : "Eliminar"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

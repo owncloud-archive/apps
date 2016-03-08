@@ -1,0 +1,6 @@
+{ "translations": {
+    "Settings" : "Asetukset",
+    "Username" : "Käyttäjätunnus",
+    "Save" : "Tallenna"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_oauth</id>
+	<name>OAuth</name>
+	<description>OAuth server</description>
+	<version>1.0</version>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<requiremin>4.93</requiremin>
+	<shipped>true</shipped>
+	<remote>
+		<odav>remote.php</odav>
+	</remote>
+</info>

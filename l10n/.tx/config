@@ -1,0 +1,52 @@
+[main]
+host = https://www.transifex.com
+lang_map = ja_JP: ja
+
+[owncloud.admin_migrate]
+file_filter = <lang>/admin_migrate.po
+source_file = templates/admin_migrate.pot
+source_lang = en
+type = PO
+
+[owncloud.user_migrate]
+file_filter = <lang>/user_migrate.po
+source_file = templates/user_migrate.pot
+source_lang = en
+type = PO
+
+[owncloud.user_openid_provider]
+file_filter = <lang>/user_openid_provider.po
+source_file = templates/user_openid_provider.pot
+source_lang = en
+type = PO
+
+[owncloud.impress]
+file_filter = <lang>/impress.po
+source_file = templates/impress.pot
+source_lang = en
+type = PO
+
+[owncloud.files_odfviewer]
+file_filter = <lang>/files_odfviewer.po
+source_file = templates/files_odfviewer.pot
+source_lang = en
+type = PO
+
+[owncloud.external]
+file_filter = <lang>/external.po
+source_file = templates/external.pot
+source_lang = en
+type = PO
+
+[owncloud.ownpad_lite]
+file_filter = <lang>/ownpad_lite.po
+source_file = templates/ownpad_lite.pot
+source_lang = en
+type = PO
+
+[owncloud.imprint]
+file_filter = <lang>/imprint.po
+source_file = templates/imprint.pot
+source_lang = en
+type = PO
+

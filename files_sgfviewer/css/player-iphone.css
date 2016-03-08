@@ -1,0 +1,634 @@
+.eidogo-player {
+    width: 421px;
+	position: relative;
+    background: #222;
+    padding: 5px 0 0 0;
+}
+.eidogo-player ul, .eidogo-player ol, .eidogo-player dl, .eidogo-player dd, .eidogo-player dt {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.eidogo-player .controls-container {
+	width: 421px;
+	position: relative;
+	padding: 0;
+    background: #466;
+    color: #8aa;
+}
+.eidogo-player .controls {
+	height: 70px;
+	text-indent: -9999px;
+	font-size: 0;
+	padding-left: 2px;
+}
+.eidogo-player .controls .control {
+	margin: 5px 8px 5px 8px;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
+	width: 88px;
+	height: 38px;
+	background-repeat: no-repeat;
+	background-position: 22px 9px;
+	background-color: #8aa;
+	float: left;
+	background-image: url(../img/buttons.gif);
+}
+.eidogo-player .controls .back {
+    background-position: 22px -21px;
+}
+.eidogo-player .controls .back-on {
+    background-position: 22px -70px;
+	cursor: pointer;
+}
+.eidogo-player .controls .forward {
+    background-position: 22px -217px;
+}
+.eidogo-player .controls .forward-on {
+    background-position: 22px -266px;
+	cursor: pointer;
+}
+.eidogo-player .controls .first {
+    background-position: 22px -119px;
+}
+.eidogo-player .controls .first-on {
+    background-position: 22px -168px;
+	cursor: pointer;
+}
+.eidogo-player .controls .last {
+    background-position: 22px -315px;
+}
+.eidogo-player .controls .last-on {
+    background-position: 22px -364px;
+	cursor: pointer;
+}
+.eidogo-player .controls .pass {
+	float: right;
+	background-position: 22px -413px;
+	margin-right: 11px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.eidogo-player .controls .pass-on {
+	background-position: 22px -462px;
+	cursor: pointer;
+}
+.eidogo-player .move-number {
+	position: absolute;
+	top: 65px;
+	left: 180px;
+	color: #8aa;
+	font-size: 13px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.eidogo-player .nav-slider {
+	clear: both;
+	position: relative;
+	height: 10px;
+	width: 411px;
+	margin: 0px 5px 5px 5px;
+	border-top: 1px solid #122;
+	background: #244;
+}
+.eidogo-player .nav-slider-thumb {
+    position: absolute;
+	width: 9px;
+	height: 9px;
+	background: #d11;
+    border-bottom: 1px solid #800;
+    border-right: 1px solid #800;
+	cursor: pointer;
+}
+.eidogo-player .variations-container {
+	width: 386px;
+    min-height: 27px;
+	padding: 10px 5px 0px 5px;
+}
+.eidogo-player .variations-label {
+	float: left;
+	padding: 5px 5px 0 0;
+	cursor: default;
+	font-size: 13px;
+}
+.eidogo-player .variation-nav {
+	float: left;
+    background: #799;
+    color: #b00;
+	font-weight: bold;
+	margin: 3px;
+	position: relative;
+	top: -3px;
+	padding: 7px 10px 6px 10px;
+	font-size: 13px;
+	width: auto;
+	height: 14px;
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.eidogo-player .variation-nav.none {
+	font-weight: normal;
+	width: auto;
+    padding-right: 5px;
+	color: #244;
+	background: #688;
+	cursor: default;
+}
+.eidogo-player .controls-stop {
+    clear: both;
+}
+.eidogo-player .tools-container {
+    clear: both;
+    background: #744;
+    width: 411px;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 0 0 0;
+}
+.eidogo-player .tools-label {
+    float: left;
+    padding: 5px 5px 0 0;
+    color: #a88;
+    font-size: 13px;
+    cursor: default;
+}
+.eidogo-player .search-button, .eidogo-player .score-est-button {
+    margin: 0 0 0 5px;
+    color: #800;
+    font-size: 11px;
+    background: #b88;
+    border: 1px solid #b88;
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+}
+.eidogo-player .search-region {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 133px;
+    height: 133px;
+    background-color: #80f;
+    opacity: 0.30;
+    filter: alpha(opacity=30);
+    z-index: 9999;
+    display: none;
+}
+.eidogo-player .tools-select, .eidogo-player .search-algo {
+    font-size: 13px;
+}
+.eidogo-player .search-algo {
+    margin: 0 0 0 10px;
+    display: none;
+}
+.eidogo-player .comment-pass, .eidogo-player .comment-resign {
+	color: #800;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .comment-status {
+	color: #000;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .comments {
+	width: 398px;
+	height: 243px;
+	font-size: 13px;
+	margin: 5px 0 0 0;
+	padding: 15px 10px 40px 10px;
+	overflow: auto;
+    background: #bba;
+    border-left: 3px solid #998;
+    border-top: 2px solid #998;
+}
+.eidogo-player .comments-edit {
+    display: none;
+    z-index: 9999;
+}
+.eidogo-player .comments-edit-ta {
+    clear: right;
+    float: right;
+    width: 312px;
+    height: 213px;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 15px 0px 40px 10px;
+    margin: 0 5px 0 0;
+    background: #eee;
+    border-left: 3px solid #ccc;
+    border-top: 2px solid #ccc;
+    border-right: none;
+    border-bottom: 1px solid #999;
+}
+.eidogo-player .comments-edit-done, .eidogo-player .game-info-edit-done {
+    display: none;
+    clear: right;
+    float: right;
+    width: 311px;
+    height: 16px;
+    margin: 0 5px 0 0;
+    padding: 5px;
+    text-align: center;
+    background: #ccc url(../img/done_bg.png) repeat-x;
+    color: #222;
+    border: 2px solid #999;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+.eidogo-player .comments a {
+    color: #008;
+}
+.eidogo-player .comment-info {
+    padding: 5px;
+    background: #bbf;
+    border: 1px solid #88b;
+    margin: 0 0 10px 0;
+}
+.eidogo-player .search-container {
+	width: 398px;
+	height: 243px;
+	font-size: 12px;
+	margin: 5px 0 0 0;
+	padding: 15px 10px 40px 10px;
+	overflow: auto;
+    background: #bbe;
+    border-left: 3px solid #778;
+    border-top: 2px solid #778;
+    display: none;
+}
+.eidogo-player .search-container .search-count {
+    font-size: 11px;
+    padding: 0 0 5px 0;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #778;
+}
+.eidogo-player .search-container .search-close {
+    float: right;
+    padding: 4px 7px;
+    background: #aad;
+    color: #008;
+    cursor: pointer;
+    margin-top: -10px;
+    font-weight: bold;
+}
+.eidogo-player .search-container .search-count span {
+    font-weight: bold;
+}
+.eidogo-player .search-container .search-result {
+    display: block;
+    text-decoration: none;
+    color: #008;
+    cursor: pointer;
+}
+.eidogo-player .search-container div.search-result {
+    cursor: default;
+    color: #000;
+}
+.eidogo-player .search-container a.search-result.odd {
+    background: #aad;
+}
+.eidogo-player .search-container a.search-result:hover {
+    color: #fff;
+    background-color: #77c;
+}
+.eidogo-player .search-container .search-result span {
+    display: inline;
+    float: left;
+    padding: 15px 5px;
+}
+.eidogo-player .search-container .search-result .id, .eidogo-player .search-container .search-result .mv {
+    display: none;
+}
+.eidogo-player .search-container .search-result .pw {
+    width: 105px;
+}
+.eidogo-player .search-container .search-result .pb {
+    width: 105px;
+}
+.eidogo-player .search-container .search-result .re {
+    width: 50px;
+}
+.eidogo-player .search-container .search-result .dt {
+    width: 70px;
+}
+.eidogo-player .search-container .search-result .clear {
+    clear: both;
+    font-size: 1px;
+}
+.eidogo-player .board-container {
+	width: 421px;
+	height: 421px;
+	background: #555;
+	background: #654;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.eidogo-player .board-container.shrunk, .eidogo-player .board-container.shrunk .board-gutter {
+    width: auto;
+    height: auto;
+    padding: 0px !important;
+    margin: 0px !important;
+    background: none;
+}
+.eidogo-player .board-gutter {
+    width: 371px;
+	height: 371px;
+	padding: 25px;
+	background: #654;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+.eidogo-player .board-gutter.with-coords {
+    background: #654 url(../img/board-bg-coords.png) no-repeat 5px 5px;
+}
+.eidogo-player .board.size9 {
+	position: absolute;
+	width: 181px;
+	height: 181px;
+	background: #888 url(../img/board-9.gif);
+	margin: 90px 90px;
+}
+.eidogo-player .board.size13 {
+	position: absolute;
+	width: 257px;
+	height: 257px;
+	background: #888 url(../img/board-13.gif);
+	margin: 57px 57px;
+}
+.eidogo-player .board.size19 {
+	position: absolute;
+	width: 371px;
+	height: 371px;
+	background: #E8C473 url(../img/board-19-simple.gif);
+}
+.eidogo-player .board .point {
+	position: absolute;
+	width: 19px;
+	height: 19px;
+	z-index: 1;
+}
+.eidogo-player .board .point.stone.black {
+	background: url(../img/b.png);
+}
+.eidogo-player .board .point.stone.white {
+	background: url(../img/w.png);
+}
+.eidogo-player .board .point.marker {
+	z-index: 2;
+	width: 19px;
+	height: 19px;
+	background: url(../img/markers.gif) no-repeat top left;
+}
+.eidogo-player .board .point.marker.label {
+	color: #f00;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 0 0 5px;
+	width: 14px;
+	height: 16px;
+	cursor: default;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	background: none;
+}
+.eidogo-player .board .point.marker.variation {
+	color: #831;
+	background: #ee974c;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 1px;
+	padding: 2px 5px 1px 5px;
+	width: auto;
+	height: 14px;
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	z-index: 3;
+}
+.eidogo-player .board .point.marker.current {
+	background-position: 0 -79px;
+}
+.eidogo-player .board .point.marker.triangle {
+	background-position: 0 -324px;
+}
+.eidogo-player .board .point.marker.square {
+	background-position: 0 -177px;
+}
+.eidogo-player .board .point.marker.circle {
+	background-position: 0 -30px;
+}
+.eidogo-player .board .point.marker.ex {
+	background-position: 0 -128px;
+}
+.eidogo-player .board .point.marker.territory-white {
+    background-position: 0 -275px;
+}
+.eidogo-player .board .point.marker.territory-black {
+    background-position: 0 -226px;
+}
+.eidogo-player .board .point.marker.dim {
+	background-image: url(../img/dim.png);
+}
+.eidogo-player .board-hover-move {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    z-index: 1;
+    margin: -8px 0 0 -8px;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    display: none;
+}
+.eidogo-player .board-hover-move-b {
+    background-image: url(../img/b.png);
+}
+.eidogo-player .board-hover-move-w {
+    background-image: url(../img/w.png);
+}
+.eidogo-player .info {
+	width: 421px;
+	margin: 5px 0 0 0;
+	padding: 5px 0 0 0;
+	background: #333;
+    color: #fff;
+	font-size: 10px;
+}
+.eidogo-player .info .players {
+	width: 401px;
+	margin: 0px 10px;
+	height: 50px;
+	display: none;
+}
+.eidogo-player .info .players .player {
+	width: 199px;
+	float: left;
+	padding-top: 5px;
+	padding-right: 1px;
+}
+.eidogo-player .info .players .player.white .name {
+    font-size: 13px;
+	border-top: 1px solid #999;
+    height: 14px;
+	padding: 4px 3px 3px 20px;
+	background: #555 url(../img/markers.gif) no-repeat top left;
+    background-position: 0 -275px;
+}
+.eidogo-player .info .players .player.black .name {
+    font-size: 13px;
+	border-top: 1px solid #999;
+    height: 14px;
+	padding: 4px 3px 3px 20px;
+	background: #555 url(../img/markers.gif) no-repeat top left;
+    background-position: 0 -226px;
+}
+.eidogo-player .info .players .player .captures {
+    float: left;
+    width: 40%;
+	padding: 3px 3px 5px 5px;
+	color: #777;
+	background: #222;
+	font-size: 9px;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .info .players .player .captures span {
+	color: #fff;
+	padding-left: 2px;
+}
+.eidogo-player .info .players .player .time {
+	padding: 3px 3px 5px 5px;
+	color: #777;
+	background: #222;
+	font-size: 9px;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .info .players .player .time span {
+	color: #fff;
+	padding-left: 2px;
+}
+.eidogo-player .info .game dl {
+	clear: both;
+	padding: 5px 5px 10px 10px;
+}
+.eidogo-player .info .game dt {
+	clear: left;
+	width: 70px;
+	float: left;
+	padding: 0 0 3px 0;
+}
+.eidogo-player .info .game dd {
+	padding: 0 0 3px 0;
+	margin: 0 0 0 85px;
+}
+.eidogo-player .info a {
+    color: #fff;
+}
+.eidogo-player .continuations {
+    background: #aa9;
+    padding: 5px;
+}
+.eidogo-player .continuation {
+   clear: left;
+   padding: 5px;
+   cursor: pointer;
+   height: 12px;
+}
+.eidogo-player .continuation:hover {
+    background: #ccb;
+}
+.eidogo-player .continuation div.cont-label {
+    width: 15px;
+    float: left;
+    clear: left;
+    font-weight: bold;
+    color: #443;
+}
+.eidogo-player .continuation div.cont-bar {
+    float: left;
+    margin-top: 3px;
+    height: 7px;
+    background: #665;
+}
+.eidogo-player .continuation div.cont-count {
+    width: 100px;
+    float: left;
+    margin: 0 0 0 5px;
+    font-size: 9px;
+    color: #554;
+}
+#cont-search {
+    display: block;
+    margin: 0 0 10px 0;
+}
+#cont-search:hover {
+    text-decoration: underline;
+}
+.eidogo-player .preferences {
+	clear: right;
+	float: right;
+	width: 302px;
+	font-size: 11px;
+	margin: 15px 0 0 20px;
+	overflow: auto;
+    background: #222;
+    color: #888;
+    display: none;
+}
+.eidogo-player .option-save {
+    float: left;
+    display: block;
+    width: 390px;
+    padding: 10px 0;
+    margin: 5px 0 50px 5px;
+    background: #181818;
+    border: 1px solid #282828;
+    text-align: center;
+}
+.eidogo-player .option-download {
+    display: none;
+}
+.eidogo-loading {
+	position: absolute;
+	width: 150px;
+	height: 40px;
+	top: 560px;
+	left: 380px;
+	padding: 0px 0 0 0px;
+	color: #777;
+	z-index: 9999;
+    background: url(../img/loading.gif) no-repeat;
+    text-indent: -9999px;
+}
+.eidogo-error {
+	position: absolute;
+	top: 140px;
+	left: 0;
+	width: 381px;
+	font-size: 13px;
+	background: #933;
+	border-right: 2px solid #622;
+	border-bottom: 2px solid #622;
+	margin: 20px auto 20px auto;
+	padding: 20px;
+	color: #fff;
+	z-index: 9999;
+}
+.eidogo-player .footer {
+    clear: both;
+}

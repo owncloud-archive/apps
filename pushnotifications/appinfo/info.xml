@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>pushnotifications</id>
+	<name>Push Notifications</name>
+	<description>This app can send push notifications to iOS, Android and Mac devices. Notifications are send for new events in the activity feed. This is using the pushover.net service. The coresponding pushover apps for mobile and desktop need to be installed additionally.</description>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<require>7.0</require>
+	<types>
+		<filesystem/>
+	</types>
+</info>

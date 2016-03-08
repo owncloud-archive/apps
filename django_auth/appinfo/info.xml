@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<info>
+	<id>django_auth</id>
+	<name>Django Authentification Backend</name>
+	<description>This is a read-only authentification backend providing django users and groups to ownCloud. You won't be able to edit anything.
+		Adding, editing and deleting of groups or users will just silently fail. So does changing passwords. Use the django.contrib.admin for that kind of tasks.
+		ownCloud and your django webapplication need to share the same database.
+		Supported password hashers:SHA1, PBKDF2_SHA1, PBKDF2_SHA256.
+	</description>
+	<version>0.2</version>
+	<licence>AGPL</licence>
+	<author>Florian Reinhard florian.reinhard@googlemail.com</author>
+	<requiremin>4</requiremin>
+	<types>
+		<authentication/>
+	</types>
+</info>

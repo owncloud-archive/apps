@@ -1,0 +1,14 @@
+<?xml version="1.0"?> 
+<info>
+	<id>files_videoviewer</id>
+	<name>Video Viewer</name>
+	<description>Simple video player based on MediaElement.js by John Dyer.</description>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<shipped>true</shipped>
+	<default_enable/>
+	<dependencies>
+		<owncloud min-version="9.0" max-version="9.0" />
+	</dependencies>
+	<ocsid>166054</ocsid>
+</info>

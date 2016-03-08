@@ -1,0 +1,24 @@
+In case you want to use the full apps repo within your ownCloud installation (most probably for development)
+you can follow these steps:
+
+1. clone this repo into your ownCloud installation into a new folder (maybe called apps2):
+   git clone git@github.com:owncloud/apps.git apps2
+
+2. add this additional apps folder to your configuration (config/config.php):
+  'apps_paths' =>
+  array (
+    0 =>
+    array (
+      'path' => OC::$SERVERROOT.'/apps',
+      'url' => '/apps',
+      'writable' => false,
+    ),
+    1 =>
+    array (
+      'path' => OC::$SERVERROOT.'/apps2',
+      'url' => '/apps2',
+      'writable' => false,
+    )
+    ),
+
+3. Done ;-)

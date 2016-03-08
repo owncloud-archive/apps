@@ -1,0 +1,42 @@
+This application is distributed WITHOUT ANY WARRANTY; without even the implied 
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+
+Your feedback is appreciated.
+
+Prerequisite:
+ownCloud 5+
+php-curl extension
+
+Installation:
+Upload the user_persona directory under the 'apps' directory of your ownCloud.
+Navigate to the 'Apps' page in Admin, click the 'Mozilla Persona user backend' in the 
+application list. Then click the 'Enable' button.
+
+Configuration:
+1. Navigate to Admin page.
+2. Choose the action that should be performed if there are several matching users 
+found on login.
+3. Adjust CSP header sent by ownCloud core in order to allow js execution from 
+login.persona.org domain:
+  a. open config/config.php
+  
+  b. if you have no 'custom_csp_policy' entry there find the line 
+    $CONFIG = array (
+  and add after it:
+    'custom_csp_policy' =>
+	"default-src 'self'; script-src 'self' login.persona.org 'unsafe-eval'; style-src 'self' 'unsafe-inline'; frame-src *; img-src *; font-src 'self' data:; media-src *",
+
+  c. if you already have 'custom_csp_policy' entry, change its value by adding
+        login.persona.org
+     after 
+        script-src 'self'
+
+
+
+Usage:
+Register at https://persona.org/ and add any of your email addresses.
+
+Navigate to the 'Personal' page in your ownCloud. Enter the email address 
+you connected to Persona to the password recovery input.
+

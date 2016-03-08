@@ -1,0 +1,6 @@
+.search_button, .search_button:hover{
+    background-image: url('%webroot%/core/img/actions/search.svg');
+    background-repeat: no-repeat;
+    background-position: .4em center;
+    text-indent: 1.4em;
+}

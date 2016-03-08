@@ -1,0 +1,8 @@
+{ "translations": {
+    "External Sites" : "Eksterne nettstader",
+    "Name" : "Namn",
+    "URL" : "Nettstad",
+    "Remove site" : "Fjern nettstad",
+    "Add" : "Legg til"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,5 @@
+
+- Make the application key configurable on the admin page
+- Integrate into Activity app. It´s tricky to do the correnct event translations otherwise.
+- Support other push services beside pushover
+

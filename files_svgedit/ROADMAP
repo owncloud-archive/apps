@@ -1,0 +1,16 @@
+Planned features for ocsvg (SVG editor for ownCloud) as of 0.2-beta6
+
+beta:
+ * more saving options (PDF meta information, ...)
+ * multiple PDF pages (e.g. split by layer, render single pages)
+ * include images into exported PDF (if possible with jsPDF)
+ * better integration of svg-edit features (doc properties etc.)
+ * support for ownCloud 4 (if not downwards compatible, make it a seperate app)
+
+1.0:
+ * file picker dialogs for image/svg import and saving
+ * l10n (set svg-edit language to the current owncloud language)
+
+Ideas for the future:
+ * collaborative editing (e.g. with input field for etherpad lite pad URL)
+ * PDF export of more element types (paths, gradients, arrows etc. if possible)

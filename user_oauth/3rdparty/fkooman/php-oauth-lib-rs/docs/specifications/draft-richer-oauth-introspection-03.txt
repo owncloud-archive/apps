@@ -1,0 +1,336 @@
+
+
+
+OAuth Working Group                                       J. Richer, Ed.
+Internet-Draft                                     The MITRE Corporation
+Intended status: Standards Track                       February 21, 2013
+Expires: August 25, 2013
+
+
+                       OAuth Token Introspection
+                  draft-richer-oauth-introspection-03
+
+Abstract
+
+   This specification defines a method for a client or protected
+   resource to query an OAuth authorization server to determine meta-
+   information about an OAuth token.
+
+Requirements Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in RFC 2119 [RFC2119].
+
+Status of this Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on August 25, 2013.
+
+Copyright Notice
+
+   Copyright (c) 2013 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+
+
+
+Richer                   Expires August 25, 2013                [Page 1]
+
+Internet-Draft             oauth-introspection             February 2013
+
+
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.  Introspection Endpoint  . . . . . . . . . . . . . . . . . . . . 3
+     2.1.  Introspection Request . . . . . . . . . . . . . . . . . . . 3
+     2.2.  Introspection Response  . . . . . . . . . . . . . . . . . . 4
+     2.3.  Non-normative Example . . . . . . . . . . . . . . . . . . . 4
+   3.  IANA Considerations . . . . . . . . . . . . . . . . . . . . . . 6
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . . . 6
+   5.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . 6
+   6.  Normative References  . . . . . . . . . . . . . . . . . . . . . 6
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Richer                   Expires August 25, 2013                [Page 2]
+
+Internet-Draft             oauth-introspection             February 2013
+
+
+1.  Introduction
+
+   In OAuth, the contents of tokens are opaque to clients.  This means
+   that the client does not need to know anything about the content or
+   structure of the token itself, if there is any.  However, there is
+   still a large amount of metadata that may be attached to a token,
+   such as its current validity, approved scopes, and extra information
+   about the authentication context in which the token was issued.
+   These pieces of information are often vital to Protected Resources
+   making authorization decisions based on the tokens being presented.
+   Since OAuth2 defines no direct relationship between the Authorization
+   Server and the Protected Resource, only that they must have an
+   agreement on the tokens themselves, there have been many different
+   approaches to bridging this gap.
+
+   This specification defines an Introspection Endpoint that allows the
+   holder of a token to query the Authorization Server to discover the
+   set of metadata for a token.  A Protected Resource may use the
+   mechanism described in this draft to query the Introspection Endpoint
+   in a particular authorization decision context and ascertain the
+   relevant metadata about the token in order to make this authorization
+   decision appropriately.
+
+
+2.  Introspection Endpoint
+
+   The Introspection Endpoint is an OAuth 2 Endpoint that responds to
+   HTTP GET and HTTP POST requests from token holders.  The endpoint
+   takes a single parameter representing the token (and optionally
+   further authentication) and returns a JSON document representing the
+   meta information surrounding the token.
+
+2.1.  Introspection Request
+
+   token  REQUIRED.  The string value of the token.
+
+   resource_id  OPTIONAL.  A service-specific string identifying the
+      resource that the client doing the introspection is asking about.
+
+   The endpoint MAY allow other parameters to provide context to the
+   query.  For instance, an authorization service may need to know the
+   IP address of the Client in order to determine the appropriateness of
+   the token being presented.
+
+   The endpoint SHOULD also require some form of authentication to
+   access this endpoint, such as the Client Authentication as described
+   in OAuth 2 Core Specification [RFC6749] or a separate OAuth2 Access
+   Token.  The methods of managing and validating these authentication
+
+
+
+Richer                   Expires August 25, 2013                [Page 3]
+
+Internet-Draft             oauth-introspection             February 2013
+
+
+   credentials are out of scope of this specification.
+
+2.2.  Introspection Response
+
+   The server responds with a JSON object [RFC4627] in
+   "application/json" format with the following top-level members.
+   Specific implementations MAY extend this structure with their own
+   service-specific pieces of information.
+
+   active  REQUIRED.  Boolean indicator of whether or not the presented
+      token is currently active.
+
+   expires_at  OPTIONAL.  Integer timestamp, measured in the number of
+      seconds since January 1 1970 UTC, indicating when this token will
+      expire.
+
+   issued_at  OPTIONAL.  Integer timestamp, measured in the number of
+      seconds since January 1 1970 UTC, indicating when this token was
+      originally issued.
+
+   scope  OPTIONAL.  A space-separated list of strings representing the
+      scopes associated with this token, in the format described in
+      Section 3.3 of OAuth 2.0 [RFC6749].
+
+   client_id  OPTIONAL.  Client Identifier for the OAuth Client that
+      requested this token.
+
+   sub  OPTIONAL.  Local identifier of the Resource Owner who authorized
+      this token.
+
+   aud  OPTIONAL.  Service-specific string identifier or list of string
+      identifiers representing the intended audience for this token.
+
+2.3.  Non-normative Example
+
+   For example, a Protected Resource accepts a request from a Client
+   carrying an OAuth2 Bearer Token.  In order to know how and whether to
+   serve the request, the Protected Resource then makes the following
+   request to the Introspection Endpoint of the Authorization Server.
+   The Protected Resource is here authenticating with its own Client ID
+   and Client Secret as per OAuth2 [RFC6749] Section 2.3.1.
+
+
+
+
+
+
+
+
+
+
+Richer                   Expires August 25, 2013                [Page 4]
+
+Internet-Draft             oauth-introspection             February 2013
+
+
+   Following is a non-normative example request (with line wraps for
+   display purposes only):
+   POST /register HTTP/1.1
+   Accept: application/x-www-form-urlencoded
+   Host: server.example.com
+   Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
+
+   token=X3241Affw.4233-99JXJ
+
+   The Authorization Server validates the client credentials and looks
+   up the information in the token.  If the token is currently active,
+   it returns the following JSON document.
+
+   Following is a non-normative example active token response (with line
+   wraps for display purposes only):
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+   Cache-Control: no-store
+
+   {
+    "active": true,
+    "client_id":"s6BhdRkqt3",
+    "scope": "read write dolphin",
+    "sub": "2309fj32kl",
+    "aud": "http://example.org/protected-resource/*"
+   }
+
+   If the token presented is not currently active (but the
+   authentication presented is valid), it returns the following JSON
+   document.
+
+   Following is a non-normative example response to an inactive or
+   invalid token (with line wraps for display purposes only):
+   HTTP/1.1 200 OK
+   Content-Type: application/json
+   Cache-Control: no-store
+
+   {
+    "active": false
+   }
+
+   If the client credentials are invalid or there is another error, the
+   Authorization Server responds with an HTTP 400 (Bad Request) as
+   described in OAuth 2.0 section 5.2 [RFC6749].
+
+
+
+
+
+
+
+Richer                   Expires August 25, 2013                [Page 5]
+
+Internet-Draft             oauth-introspection             February 2013
+
+
+3.  IANA Considerations
+
+   This document makes no request of IANA.
+
+
+4.  Security Considerations
+
+   If left unprotected and un-throttled, the Introspection Endpoint
+   could present a means for an attacker to poll a series of possible
+   token values, fishing for a valid token.  Therefore, the
+   Authorization Server SHOULD issue special client credentials to any
+   protected resources or clients that need to access the introspection
+   endpoint.  These credentials may be used directly at the endpoint, or
+   they may be exchanged for an OAuth2 Access token scoped specifically
+   for the Introspection Endpoint.
+
+
+5.  Acknowledgements
+
+   Thanks to the OAuth Working Group and the UMA Working Group for
+   feedback.
+
+
+6.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+   [RFC4627]  Crockford, D., "The application/json Media Type for
+              JavaScript Object Notation (JSON)", RFC 4627, July 2006.
+
+   [RFC6749]  Hardt, D., "The OAuth 2.0 Authorization Framework",
+              RFC 6749, October 2012.
+
+   [RFC6750]  Jones, M. and D. Hardt, "The OAuth 2.0 Authorization
+              Framework: Bearer Token Usage", RFC 6750, October 2012.
+
+
+Author's Address
+
+   Justin Richer (editor)
+   The MITRE Corporation
+
+   Email: jricher@mitre.org
+
+
+
+
+
+
+
+Richer                   Expires August 25, 2013                [Page 6]
+

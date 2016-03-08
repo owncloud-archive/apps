@@ -1,0 +1,26 @@
+
+#samlSettings fieldset{
+
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+#samlSettings input[type="text"] {
+    margin-left: 15px;
+    width: 25em;
+}
+
+#samlSettings input[name="saml_ssp_path"] {
+    width: 30em;
+}
+
+#samlSettings input[name="saml_sp_source"] {
+    width: 15em;
+}
+
+#samlSettings input[name="saml_default_group"] {
+    width: 15em;
+}
+

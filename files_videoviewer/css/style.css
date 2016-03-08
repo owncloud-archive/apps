@@ -1,0 +1,31 @@
+#videoviewer_overlay{
+	position:fixed;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:100;
+	background-color:#777;
+	background-color:rgba(119,119,119, .7);
+       }
+
+#videoviewer_popup{
+	position:fixed;
+	left:50%;top:50%;
+	z-index:101;  
+}
+
+#videoviewer_container{
+	position:relative;
+	left:-50%;
+	margin-top:-40%;
+	padding:10px 10px 25px;
+	color:#4d4d4d;
+	background:#fff;
+	box-shadow: 0 0 20px #111;
+}
+
+a.box-close{
+	position:absolute;
+	top:-15px;right:-15px;
+	width:30px;height:30px;
+	cursor:pointer;
+	background:url('../img/close.png') no-repeat 0 0;
+}   

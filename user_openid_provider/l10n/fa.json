@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "سایت‌های نگهداری شده توسط OpenID",
+    "Trusted" : "مطمئن",
+    "Denied" : "منع شد",
+    "Remove" : "حذف"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

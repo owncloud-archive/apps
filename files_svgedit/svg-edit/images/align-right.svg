@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="22" width="22" version="1.0" xmlns:cc="http://web.resource.org/cc/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs>
+  <linearGradient id="a" y2="489.36" gradientUnits="userSpaceOnUse" x2="186.94" gradientTransform="matrix(-1 0 0 -1 396 981)" y1="489.36" x1="187.61">
+   <stop stop-color="#ce5c00" offset="0"/>
+   <stop stop-color="#ce5c00" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="b" y2="489.55" gradientUnits="userSpaceOnUse" x2="187.17" gradientTransform="matrix(-1 0 0 -1 396 981)" y1="489.55" x1="187.82">
+   <stop stop-color="#fcaf3e" offset="0"/>
+   <stop stop-color="#fcaf3e" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="c" y2="489.36" gradientUnits="userSpaceOnUse" x2="186.94" y1="489.36" x1="187.61">
+   <stop stop-color="#ce5c00" offset="0"/>
+   <stop stop-color="#ce5c00" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="d" y2="489.55" gradientUnits="userSpaceOnUse" x2="187.17" y1="489.55" x1="187.82">
+   <stop stop-color="#fcaf3e" offset="0"/>
+   <stop stop-color="#fcaf3e" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="matrix(0 -1 1 0 -61 -198)">
+  <rect stroke-linejoin="round" transform="rotate(-90)" height="7" width="12" stroke="#888a85" stroke-miterlimit="3" y="-207.5" x="-80.5" fill="#d3d7cf"/>
+  <rect ry="0" rx="0" transform="rotate(-90)" height="5" width="10" stroke="#fff" stroke-miterlimit="3" y="-206.5" x="-79.5" fill="none"/>
+  <g transform="translate(-347,-409)">
+   <rect stroke-linejoin="round" height="7.0036" stroke="#888a85" stroke-width="1.0002" fill="#d3d7cf" style="color:#000000" fill-rule="evenodd" transform="rotate(-90)" width="18" stroke-miterlimit="0" y="129.5" x="-489.5"/>
+   <rect transform="rotate(-90)" stroke="#fff" stroke-linecap="round" stroke-width="1.0002" fill="none" style="color:#000000" rx="0" ry="0" width="16" stroke-miterlimit="2" height="4.9999" y="130.5" x="-488.5"/>
+  </g>
+  <g stroke-linejoin="round" transform="translate(-407,-410)" stroke-miterlimit="0">
+   <rect height="2" width="3.0001" stroke="#ce5c00" y="489.5" x="196.5" fill="#fcaf3e"/>
+   <path d="m197.5 491.5h-11v-2h11" stroke="url(#c)" fill="url(#d)"/>
+   <path d="m198.5 489.5h11v2h-11" stroke="url(#a)" fill="url(#b)"/>
+  </g>
+ </g>
+</svg>

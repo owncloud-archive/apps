@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<info>
+	<id>files_svgedit</id>
+	<name>SVG Editor</name>
+	<description>Create and modify vector graphics, export them to PNG (canvg-powered) or PDF (with help of jsPDF, only basic shapes and text). Based on svg-edit 2.6 (http://svg-edit.googlecode.com).</description>
+	<version>0.2-beta6</version>
+	<licence>LGPLv3</licence>
+	<author>Florian Hülsmann</author>
+	<requiremin>2</requiremin>
+</info>

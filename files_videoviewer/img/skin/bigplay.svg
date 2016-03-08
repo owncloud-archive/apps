@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="200px" width="100px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 200">
+	<defs>
+		<radialGradient id="b">
+			<stop stop-color="#222" stop-opacity="0" offset=".7"/>
+			<stop stop-color="#222" stop-opacity=".0118" offset=".70202"/>
+			<stop stop-color="#333" offset=".85"/>
+			<stop stop-color="#333" stop-opacity="0" offset="1"/>
+		</radialGradient>
+		<radialGradient id="a">
+			<stop stop-color="#bbb" stop-opacity="0" offset=".7"/>
+			<stop stop-color="#bbb" stop-opacity=".0118" offset=".70202"/>
+			<stop stop-color="#bbb" offset=".85"/>
+			<stop stop-color="#bbb" stop-opacity="0" offset="1"/>
+		</radialGradient>
+		<filter id="d" y="-100%" x="-100%" height="300%" width="300%">
+			<feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.251 0" type="matrix" result="out" in="SourceGraphic"/>
+			<feMorphology operator="dilate" radius="3" result="out" in="out"/>
+			<feGaussianBlur stdDeviation="1.5" result="out" in="out"/>
+			<feBlend result="Glow1" mode="normal" in2="out" in="SourceGraphic"/>
+		</filter>
+		<filter id="c" y="-100%" x="-100%" height="300%" width="300%">
+			<feColorMatrix values="0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.251 0" type="matrix" result="out" in="SourceGraphic"/>
+			<feMorphology operator="dilate" radius="3" result="out" in="out"/>
+			<feGaussianBlur stdDeviation="1.5" result="out" in="out"/>
+			<feBlend result="Glow2" mode="normal" in2="out" in="SourceGraphic"/>
+		</filter>
+	</defs>
+		<path d="m22 50c0-15.464 12.536-28 28-28s28 12.536 28 28-12.536 28-28 28-28-12.536-28-28zm-17 0c0 24.853 20.147 45 45 45s45-20.147 45-45-20.147-45-45-45-45 20.147-45 45z" fill="url(#b)"/>
+		<path d="m22 150c0-15.46 12.536-28 28-28s28 12.54 28 28-12.536 28-28 28-28-12.54-28-28zm-17 0c0 24.85 20.147 45 45 45s45-20.15 45-45-20.147-45-45-45-45 20.15-45 45z" fill="url(#a)"/>
+		<path filter="url(#d)" fill="#fff" d="m72.5 49.5l-33.75 19.486v-38.972l33.75 19.486z"/>
+		<path stroke="#fff" stroke-width="5" fill="none" d="m13 50.5c0-20.711 16.789-37.5 37.5-37.5s37.5 16.789 37.5 37.5-16.789 37.5-37.5 37.5-37.5-16.789-37.5-37.5z"/>
+		<path filter="url(#c)" fill="#fff" d="m72.5 149.5l-33.75 19.49v-38.98l33.75 19.49z"/>
+		<path stroke="#fff" stroke-width="5" fill="none" d="m13 150.5c0-20.71 16.789-37.5 37.5-37.5s37.5 16.79 37.5 37.5-16.789 37.5-37.5 37.5-37.5-16.79-37.5-37.5z"/>
+</svg>

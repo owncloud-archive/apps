@@ -1,0 +1,8 @@
+{ "translations": {
+    "Export" : "Flytja út",
+    "Something went wrong while the export file was being generated" : "Eitthvað fór úrskeiðis við gerð útflutningsskráar",
+    "An error has occurred" : "Villa kom upp",
+    "Account Export/Import" : "Flytja aðgangsreikning út/inn",
+    "Import" : "Flytja inn"
+},"pluralForm" :"nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);"
+}

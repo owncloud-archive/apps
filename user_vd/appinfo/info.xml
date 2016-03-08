@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_vd</id>
+	<name>user_vd</name>
+	<description>User Virtual Domain Backend</description>
+	<licence>GPL</licence>
+	<author>ZUNbado</author>
+	<requiremin>4.5</requiremin>
+	<types>
+		<authentication/>
+	</types>
+</info>

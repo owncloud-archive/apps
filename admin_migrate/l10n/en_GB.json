@@ -1,0 +1,8 @@
+{ "translations": {
+    "Export data" : "Export data",
+    "All system files and user data" : "All system files and user data",
+    "Only system files" : "Only system files",
+    "Only user data" : "Only user data",
+    "Export" : "Export"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

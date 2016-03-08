@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+* @package imprint an ownCloud app
+* @author Christian Reiner
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
+* @license GNU Affero General Public license (AGPL)
+* @link information http://apps.owncloud.com/content/show.php?content=153220
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+* License as published by the Free Software Foundation; either
+* version 3 of the license, or any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+*
+* You should have received a copy of the GNU Affero General Public
+* License along with this library.
+* If not, see <http://www.gnu.org/licenses/>.
+*
+-->
+
+<!--
+  /**
+  * @file appinfo/info.xml
+  * @brief Definition of central information about this app
+  * @author Christian Reiner
+  /*
+ -->
+
+<info>
+	<id>imprint</id>
+	<name>Imprint</name>
+	<description>
+		This simple app adds a legal notice (Imprint / Impressum) to the ownCloud framework.
+		The imprints content can be configured using plain text or html markup.
+		The app is simple but sufficient for the purpose.
+	</description>
+	<version>0.2.5</version>
+	<licence>AGPL</licence>
+	<author>Christian Reiner</author>
+	<requiremin>7</requiremin>
+	<category>other</category>
+	<types>
+		<type>internet</type>
+	</types>
+	<website>https://github.com/owncloud/apps</website>
+	<bugs>https://github.com/owncloud/apps/issues</bugs>
+	<repository type="git">https://github.com/owncloud/apps.git</repository>
+	<documentation>
+		<admin>https://raw.githubusercontent.com/owncloud/shorty/master/apps/doc/CONFIGURATION</admin>
+	</documentation>
+	<dependencies>
+		<owncloud min-version="7" max-version="9"/>
+		<php min-version="5.3"/>
+	</dependencies>
+		<types>
+			<prelogin />
+		</types>
+		<website>http://apps.owncloud.com/content/show.php/Imprint?content=153220</website>
+		<shipped>false</shipped>
+</info>

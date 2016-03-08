@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+  <g>
+   <title>Layer 1</title>
+   <path stroke="#000" stroke-width="15" d="m121.5 40l-84 106 27 115 166 2 29-111" fill="#ffc8c8"/>
+   <line stroke-width="25" y2="74" x2="169.5" stroke="#A00" y1="136" x1="240" fill="none"/>
+   <path d="m158 65l31 74-3-50 51-3z" fill="#A00"/>
+   <g stroke="#00f" stroke-width="15" fill="#0ff">
+    <circle cx="123" cy="41" r="30"/>
+    <circle cx="40" cy="146" r="30"/>
+    <circle cx="69" cy="260" r="30"/>
+    <circle cx="228" cy="260" r="30"/>
+    <circle cx="260" cy="148" r="30"/>
+   </g>
+  </g>
+ </svg>
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+  <g>
+   <title>Layer 1</title>
+   <path stroke="#000" stroke-width="15" d="m123.5 38l-84 106 27 115 166 2 29-111" fill="#ffc8c8"/>
+   <line stroke-width="10" y2="24" x2="108.5" stroke="#000" y1="153" x1="276.5" fill="none"/>
+   <g stroke="#00f" stroke-width="15" fill="#0ff">
+    <circle cx="123" cy="41" r="30"/>
+    <circle cx="40" cy="146" r="30"/>
+    <circle cx="69" cy="260" r="30"/>
+    <circle cx="228" cy="260" r="30"/>
+    <circle cx="260" cy="148" r="30"/>
+   </g>
+   <g stroke="#A00" stroke-width="15" fill="none">
+    <line y1="24" x2="210" x1="168" y2="150"/>
+    <line y1="24" x2="168" x1="210" y2="150"/>
+   </g>
+  </g>
+ </svg>
+</svg>

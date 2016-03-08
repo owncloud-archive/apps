@@ -1,0 +1,40 @@
+SVG editor for ownCloud
+
+Copyright by Florian Hülsmann, 2012
+
+http://ocsvg.cbix.de
+
+License:
+	LGPLv3 (plugin, php and javascript code; if not otherwise mentioned in the specific file)
+	MIT License/Apache License (svg-edit, http://code.google.com/p/svg-edit)
+	MIT License (jsPDF, https://github.com/willowsystems/jsPDF, originally https://github.com/MrRio/jsPDF)
+	Creative Commons 3.0 by-sa (artwork, css stylesheets)
+
+Authors:
+	Florian Hülsmann <fh@cbix.de>
+
+Description:
+	This app enables you to view, create and modify SVG files inside
+	the ownCloud user interface. It's also great as a tool for creating
+	PDF files and PNG graphics.
+
+Installation:
+	Copy this folder to your ownCloud's /apps/ directory, rename it to
+	"files_svgedit" and enable the app in the admin interface. Or use
+	the official ownCloud app repo (appstore) for the latest stable version.
+
+Usage:
+	To edit an SVG file, simply click on it in your directory listing.
+	Saving, exporting and downloading can be done when clicking "Save"
+	in the editor.
+
+Updating svg-edit:
+    To get the latest trunk version of svg-edit, go to files_svgedit/
+    and execute the following commands:
+
+		rm -rf svg-edit
+        svn export http://svg-edit.googlecode.com/svn/trunk/editor svg-edit
+        cp svg-edit/embedapi.js js/svg-edit/
+    
+    But you should first check if there've been changes to the svg-edit
+    project that could make it incompatible to ocsvg!

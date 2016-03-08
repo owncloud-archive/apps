@@ -1,0 +1,55 @@
+ SVG Editor for ownCloud
+Copyright (c) 2012 Florian Hülsmann <fh@cbix.de>
+
+Here you find change log and release notes!
+
+2012/05/10 - beta6/0.2
+ * important security fix
+ * print button
+ * workaround for magic_quotes_gpc
+
+2012/04/19 - beta5/0.2
+ * using a better maintained fork of jsPDF by willowsystems
+ * changing possibly irritating error messages on saving
+ * bug fixes:
+  * font size correctly set on PDF export
+  * always asking to overwrite existing file
+
+2012/04/16 - beta4/0.2
+ * bug fixes:
+  * use native confirm dialog if OCdialogs is not available
+  * fixed asynchronous svg saving
+
+2012/04/15 - beta3/0.2
+ * PDF export (using jsPDF)
+ * PNG export working better (because of the canvas preview)
+ * complete new saving dialog, integrates export
+ * create new image from file manager
+ * bug fixes:
+  * no saving error if mtime=0
+  * close button working
+
+2012/04/04 - beta2/0.2
+ * PNG export (depending on browser's canvas capabilities)
+ * got rid of quit confirmation dialog when nothing has changed
+ * major bug fixes
+
+2012/03/30 - beta1/0.2
+ Changing everything by using svgedit 2.6 (trunk version)
+  Release notes:
+  * using svgedit 2.6:
+   * many new features
+   * works in WebKit
+   * gradients working
+   * svg-edit dropdowns working
+  * using ownCloud control bar:
+   * saving works
+   * open preferences dialouge
+
+2012/03/25 - alpha (internal version 0.1)
+ This is the first release with most things working!
+  Release notes:
+  * open svg file
+  * save svg file in editor
+  * save under different names
+  * most of svg-edit features working

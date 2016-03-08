@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>pong</id>
+	<name>Pong</name>
+	<description>A simple pong game. This is using the great javascript pong implementation from Jake Gordon. http://codeincomplete.com/posts/2011/5/14/javascript_pong/</description>
+	<licence>AGPL, MIT</licence>
+	<author>Jake Gordon, Frank Karlitschek</author>
+	<requiremin>7.0</requiremin>
+	<shipped>false</shipped>
+</info>

@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud Apps 8.0.0\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2016-03-08 00:48-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ajax/changepushid.php:26
+msgid "Your id has been changed."
+msgstr ""
+
+#: ajax/changepushid.php:28
+msgid "Unable to change the id"
+msgstr ""
+
+#: templates/personal.php:3
+msgid "Push Notification"
+msgstr ""
+
+#: templates/personal.php:10
+msgid ""
+"Please install the <a href=\"https://pushover.net\">pushover.net</a> app on "
+"your iOS or Android device or Mac. Then get the Pushover user key from the "
+"settings and enter it here. You will now get push notification for your "
+"activities.<br />"
+msgstr ""
+
+#: templates/personal.php:11
+msgid ""
+"Please register and app on Pushover.net and set the app ID in the ownCloud "
+"config.php file. The config variable is called: "
+"\"pushnotifications_pushover_app\""
+msgstr ""

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_migrate</id>
+	<name>Export/import for users</name>
+	<description>Let users import and export their accounts.</description>
+	<licence>AGPL</licence>
+	<author>Tom Needham</author>
+	<requiremin>4.93</requiremin>
+	<shipped>true</shipped>
+	<default_enable/>
+</info>

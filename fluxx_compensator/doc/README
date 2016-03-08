@@ -1,0 +1,57 @@
+*****
+* @package fluxx-compensator an ownCloud app
+* @category base
+* @author Christian Reiner
+* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @license GNU Affero General Public license (AGPL)
+* @link information http://apps.owncloud.com/content/show.php?content=157091
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+* License as published by the Free Software Foundation; either
+* version 3 of the license, or any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+*
+* You should have received a copy of the GNU Affero General Public
+* License along with this library.
+* If not, see <http://www.gnu.org/licenses/>.
+*****
+
+This simple app adds a handle to the header and navigation panels.
+That handle allows to slide the panels in and out of view.
+This helps to gain valuable space on small displays.
+The app is kept extremely simple. No configuration section required, all is
+integrated right at your finger tip. Check the CONFIGURATION file.
+Just activate and use it.
+
+The strategy implemented in this app is somewhat of an experiment. All my apps
+are motivated by my desire to learn new skills in modern web technology.
+The basic layout of the ownCloud web UI has slightly improved with version 5. 
+This means that animations as done by this app can be implemented more or less 
+without having to think about app specific issues (as with my first experiments 
+based on OC-4.5). This is why I dared to release the app now, since most apps 
+actually seem to behave nice. However there are always exception... Reason is 
+that the core framework and especially some apps use absolute positioning and 
+width/height settings on widgets computed on scripting level. Overruling those 
+comutations in an intelligent, non disruptive way is not that easy when you 
+want to keep things simple. So a few words on the strategy implemented here. 
+I hope this enables others to contribute to this experiement, especially to 
+extend it by rules required by additional apps:
+The app is loaded like any other app, however it does not register any settings,
+preferences or index page inside the ownCloud framework. Instead some simple
+scripts are added to each view in the web UI: a small script (fluxx.js)
+initializing the features by adding the handle and dong a few simple
+preparations for its usage. And some small css style definitions. The first
+style file (fluxx.css) styles the handle itself, the second one (dynamic.css)
+defines rules required when sliding the navigation area in or out. This second
+file is where additional rules required by apps can be added (the app internally
+define a 'mode' for each app). During the slide animation a third css style file
+is temporarily added (transition.css). It takes care of a smooth transition, but
+is used only temporarily so that it does not interfere with any transition rules
+defined by the app or the ownCloud core itself. The main hook to attach rules 
+and transitions to are global css classes specified for the documents html node. 
+The files carry examples and comments for this, I hope this explains the strategy. 

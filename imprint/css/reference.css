@@ -1,0 +1,101 @@
+/**
+* @package imprint an ownCloud app
+* @author Christian Reiner
+* @copyright 2012-2014 Christian Reiner <foss@christian-reiner.info>
+* @license GNU Affero General Public license (AGPL)
+* @link information http://apps.owncloud.com/content/show.php?content=153220
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+* License as published by the Free Software Foundation; either
+* version 3 of the license, or any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+*
+* You should have received a copy of the GNU Affero General Public
+* License along with this library.
+* If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+
+/**
+ * @file css/position.css
+ * @brief Style definitions of the apps view
+ * @author Christian Reiner
+ */
+
+#header #owncloud,
+#header .menutoggle {
+	position: relative;
+	left: initial;
+	top: initial;
+	float: left;
+	left: 0;
+}
+
+#header form.searchbox,
+#header div.header-right {
+	position: relative;
+	display: inline-block;
+	float: right;
+}
+
+#body-login .wrapper {
+	width: auto;
+}
+
+footer p.info {
+	width: 22em;
+}
+
+/* some rules for the reference itself */
+a.imprint-anchor {
+	margin: 0;
+	padding: 0 15px;
+	position: relative;
+	display: inline-block;
+	font-size: inherit;
+	font-weight: bold;
+	color: #bfbfbf;
+}
+
+a.imprint-anchor.imprint-position-header-left,
+a.imprint-anchor.imprint-position-header-right {
+	line-height: 45px;
+}
+
+a.imprint-anchor.imprint-position-footer-left,
+a.imprint-anchor.imprint-position-footer-right {
+	color: #777777;
+	padding: 20px 15px 0;
+}
+
+a.imprint-anchor.imprint-view-login.imprint-position-footer-left,
+a.imprint-anchor.imprint-view-login.imprint-position-footer-right {
+	color: #cccccc;
+}
+
+a.imprint-anchor.imprint-position-header-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-header-right.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-footer-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-position-footer-right.imprint-anchor:hover {
+	color: #ffffff;
+}
+
+a.imprint-anchor.imprint-view-guest.imprint-position-footer-left.imprint-anchor:hover,
+a.imprint-anchor.imprint-view-guest.imprint-position-footer-right.imprint-anchor:hover {
+	color: #000000;
+}
+
+a.imprint-anchor.imprint-position-header-left,
+a.imprint-anchor.imprint-position-footer-left {
+	float: left;
+}
+
+a.imprint-anchor.imprint-position-header-right,
+a.imprint-anchor.imprint-position-footer-right {
+	float: right;
+}

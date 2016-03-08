@@ -1,0 +1,18 @@
+.eidogo-player .board .point.stone.black, .eidogo-player .nav-tree a.b {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/b.png");
+}
+.eidogo-player .board .point.stone.white, .eidogo-player .nav-tree a.w {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/w.png");
+}
+.eidogo-player .board .point.marker.dim {
+    background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/dim.png");
+}
+.eidogo-player .nav-tree a.current {
+    filter: none;
+}
+.eidogo-player .tools-select {
+    font-family: arial;
+}

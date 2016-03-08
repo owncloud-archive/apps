@@ -1,0 +1,41 @@
+[
+    {
+        "name": "fkooman/php-oauth-lib-rs",
+        "version": "0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fkooman/php-oauth-lib-rs.git",
+            "reference": "0.1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fkooman/php-oauth-lib-rs/zipball/0.1.0",
+            "reference": "0.1.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-08-18 12:09:22",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "fkooman\\oauth\\rs\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "François Kooman",
+                "email": "fkooman@tuxed.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "Library for implementing OAuth 2.0 resource servers"
+    }
+]

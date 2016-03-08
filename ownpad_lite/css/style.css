@@ -1,0 +1,8 @@
+#ownpad-location{padding:0 1em;}
+#ownpad-location #settingsbtn{padding-bottom: 0.2em;vertical-align: middle;}
+#ownpad-location #settingsbtn, #ownpad-open{margin-right:2em;}
+#ownpad-content{padding:0 25px 0 1em;}
+#epframeownpad-content{height:100% !important;}
+#ownpad-appsettings #appsettings_popup{left: 13em;right:auto;width:20em;}
+#ownpad-appsettings #appsettings_popup .arrow.up {right:auto;left:1em}
+#ownpad-appsettings input {width:18em}

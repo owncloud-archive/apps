@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID-tarjoajan muistamat sivustot",
+    "Trusted" : "Luotettu",
+    "Denied" : "Kielletty",
+    "Remove" : "Poista"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

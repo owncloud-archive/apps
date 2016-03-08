@@ -1,0 +1,35 @@
+CHANGELOG
+=========
+
+Version 0.4 (Tested with OwnCloud 5.0.8)
+----------------------------------------
+
+* Add csrf protection on setting form
+* Add a config param to force the saml login
+* Use openssl_random_pseudo_bytes instead of mt_rand (if available)
+* Support displayName
+* Support multiple values for mapping username, groups, mail and displayName
+
+
+Version 0.3 (Tested with OwnCloud 4.5.2)
+----------------------------------------
+
+* Fix login Issue: Javascript features + 
+* RewriteRule of the .httaccess avoid to redirect to apps/user_saml/auth.php.  Now appinfo/ap.php do all the work and load the logic
+  of the auth.php
+
+
+
+Version 0.2
+-----------
+
+* BugFix a 500 error that appeared when saml config values were not set
+* Some bugfixes (typos, default settings handler) [from alenkovich]
+* Code style improved  [from DeepDiver1975]
+
+
+
+Version 0.1
+-----------
+
+* Initial plugin

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_openid_provider</id>
+	<name>OpenID Provider</name>
+	<description>Allows to use ownCloud as your OpenID provider.</description>
+	<licence>AGPL</licence>
+	<author>Florian Jacob</author>
+	<requiremin>4</requiremin>
+	<types>
+		<prelogin/>
+		<authentication/>
+	</types>
+	<remote>
+		<openid_provider>provider.php</openid_provider>
+	</remote>
+</info>

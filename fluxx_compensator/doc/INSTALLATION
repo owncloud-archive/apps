@@ -1,0 +1,42 @@
+*****
+* @package fluxx-compensator an ownCloud app
+* @category base
+* @author Christian Reiner
+* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
+* @license GNU Affero General Public license (AGPL)
+* @link information http://apps.owncloud.com/content/show.php?content=157091
+*
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+* License as published by the Free Software Foundation; either
+* version 3 of the license, or any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+*
+* You should have received a copy of the GNU Affero General Public
+* License along with this library.
+* If not, see <http://www.gnu.org/licenses/>.
+*****
+
+This package is a plugin for the ownCloud web application ("ownCloud app").
+
+There are two ways of installation: automatic and manual
+
+* Automatic installation:
+You need login to your ownCloud using an account with administrative rights.
+Open the 'Apps' section of the adminstration, select the app 'Navigation Slider'
+and enable it.
+
+* Manual installation:
+Download the package from apps.owncloud.com. 
+Create a folder 'fluxx_compensator' in the "apps" folder of your ownCloud root.
+Unpack the contents of the package into the new folder 'fluxx_compensator'.
+Load ownCloud in your web browser and login with an administrative account.
+Enable the plugin in the "Apps" section of the configuration ("*") inside
+ownClouds web gui (requires admin rights).
+
+***
+Have fun !

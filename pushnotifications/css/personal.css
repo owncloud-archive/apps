@@ -1,0 +1,11 @@
+.msg.success {
+        color: #fff;
+        background-color: #47a447;
+        padding: 3px;
+}
+.msg.error {
+        color: #fff;
+        background-color: #d2322d;
+        padding: 3px;
+}
+

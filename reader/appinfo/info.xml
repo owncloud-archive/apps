@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<info>
+
+	<id>reader</id>
+	
+	<name>Reader</name>
+	
+	<description>An eBook reader app</description>
+	
+	<version>1.0</version>
+	
+	<licence>AGPL</licence>
+	
+	<author>Priyanka</author>
+	
+	<requiremin>4</requiremin>
+	
+</info>

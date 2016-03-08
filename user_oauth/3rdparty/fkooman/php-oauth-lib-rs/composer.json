@@ -1,0 +1,20 @@
+{
+    "authors": [
+        {
+            "email": "fkooman@tuxed.net",
+            "name": "Fran\u00e7ois Kooman",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "fkooman\\oauth\\rs\\": "src/"
+        }
+    },
+    "description": "Library for implementing OAuth 2.0 resource servers",
+    "license": "Apache-2.0",
+    "name": "fkooman/php-oauth-lib-rs",
+    "require": {
+        "php": ">=5.3.3"
+    }
+}

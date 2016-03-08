@@ -1,0 +1,10 @@
+<?xml version="1.0"?> 
+<info>
+	<id>files_sgfviewer</id>
+	<name>Go SGF Viewer</name>
+	<description>Review go games (.sgf files) embedded in your owncloud file manager. Based on EidoGo embedded SGF Player version 1.2 from Justin Kramer (eidogo.com).  </description>
+	<version>0.2</version>
+	<licence>AGPLv3</licence>
+	<author>Nils Jansen</author>
+	<requiremin>2</requiremin>
+</info>

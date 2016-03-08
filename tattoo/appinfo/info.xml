@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<info>
+	<id>tattoo</id>
+	<name>Personal Wall Tattoo</name>
+	<description>Puts a background picture in the content area</description>
+	<licence>AGPL</licence>
+	<author>Arthur Schiwon (contributor: Luc Didry)</author>
+	<requiremin>5</requiremin>
+</info>

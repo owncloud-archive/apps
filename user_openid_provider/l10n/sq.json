@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "Sajte të mbajtur mend nga mundësuesi i OpenID-ve",
+    "Trusted" : "I besuar",
+    "Denied" : "I papranuar",
+    "Remove" : "Hiqe"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

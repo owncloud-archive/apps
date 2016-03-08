@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+
+ <name>*dbname*</name>
+ <create>true</create>
+ <overwrite>false</overwrite>
+
+ <charset>utf8</charset>
+
+ <table>
+
+  <name>*dbprefix*eBook_library</name>
+
+  <declaration>
+
+   <field>
+    <name>filepath</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>200</length>
+   </field>
+   
+    <field>
+    <name>tags</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>100</length>
+   </field>
+  
+  </declaration>
+
+ </table>
+
+
+</database>

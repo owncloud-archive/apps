@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+	<id>search</id>
+	<name>Advanced Search</name>
+	<description>Allows users to interact with search results (e.g. delete, share) using the same view available in the Files app. Much like iTunes, you can interact with your search results in a file list. It uses the current search providers available ownCloud (i.e. they only search by file name) but I plan to start building more search providers soon. This project is still in beta testing; please submit all bugs or feature requests to https://github.com/andrewsbrown/owncloud-core/issues.</description>
+	<licence>AGPL</licence>
+	<author>Andrew Brown</author>
+	<requiremin>4.93</requiremin>
+	<shipped>false</shipped>
+	<standalone/>
+	<types>
+		<filesystem/>
+	</types>
+</info>

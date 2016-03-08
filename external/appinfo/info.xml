@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<info>
+	<id>external</id>
+	<name>External Sites</name>
+	<description>
+		This application allows an admin to add a link in the ownCloud web interface
+		Apps menu that points to an external website. By simply entering the URL and
+		the name for the external site, icon appears. When this icon is clicked by a
+		user, the external website appears in the ownCloud frame. For the user, this
+		external site appears as if it is part of ownCloud but, in fact, this can be
+		any external URL.
+
+		Note that the External Site link must use the same type of encryption as
+		provided by ownCloud. In other words, if ownCloud is hosted on HTTPS, the
+		link in the external site must also be HTTPS. The same is also true for HTTP.
+		More information is available in the External Sites documentation.
+	</description>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<dependencies>
+		<owncloud min-version="9.0" max-version="9.0" />
+	</dependencies>
+	<shipped>true</shipped>
+	<ocsid>166046</ocsid>
+</info>

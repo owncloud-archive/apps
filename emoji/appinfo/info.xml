@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>emoji</id>
+	<name>Emoji Plugin</name>
+	<description>A plugin for other Apps to add Emoji support. Those Apps have to support plugins</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Jonathan Stump</author>
+	<requiremin>5</requiremin>
+</info>

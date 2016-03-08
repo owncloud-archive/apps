@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<info>
+	<id>ownpad_lite</id>
+	<name>ownPad Lite</name>
+	<description>ownCloud Etherpad Lite plugin based on etherpad-lite-jquery-plugin by John McLear.</description>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<requiremin>4</requiremin>
+</info>

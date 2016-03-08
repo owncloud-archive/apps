@@ -1,0 +1,8 @@
+#exportbtn img,#importbtn img{ 
+	height: 10px;
+	width: auto;
+	padding-left: 5px;
+}
+.loadingexport,.loadingimport{
+	display: none;
+}
