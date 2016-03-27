@@ -1,4 +1,6 @@
 { "translations": {
+    "Open" : "Buksan",
+    "Share" : "I-share",
     "Username" : "Username"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
