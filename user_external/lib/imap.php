@@ -17,6 +17,7 @@
  */
 class OC_User_IMAP extends \OCA\user_external\Base {
 	private $mailbox;
+	private $domain;
 
 	/**
 	 * Create new IMAP authentication provider
@@ -24,9 +25,10 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 	 * @param string $mailbox PHP imap_open mailbox definition, e.g.
 	 *                        {127.0.0.1:143/imap/readonly}
 	 */
-	public function __construct($mailbox) {
+	public function __construct($mailbox, $domain = '') {
 		parent::__construct($mailbox);
 		$this->mailbox=$mailbox;
+		$this->domain=$domain;
 	}
 
 	/**
@@ -42,7 +44,23 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
 			return false;
 		}
-		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
+
+		// Check if we only want logins from ONE domain and strip the domain part from UID		
+		if($this->domain != '') {
+			$pieces = explode('@', $uid);
+			if(count($pieces) == 1) {
+				$username = $uid . "@" . $this->domain;
+			}elseif((count($pieces) == 2) and ($pieces[1] == $this->domain)) {
+				$username = $uid;
+				$uid = $pieces[0];
+			}else{
+				return false;
+			}
+		}else{
+			$username = $uid;
+		}
+
+		$mbox = @imap_open($this->mailbox, $username, $password, OP_HALFOPEN, 1);
 		imap_errors();
 		imap_alerts();
 		if($mbox !== FALSE) {
