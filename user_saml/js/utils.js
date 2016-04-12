@@ -25,6 +25,8 @@ $(document).ready(function(){
         $('#remember_login').hide();
         $('#remember_login+label').hide();
         $('#submit').hide();
+    } else if (!$('#user').is(":visible")) {
+        $('#login-saml').hide();
     }
 
     $('#user').change( function() {
