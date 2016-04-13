@@ -1,4 +1,5 @@
 { "translations": {
+    "Name" : "Name",
     "Add" : "Hinzufügen"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
