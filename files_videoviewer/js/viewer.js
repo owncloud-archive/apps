@@ -12,9 +12,9 @@ var videoViewer = {
 			$('#box-close').click(videoViewer.hidePlayer);
 			var size = videoViewer.UI.getSize();
 			var playerView = videoViewer.UI.playerTemplate.replace(/%width%/g, size.width)
-								.replace(/%height%/g, size.height)
-								.replace(/%type%/g, videoViewer.mime)
-								.replace(/%src%/g, videoViewer.location)
+								.replace(/%height%/g, escapeHTML(size.height))
+								.replace(/%type%/g, escapeHTML(videoViewer.mime))
+								.replace(/%src%/g, escapeHTML(videoViewer.location))
 			;
 			$(playerView).prependTo('#videoviewer_container');
 		},
