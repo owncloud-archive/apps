@@ -7,4 +7,17 @@
 	<licence>AGPL</licence>
 	<author>Frank Karlitschek</author>
 	<requiremin>4</requiremin>
+	
+	<documentation>
+            <user>https://doc.owncloud.org</user>
+            <admin>https://doc.owncloud.org</admin>
+            <developer>https://doc.owncloud.org</developer>
+        </documentation>
+        
+        <website>https://github.com/owncloud/theapp</website>
+
+        <bugs>https://github.com/owncloud/theapp/issues</bugs>
+
+        <repository type="git">https://github.com/owncloud/theapp.git</repository>
+
 </info>
