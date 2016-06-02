@@ -2,9 +2,15 @@
 <info>
 	<id>user_external</id>
 	<name>External user support</name>
-	<description>Use external user authentication methods</description>
+	<description>Use external user authentication methods like IMAP, SMB and FTP</description>
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
+	<documentation>
+            <admin>https://doc.owncloud.org/server/9.0/admin_manual/configuration_user/user_auth_ftp_smb_imap.html</admin>
+        </documentation>
+	<website>https://github.com/owncloud/apps/tree/master/user_external</website>
+	<bugs>https://github.com/owncloud/apps/issues</bugs>
+	<repository type="git">https://github.com/owncloud/apps.git</repository>
 	<dependencies>
 		<owncloud min-version="9.1" max-version="9.1" />
 	</dependencies>
