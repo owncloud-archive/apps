@@ -4,6 +4,7 @@ OC.L10N.register(
     "Export" : "Export",
     "Something went wrong while the export file was being generated" : "Beim Generéiere vum Export-Fichier ass eppes schif gaangen.",
     "An error has occurred" : "Et ass e Fehler opgetrueden",
+    "Account Export/Import" : "Account Exportéieren/Importéieren",
     "Import" : "Importeieren"
 },
 "nplurals=2; plural=(n != 1);");
