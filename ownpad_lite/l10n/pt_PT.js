@@ -4,7 +4,7 @@ OC.L10N.register(
     "Document was shared" : "O documento foi partilhado",
     "User %s shared quick document %s with you." : "O Utilizador %s partilhou um documento rápido %s consigo.",
     "My pad" : "O meu pad",
-    "Settings" : "Configuração",
+    "Settings" : "Definições",
     "Pad Title" : "Título do Pad",
     "Open" : "Abrir",
     "Share with" : "Partilhar com",
