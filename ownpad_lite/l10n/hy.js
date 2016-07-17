@@ -1,6 +1,7 @@
 OC.L10N.register(
     "ownpad_lite",
     {
+    "Settings" : "Կարգավորումներ",
     "Open" : "Բացել",
     "Share" : "Կիսվել",
     "Username" : "Օգտանուն",
