@@ -36,8 +36,6 @@ if (sizeof($sites) >= $id) {
 	OCP\App::setActiveNavigationEntry('external_index' . $id);
 
 	$tmpl = new OCP\Template('external', 'frame', 'user');
-	//overwrite x-frame-options
-	header('X-Frame-Options: ALLOW-FROM *');
 
 	$tmpl->assign('url', $url);
 	$tmpl->printPage();
