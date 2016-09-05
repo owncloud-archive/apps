@@ -357,6 +357,85 @@ class OC_MEDIA_AMPACHE{
 		}
 	}
 
+	private static function logDebugEnabled()
+	{
+		return false;
+	}
+	private static function logDebug($msg)
+	{
+		if (!self::logDebugEnabled())
+			return;
+		@error_log($msg . "\n", 3, "/mnt/data/owncloud/data/logs/ampache.log");
+	}
+
+	// would be good to go into some more generic place?
+	private static function streamFileHttpRange($path, $fileSize, $endPadByte = null)
+	{
+		header('Content-type: '.OC_Filesystem::getMimeType($path));
+		header("Accept-Ranges: bytes" );
+
+		$fpath = OC_Filesystem::getLocalFile($path);
+		$fp = fopen($fpath, 'rb');
+
+		if (!is_resource($fp)) { 
+		    die("Error: Unable to open $fpath for downloading");
+		}
+
+		// Parse byte range request
+		$start = 0;
+		if (isset($_SERVER['HTTP_RANGE']))
+		    $n = sscanf($_SERVER['HTTP_RANGE'], "bytes=%d-%d", $start, $end);
+		if ($start > 0) {
+		    // Calculate stream size from byte range
+		    if(isset($end)) {
+			$end = min($end, $fileSize - 1);
+			$stream_size = ($end - $start) + 1;
+		    } 
+		    else {
+			$stream_size = $fileSize - $start;
+		    }
+
+		    if (self::logDebugEnabled())
+			    self::logDebug('Content-Range header recieved, skipping ahead ' . $start . ' bytes out of ' . $fileSize);
+
+		    fseek( $fp, $start );
+		 
+		    $range = $start ."-". $end . "/" . $fileSize;
+		    header("HTTP/1.1 206 Partial Content");
+		    header("Content-Range: bytes $range");
+		    if (self::logDebugEnabled())
+			self::logDebug("sending header content range: '$range'");
+		    header("Content-Length: ".($stream_size));
+		} // if $start > 0
+		else {
+		    // full content
+		    $stream_size = $fileSize;
+		    if (self::logDebugEnabled())
+			self::logDebug('Starting stream of ' . $fpath. ' with size ' . $stream_size);
+		    header("Content-Length: $stream_size");
+		}
+		// Actually do the streaming 
+		$bytes_streamed = 0;
+		do {
+		    $read_size = min(10 * 1024, $stream_size - $bytes_streamed); 
+		    if ($read_size < 1) { break; } 
+		    $buf = fread($fp, $read_size);
+		    print($buf);
+		    flush();
+		    $bytes_streamed += strlen($buf);
+			self::logDebug("sent $read_size bytes. bytes_streamed=$bytes_streamed");
+		} while (!feof($fp) && (connection_status() == 0) AND $bytes_streamed < $stream_size);
+
+		if(isset($endPadByte) && $bytes_streamed < $stream_size AND (connection_status() == 0)) {
+		    print(str_repeat($endPadByte,$stream_size - $bytes_streamed));
+		}
+		@fclose($fp);
+		if (self::logDebugEnabled())
+			self::logDebug("finished sending bytes");
+		exit();
+	}
+
+
 	public static function play($params) {
 		$username=!self::checkAuth($params);
 		if($username) {
@@ -369,10 +448,12 @@ class OC_MEDIA_AMPACHE{
 		if($song=OC_MEDIA_COLLECTION::getSong($params['song'])) {
 			OC_Util::setupFS($song["song_user"]);
 
-			header('Content-type: '.OC_Filesystem::getMimeType($song['song_path']));
-			header('Content-Length: '.$song['song_size']);
-			OC_Filesystem::readfile($song['song_path']);
+			// endPadByte= ' ' : as seen in ampache.org: Need to make sure enough bytes were sent. 
+			// Some players (Windows Media Player) won't work if specified content length is not sent.
+			self::streamFileHttpRange($song['song_path'], $song['song_size'], ' ');
 		}
+
+
 	}
 
 	public static function url_to_song($params) {
