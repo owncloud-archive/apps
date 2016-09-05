@@ -13,7 +13,8 @@ Gallery.sortFunction = function (a, b) {
 // fill the albums from Gallery.images
 Gallery.fillAlbums = function () {
 	var def = new $.Deferred();
-	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php')).then(function (data) {
+	var token = $('#gallery').data('token');
+	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php'), {token: token}).then(function (data) {
 		var albumPath, i, imagePath, parent, path;
 		Gallery.users = data.users;
 		Gallery.displayNames = data.displayNames;
@@ -71,6 +72,9 @@ Gallery.fillAlbums.sortAlbums = function (albums) {
 };
 
 Gallery.getAlbumInfo = function (album) {
+	if (album === $('#gallery').data('token')) {
+		return [];
+	}
 	if (!Gallery.getAlbumInfo.cache[album]) {
 		var def = new $.Deferred();
 		Gallery.getAlbumInfo.cache[album] = def;
@@ -102,10 +106,23 @@ Gallery.share = function (event) {
 	if (!OC.Share.droppedDown) {
 		event.preventDefault();
 		event.stopPropagation();
+
+		(function() {
+			var target = OC.Share.showLink;
+			OC.Share.showLink = function() {
+				var r = target.apply( this, arguments );
+				$('#linkText').val( $('#linkText').val().replace('service=files', 'service=gallery') );
+				return r;
+			};
+		})();
+
 		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
-			$('a.share').data('item', info.fileid)
+			$('a.share').data('item', info.fileid).data('link', true)
 				.data('possible-permissions', info.permissions).
 				click();
+			if (!$('#linkCheckbox').is(':checked')) {
+				$('#linkText').hide();
+			}
 		});
 	}
 };
@@ -124,12 +141,13 @@ Gallery.view.addImage = function (image) {
 		thumb.queue();
 	} else {
 		link = $('<a/>');
-		link.addClass('image');
+		link.addClass('image loading');
 		link.attr('data-path', image);
 		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
 		thumb = Thumbnail.get(image);
 		thumb.queue().then(function (thumb) {
+			link.removeClass('loading');
 			link.append(thumb);
 		});
 
@@ -159,7 +177,7 @@ Gallery.view.addAlbum = function (path, name) {
 		link = $('<a/>');
 		label = $('<label/>');
 		link.attr('href', '#' + path);
-		link.addClass('album');
+		link.addClass('album loading');
 		link.click(function () {
 			Gallery.view.viewAlbum(path);
 		});
@@ -170,6 +188,7 @@ Gallery.view.addAlbum = function (path, name) {
 		link.append(label);
 		thumb = Thumbnail.get(thumbs[0], true);
 		thumb.queue().then(function (image) {
+			link.removeClass('loading');
 			link.append(image);
 		});
 
@@ -205,6 +224,9 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
+	if (!albumPath) {
+		albumPath = $('#gallery').data('token');
+	}
 	Thumbnail.queue = [];
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
@@ -238,7 +260,7 @@ Gallery.view.viewAlbum = function (albumPath) {
 	});
 	crumbs = albumPath.split('/');
 	path = crumbs.splice(0, 1); //first entry is username
-	if (path != OC.currentUser) { //remove shareid
+	if (path !== OC.currentUser) { //remove shareid
 		path += '/' + crumbs.splice(0, 1);
 	}
 	for (i = 0; i < crumbs.length; i++) {
@@ -265,139 +287,50 @@ Gallery.view.showUsers = function () {
 	var i, j, user, head, subAlbums, album;
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
-		head = $('<h2/>');
-		head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
-		$('#gallery').append(head);
 		subAlbums = Gallery.subAlbums[user];
 		if (subAlbums) {
-			for (j = 0; j < subAlbums.length; j++) {
-				album = subAlbums[j];
-				album = Gallery.subAlbums[album][0];//first level sub albums is share source id
-				Gallery.view.addAlbum(album);
-				Gallery.view.element.append(' '); //add a space for justify
+			if (subAlbums.length > 0) {
+				head = $('<h2/>');
+				head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
+				$('#gallery').append(head);
+				for (j = 0; j < subAlbums.length; j++) {
+					album = subAlbums[j];
+					album = Gallery.subAlbums[album][0];//first level sub albums is share source id
+					Gallery.view.addAlbum(album);
+					Gallery.view.element.append(' '); //add a space for justify
+				}
 			}
 		}
 	}
 };
-
-Gallery.slideshow = {};
-Gallery.scrollLocation = 0;
-Gallery.slideshow.start = function (start, options) {
-	var content = $('#content');
-	start = start || 0;
-	Thumbnail.concurrent = 1; //make sure we can load the image and doesn't get blocked by loading thumbnail
-	if (content.is(":visible")) {
-		Gallery.scrollLocation = $(window).scrollTop();
-	}
-	$('a.image').slideShow($('#slideshow'), start, options);
-	content.hide();
-};
-
-Gallery.slideshow.end = function () {
-	jQuery.fn.slideShow.stop();
-};
-
-Gallery.slideshow.next = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	jQuery.fn.slideShow.hideImage();
-	jQuery.fn.slideShow.next();
-};
-
-Gallery.slideshow.previous = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	jQuery.fn.slideShow.hideImage();
-	jQuery.fn.slideShow.previous();
-};
-
-Gallery.slideshow.pause = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	$('#slideshow').children('.play').show();
-	$('#slideshow').children('.pause').hide();
-	Gallery.slideshow.playPause.playing = false;
-	jQuery.fn.slideShow.pause();
-};
-
-Gallery.slideshow.play = function (event) {
-	if (event) {
-		event.stopPropagation();
-	}
-	$('#slideshow').children('.play').hide();
-	$('#slideshow').children('.pause').show();
-	Gallery.slideshow.playPause.playing = true;
-	jQuery.fn.slideShow.play();
-};
-
-Gallery.slideshow.playPause = function () {
-	if (Gallery.slideshow.playPause.playing) {
-		Gallery.slideshow.pause();
-	} else {
-		Gallery.slideshow.play();
-	}
-};
-Gallery.slideshow.playPause.playing = true;
 
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
 		OC.Breadcrumb.container = $('#breadcrumbs');
-		window.onhashchange()
-
-		//close slideshow on esc
-		$(document).keyup(function (e) {
-			if (e.keyCode === 27) { // esc
-				Gallery.slideshow.end();
-			} else if (e.keyCode == 37) { // left
-				Gallery.slideshow.previous();
-			} else if (e.keyCode == 39) { // right
-				Gallery.slideshow.next();
-			} else if (e.keyCode == 32) { // space
-				Gallery.slideshow.playPause();
-			}
-		});
-		var slideshow = $('#slideshow');
-		slideshow.children('.next').click(Gallery.slideshow.next);
-		slideshow.children('.previous').click(Gallery.slideshow.previous);
-		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
-		slideshow.children('.pause').click(Gallery.slideshow.pause);
-		slideshow.children('.play').click(Gallery.slideshow.play);
-		slideshow.click(Gallery.slideshow.next);
-
-		if ($.fn.mousewheel) {
-			slideshow.bind('mousewheel.fb', function(e, delta) {
-					e.preventDefault();
-				if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
-					if (delta > 0) {
-						Gallery.slideshow.previous();
-					} else {
-						Gallery.slideshow.next();
-					}
-				}
-			});
-		}
-		
+		window.onhashchange();
 		$('button.share').click(Gallery.share);
 	});
 
 	$('#gallery').on('click', 'a.image', function (event) {
-		var i = $('#gallery').children('a.image').index(this),
+		var images = $('#gallery').children('a.image');
+		var i = images.index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
-		if (location.hash != image) {
+		if (location.hash !== image) {
 			location.hash = image;
-			Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+			Thumbnail.paused = true;
+			Slideshow.start(images, i);
 		}
 	});
-	$('body').append($('#slideshow')); //move the slideshow outside the content so we can hide the content
+
+	$('#openAsFileListButton').click( function (event) {
+		window.location.href = window.location.href.replace('service=gallery', 'service=files');
+	});
 
 	jQuery.fn.slideShow.onstop = function () {
 		$('#content').show();
+		Thumbnail.paused = false;
 		$(window).scrollTop(Gallery.scrollLocation);
 		location.hash = Gallery.currentAlbum;
 		Thumbnail.concurrent = 3;
@@ -409,8 +342,11 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
+	if (!album) {
+		album = $('#gallery').data('token');
+	}
 	if (Gallery.images.indexOf(album) === -1) {
-		Gallery.slideshow.end();
+		Slideshow.end();
 		Gallery.view.viewAlbum(decodeURIComponent(album));
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));

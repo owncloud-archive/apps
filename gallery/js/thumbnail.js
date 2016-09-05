@@ -1,4 +1,4 @@
-function Thumbnail(path, square) {
+function Thumbnail (path, square) {
 	this.square = square;
 	this.path = path;
 	this.url = Thumbnail.getUrl(path, square);
@@ -10,7 +10,7 @@ Thumbnail.map = {};
 Thumbnail.squareMap = {};
 
 Thumbnail.get = function (path, square) {
-	var map = (square) ? Thumbnail.squareMap : Thumbnail.map
+	var map = (square) ? Thumbnail.squareMap : Thumbnail.map;
 	if (!map[path]) {
 		map[path] = new Thumbnail(path, square);
 	}
@@ -43,9 +43,10 @@ Thumbnail.prototype.load = function () {
 Thumbnail.queue = [];
 Thumbnail.loadingCount = 0;
 Thumbnail.concurrent = 3;
+Thumbnail.paused = false;
 
 Thumbnail.processQueue = function () {
-	if (Thumbnail.queue.length && Thumbnail.loadingCount < Thumbnail.concurrent) {
+	if (!Thumbnail.paused && Thumbnail.queue.length && Thumbnail.loadingCount < Thumbnail.concurrent) {
 		var next = Thumbnail.queue.shift();
 		next.load();
 		Thumbnail.processQueue();

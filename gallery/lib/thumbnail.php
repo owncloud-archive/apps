@@ -97,8 +97,8 @@ class Thumbnail {
 			$mime = \OC_Helper::getMimetype($this->path);
 		}
 		if ($fp) {
-			\OC_Response::enableCaching();
-			\OC_Response::setLastModifiedHeader($mtime);
+			\OCP\Response::enableCaching();
+			\OCP\Response::setLastModifiedHeader($mtime);
 			header('Content-Length: ' . $size);
 			header('Content-Type: ' . $mime);
 
