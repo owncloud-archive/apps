@@ -1,1 +1,1 @@
-#content { background-position: bottom right; background-attachment: fixed;	background-repeat: no-repeat; }
+#tattoobg{position:fixed;bottom:5px;right:5px;z-index:1;opacity:0.3;filter:alpha(opacity=30);}

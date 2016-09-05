@@ -1,9 +1,6 @@
 <?php
 
-// Init owncloud
-require_once '../../../lib/base.php';
-
 // Check if we are a user
-OC_JSON::checkLoggedIn();
+OCP\JSON::checkLoggedIn();
 
-OC_JSON::success(array('data' => OC_Preferences::getValue(OC_User::getUser(),'tattoo','wallpaper','none')));
+OCP\JSON::success(array('data' => OCP\Config::getUserValue(OCP\User::getUser(),'tattoo','wallpaper','none')));

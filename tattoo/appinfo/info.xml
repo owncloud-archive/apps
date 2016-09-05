@@ -4,6 +4,6 @@
 	<name>Personal Wall Tattoo</name>
 	<description>Puts a background picture in the content area</description>
 	<licence>AGPL</licence>
-	<author>Arthur Schiwon</author>
-	<require>2</require>
+	<author>Arthur Schiwon (contributor: Luc Didry)</author>
+	<require>5</require>
 </info>
