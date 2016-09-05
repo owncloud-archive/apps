@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>unhosted_apps</id>
+	<name>Unhosted apps</name>
+	<description>allows launching unhosted apps with access to your storage. This app only works if you have your own ssl cert (you can get one for free from StartSSL, for instance). You also need to point a second port to your webserver. So for instance if you're running the ownCloud GUI over ssl on port 443, then you need to add a second webserver config on some other port, say port 444 for example. This second config should then point to {WEB_ROOT}/apps/unhosted_apps/storage_root/, and have 'AllowOverride All' and mod_rewrite enabled, so that all requests to https://yourdomain.com:444/some/path are served by apps/unhosted_apps/storage_root/index.php.</description>
+  <public><remotestorage>remotestorage.php</remotestorage></public>
+  <public><remotestorageauth>remotestorageauth.php</remotestorageauth></public>
+  <public><host-meta-json>hostmetajson.php</host-meta-json></public>
+	<licence>AGPL</licence>
+	<author>Michiel de Jong</author>
+	<require>4</require>
+</info>
