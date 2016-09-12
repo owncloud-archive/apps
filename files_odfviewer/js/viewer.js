@@ -36,22 +36,27 @@ function closeOdfViewer(){
 }
 
 $(document).ready(function() {
-	if(typeof OCA !== 'undefined' && OCA.Files) {
-		var fileActions = OCA.Files.fileActions;
-		var supportedMimes = new Array(
-			'application/vnd.oasis.opendocument.text', 
-			'application/vnd.oasis.opendocument.spreadsheet',
-			'application/vnd.oasis.opendocument.graphics',
-			'application/vnd.oasis.opendocument.presentation');
-		for (var i = 0; i < supportedMimes.length; ++i){
-			var mime = supportedMimes[i];
-			fileActions.register(mime, 'View', OC.PERMISSION_READ, '', function(filename, context){
-				viewOdf(context.dir, filename, context.fileList);
-			});
-			fileActions.setDefault(mime,'View');
+	OC.Plugins.register('OCA.Files.FileList', {
+		attach: function(fileList) {
+			if (fileList.id === 'trashbin' || fileList.id === 'files.public') {
+				return;
+			}
+			var fileActions = fileList.fileActions;
+			var supportedMimes = new Array(
+				'application/vnd.oasis.opendocument.text', 
+				'application/vnd.oasis.opendocument.spreadsheet',
+				'application/vnd.oasis.opendocument.graphics',
+				'application/vnd.oasis.opendocument.presentation');
+			for (var i = 0; i < supportedMimes.length; ++i){
+				var mime = supportedMimes[i];
+				fileActions.register(mime, 'View', OC.PERMISSION_READ, '', function(filename, context){
+					viewOdf(context.dir, filename, context.fileList);
+				});
+				fileActions.setDefault(mime,'View');
+			}
 		}
-	}
-	
+	});
+
 	$('#odf_close').live('click',function() {
 		closeOdfViewer();	
 	});
