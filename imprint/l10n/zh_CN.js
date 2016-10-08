@@ -9,6 +9,12 @@ OC.L10N.register(
     "Reference" : "引用",
     "Header left" : "页眉居左",
     "Header right" : "页眉居右",
-    "Content" : "内容"
+    "As guest" : "作为访客",
+    "Footer left" : "页脚居左",
+    "Footer right" : "页脚居右",
+    "At login" : "登录时",
+    "Application" : "应用",
+    "Content" : "内容",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "你可以使用纯文本、Markdown或带有内联样式的HTML。"
 },
 "nplurals=1; plural=0;");
