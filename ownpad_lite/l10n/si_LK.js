@@ -1,6 +1,8 @@
 OC.L10N.register(
     "ownpad_lite",
     {
+    "Document was shared" : "ගොනුව බෙදාහදාගත්තේය.",
+    "User %s shared quick document %s with you." : "%s ඔබ සමඟ %s ගොනුව බෙදාහදාගත්තේය",
     "My pad" : "මගේ padය",
     "Settings" : "සිටුවම",
     "Pad Title" : "Pad මාතෘකාව",
