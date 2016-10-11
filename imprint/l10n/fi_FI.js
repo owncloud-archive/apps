@@ -14,6 +14,7 @@ OC.L10N.register(
     "Footer right" : "Alatunniste oikea",
     "At login" : "Kirjautuessa",
     "Application" : "Sovellus",
-    "Content" : "Sisältö"
+    "Content" : "Sisältö",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Voit käyttää pelkkää tekstiä, markdown-merkintää tai html-merkintää sisäisin tyyliominaisuuksin."
 },
 "nplurals=2; plural=(n != 1);");
