@@ -32,18 +32,14 @@ class OC_User_SMB extends \OCA\user_external\Base{
 	}
 
 	/**
-	 * Check if the password is correct without logging in the user
-	 *
-	 * @param string $uid      The username
-	 * @param string $password The password
-	 *
-	 * @return true/false
+	 * @param string $uid
+	 * @param string $password
+	 * @return bool
 	 */
-	public function checkPassword($uid, $password) {
-		$uidEscaped=escapeshellarg($uid);
-		$password=escapeshellarg($password);
-		$result=array();
-		$command=self::SMBCLIENT.' //'.$this->host.'/dummy -U'.$uidEscaped.'%'.$password;
+	private function tryAuthentication($uid, $password) {
+		$uidEscaped = escapeshellarg($uid);
+		$password = escapeshellarg($password);
+		$command = self::SMBCLIENT.' '.escapeshellarg('//' . $this->host . '/dummy').' -U'.$uidEscaped.'%'.$password;
 		$lastline = exec($command, $output, $retval);
 		if ($retval === 127) {
 			OCP\Util::writeLog(
@@ -66,8 +62,33 @@ class OC_User_SMB extends \OCA\user_external\Base{
 			return false;
 		} else {
 			login:
-			$this->storeUser($uid);
 			return $uid;
 		}
 	}
+
+	/**
+	 * Check if the password is correct without logging in the user
+	 *
+	 * @param string $uid      The username
+	 * @param string $password The password
+	 *
+	 * @return true/false
+	 */
+	public function checkPassword($uid, $password) {
+		// Check with an invalid password, if the user authenticates then fail
+		$attemptWithInvalidPassword = $this->tryAuthentication($uid, base64_encode($password));
+		if(is_string($attemptWithInvalidPassword)) {
+			return false;
+		}
+
+		// Check with valid password
+		$attemptWithValidPassword = $this->tryAuthentication($uid, $password);
+		if(is_string($attemptWithValidPassword)) {
+			$this->storeUser($uid);
+			return $uid;
+		}
+
+		return false;
+	}
 }
+
