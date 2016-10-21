@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 8.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2016-10-20 00:48+0200\n"
+"POT-Creation-Date: 2016-10-22 00:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,43 +27,43 @@ msgstr ""
 msgid "External sites saved."
 msgstr ""
 
-#: templates/settings.php:3
+#: templates/settings.php:2
 msgid "External Sites"
 msgstr ""
 
-#: templates/settings.php:5
+#: templates/settings.php:4
 msgid ""
 "Please note that some browsers will block displaying of sites via http if "
 "you are running https."
 msgstr ""
 
-#: templates/settings.php:7
+#: templates/settings.php:6
 msgid ""
 "Furthermore please note that many sites these days disallow iframing due to "
 "security reasons."
 msgstr ""
 
-#: templates/settings.php:9
+#: templates/settings.php:8
 msgid "We highly recommend to test the configured sites below properly."
 msgstr ""
 
-#: templates/settings.php:17 templates/settings.php:40
+#: templates/settings.php:16 templates/settings.php:39
 msgid "Name"
 msgstr ""
 
-#: templates/settings.php:18 templates/settings.php:41
+#: templates/settings.php:17 templates/settings.php:40
 msgid "URL"
 msgstr ""
 
-#: templates/settings.php:30 templates/settings.php:32
-#: templates/settings.php:46
+#: templates/settings.php:29 templates/settings.php:31
+#: templates/settings.php:45
 msgid "Select an icon"
 msgstr ""
 
-#: templates/settings.php:35 templates/settings.php:48
+#: templates/settings.php:34 templates/settings.php:47
 msgid "Remove site"
 msgstr ""
 
-#: templates/settings.php:56
+#: templates/settings.php:55
 msgid "Add"
 msgstr ""
