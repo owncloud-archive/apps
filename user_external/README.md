@@ -66,12 +66,16 @@ Add the following to your `config.php`:
         array(
             'class' => 'OC_User_IMAP',
             'arguments' => array(
-                '{127.0.0.1:143/imap/readonly}',
+                '{127.0.0.1:143/imap/readonly}', 'example.com'
             ),
         ),
     ),
 
 This connects to the IMAP server on IP `127.0.0.1`, in readonly mode.
+If a domain name (e.g. example.com) is specified, then this makes sure that 
+only users from this domain will be allowed to login. After successfull
+login the domain part will be striped and the rest used as username in
+ownCloud. e.g. 'username@example.com' will be 'username' in ownCloud.
 
 Read the [imap_open][0] PHP manual page to learn more about the allowed
 parameters.
