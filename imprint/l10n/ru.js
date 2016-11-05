@@ -12,9 +12,9 @@ OC.L10N.register(
     "As guest" : "Как гость",
     "Footer left" : "Низ страницы слева",
     "Footer right" : "Низ страницы справа",
-    "At login" : "При логине",
+    "At login" : "При входе в систему",
     "Application" : "Приложение",
     "Content" : "Содержимое",
-    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Вы можете использовать простой текст, нотацию markdown или разметку HTML со встроенными стилями в атрибутах тегов."
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "Возможно использовать простой текст, нотацию markdown или разметку HTML со встроенными стилями в атрибутах тегов."
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
