@@ -1,7 +1,7 @@
 OC.L10N.register(
     "user_openid_provider",
     {
-    "OpenID Provider remembered sites" : "Hugsa nettstader for OpenID-tilbydaren",
+    "OpenID Provider remembered sites" : "Hugsa nettstader av OpenID-tilbydaren",
     "Trusted" : "Tiltrudd",
     "Denied" : "Avvist",
     "Remove" : "Fjern"
