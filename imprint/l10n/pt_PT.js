@@ -1,7 +1,7 @@
 OC.L10N.register(
     "imprint",
     {
-    "Legal notice" : "Notificação Legal",
+    "Legal notice" : "Aviso Legal",
     "Nothing here yet" : "Nada aqui por enquanto",
     "The content of the legal notice has to be configured first" : "Primeiro, deve configurar o conteúdo da notificação legal",
     "That configuration has to be done by the system administration." : "A configuração deve ser efetuada pelo administrador do sistema.",
