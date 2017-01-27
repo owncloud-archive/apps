@@ -1,5 +1,5 @@
 { "translations": {
-    "Please enter valid urls - they have to start with either http://, https:// or /" : "Будь ласка, введіть правильно url - вони мають починатися з http://, https:// або /",
+    "Please enter valid urls - they have to start with either http://, https:// or /" : "Будь ласка, введіть правильну адресу - вона повинна починатися з http://, https:// або /",
     "External sites saved." : "Зовнішні сайти збережено.",
     "External Sites" : "Зовнішні сайти",
     "Please note that some browsers will block displaying of sites via http if you are running https." : "Майте на увазі, деякі браузери блокують сайти по http, якщо ви використовуєте https.",
