@@ -2,14 +2,14 @@ OC.L10N.register(
     "ownpad_lite",
     {
     "Document was shared" : "Документ був опублікований",
-    "User %s shared quick document %s with you." : "Користувач %s поділився документом  %s з вами.",
+    "User %s shared quick document %s with you." : "Користувач %s поділився з вами документом %s.",
     "My pad" : "Мій блокнот",
     "Settings" : "Налаштування",
     "Pad Title" : "Назва блокноту",
     "Open" : "Відкрити",
     "Share with" : "Опублікувати для",
     "Share" : "Поділитися",
-    "Etherpad service URL" : "URL Etherpad служби",
+    "Etherpad service URL" : "URL служби Etherpad",
     "Username" : "Ім'я користувача",
     "Save" : "Зберегти"
 },

@@ -6,7 +6,7 @@ OC.L10N.register(
     "The content of the legal notice has to be configured first" : "Спочатку має бути налаштований зміст юридичного застереження",
     "That configuration has to be done by the system administration." : "Це налаштування повинно бути зроблене системним адміністратором.",
     "Imprint" : "Відбиток",
-    "Reference" : "Рекомендація",
+    "Reference" : "Виноска",
     "Header left" : "Заголовок ліворуч",
     "Header right" : "Заголовок праворуч",
     "As guest" : "Як гість",
