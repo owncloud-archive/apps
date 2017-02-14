@@ -128,6 +128,10 @@ class OC_USER_DJANGO extends OC_User_Backend {
 					return false;
 				}
 			}
+			elseif (self::beginsWith($storedHash, 'bcrypt$')) {
+				preg_match('/bcrypt\$(\$[^\$]+\$\d+\$.{22})/', $storedHash, $matches);
+				return ("bcrypt$" . crypt($password, $matches[1]) == $storedHash) ? $uid : false;
+			}
 		}
 		else {
 			return false;
