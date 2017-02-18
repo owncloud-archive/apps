@@ -15,6 +15,6 @@ OC.L10N.register(
     "At login" : "ログイン時",
     "Application" : "アプリケーション",
     "Content" : "内容",
-    "You can use plain text, markdown notation or html markup with inline style attributes. " : "プレーンテキストかマークダウン表記､インラインスタイル属性のhtmlマークアップが使用できます。"
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "プレーンテキストまたは、マークダウン表記､インラインスタイル属性のhtmlマークアップが使用できます。"
 },
 "nplurals=1; plural=0;");
