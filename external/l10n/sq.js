@@ -10,7 +10,7 @@ OC.L10N.register(
     "Name" : "Emër",
     "URL" : "URL",
     "Select an icon" : "Përzgjidhni një ikonë",
-    "Remove site" : "Hiqe vendndodhjen",
+    "Remove site" : "Hiqe sajtin",
     "Add" : "Shtoje"
 },
 "nplurals=2; plural=(n != 1);");

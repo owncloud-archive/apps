@@ -2,7 +2,7 @@ OC.L10N.register(
     "imprint",
     {
     "Legal notice" : "Shënim ligjor",
-    "Nothing here yet" : "Asgjë këtu ende",
+    "Nothing here yet" : "Ende pa gjë këtu",
     "The content of the legal notice has to be configured first" : "Lënda e shënimit ligjor së pari duhet të jetë formësuar",
     "That configuration has to be done by the system administration." : "Ai formësim duhet bërë nga përgjegjësi i sistemit.",
     "Imprint" : "Imprint",
