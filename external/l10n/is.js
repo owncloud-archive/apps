@@ -9,7 +9,7 @@ OC.L10N.register(
     "We highly recommend to test the configured sites below properly." : "Við mælum sterklega með því að prófa almennilega stillingarnar hér fyrir neðan.",
     "Name" : "Heiti",
     "URL" : "URL",
-    "Select an icon" : "Veldu tákn",
+    "Select an icon" : "Veldu táknmynd",
     "Remove site" : "Fjarlægja vefsvæði",
     "Add" : "Bæta við"
 },
