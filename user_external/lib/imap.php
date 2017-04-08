@@ -50,7 +50,8 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			$uid = mb_strtolower($uid);
 			$this->storeUser($uid);
 			
-			if (preg_match('/^([^@]+)@(.+)\.[^.]+$/', $uid, $matches)) { 
+            if (\OC::$server->getMailer()->validateMailAddress($uid) && 
+            (preg_match('/^([^@]+)@(.+)\.[^.]+$/', $uid, $matches))) {
 			  // uid is formatted username@domain.extension
 			  $username=$matches[1];
 			  $username=str_replace(".", " ", $username);
