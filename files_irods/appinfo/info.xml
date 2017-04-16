@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>files_irods</id>
+	<name>External storage support fro iRODS</name>
+	<description>Mount external storage from iRODS </description>
+	<licence>AGPL</licence>
+	<author>Thomas Müller</author>
+	<require>6</require>
+	<shipped>false</shipped>
+	<types>
+		<filesystem/>
+	</types>
+</info>
