@@ -32,3 +32,7 @@ script: ant test
 #notifications:
 #  irc: "irc.freenode.org#travis"
 
+# never send success notifications
+notifications:
+  email:
+    on_success: never
