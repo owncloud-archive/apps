@@ -56,7 +56,9 @@ var videoViewer = {
 		videoViewer.dir = data.dir;
 		if ($('#isPublic').length){
 			// No seek for public videos atm, sorry
-			videoViewer.location = data.fileList.getDownloadUrl(file, videoViewer.dir);
+			var token = $('#sharingToken').val();
+			videoViewer.location = window.location.protocol + '//' + token + '@' + window.location.host +
+				OC.linkTo('', 'public.php/webdav/' + OC.joinPaths(videoViewer.dir, file));
 		} else {
 			videoViewer.location = OC.linkToRemote('webdav') + OC.joinPaths(videoViewer.dir, file);
 		}
