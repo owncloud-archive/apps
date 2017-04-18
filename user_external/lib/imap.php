@@ -67,6 +67,33 @@ class OC_User_IMAP extends \OCA\user_external\Base {
 			imap_close($mbox);
 			$uid = mb_strtolower($uid);
 			$this->storeUser($uid);
+			
+            if (\OC::$server->getMailer()->validateMailAddress($uid) && 
+            (preg_match('/^([^@]+)@(.+)\.[^.]+$/', $uid, $matches))) {
+			  // uid is formatted username@domain.extension
+			  $username=$matches[1];
+			  $username=str_replace(".", " ", $username);
+			  $domain=$matches[2];
+			  
+			  // set email adress, if not already defined
+			  $userManager=\OC::$server->getUserManager();
+			  $user=$userManager->get($uid);
+			  $currentEmail = $user->getEMailAddress();
+			  if ($currentEmail == "") {
+			    $user->setEMailAddress($uid);
+			  }
+
+			  // set Display name, if not already defined
+			  $displayname=$this->getDisplayName($uid) ;
+			  if ($displayname == "") {
+			    $this->setDisplayName($uid, $username) ;
+			  }
+
+			  // create group from domain name, add user to group
+			  OC_Group::createGroup($domain);
+			  OC_Group::addToGroup($uid, $domain);
+			}
+
 			return $uid;
 		}else{
 			return false;
