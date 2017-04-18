@@ -16,69 +16,70 @@
  * @link     http://github.com/owncloud/apps
  */
 class OC_User_IMAP extends \OCA\user_external\Base {
-	private $mailbox;
+    private $mailbox;
 
-	/**
-	 * Create new IMAP authentication provider
-	 *
-	 * @param string $mailbox PHP imap_open mailbox definition, e.g.
-	 *                        {127.0.0.1:143/imap/readonly}
-	 */
-	public function __construct($mailbox) {
-		parent::__construct($mailbox);
-		$this->mailbox=$mailbox;
-	}
+    /**
+     * Create new IMAP authentication provider
+     *
+     * @param string $mailbox PHP imap_open mailbox definition, e.g.
+     *                        {127.0.0.1:143/imap/readonly}
+     */
+    public function __construct($mailbox) {
+        parent::__construct($mailbox);
+        $this->mailbox=$mailbox;
+    }
 
-	/**
-	 * Check if the password is correct without logging in the user
-	 *
-	 * @param string $uid      The username
-	 * @param string $password The password
-	 *
-	 * @return true/false
-	 */
-	public function checkPassword($uid, $password) {
-		if (!function_exists('imap_open')) {
-			OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
-			return false;
-		}
-		$mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
-		imap_errors();
-		imap_alerts();
-		if($mbox !== FALSE) {
-			imap_close($mbox);
-			$uid = mb_strtolower($uid);
-			$this->storeUser($uid);
-			
+    /**
+     * Check if the password is correct without logging in the user
+     *
+     * @param string $uid      The username
+     * @param string $password The password
+     *
+     * @return true/false
+     */
+    public function checkPassword($uid, $password) {
+        if (!function_exists('imap_open')) {
+            OCP\Util::writeLog('user_external', 'ERROR: PHP imap extension is not installed', OCP\Util::ERROR);
+            return false;
+        }
+        $mbox = @imap_open($this->mailbox, $uid, $password, OP_HALFOPEN, 1);
+        imap_errors();
+        imap_alerts();
+        if($mbox !== FALSE) {
+            imap_close($mbox);
+            $uid = mb_strtolower($uid);
+            $this->storeUser($uid);
+            
             if (\OC::$server->getMailer()->validateMailAddress($uid) && 
             (preg_match('/^([^@]+)@(.+)\.[^.]+$/', $uid, $matches))) {
-			  // uid is formatted username@domain.extension
-			  $username=$matches[1];
-			  $username=str_replace(".", " ", $username);
-			  $domain=$matches[2];
-			  
-			  // set email adress, if not already defined
-			  $userManager=\OC::$server->getUserManager();
-			  $user=$userManager->get($uid);
-			  $currentEmail = $user->getEMailAddress();
-			  if ($currentEmail == "") {
-			    $user->setEMailAddress($uid);
-			  }
+              // uid is formatted username@domain.extension
+              $username=$matches[1];
+              $username=str_replace(".", " ", $username);
+              $domain=$matches[2];
+              
+              // set email adress, if not already defined
+              $userManager=\OC::$server->getUserManager();
+              $user=$userManager->get($uid);
+              $currentEmail = $user->getEMailAddress();
+              if ($currentEmail == "") {
+                $user->setEMailAddress($uid);
+              }
 
-			  // set Display name, if not already defined
-			  $displayname=$this->getDisplayName($uid) ;
-			  if ($displayname == "") {
-			    $this->setDisplayName($uid, $username) ;
-			  }
+              // set Display name, if not already defined
+              $displayname=$this->getDisplayName($uid) ;
+              if ($displayname == "") {
+                $this->setDisplayName($uid, $username) ;
+              }
 
-			  // create group from domain name, add user to group
-			  OC_Group::createGroup($domain);
-			  OC_Group::addToGroup($uid, $domain);
-			}
+              // create group from domain name, add user to group
+              $groupManager = \OC::$server->getGroupManager();
+              $group = $groupManager->createGroup($domain);
+              $group->addUser($uid);
+            }
 
-			return $uid;
-		}else{
-			return false;
-		}
-	}
+            return $uid;
+        }else{
+            return false;
+        }
+    }
 }
