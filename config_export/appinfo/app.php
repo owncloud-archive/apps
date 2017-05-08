@@ -1,10 +1,9 @@
 <?php
 
 /**
-* ownCloud - admin_migrate
-*
+* ownCloud - config_export
 * @author Tom Needham
-* @copyright 2012 Tom Needham tom@owncloud.com
+* @copyright 2014 Tom Needham tom@owncloud.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -22,12 +21,11 @@
 */
 
 
-OCP\App::registerAdmin('admin_migrate','settings');
+OCP\App::registerAdmin('config_export','settings');
 
-// add settings page to navigation
 $entry = array(
-	'id' => "admin_migrate_settings",
-	'order'=>1,
-	'href' => OCP\Util::linkTo( "admin_migrate", "settings.php" ),
-	'name' => 'Export'
+	'id' => "config_export_settings",
+	'order' => 1,
+	'href' => OCP\Util::linkTo( "config_export", "settings.php" ),
+	'name' => 'Export Config'
 );
