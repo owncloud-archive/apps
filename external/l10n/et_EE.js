@@ -1,7 +1,7 @@
 OC.L10N.register(
     "external",
     {
-    "Please enter valid urls - they have to start with either http://, https:// or /" : "Palun sisesta korrektsed URL-id - need peavad algama kas http://, https:// või /",
+    "Please enter valid urls - they have to start with either http://, https:// or /" : "Palun sisesta korrektsed URL-id - need peavad algama kas eesliitega http://, https:// või /",
     "External sites saved." : "Välised saidid salvestatud.",
     "External Sites" : "Välised saidid",
     "Please note that some browsers will block displaying of sites via http if you are running https." : "Palun võta teadmiseks, et mõned brauserid blokeerivad saitide kuva üle http, kui sina kasutad https-i.",
