@@ -1,4 +1,4 @@
-<form class="section">
+<form class="section" id="external">
 	<h2><?php p($l->t('External Sites'));?></h2>
 	<p>
 		<em><?php p($l->t('Please note that some browsers will block displaying of sites via http if you are running https.')); ?></em>
