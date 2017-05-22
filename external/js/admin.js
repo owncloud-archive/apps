@@ -22,7 +22,7 @@ $(document).ready(function(){
 	}
 
 	function saveSites() {
-		var post = $('#external form').serialize();
+		var post = $('#external').serialize();
 		OC.msg.startSaving('#external .msg');
 		$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
 			OC.msg.finishedSaving('#external .msg', data);

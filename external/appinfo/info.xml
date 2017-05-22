@@ -20,7 +20,5 @@
 	<dependencies>
 		<owncloud min-version="10.0" max-version="10.0" />
 	</dependencies>
-	<shipped>true</shipped>
 	<version>1.2</version>
-	<ocsid>166046</ocsid>
 </info>
