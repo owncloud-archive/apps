@@ -31,7 +31,7 @@ if (!empty($sites)) {
 	$navigationManager = \OC::$server->getNavigationManager();
 	for ($i = 0; $i < sizeof($sites); $i++) {
 		$navigationEntry = function () use ($i, $urlGenerator, $sites) {
-			$href = ($sites[$i][3] == 'self') ? $urlGenerator->linkToRoute('external_index', ['id'=> $i + 1]) : $sites[$i][1];
+			$href = ($sites[$i][3] == 'iframe') ? $urlGenerator->linkToRoute('external_index', ['id'=> $i + 1]) : $sites[$i][1];
 			return [
 				'id'    => 'external_index' . ($i + 1),
 				'order' => 80 + $i,
