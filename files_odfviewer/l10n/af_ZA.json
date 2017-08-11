@@ -1,5 +1,4 @@
 { "translations": {
-    "Name" : "Naam",
-    "Add" : "Voeg by"
+    "Close" : "Sluit"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

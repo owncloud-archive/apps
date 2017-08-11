@@ -1,4 +1,7 @@
 { "translations": {
-    "Documentation" : "Dokumentasie"
+    "Documentation" : "Dokumentasie",
+    "Name" : "Naam",
+    "Size" : "Grootte",
+    "Date" : "Datum"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

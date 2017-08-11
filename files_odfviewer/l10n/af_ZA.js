@@ -1,7 +1,6 @@
 OC.L10N.register(
-    "external",
+    "files_odfviewer",
     {
-    "Name" : "Naam",
-    "Add" : "Voeg by"
+    "Close" : "Sluit"
 },
 "nplurals=2; plural=(n != 1);");
