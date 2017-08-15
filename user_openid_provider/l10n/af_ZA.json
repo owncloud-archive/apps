@@ -1,0 +1,7 @@
+{ "translations": {
+    "OpenID Provider remembered sites" : "OpenID-verskaffer onthoude werwe",
+    "Trusted" : "Vertroud",
+    "Denied" : "Geweier",
+    "Remove" : "Verwyder"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
