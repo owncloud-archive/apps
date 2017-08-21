@@ -1,6 +1,7 @@
 { "translations": {
     "Settings" : "Instellings",
     "Share" : "Deel",
-    "Username" : "Gebruikersnaam"
+    "Username" : "Gebruikersnaam",
+    "Save" : "Bewaar"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
