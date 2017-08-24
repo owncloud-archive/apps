@@ -1,4 +1,18 @@
 { "translations": {
-    "Legal notice" : "Regs kennisgeving"
+    "Legal notice" : "Regskennisgewing",
+    "Nothing here yet" : "Nog niks hier nie",
+    "The content of the legal notice has to be configured first" : "Die inhoud van die regskennisgewing moet eers opgestel word",
+    "That configuration has to be done by the system administration." : "Die opstelling moet deur die stelseladministrateur gedoen word.",
+    "Imprint" : "Afdruk",
+    "Reference" : "Verwysing",
+    "Header left" : "Kopskrif links",
+    "Header right" : "Kopskrif regs",
+    "As guest" : "As gas",
+    "Footer left" : "Voetskrif links",
+    "Footer right" : "Voetskrif regs",
+    "At login" : "By aantekening",
+    "Application" : "Toepassing",
+    "Content" : "Inhoud",
+    "You can use plain text, markdown notation or html markup with inline style attributes. " : "U kan skoonteks, markdown-notasie of html-markering met inlynstylattribute gebruik."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
