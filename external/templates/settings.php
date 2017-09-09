@@ -38,7 +38,8 @@
 					print_unescaped('<option value="'.$target.'">'.$_['targets_desc'][$idx].'</option>');
 				}
 			}
-			print_unescaped('</select><img class="svg action delete_button" src="'.OCP\image_path("", "actions/delete.svg") .'" title="'.$l->t("Remove site").'" />
+			print_unescaped('</select>
+			<img class="svg action delete_button" src="'.OCP\image_path("", "actions/delete.svg") .'" title="'.$l->t("Remove site").'" />
 			</li>');
 		}
 		if(sizeof($sites) === 0) {
