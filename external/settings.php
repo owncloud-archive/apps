@@ -27,9 +27,6 @@ if (file_exists(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/")) {
 
 $tmpl->assign('images', $images);
 
-// _blank opens link in a new window/tab
-// _top replaces the current owncloud window with link
-// _self opens link in the ownCloud iframe
 $targets = array('_blank', '_top', '_self');
 $targets_desc = array('New Window', 'Replace Current Window', 'Inside OwnCloud Frame');
 $tmpl->assign('targets', $targets);
