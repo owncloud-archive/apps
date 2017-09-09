@@ -30,8 +30,15 @@
 			} else {
 				print_unescaped('<option value="">'.$l->t('Select an icon').'</option>');
 			}
-			print_unescaped('</select>
-			<img class="svg action delete_button" src="'.OCP\image_path("", "actions/delete.svg") .'" title="'.$l->t("Remove site").'" />
+			print_unescaped('</select><select class="site_target" name="site_target[]">');
+			foreach($_['targets'] as $idx=>$target) {
+				if ($target == $sites[$i][3]) {
+					print_unescaped('<option value="'.$target.'" selected>'.$_['target_desc'][$idx].'</option>');
+				} else {
+					print_unescaped('<option value="'.$target.'">'.$_['target_desc'][$idx].'</option>');
+				}
+			}
+			print_unescaped('</select><img class="svg action delete_button" src="'.OCP\image_path("", "actions/delete.svg") .'" title="'.$l->t("Remove site").'" />
 			</li>');
 		}
 		if(sizeof($sites) === 0) {

@@ -14,7 +14,16 @@ OCP\JSON::callCheck();
 $sites = array();
 for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 	if (!empty($_POST['site_name'][$i]) && !empty($_POST['site_url'][$i])) {
-		array_push($sites, array(strip_tags($_POST['site_name'][$i]), strip_tags($_POST['site_url'][$i]), strip_tags($_POST['site_icon'][$i])));
+		// make sure site_target is a safe link target type
+		if (!in_array($_POST['site_target'][$i], $_['targets'])) {
+		    throw new Exception('Invalid site target, must be one of: ' . implode(", ", $_['targets']));
+		}
+		array_push($sites, array(
+			strip_tags($_POST['site_name'][$i]),
+			strip_tags($_POST['site_url'][$i]),
+			strip_tags($_POST['site_icon'][$i]),
+			strip_tags($_POST['site_target'][$i]),
+		));
 	}
 }
 
