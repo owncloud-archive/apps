@@ -37,8 +37,8 @@ if (!empty($sites)) {
 				// if link is iframed, change href to point to internal url /external/<site_id>
 				$href = $urlGenerator->linkToRoute('external_index', ['id'=> $site_id]);
 			}
-			$icon_name = empty($sites[$i][2]) ? 'external.svg' : $sites[$i][2]
-			$icon = $urlGenerator->imagePath('external', $icon_name)
+			$icon_name = empty($sites[$i][2]) ? 'external.svg' : $sites[$i][2];
+			$icon = $urlGenerator->imagePath('external', $icon_name);
 			$name = $sites[$i][0];
 			$target = $sites[$i][3];
 			return [
