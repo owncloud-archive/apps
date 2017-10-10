@@ -11,10 +11,21 @@ OCP\JSON::checkAppEnabled('external');
 OCP\User::checkAdminUser();
 OCP\JSON::callCheck();
 
+$valid_targets = array('_blank', '_top', '_self');  // TODO: import this from external/settings.php
+
 $sites = array();
 for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 	if (!empty($_POST['site_name'][$i]) && !empty($_POST['site_url'][$i])) {
-		array_push($sites, array(strip_tags($_POST['site_name'][$i]), strip_tags($_POST['site_url'][$i]), strip_tags($_POST['site_icon'][$i])));
+		// make sure site_target is a safe link target type
+		if (!in_array($_POST['site_target'][$i], $valid_targets)) {
+		    throw new Exception('Invalid site target, must be one of: ' . implode(", ", $valid_targets));
+		}
+		array_push($sites, array(
+			strip_tags($_POST['site_name'][$i]),
+			strip_tags($_POST['site_url'][$i]),
+			strip_tags($_POST['site_icon'][$i]),
+			strip_tags($_POST['site_target'][$i]),
+		));
 	}
 }
 

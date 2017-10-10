@@ -31,12 +31,23 @@ if (!empty($sites)) {
 	$navigationManager = \OC::$server->getNavigationManager();
 	for ($i = 0; $i < sizeof($sites); $i++) {
 		$navigationEntry = function () use ($i, $urlGenerator, $sites) {
+			$site_id = ($i + 1);
+			$href = $sites[$i][1];
+			if ($target == '_self') {
+				// if link is iframed, change href to point to internal url /external/<site_id>
+				$href = $urlGenerator->linkToRoute('external_index', ['id'=> $site_id]);
+			}
+			$icon_name = empty($sites[$i][2]) ? 'external.svg' : $sites[$i][2];
+			$icon = $urlGenerator->imagePath('external', $icon_name);
+			$name = $sites[$i][0];
+			$target = $sites[$i][3];
 			return [
-				'id'    => 'external_index' . ($i + 1),
-				'order' => 80 + $i,
-				'href' => $urlGenerator->linkToRoute('external_index', ['id'=> $i + 1]),
-				'icon' => $urlGenerator->imagePath('external', !empty($sites[$i][2]) ? $sites[$i][2] : 'external.svg'),
-				'name' => $sites[$i][0],
+				'id'     => 'external_index' . $site_id,
+				'order'  => 80 + $i,
+				'href'   => $href,
+				'icon'   => $icon,
+				'name'   => $name,
+				'target' => $target,
 			];
 		};
 		$navigationManager->add($navigationEntry);

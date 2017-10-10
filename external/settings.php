@@ -27,4 +27,10 @@ if (file_exists(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/")) {
 
 $tmpl->assign('images', $images);
 
+$targets = array('_blank', '_top', '_self');
+$targets_desc = array('New Window', 'Replace Current Window', 'Inside OwnCloud Frame');
+$tmpl->assign('targets', $targets);
+$tmpl->assign('targets_desc', $targets_desc);
+
+
 return $tmpl->fetchPage();
