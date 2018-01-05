@@ -4,7 +4,7 @@ OC.L10N.register(
     "Legal notice" : "법적 고지",
     "Nothing here yet" : "아무것도 없습니다",
     "The content of the legal notice has to be configured first" : "법적 고지의 내용을 먼저 설정해야 합니다",
-    "That configuration has to be done by the system administration." : "이 설정은 시스템 관리자에 의해 완료되었습니다.",
+    "That configuration has to be done by the system administration." : "이 설정은 시스템 관리자가 해야 합니다.",
     "Imprint" : "Imprint",
     "Reference" : "참조",
     "Header left" : "머릿글 왼쪽",
