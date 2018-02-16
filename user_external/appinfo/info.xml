@@ -6,7 +6,7 @@
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
 	<documentation>
-            <admin>https://doc.owncloud.org/server/9.0/admin_manual/configuration_user/user_auth_ftp_smb_imap.html</admin>
+            <admin>https://doc.owncloud.org/server/10.0/admin_manual/configuration_user/user_auth_ftp_smb_imap.html</admin>
         </documentation>
 	<website>https://github.com/owncloud/apps/tree/master/user_external</website>
 	<bugs>https://github.com/owncloud/apps/issues</bugs>
