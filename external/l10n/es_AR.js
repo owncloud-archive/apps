@@ -6,6 +6,7 @@ OC.L10N.register(
     "External Sites" : "Sitios externos",
     "Name" : "Nombre",
     "URL" : "URL",
+    "Select an icon" : "Seleccione un ícono",
     "Remove site" : "Borrar sitio",
     "Add" : "Agregar"
 },
