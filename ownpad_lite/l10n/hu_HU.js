@@ -1,7 +1,7 @@
 OC.L10N.register(
     "ownpad_lite",
     {
-    "Document was shared" : "Megosztott dokumentum",
+    "Document was shared" : "A dokumentum meg lett osztva",
     "User %s shared quick document %s with you." : "%s felhasználó megosztotta Önnel ezt a dokumentumot: %s",
     "My pad" : "Saját Pad",
     "Settings" : "Beállítások",
