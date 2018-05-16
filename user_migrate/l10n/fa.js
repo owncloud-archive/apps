@@ -7,4 +7,4 @@ OC.L10N.register(
     "Account Export/Import" : "خروجی گرفتن/وارد کردن حساب کاربری",
     "Import" : "وارد کردن"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=((n<=1 && n>= 0) ? 1);");

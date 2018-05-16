@@ -10,5 +10,5 @@
     "Select an icon" : "ಚಿಹ್ನೆ ಒಂದನ್ನು ಆಯ್ಕೆ ಮಾಡಿ",
     "Remove site" : " ಅಂತರ್ಜಾಲದ ತಾಣವನ್ನು ತೆಗೆದುಹಾಕಿ",
     "Add" : "﻿ಸೇರಿಸಿ"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

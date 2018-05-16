@@ -4,5 +4,5 @@
     "An error has occurred" : "یک خطا رخ داده است",
     "Account Export/Import" : "خروجی گرفتن/وارد کردن حساب کاربری",
     "Import" : "وارد کردن"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

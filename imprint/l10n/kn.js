@@ -17,4 +17,4 @@ OC.L10N.register(
     "Content" : "ವಿಷಯ",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "ನೀವು ಸರಳ ಪಠ್ಯ, HTML ಸಂಕೇತಗಳು ಅಥವಾ ಒಳಸಾಲು-ಶೈಲಿಯ ಲಕ್ಷಣಗಳನ್ನು ಬಳಸಬಹುದು"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=((n<=1 && n>= 0) ? 1);");

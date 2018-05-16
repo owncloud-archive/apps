@@ -4,5 +4,5 @@
     "An error has occurred" : "ದೋಷವೊಂದು ಸಂಭವಿಸಿದೆ",
     "Account Export/Import" : "ಖಾತೆ ರಫ್ತು / ಆಮದು",
     "Import" : "ಆಮದು"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

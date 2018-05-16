@@ -14,5 +14,5 @@
     "Application" : "ಕಾರ್ಯಕ್ರಮ",
     "Content" : "ವಿಷಯ",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "ನೀವು ಸರಳ ಪಠ್ಯ, HTML ಸಂಕೇತಗಳು ಅಥವಾ ಒಳಸಾಲು-ಶೈಲಿಯ ಲಕ್ಷಣಗಳನ್ನು ಬಳಸಬಹುದು"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

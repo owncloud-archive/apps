@@ -4,5 +4,5 @@
     "Only system files" : "ಕೇವಲ ವ್ಯವಸ್ಥೆಯ ಕಡತಗಳು",
     "Only user data" : "ಕೇವಲ ಬಳಕೆದಾರರ ಮಾಹಿತಿಗಳು",
     "Export" : "ರಫ್ತು"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

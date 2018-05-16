@@ -7,4 +7,4 @@ OC.L10N.register(
     "Only user data" : "ಕೇವಲ ಬಳಕೆದಾರರ ಮಾಹಿತಿಗಳು",
     "Export" : "ರಫ್ತು"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=((n<=1 && n>= 0) ? 1);");

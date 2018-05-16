@@ -10,5 +10,5 @@
     "Etherpad service URL" : "ಈಥರ್ಪ್ಯಾಡ್ ಸೇವೆ ಜಾಲ ಕೊಂಡಿ",
     "Username" : "﻿ಬಳಕೆಯ ಹೆಸರು",
     "Save" : "﻿ಉಳಿಸಿ"
-},"pluralForm" :"nplurals=1; plural=0;"
+},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
 }

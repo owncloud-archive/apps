@@ -14,4 +14,4 @@ OC.L10N.register(
     "Application" : "برنامه‌",
     "Content" : "محتوا"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=((n<=1 && n>= 0) ? 1);");

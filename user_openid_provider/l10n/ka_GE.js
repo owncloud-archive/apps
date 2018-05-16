@@ -6,4 +6,4 @@ OC.L10N.register(
     "Denied" : "აკრძალული",
     "Remove" : "წაშლა"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=(n==1);");

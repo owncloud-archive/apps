@@ -7,4 +7,4 @@ OC.L10N.register(
     "Account Export/Import" : "მომხმარებელთ ანგარიშების იმპორტი/ექსპორტი",
     "Import" : "იმპორტი"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=(n==1);");
