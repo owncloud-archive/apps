@@ -3,4 +3,4 @@ OC.L10N.register(
     {
     "Close" : "დახურვა"
 },
-"nplurals=2; plural=(n==1);");
+"nplurals=2; plural=(n!=1);");

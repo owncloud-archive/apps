@@ -10,5 +10,5 @@
     "Select an icon" : "یک آیکون انتخاب کنید",
     "Remove site" : "حذف سایت",
     "Add" : "افزودن"
-},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

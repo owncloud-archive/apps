@@ -7,5 +7,5 @@
     "Header left" : "სათაური მარცხნივ",
     "Header right" : "სათაური მარჯვნივ",
     "Content" : "კონტენტი"
-},"pluralForm" :"nplurals=2; plural=(n==1);"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

@@ -17,4 +17,4 @@ OC.L10N.register(
     "Content" : "תוכן",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "ניתן להשתמש בטקסט פשוט, הערת הדגשה או הדגשת html בעיצוב מאפייני שורה. "
 },
-"nplurals=4; plural=(n==1 ? 1: n == 2 ? 2 : (n % 10 == 0 and n > 10) ? 4);");
+"nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");

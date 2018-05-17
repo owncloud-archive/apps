@@ -14,5 +14,5 @@
     "Application" : "Aplikácia",
     "Content" : "Obsah",
     "You can use plain text, markdown notation or html markup with inline style attributes. " : "Môžete použiť obyčajný text, formátovaný zápis alebo html formátovanie. "
-},"pluralForm" :"nplurals=4; plural=(n % 1 == 0 ? 4: n==1 ? 1: n % 1 == 0 && n>=2 && n<=4 ? 3);"
+},"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }

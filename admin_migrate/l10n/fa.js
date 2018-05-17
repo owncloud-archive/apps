@@ -7,4 +7,4 @@ OC.L10N.register(
     "Only user data" : "فقط داده های کاربر",
     "Export" : "خروجی گرفتن"
 },
-"nplurals=2; plural=((n<=1 && n>= 0) ? 1);");
+"nplurals=2; plural=(n > 1);");

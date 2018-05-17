@@ -7,4 +7,4 @@ OC.L10N.register(
     "Size" : "ზომა",
     "Date" : "თარიღი"
 },
-"nplurals=2; plural=(n==1);");
+"nplurals=2; plural=(n!=1);");

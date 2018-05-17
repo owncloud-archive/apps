@@ -7,4 +7,4 @@ OC.L10N.register(
     "Remove site" : "საიტის წაშლა",
     "Add" : "დამატება"
 },
-"nplurals=2; plural=(n==1);");
+"nplurals=2; plural=(n!=1);");

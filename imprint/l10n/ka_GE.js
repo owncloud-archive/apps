@@ -10,4 +10,4 @@ OC.L10N.register(
     "Header right" : "სათაური მარჯვნივ",
     "Content" : "კონტენტი"
 },
-"nplurals=2; plural=(n==1);");
+"nplurals=2; plural=(n!=1);");

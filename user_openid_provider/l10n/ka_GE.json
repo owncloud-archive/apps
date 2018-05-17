@@ -3,5 +3,5 @@
     "Trusted" : "სანდო",
     "Denied" : "აკრძალული",
     "Remove" : "წაშლა"
-},"pluralForm" :"nplurals=2; plural=(n==1);"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

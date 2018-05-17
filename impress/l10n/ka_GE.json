@@ -4,5 +4,5 @@
     "Name" : "სახელი",
     "Size" : "ზომა",
     "Date" : "თარიღი"
-},"pluralForm" :"nplurals=2; plural=(n==1);"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
 }

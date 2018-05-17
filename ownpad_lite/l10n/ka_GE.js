@@ -13,4 +13,4 @@ OC.L10N.register(
     "Username" : "მომხმარებლის სახელი",
     "Save" : "შენახვა"
 },
-"nplurals=2; plural=(n==1);");
+"nplurals=2; plural=(n!=1);");

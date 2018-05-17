@@ -4,5 +4,5 @@
     "Only system files" : "فقط فایلهای سیستم",
     "Only user data" : "فقط داده های کاربر",
     "Export" : "خروجی گرفتن"
-},"pluralForm" :"nplurals=2; plural=((n<=1 && n>= 0) ? 1);"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
