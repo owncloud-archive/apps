@@ -8,9 +8,11 @@ OCP\Util::addscript( "external", "admin" );
 $tmpl = new OCP\Template( 'external', 'settings');
 
 $images = glob(\OC_App::getAppPath('external') . '/img/*.*');
-$theme = \OC::$server->getSystemConfig()->getValue('theme', '');
-if (file_exists(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/")) {
-	$theme_images = glob(\OC::$SERVERROOT . "/themes/$theme/apps/external/img/*.*");
+$theme = \OC::$server->getThemeService()->getTheme();
+$themeDir = $theme->getBaseDirectory() . '/' . $theme->getDirectory();
+$imagesDir = "$themeDir/apps/external/img/";
+if (is_dir($imagesDir)) {
+	$theme_images = glob("$imagesDir/*.*");
 	foreach ($theme_images as $theme_image) {
 		$unique_flag = true;
 		foreach ($images as $image) {
