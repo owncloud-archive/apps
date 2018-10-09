@@ -20,7 +20,7 @@ use \OC_DB;
  * @license  http://www.gnu.org/licenses/agpl AGPL
  * @link     http://github.com/owncloud/apps
  */
-abstract class Base extends \OC_User_Backend{
+abstract class Base extends \OC\User\Backend{
 	protected $backend = '';
 
 	/**
