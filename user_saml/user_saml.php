@@ -21,7 +21,7 @@
  *
  */
 
-class OC_USER_SAML extends OC_User_Backend {
+class OC_USER_SAML extends OC\User\Backend {
 
 	// cached settings
 	protected $sspPath;

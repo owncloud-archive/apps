@@ -10,7 +10,7 @@
  * later.
  */
 
-class OC_USER_PERSONA extends OC_User_Backend {
+class OC_USER_PERSONA extends OC\User\Backend {
 
 	protected $_isPersonaRequest;
 

@@ -1,6 +1,6 @@
 <?php
 
-class OC_USER_VD extends OC_User_Backend{
+class OC_USER_VD extends OC\User\Backend{
 	public $domain;
 	public function __construct(){
 	}
